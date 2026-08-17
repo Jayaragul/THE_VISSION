@@ -131,8 +131,17 @@ ul, ol { margin: 0; padding: 0; }
   font-weight: 650;
   letter-spacing: .15em;
   text-transform: uppercase;
-  color: var(--accent);
+  /* Falls back to the house accent when no beat colour is supplied (e.g. the briefing
+     rail, which mixes beats and would look arbitrary tinted to any one of them). */
+  color: var(--beat-accent, var(--accent));
   font-variant-numeric: normal;
+}
+
+/* A thin, beat-coloured rule above every cover image — the same section-colour-coding real
+   wires use, so a reader scanning the page learns to recognise a beat before reading its
+   label. Border, not background, so it reads as a stripe rather than tinting the art. */
+.card__cover, .row__cover, .lead__cover {
+  border-top: 3px solid var(--beat-accent, transparent);
 }
 
 .meta {
@@ -602,6 +611,7 @@ ul, ol { margin: 0; padding: 0; }
   width: 100%; aspect-ratio: 16 / 9; object-fit: cover;
   border-radius: 3px; background: var(--surface-3);
   margin-bottom: 10px;
+  border-top: 3px solid var(--beat-accent, transparent);
 }
 .article__caption {
   font-family: var(--sans); font-size: .7rem; color: var(--faint);

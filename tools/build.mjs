@@ -289,7 +289,7 @@ function renderStoryPage(ctx, ed, story) {
 </div>
 
 <div class="article__grid">
-<article>
+<article${beat?.accent ? ` style="--beat-accent:${e(beat.accent)}"` : ''}>
 <div class="kicker">${e(story.kicker)}</div>
 <h1 class="article__title">${e(story.headline)}</h1>
 <p class="article__deck">${e(story.deck)}</p>
@@ -622,16 +622,35 @@ Know one that belongs here? <a href="${e(ctx.site.social.repo)}/blob/main/input/
   });
 }
 
+function legalLede(section, title, body) {
+  return `<section class="editorsnote">
+<div class="editorsnote__label">${e(section)}</div>
+<div>
+<h1 class="editorsnote__title">${title}</h1>
+<p class="editorsnote__body">${body}</p>
+</div>
+</section>`;
+}
+
+function legalFooter(ctx) {
+  return `<p style="margin-top:34px;color:var(--muted);font-size:.95rem">${e(site.name)} is owned and operated by
+${e(site.copyrightHolder || site.founder || site.name)}. This page describes the publication's policies. It is
+written to be acted on, and it is not a substitute for a lawyer's advice on your own situation.</p>
+<p style="margin-top:10px;color:var(--muted);font-size:.85rem">Also see:
+<a href="${R.rel(0, 'legal.html')}">Corrections &amp; rights</a> ·
+<a href="${R.rel(0, 'terms.html')}">Terms of use</a> ·
+<a href="${R.rel(0, 'privacy.html')}">Privacy</a></p>`;
+}
+
 function renderLegal(ctx) {
   const content = `<div class="wrap">
-<section class="editorsnote">
-<div class="editorsnote__label">Legal</div>
-<div>
-<h1 class="editorsnote__title">Corrections, rights and takedowns.</h1>
-<p class="editorsnote__body">This page states how ${e(site.name)} handles other people's work, its own mistakes,
-and requests to remove something. It is written to be acted on, not to be impressive.</p>
-</div>
-</section>
+${legalLede(
+    'Legal',
+    'Corrections, rights and takedowns.',
+    `This page states how ${e(site.name)} handles other people's work and its own mistakes.
+For how the site handles your data, see <a href="${R.rel(0, 'privacy.html')}">Privacy</a>; for the rules of using the site, see
+<a href="${R.rel(0, 'terms.html')}">Terms of use</a>.`
+  )}
 
 <section class="section">
 <div class="prose">
@@ -652,8 +671,9 @@ rather than left to judgement. <code>tools/validate.mjs</code> blocks publicatio
 more than a few consecutive words of a source's own phrasing, and flags quotations that run
 long enough to stop being quotation.</p>
 <p>No third-party photography, artwork or video appears anywhere on this site. Every image is
-generated from the story's own identifier by <code>tools/lib/cover.mjs</code>. That is why the art is
-abstract: the paper has no licence to publish press images, so it does not.</p>
+generated from the story's own identifier by <code>tools/lib/cover.mjs</code>, drawn from a fixed library
+of a hundred distinct compositions. That is why the art is abstract: the paper has no licence
+to publish press images, so it does not.</p>
 <p>Company names, product names and logos mentioned in coverage belong to their owners and are
 used to identify what is being reported on. No affiliation or endorsement is implied.</p>
 
@@ -663,28 +683,13 @@ issue</a> identifying the specific URL and the basis of the claim. Material that
 be removed. The repository's full history is public, so removal is recorded rather than
 concealed.</p>
 
-<h2 style="font-size:1.3rem;margin:34px 0 12px">What this is not</h2>
-<p>Nothing here is investment, financial, legal, tax or professional advice. Coverage of a
-company, a funding round or a valuation is reporting, not a recommendation to do anything.
-Decisions made on the basis of anything published here are the reader's own.</p>
-<p>The paper carries no advertising, takes no sponsorship, accepts no payment for coverage or
-for a hackathon listing, and holds no financial position in anything it covers.</p>
-
-<h2 style="font-size:1.3rem;margin:34px 0 12px">Accuracy and liability</h2>
-<p>The paper is provided as is. Every effort is made to source claims to a primary document
-and to label confidence honestly, including saying so when a source could not be opened —
-but no warranty is given that any of it is accurate, complete or current. Verify anything you
-intend to rely on against the linked source, which is why the links are there.</p>
-<p>External links point to sites this paper does not control and is not responsible for.</p>
-
 <h2 style="font-size:1.3rem;margin:34px 0 12px">Reusing this paper</h2>
 <p>The software is licensed under PolyForm Noncommercial; the published editions under
 CC BY-NC-ND 4.0. In short: read it, quote it with attribution, link to it freely, run your own
 non-commercial version of the software. Do not republish the editions or use any of it
 commercially without permission. The <a href="${e(site.social.repo)}/blob/main/LICENSE" rel="noopener">full terms</a> govern.</p>
 
-<p style="margin-top:34px;color:var(--muted);font-size:.95rem">${e(site.name)} is owned and operated by
-${e(site.copyrightHolder || site.founder || site.name)}. This page describes the publication's policies and is not legal advice.</p>
+${legalFooter(ctx)}
 </div>
 </section>
 </div>`;
@@ -693,7 +698,148 @@ ${e(site.copyrightHolder || site.founder || site.name)}. This page describes the
     depth: 0,
     canonical: 'legal.html',
     title: `Corrections, rights and takedowns — ${site.name}`,
-    description: `How ${site.name} handles corrections, third-party rights, takedown requests and liability.`,
+    description: `How ${site.name} handles corrections, third-party rights and takedown requests.`,
+    content,
+  });
+}
+
+function renderTerms(ctx) {
+  const owner = site.copyrightHolder || site.founder || site.name;
+  const content = `<div class="wrap">
+${legalLede(
+    'Terms of use',
+    'The rules of reading this paper.',
+    `Plain terms for a small, free publication. Not a contract drafted for a platform this isn't.`
+  )}
+
+<section class="section">
+<div class="prose">
+<h2 style="font-size:1.3rem;margin-bottom:12px">What this is</h2>
+<p>${e(site.name)} is a free daily publication about artificial intelligence, researched and
+written by an automated pipeline and owned by ${e(owner)}. Using the site — reading it,
+following links from it, subscribing to its RSS feed — means you accept these terms. If you
+don't accept them, the only enforcement mechanism is: don't use the site.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">What you may do</h2>
+<p>Read it, share links to it, and quote it with attribution under the terms in
+<a href="${e(site.social.repo)}/blob/main/LICENSE" rel="noopener">LICENSE</a>. Run your own copy of the software
+non-commercially. Point an RSS reader, a script, or a crawler at the public pages at a
+reasonable rate — this is a static site with no login and nothing to protect from ordinary
+reading traffic.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">What you may not do</h2>
+<p>Republish the editions as your own, under CC BY-NC-ND 4.0. Use the site or its content for
+a commercial purpose without a licence. Attempt to disrupt the site, its GitHub Actions
+workflows, or the repository. Misrepresent content from this site as your own reporting, or
+as endorsed by the companies and people it covers.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">Not advice of any kind</h2>
+<p>Nothing here is investment, financial, legal, tax or professional advice. Coverage of a
+company, a funding round or a valuation is reporting, not a recommendation to do anything.
+Decisions made on the basis of anything published here are yours to make and yours to own.
+The paper carries no advertising, takes no sponsorship, accepts no payment for coverage or
+for a hackathon listing, and holds no financial position in anything it covers.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">No warranty</h2>
+<p>The site is provided as is, with no warranty that its content is accurate, complete or
+current. It is produced by an automated pipeline, which can be confidently wrong — see
+<a href="${R.rel(0, 'methodology.html')}">Methodology</a> for the checks that exist and their limits. Verify
+anything you intend to rely on against the source linked in the story, which is why the link
+is always there.</p>
+<p>External links point to sites this paper does not control and is not responsible for. To the
+extent the law allows, ${e(owner)} disclaims liability for any loss arising from use of this
+site or reliance on its content.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">If you're a minor</h2>
+<p>The site collects no personal information from anyone — see
+<a href="${R.rel(0, 'privacy.html')}">Privacy</a> — but if local law requires a parent or guardian's
+permission for you to use a site like this, get it first.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">Changes</h2>
+<p>These terms can change. The current version is always the one on this page; there is no
+notification mechanism beyond the page itself and the repository's commit history, which
+records every change to it.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">Governing law</h2>
+<p>This page does not name a specific jurisdiction, because doing so accurately requires legal
+advice ${e(owner)} has not yet obtained. Where a dispute cannot be resolved informally, it
+falls to whatever law and forum would otherwise apply to a claim against an individual
+publisher — nothing here should be read as ${e(owner)} conceding to a jurisdiction not
+otherwise applicable.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">Severability</h2>
+<p>If any part of these terms turns out to be unenforceable, the rest still stands.</p>
+
+${legalFooter(ctx)}
+</div>
+</section>
+</div>`;
+
+  return R.page(ctx, {
+    depth: 0,
+    canonical: 'terms.html',
+    title: `Terms of use — ${site.name}`,
+    description: `The terms governing use of ${site.name}.`,
+    content,
+  });
+}
+
+function renderPrivacy(ctx) {
+  const content = `<div class="wrap">
+${legalLede(
+    'Privacy',
+    'This site collects nothing from you.',
+    `No accounts, no cookies, no analytics, no tracking pixels, no advertising network. One
+non-identifying preference stored only in your own browser. That's the whole policy — the
+rest of this page is the detail.`
+  )}
+
+<section class="section">
+<div class="prose">
+<h2 style="font-size:1.3rem;margin-bottom:12px">What is not collected</h2>
+<p>${e(site.name)} runs no analytics service, no advertising network, no tracking pixel and no
+third-party embed of any kind. There are no accounts, no sign-up, no comments, no newsletter.
+There is nothing to consent to, because there is nothing that reads, stores or transmits
+anything about you.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">What is stored, and where</h2>
+<p>The site remembers one thing in your browser's local storage: whether you chose light or
+dark mode. It never leaves your device, is never sent to any server, identifies nobody, and
+you can clear it at any time through your browser's own settings. No cookie is ever set.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">Hosting</h2>
+<p>${e(site.name)} is a static site hosted on GitHub Pages. Serving any page on the web involves
+the host's infrastructure logging ordinary request data — an IP address, a browser's user
+agent, the page requested, a timestamp — the same way any web server does. That logging is
+GitHub's, not this site's; ${e(site.name)} has no access to it and no analytics dashboard of its
+own. See <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub's own privacy statement</a>
+for what they do with it.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">Links and corrections</h2>
+<p>Every source link on this site leads to a third party's website, with its own privacy
+practices this policy has no say over. The correction and takedown process in
+<a href="${R.rel(0, 'legal.html')}">Legal</a> runs through GitHub Issues, a separate GitHub-hosted
+service — anything you post there is subject to GitHub's own terms and privacy policy, not
+this one, and is public.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">Children</h2>
+<p>The site collects no personal information from anyone, including children, because it
+collects no personal information from anyone.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">Changes</h2>
+<p>If this ever changes — if the site ever adds analytics, an embed, or any form that collects
+data — this page will say so, with a date, before it happens rather than after.</p>
+
+${legalFooter(ctx)}
+</div>
+</section>
+</div>`;
+
+  return R.page(ctx, {
+    depth: 0,
+    canonical: 'privacy.html',
+    title: `Privacy — ${site.name}`,
+    description: `${site.name} collects no personal data. Here is exactly what is and isn't stored.`,
     content,
   });
 }
@@ -761,6 +907,8 @@ function renderSitemap(editions) {
     { loc: `${site.baseUrl}/hackathons.html`, priority: '0.7', freq: 'weekly' },
     { loc: `${site.baseUrl}/methodology.html`, priority: '0.4', freq: 'monthly' },
     { loc: `${site.baseUrl}/legal.html`, priority: '0.3', freq: 'yearly' },
+    { loc: `${site.baseUrl}/terms.html`, priority: '0.2', freq: 'yearly' },
+    { loc: `${site.baseUrl}/privacy.html`, priority: '0.2', freq: 'yearly' },
     ...editions.map((ed) => ({
       loc: `${site.baseUrl}/${R.editionPath(ed.edition.date)}`,
       priority: '0.7',
@@ -907,6 +1055,8 @@ write('archive.html', renderArchive(ctx, editions));
 write('hackathons.html', renderHackathons(ctx, editions));
 write('methodology.html', renderMethodology(ctx, editions));
 write('legal.html', renderLegal(ctx));
+write('terms.html', renderTerms(ctx));
+write('privacy.html', renderPrivacy(ctx));
 write('404.html', render404(ctx));
 write('rss.xml', renderRSS(editions));
 write('sitemap.xml', renderSitemap(editions));

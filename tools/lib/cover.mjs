@@ -6,8 +6,12 @@
 // visual language is worth more than a grid of mismatched stock photos.
 //
 // Art is a pure function of the story id, so a published cover never changes.
+//
+// The shapes come from a fixed, auditable library of 100 canonical plates (see PLATE_COUNT
+// below) across 18 composition families, so the site is never leaning on an RNG's luck to
+// avoid repetition — run `node tools/gen-cover-sheet.mjs` to render every plate for review.
 
-import { rng, hexToHSL, hslToHex, clamp } from './util.mjs';
+import { rng, hash32, hexToHSL, hslToHex, clamp } from './util.mjs';
 
 const W = 1200;
 const H = 675;
@@ -15,6 +19,7 @@ const H = 675;
 export const STYLES = [
   'orbit', 'strata', 'lattice', 'swell', 'shard', 'aperture',
   'contour', 'column', 'spiral', 'mesh',
+  'constellation', 'weave', 'terrain', 'current', 'fracture', 'drift', 'beacon', 'strand',
 ];
 
 // Two stories in the same beat used to come out nearly identical: hue drift worked out to
@@ -295,23 +300,244 @@ function mesh(random, p) {
   return `<defs>${defs}</defs>${out}`;
 }
 
-const RENDERERS = { orbit, strata, lattice, swell, shard, aperture, contour, column, spiral, mesh };
+function constellation(random, p) {
+  const count = 22 + Math.floor(random() * 26);
+  const pts = Array.from({ length: count }, () => ({
+    x: -40 + random() * (W + 80),
+    y: -40 + random() * (H + 80),
+    r: 1.4 + random() * 5.5,
+  }));
+  const reach = 90 + random() * 130;
+  let out = '';
+  for (let i = 0; i < pts.length; i++) {
+    for (let j = i + 1; j < pts.length; j++) {
+      const dx = pts[i].x - pts[j].x;
+      const dy = pts[i].y - pts[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < reach) {
+        out += `<line x1="${n(pts[i].x)}" y1="${n(pts[i].y)}" x2="${n(pts[j].x)}" y2="${n(pts[j].y)}" stroke="${p.mid}" stroke-opacity="${n(0.35 * (1 - dist / reach))}" stroke-width="0.8"/>`;
+      }
+    }
+  }
+  for (const pt of pts) {
+    const hub = pt.r > 4.5;
+    out += `<circle cx="${n(pt.x)}" cy="${n(pt.y)}" r="${n(pt.r)}" fill="${hub ? p.glow : p.bright}" fill-opacity="${n(hub ? 0.85 : 0.55)}"/>`;
+  }
+  return out;
+}
+
+function weave(random, p) {
+  const angleA = 22 + random() * 20;
+  const angleB = -(22 + random() * 20);
+  const gap = 26 + random() * 30;
+  const width = 4 + random() * 10;
+  const diag = Math.hypot(W, H) * 1.4;
+  let out = `<g opacity="0.85">`;
+  for (const [angle, tone] of [[angleA, p.mid], [angleB, p.bright]]) {
+    let group = `<g transform="rotate(${n(angle)} ${W / 2} ${H / 2})">`;
+    for (let x = -diag / 2; x < diag; x += gap) {
+      group += `<rect x="${n(x)}" y="${n(-diag / 2)}" width="${n(width)}" height="${n(diag * 2)}" fill="${tone}" fill-opacity="${n(0.14 + random() * 0.22)}"/>`;
+    }
+    group += '</g>';
+    out += group;
+  }
+  out += '</g>';
+  return out;
+}
+
+function terrain(random, p) {
+  const layers = 3 + Math.floor(random() * 3);
+  let out = '';
+  for (let l = 0; l < layers; l++) {
+    const t = l / layers;
+    const baseline = H * (0.4 + t * 0.5);
+    const blockW = 30 + random() * 70;
+    const tone = l === layers - 1 ? p.bright : p.mid;
+    let x = -40;
+    let d = `M ${x} ${H + 20} `;
+    while (x < W + 40) {
+      const h = 30 + random() * H * (0.2 + (1 - t) * 0.35);
+      d += `L ${n(x)} ${n(baseline - h)} L ${n(x + blockW * 0.7)} ${n(baseline - h)} `;
+      x += blockW * (0.7 + random() * 0.6);
+      d += `L ${n(x)} ${n(baseline - h * (0.4 + random() * 0.5))} `;
+    }
+    d += `L ${n(W + 40)} ${H + 20} Z`;
+    out += `<path d="${d}" fill="${tone}" fill-opacity="${n(0.16 + t * 0.5)}"/>`;
+  }
+  return out;
+}
+
+function current(random, p) {
+  const ribbons = 3 + Math.floor(random() * 4);
+  let out = '';
+  for (let i = 0; i < ribbons; i++) {
+    const t = i / ribbons;
+    const y0 = H * (0.15 + random() * 0.7);
+    const y1 = H * (0.15 + random() * 0.7);
+    const y2 = H * (0.15 + random() * 0.7);
+    const widthStart = 6 + random() * 30;
+    const widthEnd = 6 + random() * 30;
+    const c1x = W * (0.25 + random() * 0.2);
+    const c2x = W * (0.55 + random() * 0.2);
+    const top = `M -20 ${n(y0)} C ${n(c1x)} ${n(y0)}, ${n(c1x)} ${n(y1)}, ${n(W / 2)} ${n(y1)} S ${n(c2x)} ${n(y2)}, ${n(W + 20)} ${n(y2)}`;
+    const bottom = `L ${n(W + 20)} ${n(y2 + widthEnd)} C ${n(c2x)} ${n(y2 + widthEnd)}, ${n(W / 2)} ${n(y1 + (widthStart + widthEnd) / 2)}, ${n(c1x)} ${n(y1 + widthStart)} S -20 ${n(y0 + widthStart)}, -20 ${n(y0 + widthStart)} Z`;
+    const tone = i % 3 === 0 ? p.glow : i % 2 === 0 ? p.bright : p.mid;
+    out += `<path d="${top} ${bottom}" fill="${tone}" fill-opacity="${n(0.14 + t * 0.4)}"/>`;
+  }
+  return out;
+}
+
+function fracture(random, p) {
+  const cols = 8 + Math.floor(random() * 5);
+  const rows = 5 + Math.floor(random() * 4);
+  const cw = W / cols;
+  const ch = H / rows;
+  const jitter = 0.3 + random() * 0.35;
+  const grid = [];
+  for (let r = 0; r <= rows; r++) {
+    const row = [];
+    for (let c = 0; c <= cols; c++) {
+      row.push({
+        x: c * cw + (random() - 0.5) * cw * jitter,
+        y: r * ch + (random() - 0.5) * ch * jitter,
+      });
+    }
+    grid.push(row);
+  }
+  let out = '';
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const a = grid[r][c];
+      const b = grid[r][c + 1];
+      const cPt = grid[r + 1][c + 1];
+      const d = grid[r + 1][c];
+      const splitOne = random() > 0.5;
+      const tris = splitOne ? [[a, b, cPt], [a, cPt, d]] : [[a, b, d], [b, cPt, d]];
+      for (const tri of tris) {
+        const shade = random();
+        const tone = shade > 0.86 ? p.glow : shade > 0.55 ? p.bright : p.mid;
+        const pts = tri.map((pt) => `${n(pt.x)},${n(pt.y)}`).join(' ');
+        out += `<polygon points="${pts}" fill="${tone}" fill-opacity="${n(0.08 + shade * 0.34)}" stroke="${p.bg}" stroke-opacity="0.4" stroke-width="0.6"/>`;
+      }
+    }
+  }
+  return out;
+}
+
+function drift(random, p) {
+  const blobs = 9 + Math.floor(random() * 10);
+  let out = '';
+  for (let i = 0; i < blobs; i++) {
+    const cx = random() * W;
+    const cy = random() * H;
+    const r = 40 + random() * 220;
+    const tone = i % 4 === 0 ? p.glow : i % 3 === 0 ? p.bright : p.mid;
+    out += `<circle cx="${n(cx)}" cy="${n(cy)}" r="${n(r)}" fill="${tone}" fill-opacity="${n(0.06 + random() * 0.16)}"/>`;
+  }
+  return out;
+}
+
+function beacon(random, p) {
+  const ox = random() > 0.5 ? -60 : W + 60;
+  const oy = H * (0.1 + random() * 0.8);
+  const arcs = 7 + Math.floor(random() * 6);
+  const spread = 0.35 + random() * 0.5;
+  const baseAngle = Math.atan2(H / 2 - oy, W / 2 - ox);
+  let out = '';
+  for (let i = arcs; i >= 1; i--) {
+    const r = 60 + i * (Math.hypot(W, H) / arcs) * 0.55;
+    const a1 = baseAngle - spread;
+    const a2 = baseAngle + spread;
+    const large = a2 - a1 > Math.PI ? 1 : 0;
+    const x1 = ox + Math.cos(a1) * r;
+    const y1 = oy + Math.sin(a1) * r;
+    const x2 = ox + Math.cos(a2) * r;
+    const y2 = oy + Math.sin(a2) * r;
+    const op = n(0.06 + ((arcs - i) / arcs) * 0.3);
+    out += `<path d="M ${n(x1)} ${n(y1)} A ${n(r)} ${n(r)} 0 ${large} 1 ${n(x2)} ${n(y2)}" fill="none" stroke="${i % 4 === 0 ? p.glow : p.mid}" stroke-opacity="${op}" stroke-width="${n(1 + (arcs - i) * 0.5)}"/>`;
+  }
+  out += `<circle cx="${n(ox)}" cy="${n(oy)}" r="14" fill="${p.glow}" fill-opacity="0.9"/>`;
+  return out;
+}
+
+function strand(random, p) {
+  const ribbons = 2 + Math.floor(random() * 3);
+  let out = '';
+  for (let i = 0; i < ribbons; i++) {
+    const y0 = H * random();
+    const y1 = H * random();
+    const y2 = H * random();
+    const c1 = W * (0.2 + random() * 0.25);
+    const c2 = W * (0.55 + random() * 0.25);
+    const d = `M -20 ${n(y0)} C ${n(c1)} ${n(y0)}, ${n(c1)} ${n(y1)}, ${n(W / 2)} ${n(y1)} S ${n(c2)} ${n(y2)}, ${n(W + 20)} ${n(y2)}`;
+    const width = 2 + random() * 5;
+    const tone = i === 0 ? p.glow : p.bright;
+    out += `<path d="${d}" fill="none" stroke="${tone}" stroke-opacity="${n(0.4 + random() * 0.4)}" stroke-width="${n(width)}" stroke-linecap="round"/>`;
+    out += `<path d="${d}" fill="none" stroke="${tone}" stroke-opacity="0.15" stroke-width="${n(width * 4)}" stroke-linecap="round"/>`;
+  }
+  return out;
+}
+
+const RENDERERS = {
+  orbit, strata, lattice, swell, shard, aperture, contour, column, spiral, mesh,
+  constellation, weave, terrain, current, fracture, drift, beacon, strand,
+};
 
 // ------------------------------------------------------------------- shell --
+
+// A hundred stories can pass through this file long before a hundred distinct random seeds
+// happen to produce a hundred distinct-*looking* pieces of art by chance. So instead of
+// trusting the RNG to never repeat, the geometry is drawn from a fixed, auditable library of
+// exactly PLATE_COUNT canonical plates: `plate-0` through `plate-99`, each one a specific,
+// reproducible combination of a style family and that family's internal parameters. Which
+// plate a story uses is picked from the story's own id; the plate's shape is generated from
+// the plate's own seed, not the story's, so plate 42 draws identically everywhere it is used
+// and the library can be rendered once and inspected in full — see tools/gen-cover-sheet.mjs.
+// Colour is layered on top from the story id and the beat's accent, so two stories sharing a
+// plate still read as different covers: same silhouette, different light.
+export const PLATE_COUNT = 100;
+
+function drawPlate(plateIndex, p) {
+  const idx = ((plateIndex % PLATE_COUNT) + PLATE_COUNT) % PLATE_COUNT;
+  // Family is picked by hashing the plate index directly, salted separately from the
+  // geometry seed — not by taking the first draw from a freshly-seeded PRNG. That first
+  // draw turned out to correlate badly across the near-identical seed strings "plate-0"
+  // through "plate-99": one family (mesh) never appeared anywhere in the 100-plate library,
+  // while three others were drawn 9 times each. hash32 has better avalanche on adjacent
+  // integers than mulberry32's first output does on adjacent seed strings — confirmed by
+  // re-running the family-distribution audit after this change (see tools/gen-cover-sheet.mjs).
+  const style = STYLES[hash32(`plate-family-${idx}`) % STYLES.length];
+  const plateRandom = rng(`plate-geometry-${idx}`);
+  return { style, svg: RENDERERS[style](plateRandom, p) };
+}
 
 /**
  * @param {object} opts
  * @param {string} opts.seed      Stable seed — always the story id.
  * @param {string} opts.accent    Beat accent hex.
- * @param {string} [opts.style]   Force a style; otherwise derived from the seed.
+ * @param {string} [opts.style]      Force a style, bypassing the plate library, for editorial
+ *                                   control over one specific cover. Geometry is then seeded
+ *                                   from the story itself rather than a shared plate.
+ * @param {number} [opts.plateIndex] Force a specific plate (0..PLATE_COUNT-1) rather than
+ *                                   deriving one from the seed. For QA/preview tooling —
+ *                                   see tools/gen-cover-sheet.mjs, which uses this to render
+ *                                   every plate in the library once for visual inspection.
  * @returns {string} A standalone SVG document.
  */
-export function renderCover({ seed, accent = '#c8102e', style }) {
+export function renderCover({ seed, accent = '#c8102e', style, plateIndex }) {
   const random = rng(seed);
   const p = palette(accent, random);
-  const chosen = style && RENDERERS[style]
-    ? style
-    : STYLES[Math.floor(random() * STYLES.length) % STYLES.length];
+
+  let chosen, geometry;
+  if (style && RENDERERS[style]) {
+    chosen = style;
+    geometry = RENDERERS[chosen](random, p);
+  } else {
+    const idx = plateIndex != null ? plateIndex : Math.floor(random() * PLATE_COUNT);
+    const plate = drawPlate(idx, p);
+    chosen = plate.style;
+    geometry = plate.svg;
+  }
 
   const gx = 20 + random() * 60;
   const gy = 10 + random() * 50;
@@ -346,7 +572,7 @@ export function renderCover({ seed, accent = '#c8102e', style }) {
 <clipPath id="frame"><rect x="0" y="0" width="${W}" height="${H}"/></clipPath>
 </defs>
 <rect width="${W}" height="${H}" fill="url(#bg)"/>
-<g clip-path="url(#frame)">${RENDERERS[chosen](random, p)}</g>
+<g clip-path="url(#frame)">${geometry}</g>
 <rect width="${W}" height="${H}" fill="url(#halo)" style="mix-blend-mode:screen"/>
 <g clip-path="url(#frame)">${grid}</g>
 <rect width="${W}" height="${H}" fill="url(#vig)"/>

@@ -150,6 +150,8 @@ function footer(ctx, opts) {
 <li><a href="${rel(d, 'archive.html')}">Archive</a></li>
 <li><a href="${rel(d, 'methodology.html')}">Methodology</a></li>
 <li><a href="${rel(d, 'legal.html')}">Corrections &amp; rights</a></li>
+<li><a href="${rel(d, 'terms.html')}">Terms of use</a></li>
+<li><a href="${rel(d, 'privacy.html')}">Privacy</a></li>
 <li><a href="${rel(d, 'rss.xml')}">RSS feed</a></li>
 <li><a href="${rel(d, 'generated/index.json')}">Data (JSON)</a></li>
 </ul>
@@ -225,8 +227,16 @@ export function coverPath(story) {
   return `assets/img/covers/${story.id}.svg`;
 }
 
+/** CSS custom property, set once on a story's outer wrapper. `.kicker` and the cover-image
+ *  top rule both read it via inheritance, so every card in a beat picks up its colour from
+ *  one style attribute rather than being painted piece by piece. */
+function beatAccentStyle(ctx, story) {
+  const accent = ctx.beatMap.get(story.beat)?.accent;
+  return accent ? ` style="--beat-accent:${e(accent)}"` : '';
+}
+
 export function leadBlock(ctx, story, depth = 0) {
-  return `<article class="lead__story">
+  return `<article class="lead__story"${beatAccentStyle(ctx, story)}>
 <a href="${rel(depth, storyPath(story))}" tabindex="-1" aria-hidden="true">
 <img class="lead__cover" src="${rel(depth, coverPath(story))}" alt="" width="1200" height="675" fetchpriority="high">
 </a>
@@ -240,7 +250,7 @@ ${metaLine(ctx, story, depth)}
 }
 
 export function card(ctx, story, depth = 0) {
-  return `<article class="card">
+  return `<article class="card"${beatAccentStyle(ctx, story)}>
 <a href="${rel(depth, storyPath(story))}" tabindex="-1" aria-hidden="true">
 <img class="card__cover" src="${rel(depth, coverPath(story))}" alt="" width="1200" height="675" loading="lazy">
 </a>
@@ -252,7 +262,7 @@ export function card(ctx, story, depth = 0) {
 }
 
 export function row(ctx, story, depth = 0) {
-  return `<article class="row">
+  return `<article class="row"${beatAccentStyle(ctx, story)}>
 <a href="${rel(depth, storyPath(story))}" tabindex="-1" aria-hidden="true">
 <img class="row__cover" src="${rel(depth, coverPath(story))}" alt="" width="1200" height="675" loading="lazy">
 </a>
