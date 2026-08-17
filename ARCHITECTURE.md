@@ -14,7 +14,7 @@ Most autonomous-agent projects have one path. The model runs, or nothing happens
 fine for a demo and useless for a publication, because the failure mode is a dead site and
 nobody notices for a week.
 
-This has **three tiers**. Each is strictly more capable and strictly less reliable than the
+This has **four tiers**. Each is strictly more capable and strictly less reliable than the
 one below it. Each keeps working when the tier above it stops.
 
 ```
@@ -22,6 +22,13 @@ one below it. Each keeps working when the tier above it stops.
 │ TIER 2 — EDITORIAL          needs: API key, model, network           │
 │ Researches, verifies, writes, self-scores. Produces the actual paper.│
 │ Fails on: expired key, spend cap, outage, an edition below standard. │
+├──────────────────────────────────────────────────────────────────────┤
+│ TIER 1.5 — DIGEST            needs: network only                     │
+│ Clusters, ranks and attributes harvested headlines — no model, no    │
+│ prose. A source's own headline, verbatim, never rewritten. Labelled  │
+│ confirmed only when a primary/newsroom source and a genuinely        │
+│ independent second publisher both cover the same event.              │
+│ Fails on: total network loss.                                        │
 ├──────────────────────────────────────────────────────────────────────┤
 │ TIER 1 — WIRE               needs: network only                      │
 │ Harvests ~550 leads/run from 24 publisher feeds. Renders headlines,  │
@@ -39,6 +46,31 @@ appears saying no new edition has published, and The Wire below it keeps updatin
 hours. The site is degraded and *says so*. It does not look abandoned, and it does not lie.
 
 This is the single most important property of the system. Everything else is detail.
+
+### 1.1 Tier 1.5 exists because Tier 1 and Tier 2 are not adjacent
+
+The wire (Tier 1) is raw and admits it. The AI edition (Tier 2) claims to have read,
+verified and explained something — because it has. There is a wide, useful middle: a
+deterministic program cannot verify a claim or explain why it matters, but it *can* honestly
+cluster near-duplicate coverage of the same event, rank by recency and source tier, and
+label a story `confirmed` only when a primary or newsroom source and a genuinely independent
+second publisher both cover it — the same independence rule section 4's validator enforces
+on the edited paper, applied one tier down.
+
+`tools/digest.mjs` runs `classify.mjs` → `cluster.mjs` → `rank.mjs` against the same harvest
+`tools/harvest.mjs` already produces for Tier 2, so Tier 1.5 costs nothing beyond what the
+wire already costs. It publishes to `digest.html`, a page that is deliberately plainer than
+the edited front page and explains its own limits at `methodology.html#digest` — see that
+section for what it cannot do, which matters as much as what it can.
+
+**This tier is additive, not a replacement**, on purpose. The honest way to validate a
+deterministic ranking system is to run it alongside the edited paper and see whether its
+picks agree with an editor's for a few weeks, not to promote it to the front page on day one
+and hope. If it earns that trust, promoting `digest.mjs`'s output to the front page and
+retiring `daily-edition.yml` — dropping the API key, the model, the per-run cost, and the
+prompt-injection surface WebFetch necessarily creates — is a config change, not a rewrite.
+That is the whole reason Tier 1.5 was built as a parallel pipeline sharing the harvest layer
+rather than as a fallback mode bolted onto the AI edition's code.
 
 ## 2. Data flows one way
 
@@ -244,6 +276,23 @@ Stated plainly, because a system's failure modes belong in its architecture doc.
   prevents accidents; it does not preserve old art. If the archive ever needs to keep the art
   it was published with, that still requires a `cover.version` per story and keeping the old
   renderer alongside the new one.
+- **The digest clusters on shared words, not meaning.** No embeddings, no fuzzy-matching
+  library — see section 3. Two outlets covering the same event in different language will
+  often land as two separate `single-source` items instead of one `confirmed` one. On the
+  first real day this ran, 0 of 9 selected items reached `confirmed` for exactly this
+  reason — an honest result of the method, not a bug being hidden. Loosening the similarity
+  threshold to catch more of these risks the opposite failure, merging genuinely different
+  stories that happen to share vocabulary; tuning it needs more days of real data than one
+  session produces, not a guess.
+- **The digest classifier found and fixed one real embarrassment before shipping**: a
+  hip-hop album review was filed under "Models" because its title shared the word "open"
+  with the beat's own seed query "open weights model release", and separately, the beat's
+  blurb text contributed the stopword "and" to a second false match. Fixed with an
+  AI-relevance gate before classification (`isAiRelevant` in `util.mjs`, shared with the
+  wire) and a stopword-aware minimum-overlap floor in `classify.mjs`, both covered by
+  `test/digest-pipeline.test.mjs` as standing regression tests. Stated here because a
+  classifier that can misfire once can misfire again in a way these specific tests do not
+  cover — read its output before trusting it.
 - **Hackathon listings are curated by hand.** Devpost's API returns 403, so entries are added
   only after opening the organiser's listing. Expired entries drop off automatically; new
   ones need a pull request.

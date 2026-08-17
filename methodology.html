@@ -50,6 +50,7 @@
 <nav class="beatnav" aria-label="Sections"><div class="wrap beatnav__in">
 <a href="./index.html#models">Models</a><a href="./index.html#research">Research</a><a href="./index.html#business">Business</a><a href="./index.html#policy">Policy</a><a href="./index.html#infrastructure">Infrastructure</a><a href="./index.html#society">Society</a>
 <span class="beatnav__sep"></span>
+<a class="is-quiet" href="./digest.html">Digest</a>
 <a class="is-quiet" href="./hackathons.html">Hackathons</a>
 <a class="is-quiet" href="./topics.html">Topics</a>
 <a class="is-quiet" href="./archive.html">Archive</a>
@@ -104,6 +105,32 @@ misread a benchmark, miss the context that makes a funding round unremarkable, o
 claim that a human editor would have recognised as a press release in a wig. The mitigations
 are the source tiers, the confidence label printed on every story, and the fact that every
 source is one click away. Where a story is thin, it is marked thin. Read the sources.</p>
+
+<h2 id="digest" style="font-size:1.3rem;margin:34px 0 12px">The digest: no model at all</h2>
+<p><a href="./digest.html">A second, separate page</a> runs without any AI in the
+loop whatsoever — no API key, no model, nothing generated. <code>tools/harvest.mjs</code>
+collects headlines from public feeds; <code>tools/digest.mjs</code> clusters near-duplicate
+coverage of the same event, scores each cluster on recency, source tier, how many independent
+publishers confirm it, whether it repeats a previous digest, and beat priority, then keeps the
+top-ranked clusters per beat. That is genuinely all it does.</p>
+
+<p>The honest way to describe the difference: the edited paper above claims to have read,
+verified and explained something. The digest claims only to have counted and sorted. Every
+headline on it is a source's own title, never rewritten, and every item links straight to
+where it was reported rather than to a summary of it. A story is marked <strong>confirmed</strong>
+only when a primary or established-newsroom source and a second, genuinely independent
+publisher both cover the same cluster — not merely two links, which is a distinction
+<code>tools/validate.mjs</code> enforces on the edited paper too, the hard way: it once let
+two European Commission pages count as two sources for the same story.</p>
+
+<p>What it cannot do matters as much as what it can. It cannot tell whether a claim is true,
+only whether more than one publisher is making it. It cannot explain why something matters —
+there is no "why it matters" field in its schema, on purpose, because writing one would be
+the pipeline inventing an opinion it does not have. And its clustering works on shared words
+in a headline, not meaning, so two outlets covering the same event in very different language
+will often show up as two separate, unconfirmed items rather than one confirmed one. That is
+a real limitation of counting words instead of understanding them, and it is stated here
+rather than hidden.</p>
 </div>
 
 <aside class="rail">
@@ -145,6 +172,7 @@ THE VISSION was founded by <strong style="color:var(--ink-2)">Jayaragul N</stron
 <div>
 <h4>The paper</h4>
 <ul>
+<li><a href="./digest.html">Digest (no AI)</a></li>
 <li><a href="./hackathons.html">Hackathons</a></li>
 <li><a href="./topics.html">Topics</a></li>
 <li><a href="./archive.html">Archive</a></li>

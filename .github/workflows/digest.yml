@@ -1,0 +1,89 @@
+name: Digest
+
+# Tier 1.5. No AI, no API key, no model — clustering, ranking and source attribution, all
+# deterministic. See ARCHITECTURE.md section 1 and tools/digest.mjs for what this is and
+# what it deliberately does not claim to be.
+#
+# Runs more often than the AI edition precisely because it costs nothing to run: harvest,
+# cluster, rank, validate, build, publish.
+
+on:
+  schedule:
+    # Three times a day. Cheap enough to run far more often than this; three keeps the
+    # digest page from looking identical to a reader checking back within the hour.
+    - cron: '15 2,10,18 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Digest date (YYYY-MM-DD). Leave blank for today.'
+        required: false
+        type: string
+
+concurrency:
+  # Shared with wire.yml and daily-edition.yml — all three push to main.
+  group: publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Harvest
+        run: node tools/harvest.mjs ${{ inputs.date }}
+
+      - name: Cluster, rank and build the digest
+        run: |
+          set -euo pipefail
+          DATE="${{ inputs.date }}"
+          if [ -z "$DATE" ]; then DATE="$(date -u '+%Y-%m-%d')"; fi
+          node tools/digest.mjs "$DATE"
+
+      - name: Build the site
+        run: node tools/build.mjs
+
+      - name: Publish
+        run: |
+          set -euo pipefail
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No new digest items — nothing to publish."
+            exit 0
+          fi
+          git config user.name  "the-vission-desk[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Digest refresh — $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git pull --rebase --autostash origin main
+          git push
+
+      - name: Report failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          EXISTING="$(gh issue list --state open --label digest-failure --json number --jq '.[0].number' || true)"
+          BODY="The digest refresh failed on $(date -u '+%Y-%m-%d %H:%M UTC').
+
+          Run: ${RUN_URL}
+
+          This tier needs no API key, so a failure is usually a harvest problem (check
+          generated/feed-health.json) or a bug in tools/digest.mjs, not an auth or spend issue."
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "$BODY"
+          else
+            gh label create digest-failure --color 5319e7 --description "Tier 1.5 digest failure" 2>/dev/null || true
+            gh issue create --title "Digest refresh failed" --label digest-failure --body "$BODY"
+          fi

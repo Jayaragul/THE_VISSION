@@ -197,6 +197,42 @@ export function matchPublisher(host, publishers) {
 }
 
 /** Two-letter monogram for a publisher chip. No external favicon requests, ever. */
+// Several harvested feeds are general technology or general business, not AI-only — SCMP,
+// Ars Technica and TechCrunch all carry plenty that has nothing to do with this paper's
+// subject, and the harvest deliberately stays broad so downstream stages see everything.
+// This is the shared relevance gate both the wire and the Tier 1.5 digest apply before doing
+// anything with an item — without it, a beat classifier's incidental keyword overlap can
+// and does misfire on things like "Open Mike Eagle" matching "open weights model release".
+export const AI_TERMS = new RegExp(
+  [
+    '\\bAI\\b', 'artificial intelligence', 'machine learning', '\\bLLM', '\\bGPT\\b',
+    'neural', 'transformer', 'deep learning', 'generative', 'inference', 'training run',
+    '\\bmodels?\\b', 'chatbot', 'agentic', '\\bagents?\\b', 'benchmark', 'open.?weights',
+    'fine.?tun', 'datacent', 'data cent', '\\bGPU', '\\bTPU\\b', 'accelerator',
+    'OpenAI', 'Anthropic', 'Claude', 'Gemini', 'DeepMind', 'Nvidia', 'Qwen', 'DeepSeek',
+    'Mistral', 'Llama', 'Hugging Face', 'Kimi', '\\bGLM\\b', 'MiniMax', 'Ernie', 'Copilot',
+    'Midjourney', 'Stable Diffusion', 'Sora', 'xAI', 'Grok', 'Perplexity', 'Cohere',
+  ].join('|'),
+  'i'
+);
+
+/** Title only, deliberately — feed summaries are long and frequently mention AI in passing
+ *  (an aircraft story quoting an "AI-assisted" design process, say), which let non-AI items
+ *  through when this checked the summary too. */
+export function isAiRelevant(title) {
+  return AI_TERMS.test(String(title || ''));
+}
+
+// Shared by tools/validate.mjs's copyright check and tools/lib/classify.mjs's beat
+// classifier. Found because "and", from a beat's own blurb text, plus one genuine keyword
+// was enough to clear a two-token overlap threshold and misclassify an unrelated headline —
+// a plain word-length filter does not catch function words like this at any length cutoff
+// that would not also drop real short terms (GPU, LLM).
+export const STOPWORDS = new Set([
+  'the', 'a', 'an', 'and', 'or', 'of', 'to', 'in', 'on', 'for', 'with', 'at', 'by',
+  'from', 'as', 'is', 'are', 'was', 'were', 'be', 'been', 'it', 'its', 'that', 'this',
+]);
+
 export function monogram(name) {
   const words = String(name).replace(/[^A-Za-z0-9 ]/g, ' ').trim().split(/\s+/);
   if (words.length === 0) return '??';

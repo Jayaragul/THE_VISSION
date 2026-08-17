@@ -11,31 +11,7 @@
 // written, checked, or endorsed by the paper. The visual treatment and the labelling exist
 // to make that distinction impossible to miss.
 
-import { escapeHTML as e, hostOf, matchPublisher, monogram } from './util.mjs';
-
-// Several harvested feeds are general technology or general business rather than AI-only —
-// SCMP and Ars Technica carry plenty that has nothing to do with this paper's subject. The
-// harvest stays deliberately broad so the research stage sees everything; the wire filters
-// at display time, because a public headline feed with mortgage-fraud stories in it reads
-// as broken.
-const AI_TERMS = new RegExp(
-  [
-    '\\bAI\\b', 'artificial intelligence', 'machine learning', '\\bLLM', '\\bGPT\\b',
-    'neural', 'transformer', 'deep learning', 'generative', 'inference', 'training run',
-    '\\bmodels?\\b', 'chatbot', 'agentic', '\\bagents?\\b', 'benchmark', 'open.?weights',
-    'fine.?tun', 'datacent', 'data cent', '\\bGPU', '\\bTPU\\b', 'accelerator',
-    'OpenAI', 'Anthropic', 'Claude', 'Gemini', 'DeepMind', 'Nvidia', 'Qwen', 'DeepSeek',
-    'Mistral', 'Llama', 'Hugging Face', 'Kimi', '\\bGLM\\b', 'MiniMax', 'Ernie', 'Copilot',
-    'Midjourney', 'Stable Diffusion', 'Sora', 'xAI', 'Grok', 'Perplexity', 'Cohere',
-  ].join('|'),
-  'i'
-);
-
-/** Title only. Feed summaries are long and frequently mention AI in passing, which let
- *  through arms exports and passenger aircraft on the first pass. */
-function looksRelevant(item) {
-  return AI_TERMS.test(item.title);
-}
+import { escapeHTML as e, hostOf, matchPublisher, monogram, isAiRelevant } from './util.mjs';
 
 /** Aggregator redirects are leads, never display sources — drop them from the public wire. */
 export function selectWireItems(candidates, { limit = 24, sourceBook } = {}) {
@@ -49,7 +25,7 @@ export function selectWireItems(candidates, { limit = 24, sourceBook } = {}) {
       // Model-repo names are strong research leads but terrible headlines, and the
       // trending list is full of community re-uploads and quantisations.
       if (item.source === 'Hugging Face — trending models') return false;
-      if (!looksRelevant(item)) return false;
+      if (!isAiRelevant(item.title)) return false;
 
       const host = hostOf(item.url);
       if (!host) return false;

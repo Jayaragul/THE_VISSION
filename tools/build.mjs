@@ -611,6 +611,32 @@ misread a benchmark, miss the context that makes a funding round unremarkable, o
 claim that a human editor would have recognised as a press release in a wig. The mitigations
 are the source tiers, the confidence label printed on every story, and the fact that every
 source is one click away. Where a story is thin, it is marked thin. Read the sources.</p>
+
+<h2 id="digest" style="font-size:1.3rem;margin:34px 0 12px">The digest: no model at all</h2>
+<p><a href="${R.rel(0, 'digest.html')}">A second, separate page</a> runs without any AI in the
+loop whatsoever — no API key, no model, nothing generated. <code>tools/harvest.mjs</code>
+collects headlines from public feeds; <code>tools/digest.mjs</code> clusters near-duplicate
+coverage of the same event, scores each cluster on recency, source tier, how many independent
+publishers confirm it, whether it repeats a previous digest, and beat priority, then keeps the
+top-ranked clusters per beat. That is genuinely all it does.</p>
+
+<p>The honest way to describe the difference: the edited paper above claims to have read,
+verified and explained something. The digest claims only to have counted and sorted. Every
+headline on it is a source's own title, never rewritten, and every item links straight to
+where it was reported rather than to a summary of it. A story is marked <strong>confirmed</strong>
+only when a primary or established-newsroom source and a second, genuinely independent
+publisher both cover the same cluster — not merely two links, which is a distinction
+<code>tools/validate.mjs</code> enforces on the edited paper too, the hard way: it once let
+two European Commission pages count as two sources for the same story.</p>
+
+<p>What it cannot do matters as much as what it can. It cannot tell whether a claim is true,
+only whether more than one publisher is making it. It cannot explain why something matters —
+there is no "why it matters" field in its schema, on purpose, because writing one would be
+the pipeline inventing an opinion it does not have. And its clustering works on shared words
+in a headline, not meaning, so two outlets covering the same event in very different language
+will often show up as two separate, unconfirmed items rather than one confirmed one. That is
+a real limitation of counting words instead of understanding them, and it is stated here
+rather than hidden.</p>
 </div>
 
 <aside class="rail">
@@ -650,6 +676,105 @@ ${site.founder ? `${e(site.name)} was founded by <strong style="color:var(--ink-
     canonical: 'methodology.html',
     title: `Methodology — ${site.name}`,
     description: 'How an automated pipeline researches, writes, checks and publishes this paper.',
+    content,
+  });
+}
+
+// -------------------------------------------------------------- Tier 1.5 digest ---
+// No AI wrote anything on this page. Every headline is a source's own title, verbatim; every
+// item links straight out to where it was reported. See tools/digest.mjs and
+// ARCHITECTURE.md section 5.5 for what this is and, as importantly, what it deliberately
+// does not attempt — a machine clustering and ranking headlines is not the same claim as a
+// machine understanding them, and this page is built to never blur that line.
+
+function loadDigests() {
+  const dir = OUT('generated', 'digest');
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
+    .sort()
+    .reverse()
+    .map((f) => readJSON(join(dir, f)));
+}
+
+const digestPath = (date) => (date ? `digest/${date}.html` : 'digest.html');
+
+function digestItemRow(ctx, item, depth) {
+  const beat = ctx.beatMap.get(item.beat);
+  const primary = item.sources[0];
+  const rest = item.sources.slice(1);
+  return `<article class="digest-item"${beat ? ` style="--beat-accent:${e(beat.accent)}"` : ''}>
+<span class="digest-item__badge digest-item__badge--${item.confidence === 'confirmed' ? 'confirmed' : 'single'}">${item.confidence === 'confirmed' ? 'Confirmed' : 'Single source'}</span>
+<h3 class="digest-item__title"><a href="${e(primary.url)}" rel="noopener nofollow" target="_blank">${e(item.title)}</a></h3>
+<div class="meta">
+<span>${e(beat?.label || item.beat)}</span>
+${item.publishedAt ? `<span><time datetime="${e(item.publishedAt)}" data-relative>${e(formatShort(item.publishedAt))}</time></span>` : ''}
+</div>
+<div class="digest-item__sources">
+<span class="digest-item__reportedby">Reported by</span>
+${item.sources.map((s) => `<a class="source" href="${e(s.url)}" rel="noopener nofollow" target="_blank">
+<span class="source__mark" aria-hidden="true">${e((s.publisher || '??').slice(0, 2).toUpperCase())}</span>
+<span>${e(s.publisher)}</span>
+<span class="source__tier">T${s.tier ?? 4}</span>
+</a>`).join('')}
+</div>
+</article>`;
+}
+
+function renderDigestPage(ctx, digests, { index, isLatest }) {
+  const digest = digests[index];
+  const depth = isLatest ? 0 : 1;
+  const prev = digests[index + 1]?.edition.date;
+  const next = digests[index - 1]?.edition.date;
+
+  const byBeat = new Map();
+  for (const item of digest.items) {
+    if (!byBeat.has(item.beat)) byBeat.set(item.beat, []);
+    byBeat.get(item.beat).push(item);
+  }
+
+  const sections = site.nav
+    .map((nav) => {
+      const items = byBeat.get(nav.id) || [];
+      if (!items.length) return '';
+      return `<section class="section" id="digest-${e(nav.id)}">
+${R.sectionHead(nav.label, null, items.length)}
+<div class="digest-list">${items.map((i) => digestItemRow(ctx, i, depth)).join('')}</div>
+</section>`;
+    })
+    .join('');
+
+  const nav =
+    prev || next
+      ? `<div class="meta" style="justify-content:space-between;padding:26px 0;border-top:1px solid var(--rule)">
+${prev ? `<a href="${R.rel(depth, digestPath(prev))}" style="text-decoration:none">← ${e(formatShort(prev))}</a>` : '<span></span>'}
+${next ? `<a href="${R.rel(depth, digestPath(next))}" style="text-decoration:none">${e(formatShort(next))} →</a>` : '<span></span>'}
+</div>`
+      : '';
+
+  const content = `<div class="wrap">
+<section class="editorsnote">
+<div class="editorsnote__label">Tier 1.5<br>No AI, no prose</div>
+<div>
+<h1 class="editorsnote__title">The digest for ${e(formatMasthead(digest.edition.date))}</h1>
+<p class="editorsnote__body">${digest.items.length} headlines, clustered and ranked by a deterministic program — recency,
+source tier, independent confirmation, novelty and beat priority, weighted and summed. No model wrote or selected
+any of this. Every title on this page is a source's own headline; every item links straight to where it was
+reported. <a href="${R.rel(depth, 'methodology.html')}#digest">How this differs from the edited paper →</a></p>
+</div>
+</section>
+${sections || '<p class="empty">No items cleared the classifier for this run.</p>'}
+${nav}
+</div>`;
+
+  return R.page(ctx, {
+    depth,
+    canonical: digestPath(isLatest ? null : digest.edition.date),
+    anchorNav: isLatest,
+    title: isLatest
+      ? `Digest — ${site.name}`
+      : `Digest, ${formatShort(digest.edition.date)} — ${site.name}`,
+    description: `${digest.items.length} AI headlines for ${digest.edition.date}, clustered and ranked without a model — no generated prose, every title is a source's own.`,
     content,
   });
 }
@@ -1022,11 +1147,18 @@ ${items}
 `;
 }
 
-function renderSitemap(editions, entities) {
+function renderSitemap(editions, entities, digests) {
   const urls = [
     { loc: `${site.baseUrl}/`, priority: '1.0', freq: 'daily' },
     { loc: `${site.baseUrl}/archive.html`, priority: '0.6', freq: 'daily' },
     { loc: `${site.baseUrl}/topics.html`, priority: '0.6', freq: 'daily' },
+    ...(digests.length ? [{ loc: `${site.baseUrl}/digest.html`, priority: '0.6', freq: 'hourly' }] : []),
+    ...digests.map((d) => ({
+      loc: `${site.baseUrl}/${digestPath(d.edition.date)}`,
+      priority: '0.4',
+      freq: 'weekly',
+      lastmod: d.edition.date,
+    })),
     { loc: `${site.baseUrl}/hackathons.html`, priority: '0.7', freq: 'weekly' },
     { loc: `${site.baseUrl}/methodology.html`, priority: '0.4', freq: 'monthly' },
     { loc: `${site.baseUrl}/legal.html`, priority: '0.3', freq: 'yearly' },
@@ -1166,6 +1298,16 @@ for (const ent of entities.values()) {
   write(`entity/${ent.slug}.html`, renderEntity(ctx, ent));
 }
 
+// Same pattern as the AI edition: every digest gets a permanent dated page, and the
+// newest one is additionally the thing digest.html shows.
+const digests = loadDigests();
+digests.forEach((d, i) => {
+  write(digestPath(d.edition.date), renderDigestPage(ctx, digests, { index: i, isLatest: false }));
+});
+if (digests.length) {
+  write(digestPath(null), renderDigestPage(ctx, digests, { index: 0, isLatest: true }));
+}
+
 // Drop output whose JSON no longer exists, so the build stays a pure function of
 // generated/. Without this, a story pulled during review leaves its page and its cover
 // behind and the site quietly disagrees with the data.
@@ -1187,6 +1329,7 @@ const expectedEntityFiles = new Set([...entities.values()].map((ent) => `${ent.s
 prune('story', '.html', expectedStoryFiles);
 prune('assets/img/covers', '.svg', expectedCovers);
 prune('entity', '.html', expectedEntityFiles);
+prune('digest', '.html', new Set(digests.map((d) => `${d.edition.date}.html`)));
 
 write('archive.html', renderArchive(ctx, editions));
 write('topics.html', renderTopics(ctx, entities));
@@ -1197,7 +1340,7 @@ write('terms.html', renderTerms(ctx));
 write('privacy.html', renderPrivacy(ctx));
 write('404.html', render404(ctx));
 write('rss.xml', renderRSS(editions));
-write('sitemap.xml', renderSitemap(editions, entities));
+write('sitemap.xml', renderSitemap(editions, entities, digests));
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${site.baseUrl}/sitemap.xml\n`);
 write('.nojekyll', '');
 

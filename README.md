@@ -8,6 +8,7 @@
 
 [![Verify](https://github.com/Jayaragul/THE_VISSION/actions/workflows/verify.yml/badge.svg)](https://github.com/Jayaragul/THE_VISSION/actions/workflows/verify.yml)
 [![Daily edition](https://github.com/Jayaragul/THE_VISSION/actions/workflows/daily-edition.yml/badge.svg)](https://github.com/Jayaragul/THE_VISSION/actions/workflows/daily-edition.yml)
+[![Digest](https://github.com/Jayaragul/THE_VISSION/actions/workflows/digest.yml/badge.svg)](https://github.com/Jayaragul/THE_VISSION/actions/workflows/digest.yml)
 [![Wire](https://github.com/Jayaragul/THE_VISSION/actions/workflows/wire.yml/badge.svg)](https://github.com/Jayaragul/THE_VISSION/actions/workflows/wire.yml)
 [![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](ARCHITECTURE.md#3-zero-dependencies-on-purpose)
 
@@ -21,29 +22,41 @@ There is no newsroom. Claude Code researches the day's AI news, traces every cla
 primary source, writes the copy, scores itself against a published rubric, and ships — every
 morning, with no human in the loop.
 
-Then it does the thing most agent projects skip: **it survives its own failure.** If the API
-key expires or the model is down, a second tier with no AI in it at all keeps harvesting
-publisher feeds and updating the front page. The site degrades, says so on the page, and
-keeps going.
+Then it does the thing most agent projects skip: **it survives its own failure**, in two
+steps down rather than one. If the API key expires or the model is down, a deterministic
+clustering-and-ranking tier with no AI in it at all — same harvested feeds, no prose, no
+model — keeps publishing a source-attributed digest. If even that fails, a third tier with
+no logic beyond "show the headline" keeps the front page current. The site degrades, says so
+on the page, and keeps going.
 
 ## Why you might care
 
 - **Read it** — a daily AI briefing, free, with every claim one click from its source.
-- **Fork it** — the whole pipeline is ~2,000 lines of dependency-free Node. Point it at any
-  beat and you have a self-publishing paper on your own subject.
-- **Study it** — a worked example of an autonomous agent with real guardrails: a publish
-  gate that blocks bad output, a deterministic build CI can verify, and a self-improvement
-  loop that cannot merge its own rule changes.
+- **Fork it** — the whole pipeline is dependency-free Node. Point it at any beat and you have
+  a self-publishing paper on your own subject.
+- **Study it** — a worked example of an autonomous agent with real guardrails: the AI research
+  job runs with `contents: read` and no credential able to reach the repository, a separate
+  job re-validates its output from a clean checkout before anything is committed, a publish
+  gate blocks bad output, a deterministic build CI can verify, and a self-improvement loop
+  that cannot merge its own rule changes — or touch the workflow file that would let it.
 
 ## How it works
 
 ```
-  ┌── TIER 2 · EDITORIAL ──────────────── needs API key ──┐
-  │  research → verify → write → SELF-SCORE               │
-  │                          ↓                            │
-  │              generated/YYYY-MM-DD.json                │
-  └───────────────────────────┬───────────────────────────┘
-                              │  validate --strict  ← fails? nothing publishes
+  ┌── TIER 2 · EDITORIAL ─── needs API key ───────────────┐
+  │  research (contents: read — no write credential exists│
+  │  in this job at all) → 3 files → build artifact        │
+  │            ↓                                            │
+  │  publish (clean checkout, contents: write): re-validate,│
+  │  build, assert diff only touches publishable paths      │
+  │            ↓                                            │
+  │  generated/YYYY-MM-DD.json                              │
+  └────────────────────────┬───────────────────────────────┘
+                           │  validate --strict  ← fails? nothing publishes
+  ┌── TIER 1.5 · DIGEST ─── no AI, no key ──┐   │
+  │  cluster + rank harvested headlines,     │   │
+  │  no prose — a source's own title, always │   │
+  └──────────────────┬────────────────────┘   │
   ┌── TIER 1 · WIRE ──────── no AI, no key ──┐   │
   │  24 RSS feeds → ~550 leads/run           │   │
   └──────────────────┬───────────────────────┘   │
@@ -51,7 +64,7 @@ keeps going.
                                 ↓
                        node tools/build.mjs   ← pure function, no network
                                 ↓
-                  index.html · story/ · rss.xml · covers
+             index.html · digest.html · story/ · rss.xml · covers
                                 ↓
                           GitHub Pages
 ```
@@ -96,6 +109,7 @@ node tools/serve.mjs        # http://localhost:4173
 | `node --test` | Run the unit tests in `test/` (feed parsing, schema, publisher matching, cover determinism, wire filtering) |
 | `node tools/edition-info.mjs` | Date, next edition number, what already ran |
 | `node tools/harvest.mjs` | Collect candidate leads (zero cost, no key) |
+| `node tools/digest.mjs` | Tier 1.5: cluster + rank the harvest into a no-AI digest edition |
 | `node tools/validate.mjs --strict` | The publish gate — errors *and* warnings block |
 | `node tools/build.mjs` | Render the whole site from `generated/` |
 | `node tools/serve.mjs` | Local preview |
@@ -112,13 +126,15 @@ Then: *"Use the news-pipeline skill to publish today's edition."*
 | Workflow | Schedule | Needs a key? |
 | --- | --- | --- |
 | `wire.yml` | every 6h | **no** |
+| `digest.yml` | 3×/day | **no** |
 | `daily-edition.yml` | 06:30 UTC | yes |
 | `retrospective.yml` | Mondays 08:00 UTC | yes |
 | `verify.yml` | every push | no |
 
-Add `ANTHROPIC_API_KEY` in **Settings → Secrets → Actions** for the AI tiers, then set
-**Settings → Pages → Source** to *Deploy from a branch*, `main`, `/ (root)`. The wire runs
-without any of that.
+Add `ANTHROPIC_API_KEY` in **Settings → Secrets → Actions** for the AI tier, then set
+**Settings → Pages → Source** to *Deploy from a branch*, `main`, `/ (root)`. The wire and the
+digest both run without any of that — see [ARCHITECTURE.md §1.1](ARCHITECTURE.md#11-tier-15-exists-because-tier-1-and-tier-2-are-not-adjacent)
+for what it would take to run this site with no AI in it at all.
 
 ## Contributing
 

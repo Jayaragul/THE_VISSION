@@ -11,7 +11,7 @@
 import { readdirSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { basename, dirname, join, resolve as resolvePath } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readJSON, hostOf, matchPublisher, readMinutes, editionHash } from './lib/util.mjs';
+import { readJSON, hostOf, matchPublisher, readMinutes, editionHash, STOPWORDS } from './lib/util.mjs';
 import { validate as validateSchema, assertSupported } from './lib/schema.mjs';
 
 const ROOT = resolvePath(dirname(fileURLToPath(import.meta.url)), '..');
@@ -80,11 +80,6 @@ function lintProse(label, text, warn) {
 function words(str) {
   return String(str).toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(Boolean);
 }
-
-const STOPWORDS = new Set([
-  'the', 'a', 'an', 'and', 'or', 'of', 'to', 'in', 'on', 'for', 'with', 'at', 'by',
-  'from', 'as', 'is', 'are', 'was', 'were', 'be', 'been', 'it', 'its', 'that', 'this',
-]);
 
 /** Longest run of consecutive words shared between two strings, plus the run itself. */
 function longestSharedRun(a, b) {
