@@ -12,19 +12,43 @@ import { rng, hexToHSL, hslToHex, clamp } from './util.mjs';
 const W = 1200;
 const H = 675;
 
-export const STYLES = ['orbit', 'strata', 'lattice', 'swell', 'shard', 'aperture'];
+export const STYLES = [
+  'orbit', 'strata', 'lattice', 'swell', 'shard', 'aperture',
+  'contour', 'column', 'spiral', 'mesh',
+];
+
+// Two stories in the same beat used to come out nearly identical: hue drift worked out to
+// about ±5°, so all six `models` covers sat within four degrees of each other, and six
+// styles across thirteen stories collided constantly. The fix is a much larger deterministic
+// variation space — a wide hue excursion, a per-story colour scheme, varied saturation and
+// lightness, and ten styles rather than six.
+const HUE_SHIFTS = [-52, -38, -27, -16, -8, 0, 8, 16, 27, 38, 52];
 
 /** Build a duotone-plus-glow palette from the beat's accent colour. */
 function palette(accent, random) {
   const { h, s } = hexToHSL(accent);
-  const drift = (random() - 0.5) * 24;
+
+  // Wide, deterministic excursion. Stays inside an analogous range so the beat's colour
+  // family is still recognisable, but far enough apart that no two covers read as twins.
+  const shift = HUE_SHIFTS[Math.floor(random() * HUE_SHIFTS.length) % HUE_SHIFTS.length];
+  const jitter = (random() - 0.5) * 14;
+  const base = h + shift + jitter;
+
+  // Vary the internal spread too — some covers near-monochrome, others split across the wheel.
+  const spread = 14 + random() * 46;
+  const dir = random() > 0.5 ? 1 : -1;
+
+  // And vary tone, so two covers of the same hue still differ in weight.
+  const satScale = 0.72 + random() * 0.55;
+  const dark = 5 + random() * 7;
+
   return {
-    bg: hslToHex({ h: h + drift * 0.4, s: clamp(s * 0.45, 16, 40), l: 8 }),
-    bgAlt: hslToHex({ h: h + drift - 18, s: clamp(s * 0.55, 20, 48), l: 15 }),
-    deep: hslToHex({ h: h + drift - 8, s: clamp(s * 0.7, 30, 60), l: 24 }),
-    mid: hslToHex({ h: h + drift, s: clamp(s, 48, 84), l: 45 }),
-    bright: hslToHex({ h: h + drift + 20, s: clamp(s * 1.05, 55, 92), l: 63 }),
-    glow: hslToHex({ h: h + drift + 42, s: 92, l: 72 }),
+    bg: hslToHex({ h: base - dir * spread * 0.3, s: clamp(s * 0.45 * satScale, 14, 42), l: dark }),
+    bgAlt: hslToHex({ h: base + dir * spread * 0.5, s: clamp(s * 0.55 * satScale, 18, 52), l: dark + 7 + random() * 6 }),
+    deep: hslToHex({ h: base - dir * spread * 0.2, s: clamp(s * 0.7 * satScale, 28, 62), l: 20 + random() * 10 }),
+    mid: hslToHex({ h: base, s: clamp(s * satScale, 44, 86), l: 38 + random() * 16 }),
+    bright: hslToHex({ h: base + dir * spread * 0.7, s: clamp(s * 1.05 * satScale, 52, 94), l: 56 + random() * 14 }),
+    glow: hslToHex({ h: base + dir * spread, s: 88 + random() * 10, l: 66 + random() * 12 }),
   };
 }
 
@@ -183,7 +207,95 @@ function aperture(random, p) {
   return out;
 }
 
-const RENDERERS = { orbit, strata, lattice, swell, shard, aperture };
+function contour(random, p) {
+  const lines = 16 + Math.floor(random() * 14);
+  const cx = W * (0.2 + random() * 0.6);
+  const cy = H * (0.2 + random() * 0.6);
+  const warp = 0.4 + random() * 1.4;
+  const phase = random() * Math.PI * 2;
+  let out = '';
+  for (let i = 0; i < lines; i++) {
+    const t = i / lines;
+    const r = 40 + t * H * 1.15;
+    let d = '';
+    for (let a = 0; a <= 361; a += 6) {
+      const rad = (a * Math.PI) / 180;
+      const wobble = 1 + Math.sin(rad * (2 + Math.floor(warp * 3)) + phase + t * 2.4) * 0.16 * warp;
+      const x = cx + Math.cos(rad) * r * wobble;
+      const y = cy + Math.sin(rad) * r * wobble * 0.62;
+      d += `${a === 0 ? 'M' : 'L'} ${n(x)} ${n(y)} `;
+    }
+    out += `<path d="${d}Z" fill="none" stroke="${i % 5 === 0 ? p.bright : p.mid}" stroke-opacity="${n(0.12 + (1 - t) * 0.45)}" stroke-width="${n(0.7 + (1 - t) * 1.6)}"/>`;
+  }
+  return out;
+}
+
+function column(random, p) {
+  const cols = 26 + Math.floor(random() * 26);
+  const gap = 2 + random() * 4;
+  const cw = (W + 60) / cols;
+  const phase = random() * Math.PI * 2;
+  const freq = 0.8 + random() * 2.6;
+  const baseline = H * (0.55 + random() * 0.3);
+  let out = '';
+  for (let i = 0; i < cols; i++) {
+    const u = i / cols;
+    const env = Math.abs(Math.sin(u * Math.PI * freq + phase));
+    const h = 20 + env * H * (0.42 + random() * 0.4);
+    const x = -30 + i * cw;
+    const fill = env > 0.78 ? p.glow : env > 0.45 ? p.bright : p.mid;
+    out += `<rect x="${n(x)}" y="${n(baseline - h)}" width="${n(cw - gap)}" height="${n(h)}" fill="${fill}" fill-opacity="${n(0.2 + env * 0.55)}"/>`;
+    if (random() > 0.82) {
+      out += `<rect x="${n(x)}" y="${n(baseline)}" width="${n(cw - gap)}" height="${n(h * (0.15 + random() * 0.35))}" fill="${p.mid}" fill-opacity="0.18"/>`;
+    }
+  }
+  out += `<line x1="-30" y1="${n(baseline)}" x2="${W + 30}" y2="${n(baseline)}" stroke="${p.glow}" stroke-opacity="0.4" stroke-width="1"/>`;
+  return out;
+}
+
+function spiral(random, p) {
+  const cx = W * (0.3 + random() * 0.4);
+  const cy = H * (0.32 + random() * 0.36);
+  const turns = 3 + random() * 4;
+  const dots = 150 + Math.floor(random() * 180);
+  const growth = 0.9 + random() * 0.9;
+  const tilt = random() * Math.PI;
+  let out = '';
+  for (let i = 0; i < dots; i++) {
+    const t = i / dots;
+    const a = t * Math.PI * 2 * turns + tilt;
+    const r = Math.pow(t, growth) * H * 0.72;
+    const x = cx + Math.cos(a) * r;
+    const y = cy + Math.sin(a) * r * 0.6;
+    const size = 1.2 + t * 6.5;
+    out += `<circle cx="${n(x)}" cy="${n(y)}" r="${n(size)}" fill="${t > 0.72 ? p.glow : t > 0.4 ? p.bright : p.mid}" fill-opacity="${n(0.25 + t * 0.6)}"/>`;
+  }
+  return out;
+}
+
+function mesh(random, p) {
+  const blobs = 4 + Math.floor(random() * 4);
+  let defs = '';
+  let out = '';
+  for (let i = 0; i < blobs; i++) {
+    const cx = random();
+    const cy = random();
+    const r = 0.3 + random() * 0.5;
+    const col = i % 3 === 0 ? p.glow : i % 3 === 1 ? p.bright : p.mid;
+    defs += `<radialGradient id="m${i}" cx="${n(cx)}" cy="${n(cy)}" r="${n(r)}">
+<stop offset="0" stop-color="${col}" stop-opacity="${n(0.5 + random() * 0.45)}"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></radialGradient>`;
+    out += `<rect width="${W}" height="${H}" fill="url(#m${i})" style="mix-blend-mode:screen"/>`;
+  }
+  // A few crisp edges stop it reading as an undifferentiated blur.
+  const cuts = 2 + Math.floor(random() * 3);
+  for (let i = 0; i < cuts; i++) {
+    const y = H * random();
+    out += `<line x1="0" y1="${n(y)}" x2="${W}" y2="${n(y + (random() - 0.5) * 120)}" stroke="${p.glow}" stroke-opacity="${n(0.15 + random() * 0.25)}" stroke-width="${n(0.8 + random())}"/>`;
+  }
+  return `<defs>${defs}</defs>${out}`;
+}
+
+const RENDERERS = { orbit, strata, lattice, swell, shard, aperture, contour, column, spiral, mesh };
 
 // ------------------------------------------------------------------- shell --
 

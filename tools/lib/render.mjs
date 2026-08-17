@@ -149,6 +149,7 @@ function footer(ctx, opts) {
 <li><a href="${rel(d, 'hackathons.html')}">Hackathons</a></li>
 <li><a href="${rel(d, 'archive.html')}">Archive</a></li>
 <li><a href="${rel(d, 'methodology.html')}">Methodology</a></li>
+<li><a href="${rel(d, 'legal.html')}">Corrections &amp; rights</a></li>
 <li><a href="${rel(d, 'rss.xml')}">RSS feed</a></li>
 <li><a href="${rel(d, 'generated/index.json')}">Data (JSON)</a></li>
 </ul>

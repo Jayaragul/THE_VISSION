@@ -71,6 +71,124 @@ function lintProse(label, text, warn) {
   }
 }
 
+// --- copyright safety -------------------------------------------------------
+// The paper summarises other people's reporting, which is lawful, and copies it, which is
+// not. The line between the two is not something to leave to an unsupervised model's
+// judgement at 6am, so it is checked mechanically.
+
+function words(str) {
+  return String(str).toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(Boolean);
+}
+
+const STOPWORDS = new Set([
+  'the', 'a', 'an', 'and', 'or', 'of', 'to', 'in', 'on', 'for', 'with', 'at', 'by',
+  'from', 'as', 'is', 'are', 'was', 'were', 'be', 'been', 'it', 'its', 'that', 'this',
+]);
+
+/** Longest run of consecutive words shared between two strings, plus the run itself. */
+function longestSharedRun(a, b) {
+  const A = words(a);
+  const B = words(b);
+  if (!A.length || !B.length) return { length: 0, run: [] };
+  let best = 0;
+  let endsAt = 0;
+  // Standard LCS-substring DP, kept to one row since we only need the length and position.
+  let prev = new Array(B.length + 1).fill(0);
+  for (let i = 1; i <= A.length; i++) {
+    const cur = new Array(B.length + 1).fill(0);
+    for (let j = 1; j <= B.length; j++) {
+      if (A[i - 1] === B[j - 1]) {
+        cur[j] = prev[j - 1] + 1;
+        if (cur[j] > best) {
+          best = cur[j];
+          endsAt = i;
+        }
+      }
+    }
+    prev = cur;
+  }
+  return { length: best, run: A.slice(endsAt - best, endsAt) };
+}
+
+/**
+ * Tokens that are genuinely proper nouns, read from OUR prose rather than the source's.
+ *
+ * Source headlines are usually Title Case, where every word is capitalised — using them
+ * would classify "Investable Asset Class" as three names and wave the copying through.
+ * The paper's own copy is sentence case, so a capital appearing mid-sentence is a real
+ * signal. Collected across every field of the story, so a name that opens one sentence is
+ * still caught where it appears inside another.
+ */
+function properNouns(fields) {
+  const set = new Set();
+  for (const field of fields) {
+    // Split into sentences so the first word of each is not mistaken for a name.
+    for (const sentence of String(field || '').split(/(?<=[.!?])\s+/)) {
+      sentence.split(/\s+/).forEach((w, i) => {
+        const clean = w.replace(/[^A-Za-z0-9]/g, '');
+        if (i > 0 && /^[A-Z]/.test(clean) && clean.length > 1) set.add(clean.toLowerCase());
+      });
+    }
+  }
+  return set;
+}
+
+/**
+ * How much of a shared run is actually protected expression.
+ *
+ * Copyright covers creative expression, not facts. "Apollo, BlackRock, Blackstone,
+ * Brookfield, Goldman Sachs and KKR" is eight shared words and none of them are ours to
+ * paraphrase — it is the list of who did the thing, and there is no other way to write it.
+ * "AI factory compute is becoming an investable asset class" is the same length and is
+ * entirely someone else's phrasing. Counting only non-name, non-stopword tokens separates
+ * the two.
+ */
+function expressiveLength(run, names) {
+  return run.filter((w) => !names.has(w) && !STOPWORDS.has(w)).length;
+}
+
+/** Words inside double quotes, as a rough proxy for quoted passages. */
+function quotedRuns(text) {
+  return [...String(text || '').matchAll(/"([^"]{10,})"/g)].map((m) => words(m[1]).length);
+}
+
+const MAX_SHARED_RUN = 7;      // consecutive words lifted from a source headline
+const MAX_EXPRESSIVE_RUN = 4;  // of those, how many may be someone else's actual phrasing
+const MAX_QUOTE_WORDS = 30;    // a quotation longer than this is excerpting, not quoting
+
+function checkCopyright(story, err, warn) {
+  const tag = story.id;
+  const ourText = [story.headline, story.deck, ...(story.summary || []), ...(story.body || [])];
+  const names = properNouns([...ourText, ...(story.entities || [])]);
+
+  for (const src of story.sources || []) {
+    for (const field of ourText) {
+      const { length, run } = longestSharedRun(field, src.title);
+      if (length <= MAX_SHARED_RUN) continue;
+
+      const expressive = expressiveLength(run, names);
+      const phrase = run.join(' ');
+      if (expressive > MAX_EXPRESSIVE_RUN) {
+        err(
+          `${tag}: ${expressive} words of "${src.publisher}"'s own phrasing reused — "${phrase}" — rewrite it`
+        );
+      } else if (expressive > 2) {
+        warn(`${tag}: ${length} words shared with "${src.publisher}" headline — "${phrase}"`);
+      }
+      // Below that it is a list of names and function words: factual, and there is no
+      // other way to write it. Silent, because a warning nobody can act on is noise.
+    }
+  }
+
+  for (const field of ourText) {
+    for (const len of quotedRuns(field)) {
+      if (len > MAX_QUOTE_WORDS) {
+        warn(`${tag}: a quoted passage runs ${len} words — keep quotations short and attributed`);
+      }
+    }
+  }
+}
+
 function tokens(str) {
   return new Set(
     String(str).toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter((w) => w.length > 3)
@@ -228,6 +346,8 @@ function checkEdition(file) {
     if (/:\s/.test(s.headline) && s.headline.split(':')[0].split(/\s+/).length <= 2) {
       warn(`${tag}: headline uses a "Label: thing" construction`);
     }
+
+    checkCopyright(s, err, warn);
 
     // House style.
     lintProse(`${tag} headline`, s.headline, warn);

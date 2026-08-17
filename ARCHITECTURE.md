@@ -170,6 +170,14 @@ Stated plainly, because a system's failure modes belong in its architecture doc.
 - **The wire is unverified by construction.** It is filtered for AI relevance and stripped of
   aggregator redirects, but nothing on it has been read by anything. It is labelled as such
   everywhere it appears, and it must stay visually subordinate to edited copy.
+- **Cover art is not versioned yet, and should be.** Covers are permalinked assets, and
+  `tools/lib/cover.mjs` is a pure function of the story id — so changing the algorithm
+  silently regenerates every cover ever published. That was acceptable once, on 17 Aug 2026,
+  when the generator was widened from 6 styles to 10 and the hue range from ±5° to ±52°
+  (six `models` covers had been landing within four degrees of each other and looked
+  identical). It will not be acceptable again once the archive is large. **Before the next
+  art change, add a `cover.version` to the story schema and keep the old renderer**, so past
+  editions keep the art they were published with.
 - **Hackathon listings are curated by hand.** Devpost's API returns 403, so entries are added
   only after opening the organiser's listing. Expired entries drop off automatically; new
   ones need a pull request.

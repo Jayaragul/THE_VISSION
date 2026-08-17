@@ -573,6 +573,82 @@ Know one that belongs here? <a href="${e(ctx.site.social.repo)}/blob/main/input/
   });
 }
 
+function renderLegal(ctx) {
+  const content = `<div class="wrap">
+<section class="editorsnote">
+<div class="editorsnote__label">Legal</div>
+<div>
+<h1 class="editorsnote__title">Corrections, rights and takedowns.</h1>
+<p class="editorsnote__body">This page states how ${e(site.name)} handles other people's work, its own mistakes,
+and requests to remove something. It is written to be acted on, not to be impressive.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="prose">
+<h2 style="font-size:1.3rem;margin-bottom:12px">Corrections</h2>
+<p>The paper is produced by an automated pipeline, and an automated pipeline can be
+confidently wrong. If something here is inaccurate, <a href="${e(site.social.repo)}/issues/new" rel="noopener">open an
+issue</a> with the story URL and what is wrong. Corrections are made as a new edition or a
+marked correction note on the story.</p>
+<p>Published stories are not silently rewritten. The archive is a record, and quietly editing
+yesterday's copy to match today's understanding is how a publication loses the right to be
+believed. A correction appears as a correction.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">How other people's work is used</h2>
+<p>Every story summarises reporting and announcements published elsewhere, links to the
+original, and names the publisher. Summarising a news event and linking to its source is
+lawful; reproducing someone's article is not, and the difference is enforced mechanically
+rather than left to judgement. <code>tools/validate.mjs</code> blocks publication if any story reuses
+more than a few consecutive words of a source's own phrasing, and flags quotations that run
+long enough to stop being quotation.</p>
+<p>No third-party photography, artwork or video appears anywhere on this site. Every image is
+generated from the story's own identifier by <code>tools/lib/cover.mjs</code>. That is why the art is
+abstract: the paper has no licence to publish press images, so it does not.</p>
+<p>Company names, product names and logos mentioned in coverage belong to their owners and are
+used to identify what is being reported on. No affiliation or endorsement is implied.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">Takedown requests</h2>
+<p>If you believe material here infringes your copyright or another right, <a href="${e(site.social.repo)}/issues/new" rel="noopener">open an
+issue</a> identifying the specific URL and the basis of the claim. Material that infringes will
+be removed. The repository's full history is public, so removal is recorded rather than
+concealed.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">What this is not</h2>
+<p>Nothing here is investment, financial, legal, tax or professional advice. Coverage of a
+company, a funding round or a valuation is reporting, not a recommendation to do anything.
+Decisions made on the basis of anything published here are the reader's own.</p>
+<p>The paper carries no advertising, takes no sponsorship, accepts no payment for coverage or
+for a hackathon listing, and holds no financial position in anything it covers.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">Accuracy and liability</h2>
+<p>The paper is provided as is. Every effort is made to source claims to a primary document
+and to label confidence honestly, including saying so when a source could not be opened —
+but no warranty is given that any of it is accurate, complete or current. Verify anything you
+intend to rely on against the linked source, which is why the links are there.</p>
+<p>External links point to sites this paper does not control and is not responsible for.</p>
+
+<h2 style="font-size:1.3rem;margin:34px 0 12px">Reusing this paper</h2>
+<p>The software is licensed under PolyForm Noncommercial; the published editions under
+CC BY-NC-ND 4.0. In short: read it, quote it with attribution, link to it freely, run your own
+non-commercial version of the software. Do not republish the editions or use any of it
+commercially without permission. The <a href="${e(site.social.repo)}/blob/main/LICENSE" rel="noopener">full terms</a> govern.</p>
+
+<p style="margin-top:34px;color:var(--muted);font-size:.95rem">${e(site.name)} is owned and operated by
+${e(site.copyrightHolder || site.founder || site.name)}. This page describes the publication's policies and is not legal advice.</p>
+</div>
+</section>
+</div>`;
+
+  return R.page(ctx, {
+    depth: 0,
+    canonical: 'legal.html',
+    title: `Corrections, rights and takedowns — ${site.name}`,
+    description: `How ${site.name} handles corrections, third-party rights, takedown requests and liability.`,
+    content,
+  });
+}
+
 function render404(ctx) {
   const content = `<div class="wrap">
 <div class="empty" style="padding:120px 0">
@@ -635,6 +711,7 @@ function renderSitemap(editions) {
     { loc: `${site.baseUrl}/archive.html`, priority: '0.6', freq: 'daily' },
     { loc: `${site.baseUrl}/hackathons.html`, priority: '0.7', freq: 'weekly' },
     { loc: `${site.baseUrl}/methodology.html`, priority: '0.4', freq: 'monthly' },
+    { loc: `${site.baseUrl}/legal.html`, priority: '0.3', freq: 'yearly' },
     ...editions.map((ed) => ({
       loc: `${site.baseUrl}/${R.editionPath(ed.edition.date)}`,
       priority: '0.7',
@@ -780,6 +857,7 @@ prune('assets/img/covers', '.svg', expectedCovers);
 write('archive.html', renderArchive(ctx, editions));
 write('hackathons.html', renderHackathons(ctx, editions));
 write('methodology.html', renderMethodology(ctx, editions));
+write('legal.html', renderLegal(ctx));
 write('404.html', render404(ctx));
 write('rss.xml', renderRSS(editions));
 write('sitemap.xml', renderSitemap(editions));
