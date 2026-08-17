@@ -5,7 +5,7 @@
     "number": 1,
     "generatedAt": "2026-08-17T09:40:00Z",
     "title": "Wall Street underwrites the build-out, and OpenAI stops its own clock",
-    "summary": "Nvidia spent the week turning AI infrastructure into an asset class, lining up six of the largest asset managers behind more than $500bn of third-party capital and guaranteeing part of the residual value of the chips used as collateral. Against that, OpenAI halted internal work on an unreleased model it cannot yet rule sub-critical for cyber capability. This first edition leans heavily on one company, which reflects a genuinely dense week from Nvidia rather than a judgement that nothing else happened.",
+    "summary": "Nvidia spent the week turning AI infrastructure into an asset class, lining up six of the largest asset managers behind more than $500bn of third-party capital and guaranteeing part of the residual value of the chips used as collateral. Underneath that, the model layer kept repricing itself: Google halved the cost of its coding workhorse, and DeepSeek put 1.7 trillion parameters under an MIT licence. Against both, OpenAI halted internal work on a model it cannot yet rule sub-critical for cyber capability.",
     "generator": {
       "model": "claude-opus-5",
       "pipeline": "news-pipeline@1.0.0",
@@ -314,6 +314,94 @@
       "readMinutes": 2
     },
     {
+      "id": "2026-08-17-gemini-37-flash",
+      "slug": "gemini-37-flash",
+      "beat": "models",
+      "kicker": "Frontier models",
+      "headline": "Google's Gemini 3.7 Flash undercuts its own predecessor by half on price",
+      "deck": "The workhorse model posts 65.3% on DeepSWE v1.1 against 49.0% for 3.6 Flash, and runs at $0.75 per million input tokens until the end of the year.",
+      "summary": [
+        "Introductory pricing is $0.75 per million input tokens and $3.75 per million output, half what 3.6 Flash cost.",
+        "Google reports 43.6% on FrontierCode 1.1 against 34.4% for the previous model, and 65.3% on DeepSWE v1.1 against 49.0%.",
+        "Regular pricing of $1.50 and $7.50 per million tokens takes effect on 1 January 2027."
+      ],
+      "body": [
+        "Google released Gemini 3.7 Flash on 13 August, describing it as its most intelligent workhorse model yet for coding and agents. The release comes three weeks after 3.6 Flash, a cadence that now looks less like a product cycle and more like a patch schedule.",
+        "The pricing is the headline. Introductory rates run at $0.75 per million input tokens and $3.75 per million output tokens through 31 December 2026 — half the per-million cost of 3.6 Flash by Google's own reckoning. Regular pricing of $1.50 and $7.50 begins on 1 January 2027, so the discount is a nine-week window, not a permanent repricing.",
+        "The benchmark gains Google reports are large enough to be worth stating precisely: 43.6% against 34.4% on FrontierCode 1.1 for production code quality, 65.3% against 49.0% on DeepSWE v1.1 for long-horizon engineering, an Elo of 1588 against 1538 on WebDev Arena, 34.0% against 22.0% on a document-processing benchmark, and 30.4% against 17.0% on AutomationBench. All are Google's own figures against its own previous model.",
+        "That last point is the caveat. A vendor comparing a new model to its predecessor controls both sides of the comparison, and none of these numbers place 3.7 Flash against a competitor. The useful reading is the direction and size of the jump on agentic and long-horizon tasks, which is where the previous generation was weakest."
+      ],
+      "whyItMatters": "Halving the price of a competent coding model for nine weeks is a customer-acquisition move aimed squarely at whoever is currently paying more for agentic workloads. The more durable signal is the AutomationBench jump from 17.0% to 30.4%: business-workflow automation is the use case labs have been promising for two years and mostly failing to deliver, and a near-doubling on that axis in three weeks is the number to watch.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-13T17:04:18Z",
+      "confidence": "high",
+      "entities": [
+        "Google",
+        "Google DeepMind",
+        "Gemini 3.7 Flash"
+      ],
+      "tags": [
+        "gemini",
+        "pricing",
+        "agents",
+        "coding",
+        "benchmarks"
+      ],
+      "sources": [
+        {
+          "title": "Introducing Gemini 3.7 Flash",
+          "publisher": "Google",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/",
+          "publishedAt": "2026-08-13T17:04:18Z",
+          "tier": 1
+        }
+      ],
+      "readMinutes": 2
+    },
+    {
+      "id": "2026-08-17-deepseek-v4-pro-mit",
+      "slug": "deepseek-v4-pro-mit",
+      "beat": "models",
+      "kicker": "Open weights",
+      "headline": "DeepSeek publishes V4-Pro under an MIT licence at 1.7 trillion parameters",
+      "deck": "The model card reports 87.9 on Terminal Bench 2.1 and 83.3 on Cybergym, and ships with three selectable reasoning effort levels.",
+      "summary": [
+        "DeepSeek-V4-Pro-0813 is published on Hugging Face under an MIT licence, among the most permissive terms any lab applies to weights at this scale.",
+        "The card states 1.7 trillion parameters, speculative decoding, and low, high and max reasoning effort settings.",
+        "Self-reported benchmarks include 87.9 on Terminal Bench 2.1, 83.3 on Cybergym and 62.7 on DeepSWE."
+      ],
+      "body": [
+        "DeepSeek published DeepSeek-V4-Pro-0813 to Hugging Face on 13 August under an MIT licence. At a stated 1.7 trillion parameters it is among the largest models anyone has released weights for, and MIT is close to the most permissive licence available — no revenue share, no use restrictions, no acceptable-use rider.",
+        "The model card describes speculative decoding and three selectable reasoning effort levels, low, high and max, which shifts the cost-quality trade-off from a model choice to a per-request parameter. The card positions it as broadly competitive with the strongest proprietary models available, and as an improvement on the earlier preview release.",
+        "The benchmark table on the card reports 87.9 on Terminal Bench 2.1, 83.3 on Cybergym, 62.7 on DeepSWE, 74.1 on Toolathlon-Verified, 61.5 on NL2Repo and 60.0 on HLE with tools. These are self-reported, as benchmark tables on model cards always are — but unlike a hosted model, the weights are there for anyone who wants to check.",
+        "The strategic shape of this is worth noting separately from the numbers. Releasing frontier-adjacent weights under MIT sets a licensing floor that competitors either match or explain, and it does so at a parameter count that makes independent reproduction expensive enough to be slow."
+      ],
+      "whyItMatters": "An MIT licence at 1.7 trillion parameters puts the most permissive terms in the market on one of the largest open releases, which pressures every lab publishing weights under custom licences with revenue-share clauses. The constraint on who can actually use this is no longer legal, it is the hardware bill — and that is a very different bottleneck to argue about.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-13T03:05:06Z",
+      "confidence": "high",
+      "entities": [
+        "DeepSeek",
+        "Hugging Face"
+      ],
+      "tags": [
+        "open-weights",
+        "licensing",
+        "benchmarks",
+        "china"
+      ],
+      "sources": [
+        {
+          "title": "DeepSeek-V4-Pro-0813 model card",
+          "publisher": "Hugging Face",
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813",
+          "publishedAt": "2026-08-13T03:05:06Z",
+          "tier": 1
+        }
+      ],
+      "readMinutes": 2
+    },
+    {
       "id": "2026-08-17-anthropic-claude-text-watermark",
       "slug": "anthropic-claude-text-watermark",
       "beat": "models",
@@ -485,10 +573,10 @@
     }
   ],
   "signals": {
-    "storyCount": 11,
-    "sourceCount": 15,
-    "primaryCount": 11,
-    "publisherCount": 9,
+    "storyCount": 13,
+    "sourceCount": 17,
+    "primaryCount": 13,
+    "publisherCount": 10,
     "beatCount": 6
   }
 }

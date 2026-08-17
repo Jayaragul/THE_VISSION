@@ -691,6 +691,90 @@ ul, ol { margin: 0; padding: 0; }
   .archive__date { grid-column: 1 / -1; }
 }
 
+/* ---------------------------------------------------------------- wire ---- */
+/* Visually subordinate to edited copy on purpose: monospaced, denser, no cover art.
+   A reader must never mistake a raw feed headline for something the paper stands behind. */
+
+.wire__warning {
+  font-family: var(--sans);
+  font-size: .78rem;
+  line-height: 1.55;
+  color: var(--muted);
+  background: var(--surface-2);
+  border-left: 2px solid var(--rule-strong);
+  padding: 11px 14px;
+  margin-bottom: 20px;
+  max-width: 78ch;
+  font-variant-numeric: normal;
+}
+.wire__warning strong { color: var(--ink-2); }
+
+.wire {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 0 34px;
+}
+.wire__item { border-bottom: 1px solid var(--rule); }
+.wire__link {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 11px;
+  align-items: start;
+  padding: 12px 0;
+  text-decoration: none;
+}
+.wire__link:hover .wire__title { color: var(--accent); }
+.wire__mark {
+  width: 22px; height: 22px;
+  border-radius: 4px;
+  display: grid; place-items: center;
+  background: var(--surface-3);
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: .55rem; font-weight: 700;
+  margin-top: 2px;
+}
+.wire__body { min-width: 0; }
+.wire__title {
+  display: block;
+  font-size: .93rem;
+  line-height: 1.36;
+  color: var(--ink-2);
+  font-weight: 500;
+}
+.wire__meta {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--sans);
+  font-size: .66rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--faint);
+  font-variant-numeric: normal;
+}
+.wire__stamp {
+  margin-top: 18px;
+  font-family: var(--sans);
+  font-size: .7rem;
+  color: var(--faint);
+  font-variant-numeric: normal;
+}
+
+.staleness {
+  border: 1px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 3px;
+  padding: 14px 16px;
+  margin-top: 22px;
+  font-family: var(--sans);
+  font-size: .84rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+  font-variant-numeric: normal;
+}
+.staleness strong { color: var(--accent); }
+
 /* -------------------------------------------------------------- footer ---- */
 
 .footer {

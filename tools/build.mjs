@@ -15,6 +15,7 @@ import {
   hostOf, matchPublisher, readMinutes,
 } from './lib/util.mjs';
 import { renderCover } from './lib/cover.mjs';
+import { selectWireItems, wireBlock, stalenessBanner } from './lib/wire.mjs';
 import * as R from './lib/render.mjs';
 
 const ROOT = resolvePath(dirname(fileURLToPath(import.meta.url)), '..');
@@ -73,6 +74,23 @@ function computeSignals(doc) {
     publisherCount: publishers.size,
     beatCount: new Set(doc.stories.map((s) => s.beat)).size,
   };
+}
+
+/** Newest harvest, if there is one. Absent is normal and not an error — the site simply
+ *  renders without a wire, exactly as it did before the wire existed. */
+function loadLatestCandidates() {
+  const dir = OUT('generated', 'candidates');
+  if (!existsSync(dir)) return null;
+  const files = readdirSync(dir)
+    .filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
+    .sort()
+    .reverse();
+  if (!files.length) return null;
+  try {
+    return readJSON(join(dir, files[0]));
+  } catch {
+    return null;
+  }
 }
 
 const PROMINENCE_ORDER = { lead: 0, top: 1, standard: 2, brief: 3 };
@@ -142,8 +160,13 @@ ${next ? `<a href="${R.rel(depth, R.editionPath(next))}" style="text-decoration:
 </div>`
       : '';
 
-  const content = `<div class="wrap">
+  // The wire only appears on the front page. Dated edition pages are a record of what was
+  // published that day and must not acquire new content after the fact.
+  const wire = isFront ? wireBlock(ctx.wireItems, { depth, sourceBook, harvestedAt: ctx.harvestedAt }) : '';
+  const stale = isFront && ctx.wireItems.length ? stalenessBanner(ctx.hoursSinceEdition) : '';
 
+  const content = `<div class="wrap">
+${stale}
 <section class="editorsnote">
 <div class="editorsnote__label">Edition No. ${ed.edition.number}<br>${e(formatMasthead(ed.edition.date))}</div>
 <div>
@@ -162,6 +185,7 @@ ${R.signalsBlock(ed.signals)}
 </section>
 
 ${beatSections}
+${wire}
 ${editionNav}
 </div>`;
 
@@ -572,6 +596,9 @@ if (!editions.length) {
 }
 
 const latest = editions[0];
+const candidates = loadLatestCandidates();
+const wireItems = selectWireItems(candidates, { limit: 24, sourceBook });
+
 const ctx = {
   site,
   beats,
@@ -579,6 +606,13 @@ const ctx = {
   sourceBook,
   latestDate: latest.edition.date,
   generatedAt: latest.edition.generatedAt,
+  wireItems,
+  harvestedAt: candidates?.harvestedAt || null,
+  // Measured against the harvest rather than the wall clock, so the build stays a pure
+  // function of its inputs and CI's determinism check keeps passing.
+  hoursSinceEdition: candidates?.harvestedAt
+    ? Math.max(0, (Date.parse(candidates.harvestedAt) - Date.parse(latest.edition.generatedAt)) / 3600000)
+    : 0,
 };
 
 // Covers first — pages reference them.

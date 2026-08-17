@@ -17,7 +17,8 @@ on:
         type: string
 
 concurrency:
-  group: edition
+  # Shared with wire.yml — both push to main.
+  group: publish
   cancel-in-progress: false
 
 permissions:
@@ -40,6 +41,11 @@ jobs:
       - name: Show what already ran
         run: node tools/edition-info.mjs ${{ inputs.date }}
 
+      # Deterministic and free. Gives the research stage a few hundred pre-collected leads
+      # so it spends model tokens on verifying and writing rather than on discovery.
+      - name: Harvest candidate leads
+        run: node tools/harvest.mjs ${{ inputs.date }}
+
       - name: Research and write the edition
         uses: anthropics/claude-code-action@v1
         with:
@@ -53,6 +59,13 @@ jobs:
 
             Edition date: ${{ inputs.date || '' }} (blank means today, UTC).
             Set edition.generator.trigger to "schedule".
+
+            Start from generated/candidates/<date>.json, which the previous step just wrote.
+            It holds several hundred pre-collected leads from publisher RSS feeds, so you
+            should not need WebSearch for discovery — spend your budget on WebFetch,
+            verifying the best candidates and finding their primary sources. Items marked
+            discoveryOnly are aggregator redirects: follow them to the real publisher and
+            cite that, never the aggregator.
 
             Work stages 1 through 4 only: research, select, write, and pass the gate at
             `node tools/validate.mjs --strict`. Then run the editorial-review skill and

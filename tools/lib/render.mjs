@@ -143,9 +143,10 @@ function footer(ctx, opts) {
 </div>
 </div>
 <div class="footer__base">
-<span>© ${e(String(ctx.latestDate).slice(0, 4))} ${e(ctx.site.name)}</span>
+<span>© ${e(String(ctx.latestDate).slice(0, 4))} ${e(ctx.site.copyrightHolder || ctx.site.name)}</span>
+${ctx.site.founder ? `<span>Founded by ${e(ctx.site.founder)}</span>` : ''}
 <span>No advertising. No sponsorship. No position in anything covered.</span>
-<span>Every page is rebuilt from JSON on each run.</span>
+<span><a href="${e(ctx.site.social.repo)}/blob/main/LICENSE" rel="noopener" style="text-decoration:none">Licence</a> · Content CC BY-NC-ND 4.0</span>
 </div>
 </div></footer>`;
 }
