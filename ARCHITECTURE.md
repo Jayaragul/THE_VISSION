@@ -122,7 +122,45 @@ complains, the answer is better sourcing or better prose — never a relabelled 
 loosened threshold. An agent optimising against its own grader will always win, and the
 paper will always lose. Every check is written to be hard to satisfy dishonestly.
 
-## 5. Self-improvement, with a human gate
+## 5. The AI job cannot reach git
+
+A prompt instruction ("don't touch the validator", "don't run git") is not a security
+boundary. A job with no write credential is. `daily-edition.yml` learned this the hard way —
+an early version ran Claude and the publish step in one job, so a prompt-injected page or a
+confused run could in principle have had `tools/validate.mjs` or a workflow file edited and
+then silently swept up by a blind `git add -A` in the same job.
+
+It is now three jobs with three different trust levels:
+
+```
+research            permissions: contents: read
+  WebFetch + Write/Edit, no write credential exists in this job at all
+      │  produces exactly 3 named files (edition, eval, harvested candidates)
+      ▼  — never the whole working tree — handed off as a build artifact
+publish              permissions: contents: write
+  clean checkout, never sees research's workspace. Extracts only those 3
+  files, re-runs validate.mjs and build.mjs from scratch, asserts the diff
+  touches only publishable paths, only then commits
+      │  on failure —
+      ▼
+wire-fallback        no AI, no key — the tier-1 failover from section 1
+```
+
+**The artifact handoff is the actual boundary, not the allowed-paths check that follows it.**
+Even a fully compromised `research` job cannot push, because there is no credential in that
+job capable of it — not a scoped one, none. The allowed-paths assertion in `publish` is
+defense in depth on top of that, not the load-bearing wall.
+
+`retrospective.yml` has a narrower version of the same problem: its job needs to touch rule
+files (`input/editorial.md`, `tools/validate.mjs`, `evals/rubric.md`) — that's the point of
+it — so an allowlist doesn't fit. Instead it has a **forbidden**-paths check: it can propose
+anything except a change to `.github/workflows/` (which would let it widen its own reach), a
+past `generated/` edition, an `evals/` eval, or `LICENSE`. Combined with the fact that it
+already opens a PR rather than pushing to `main`, and that Claude's Bash access in that job is
+read-only git commands only, a proposed change to a forbidden path is refused before a PR can
+even open.
+
+## 6. Self-improvement, with a human gate
 
 `.github/workflows/retrospective.yml` runs weekly. Claude reads the eval score history,
 finds the single pattern costing the most points, and proposes a change to **the rules** —
@@ -138,7 +176,30 @@ is what keeps the loop pointed at the paper instead of at the score.
 The loop also has a stated preference: **a machine check beats a written rule**, because a
 check cannot be forgotten by the next run and a paragraph in a markdown file can.
 
-## 6. Cost control
+## 7. Testing what can be tested
+
+`node --test` (Node's built-in test runner — no dependency, matches section 3) covers
+`tools/lib/*.mjs` with real-world fixtures, not textbook ones: `feed.test.mjs` parses RSS/Atom
+shaped exactly like the actual publishers in `harvest.mjs` send it, including the messy
+parts — CDATA titles, self-closing Atom `<link>` tags with no `rel`, arXiv's namespaced
+elements. `cover.test.mjs`, `wire.test.mjs`, `schema.test.mjs` and `util.test.mjs` cover
+determinism, filtering, validation and the small hand-rolled utilities respectively. CI runs
+the whole suite on every push, before the editorial gate.
+
+This is deliberately narrower than testing the pipeline end to end. `tools/validate.mjs` and
+`tools/build.mjs` are exercised constantly by CI running them against real editions — that is
+integration coverage, just not unit coverage, and splitting `build.mjs`'s page renderers into
+independently testable functions is future work rather than done.
+
+Two bugs were found and fixed by writing these tests, not by review: `slugify('Über')`
+produced `u-ber` instead of `uber` (NFKD decomposition left a combining diacritic for the
+separator regex to eat), and the lead-story tier-1 warning in `validate.mjs` had an
+off-by-one (`bestTier > 2` instead of `> 1`) that let a lead sourced entirely at tier 2 pass
+with no warning. Both are exactly the kind of defect a test written *before* the bug is known
+about tends to surface — which is the actual argument for having them, more than any coverage
+percentage.
+
+## 8. Cost control
 
 Tokens are spent only where judgement is required.
 
@@ -154,7 +215,7 @@ Before the harvest layer existed, discovery meant WebSearch across every beat on
 the largest single line item, spent on finding things that public feeds already list for
 free. Moving discovery to RSS both widened coverage and cut the bill.
 
-## 7. Known limitations
+## 9. Known limitations
 
 Stated plainly, because a system's failure modes belong in its architecture doc.
 
@@ -172,19 +233,22 @@ Stated plainly, because a system's failure modes belong in its architecture doc.
   everywhere it appears, and it must stay visually subordinate to edited copy.
 - **Cover art changes are now locked, not versioned.** Covers are permalinked assets, and
   `tools/lib/cover.mjs` is a pure function of the story id — so changing the algorithm
-  regenerates every cover ever published. That happened once deliberately on 17 Aug 2026,
-  widening the generator from 6 styles to 10 and the hue range from ±5° to ±52° (six
-  `models` covers had been landing within four degrees of each other). `generated/covers.lock.json`
-  now records a hash per published cover and **the build fails if art changes for a story
-  already in the lock**. Accepting a deliberate regeneration takes `node tools/build.mjs --relock`.
-  This prevents accidents; it does not preserve old art. If the archive ever needs to keep
-  the art it was published with, that still requires a `cover.version` per story and keeping
-  the old renderer alongside the new one.
+  regenerates every cover ever published. That happened twice deliberately on 17 Aug 2026:
+  first widening the hue range from ±5° to ±52° across the original 10 styles, then replacing
+  the whole per-story-random approach with a fixed, auditable library of 100 canonical
+  "plates" across 18 style families — geometry keyed to the plate index, colour keyed to the
+  story, so exactly which shapes exist is a closed, reviewable set rather than whatever an RNG
+  happens to draw (see `tools/gen-cover-sheet.mjs`). `generated/covers.lock.json` records a
+  hash per published cover and **the build fails if art changes for a story already in the
+  lock**. Accepting a deliberate regeneration takes `node tools/build.mjs --relock`. This
+  prevents accidents; it does not preserve old art. If the archive ever needs to keep the art
+  it was published with, that still requires a `cover.version` per story and keeping the old
+  renderer alongside the new one.
 - **Hackathon listings are curated by hand.** Devpost's API returns 403, so entries are added
   only after opening the organiser's listing. Expired entries drop off automatically; new
   ones need a pull request.
 
-## 8. Where to change things
+## 10. Where to change things
 
 | You want to change | Edit | Do not edit |
 | --- | --- | --- |

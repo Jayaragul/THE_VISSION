@@ -93,6 +93,7 @@ node tools/serve.mjs        # http://localhost:4173
 
 | Command | What it does |
 | --- | --- |
+| `node --test` | Run the unit tests in `test/` (feed parsing, schema, publisher matching, cover determinism, wire filtering) |
 | `node tools/edition-info.mjs` | Date, next edition number, what already ran |
 | `node tools/harvest.mjs` | Collect candidate leads (zero cost, no key) |
 | `node tools/validate.mjs --strict` | The publish gate — errors *and* warnings block |

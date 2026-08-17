@@ -49,6 +49,10 @@ export function slugify(str) {
   return String(str)
     .toLowerCase()
     .normalize('NFKD')
+    // Strip the combining marks NFKD just split accented letters into (Über → u + ̈ber),
+    // so "über" transliterates to "uber" instead of the catch-all below turning the
+    // orphaned diacritic into its own separator and producing "u-ber".
+    .replace(/\p{Diacritic}/gu, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .slice(0, 80)

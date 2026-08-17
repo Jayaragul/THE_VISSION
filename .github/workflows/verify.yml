@@ -1,8 +1,9 @@
 name: Verify
 
-# Runs on every push. Two things are being asserted:
-#   1. Every edition passes the editorial gate.
-#   2. The committed HTML is exactly what the JSON builds to — no hand-edited pages,
+# Runs on every push. Three things are being asserted:
+#   1. The library code itself is correct — node:test against tools/lib/*.mjs.
+#   2. Every edition passes the editorial gate.
+#   3. The committed HTML is exactly what the JSON builds to — no hand-edited pages,
 #      no drift between the data and the site.
 
 on:
@@ -23,6 +24,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+
+      - name: Unit tests
+        run: node --test
 
       - name: Editorial gate
         run: node tools/validate.mjs --strict
