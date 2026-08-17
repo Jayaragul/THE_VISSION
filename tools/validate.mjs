@@ -195,6 +195,48 @@ function tokens(str) {
   );
 }
 
+/**
+ * Every edition older than the one being checked, keyed by source URL and headline.
+ *
+ * Repeating yesterday's story is the failure mode a single run cannot see from the inside:
+ * the pipeline reads recent headlines from edition-info.mjs and is told not to repeat them,
+ * but nothing enforced it. This does.
+ */
+function priorEditions(currentDate) {
+  const seenUrls = new Map();
+  const seenHeadlines = [];
+  let files = [];
+  try {
+    files = readdirSync(GENERATED).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort();
+  } catch {
+    return { seenUrls, seenHeadlines };
+  }
+  for (const f of files) {
+    const date = f.slice(0, 10);
+    if (date >= currentDate) continue; // only look backwards
+    let doc;
+    try {
+      doc = readJSON(join(GENERATED, f));
+    } catch {
+      continue;
+    }
+    for (const s of doc.stories || []) {
+      for (const src of s.sources || []) {
+        if (!seenUrls.has(src.url)) seenUrls.set(src.url, { date, id: s.id });
+      }
+      seenHeadlines.push({ date, id: s.id, tokens: tokens(s.headline) });
+    }
+  }
+  return { seenUrls, seenHeadlines };
+}
+
+function jaccard(a, b) {
+  if (!a.size || !b.size) return 0;
+  let shared = 0;
+  for (const t of a) if (b.has(t)) shared++;
+  return shared / (a.size + b.size - shared);
+}
+
 function checkEdition(file) {
   const errors = [];
   const warnings = [];
@@ -244,6 +286,7 @@ function checkEdition(file) {
   }
 
   // --- per story ------------------------------------------------------------
+  const { seenUrls: priorUrls, seenHeadlines: priorHeadlines } = priorEditions(doc.edition.date);
   const seenIds = new Set();
   const seenSlugs = new Set();
   const seenSourceUrls = new Map();
@@ -317,6 +360,14 @@ function checkEdition(file) {
       }
       seenSourceUrls.set(src.url, s.id);
 
+      // Same source, earlier edition: this story has already run.
+      const before = priorUrls.get(src.url);
+      if (before) {
+        err(
+          `${tag}: source ${src.url} already ran in the ${before.date} edition (${before.id}) — this is not new`
+        );
+      }
+
       if (src.publishedAt) {
         const t = Date.parse(src.publishedAt);
         if (t > editionMs + 86400000) {
@@ -345,6 +396,19 @@ function checkEdition(file) {
     }
     if (/:\s/.test(s.headline) && s.headline.split(':')[0].split(/\s+/).length <= 2) {
       warn(`${tag}: headline uses a "Label: thing" construction`);
+    }
+
+    // A genuine development on a running story is legitimate, so near-duplicate headlines
+    // warn rather than block — but a shared source URL above is an error, because that
+    // means the same underlying report is being run twice.
+    for (const old of priorHeadlines) {
+      const sim = jaccard(hTok, old.tokens);
+      if (sim > 0.6) {
+        warn(
+          `${tag}: headline is ${Math.round(sim * 100)}% similar to ${old.id} (${old.date}) — say what changed, or drop it`
+        );
+        break;
+      }
     }
 
     checkCopyright(s, err, warn);

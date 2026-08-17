@@ -39,7 +39,8 @@ const FEEDS = [
   { source: 'Ars Technica', url: 'https://arstechnica.com/feed/' },
   { source: 'WIRED', url: 'https://www.wired.com/feed/rss' },
   { source: 'VentureBeat', url: 'https://venturebeat.com/feed/' },
-  { source: 'MarkTechPost', url: 'https://www.marktechpost.com/feed/' },
+  // MarkTechPost removed 17 Aug 2026: returns 403 to any automated fetch, every run.
+  // Left here as a note so nobody re-adds it without checking.
   { source: 'MIT Technology Review', url: 'https://www.technologyreview.com/feed/' },
   { source: 'IEEE Spectrum — AI', url: 'https://spectrum.ieee.org/feeds/topic/artificial-intelligence.rss' },
   // Section 91 is SCMP's general China/tech mix, not a tech-only feed — labelled for what
@@ -180,6 +181,50 @@ writeFileSync(
   ) + '\n'
 );
 
+// --- feed health ------------------------------------------------------------
+// A feed that 403s does not fail the run — it just silently contributes nothing, which is
+// exactly how coverage degrades without anyone noticing. Consecutive failures are tracked
+// across runs so a feed that has been dead for days becomes visible instead of invisible.
+
+const HEALTH_PATH = join(ROOT, 'generated', 'feed-health.json');
+const DEAD_AFTER = 8; // ~2 days at the 6-hourly wire cadence
+
+let health = {};
+try {
+  health = readJSON(HEALTH_PATH).feeds || {};
+} catch {
+  health = {};
+}
+
+const dead = [];
+for (const r of runs) {
+  const prev = health[r.feed] || { consecutiveFailures: 0, totalRuns: 0 };
+  const entry = {
+    consecutiveFailures: r.ok ? 0 : prev.consecutiveFailures + 1,
+    totalRuns: prev.totalRuns + 1,
+    lastOk: r.ok ? new Date().toISOString() : prev.lastOk || null,
+    lastError: r.ok ? undefined : r.error,
+    lastCount: r.count,
+  };
+  health[r.feed] = entry;
+  if (entry.consecutiveFailures >= DEAD_AFTER) dead.push({ feed: r.feed, ...entry });
+}
+
+writeFileSync(
+  HEALTH_PATH,
+  JSON.stringify(
+    {
+      $comment:
+        'Written by tools/harvest.mjs. consecutiveFailures resets to 0 on any successful fetch. A feed at or above the DEAD_AFTER threshold is reported loudly by the harvest and should be fixed or removed from FEEDS.',
+      updatedAt: new Date().toISOString(),
+      deadAfter: DEAD_AFTER,
+      feeds: health,
+    },
+    null,
+    2
+  ) + '\n'
+);
+
 // Candidate files are working material, not the archive — generated/YYYY-MM-DD.json is the
 // archive. At roughly a third of a megabyte a day, keeping them forever would add ~120MB a
 // year to a repository whose whole point is being cheap to clone. Two weeks is enough to
@@ -202,7 +247,20 @@ if (failed.length) {
 }
 console.log(`  wrote ${relative(ROOT, outPath)}`);
 
+if (dead.length) {
+  console.error(`\n✗ ${dead.length} feed(s) have failed ${DEAD_AFTER}+ runs in a row and are effectively dead:`);
+  for (const d of dead) {
+    console.error(`    ${d.feed}: ${d.consecutiveFailures} consecutive failures — ${d.lastError}`);
+    console.error(`      last succeeded: ${d.lastOk || 'never'}`);
+  }
+  console.error('  Fix the URL in tools/harvest.mjs FEEDS, or remove the entry.');
+}
+
 if (runs.every((r) => !r.ok)) {
   console.error('✗ every feed failed — that is a network or environment problem, not a quiet news day.');
   process.exit(1);
 }
+
+// A dead feed is a real coverage gap, so it fails the run and surfaces as a workflow
+// failure (which opens an issue) rather than scrolling past in a log nobody reads.
+if (dead.length) process.exit(1);

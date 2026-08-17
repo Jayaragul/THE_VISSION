@@ -23,6 +23,7 @@ concurrency:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   wire:
@@ -56,3 +57,27 @@ jobs:
           # The editorial pipeline may have pushed while we were building.
           git pull --rebase --autostash origin main
           git push
+
+      # The wire is the tier that is supposed to always work. If it stops, that is the one
+      # failure nobody should ever have to discover by visiting the site.
+      - name: Report failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          EXISTING="$(gh issue list --state open --label wire-failure --json number --jq '.[0].number' || true)"
+          BODY="The wire refresh failed on $(date -u '+%Y-%m-%d %H:%M UTC').
+
+          Run: ${RUN_URL}
+
+          The wire needs no API key, so this is usually either a dead feed
+          (tools/harvest.mjs exits non-zero once a feed has failed 8 runs in a row — check
+          generated/feed-health.json) or a build error."
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "$BODY"
+          else
+            gh label create wire-failure --color d93f0b --description "Wire tier failure" 2>/dev/null || true
+            gh issue create --title "Wire refresh failed" --label wire-failure --body "$BODY"
+          fi

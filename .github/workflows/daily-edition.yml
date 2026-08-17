@@ -23,6 +23,7 @@ concurrency:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   publish:
@@ -97,4 +98,50 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "Edition No. ${NUM} — ${DATE}" -m "Published by the scheduled pipeline."
+          git push
+
+      # Without this, a 6am failure is invisible until someone happens to look at the site.
+      # One open issue at a time — re-runs comment on the existing one rather than filing a
+      # new issue every morning, which is how alerting becomes noise and gets muted.
+      - name: Report failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          TITLE="Daily edition failed"
+          EXISTING="$(gh issue list --state open --label pipeline-failure --json number --jq '.[0].number' || true)"
+          BODY="The scheduled edition did not publish on $(date -u '+%Y-%m-%d %H:%M UTC').
+
+          Run: ${RUN_URL}
+
+          The previous edition is still on the front page, and The Wire keeps updating on its
+          own schedule — the site is degraded, not down. Common causes: a missing or expired
+          ANTHROPIC_API_KEY, a spend cap, or an edition that failed \`validate.mjs --strict\`."
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "$BODY"
+          else
+            gh label create pipeline-failure --color b60205 --description "Automated pipeline failure" 2>/dev/null || true
+            gh issue create --title "$TITLE" --label pipeline-failure --body "$BODY"
+          fi
+
+      # The editorial tier failed, but the site should still get today's headlines. This is
+      # the failover: no model, no key, just feeds.
+      - name: Fall back to a wire-only refresh
+        if: failure()
+        run: |
+          set -euo pipefail
+          git reset --hard HEAD
+          node tools/harvest.mjs || true
+          node tools/build.mjs
+          if git diff --quiet; then
+            echo "Wire produced no change."
+            exit 0
+          fi
+          git config user.name  "the-vission-desk[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Wire refresh — editorial pipeline unavailable $(date -u '+%Y-%m-%d')"
+          git pull --rebase --autostash origin main
           git push

@@ -12,7 +12,7 @@ import { basename, dirname, join, resolve as resolvePath } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   readJSON, escapeHTML as e, escapeXML, formatMasthead, formatShort,
-  hostOf, matchPublisher, readMinutes,
+  hostOf, matchPublisher, readMinutes, hash32,
 } from './lib/util.mjs';
 import { renderCover } from './lib/cover.mjs';
 import { selectWireItems, wireBlock, stalenessBanner } from './lib/wire.mjs';
@@ -102,8 +102,28 @@ const byProminence = (a, b) =>
 
 // ------------------------------------------------------------------ covers --
 
+// Covers are permalinked assets: /assets/img/covers/<story-id>.svg is referenced by every
+// social card and every archived page. Changing tools/lib/cover.mjs silently regenerates the
+// art for every story ever published, which happened once deliberately and must not happen
+// again by accident. A lockfile records what each published cover hashes to; the build
+// refuses to overwrite a cover whose hash has changed unless the change is explicit.
+//
+//   node tools/build.mjs --relock    accept the new art and rewrite the lock
+const LOCK_PATH = 'generated/covers.lock.json';
+const RELOCK = process.argv.includes('--relock');
+
 function writeCovers(editions) {
+  let lock = {};
+  try {
+    lock = readJSON(OUT(...LOCK_PATH.split('/'))).covers || {};
+  } catch {
+    lock = {};
+  }
+
+  const next = {};
+  const changed = [];
   let count = 0;
+
   for (const ed of editions) {
     for (const story of ed.stories) {
       const beat = beatMap.get(story.beat);
@@ -112,10 +132,39 @@ function writeCovers(editions) {
         accent: beat?.accent || '#c8102e',
         style: story.cover?.style,
       });
+      const digest = hash32(svg).toString(16);
+      const known = lock[story.id];
+      if (known && known !== digest && !RELOCK) {
+        changed.push(story.id);
+      }
+      next[story.id] = RELOCK || !known ? digest : known;
       write(R.coverPath(story), svg);
       count++;
     }
   }
+
+  if (changed.length) {
+    console.error(`\n✗ cover art changed for ${changed.length} already-published story(ies):`);
+    for (const id of changed.slice(0, 8)) console.error(`    ${id}`);
+    if (changed.length > 8) console.error(`    …and ${changed.length - 8} more`);
+    console.error('\n  These are permalinked assets. Either revert the change to tools/lib/cover.mjs,');
+    console.error('  or run `node tools/build.mjs --relock` if regenerating the archive is intended.');
+    process.exit(1);
+  }
+
+  write(
+    LOCK_PATH,
+    JSON.stringify(
+      {
+        $comment:
+          'Hash of every published cover. The build fails if art changes for a story already recorded here, because cover URLs are permalinks. Run `node tools/build.mjs --relock` to accept a deliberate regeneration.',
+        covers: next,
+      },
+      null,
+      2
+    ) + '\n'
+  );
+
   return count;
 }
 
