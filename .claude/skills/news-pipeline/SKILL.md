@@ -122,8 +122,9 @@ Then run the editorial review:
 Use the editorial-review skill
 ```
 
-It scores the edition against `evals/rubric.md` and writes `evals/last-run.json`. Score below
-threshold means revise, not publish.
+It scores the edition against `evals/rubric.md` and writes `evals/<date>.json`, bound by hash
+to the exact edition it reviewed — `tools/validate.mjs` will refuse to publish if that binding
+doesn't match. Score below threshold means revise, not publish.
 
 ## Stage 5 — Build
 

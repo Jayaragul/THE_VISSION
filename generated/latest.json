@@ -184,12 +184,15 @@
       "summary": [
         "Interactive AI systems must tell users they are not dealing with a human, and AI-generated or altered content must carry machine-readable marks.",
         "The European Commission's AI Office enforces alongside national authorities, with complaint and whistleblower channels now open.",
-        "More than 180 organisations have signed the Code of Practice on transparency of AI-generated content."
+        "More than 180 organisations have signed the Code of Practice on transparency of AI-generated content.",
+        "Violations of the transparency rules carry fines of up to €15m or 3% of global revenue; separately, high-risk obligations covering biometrics, employment and border management were pushed back to December 2027."
       ],
       "body": [
         "The European Commission began enforcing the AI Act's transparency obligations on 2 August, having set out the position in a statement on 31 July. Interactive systems must disclose that a user is dealing with AI rather than a person, deepfakes must be labelled, and AI-generated or altered content must carry machine-readable marks that make it detectable downstream.",
         "Enforcement runs through the Commission's AI Office together with national authorities. The Commission has also opened an AI Act complaints tool, a whistleblower tool, and a separate channel for downstream providers building on general-purpose models. That plumbing is what usually determines whether a rule is real or decorative.",
         "Alongside the obligations sits a Code of Practice on transparency of AI-generated content, which the Commission says more than 180 organisations have signed. Codes of practice are voluntary instruments, and function as evidence of good faith rather than as compliance in themselves.",
+        "Violations carry fines of up to €15m or 3% of global annual revenue, whichever is larger — the same enforcement teeth the Act applies elsewhere, now attached specifically to a failure to disclose or mark synthetic content.",
+        "Not everything scheduled for 2 August actually arrived. Obligations for high-risk systems — those used in biometrics, employment, education, essential services, and migration and border management — were postponed to 2 December 2027. The Commission frames the delay as time for clearer technical standards; critics argue it shields industry from scrutiny while leaving the people most exposed to those systems unprotected for another year and a half.",
         "The machine-readable marking requirement is the demanding part. Watermarking text is substantially harder than watermarking images: marks survive paraphrase poorly, there is no agreed standard across providers, and detection generally requires cooperation from whoever generated the content. Compliance therefore rests on each provider's own scheme."
       ],
       "whyItMatters": "This is the first time a major jurisdiction has required synthetic content to be machine-detectable rather than merely disclosed. If the marking obligation holds, it forces a technical commitment from every provider serving European users — and it does so before the research has settled whether robust text watermarking is achievable at all.",
@@ -216,14 +219,14 @@
           "tier": 1
         },
         {
-          "title": "Commission starts enforcing AI Act rules and new transparency requirements on 2 August",
-          "publisher": "European Commission press corner",
-          "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1714",
-          "publishedAt": "2026-07-31T10:00:00Z",
-          "tier": 1
+          "title": "What came into force with the EU's AI Act this week – and what didn't",
+          "publisher": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/8/6/what-came-into-force-with-the-eus-ai-act-this-week-and-what-didnt",
+          "publishedAt": "2026-08-06T00:00:00Z",
+          "tier": 2
         }
       ],
-      "readMinutes": 1
+      "readMinutes": 2
     },
     {
       "id": "2026-08-17-nvidia-nemotron-35-lightning",
@@ -575,7 +578,7 @@
   "signals": {
     "storyCount": 13,
     "sourceCount": 17,
-    "primaryCount": 13,
+    "primaryCount": 12,
     "publisherCount": 10,
     "beatCount": 6
   }

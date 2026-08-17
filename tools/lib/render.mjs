@@ -1,16 +1,13 @@
 // HTML templates. Pure string functions — no framework, no client-side rendering,
 // no hydration. What the crawler sees is what the reader sees.
 
-import { escapeHTML as e, formatMasthead, formatShort, hostOf, monogram, matchPublisher } from './util.mjs';
+import { escapeHTML as e, formatMasthead, formatShort, hostOf, monogram, matchPublisher, safeJsonLd } from './util.mjs';
 
 /** Path from a page at `depth` directories deep back to a root-relative asset. */
 export const rel = (depth, path) => (depth ? '../'.repeat(depth) : './') + path;
 
 export const storyPath = (story) => `story/${story.id}.html`;
 export const editionPath = (date) => `edition/${date}.html`;
-
-const FONTS =
-  'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap';
 
 // ------------------------------------------------------------------ shell ---
 
@@ -48,13 +45,10 @@ export function page(ctx, opts) {
 <meta name="theme-color" content="#0c0b0a" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="${r('assets/img/favicon.svg')}" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="${e(site.name)}" href="${r('rss.xml')}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="${FONTS}">
 <link rel="stylesheet" href="${r('assets/css/site.css')}">
 <script>try{var t=localStorage.getItem('tv-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-${opts.jsonLd ? `<script type="application/ld+json">${JSON.stringify(opts.jsonLd)}</script>` : ''}
-<script type="application/ld+json">${JSON.stringify({
+${opts.jsonLd ? `<script type="application/ld+json">${safeJsonLd(opts.jsonLd)}</script>` : ''}
+<script type="application/ld+json">${safeJsonLd({
     '@context': 'https://schema.org',
     '@type': 'NewsMediaOrganization',
     name: site.name,

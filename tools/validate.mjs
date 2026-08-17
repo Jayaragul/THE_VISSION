@@ -4,18 +4,19 @@
 //   node tools/validate.mjs                 # validate every edition
 //   node tools/validate.mjs generated/2026-08-17.json
 //   node tools/validate.mjs --strict        # warnings become errors (this is what CI runs)
-//   node tools/validate.mjs --report evals/last-run.json
+//   node tools/validate.mjs --report evals/last-validate.json
 //
 // Exit code 0 = publishable.
 
-import { readdirSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readdirSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { basename, dirname, join, resolve as resolvePath } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readJSON, hostOf, matchPublisher, readMinutes } from './lib/util.mjs';
+import { readJSON, hostOf, matchPublisher, readMinutes, editionHash } from './lib/util.mjs';
 import { validate as validateSchema, assertSupported } from './lib/schema.mjs';
 
 const ROOT = resolvePath(dirname(fileURLToPath(import.meta.url)), '..');
 const GENERATED = join(ROOT, 'generated');
+const EVALS = join(ROOT, 'evals');
 
 const argv = process.argv.slice(2);
 const STRICT = argv.includes('--strict');
@@ -230,6 +231,42 @@ function priorEditions(currentDate) {
   return { seenUrls, seenHeadlines };
 }
 
+/**
+ * A recorded eval is only meaningful if it reviewed the edition that is actually about to
+ * publish. It caught a real drift on this exact repository: the launch eval recorded 11
+ * stories and a "pass" verdict; two more were added afterward by hand, and nothing noticed
+ * the review no longer described what was live. This makes that drift a hard error instead
+ * of a fact nobody happens to check.
+ */
+function checkEvalBinding(doc, err, warn) {
+  const evalPath = join(EVALS, `${doc.edition.date}.json`);
+  if (!existsSync(evalPath)) return; // not every edition needs one; going forward, every new run writes one
+
+  let evalDoc;
+  try {
+    evalDoc = readJSON(evalPath);
+  } catch (e) {
+    err(`evals/${doc.edition.date}.json exists but does not parse: ${e.message}`);
+    return;
+  }
+
+  const binding = evalDoc.edition;
+  if (!binding || !binding.sha256) {
+    warn(`evals/${doc.edition.date}.json has no edition binding — cannot verify it reviewed this exact edition`);
+    return;
+  }
+
+  const actualHash = editionHash(doc);
+  const actualStoryCount = doc.stories.length;
+  const actualSourceCount = new Set(doc.stories.flatMap((s) => (s.sources || []).map((src) => src.url))).size;
+
+  if (binding.sha256 !== actualHash) {
+    err(
+      `evals/${doc.edition.date}.json reviewed a different edition (recorded ${binding.storyCount ?? '?'} stories / ${binding.sourceCount ?? '?'} sources; this edition has ${actualStoryCount} stories / ${actualSourceCount} sources) — re-run the editorial-review skill`
+    );
+  }
+}
+
 function jaccard(a, b) {
   if (!a.size || !b.size) return 0;
   let shared = 0;
@@ -335,6 +372,11 @@ function checkEdition(file) {
     }
 
     let bestTier = 9;
+    // Identity for independence-checking, not the raw host: two URLs on blogs.nvidia.com
+    // and nvidianews.nvidia.com are the same publisher wearing two subdomains, and the
+    // point of requiring two sources is two people who could each be wrong independently —
+    // not two links.
+    const publisherIdentities = new Set();
     for (const src of sources) {
       const host = hostOf(src.url);
       if (!host) {
@@ -349,6 +391,7 @@ function checkEdition(file) {
       const known = matchPublisher(host, sourceBook.publishers);
       const tier = known?.tier ?? 4;
       bestTier = Math.min(bestTier, tier);
+      publisherIdentities.add((known?.name || host).toLowerCase());
       if (!known) warn(`${tag}: ${host} is not in the source book (treated as tier 4)`);
       if (src.tier != null && known && src.tier !== known.tier) {
         warn(`${tag}: ${host} declared tier ${src.tier}, source book says ${known.tier}`);
@@ -380,11 +423,25 @@ function checkEdition(file) {
     if (sources.length && bestTier > 3) {
       err(`${tag}: no source above tier 3 — needs a primary source or an established newsroom`);
     }
-    if (s.prominence === 'lead' && bestTier > 2) {
+    // bestTier > 2 previously let a lead sourced ENTIRELY at tier 2 through with no warning
+    // at all — "no tier-1 source" is true whenever the best available is 2 or worse, not
+    // only when it degrades to 3.
+    if (s.prominence === 'lead' && bestTier > 1) {
       warn(`${tag}: the lead story has no tier-1 primary source`);
     }
     if (s.confidence === 'low' && (s.prominence === 'lead' || s.prominence === 'top')) {
       warn(`${tag}: low-confidence story is running at ${s.prominence} prominence`);
+    }
+    // editorial.md's confidence rubric: "high" means a primary source confirms the central
+    // claim. That was previously a label the pipeline could set on its own honour; this
+    // makes it checkable.
+    if (s.confidence === 'high' && bestTier > 1) {
+      err(`${tag}: confidence "high" requires a tier-1 primary source, best available is tier ${bestTier}`);
+    }
+    // Lead/top need two sources by count already; this checks they are not the same
+    // publisher's byline and its own press release counted as two.
+    if ((s.prominence === 'lead' || s.prominence === 'top') && sources.length >= 2 && publisherIdentities.size < 2) {
+      err(`${tag}: ${s.prominence} story's sources are not independent — all trace to the same publisher`);
     }
 
     // Deck must earn its place.
@@ -424,6 +481,8 @@ function checkEdition(file) {
       warn(`${tag}: readMinutes ${s.readMinutes} is off (computed ${readMinutes(s)}); the build will correct it`);
     }
   }
+
+  checkEvalBinding(doc, err, warn);
 
   // --- beat coverage --------------------------------------------------------
   for (const beat of beats) {

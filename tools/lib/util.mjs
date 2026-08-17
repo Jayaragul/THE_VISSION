@@ -2,6 +2,7 @@
 // on a bare `node` with no install step, so CI stays fast and cannot rot.
 
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 
 export function readJSON(path) {
   try {
@@ -13,6 +14,12 @@ export function readJSON(path) {
 
 /** FNV-1a. Stable across runs and platforms, which is the whole point — cover art
  *  for a given story must never change once published. */
+/** SHA-256 of an edition's stories array. What an eval file's edition binding is checked
+ *  against — any change to the edition after review changes this, which is the point. */
+export function editionHash(doc) {
+  return createHash('sha256').update(JSON.stringify(doc.stories)).digest('hex');
+}
+
 export function hash32(str) {
   let h = 0x811c9dc5;
   for (let i = 0; i < str.length; i++) {
@@ -63,6 +70,14 @@ export function escapeAttr(str) {
 
 export function escapeXML(str) {
   return escapeHTML(str);
+}
+
+/** JSON.stringify does not escape `<`, so a field containing the literal text "</script>"
+ *  — a headline quoting one, say — would close the tag early and let whatever follows run
+ *  as markup instead of data. The JSON spec allows \u-escaping any character, so this stays
+ *  valid JSON while being unable to contain a tag-closing sequence. */
+export function safeJsonLd(value) {
+  return JSON.stringify(value).replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026');
 }
 
 // ---------------------------------------------------------------- colour ----

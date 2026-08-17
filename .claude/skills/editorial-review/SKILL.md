@@ -1,6 +1,6 @@
 ---
 name: editorial-review
-description: Score a drafted edition of THE VISSION against evals/rubric.md before it publishes — checks sourcing, prose quality, selection judgement and edition balance, then writes evals/last-run.json with a pass or revise verdict. Use after drafting an edition and before building or pushing, or when asked to review, grade or critique an edition.
+description: Score a drafted edition of THE VISSION against evals/rubric.md before it publishes — checks sourcing, prose quality, selection judgement and edition balance, then writes evals/<date>.json with a pass or revise verdict, bound to the exact edition it reviewed. Use after drafting an edition and before building or pushing, or when asked to review, grade or critique an edition.
 ---
 
 # The review pass
@@ -57,12 +57,31 @@ Work through these on the actual copy. They are ordered by how often they catch 
 
 ## Verdict
 
-Write `evals/last-run.json`:
+Write `evals/<edition-date>.json` — **not** a fixed filename. An eval that does not name
+which edition it reviewed is a claim nobody can check, and this repository has already shipped
+one that silently drifted: a review recorded 11 stories while 13 were live on the site. The
+`edition` block below is what `tools/validate.mjs` checks against the real edition before
+publish — get it wrong and the gate blocks, which is the point.
+
+Compute it, don't guess it:
+
+```bash
+node --input-type=module -e "
+import { readJSON, editionHash } from './tools/lib/util.mjs';
+const doc = readJSON('generated/<edition-date>.json');
+console.log({
+  storyCount: doc.stories.length,
+  sourceCount: new Set(doc.stories.flatMap(s => (s.sources||[]).map(x=>x.url))).size,
+  sha256: editionHash(doc),
+});
+"
+```
 
 ```json
 {
   "date": "YYYY-MM-DD",
   "reviewedAt": "ISO-8601",
+  "edition": { "date": "YYYY-MM-DD", "storyCount": 13, "sourceCount": 17, "sha256": "<from the command above>" },
   "scores": { "sourcing": 5, "accuracy": 4, "prose": 4, "selection": 4, "balance": 5 },
   "total": 22,
   "verdict": "pass",
@@ -78,12 +97,17 @@ Write `evals/last-run.json`:
 - **Anything else** → `revise`. Fix the specific stories named in `revisions`, then score
   again from scratch. Do not carry forward the old scores.
 
+If you revise the edition after scoring, recompute the `edition` block before writing the
+file — a binding for the edition you scored an hour ago, not the one you are about to ship,
+is exactly the drift this mechanism exists to catch.
+
 Two failed review passes on the same edition means the underlying research is thin. Go back
 to Stage 1 and find better stories rather than polishing weak ones.
 
 ## Keep the record
 
-`evals/last-run.json` is overwritten each run — that is fine, git holds the history. Over
-time the interesting question is which dimension keeps scoring lowest. When one does, the fix
-is usually a rule added to `input/editorial.md` or a new check in `tools/validate.mjs`, so
+Each edition's eval lives at its own path, keyed by date — nothing is overwritten, and the
+archive of past scores is the `evals/` directory itself, not git history for one mutable file.
+Over time the interesting question is which dimension keeps scoring lowest. When one does, the
+fix is usually a rule added to `input/editorial.md` or a new check in `tools/validate.mjs`, so
 that the next run cannot make the same mistake. That is how this paper gets better.

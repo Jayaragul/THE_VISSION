@@ -45,8 +45,10 @@ jobs:
           prompt: |
             Run a retrospective on THE VISSION's last seven editions.
 
-            Read evals/rubric.md, then `git log -p --follow evals/last-run.json` for the
-            score history, then the most recent editions in generated/.
+            Read evals/rubric.md, then every evals/<date>.json for the last seven editions
+            (`ls evals/*.json | sort | tail -7`, each one is bound by hash to a specific
+            edition — trust the scores in it) for the score history, then the corresponding
+            editions in generated/.
 
             Find the ONE pattern that has cost the paper the most points across those runs.
             Not a list — the single highest-leverage problem.
@@ -71,6 +73,23 @@ jobs:
             history, the specific fix, and what it would have caught. Keep it short.
 
             Do not merge. Do not push to main.
+
+      # The one thing this job must never be able to do is widen its own reach: touch the
+      # workflow that grants it write access, or rewrite a published edition. Everything
+      # else it proposes is a PR a human reads before it takes effect, which is the real
+      # control — this is the floor beneath that control, not a substitute for it.
+      - name: Refuse to propose changes to forbidden paths
+        run: |
+          set -euo pipefail
+          FORBIDDEN='^(\.github/workflows/|generated/[0-9]|evals/[0-9]|LICENSE$)'
+          CHANGED="$(git status --porcelain | awk '{print $2}')"
+          BAD="$(echo "$CHANGED" | grep -E "$FORBIDDEN" || true)"
+          if [ -n "$BAD" ]; then
+            echo "::error::Retrospective proposed a change to a forbidden path — refusing to open a PR:"
+            echo "$BAD"
+            git checkout -- .
+            exit 1
+          fi
 
       - name: Open the pull request
         env:

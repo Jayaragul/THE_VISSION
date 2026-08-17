@@ -97,13 +97,18 @@ that is hardest to notice from inside a single run.
 
 ## Recording the result
 
-Write `evals/last-run.json` in the shape given in the `editorial-review` skill. Include the
-evidence, not just the numbers — a score with no quoted example is not a review.
+Write `evals/<edition-date>.json` in the shape given in the `editorial-review` skill,
+including the `edition` binding block (story count, source count, a SHA-256 of the edition's
+stories). `tools/validate.mjs` checks that binding against the real edition on every run and
+blocks publication if they disagree — an eval that reviewed a different edition than the one
+about to ship is not a review, it's a stale claim. Include the evidence, not just the
+numbers — a score with no quoted example is not a review either.
 
 ## Using the history
 
-`evals/last-run.json` is overwritten every run; git keeps the history. The signal worth
-watching is which dimension scores lowest over a stretch of editions:
+Each edition's eval lives at its own dated path; nothing is overwritten, so `evals/` itself is
+the archive. The signal worth watching is which dimension scores lowest over a stretch of
+editions:
 
 - **Sourcing or accuracy trending down** → tighten `tools/validate.mjs`. A machine check that
   cannot be forgotten beats a rule that can.
