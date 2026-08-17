@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alibaba&#39;s Qwen3.8-27B lands under Apache 2.0 with a 262,144-token context — THE VISSION</title>
+<meta name="description" content="The model card lists a vision encoder, a hybrid Gated DeltaNet and attention stack across 64 layers, and coding scores of 73.0 on Terminal Bench and 61.7 on SWE-bench Pro.">
+<link rel="canonical" href="https://jayaragul.github.io/THE_VISSION/story/2026-08-17-qwen38-27b-apache.html">
+<meta name="generator" content="THE VISSION pipeline">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="THE VISSION">
+<meta property="og:title" content="Alibaba&#39;s Qwen3.8-27B lands under Apache 2.0 with a 262,144-token context — THE VISSION">
+<meta property="og:description" content="The model card lists a vision encoder, a hybrid Gated DeltaNet and attention stack across 64 layers, and coding scores of 73.0 on Terminal Bench and 61.7 on SWE-bench Pro.">
+<meta property="og:url" content="https://jayaragul.github.io/THE_VISSION/story/2026-08-17-qwen38-27b-apache.html">
+<meta property="og:image" content="https://jayaragul.github.io/THE_VISSION/assets/img/covers/2026-08-17-qwen38-27b-apache.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alibaba&#39;s Qwen3.8-27B lands under Apache 2.0 with a 262,144-token context — THE VISSION">
+<meta name="twitter:description" content="The model card lists a vision encoder, a hybrid Gated DeltaNet and attention stack across 64 layers, and coding scores of 73.0 on Terminal Bench and 61.7 on SWE-bench Pro.">
+<meta name="twitter:image" content="https://jayaragul.github.io/THE_VISSION/assets/img/covers/2026-08-17-qwen38-27b-apache.svg">
+
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="THE VISSION" href="../rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>try{var t=localStorage.getItem('tv-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Alibaba's Qwen3.8-27B lands under Apache 2.0 with a 262,144-token context","description":"The model card lists a vision encoder, a hybrid Gated DeltaNet and attention stack across 64 layers, and coding scores of 73.0 on Terminal Bench and 61.7 on SWE-bench Pro.","datePublished":"2026-08-14T09:00:00Z","dateModified":"2026-08-17T09:40:00Z","articleSection":"Models","keywords":"open-weights, long-context, multimodal, benchmarks","author":{"@type":"Organization","name":"THE VISSION Desk","url":"https://jayaragul.github.io/THE_VISSION"},"publisher":{"@type":"Organization","name":"THE VISSION","url":"https://jayaragul.github.io/THE_VISSION"},"mainEntityOfPage":"https://jayaragul.github.io/THE_VISSION/story/2026-08-17-qwen38-27b-apache.html","image":["https://jayaragul.github.io/THE_VISSION/assets/img/covers/2026-08-17-qwen38-27b-apache.svg"],"citation":[{"@type":"CreativeWork","name":"Qwen3.8-27B model card","url":"https://huggingface.co/Qwen/Qwen3.8-27B","publisher":{"@type":"Organization","name":"Hugging Face"}}]}</script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><div class="wrap topbar__in">
+<span class="topbar__date">Monday, 17 August 2026</span>
+<span>No. 1</span>
+<span class="topbar__spacer"></span>
+<span class="live">Updated <time datetime="2026-08-17T09:40:00Z" data-relative>17 Aug 2026</time></span>
+<button class="themetoggle" type="button" data-theme-toggle>Dark</button>
+</div></div>
+<header class="masthead">
+<div class="wrap">
+<a class="masthead__title" href="../index.html">THE <em>VISSION</em></a>
+<div class="masthead__rule" role="presentation"></div>
+<div class="masthead__tagline">The daily record of artificial intelligence</div>
+</div>
+</header>
+<nav class="beatnav" aria-label="Sections"><div class="wrap beatnav__in">
+<a href="../index.html#models">Models</a><a href="../index.html#research">Research</a><a href="../index.html#business">Business</a><a href="../index.html#policy">Policy</a><a href="../index.html#infrastructure">Infrastructure</a><a href="../index.html#society">Society</a>
+<span class="beatnav__sep"></span>
+<a class="is-quiet" href="../archive.html">Archive</a>
+<a class="is-quiet" href="../methodology.html">Method</a>
+<a class="is-quiet" href="../rss.xml">RSS</a>
+</div></nav>
+<main id="main">
+<div class="wrap article">
+<div class="crumbs">
+<a href="../index.html">Front page</a><span>/</span>
+<a href="../index.html#models">Models</a><span>/</span>
+<a href="../edition/2026-08-17.html">17 Aug 2026</a>
+</div>
+
+<div class="article__grid">
+<article>
+<div class="kicker">Open weights</div>
+<h1 class="article__title">Alibaba&#39;s Qwen3.8-27B lands under Apache 2.0 with a 262,144-token context</h1>
+<p class="article__deck">The model card lists a vision encoder, a hybrid Gated DeltaNet and attention stack across 64 layers, and coding scores of 73.0 on Terminal Bench and 61.7 on SWE-bench Pro.</p>
+
+<div class="article__byline">
+<span class="byline__name">THE VISSION Desk</span>
+<div class="meta" style="margin:0">
+<span><time datetime="2026-08-14T09:00:00Z">Monday, 17 August 2026</time></span>
+<span>2 min read</span>
+<span>1 source</span>
+<span><span class="tag">high confidence</span></span>
+</div>
+</div>
+
+<img class="article__cover" src="../assets/img/covers/2026-08-17-qwen38-27b-apache.svg" alt="" width="1200" height="675" fetchpriority="high">
+<p class="article__caption">Original cover art, generated for this story. THE VISSION does not republish third-party press imagery.</p>
+
+<div class="callout">
+<div class="callout__label">The short version</div>
+<ul class="keypoints" style="border-left-color:var(--accent);margin-bottom:0">
+<li>Qwen3.8-27B is published on Hugging Face under Apache 2.0, a permissive licence with no revenue-share condition.</li><li>The card states 262,144 tokens of native context, extensible to one million, across a 64-layer hybrid architecture with a vision encoder.</li><li>Self-reported benchmarks include 89.2 on GPQA Diamond, 90.3 on LiveCodeBench and 84.3 on OSWorld-Verified.</li>
+</ul>
+</div>
+
+<div class="prose"><p>Alibaba&#39;s Qwen team published Qwen3.8-27B on Hugging Face in mid-August under an Apache 2.0 licence. At 27 billion parameters it is sized to run on a single well-specified machine, and the licence carries none of the revenue-share or use-restriction conditions attached to several other recent open-weight releases.</p><p>The model card describes a causal language model with a vision encoder, 64 layers, and a hybrid stack combining Gated DeltaNet with gated attention. Native context is listed as 262,144 tokens, extensible to one million. Multimodal input, long context, a permissive licence and a single-machine footprint in one artefact is an unusual combination.</p><p>The benchmark figures are the card&#39;s own: 73.0 on Terminal Bench and 61.7 on SWE-bench Pro for coding, 89.2 on GPQA Diamond, 90.3 on LiveCodeBench, and 84.3 on OSWorld-Verified with 64.8 on WebArena-Verified for computer use. Numbers self-reported on a model card are a claim rather than a result — though with open weights, anyone can check them.</p><p>That checkability is much of the point. A permissively licensed model that runs locally can be evaluated, fine-tuned and deployed by parties who will never sign an API agreement, and the gap between what such a model does and what a hosted frontier model does is the number worth tracking over the next year.</p></div>
+
+<div class="callout"><div class="callout__label">Why it matters</div><p>A 27B model with a million-token ceiling and an Apache licence is deployable inside organisations that cannot send data to an API — regulated industries, government, anyone with a sovereignty requirement. Each release at this size and licence narrows the set of problems for which a frontier API is the only workable answer.</p></div>
+
+<div class="meta" style="margin-top:30px"><span>Alibaba</span><span>Qwen</span><span>Hugging Face</span></div>
+</article>
+
+<aside class="rail">
+<div class="rail__block">
+<h2 class="rail__title">Sources</h2>
+<ol class="sourcelist"><li>
+<span class="source__mark" aria-hidden="true">HF</span>
+<span>
+<a href="https://huggingface.co/Qwen/Qwen3.8-27B" rel="noopener nofollow" target="_blank">Qwen3.8-27B model card</a>
+<span class="pub">Hugging Face · Tier 1 · 14 Aug 2026</span>
+</span>
+</li></ol>
+</div>
+<div class="rail__block">
+<h2 class="rail__title">Also in this edition</h2>
+<ul class="rail__list">
+<li><a href="../story/2026-08-17-nvidia-nemotron-35-lightning.html"><span class="k">Models</span>Nvidia aims Nemotron 3.5 Lightning at agent workloads with a 30B sparse model</a></li><li><a href="../story/2026-08-17-anthropic-claude-text-watermark.html"><span class="k">Models</span>Anthropic publishes a technical account of how Claude&#39;s text watermark works</a></li><li><a href="../story/2026-08-17-nvidia-local-ai-community.html"><span class="k">Models</span>Nvidia courts the local AI community around open models and agents</a></li><li><a href="../story/2026-08-17-nvidia-500bn-compute-financing.html"><span class="k">Infrastructure</span>Nvidia hands the AI build-out to Wall Street with a $500bn financing push</a></li><li><a href="../story/2026-08-17-openai-astra-cyber-pause.html"><span class="k">Research</span>OpenAI pauses work on Astra after tests flag possible critical cyber capability</a></li>
+</ul>
+</div>
+<div class="rail__block">
+<h2 class="rail__title">How this was made</h2>
+<p style="font-family:var(--sans);font-size:.82rem;line-height:1.6;color:var(--muted)">
+Researched, written and published by an automated pipeline, then checked against the paper's
+editorial rules before release. <a href="../methodology.html" style="color:var(--accent)">Read the method</a>.
+</p>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<footer class="footer"><div class="wrap">
+<div class="footer__grid">
+<div>
+<div class="footer__mark">THE <em>VISSION</em></div>
+<p>Every story on this site is researched, written and published by an autonomous Claude Code pipeline. Every claim links to its primary source.</p>
+</div>
+<div>
+<h4>Sections</h4>
+<ul><li><a href="../index.html#models">Models</a></li><li><a href="../index.html#research">Research</a></li><li><a href="../index.html#business">Business</a></li><li><a href="../index.html#policy">Policy</a></li><li><a href="../index.html#infrastructure">Infrastructure</a></li><li><a href="../index.html#society">Society</a></li></ul>
+</div>
+<div>
+<h4>The paper</h4>
+<ul>
+<li><a href="../archive.html">Archive</a></li>
+<li><a href="../methodology.html">Methodology</a></li>
+<li><a href="../rss.xml">RSS feed</a></li>
+<li><a href="../generated/index.json">Data (JSON)</a></li>
+</ul>
+</div>
+<div>
+<h4>Open</h4>
+<ul>
+<li><a href="https://github.com/Jayaragul/THE_VISSION" rel="noopener">Source repository</a></li>
+<li><a href="https://github.com/Jayaragul/THE_VISSION/tree/main/input" rel="noopener">Editorial rules</a></li>
+<li><a href="https://github.com/Jayaragul/THE_VISSION/tree/main/evals" rel="noopener">Evaluations</a></li>
+</ul>
+</div>
+</div>
+<div class="footer__base">
+<span>© 2026 THE VISSION</span>
+<span>No advertising. No sponsorship. No position in anything covered.</span>
+<span>Every page is rebuilt from JSON on each run.</span>
+</div>
+</div></footer>
+<script src="../assets/js/app.js" defer></script>
+</body>
+</html>

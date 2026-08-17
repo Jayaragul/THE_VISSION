@@ -1,0 +1,42 @@
+name: Verify
+
+# Runs on every push. Two things are being asserted:
+#   1. Every edition passes the editorial gate.
+#   2. The committed HTML is exactly what the JSON builds to — no hand-edited pages,
+#      no drift between the data and the site.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Editorial gate
+        run: node tools/validate.mjs --strict
+
+      - name: Build
+        run: node tools/build.mjs
+
+      - name: Assert the site matches the data
+        run: |
+          set -euo pipefail
+          if ! git diff --quiet; then
+            echo "::error::Committed HTML does not match what the JSON builds to."
+            echo "Run 'node tools/build.mjs' locally and commit the result."
+            git diff --stat
+            exit 1
+          fi
+          echo "Site is in sync with generated/."

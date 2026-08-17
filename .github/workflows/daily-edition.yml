@@ -1,0 +1,87 @@
+name: Daily edition
+
+# The scheduled newsroom. Claude researches and writes the edition JSON; the workflow
+# validates, builds and publishes it. Claude never runs git here — if the edition fails
+# the gate, the job fails and yesterday's front page stays up.
+
+on:
+  schedule:
+    # 06:30 UTC = 12:00 IST. GitHub queues cron jobs under load, so treat this as
+    # "some time after", not "exactly at".
+    - cron: '30 6 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Edition date (YYYY-MM-DD). Leave blank for today.'
+        required: false
+        type: string
+
+concurrency:
+  group: edition
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Show what already ran
+        run: node tools/edition-info.mjs ${{ inputs.date }}
+
+      - name: Research and write the edition
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: |
+            --model claude-opus-5
+            --max-turns 120
+            --allowedTools WebSearch,WebFetch,Read,Write,Edit,Glob,Grep,Skill,Bash(node tools/*)
+          prompt: |
+            Use the news-pipeline skill to produce today's edition of THE VISSION.
+
+            Edition date: ${{ inputs.date || '' }} (blank means today, UTC).
+            Set edition.generator.trigger to "schedule".
+
+            Work stages 1 through 4 only: research, select, write, and pass the gate at
+            `node tools/validate.mjs --strict`. Then run the editorial-review skill and
+            write evals/last-run.json.
+
+            Do NOT run git. Do NOT run tools/build.mjs. This workflow does both after you
+            finish, and it will refuse to publish an edition that does not pass the gate.
+
+            If fewer stories survive verification than input/beats.json requires, write what
+            you have and say so plainly in edition.summary. Never invent a source to fill a
+            slot — a short edition is fine, a fabricated one ends the project.
+
+      - name: Gate
+        run: node tools/validate.mjs --strict --report evals/last-validate.json
+
+      - name: Build the site
+        run: node tools/build.mjs
+
+      - name: Publish
+        run: |
+          set -euo pipefail
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No changes — nothing to publish."
+            exit 0
+          fi
+          DATE="$(node -e "console.log(require('./generated/index.json').latest)")"
+          NUM="$(node -e "const m=require('./generated/index.json');console.log(m.editions[0].number)")"
+          git config user.name  "the-vission-desk[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Edition No. ${NUM} — ${DATE}" -m "Published by the scheduled pipeline."
+          git push

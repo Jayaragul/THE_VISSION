@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Abstract cover illustration">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#16371d"/><stop offset="0.55" stop-color="#0d1c16"/><stop offset="1" stop-color="#1c5f35"/>
+</linearGradient>
+<radialGradient id="core" cx="0.4" cy="0.35" r="0.75">
+<stop offset="0" stop-color="#76def9" stop-opacity="0.95"/><stop offset="0.5" stop-color="#53eed6" stop-opacity="0.55"/><stop offset="1" stop-color="#19cc74" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="halo" cx="0.67" cy="0.29" r="0.85">
+<stop offset="0" stop-color="#76def9" stop-opacity="0.4"/><stop offset="1" stop-color="#76def9" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="vig" cx="0.5" cy="0.5" r="0.75">
+<stop offset="0.55" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.55"/>
+</radialGradient>
+<filter id="grain" x="0" y="0" width="100%" height="100%">
+<feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" result="t"/>
+<feColorMatrix type="saturate" values="0" in="t" result="g"/>
+</filter>
+<clipPath id="frame"><rect x="0" y="0" width="1200" height="675"/></clipPath>
+</defs>
+<rect width="1200" height="675" fill="url(#bg)"/>
+<g clip-path="url(#frame)"><g transform="rotate(1.9 412.11 315.04)"><ellipse cx="412.11" cy="315.04" rx="546.97" ry="369.89" fill="none" stroke="#19cc74" stroke-opacity="0.44" stroke-width="3"/><ellipse cx="412.11" cy="315.04" rx="478.6" ry="234.16" fill="none" stroke="#19cc74" stroke-opacity="0.4" stroke-width="0.99"/><ellipse cx="412.11" cy="315.04" rx="410.23" ry="209.24" fill="none" stroke="#19cc74" stroke-opacity="0.36" stroke-width="1.85"/><ellipse cx="412.11" cy="315.04" rx="341.86" ry="170.27" fill="none" stroke="#19cc74" stroke-opacity="0.31" stroke-width="2.02"/><ellipse cx="412.11" cy="315.04" rx="273.49" ry="151.88" fill="none" stroke="#19cc74" stroke-opacity="0.27" stroke-width="1.59"/><ellipse cx="412.11" cy="315.04" rx="205.11" ry="88.54" fill="none" stroke="#19cc74" stroke-opacity="0.23" stroke-width="2.9"/><ellipse cx="412.11" cy="315.04" rx="136.74" ry="79.62" fill="none" stroke="#19cc74" stroke-opacity="0.19" stroke-width="2.19"/><ellipse cx="412.11" cy="315.04" rx="68.37" ry="39.7" fill="none" stroke="#19cc74" stroke-opacity="0.14" stroke-width="2.77"/></g><circle cx="412.11" cy="315.04" r="61.53" fill="url(#core)"/><circle cx="578.67" cy="277.99" r="9.53" fill="#76def9" fill-opacity="0.89"/><circle cx="622.31" cy="442.26" r="4.43" fill="#76def9" fill-opacity="0.89"/><circle cx="84.69" cy="329.54" r="11.87" fill="#76def9" fill-opacity="0.66"/><circle cx="272.51" cy="406.45" r="15.67" fill="#76def9" fill-opacity="0.79"/></g>
+<rect width="1200" height="675" fill="url(#halo)" style="mix-blend-mode:screen"/>
+<g clip-path="url(#frame)"><line x1="0" y1="0" x2="0" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="100" y1="0" x2="100" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="200" y1="0" x2="200" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="300" y1="0" x2="300" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="400" y1="0" x2="400" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="500" y1="0" x2="500" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="600" y1="0" x2="600" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="700" y1="0" x2="700" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="800" y1="0" x2="800" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="900" y1="0" x2="900" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="1000" y1="0" x2="1000" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="1100" y1="0" x2="1100" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="1200" y1="0" x2="1200" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="0" y1="0" x2="1200" y2="0" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="0" y1="100" x2="1200" y2="100" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="0" y1="200" x2="1200" y2="200" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="0" y1="300" x2="1200" y2="300" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="0" y1="400" x2="1200" y2="400" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="0" y1="500" x2="1200" y2="500" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="0" y1="600" x2="1200" y2="600" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/></g>
+<rect width="1200" height="675" fill="url(#vig)"/>
+<rect width="1200" height="675" filter="url(#grain)" opacity="0.14" style="mix-blend-mode:overlay"/>
+</svg>

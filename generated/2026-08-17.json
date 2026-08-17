@@ -1,0 +1,476 @@
+{
+  "$schema": "../schema/edition.schema.json",
+  "edition": {
+    "date": "2026-08-17",
+    "number": 1,
+    "generatedAt": "2026-08-17T09:40:00Z",
+    "title": "Wall Street underwrites the build-out, and OpenAI stops its own clock",
+    "summary": "Nvidia spent the week turning AI infrastructure into an asset class, lining up six of the largest asset managers behind more than $500bn of third-party capital and guaranteeing part of the residual value of the chips used as collateral. Against that, OpenAI halted internal work on an unreleased model it cannot yet rule sub-critical for cyber capability. This first edition leans heavily on one company, which reflects a genuinely dense week from Nvidia rather than a judgement that nothing else happened.",
+    "generator": {
+      "model": "claude-opus-5",
+      "pipeline": "news-pipeline@1.0.0",
+      "trigger": "manual"
+    }
+  },
+  "stories": [
+    {
+      "id": "2026-08-17-nvidia-500bn-compute-financing",
+      "slug": "nvidia-500bn-compute-financing",
+      "beat": "infrastructure",
+      "kicker": "Compute finance",
+      "headline": "Nvidia hands the AI build-out to Wall Street with a $500bn financing push",
+      "deck": "Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR will raise third-party capital for data centres, with Nvidia backstopping part of the value of the chips pledged as collateral.",
+      "summary": [
+        "Six asset managers will mobilise more than $500bn of third-party capital through independent compute financing platforms, announced on 10 August.",
+        "Nvidia will cover up to 25% of the shortfall if GPUs pledged as collateral fail to hold their expected value, according to TechCrunch's reporting.",
+        "The structure keeps the borrowing off Nvidia's balance sheet while giving customers a route to finance hardware they could not buy outright.",
+        "Jensen Huang says the aim is to bring independent, long-term institutional capital into AI infrastructure, after bond markets balked at circular financing."
+      ],
+      "body": [
+        "Nvidia said on 10 August that Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR have agreed to establish independent compute financing platforms intended to mobilise more than $500bn of third-party capital for AI infrastructure. The company framed the platforms as a way to fund the build-out of data centres without that funding sitting on its own books.",
+        "The mechanism that makes the arrangement work is a residual value guarantee. TechCrunch reported on 13 August that Nvidia has agreed to cover up to 25% of the difference if the GPUs pledged as collateral fail to hold their expected price. That commitment converts a fast-depreciating asset into something a lender can underwrite, which is the precondition for institutional money entering at this scale.",
+        "Jensen Huang, Nvidia's chief executive, has spent the days since defending the structure in public. Bond markets had grown uneasy about the circularity of a chip supplier financing its own customers, and Huang argued that the platforms do the opposite, by bringing independent, long-term institutional capital into the market. He also pointed to resale: when needs change, he said, a factory can be used by another customer, another cloud or another operator.",
+        "That second argument is the more consequential one. A guarantee is only as good as the secondary market standing behind it, and no deep market for used AI accelerators currently exists. Nvidia is effectively underwriting one into being, and the residual value it is promising to defend is the residual value of its own product.",
+        "The obvious objection is that the risk has not disappeared, only moved. Nvidia's exposure is capped at a quarter of any shortfall rather than eliminated, and the guarantee falls due precisely when demand softens — the moment the company would least want to be writing cheques."
+      ],
+      "whyItMatters": "For two years the constraint on AI infrastructure has been described as chips. This says the constraint is now capital, and that the build-out has run past what hyperscaler cash flow can cover. Bringing in pension and insurance money changes who absorbs the loss if demand disappoints, and moves a share of AI's downside onto balance sheets with no particular insight into how quickly a GPU stops being useful.",
+      "prominence": "lead",
+      "publishedAt": "2026-08-10T13:00:00Z",
+      "confidence": "high",
+      "entities": [
+        "Nvidia",
+        "Apollo",
+        "BlackRock",
+        "Blackstone",
+        "Brookfield",
+        "Goldman Sachs",
+        "KKR",
+        "Jensen Huang"
+      ],
+      "tags": [
+        "compute",
+        "financing",
+        "data-centres",
+        "gpus"
+      ],
+      "sources": [
+        {
+          "title": "NVIDIA Partners With Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR to Establish AI Compute Infrastructure Financing Platforms to Mobilize Over $500 Billion of Third-Party Capital",
+          "publisher": "NVIDIA",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-ai-compute-infrastructure-financing-platforms",
+          "publishedAt": "2026-08-10T13:00:00Z",
+          "tier": 1
+        },
+        {
+          "title": "Nvidia's new $500B plan is risky but brilliant, especially for aging GPUs",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/13/nvidias-new-500b-plan-is-risky-but-brilliant-especially-for-aging-gpus/",
+          "publishedAt": "2026-08-13T12:00:00Z",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-08-17-openai-astra-cyber-pause",
+      "slug": "openai-astra-cyber-pause",
+      "beat": "research",
+      "kicker": "Frontier safety",
+      "headline": "OpenAI pauses work on Astra after tests flag possible critical cyber capability",
+      "deck": "The company says it cannot rule out that an unreleased model crosses its Preparedness Framework threshold for cybersecurity, and has halted internal work that does not meet new controls.",
+      "summary": [
+        "Preliminary evaluations found advances in agentic coding and cyber operations strong enough that OpenAI cannot rule out the critical capability level.",
+        "Internal Astra activity failing the strengthened requirements has stopped, with sandboxed execution, restricted network access and weight encryption added.",
+        "OpenAI stresses the assessment is preliminary and that Astra has not been formally classified as a critical cybersecurity model.",
+        "The company says it will seek evaluations from government agencies and independent safety organisations before any deployment."
+      ],
+      "body": [
+        "OpenAI disclosed in early August that internal evaluations of Astra, an unreleased model, showed enough capability in agentic coding and cybersecurity that the company could not rule out the critical threshold in its Preparedness Framework. In its own words, quoted by Help Net Security: preliminary evaluations indicate strong enough performance that it cannot rule out the critical capability level at this time.",
+        "The practical consequence is a stop order on parts of its own research programme. Internal Astra activities that do not meet strengthened security requirements have been halted. The controls OpenAI describes adding — isolated testing environments, restricted network and tool access, additional encryption of model weights, expanded monitoring and sandboxed execution — read less like product hardening than like handling procedures for a hazardous material.",
+        "The caveat matters, and OpenAI is explicit about it. This is a preliminary assessment, Astra has not been formally classified as a critical cybersecurity model, and evaluation continues before a final determination. The company also says it will ask government agencies and independent safety organisations to run their own evaluations, and will give external testers guidance and security measures, before deployment.",
+        "What makes this notable is the direction of the decision rather than its scale. Preparedness frameworks have been published by several labs for two years. This is the first time one has visibly stopped work at a lab rather than shaping the wording of a release note after the fact.",
+        "The counter-reading is that a preliminary, self-assessed, self-published threshold with no external audit is a weak instrument, and that announcing a pause on cyber grounds is also a capability claim with commercial value. Both readings can be true at once."
+      ],
+      "whyItMatters": "A threshold only means something if crossing it costs the lab something. This is the first public instance of a frontier developer halting its own work on cybersecurity grounds, which makes it the first real test of whether these frameworks bind. Whether it holds depends on what happens at the final determination, when the incentive to find Astra sub-critical will be considerably stronger than it is now.",
+      "prominence": "top",
+      "publishedAt": "2026-08-10T08:00:00Z",
+      "confidence": "medium",
+      "entities": [
+        "OpenAI",
+        "Astra",
+        "Preparedness Framework"
+      ],
+      "tags": [
+        "safety",
+        "cybersecurity",
+        "evaluations",
+        "agents"
+      ],
+      "sources": [
+        {
+          "title": "Responding to the next frontier of critical cyber capabilities",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/",
+          "publishedAt": "2026-08-07T17:00:00Z",
+          "tier": 1
+        },
+        {
+          "title": "OpenAI locks down Astra over potential critical cyber capabilities",
+          "publisher": "Help Net Security",
+          "url": "https://www.helpnetsecurity.com/2026/08/10/openai-astra-critical-cyber-capabilities/",
+          "publishedAt": "2026-08-10T08:00:00Z",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "2026-08-17-cognition-40bn-talks",
+      "slug": "cognition-40bn-talks",
+      "beat": "business",
+      "kicker": "Coding agents",
+      "headline": "Cognition is in talks to raise at $40bn, three months after a $26bn round",
+      "deck": "Bloomberg reports the coding company is fielding early investor interest at a valuation more than half again its May mark, on annualised revenue said to be approaching $1bn.",
+      "summary": [
+        "The talks would value Cognition at $40bn or more, against $26bn when it raised $1bn in May 2026.",
+        "Bloomberg's sources put annualised revenue near $1bn, roughly double the $492m run rate reported at the previous round.",
+        "The round is early and unconfirmed: Cognition may not raise at all, or may seek different terms."
+      ],
+      "body": [
+        "Cognition, the company behind the Devin coding agent, is in early talks with investors at a valuation of at least $40bn, Bloomberg reported on 12 August. The figure would be more than half again the $26bn valuation the company carried in May 2026, when it raised $1bn.",
+        "The justification investors appear to be working from is revenue growth. TechCrunch, following Bloomberg's report, put Cognition's annualised revenue run rate at roughly $1bn, against $492m at the time of the May financing. If accurate, that is a doubling in about three months, and it is the number doing all the work in the valuation.",
+        "Several caveats sit on top of this. The reporting rests on unnamed sources, the company has confirmed nothing, and Bloomberg notes Cognition may decide not to raise or may seek financing on different terms. Annualised run rate is also the most flattering revenue measure available to a fast-growing company, since it extrapolates a recent month across a full year.",
+        "The wider pattern is firmer than any individual figure. Coding is the one agentic application with clear and measurable willingness to pay, and valuations in the segment have been repricing upward every few months rather than every few years."
+      ],
+      "whyItMatters": "A valuation rising by more than half in three months, on revenue the company has not confirmed, is a fair proxy for how private AI markets are currently pricing risk. It is also a bet that coding agents keep their margin as the models underneath them commoditise — which is the question the entire application layer turns on.",
+      "prominence": "top",
+      "publishedAt": "2026-08-12T14:00:00Z",
+      "confidence": "medium",
+      "entities": [
+        "Cognition",
+        "Devin",
+        "Bloomberg"
+      ],
+      "tags": [
+        "funding",
+        "valuations",
+        "coding-agents"
+      ],
+      "sources": [
+        {
+          "title": "AI coding startup Cognition reportedly already in talks to raise at $40B valuation",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/12/ai-coding-startup-cognition-reportedly-already-in-talks-to-raise-at-40b-valuation/",
+          "publishedAt": "2026-08-12T19:00:00Z",
+          "tier": 2
+        },
+        {
+          "title": "AI Startup Cognition in New Funding Talks at $40 Billion Value",
+          "publisher": "Bloomberg",
+          "url": "https://www.bloomberg.com/news/articles/2026-08-12/ai-startup-cognition-in-new-funding-talks-at-40-billion-value",
+          "publishedAt": "2026-08-12T14:00:00Z",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-08-17-eu-ai-act-transparency-live",
+      "slug": "eu-ai-act-transparency-live",
+      "beat": "policy",
+      "kicker": "AI Act",
+      "headline": "The EU's transparency rules for AI-generated content are now being enforced",
+      "deck": "Chatbots must identify themselves, deepfakes must be labelled, and synthetic content must carry machine-readable marks, with the Commission's AI Office enforcing from 2 August.",
+      "summary": [
+        "Interactive AI systems must tell users they are not dealing with a human, and AI-generated or altered content must carry machine-readable marks.",
+        "The European Commission's AI Office enforces alongside national authorities, with complaint and whistleblower channels now open.",
+        "More than 180 organisations have signed the Code of Practice on transparency of AI-generated content."
+      ],
+      "body": [
+        "The European Commission began enforcing the AI Act's transparency obligations on 2 August, having set out the position in a statement on 31 July. Interactive systems must disclose that a user is dealing with AI rather than a person, deepfakes must be labelled, and AI-generated or altered content must carry machine-readable marks that make it detectable downstream.",
+        "Enforcement runs through the Commission's AI Office together with national authorities. The Commission has also opened an AI Act complaints tool, a whistleblower tool, and a separate channel for downstream providers building on general-purpose models. That plumbing is what usually determines whether a rule is real or decorative.",
+        "Alongside the obligations sits a Code of Practice on transparency of AI-generated content, which the Commission says more than 180 organisations have signed. Codes of practice are voluntary instruments, and function as evidence of good faith rather than as compliance in themselves.",
+        "The machine-readable marking requirement is the demanding part. Watermarking text is substantially harder than watermarking images: marks survive paraphrase poorly, there is no agreed standard across providers, and detection generally requires cooperation from whoever generated the content. Compliance therefore rests on each provider's own scheme."
+      ],
+      "whyItMatters": "This is the first time a major jurisdiction has required synthetic content to be machine-detectable rather than merely disclosed. If the marking obligation holds, it forces a technical commitment from every provider serving European users — and it does so before the research has settled whether robust text watermarking is achievable at all.",
+      "prominence": "top",
+      "publishedAt": "2026-07-31T10:00:00Z",
+      "confidence": "high",
+      "entities": [
+        "European Commission",
+        "AI Office",
+        "EU AI Act"
+      ],
+      "tags": [
+        "regulation",
+        "transparency",
+        "watermarking",
+        "european-union"
+      ],
+      "sources": [
+        {
+          "title": "Commission starts enforcing AI Act rules and new transparency requirements on 2 August",
+          "publisher": "European Commission",
+          "url": "https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august",
+          "publishedAt": "2026-07-31T10:00:00Z",
+          "tier": 1
+        },
+        {
+          "title": "Commission starts enforcing AI Act rules and new transparency requirements on 2 August",
+          "publisher": "European Commission press corner",
+          "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1714",
+          "publishedAt": "2026-07-31T10:00:00Z",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-08-17-nvidia-nemotron-35-lightning",
+      "slug": "nvidia-nemotron-35-lightning",
+      "beat": "models",
+      "kicker": "Open models",
+      "headline": "Nvidia aims Nemotron 3.5 Lightning at agent workloads with a 30B sparse model",
+      "deck": "The company claims up to four times the output speed of comparable models, and pairs the release with Switchyard, an open router that sends each step of a workflow to a different model.",
+      "summary": [
+        "Nemotron 3.5 Lightning is a 30-billion-parameter mixture-of-experts model aimed at long-running agent workloads rather than chat.",
+        "Nvidia claims up to 4x output speed and 30% faster agentic task completion, against unnamed models in its class.",
+        "NeMo Switchyard routes individual workflow steps across open, proprietary and Nvidia models; internal benchmarks put task cost near a third of using Opus 4.8 alone."
+      ],
+      "body": [
+        "Nvidia released Nemotron 3.5 Lightning on 11 August, a 30-billion-parameter mixture-of-experts model built for agentic workloads rather than conversation. The pitch is throughput per unit of compute on tasks that run for a long time and call tools repeatedly, which is a different optimisation target from the one frontier chat models are tuned for.",
+        "The performance claims are Nvidia's own, and they are stated loosely. The company reports up to four times the output speed and 30% faster agentic task completion compared with other models in its class, without naming the class or the models, and cites PinchBench results against unspecified comparisons. These are vendor figures until someone independent runs them.",
+        "The more interesting half of the release is NeMo Switchyard, an open-source routing library that directs individual steps of an agent workflow to different models on the basis of cost, speed and task requirements, across open, proprietary and Nvidia models. Nvidia's internal benchmarks put the cost of completing a task at close to a third of running Opus 4.8 alone while holding accuracy.",
+        "Both ship broadly — Lightning through Hugging Face, ModelScope, OpenRouter and build.nvidia.com as an NIM microservice, Switchyard through GitHub. A chip company shipping a router that will happily send work to a competitor's model is a coherent position: Nvidia does not need to win the model layer if every route still runs on its hardware."
+      ],
+      "whyItMatters": "Routing is where the economics of agents get decided. If a workflow can drop to a small model for most steps and reserve a frontier model for the few that need it, the cost curve of agentic software changes shape — and whoever defines the router sits upstream of everyone else's inference bill.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-11T15:00:00Z",
+      "confidence": "high",
+      "entities": [
+        "Nvidia",
+        "Nemotron 3.5 Lightning",
+        "NeMo Switchyard"
+      ],
+      "tags": [
+        "open-weights",
+        "agents",
+        "inference",
+        "routing"
+      ],
+      "sources": [
+        {
+          "title": "NVIDIA Nemotron 3.5 Lightning and NeMo Switchyard Deliver Faster, Smarter, More Efficient Agentic AI",
+          "publisher": "NVIDIA",
+          "url": "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/",
+          "publishedAt": "2026-08-11T15:00:00Z",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-08-17-qwen38-27b-apache",
+      "slug": "qwen38-27b-apache",
+      "beat": "models",
+      "kicker": "Open weights",
+      "headline": "Alibaba's Qwen3.8-27B lands under Apache 2.0 with a 262,144-token context",
+      "deck": "The model card lists a vision encoder, a hybrid Gated DeltaNet and attention stack across 64 layers, and coding scores of 73.0 on Terminal Bench and 61.7 on SWE-bench Pro.",
+      "summary": [
+        "Qwen3.8-27B is published on Hugging Face under Apache 2.0, a permissive licence with no revenue-share condition.",
+        "The card states 262,144 tokens of native context, extensible to one million, across a 64-layer hybrid architecture with a vision encoder.",
+        "Self-reported benchmarks include 89.2 on GPQA Diamond, 90.3 on LiveCodeBench and 84.3 on OSWorld-Verified."
+      ],
+      "body": [
+        "Alibaba's Qwen team published Qwen3.8-27B on Hugging Face in mid-August under an Apache 2.0 licence. At 27 billion parameters it is sized to run on a single well-specified machine, and the licence carries none of the revenue-share or use-restriction conditions attached to several other recent open-weight releases.",
+        "The model card describes a causal language model with a vision encoder, 64 layers, and a hybrid stack combining Gated DeltaNet with gated attention. Native context is listed as 262,144 tokens, extensible to one million. Multimodal input, long context, a permissive licence and a single-machine footprint in one artefact is an unusual combination.",
+        "The benchmark figures are the card's own: 73.0 on Terminal Bench and 61.7 on SWE-bench Pro for coding, 89.2 on GPQA Diamond, 90.3 on LiveCodeBench, and 84.3 on OSWorld-Verified with 64.8 on WebArena-Verified for computer use. Numbers self-reported on a model card are a claim rather than a result — though with open weights, anyone can check them.",
+        "That checkability is much of the point. A permissively licensed model that runs locally can be evaluated, fine-tuned and deployed by parties who will never sign an API agreement, and the gap between what such a model does and what a hosted frontier model does is the number worth tracking over the next year."
+      ],
+      "whyItMatters": "A 27B model with a million-token ceiling and an Apache licence is deployable inside organisations that cannot send data to an API — regulated industries, government, anyone with a sovereignty requirement. Each release at this size and licence narrows the set of problems for which a frontier API is the only workable answer.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-14T09:00:00Z",
+      "confidence": "high",
+      "entities": [
+        "Alibaba",
+        "Qwen",
+        "Hugging Face"
+      ],
+      "tags": [
+        "open-weights",
+        "long-context",
+        "multimodal",
+        "benchmarks"
+      ],
+      "sources": [
+        {
+          "title": "Qwen3.8-27B model card",
+          "publisher": "Hugging Face",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+          "publishedAt": "2026-08-14T09:00:00Z",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-08-17-anthropic-claude-text-watermark",
+      "slug": "anthropic-claude-text-watermark",
+      "beat": "models",
+      "kicker": "Provenance",
+      "headline": "Anthropic publishes a technical account of how Claude's text watermark works",
+      "deck": "The post appeared on 14 August, twelve days after EU rules began requiring machine-readable marks on AI-generated content shown to European users.",
+      "summary": [
+        "Anthropic published 'How Claude's text watermark works' on 14 August 2026.",
+        "The timing follows the EU AI Act's machine-readable marking obligation, which took effect on 2 August."
+      ],
+      "prominence": "brief",
+      "publishedAt": "2026-08-14T16:00:00Z",
+      "confidence": "medium",
+      "entities": [
+        "Anthropic",
+        "Claude"
+      ],
+      "tags": [
+        "watermarking",
+        "provenance",
+        "transparency"
+      ],
+      "sources": [
+        {
+          "title": "How Claude's text watermark works",
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/news/claude-text-watermark",
+          "publishedAt": "2026-08-14T16:00:00Z",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-08-17-nvidia-compute-asset-class",
+      "slug": "nvidia-compute-asset-class",
+      "beat": "infrastructure",
+      "kicker": "Compute finance",
+      "headline": "Nvidia argues that AI factory compute is becoming an investable asset class",
+      "deck": "Published a day after the financing announcement, the post makes the case that data centre compute should be underwritten the way infrastructure debt is.",
+      "summary": [
+        "Nvidia published the argument on 11 August, one day after announcing the financing platforms.",
+        "The framing supports the residual value guarantee that the financing structure depends on."
+      ],
+      "prominence": "brief",
+      "publishedAt": "2026-08-11T14:00:00Z",
+      "confidence": "medium",
+      "entities": [
+        "Nvidia"
+      ],
+      "tags": [
+        "compute",
+        "financing",
+        "data-centres"
+      ],
+      "sources": [
+        {
+          "title": "NVIDIA AI Factory Compute Is Becoming an Investable Asset Class",
+          "publisher": "NVIDIA",
+          "url": "https://blogs.nvidia.com/blog/nvidia-ai-factory-compute/",
+          "publishedAt": "2026-08-11T14:00:00Z",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-08-17-nvidia-800vdc-power",
+      "slug": "nvidia-800vdc-power",
+      "beat": "infrastructure",
+      "kicker": "Power",
+      "headline": "Nvidia makes the case for 800-volt DC power architecture in AI factories",
+      "deck": "The company argues that scaling compute performance now requires changing how power is distributed inside the data centre, not only how the chips are cooled.",
+      "summary": [
+        "Nvidia published its 800 VDC power architecture argument on 11 August 2026.",
+        "Power distribution is increasingly a binding constraint on data centre density, alongside chip supply."
+      ],
+      "prominence": "brief",
+      "publishedAt": "2026-08-11T13:00:00Z",
+      "confidence": "medium",
+      "entities": [
+        "Nvidia"
+      ],
+      "tags": [
+        "energy",
+        "data-centres",
+        "power"
+      ],
+      "sources": [
+        {
+          "title": "Why Scaling AI Compute Performance Requires a New Power Architecture",
+          "publisher": "NVIDIA",
+          "url": "https://blogs.nvidia.com/blog/800-vdc-power-architecture-ai-factory/",
+          "publishedAt": "2026-08-11T13:00:00Z",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-08-17-nvidia-local-ai-community",
+      "slug": "nvidia-local-ai-community",
+      "beat": "models",
+      "kicker": "Local inference",
+      "headline": "Nvidia courts the local AI community around open models and agents",
+      "deck": "The post accompanies the Nemotron releases and is aimed at developers running models on their own hardware rather than through a hosted API.",
+      "summary": [
+        "Nvidia published the post on 11 August, alongside the Nemotron 3.5 Lightning release.",
+        "Local inference is a growing distribution channel for open-weight models on consumer hardware."
+      ],
+      "prominence": "brief",
+      "publishedAt": "2026-08-11T16:00:00Z",
+      "confidence": "medium",
+      "entities": [
+        "Nvidia",
+        "Nemotron"
+      ],
+      "tags": [
+        "open-weights",
+        "local-inference",
+        "agents"
+      ],
+      "sources": [
+        {
+          "title": "NVIDIA and Local AI Community Fuel Open Source Models and Intelligent Agents",
+          "publisher": "NVIDIA",
+          "url": "https://blogs.nvidia.com/blog/local-ai-open-source-models-agents-nemotron/",
+          "publishedAt": "2026-08-11T16:00:00Z",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-08-17-indonesia-university-ai-centre",
+      "slug": "indonesia-university-ai-centre",
+      "beat": "society",
+      "kicker": "Education",
+      "headline": "Indonesia opens its first university AI centre, with Indosat and Nvidia",
+      "deck": "Universitas Gadjah Mada is the host institution, in a partnership framed around developing local AI talent rather than exporting compute capacity.",
+      "summary": [
+        "The centre opened on 14 August, a partnership between Universitas Gadjah Mada, Indosat and Nvidia.",
+        "It is described as Indonesia's first university AI centre, with a stated focus on local talent."
+      ],
+      "prominence": "brief",
+      "publishedAt": "2026-08-14T10:00:00Z",
+      "confidence": "medium",
+      "entities": [
+        "Universitas Gadjah Mada",
+        "Indosat",
+        "Nvidia",
+        "Indonesia"
+      ],
+      "tags": [
+        "education",
+        "sovereign-ai",
+        "talent"
+      ],
+      "sources": [
+        {
+          "title": "Universitas Gadjah Mada, Indosat and NVIDIA Open Indonesia's First University AI Center to Develop Local AI Talent",
+          "publisher": "NVIDIA",
+          "url": "https://blogs.nvidia.com/blog/ugm-indosat-nvidia-ai-technology-center/",
+          "publishedAt": "2026-08-14T10:00:00Z",
+          "tier": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "$comment": "Beats are the sections of the paper. The research skill works this list top to bottom. `quota` is the target number of stories per edition; `minQuota` is the floor below which the edition is still publishable.",
+  "beats": [
+    {
+      "id": "models",
+      "label": "Models",
+      "blurb": "Frontier releases, benchmarks, capability jumps and deprecations.",
+      "accent": "#c8102e",
+      "quota": 3,
+      "minQuota": 1,
+      "queries": [
+        "frontier model release this week",
+        "new LLM benchmark results",
+        "model deprecation announcement",
+        "open weights model release"
+      ]
+    },
+    {
+      "id": "research",
+      "label": "Research",
+      "blurb": "Papers, methods, interpretability and evaluation science.",
+      "accent": "#5b3fd6",
+      "quota": 1,
+      "minQuota": 1,
+      "queries": [
+        "notable AI paper arxiv this week",
+        "interpretability research result",
+        "reinforcement learning breakthrough",
+        "AI evaluation methodology paper"
+      ]
+    },
+    {
+      "id": "business",
+      "label": "Business",
+      "blurb": "Funding, revenue, acquisitions, hiring and market structure.",
+      "accent": "#0f7a5a",
+      "quota": 1,
+      "minQuota": 1,
+      "queries": [
+        "AI startup funding round announced",
+        "AI company revenue report",
+        "AI acquisition deal",
+        "enterprise AI adoption numbers"
+      ]
+    },
+    {
+      "id": "policy",
+      "label": "Policy",
+      "blurb": "Regulation, litigation, standards and government procurement.",
+      "accent": "#b45309",
+      "quota": 1,
+      "minQuota": 0,
+      "queries": [
+        "AI regulation announcement",
+        "AI copyright lawsuit ruling",
+        "government AI procurement policy",
+        "AI safety standards body"
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "label": "Infrastructure",
+      "blurb": "Chips, data centres, energy, networking and supply chain.",
+      "accent": "#0369a1",
+      "quota": 2,
+      "minQuota": 0,
+      "queries": [
+        "AI datacenter buildout announcement",
+        "AI chip supply news",
+        "GPU cluster deployment",
+        "AI energy consumption report"
+      ]
+    },
+    {
+      "id": "society",
+      "label": "Society",
+      "blurb": "Labour, education, security, culture and public reaction.",
+      "accent": "#7c2d6b",
+      "quota": 1,
+      "minQuota": 0,
+      "queries": [
+        "AI jobs impact study",
+        "AI in education policy",
+        "AI security incident",
+        "public opinion AI survey"
+      ]
+    }
+  ],
+  "edition": {
+    "$comment": "Quotas are calibrated against what a real run actually yields once every claim has been traced to an openable primary source — deliberately not against what a good day looks like. Targets set above the achievable rate push the pipeline to fill slots it should leave empty.",
+    "targetStories": 11,
+    "minStories": 8,
+    "maxStories": 24,
+    "briefCount": {
+      "min": 4,
+      "max": 8
+    },
+    "topCount": {
+      "min": 3,
+      "max": 6
+    },
+    "lookbackHours": 48,
+    "maxLookbackHours": 480
+  }
+}

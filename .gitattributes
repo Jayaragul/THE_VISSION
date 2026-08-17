@@ -1,0 +1,8 @@
+# The build writes LF and CI asserts that committed output matches a fresh build byte for
+# byte. Without this, a Windows checkout rewrites everything to CRLF and the determinism
+# check in .github/workflows/verify.yml fails on a difference nobody made.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.ico binary
