@@ -894,6 +894,19 @@ ul, ol { margin: 0; padding: 0; }
 }
 .tag--low { background: var(--surface-3); color: var(--muted); }
 
+.topics { display: flex; flex-wrap: wrap; gap: 8px; }
+.topic {
+  display: inline-block;
+  font-family: var(--sans); font-size: .74rem; font-weight: 550;
+  padding: 5px 12px; border-radius: 999px;
+  background: var(--surface-2); color: var(--ink-2);
+  border: 1px solid var(--rule);
+  text-decoration: none;
+  transition: border-color .15s, color .15s;
+  font-variant-numeric: normal;
+}
+.topic:hover { border-color: var(--accent); color: var(--accent); }
+
 @media print {
   .topbar, .beatnav, .themetoggle, .progress, .footer { display: none; }
   body { background: #fff; color: #000; font-size: 11pt; }

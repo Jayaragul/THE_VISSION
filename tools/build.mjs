@@ -12,7 +12,7 @@ import { basename, dirname, join, resolve as resolvePath } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   readJSON, escapeHTML as e, escapeXML, formatMasthead, formatShort,
-  hostOf, matchPublisher, readMinutes, hash32,
+  hostOf, matchPublisher, readMinutes, hash32, slugify,
 } from './lib/util.mjs';
 import { renderCover } from './lib/cover.mjs';
 import { selectWireItems, wireBlock, stalenessBanner } from './lib/wire.mjs';
@@ -94,6 +94,31 @@ function loadLatestCandidates() {
   } catch {
     return null;
   }
+}
+
+// ------------------------------------------------------------------ topics --
+// Every story already tags the entities it names — the paper just never did anything with
+// that beyond printing inert text at the bottom of a story page. Bucketed by slug across
+// the whole archive, that tagging becomes a real feature: "what has this paper said about
+// Nvidia" is a question a reader can now actually ask and get an answer to.
+
+function collectEntities(editions) {
+  const bySlug = new Map();
+  for (const ed of editions) {
+    for (const story of ed.stories) {
+      for (const name of story.entities || []) {
+        const slug = slugify(name);
+        if (!slug) continue;
+        if (!bySlug.has(slug)) bySlug.set(slug, { slug, name, items: [] });
+        bySlug.get(slug).items.push({ story, ed });
+      }
+    }
+  }
+  // Newest first within each entity, same convention as everywhere else on the site.
+  for (const entry of bySlug.values()) {
+    entry.items.sort((a, b) => b.ed.edition.date.localeCompare(a.ed.edition.date));
+  }
+  return bySlug;
 }
 
 const PROMINENCE_ORDER = { lead: 0, top: 1, standard: 2, brief: 3 };
@@ -321,7 +346,9 @@ ${story.whyItMatters
       : ''}
 
 ${story.entities?.length
-      ? `<div class="meta" style="margin-top:30px">${story.entities.map((x) => `<span>${e(x)}</span>`).join('')}</div>`
+      ? `<div class="topics" style="margin-top:30px">${story.entities
+          .map((x) => `<a class="topic" href="${R.rel(depth, `entity/${slugify(x)}.html`)}">${e(x)}</a>`)
+          .join('')}</div>`
       : ''}
 </article>
 
@@ -437,6 +464,101 @@ ${rows || '<p class="empty">No editions yet.</p>'}
     canonical: 'archive.html',
     title: `Archive — ${site.name}`,
     description: `Every edition of ${site.name}, newest first.`,
+    content,
+  });
+}
+
+function renderTopics(ctx, entities) {
+  const ranked = [...entities.values()].sort(
+    (a, b) => b.items.length - a.items.length || a.name.localeCompare(b.name)
+  );
+
+  const rows = ranked
+    .map(
+      (ent) => `<a class="archive__row" href="${R.rel(0, `entity/${ent.slug}.html`)}">
+<span class="archive__n" style="font-family:var(--serif);font-size:1.05rem;color:var(--ink)">${ent.items.length}</span>
+<span class="archive__title">${e(ent.name)}</span>
+<span class="archive__n">last mentioned ${e(formatShort(ent.items[0].ed.edition.date))}</span>
+</a>`
+    )
+    .join('');
+
+  const content = `<div class="wrap">
+<section class="editorsnote">
+<div class="editorsnote__label">Topics</div>
+<div>
+<h1 class="editorsnote__title">Every company, model and body this paper has named.</h1>
+<p class="editorsnote__body">Pulled automatically from the entities tagged on each story — the same tags that
+appear at the bottom of every article, made clickable. Ranked by how often each has been mentioned, across
+every edition ever published.</p>
+</div>
+</section>
+<section class="section">
+${R.sectionHead('All topics', `${ranked.length} tracked`, null)}
+${rows || '<p class="empty">No entities tagged yet.</p>'}
+</section>
+</div>`;
+
+  return R.page(ctx, {
+    depth: 0,
+    canonical: 'topics.html',
+    title: `Topics — ${site.name}`,
+    description: `Every company, model, lab and regulator this paper has covered, ranked by how often each is mentioned.`,
+    content,
+  });
+}
+
+function renderEntity(ctx, ent) {
+  const depth = 1;
+  const [lead, ...rest] = ent.items;
+
+  const leadRow = (item) => `<article class="row" style="--beat-accent:${e(ctx.beatMap.get(item.story.beat)?.accent || '')}">
+<a href="${R.rel(depth, R.storyPath(item.story))}" tabindex="-1" aria-hidden="true">
+<img class="row__cover" src="${R.rel(depth, R.coverPath(item.story))}" alt="" width="1200" height="675" loading="lazy">
+</a>
+<div>
+<div class="kicker">${e(item.story.kicker)} · ${e(formatShort(item.ed.edition.date))}</div>
+<h3 class="row__title"><a href="${R.rel(depth, R.storyPath(item.story))}">${e(item.story.headline)}</a></h3>
+<p class="row__deck clamp-2">${e(item.story.deck)}</p>
+</div>
+</article>`;
+
+  const content = `<div class="wrap">
+<div class="crumbs">
+<a href="${R.rel(depth, 'index.html')}">Front page</a><span>/</span>
+<a href="${R.rel(depth, 'topics.html')}">Topics</a>
+</div>
+<section class="editorsnote">
+<div class="editorsnote__label">Topic</div>
+<div>
+<h1 class="editorsnote__title">${e(ent.name)}</h1>
+<p class="editorsnote__body">Mentioned in ${ent.items.length} ${ent.items.length === 1 ? 'story' : 'stories'}, most recently on
+${e(formatMasthead(lead.ed.edition.date))}. Newest first.</p>
+</div>
+</section>
+<section class="section">
+<div class="rows">
+${ent.items.map(leadRow).join('')}
+</div>
+</section>
+</div>`;
+
+  return R.page(ctx, {
+    depth,
+    canonical: `entity/${ent.slug}.html`,
+    title: `${ent.name} — ${site.name}`,
+    description: `Every story ${site.name} has published mentioning ${ent.name}, newest first.`,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: `${ent.name} — coverage`,
+      about: { '@type': 'Thing', name: ent.name },
+      hasPart: ent.items.slice(0, 20).map(({ story }) => ({
+        '@type': 'NewsArticle',
+        headline: story.headline,
+        url: `${site.baseUrl}/${R.storyPath(story)}`,
+      })),
+    },
     content,
   });
 }
@@ -900,15 +1022,22 @@ ${items}
 `;
 }
 
-function renderSitemap(editions) {
+function renderSitemap(editions, entities) {
   const urls = [
     { loc: `${site.baseUrl}/`, priority: '1.0', freq: 'daily' },
     { loc: `${site.baseUrl}/archive.html`, priority: '0.6', freq: 'daily' },
+    { loc: `${site.baseUrl}/topics.html`, priority: '0.6', freq: 'daily' },
     { loc: `${site.baseUrl}/hackathons.html`, priority: '0.7', freq: 'weekly' },
     { loc: `${site.baseUrl}/methodology.html`, priority: '0.4', freq: 'monthly' },
     { loc: `${site.baseUrl}/legal.html`, priority: '0.3', freq: 'yearly' },
     { loc: `${site.baseUrl}/terms.html`, priority: '0.2', freq: 'yearly' },
     { loc: `${site.baseUrl}/privacy.html`, priority: '0.2', freq: 'yearly' },
+    ...[...entities.values()].map((ent) => ({
+      loc: `${site.baseUrl}/entity/${ent.slug}.html`,
+      priority: '0.5',
+      freq: 'weekly',
+      lastmod: ent.items[0].ed.edition.date,
+    })),
     ...editions.map((ed) => ({
       loc: `${site.baseUrl}/${R.editionPath(ed.edition.date)}`,
       priority: '0.7',
@@ -1031,6 +1160,12 @@ for (const ed of editions) {
   }
 }
 
+// One page per topic, plus the index.
+const entities = collectEntities(editions);
+for (const ent of entities.values()) {
+  write(`entity/${ent.slug}.html`, renderEntity(ctx, ent));
+}
+
 // Drop output whose JSON no longer exists, so the build stays a pure function of
 // generated/. Without this, a story pulled during review leaves its page and its cover
 // behind and the site quietly disagrees with the data.
@@ -1048,10 +1183,13 @@ function prune(dir, ext, expected) {
 const expectedCovers = new Set(
   editions.flatMap((ed) => ed.stories.map((s) => `${s.id}.svg`))
 );
+const expectedEntityFiles = new Set([...entities.values()].map((ent) => `${ent.slug}.html`));
 prune('story', '.html', expectedStoryFiles);
 prune('assets/img/covers', '.svg', expectedCovers);
+prune('entity', '.html', expectedEntityFiles);
 
 write('archive.html', renderArchive(ctx, editions));
+write('topics.html', renderTopics(ctx, entities));
 write('hackathons.html', renderHackathons(ctx, editions));
 write('methodology.html', renderMethodology(ctx, editions));
 write('legal.html', renderLegal(ctx));
@@ -1059,7 +1197,7 @@ write('terms.html', renderTerms(ctx));
 write('privacy.html', renderPrivacy(ctx));
 write('404.html', render404(ctx));
 write('rss.xml', renderRSS(editions));
-write('sitemap.xml', renderSitemap(editions));
+write('sitemap.xml', renderSitemap(editions, entities));
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${site.baseUrl}/sitemap.xml\n`);
 write('.nojekyll', '');
 

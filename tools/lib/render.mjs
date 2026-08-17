@@ -121,6 +121,7 @@ function beatnav(ctx, opts) {
 ${links}
 <span class="beatnav__sep"></span>
 <a class="is-quiet" href="${rel(d, 'hackathons.html')}">Hackathons</a>
+<a class="is-quiet" href="${rel(d, 'topics.html')}">Topics</a>
 <a class="is-quiet" href="${rel(d, 'archive.html')}">Archive</a>
 <a class="is-quiet" href="${rel(d, 'methodology.html')}">Method</a>
 <a class="is-quiet" href="${rel(d, 'rss.xml')}">RSS</a>
@@ -147,6 +148,7 @@ function footer(ctx, opts) {
 <h4>The paper</h4>
 <ul>
 <li><a href="${rel(d, 'hackathons.html')}">Hackathons</a></li>
+<li><a href="${rel(d, 'topics.html')}">Topics</a></li>
 <li><a href="${rel(d, 'archive.html')}">Archive</a></li>
 <li><a href="${rel(d, 'methodology.html')}">Methodology</a></li>
 <li><a href="${rel(d, 'legal.html')}">Corrections &amp; rights</a></li>
