@@ -156,6 +156,8 @@ function writeCovers(editions) {
         seed: story.cover?.seed || story.id,
         accent: beat?.accent || '#c8102e',
         style: story.cover?.style,
+        beat: story.beat,
+        motif: story.cover?.motif,
       });
       const digest = hash32(svg).toString(16);
       const known = lock[story.id];

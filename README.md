@@ -91,6 +91,13 @@ Every story shows a **confidence label** and its **source tier**. When a primary
 paywalled and could not be opened, the story says so by capping its confidence at `medium` —
 it does not pretend to have read it.
 
+**On images:** every cover is an original vector illustration, drawn at build time and
+matched to the story's beat — a chip die for infrastructure, balance scales for policy, a
+neural network for models. No photographs, ever: the paper has no licence to republish press
+imagery, hotlinking would rot and would reintroduce third-party requests
+[privacy.html](https://jayaragul.github.io/THE_VISSION/privacy.html) says do not happen, and
+stock photos of glowing robot hands are the cliché this subject already drowns in.
+
 ## Run it yourself
 
 Node 20+. **No `npm install`** — there are no dependencies, and that is a deliberate design

@@ -104,10 +104,11 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "style": { "type": "string", "enum": ["orbit", "strata", "lattice", "swell", "shard", "aperture"] },
+            "style": { "type": "string", "enum": ["orbit", "strata", "lattice", "swell", "shard", "aperture", "contour", "column", "spiral", "mesh", "constellation", "weave", "terrain", "current", "fracture", "drift", "beacon", "strand"] },
+            "motif": { "type": "string", "enum": ["neuralNet", "transformerStack", "weightGrid", "paperPlot", "labFlask", "growthChart", "coinStack", "scales", "institution", "serverRack", "chipDie", "coolingTowers", "powerGrid", "cityscape", "peopleNetwork", "globe"] },
             "seed": { "type": "string", "maxLength": 64 }
           },
-          "description": "Optional. If absent the build derives a deterministic cover from the story id."
+          "description": "Optional editorial override. If absent the build derives both the background plate and a beat-appropriate pictorial motif deterministically from the story id."
         },
         "image": {
           "type": "object",

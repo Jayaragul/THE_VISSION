@@ -12,6 +12,7 @@
 // avoid repetition — run `node tools/gen-cover-sheet.mjs` to render every plate for review.
 
 import { rng, hash32, hexToHSL, hslToHex, clamp } from './util.mjs';
+import { renderMotif, MOTIFS_BY_BEAT, MOTIF_NAMES, MOTIF_LABELS } from './motifs.mjs';
 
 const W = 1200;
 const H = 675;
@@ -522,9 +523,14 @@ function drawPlate(plateIndex, p) {
  *                                   deriving one from the seed. For QA/preview tooling —
  *                                   see tools/gen-cover-sheet.mjs, which uses this to render
  *                                   every plate in the library once for visual inspection.
+ * @param {string} [opts.beat]       Beat id. Selects a subject-appropriate pictorial motif —
+ *                                   a policy story gets scales, an infrastructure story gets
+ *                                   a server rack. Without it the cover is abstract pattern
+ *                                   only, which is what every cover used to be.
+ * @param {string} [opts.motif]      Force a specific motif by name, for editorial control.
  * @returns {string} A standalone SVG document.
  */
-export function renderCover({ seed, accent = '#c8102e', style, plateIndex }) {
+export function renderCover({ seed, accent = '#c8102e', style, plateIndex, beat, motif }) {
   const random = rng(seed);
   const p = palette(accent, random);
 
@@ -539,6 +545,22 @@ export function renderCover({ seed, accent = '#c8102e', style, plateIndex }) {
     geometry = plate.svg;
   }
 
+  // The pictorial layer. The plate above becomes a background wash behind it — an
+  // illustration on a textured field, rather than the field being the whole cover.
+  let subject = '';
+  let motifName = null;
+  if (motif && MOTIF_NAMES.includes(motif)) {
+    motifName = motif;
+  } else if (beat && MOTIFS_BY_BEAT[beat]) {
+    const options = MOTIFS_BY_BEAT[beat];
+    motifName = options[Math.floor(random() * options.length) % options.length];
+  }
+  if (motifName) {
+    // Seeded separately from the plate so a story's subject illustration varies
+    // independently of which background field it landed on.
+    subject = renderMotif(motifName, rng(`motif-${seed}-${motifName}`), p);
+  }
+
   const gx = 20 + random() * 60;
   const gy = 10 + random() * 50;
 
@@ -551,7 +573,11 @@ export function renderCover({ seed, accent = '#c8102e', style, plateIndex }) {
     grid += `<line x1="0" y1="${y}" x2="${W}" y2="${y}" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/>`;
   }
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Abstract cover illustration">
+  // Describe what is actually drawn. These covers depict specific subjects now, so
+  // "abstract illustration" would be both unhelpful and untrue to a screen reader.
+  const label = motifName ? `${MOTIF_LABELS[motifName]} — original cover illustration` : 'Abstract cover illustration';
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${label}">
 <defs>
 <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
 <stop offset="0" stop-color="${p.bgAlt}"/><stop offset="0.55" stop-color="${p.bg}"/><stop offset="1" stop-color="${p.deep}"/>
@@ -572,9 +598,10 @@ export function renderCover({ seed, accent = '#c8102e', style, plateIndex }) {
 <clipPath id="frame"><rect x="0" y="0" width="${W}" height="${H}"/></clipPath>
 </defs>
 <rect width="${W}" height="${H}" fill="url(#bg)"/>
-<g clip-path="url(#frame)">${geometry}</g>
+<g clip-path="url(#frame)"${subject ? ' opacity="0.42"' : ''}>${geometry}</g>
 <rect width="${W}" height="${H}" fill="url(#halo)" style="mix-blend-mode:screen"/>
 <g clip-path="url(#frame)">${grid}</g>
+${subject ? `<rect width="${W}" height="${H}" fill="${p.bg}" opacity="0.3"/>\n<g clip-path="url(#frame)">${subject}</g>` : ''}
 <rect width="${W}" height="${H}" fill="url(#vig)"/>
 <rect width="${W}" height="${H}" filter="url(#grain)" opacity="0.14" style="mix-blend-mode:overlay"/>
 </svg>`;

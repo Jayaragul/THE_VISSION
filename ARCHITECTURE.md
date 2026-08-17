@@ -263,6 +263,16 @@ Stated plainly, because a system's failure modes belong in its architecture doc.
 - **The wire is unverified by construction.** It is filtered for AI relevance and stripped of
   aggregator redirects, but nothing on it has been read by anything. It is labelled as such
   everywhere it appears, and it must stay visually subordinate to edited copy.
+- **Cover art is illustration, not photography, and that is permanent.** Every cover is a
+  vector illustration drawn by `tools/lib/motifs.mjs` — a chip die, a server rack, balance
+  scales, a city skyline — composed over an abstract plate from `cover.mjs` as a background
+  wash. Sixteen motifs, mapped to beats so a policy story gets scales and an infrastructure
+  story gets cooling towers. It will never be a photograph: the paper has no licence to
+  republish press imagery, hotlinking would reintroduce the third-party requests
+  `privacy.html` states do not happen, and stock photos of glowing robot hands are the
+  visual cliché this subject already drowns in. The trade is that an illustration depicts a
+  *category* (a chip, a network) and never the specific thing a story is about — it cannot
+  show you the actual data centre being financed.
 - **Cover art changes are now locked, not versioned.** Covers are permalinked assets, and
   `tools/lib/cover.mjs` is a pure function of the story id — so changing the algorithm
   regenerates every cover ever published. That happened twice deliberately on 17 Aug 2026:
