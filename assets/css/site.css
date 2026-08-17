@@ -691,6 +691,57 @@ ul, ol { margin: 0; padding: 0; }
   .archive__date { grid-column: 1 / -1; }
 }
 
+/* ----------------------------------------------------------- hackathons --- */
+
+.hack {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 22px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.hack:last-of-type { border-bottom: 0; }
+.hack__when {
+  border-left: 2px solid var(--accent);
+  padding-left: 12px;
+}
+.hack__date {
+  display: block;
+  font-family: var(--mono);
+  font-size: .82rem;
+  color: var(--accent);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.hack__label {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--sans);
+  font-size: .62rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.hack__name { font-size: 1.22rem; line-height: 1.24; }
+.hack__name a { text-decoration: none; }
+.hack__name a:hover { color: var(--accent); }
+.hack__org {
+  font-family: var(--sans);
+  font-size: .8rem;
+  color: var(--muted);
+  margin: 6px 0 10px;
+  font-variant-numeric: normal;
+}
+.hack__elig {
+  margin-top: 10px;
+  font-size: .92rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+  max-width: 62ch;
+}
+@media (max-width: 560px) {
+  .hack { grid-template-columns: 1fr; gap: 10px; }
+}
+
 /* ---------------------------------------------------------------- wire ---- */
 /* Visually subordinate to edited copy on purpose: monospaced, denser, no cover art.
    A reader must never mistake a raw feed headline for something the paper stands behind. */

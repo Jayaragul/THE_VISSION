@@ -1,141 +1,157 @@
+<div align="center">
+
 # THE VISSION
 
-**A daily paper about artificial intelligence that no human writes.**
+### A daily AI newspaper that writes itself — and keeps publishing when the AI stops.
 
-Claude Code researches the day's news, verifies it against primary sources, writes the copy,
-scores itself against a rubric, and publishes — every morning, without a person in the loop.
+**[📰 Read today's edition →](https://jayaragul.github.io/THE_VISSION/)**
 
-**Live:** https://jayaragul.github.io/THE_VISSION/
+[![Verify](https://github.com/Jayaragul/THE_VISSION/actions/workflows/verify.yml/badge.svg)](https://github.com/Jayaragul/THE_VISSION/actions/workflows/verify.yml)
+[![Daily edition](https://github.com/Jayaragul/THE_VISSION/actions/workflows/daily-edition.yml/badge.svg)](https://github.com/Jayaragul/THE_VISSION/actions/workflows/daily-edition.yml)
+[![Wire](https://github.com/Jayaragul/THE_VISSION/actions/workflows/wire.yml/badge.svg)](https://github.com/Jayaragul/THE_VISSION/actions/workflows/wire.yml)
+[![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](ARCHITECTURE.md#3-zero-dependencies-on-purpose)
+
+*Free to read. No ads, no sponsors, no tracking, no newsletter popup.*
+
+</div>
 
 ---
+
+There is no newsroom. Claude Code researches the day's AI news, traces every claim to a
+primary source, writes the copy, scores itself against a published rubric, and ships — every
+morning, with no human in the loop.
+
+Then it does the thing most agent projects skip: **it survives its own failure.** If the API
+key expires or the model is down, a second tier with no AI in it at all keeps harvesting
+publisher feeds and updating the front page. The site degrades, says so on the page, and
+keeps going.
+
+## Why you might care
+
+- **Read it** — a daily AI briefing, free, with every claim one click from its source.
+- **Fork it** — the whole pipeline is ~2,000 lines of dependency-free Node. Point it at any
+  beat and you have a self-publishing paper on your own subject.
+- **Study it** — a worked example of an autonomous agent with real guardrails: a publish
+  gate that blocks bad output, a deterministic build CI can verify, and a self-improvement
+  loop that cannot merge its own rule changes.
 
 ## How it works
 
 ```
-   input/          .claude/skills/       evals/
-   beats           news-pipeline         rubric.md
-   sources         story-research        last-run.json
-   editorial.md    editorial-review
-        │                 │                  │
-        └────────────┬────┴──────────────────┘
-                     ↓
-            ┌──────────────────┐
-            │   Claude Code    │   WebSearch → WebFetch → verify → write
-            └────────┬─────────┘
-                     ↓
-         generated/YYYY-MM-DD.json          ← the only thing that is authored
-                     │
-       node tools/validate.mjs --strict     ← the gate. fails = nothing publishes
-                     │
-       node tools/build.mjs                 ← pure function: JSON → site
-                     ↓
-   index.html · story/*.html · edition/*.html
-   rss.xml · sitemap.xml · assets/img/covers/*.svg
-                     │
-            git commit && git push
-                     ↓
-              GitHub Pages
+  ┌── TIER 2 · EDITORIAL ──────────────── needs API key ──┐
+  │  research → verify → write → SELF-SCORE               │
+  │                          ↓                            │
+  │              generated/YYYY-MM-DD.json                │
+  └───────────────────────────┬───────────────────────────┘
+                              │  validate --strict  ← fails? nothing publishes
+  ┌── TIER 1 · WIRE ──────── no AI, no key ──┐   │
+  │  24 RSS feeds → ~550 leads/run           │   │
+  └──────────────────┬───────────────────────┘   │
+                     └──────────┬────────────────┘
+                                ↓
+                       node tools/build.mjs   ← pure function, no network
+                                ↓
+                  index.html · story/ · rss.xml · covers
+                                ↓
+                          GitHub Pages
 ```
 
-**`generated/*.json` is the source of truth.** Every HTML file in this repo is build output
-and is overwritten on the next run. Delete every `.html` and run `node tools/build.mjs` — you
-get byte-identical files back. CI asserts exactly that, which is how the repo guarantees no
-page was ever hand-edited into disagreeing with its data.
+**`generated/*.json` is the source of truth. Every HTML file is build output.** Delete them
+all, rebuild, and you get byte-identical files back — CI asserts it on every push, which is
+what makes it impossible for a page to drift from its data.
 
-## Repository layout
+📐 **[Read ARCHITECTURE.md](ARCHITECTURE.md)** for the design reasoning, the trade-offs, and
+the honest list of what does not work.
 
-| Path | What it is | Who edits it |
-| --- | --- | --- |
-| `input/` | Beats, source tiers, editorial standards, site config | You |
-| `.claude/skills/` | The pipeline's standing instructions | You |
-| `evals/` | The rubric, and the last run's honest scores | You write the rubric |
-| `schema/` | The contract every edition must satisfy | You |
-| `tools/` | Validator, builder, cover art, dev server | You |
-| `assets/css`, `assets/js` | Hand-written stylesheet and progressive enhancement | You |
-| `generated/` | One JSON file per edition — **the archive** | The pipeline |
-| `*.html`, `story/`, `edition/`, `*.xml`, `assets/img/covers/` | Build output | Nobody |
+## The rules the pipeline cannot break
 
-## Running it
+1. **Nothing is invented.** Not a URL, a quote, a number, a date, or a publisher name. If a
+   source cannot be opened, the story does not run.
+2. **Every story carries a source.** Lead and top stories carry two that are genuinely
+   independent of each other.
+3. **A published story id never changes.** Permalinks are permanent; the archive is a record.
+4. **Fix the journalism, not the checker.** When the validator complains, the answer is
+   better sourcing — never a relabelled tier.
+5. **A short edition beats a padded one.** Running three stories light is a normal day.
 
-Requires Node 20+. **There are no dependencies** — no `npm install`, no lockfile, nothing for
-the 6am scheduled job to fail to resolve.
+Every story shows a **confidence label** and its **source tier**. When a primary source is
+paywalled and could not be opened, the story says so by capping its confidence at `medium` —
+it does not pretend to have read it.
+
+## Run it yourself
+
+Node 20+. **No `npm install`** — there are no dependencies, and that is a deliberate design
+choice, not an oversight.
 
 ```bash
-node tools/edition-info.mjs        # date, next edition number, what already ran
-node tools/validate.mjs --strict   # the publish gate
-node tools/build.mjs               # render the site from generated/
-node tools/serve.mjs               # preview at http://localhost:4173
+git clone https://github.com/Jayaragul/THE_VISSION.git
+cd THE_VISSION
+node tools/harvest.mjs      # collect leads from 24 public feeds — no API key needed
+node tools/build.mjs        # render the site
+node tools/serve.mjs        # http://localhost:4173
 ```
 
-### Publishing an edition by hand
+| Command | What it does |
+| --- | --- |
+| `node tools/edition-info.mjs` | Date, next edition number, what already ran |
+| `node tools/harvest.mjs` | Collect candidate leads (zero cost, no key) |
+| `node tools/validate.mjs --strict` | The publish gate — errors *and* warnings block |
+| `node tools/build.mjs` | Render the whole site from `generated/` |
+| `node tools/serve.mjs` | Local preview |
+
+### Publishing an edition
 
 ```bash
 claude
 ```
-
 Then: *"Use the news-pipeline skill to publish today's edition."*
 
-### Publishing on a schedule
+### Running it on a schedule
 
-`.github/workflows/daily-edition.yml` runs at 06:30 UTC. Claude researches and writes the
-JSON; the **workflow** validates, builds and pushes. Claude never runs git in CI, so an
-edition that fails the gate simply does not publish and yesterday's front page stays up.
+| Workflow | Schedule | Needs a key? |
+| --- | --- | --- |
+| `wire.yml` | every 6h | **no** |
+| `daily-edition.yml` | 06:30 UTC | yes |
+| `retrospective.yml` | Mondays 08:00 UTC | yes |
+| `verify.yml` | every push | no |
 
-To enable it, add one repository secret:
+Add `ANTHROPIC_API_KEY` in **Settings → Secrets → Actions** for the AI tiers, then set
+**Settings → Pages → Source** to *Deploy from a branch*, `main`, `/ (root)`. The wire runs
+without any of that.
 
-| Secret | Where to get it |
+## Contributing
+
+Contributions are genuinely welcome — especially source-book additions, new feed sources,
+and hackathon listings. **[CONTRIBUTING.md](CONTRIBUTING.md)** has the details, and there
+are good first issues that need no AI key at all.
+
+Quickest useful contributions:
+
+- **Add a hackathon** → `input/hackathons.json` (open the listing, verify the dates)
+- **Add a source** → `input/sources.json` (with the correct tier)
+- **Add a feed** → `tools/harvest.mjs` (check it returns 200 first)
+- **Improve the design** → `assets/css/site.css` (never edit `.html`)
+
+## Licence
+
+**You can use this. You cannot reproduce it as your own.**
+
+| | |
 | --- | --- |
-| `ANTHROPIC_API_KEY` | https://console.anthropic.com/settings/keys |
+| **Software** (`tools/`, `assets/`, `schema/`, `.claude/`, `input/`) | [PolyForm Noncommercial 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0/) — run it, modify it, build your own non-commercial paper with it |
+| **Published editions** (`generated/`, rendered pages, cover art) | [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) — read, quote with attribution, link freely; no republishing, no derivatives |
 
-Then set **Settings → Pages → Source** to *Deploy from a branch*, `main`, `/ (root)`.
+Copyright © 2026 **Jayaragul N**. All rights reserved. See [LICENSE](LICENSE) for the full
+terms, including what is *not* covered — every linked article belongs to its own publisher.
 
-You can also trigger a run manually from the Actions tab, optionally passing a date to
-backfill a past edition.
-
-## The rules the pipeline cannot break
-
-1. **Nothing is invented.** Not a URL, a quotation, a number, a date, or a publisher name.
-   If a source cannot be opened, the story does not run.
-2. **Every story carries a source.** Lead and top stories carry two that are genuinely
-   independent of each other.
-3. **A published story id never changes.** `story/<id>.html` is a permalink; the archive is a
-   record, not a working draft.
-4. **Fix the journalism, not the checker.** When the validator complains, the answer is
-   better sourcing or better prose — never a relabelled tier.
-5. **A short edition beats a padded one.** Running three stories light is a normal day.
-
-`tools/validate.mjs` enforces what a machine can: schema conformance, one lead per edition,
-source tiers against the blocklist, duplicate URLs across stories, brief/body shape, beat
-quotas, publication-date windows, and a house-style linter for hype vocabulary. `--strict`
-promotes warnings to errors and is what CI runs.
-
-## On images
-
-Every story carries original cover art, generated deterministically from its story id
-(`tools/lib/cover.mjs`). Six compositional styles, coloured from the beat's accent, with a
-seeded PRNG so a published cover never changes.
-
-This is a deliberate choice, not a placeholder. The paper has no licence to republish other
-outlets' press photography; hotlinked images rot within weeks and take the page's credibility
-with them; and a consistent house visual language beats a grid of mismatched stock photos.
-
-## Known limitations
-
-- **Open-graph images are SVG.** Some social platforms will not render them. Fixing it
-  properly needs a rasteriser, which means a dependency, which the toolchain deliberately
-  refuses. Weigh that trade before changing it.
-- **Roughly a third of promising leads die at a 403.** Bloomberg, the WSJ, the FT and
-  openai.com all block automated fetches. The pipeline handles this with the blocked-primary
-  rule in `evals/rubric.md` rather than by pretending to have read them.
-- **An automated pipeline can be confidently wrong.** The mitigations are source tiers, a
-  confidence label printed on every story, and every source one click away. Read the sources.
-
-## Adding a beat
-
-Add it to `beats` in `input/beats.json` with an `accent` colour (it drives the cover art),
-**and** to `nav` in `input/site.json`. The build reads `nav` for section order and anchors.
+For a commercial licence, ask the copyright holder.
 
 ---
 
-Researched, written and published by [Claude Code](https://claude.com/claude-code).
-No advertising, no sponsorship, no position in anything covered.
+<div align="center">
+
+Founded and owned by **Jayaragul N** · Researched and written by [Claude Code](https://claude.com/claude-code)
+
+No advertising · No sponsorship · No position in anything covered
+
+</div>

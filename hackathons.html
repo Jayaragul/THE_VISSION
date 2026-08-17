@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Methodology — THE VISSION</title>
-<meta name="description" content="How an automated pipeline researches, writes, checks and publishes this paper.">
-<link rel="canonical" href="https://jayaragul.github.io/THE_VISSION/methodology.html">
+<title>AI hackathons — open now | THE VISSION</title>
+<meta name="description" content="Open AI hackathons with verified deadlines, prize pools and eligibility. Checked against each organiser&#39;s own listing, and expired entries removed automatically.">
+<link rel="canonical" href="https://jayaragul.github.io/THE_VISSION/hackathons.html">
 <meta name="generator" content="THE VISSION pipeline">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="THE VISSION">
-<meta property="og:title" content="Methodology — THE VISSION">
-<meta property="og:description" content="How an automated pipeline researches, writes, checks and publishes this paper.">
-<meta property="og:url" content="https://jayaragul.github.io/THE_VISSION/methodology.html">
+<meta property="og:title" content="AI hackathons — open now | THE VISSION">
+<meta property="og:description" content="Open AI hackathons with verified deadlines, prize pools and eligibility. Checked against each organiser&#39;s own listing, and expired entries removed automatically.">
+<meta property="og:url" content="https://jayaragul.github.io/THE_VISSION/hackathons.html">
 <meta property="og:image" content="https://jayaragul.github.io/THE_VISSION/assets/img/social-card.svg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Methodology — THE VISSION">
-<meta name="twitter:description" content="How an automated pipeline researches, writes, checks and publishes this paper.">
+<meta name="twitter:title" content="AI hackathons — open now | THE VISSION">
+<meta name="twitter:description" content="Open AI hackathons with verified deadlines, prize pools and eligibility. Checked against each organiser&#39;s own listing, and expired entries removed automatically.">
 <meta name="twitter:image" content="https://jayaragul.github.io/THE_VISSION/assets/img/social-card.svg">
 
 <meta name="author" content="THE VISSION Desk — founded by Jayaragul N">
@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
 <link rel="stylesheet" href="./assets/css/site.css">
 <script>try{var t=localStorage.getItem('tv-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Open AI hackathons","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Event","name":"DevNetwork [API + Cloud + AI] Hackathon 2026","url":"https://api-cloud-ai-hackathon-2026.devpost.com/","startDate":"2026-08-17","endDate":"2026-09-03","eventAttendanceMode":"https://schema.org/MixedEventAttendanceMode","organizer":{"@type":"Organization","name":"DevNetwork, co-located with API World 2026"},"location":{"@type":"Place","name":"Santa Clara Convention Center, California"}}},{"@type":"ListItem","position":2,"item":{"@type":"Event","name":"AI Builders Hackathon","url":"https://ai-builders-hackathon-2026.devpost.com/","startDate":"2026-08-21","endDate":"2026-09-15","eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode","organizer":{"@type":"Organization","name":"AI Builders"}}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","name":"THE VISSION","url":"https://jayaragul.github.io/THE_VISSION/","description":"An autonomously researched, written and published daily briefing on artificial intelligence — models, capital, policy, research and infrastructure.","slogan":"The daily record of artificial intelligence","foundingDate":"2026","founder":{"@type":"Person","name":"Jayaragul N"},"copyrightHolder":{"@type":"Person","name":"Jayaragul N"},"logo":"https://jayaragul.github.io/THE_VISSION/assets/img/social-card.svg","sameAs":["https://github.com/Jayaragul/THE_VISSION"],"ethicsPolicy":"https://jayaragul.github.io/THE_VISSION/methodology.html","publishingPrinciples":"https://jayaragul.github.io/THE_VISSION/methodology.html"}</script>
 </head>
 <body>
@@ -61,76 +61,62 @@
 <main id="main">
 <div class="wrap">
 <section class="editorsnote">
-<div class="editorsnote__label">Methodology</div>
+<div class="editorsnote__label">Hackathons</div>
 <div>
-<h1 class="editorsnote__title">Nobody writes this paper.</h1>
-<p class="editorsnote__body">An autonomously researched, written and published daily briefing on artificial intelligence — models, capital, policy, research and infrastructure.</p>
+<h1 class="editorsnote__title">Where to actually build something.</h1>
+<p class="editorsnote__body">Open AI hackathons with their real deadlines and prize pools. Every entry was
+checked by opening the organiser's own listing — the same sourcing rule the rest of the paper runs on.
+Entries disappear from this page automatically once their submission deadline passes.</p>
 </div>
 </section>
-
 <section class="section">
-<div class="article__grid">
-<div class="prose">
-<p>Every edition of THE VISSION is produced by an automated pipeline. There is no
-newsroom, no editor reading proofs at midnight, and no human deciding which story leads.
-That is unusual enough to be worth explaining precisely, because a reader cannot judge
-what they cannot see.</p>
-
-<p>The repository holds three things the pipeline reads and one thing it writes. It reads
-the <strong>skills</strong>, which are the standing instructions for how to research and how
-to write; the <strong>inputs</strong>, which set the beats, the trusted source list and the
-house style; and the <strong>evaluations</strong>, which are the tests an edition must pass.
-It writes a single JSON file per day. Everything you are looking at — this page, the front
-page, every story — is rendered from those JSON files by a build script that reaches
-nowhere near the network.</p>
-
-<p>A run works through four stages. First it researches each beat against the day's
-candidate stories, following every lead to a primary source. Second it drafts, applying the
-house style and refusing to print any claim it could not verify. Third it validates: the
-edition is checked against a schema, a sourcing policy and a style linter, and a run that
-fails is not published. Fourth it commits the JSON to git and pushes, which is what puts
-the edition in front of you.</p>
-
-<p>Two rules matter more than the rest. <strong>No claim runs without a source</strong>, and
-lead stories carry at least two that are not rewrites of each other. <strong>Nothing is
-invented</strong> — not a URL, not a quotation, not a number, not a date. An edition that
-comes up short simply runs short, and the validator will say so out loud rather than let
-the pipeline fill the gap with something plausible.</p>
-
-<p>On images: this paper does not republish other people's press photography, because it has
-no licence to. The art on every story is generated from that story's identifier, which is why
-it is abstract and why it never changes once published.</p>
-
-<p>The obvious limitation is that an automated pipeline can be confidently wrong. It can
-misread a benchmark, miss the context that makes a funding round unremarkable, or pick up a
-claim that a human editor would have recognised as a press release in a wig. The mitigations
-are the source tiers, the confidence label printed on every story, and the fact that every
-source is one click away. Where a story is thin, it is marked thin. Read the sources.</p>
+<div class="section__head">
+<h2 class="section__title">Open now</h2>
+<span class="section__blurb">Sorted by closing date</span>
+<span class="section__count">2 stories</span>
 </div>
-
-<aside class="rail">
-<div class="rail__block">
-<h2 class="rail__title">The record</h2>
-<div class="signals"><div class="signal"><div class="signal__n">13</div><div class="signal__l">Stories</div></div><div class="signal"><div class="signal__n">17</div><div class="signal__l">Sources cited</div></div><div class="signal"><div class="signal__n">13</div><div class="signal__l">Primary sources</div></div><div class="signal"><div class="signal__n">1</div><div class="signal__l">Beats covered</div></div><div class="signal"><div class="signal__n">10</div><div class="signal__l">Publishers</div></div></div>
+<article class="hack">
+<div class="hack__when">
+<span class="hack__date">3 Sep 2026</span>
+<span class="hack__label">Deadline</span>
 </div>
-<div class="rail__block">
-<h2 class="rail__title">Who runs this</h2>
-<p style="font-family:var(--sans);font-size:.82rem;line-height:1.6;color:var(--muted)">
-THE VISSION was founded by <strong style="color:var(--ink-2)">Jayaragul N</strong>, who owns the project and sets the editorial rules the pipeline runs on. The pipeline writes; a human decides what it is allowed to write, and merges any change to its own standards.
+<div class="hack__body">
+<h3 class="hack__name"><a href="https://api-cloud-ai-hackathon-2026.devpost.com/" rel="noopener nofollow" target="_blank">DevNetwork [API + Cloud + AI] Hackathon 2026</a></h3>
+<p class="hack__org">DevNetwork, co-located with API World 2026</p>
+<div class="meta">
+<span>hybrid</span>
+<span>Santa Clara Convention Center, California</span>
+<span>Starts 17 Aug 2026</span>
+<span>$45,500 in cash prizes</span>
+</div>
+<p class="hack__elig">Open internationally to entrants above the age of majority in their country.</p>
+</div>
+</article><article class="hack">
+<div class="hack__when">
+<span class="hack__date">15 Sep 2026</span>
+<span class="hack__label">Deadline</span>
+</div>
+<div class="hack__body">
+<h3 class="hack__name"><a href="https://ai-builders-hackathon-2026.devpost.com/" rel="noopener nofollow" target="_blank">AI Builders Hackathon</a></h3>
+<p class="hack__org">AI Builders</p>
+<div class="meta">
+<span>online</span>
+
+<span>Starts 21 Aug 2026</span>
+<span>$33,900 in total prizes</span>
+</div>
+<p class="hack__elig">Students, developers and founders. Companies and professional organisations excluded.</p>
+</div>
+</article>
+</section>
+<section class="section">
+<p class="wire__warning" style="max-width:70ch">
+Listings are informational and are not endorsements. THE VISSION has no relationship with any
+organiser here and takes no fee for a listing. Check the organiser's own rules before entering —
+dates, eligibility and prizes are theirs to change.
+<br><br>
+Know one that belongs here? <a href="https://github.com/Jayaragul/THE_VISSION/blob/main/input/hackathons.json" rel="noopener">Open a pull request against <code>input/hackathons.json</code></a>.
 </p>
-</div>
-<div class="rail__block">
-<h2 class="rail__title">Read the rules</h2>
-<ul class="rail__list">
-<li><a href="https://github.com/Jayaragul/THE_VISSION/blob/main/input/editorial.md">Editorial standards</a></li>
-<li><a href="https://github.com/Jayaragul/THE_VISSION/blob/main/input/sources.json">Source tiers</a></li>
-<li><a href="https://github.com/Jayaragul/THE_VISSION/blob/main/schema/edition.schema.json">Edition schema</a></li>
-<li><a href="https://github.com/Jayaragul/THE_VISSION/blob/main/evals/rubric.md">Evaluation rubric</a></li>
-<li><a href="https://github.com/Jayaragul/THE_VISSION/blob/main/tools/validate.mjs">The publish gate</a></li>
-</ul>
-</div>
-</aside>
-</div>
 </section>
 </div>
 </main>

@@ -1,0 +1,94 @@
+name: Weekly retrospective
+
+# The self-improvement loop, with a human gate.
+#
+# Once a week Claude reads the last seven editions and their eval scores, finds the pattern
+# that keeps costing the paper points, and proposes a fix to the RULES — a new check in the
+# validator, a banned construction in editorial.md, a quota that does not match reality.
+#
+# It opens a pull request. It does not merge. That boundary is the whole design: an agent
+# that can rewrite its own standards without review will eventually rewrite them to be
+# easier to pass, and the eval scores will improve while the paper gets worse. A human
+# merging a small, well-argued rule change once a week is what makes the loop safe.
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  retrospective:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Propose rule changes
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: |
+            --model claude-opus-5
+            --max-turns 40
+            --allowedTools Read,Write,Edit,Glob,Grep,Bash(node tools/*),Bash(git log:*),Bash(git diff:*)
+          prompt: |
+            Run a retrospective on THE VISSION's last seven editions.
+
+            Read evals/rubric.md, then `git log -p --follow evals/last-run.json` for the
+            score history, then the most recent editions in generated/.
+
+            Find the ONE pattern that has cost the paper the most points across those runs.
+            Not a list — the single highest-leverage problem.
+
+            Then propose a fix to the RULES, not to any individual edition:
+              - a new machine check in tools/validate.mjs, if a machine can catch it
+              - a banned construction in input/editorial.md and STYLE_TRAPS, if it is prose
+              - a quota or lookback change in input/beats.json, if targets do not match
+                what runs actually yield
+              - a sharpened dimension in evals/rubric.md, if the rubric is the thing missing it
+
+            Prefer a machine check over a written rule every time. A check cannot be
+            forgotten by the next run; a paragraph in a markdown file can.
+
+            Make the change, run `node tools/validate.mjs --strict` to confirm every existing
+            edition still passes, and run `node tools/build.mjs`. If your new check fails an
+            already-published edition, do NOT weaken the check and do NOT edit the archive —
+            say so in the PR body and let a human decide.
+
+            Write the branch, commit and open a pull request titled
+            "Retrospective: <the one-line problem>". In the body: the evidence from the score
+            history, the specific fix, and what it would have caught. Keep it short.
+
+            Do not merge. Do not push to main.
+
+      - name: Open the pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No rule change proposed this week — that is a valid outcome."
+            exit 0
+          fi
+          BRANCH="retrospective/$(date -u '+%Y-%m-%d')"
+          git config user.name  "the-vission-desk[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add -A
+          git commit -m "Retrospective: proposed rule change $(date -u '+%Y-%m-%d')"
+          git push -u origin "$BRANCH"
+          gh pr create \
+            --title "Retrospective: proposed rule change $(date -u '+%Y-%m-%d')" \
+            --body "Automated weekly retrospective. Review the rule change before merging — this is the human gate on the self-improvement loop." \
+            --base main --head "$BRANCH"

@@ -43,6 +43,9 @@ export function page(ctx, opts) {
 <meta name="twitter:description" content="${e(opts.description)}">
 <meta name="twitter:image" content="${e(ogImage)}">
 
+<meta name="author" content="${e(site.founder ? `${site.name} Desk — founded by ${site.founder}` : `${site.name} Desk`)}">
+<meta name="theme-color" content="#c8102e" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c0b0a" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="${r('assets/img/favicon.svg')}" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="${e(site.name)}" href="${r('rss.xml')}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,6 +54,21 @@ export function page(ctx, opts) {
 <link rel="stylesheet" href="${r('assets/css/site.css')}">
 <script>try{var t=localStorage.getItem('tv-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 ${opts.jsonLd ? `<script type="application/ld+json">${JSON.stringify(opts.jsonLd)}</script>` : ''}
+<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'NewsMediaOrganization',
+    name: site.name,
+    url: `${site.baseUrl}/`,
+    description: site.description,
+    slogan: site.tagline,
+    foundingDate: site.founded,
+    ...(site.founder ? { founder: { '@type': 'Person', name: site.founder } } : {}),
+    ...(site.copyrightHolder ? { copyrightHolder: { '@type': 'Person', name: site.copyrightHolder } } : {}),
+    logo: `${site.baseUrl}/assets/img/social-card.svg`,
+    sameAs: [site.social.repo],
+    ethicsPolicy: `${site.baseUrl}/methodology.html`,
+    publishingPrinciples: `${site.baseUrl}/methodology.html`,
+  })}</script>
 </head>
 <body${opts.bodyClass ? ` class="${opts.bodyClass}"` : ''}>
 ${opts.progress ? '<div class="progress" aria-hidden="true"></div>' : ''}
@@ -102,6 +120,7 @@ function beatnav(ctx, opts) {
   return `<nav class="beatnav" aria-label="Sections"><div class="wrap beatnav__in">
 ${links}
 <span class="beatnav__sep"></span>
+<a class="is-quiet" href="${rel(d, 'hackathons.html')}">Hackathons</a>
 <a class="is-quiet" href="${rel(d, 'archive.html')}">Archive</a>
 <a class="is-quiet" href="${rel(d, 'methodology.html')}">Method</a>
 <a class="is-quiet" href="${rel(d, 'rss.xml')}">RSS</a>
@@ -127,6 +146,7 @@ function footer(ctx, opts) {
 <div>
 <h4>The paper</h4>
 <ul>
+<li><a href="${rel(d, 'hackathons.html')}">Hackathons</a></li>
 <li><a href="${rel(d, 'archive.html')}">Archive</a></li>
 <li><a href="${rel(d, 'methodology.html')}">Methodology</a></li>
 <li><a href="${rel(d, 'rss.xml')}">RSS feed</a></li>

@@ -24,6 +24,9 @@ const OUT = (...p) => join(ROOT, ...p);
 const site = readJSON(OUT('input', 'site.json'));
 const { beats } = readJSON(OUT('input', 'beats.json'));
 const sourceBook = readJSON(OUT('input', 'sources.json'));
+const hackathonBook = existsSync(OUT('input', 'hackathons.json'))
+  ? readJSON(OUT('input', 'hackathons.json'))
+  : { hackathons: [] };
 const beatMap = new Map(beats.map((b) => [b.id, b]));
 
 const write = (relPath, contents) => {
@@ -451,6 +454,12 @@ ${R.signalsBlock({
   })}
 </div>
 <div class="rail__block">
+<h2 class="rail__title">Who runs this</h2>
+<p style="font-family:var(--sans);font-size:.82rem;line-height:1.6;color:var(--muted)">
+${site.founder ? `${e(site.name)} was founded by <strong style="color:var(--ink-2)">${e(site.founder)}</strong>, who owns the project and sets the editorial rules the pipeline runs on. ` : ''}The pipeline writes; a human decides what it is allowed to write, and merges any change to its own standards.
+</p>
+</div>
+<div class="rail__block">
 <h2 class="rail__title">Read the rules</h2>
 <ul class="rail__list">
 <li><a href="${e(site.social.repo)}/blob/main/input/editorial.md">Editorial standards</a></li>
@@ -470,6 +479,96 @@ ${R.signalsBlock({
     canonical: 'methodology.html',
     title: `Methodology — ${site.name}`,
     description: 'How an automated pipeline researches, writes, checks and publishes this paper.',
+    content,
+  });
+}
+
+function renderHackathons(ctx, editions) {
+  const all = hackathonBook.hackathons || [];
+  // Expiry is measured against the newest edition, not the clock, so the page stays a pure
+  // function of committed inputs and CI's determinism check keeps passing.
+  const today = ctx.latestDate;
+  const live = all
+    .filter((h) => h.deadline >= today)
+    .sort((a, b) => a.deadline.localeCompare(b.deadline));
+
+  const rows = live
+    .map(
+      (h) => `<article class="hack">
+<div class="hack__when">
+<span class="hack__date">${e(formatShort(h.deadline))}</span>
+<span class="hack__label">Deadline</span>
+</div>
+<div class="hack__body">
+<h3 class="hack__name"><a href="${e(h.url)}" rel="noopener nofollow" target="_blank">${e(h.name)}</a></h3>
+<p class="hack__org">${e(h.organiser)}</p>
+<div class="meta">
+<span>${e(h.format)}</span>
+${h.location ? `<span>${e(h.location)}</span>` : ''}
+<span>Starts ${e(formatShort(h.starts))}</span>
+${h.prize ? `<span>${e(h.prize)}</span>` : ''}
+</div>
+<p class="hack__elig">${e(h.eligibility)}</p>
+</div>
+</article>`
+    )
+    .join('');
+
+  const content = `<div class="wrap">
+<section class="editorsnote">
+<div class="editorsnote__label">Hackathons</div>
+<div>
+<h1 class="editorsnote__title">Where to actually build something.</h1>
+<p class="editorsnote__body">Open AI hackathons with their real deadlines and prize pools. Every entry was
+checked by opening the organiser's own listing — the same sourcing rule the rest of the paper runs on.
+Entries disappear from this page automatically once their submission deadline passes.</p>
+</div>
+</section>
+<section class="section">
+${R.sectionHead('Open now', 'Sorted by closing date', live.length)}
+${rows || `<p class="empty">Nothing open at the moment. This page lists only events whose deadline has not passed, so it runs empty rather than stale.</p>`}
+</section>
+<section class="section">
+<p class="wire__warning" style="max-width:70ch">
+Listings are informational and are not endorsements. THE VISSION has no relationship with any
+organiser here and takes no fee for a listing. Check the organiser's own rules before entering —
+dates, eligibility and prizes are theirs to change.
+<br><br>
+Know one that belongs here? <a href="${e(ctx.site.social.repo)}/blob/main/input/hackathons.json" rel="noopener">Open a pull request against <code>input/hackathons.json</code></a>.
+</p>
+</section>
+</div>`;
+
+  return R.page(ctx, {
+    depth: 0,
+    canonical: 'hackathons.html',
+    title: `AI hackathons — open now | ${site.name}`,
+    description:
+      'Open AI hackathons with verified deadlines, prize pools and eligibility. Checked against each organiser\'s own listing, and expired entries removed automatically.',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'Open AI hackathons',
+      itemListElement: live.map((h, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'Event',
+          name: h.name,
+          url: h.url,
+          startDate: h.starts,
+          endDate: h.deadline,
+          eventAttendanceMode:
+            h.format === 'online'
+              ? 'https://schema.org/OnlineEventAttendanceMode'
+              : h.format === 'hybrid'
+                ? 'https://schema.org/MixedEventAttendanceMode'
+                : 'https://schema.org/OfflineEventAttendanceMode',
+          organizer: { '@type': 'Organization', name: h.organiser },
+          ...(h.location ? { location: { '@type': 'Place', name: h.location } } : {}),
+        },
+      })),
+    },
     content,
   });
 }
@@ -534,6 +633,7 @@ function renderSitemap(editions) {
   const urls = [
     { loc: `${site.baseUrl}/`, priority: '1.0', freq: 'daily' },
     { loc: `${site.baseUrl}/archive.html`, priority: '0.6', freq: 'daily' },
+    { loc: `${site.baseUrl}/hackathons.html`, priority: '0.7', freq: 'weekly' },
     { loc: `${site.baseUrl}/methodology.html`, priority: '0.4', freq: 'monthly' },
     ...editions.map((ed) => ({
       loc: `${site.baseUrl}/${R.editionPath(ed.edition.date)}`,
@@ -678,6 +778,7 @@ prune('story', '.html', expectedStoryFiles);
 prune('assets/img/covers', '.svg', expectedCovers);
 
 write('archive.html', renderArchive(ctx, editions));
+write('hackathons.html', renderHackathons(ctx, editions));
 write('methodology.html', renderMethodology(ctx, editions));
 write('404.html', render404(ctx));
 write('rss.xml', renderRSS(editions));

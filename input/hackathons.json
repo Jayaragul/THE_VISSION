@@ -1,0 +1,40 @@
+{
+  "$comment": "Curated, not harvested. Devpost has no open API (its /api/hackathons endpoint returns 403), so entries here are added by hand or by the pipeline after opening the listing page and reading the real dates. Same rule as the rest of the paper: nothing is invented, and an entry that cannot be opened does not run. The build drops anything whose `deadline` has passed, so stale entries fall off on their own rather than rotting on the page.",
+  "fields": {
+    "name": "Exact event name as the organiser writes it.",
+    "url": "The listing page that was actually opened to verify the entry.",
+    "organiser": "Who runs it.",
+    "format": "online | in-person | hybrid",
+    "location": "Omit for online-only events.",
+    "starts": "YYYY-MM-DD",
+    "deadline": "YYYY-MM-DD — submission deadline. Drives expiry.",
+    "prize": "Total prize pool as stated, with currency.",
+    "eligibility": "One short line. Say plainly if it is students-only.",
+    "verifiedAt": "YYYY-MM-DD the listing was last opened and checked."
+  },
+  "hackathons": [
+    {
+      "name": "DevNetwork [API + Cloud + AI] Hackathon 2026",
+      "url": "https://api-cloud-ai-hackathon-2026.devpost.com/",
+      "organiser": "DevNetwork, co-located with API World 2026",
+      "format": "hybrid",
+      "location": "Santa Clara Convention Center, California",
+      "starts": "2026-08-17",
+      "deadline": "2026-09-03",
+      "prize": "$45,500 in cash prizes",
+      "eligibility": "Open internationally to entrants above the age of majority in their country.",
+      "verifiedAt": "2026-08-17"
+    },
+    {
+      "name": "AI Builders Hackathon",
+      "url": "https://ai-builders-hackathon-2026.devpost.com/",
+      "organiser": "AI Builders",
+      "format": "online",
+      "starts": "2026-08-21",
+      "deadline": "2026-09-15",
+      "prize": "$33,900 in total prizes",
+      "eligibility": "Students, developers and founders. Companies and professional organisations excluded.",
+      "verifiedAt": "2026-08-17"
+    }
+  ]
+}
