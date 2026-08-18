@@ -76,6 +76,28 @@ what makes it impossible for a page to drift from its data.
 📐 **[Read ARCHITECTURE.md](ARCHITECTURE.md)** for the design reasoning, the trade-offs, and
 the honest list of what does not work.
 
+## The three tiers, plainly
+
+Three independent processes publish to this site. None of them depends on the others being
+up — that independence is the entire point (see [ARCHITECTURE.md §1](ARCHITECTURE.md)).
+
+| | The Wire | The Digest | The edition |
+| --- | --- | --- | --- |
+| What it is | Raw headlines, straight from ~30 public feeds | The same headlines clustered, ranked, source-attributed — still no prose | Researched, verified, human-written stories |
+| Needs an API key? | No | No | Yes — `ANTHROPIC_API_KEY` |
+| Refreshes | Every 6 hours | 3× a day | Once a day at 06:30 UTC, or on demand |
+| Where it lives now | Embedded at the bottom of the front page, always the live current selection | [digest.html](https://jayaragul.github.io/THE_VISSION/digest.html) | The front page |
+| Verified? | No — publisher-attributed, unverified | No — but each item is badged **confirmed** only when two independent publishers cover it | Yes — every claim traced to a primary source before it runs |
+| Its history | `generated/wire/<date>.json` → [wire/&lt;date&gt;.html](https://jayaragul.github.io/THE_VISSION/) | `generated/digest/<date>.json` → [digest/&lt;date&gt;.html](https://jayaragul.github.io/THE_VISSION/digest.html) | `generated/<date>.json` → [edition/&lt;date&gt;.html](https://jayaragul.github.io/THE_VISSION/) |
+
+**[archive.html](https://jayaragul.github.io/THE_VISSION/archive.html)** is the one place all
+three show up together, one row per date. A date with only a Digest and a Wire entry means the
+edited edition simply didn't run that day (no key, or an edition that failed the gate) — the
+row says so instead of leaving a silent gap. Every page also states exactly when *that specific
+tier* last updated ("Collected 3 hours ago" on the wire, "Last refreshed" on the digest,
+"Published" on the edition) — a shared date isn't enough when three processes run on three
+different schedules.
+
 ## The rules the pipeline cannot break
 
 1. **Nothing is invented.** Not a URL, a quote, a number, a date, or a publisher name. If a

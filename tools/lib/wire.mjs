@@ -11,14 +11,21 @@
 // written, checked, or endorsed by the paper. The visual treatment and the labelling exist
 // to make that distinction impossible to miss.
 
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { escapeHTML as e, hostOf, matchPublisher, monogram, isAiRelevant } from './util.mjs';
 
 /** Aggregator redirects are leads, never display sources — drop them from the public wire. */
-export function selectWireItems(candidates, { limit = 24, sourceBook } = {}) {
+// arXiv alone posts more often than any single company blog or press outlet, so a flat
+// most-recent-N cut let three arXiv categories fill nearly half of every wire refresh and
+// crowd out lower-frequency-but-important sources (Amazon, Microsoft, Meta among them —
+// see the 18 Aug 2026 coverage review). perSourceCap keeps one prolific feed from dominating
+// the page without hiding it: it still appears, just not to the exclusion of everything else.
+export function selectWireItems(candidates, { limit = 24, sourceBook, perSourceCap = 5 } = {}) {
   if (!candidates?.items?.length) return [];
 
   const seenTitles = new Set();
-  return candidates.items
+  const filtered = candidates.items
     .filter((item) => {
       if (item.discoveryOnly) return false;
       if (!item.url || !/^https:\/\//i.test(item.url)) return false;
@@ -37,8 +44,19 @@ export function selectWireItems(candidates, { limit = 24, sourceBook } = {}) {
       seenTitles.add(key);
       return true;
     })
-    .sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''))
-    .slice(0, limit);
+    .sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''));
+
+  const perSource = new Map();
+  const out = [];
+  for (const item of filtered) {
+    if (out.length >= limit) break;
+    const key = item.source || '';
+    const count = perSource.get(key) || 0;
+    if (count >= perSourceCap) continue;
+    perSource.set(key, count + 1);
+    out.push(item);
+  }
+  return out;
 }
 
 export function wireItemsHTML(items, { sourceBook } = {}) {
@@ -75,8 +93,46 @@ endorsed</strong> by THE VISSION. They are leads, not reporting. Edited stories 
 above this line.
 </p>
 <ul class="wire">${wireItemsHTML(items, { sourceBook })}</ul>
-${harvestedAt ? `<p class="wire__stamp">Collected <time datetime="${e(harvestedAt)}" data-relative>${e(harvestedAt.slice(0, 10))}</time> · runs on a schedule with no model in the loop</p>` : ''}
+${harvestedAt ? `<p class="wire__stamp">Collected <time datetime="${e(harvestedAt)}" data-relative>${e(harvestedAt.slice(0, 10))}, ${e(harvestedAt.slice(11, 16))} UTC</time> · runs four times a day, no model in the loop</p>` : ''}
 </section>`;
+}
+
+/** The wire's own archive path, parallel to digestPath() in build.mjs. */
+export function wirePath(date) {
+  return `wire/${date}.html`;
+}
+
+// The wire itself is a live, rolling view with no history of its own — every refresh
+// overwrites the last. That is correct for the front page, but it means the archive had
+// nothing to point at for "what did the wire show on the 14th". This snapshots whatever the
+// current build's wire selection is, keyed to the harvest's own date (never wall-clock, so
+// build.mjs stays a pure function of what's already committed under generated/). Called once
+// per build; overwrites that day's file, so only the last state of a given day survives —
+// same rule digest.mjs already runs on generated/digest/<date>.json.
+export function snapshotWire(items, { date, harvestedAt, outDir }) {
+  if (!date || !items.length) return;
+  mkdirSync(outDir, { recursive: true });
+  const doc = {
+    date,
+    harvestedAt,
+    items: items.map((i) => ({
+      title: i.title,
+      url: i.url,
+      source: i.source || null,
+      publishedAt: i.publishedAt || null,
+    })),
+  };
+  writeFileSync(join(outDir, `${date}.json`), JSON.stringify(doc, null, 2) + '\n');
+}
+
+/** Newest-first, mirroring loadDigests()/loadEditions() in build.mjs. */
+export function loadWireHistory(dir) {
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
+    .sort()
+    .reverse()
+    .map((f) => JSON.parse(readFileSync(join(dir, f), 'utf8')));
 }
 
 /** Banner shown when the edited edition has gone stale but the wire is still current. */

@@ -15,7 +15,7 @@ import {
   hostOf, matchPublisher, readMinutes, hash32, slugify,
 } from './lib/util.mjs';
 import { renderCover } from './lib/cover.mjs';
-import { selectWireItems, wireBlock, stalenessBanner } from './lib/wire.mjs';
+import { selectWireItems, wireBlock, wireItemsHTML, stalenessBanner, wirePath, snapshotWire, loadWireHistory } from './lib/wire.mjs';
 import * as R from './lib/render.mjs';
 
 const ROOT = resolvePath(dirname(fileURLToPath(import.meta.url)), '..');
@@ -251,6 +251,7 @@ ${stale}
 <div>
 <h1 class="editorsnote__title">${e(ed.edition.title)}</h1>
 <p class="editorsnote__body">${e(ed.edition.summary)}</p>
+${isFront ? `<p class="wire__stamp">Published <time datetime="${e(ed.edition.generatedAt)}" data-relative>${e(formatMasthead(ed.edition.date))}, ${e(ed.edition.generatedAt.slice(11, 16))} UTC</time> · the edited tier, researched and written by Claude Code</p>` : ''}
 </div>
 </section>
 
@@ -418,15 +419,48 @@ editorial rules before release. <a href="${R.rel(depth, 'methodology.html')}" st
 
 // ---------------------------------------------------------- static pages ----
 
-function renderArchive(ctx, editions) {
-  const rows = editions
-    .map(
-      (ed) => `<a class="archive__row" href="${R.rel(0, R.editionPath(ed.edition.date))}">
-<span class="archive__date">${e(ed.edition.date)}</span>
-<span class="archive__title">${e(ed.edition.title)}</span>
-<span class="archive__n">No. ${ed.edition.number} · ${ed.signals.storyCount} stories · ${ed.signals.sourceCount} sources</span>
-</a>`
-    )
+// A date can have up to three independent records: the AI edition (Tier 2, needs a key),
+// the digest (Tier 1.5, no key), and a wire snapshot (Tier 1, no key). They run on different
+// schedules and any one of them can be missing for a given day without the others being
+// affected — that independence is the whole point of the tiered design (see ARCHITECTURE.md
+// section 1). The archive used to list editions only; a reader had no way to see what the
+// no-AI tiers were doing on a day the AI edition didn't run. This shows all three, honestly:
+// a real link where a record exists, a plain "not published" where it doesn't.
+function tierChip(label, href, count, unit) {
+  return href
+    ? `<a class="archive__tier" href="${href}">${e(label)} · ${count} ${unit}</a>`
+    : `<span class="archive__tier archive__tier--missing">${e(label)} · not published</span>`;
+}
+
+function renderArchive(ctx, editions, digests, wireHistory) {
+  const byDate = new Map();
+  const get = (date) => {
+    if (!byDate.has(date)) byDate.set(date, { date, edition: null, digest: null, wire: null });
+    return byDate.get(date);
+  };
+  for (const ed of editions) get(ed.edition.date).edition = ed;
+  for (const d of digests) get(d.edition.date).digest = d;
+  for (const w of wireHistory) get(w.date).wire = w;
+
+  const dates = [...byDate.keys()].sort().reverse();
+
+  const rows = dates
+    .map((date) => {
+      const row = byDate.get(date);
+      const titleClass = row.edition ? 'archive__title' : 'archive__title archive__title--none';
+      const title = row.edition ? e(row.edition.edition.title) : 'No edited edition this day';
+      return `<div class="archive__row">
+<span class="archive__date">${e(date)}</span>
+<div class="archive__body">
+<span class="${titleClass}">${title}</span>
+<div class="archive__tiers">
+${tierChip('Edition', row.edition && R.rel(0, R.editionPath(date)), row.edition?.signals.storyCount, 'stories')}
+${tierChip('Digest', row.digest && R.rel(0, digestPath(date)), row.digest?.items.length, 'headlines')}
+${tierChip('Wire', row.wire && R.rel(0, wirePath(date)), row.wire?.items.length, 'headlines')}
+</div>
+</div>
+</div>`;
+    })
     .join('');
 
   const totals = editions.reduce(
@@ -442,8 +476,10 @@ function renderArchive(ctx, editions) {
 <div class="editorsnote__label">Archive</div>
 <div>
 <h1 class="editorsnote__title">Every edition, kept.</h1>
-<p class="editorsnote__body">Each edition is a JSON file in the repository, rendered to HTML on every build.
-Nothing is rewritten after publication, so the archive is a record rather than a snapshot.</p>
+<p class="editorsnote__body">Each edition, digest and wire snapshot is a JSON file in the repository, rendered to HTML
+on every build. Nothing is rewritten after publication, so this is a record rather than a snapshot. Every day shows
+all three tiers — <a href="${R.rel(0, 'methodology.html')}">what each one is</a> — and says plainly when one didn't
+run rather than leaving a gap unexplained.</p>
 </div>
 </section>
 <section class="section">
@@ -456,8 +492,8 @@ ${R.signalsBlock({
   })}
 </section>
 <section class="section">
-${R.sectionHead('Editions', 'Newest first', editions.length)}
-${rows || '<p class="empty">No editions yet.</p>'}
+${R.sectionHead('Every day', 'Newest first — edition, digest and wire, side by side', dates.length)}
+${rows || '<p class="empty">Nothing published yet.</p>'}
 </section>
 </div>`;
 
@@ -465,7 +501,7 @@ ${rows || '<p class="empty">No editions yet.</p>'}
     depth: 0,
     canonical: 'archive.html',
     title: `Archive — ${site.name}`,
-    description: `Every edition of ${site.name}, newest first.`,
+    description: `Every edition, digest and wire snapshot of ${site.name}, newest first.`,
     content,
   });
 }
@@ -639,6 +675,22 @@ in a headline, not meaning, so two outlets covering the same event in very diffe
 will often show up as two separate, unconfirmed items rather than one confirmed one. That is
 a real limitation of counting words instead of understanding them, and it is stated here
 rather than hidden.</p>
+
+<h2 id="wire" style="font-size:1.3rem;margin:34px 0 12px">The wire: not even sorted</h2>
+<p>Underneath the digest, on the front page, is <strong>the wire</strong> — the lowest tier and
+the one with no judgement in it at all. <code>tools/harvest.mjs</code> pulls headlines straight
+from roughly 30 public RSS feeds and a handful of topic searches, keeps whatever is plausibly
+about AI, and shows the most recent ones, exactly as their publisher wrote them. Nothing is
+clustered, nothing is ranked by importance, nothing is confirmed against a second source. A
+single busy feed cannot fill the whole page — one publisher can only ever hold a handful of
+the visible slots — but beyond that, this is a raw feed of the newest items and nothing more.</p>
+
+<p>This is deliberate: the wire is what keeps the site from going dark. It needs no API key
+and no model, so if the edited pipeline or the digest both stop — an expired key, an outage, a
+run that failed its own checks — the wire keeps refreshing on its own schedule and the front
+page still shows what happened today. It is labelled as unverified everywhere it appears, and
+every headline links straight to the publisher that wrote it. Treat it exactly like a stack of
+newspapers on a desk, not like reporting.</p>
 </div>
 
 <aside class="rail">
@@ -763,6 +815,7 @@ ${next ? `<a href="${R.rel(depth, digestPath(next))}" style="text-decoration:non
 source tier, independent confirmation, novelty and beat priority, weighted and summed. No model wrote or selected
 any of this. Every title on this page is a source's own headline; every item links straight to where it was
 reported. <a href="${R.rel(depth, 'methodology.html')}#digest">How this differs from the edited paper →</a></p>
+<p class="wire__stamp">Last refreshed <time datetime="${e(digest.edition.generatedAt)}" data-relative>${e(formatMasthead(digest.edition.date))}, ${e(digest.edition.generatedAt.slice(11, 16))} UTC</time> · runs three times a day, no model in the loop</p>
 </div>
 </section>
 ${sections || '<p class="empty">No items cleared the classifier for this run.</p>'}
@@ -777,6 +830,47 @@ ${nav}
       ? `Digest — ${site.name}`
       : `Digest, ${formatShort(digest.edition.date)} — ${site.name}`,
     description: `${digest.items.length} AI headlines for ${digest.edition.date}, clustered and ranked without a model — no generated prose, every title is a source's own.`,
+    content,
+  });
+}
+
+// A permanent, dated page for one day's wire — the archived counterpart to wireBlock(),
+// which only ever shows the live, current selection. See snapshotWire() in wire.mjs for why
+// this history exists at all: the wire itself keeps no record of its own past.
+function renderWirePage(ctx, history, { index }) {
+  const snap = history[index];
+  const depth = 1;
+  const prev = history[index + 1]?.date;
+  const next = history[index - 1]?.date;
+
+  const nav =
+    prev || next
+      ? `<div class="meta" style="justify-content:space-between;padding:26px 0;border-top:1px solid var(--rule)">
+${prev ? `<a href="${R.rel(depth, wirePath(prev))}" style="text-decoration:none">← ${e(formatShort(prev))}</a>` : '<span></span>'}
+${next ? `<a href="${R.rel(depth, wirePath(next))}" style="text-decoration:none">${e(formatShort(next))} →</a>` : '<span></span>'}
+</div>`
+      : '';
+
+  const content = `<div class="wrap">
+<section class="editorsnote">
+<div class="editorsnote__label">Tier 1<br>No AI, no prose, no ranking</div>
+<div>
+<h1 class="editorsnote__title">The wire for ${e(formatMasthead(snap.date))}</h1>
+<p class="editorsnote__body">${snap.items.length} unedited headlines, exactly as their publishers wrote them. This is an
+archived snapshot of what the front page's Wire showed that day — it is not re-ranked or checked after the fact, and
+it is not reporting. <a href="${R.rel(depth, 'methodology.html')}#wire">How this differs from the edited paper →</a></p>
+<p class="wire__stamp">Snapshot taken <time datetime="${e(snap.harvestedAt || '')}">${e(formatMasthead(snap.date))}, ${e((snap.harvestedAt || '').slice(11, 16))} UTC</time></p>
+</div>
+</section>
+<ul class="wire">${wireItemsHTML(snap.items, { sourceBook })}</ul>
+${nav}
+</div>`;
+
+  return R.page(ctx, {
+    depth,
+    canonical: wirePath(snap.date),
+    title: `Wire, ${formatShort(snap.date)} — ${site.name}`,
+    description: `${snap.items.length} unedited headlines the wire carried on ${snap.date} — a record, not reporting.`,
     content,
   });
 }
@@ -1149,7 +1243,7 @@ ${items}
 `;
 }
 
-function renderSitemap(editions, entities, digests) {
+function renderSitemap(editions, entities, digests, wireHistory) {
   const urls = [
     { loc: `${site.baseUrl}/`, priority: '1.0', freq: 'daily' },
     { loc: `${site.baseUrl}/archive.html`, priority: '0.6', freq: 'daily' },
@@ -1160,6 +1254,12 @@ function renderSitemap(editions, entities, digests) {
       priority: '0.4',
       freq: 'weekly',
       lastmod: d.edition.date,
+    })),
+    ...wireHistory.map((w) => ({
+      loc: `${site.baseUrl}/${wirePath(w.date)}`,
+      priority: '0.2',
+      freq: 'yearly',
+      lastmod: w.date,
     })),
     { loc: `${site.baseUrl}/hackathons.html`, priority: '0.7', freq: 'weekly' },
     { loc: `${site.baseUrl}/methodology.html`, priority: '0.4', freq: 'monthly' },
@@ -1252,6 +1352,18 @@ const ctx = {
     : 0,
 };
 
+// Record what the wire showed today, keyed to the harvest's own date so this stays a pure
+// function of committed inputs rather than the wall clock. See snapshotWire() in wire.mjs —
+// this is the only reason a reader can ever ask "what did the wire show on the 14th".
+if (ctx.harvestedAt) {
+  snapshotWire(wireItems, {
+    date: ctx.harvestedAt.slice(0, 10),
+    harvestedAt: ctx.harvestedAt,
+    outDir: OUT('generated', 'wire'),
+  });
+}
+const wireHistory = loadWireHistory(OUT('generated', 'wire'));
+
 // Covers first — pages reference them.
 const coverCount = writeCovers(editions);
 write('assets/img/favicon.svg', favicon());
@@ -1310,6 +1422,12 @@ if (digests.length) {
   write(digestPath(null), renderDigestPage(ctx, digests, { index: 0, isLatest: true }));
 }
 
+// One archived page per day the wire has a snapshot for. No "latest" alias here — the live,
+// current wire already lives embedded on the front page; these dated pages are the record.
+wireHistory.forEach((snap, i) => {
+  write(wirePath(snap.date), renderWirePage(ctx, wireHistory, { index: i }));
+});
+
 // Drop output whose JSON no longer exists, so the build stays a pure function of
 // generated/. Without this, a story pulled during review leaves its page and its cover
 // behind and the site quietly disagrees with the data.
@@ -1332,8 +1450,9 @@ prune('story', '.html', expectedStoryFiles);
 prune('assets/img/covers', '.svg', expectedCovers);
 prune('entity', '.html', expectedEntityFiles);
 prune('digest', '.html', new Set(digests.map((d) => `${d.edition.date}.html`)));
+prune('wire', '.html', new Set(wireHistory.map((w) => `${w.date}.html`)));
 
-write('archive.html', renderArchive(ctx, editions));
+write('archive.html', renderArchive(ctx, editions, digests, wireHistory));
 write('topics.html', renderTopics(ctx, entities));
 write('hackathons.html', renderHackathons(ctx, editions));
 write('methodology.html', renderMethodology(ctx, editions));
@@ -1342,7 +1461,7 @@ write('terms.html', renderTerms(ctx));
 write('privacy.html', renderPrivacy(ctx));
 write('404.html', render404(ctx));
 write('rss.xml', renderRSS(editions));
-write('sitemap.xml', renderSitemap(editions, entities, digests));
+write('sitemap.xml', renderSitemap(editions, entities, digests, wireHistory));
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${site.baseUrl}/sitemap.xml\n`);
 write('.nojekyll', '');
 

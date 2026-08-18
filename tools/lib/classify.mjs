@@ -5,6 +5,14 @@
 
 import { hostOf, matchPublisher, STOPWORDS } from './util.mjs';
 
+// A beat's vocab is a handful of curated queries — real headlines rarely reuse those exact
+// words, and "models" vs "model" was losing credit on nothing but the plural. Stripping a
+// single trailing 's' (not on a double-s word, so "business" stays "business") closes that
+// gap without inventing a real stemmer.
+function stem(word) {
+  return word.length > 4 && word.endsWith('s') && !word.endsWith('ss') ? word.slice(0, -1) : word;
+}
+
 function tokenize(str) {
   return new Set(
     String(str)
@@ -12,6 +20,7 @@ function tokenize(str) {
       .replace(/[^a-z0-9\s]/g, ' ')
       .split(/\s+/)
       .filter((w) => w.length > 2 && !STOPWORDS.has(w))
+      .map(stem)
   );
 }
 

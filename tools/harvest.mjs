@@ -52,6 +52,15 @@ const FEEDS = [
   { source: 'Google DeepMind', url: 'https://deepmind.google/blog/rss.xml' },
   { source: 'OpenAI', url: 'https://openai.com/news/rss.xml' },
   { source: 'Hugging Face — blog', url: 'https://huggingface.co/blog/feed.xml' },
+  // Added 18 Aug 2026: Amazon, Microsoft and Meta had no direct feed, so their AI coverage
+  // depended entirely on general press picking it up — and classifyBeat's narrow vocabulary
+  // (see tools/lib/classify.mjs) was separately dropping most of what did get harvested from
+  // digest.mjs. Both fixed together; these close the harvest side.
+  { source: 'Amazon Science', url: 'https://www.amazon.science/index.rss' },
+  { source: 'AWS — Machine Learning', url: 'https://aws.amazon.com/blogs/machine-learning/feed/' },
+  { source: 'Microsoft', url: 'https://blogs.microsoft.com/feed/' },
+  { source: 'Meta Newsroom', url: 'https://about.fb.com/news/feed/' },
+  { source: 'Meta Engineering', url: 'https://engineering.fb.com/feed/' },
   { source: 'arXiv — cs.AI', url: 'https://export.arxiv.org/api/query?search_query=cat:cs.AI&sortBy=submittedDate&sortOrder=descending&max_results=30' },
   { source: 'arXiv — cs.CL', url: 'https://export.arxiv.org/api/query?search_query=cat:cs.CL&sortBy=submittedDate&sortOrder=descending&max_results=20' },
   { source: 'arXiv — cs.MA', url: 'https://export.arxiv.org/api/query?search_query=cat:cs.MA&sortBy=submittedDate&sortOrder=descending&max_results=15' },
@@ -68,6 +77,7 @@ const TOPIC_SEARCHES = [
   '(Qwen OR DeepSeek OR "Kimi K" OR GLM OR MiniMax OR Baidu Ernie) AI model China',
   'Mistral AI model release',
   'Anthropic Claude announcement',
+  '(Amazon OR AWS) (Nova OR Bedrock OR Trainium OR Rufus) AI',
   'AI startup funding round raised',
   'AI regulation OR "AI Act" OR AI policy government',
 ];

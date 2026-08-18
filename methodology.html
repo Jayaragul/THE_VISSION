@@ -131,6 +131,22 @@ in a headline, not meaning, so two outlets covering the same event in very diffe
 will often show up as two separate, unconfirmed items rather than one confirmed one. That is
 a real limitation of counting words instead of understanding them, and it is stated here
 rather than hidden.</p>
+
+<h2 id="wire" style="font-size:1.3rem;margin:34px 0 12px">The wire: not even sorted</h2>
+<p>Underneath the digest, on the front page, is <strong>the wire</strong> — the lowest tier and
+the one with no judgement in it at all. <code>tools/harvest.mjs</code> pulls headlines straight
+from roughly 30 public RSS feeds and a handful of topic searches, keeps whatever is plausibly
+about AI, and shows the most recent ones, exactly as their publisher wrote them. Nothing is
+clustered, nothing is ranked by importance, nothing is confirmed against a second source. A
+single busy feed cannot fill the whole page — one publisher can only ever hold a handful of
+the visible slots — but beyond that, this is a raw feed of the newest items and nothing more.</p>
+
+<p>This is deliberate: the wire is what keeps the site from going dark. It needs no API key
+and no model, so if the edited pipeline or the digest both stop — an expired key, an outage, a
+run that failed its own checks — the wire keeps refreshing on its own schedule and the front
+page still shows what happened today. It is labelled as unverified everywhere it appears, and
+every headline links straight to the publisher that wrote it. Treat it exactly like a stack of
+newspapers on a desk, not like reporting.</p>
 </div>
 
 <aside class="rail">
