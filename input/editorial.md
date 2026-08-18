@@ -12,6 +12,13 @@ A daily record of what actually changed in artificial intelligence — written f
 who is technically literate, short on time, and allergic to hype. They want to know what
 happened, whether it is real, and what it changes.
 
+Concretely: the person reading this is usually an engineer, a researcher, or someone building
+or funding something in AI — not a general audience following AI as a spectacle. Every "why it
+matters" should be written with that reader specifically in mind: does this change what they
+build, what they bet on, what they need to plan around, or what tool they reach for next. If a
+consequence only makes sense to someone reading AI news as entertainment, it is not the
+consequence to lead with.
+
 We are not a link blog. We are not a newsletter of vibes. Every story is a claim about the
 world with a source attached.
 
@@ -57,7 +64,13 @@ Every full story has this skeleton:
    Paragraph two: the specifics that matter (numbers, terms, scope). Remaining paragraphs:
    context, the strongest counterpoint, and what happens next.
 6. **Why it matters** — one paragraph, and it must say something a reader could disagree with.
-   If it is a truism, it is not worth printing.
+   If it is a truism, it is not worth printing. Prefer a concrete consequence over an abstract
+   one: what does this change for someone shipping a product, choosing a model or API, raising
+   or allocating capital, or deciding what to build next — over what it changes for "the AI
+   industry" in the abstract. `Groq's valuation is now set by GPU resale margins, not chip
+   design — a resource-constrained developer choosing a fast-inference vendor is choosing among
+   Nvidia's channel partners either way` is a builder's stake in the story. `This is a sign the
+   industry is consolidating` is not.
 
 **Briefs** are headline + deck + sources only. No body. A brief is a fact that deserves the
 record but not the reader's minute.

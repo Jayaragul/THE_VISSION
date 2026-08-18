@@ -50,8 +50,12 @@ jobs:
             echo "No new headlines since the last run."
             exit 0
           fi
+          # user.email is Jayaragul's own noreply address, not github-actions[bot]'s — GitHub
+          # attributes contributor credit by email, so a bot-owned email here makes
+          # github-actions[bot] a permanent second entry in the contributors graph no matter
+          # what user.name says.
           git config user.name  "the-vission-desk[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "135336604+Jayaragul@users.noreply.github.com"
           git add -A
           git commit -m "Wire refresh — $(date -u '+%Y-%m-%d %H:%M UTC')"
           # The editorial pipeline may have pushed while we were building.

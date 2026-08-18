@@ -177,6 +177,13 @@ ul, ol { margin: 0; padding: 0; }
    label. Border, not background, so it reads as a stripe rather than tinting the art. */
 .card__cover, .row__cover, .lead__cover {
   border-top: 3px solid var(--beat-accent, transparent);
+  /* render.mjs sets width="1200" height="675" on these <img> tags on purpose — attributes,
+     not CSS, are what stop the browser reserving the wrong box and causing layout shift before
+     the SVG loads. But an explicit HTML height attribute wins over `aspect-ratio` unless CSS
+     height is also given a value; with height left at its default `auto` here, every cover
+     rendered at a literal 675px tall regardless of how narrow the box actually was — a portrait
+     image in a landscape slot on every row list, entity page and beat section on the site. */
+  height: auto;
 }
 
 .meta {
@@ -446,18 +453,21 @@ ul, ol { margin: 0; padding: 0; }
 
 /* ------------------------------------------------------------ sections ---- */
 
+/* One rule per section boundary, not two. This used to be a light 1px --rule closing every
+   section plus a bold 2px --ink rule opening the next one's heading, stacked right against
+   each other — in dark mode --ink is near-white, so a reader saw a dim line immediately
+   followed by a bright one at every section change. section__head's bold rule is now the only
+   divider; section itself carries no border and lets padding alone create the gap. */
 .section {
-  padding: clamp(28px, 4vw, 46px) 0;
-  border-bottom: 1px solid var(--rule);
+  padding: clamp(22px, 3.4vw, 38px) 0;
   scroll-margin-top: 58px;
 }
-.section:last-of-type { border-bottom: 0; }
 
 .section__head {
   display: flex; align-items: baseline; gap: 14px;
   border-top: 2px solid var(--ink);
   padding-top: 12px;
-  margin-bottom: 26px;
+  margin-bottom: 22px;
 }
 .section__title {
   font-size: 1.32rem;
@@ -478,7 +488,10 @@ ul, ol { margin: 0; padding: 0; }
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
+  /* Capped at 400px, not 1fr — a beat with a single story (most editions run several beats
+     light) used to stretch that one card across the section's full width, cover art and all,
+     which read as far more empty space than a single story deserves. */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 400px));
   gap: clamp(20px, 3vw, 34px);
 }
 .card { display: flex; flex-direction: column; min-width: 0; }
@@ -518,7 +531,11 @@ ul, ol { margin: 0; padding: 0; }
 .row:first-child { padding-top: 0; }
 .row:last-child { border-bottom: 0; padding-bottom: 0; }
 .row__cover {
-  aspect-ratio: 4 / 3;
+  /* Cover art is generated at 1200x675 — 16:9. This was 4:3, a narrower box than the art was
+     drawn for, so every row-list thumbnail (archive, entity pages, beat overflow lists) cropped
+     more aggressively than the lead/card views and read as a taller, heavier picture than the
+     rest of the site used. */
+  aspect-ratio: 16 / 9;
   width: 100%;
   object-fit: cover;
   background: var(--surface-3);
