@@ -35,20 +35,17 @@ const { beats, edition: editionRules } = readJSON(join(ROOT, 'input', 'beats.jso
 const sourceBook = readJSON(join(ROOT, 'input', 'sources.json'));
 const candidates = readJSON(candidatesPath);
 
-// Two different questions, two different maps — conflating them is what capped this tier.
+// How many headlines each beat may list. The digest is a headline aggregator, not a written
+// paper, so it gets `digestQuota`. It previously reused `quota` — the editorial target for a
+// hand-written edition — which capped the whole digest at the sum of those quotas: nine items,
+// on a day with 82 usable clusters available.
 //
-// selectionCap: how many headlines this beat may list in the digest. The digest is a headline
-// aggregator, not a written paper, so it gets `digestQuota`. It previously reused `quota` —
-// the editorial target for a hand-written edition — which capped the whole digest at the sum
-// of those quotas: nine items, on a day with 82 usable clusters available.
-//
-// beatQuota/maxQuota: which beats the paper considers most important, fed to scoreCluster's
-// beatPriority term as a ratio. That has to stay on the editorial quotas: the term is scaled
-// to land in 0–1, and dividing a digestQuota of 14 by a maxQuota of 3 would push one weighted
-// component past its own ceiling and quietly distort every score in the ranking.
+// This cap is now the *only* place beat balance is expressed. scoreCluster used to carry a
+// beatPriority term derived from the same editorial quotas, which meant a policy story started
+// at 0.333 and a models story at 1.0 — a standing advantage that had nothing to do with either
+// story. Enforcing balance by capping slots and again by biasing the score was both redundant
+// and, for the low-quota beats, actively wrong.
 const selectionCap = new Map(beats.map((b) => [b.id, b.digestQuota ?? b.quota]));
-const beatQuota = new Map(beats.map((b) => [b.id, b.quota]));
-const maxQuota = Math.max(...beats.map((b) => b.quota));
 
 // --- prior digest URLs, for novelty ------------------------------------------------------
 
@@ -111,8 +108,6 @@ const now = Date.parse(`${date}T12:00:00Z`);
 const scored = clusters.map((cluster) => {
   const { score, bestTier: tier } = scoreCluster(cluster, {
     seenUrls,
-    beatQuota,
-    maxQuota,
     now,
     maxAgeHours: editionRules.lookbackHours,
   });

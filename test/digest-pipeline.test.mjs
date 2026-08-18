@@ -8,7 +8,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { classifyBeat, tierOf, recencyScore } from '../tools/lib/classify.mjs';
 import { clusterItems, publisherDiversity, bestTier } from '../tools/lib/cluster.mjs';
-import { scoreCluster, confidenceOf } from '../tools/lib/rank.mjs';
+import { scoreCluster, confidenceOf, isInstitutional, substanceScore } from '../tools/lib/rank.mjs';
 import { isAiRelevant } from '../tools/lib/util.mjs';
 
 const beats = [
@@ -168,7 +168,6 @@ test('confidenceOf requires a strong source AND two distinct publishers, not eit
 
 test('scoreCluster produces a bounded, finite score and rewards independent confirmation', () => {
   const now = Date.parse('2026-08-17T12:00:00Z');
-  const beatQuota = new Map([['models', 3], ['business', 2]]);
   const single = { items: [{ tier: 2, publisher: 'a', url: 'https://a.com/1', publishedAt: new Date(now).toISOString() }], beat: 'models' };
   const confirmed = {
     items: [
@@ -177,8 +176,8 @@ test('scoreCluster produces a bounded, finite score and rewards independent conf
     ],
     beat: 'models',
   };
-  const a = scoreCluster(single, { seenUrls: new Set(), beatQuota, maxQuota: 3, now });
-  const b = scoreCluster(confirmed, { seenUrls: new Set(), beatQuota, maxQuota: 3, now });
+  const a = scoreCluster(single, { seenUrls: new Set(), now });
+  const b = scoreCluster(confirmed, { seenUrls: new Set(), now });
   assert.ok(a.score >= 0 && a.score <= 1);
   assert.ok(b.score >= 0 && b.score <= 1);
   assert.ok(b.score > a.score, 'a tier-1+independently-confirmed cluster should outscore a lone tier-2 item');
@@ -186,11 +185,92 @@ test('scoreCluster produces a bounded, finite score and rewards independent conf
 
 test('scoreCluster scores a repeated URL as non-novel', () => {
   const now = Date.parse('2026-08-17T12:00:00Z');
-  const beatQuota = new Map([['models', 3]]);
   const cluster = { items: [{ tier: 1, publisher: 'a', url: 'https://a.com/1', publishedAt: new Date(now).toISOString() }], beat: 'models' };
-  const fresh = scoreCluster(cluster, { seenUrls: new Set(), beatQuota, maxQuota: 3, now });
-  const repeat = scoreCluster(cluster, { seenUrls: new Set(['https://a.com/1']), beatQuota, maxQuota: 3, now });
+  const fresh = scoreCluster(cluster, { seenUrls: new Set(), now });
+  const repeat = scoreCluster(cluster, { seenUrls: new Set(['https://a.com/1']), now });
   assert.equal(fresh.breakdown.novelty, 1);
   assert.equal(repeat.breakdown.novelty, 0);
   assert.ok(repeat.score < fresh.score);
+});
+
+// --- significance vs trust -----------------------------------------------------------------
+// The 18 Aug 2026 digest ranked OpenAI's own "Advancing responsible AI across Europe" (0.550)
+// above WIRED's report on state legislation (0.467). The whole gap was sourceQuality: a company
+// blog is the primary source for its own announcement, and the scoring treated "most primary"
+// as "most important". These pin the corrected ordering.
+
+const dayOld = (now) => new Date(now - 60 * 3600 * 1000).toISOString(); // outside the 48h window
+
+test('an uncorroborated company post ranks below independent reporting of the same age', () => {
+  const now = Date.parse('2026-08-18T12:00:00Z');
+  const corporate = {
+    items: [{ tier: 1, publisher: 'OpenAI', url: 'https://openai.com/index/responsible-ai-europe', title: 'Advancing responsible AI across Europe', publishedAt: dayOld(now) }],
+    beat: 'society',
+  };
+  const journalism = {
+    items: [{ tier: 2, publisher: 'WIRED', url: 'https://www.wired.com/story/marrying-chatbots', title: 'People Are Marrying Chatbots. These Lawmakers Want to Stop Them', publishedAt: dayOld(now) }],
+    beat: 'policy',
+  };
+  const c = scoreCluster(corporate, { seenUrls: new Set(), now });
+  const j = scoreCluster(journalism, { seenUrls: new Set(), now });
+  assert.equal(c.breakdown.uncorroboratedFirstParty, true);
+  // A lone tier-2 newsroom story is a scoop, not a company announcing itself. Penalising it
+  // would punish the independent reporting this term exists to promote.
+  assert.equal(j.breakdown.uncorroboratedFirstParty, false);
+  assert.ok(
+    j.score > c.score,
+    `independent reporting (${j.score.toFixed(3)}) must outrank an uncorroborated company post (${c.score.toFixed(3)})`
+  );
+});
+
+test('a lone tier-2 newsroom story is a scoop, not a first-party announcement', () => {
+  const now = Date.parse('2026-08-18T12:00:00Z');
+  const scoop = {
+    items: [{ tier: 2, publisher: 'The Information', url: 'https://theinformation.com/articles/x', title: 'A lab quietly halted its frontier run', publishedAt: dayOld(now) }],
+    beat: 'models',
+  };
+  assert.equal(scoreCluster(scoop, { seenUrls: new Set(), now }).breakdown.uncorroboratedFirstParty, false);
+});
+
+test('institutional primaries are exempt from the first-party penalty — a paper is meant to be single-source', () => {
+  const now = Date.parse('2026-08-18T12:00:00Z');
+  const paper = {
+    items: [{ tier: 1, publisher: 'arXiv', url: 'https://arxiv.org/abs/2608.16834v1', title: 'Model Hypnosis: Strong control of AI via additive subliminal effects', publishedAt: dayOld(now) }],
+    beat: 'research',
+  };
+  const companyPost = {
+    items: [{ tier: 1, publisher: 'OpenAI', url: 'https://openai.com/index/a-programme', title: 'Model Hypnosis: Strong control of AI via additive subliminal effects', publishedAt: dayOld(now) }],
+    beat: 'research',
+  };
+  assert.equal(scoreCluster(paper, { seenUrls: new Set(), now }).breakdown.uncorroboratedFirstParty, false);
+  assert.equal(scoreCluster(companyPost, { seenUrls: new Set(), now }).breakdown.uncorroboratedFirstParty, true);
+});
+
+test('isInstitutional matches gov.uk, which has no leading dot before "gov"', () => {
+  assert.equal(isInstitutional('https://www.gov.uk/government/news/x'), true);
+  assert.equal(isInstitutional('https://aisi.gov.uk/research'), true);
+  assert.equal(isInstitutional('https://ftc.gov/press'), true);
+  assert.equal(isInstitutional('https://arxiv.org/abs/1'), true);
+  assert.equal(isInstitutional('https://openai.com/index/x'), false);
+  assert.equal(isInstitutional('https://blog.google/technology/ai/x'), false);
+});
+
+test('substanceScore stays inside 0–1 when every signal fires at once', () => {
+  // Every positive.
+  assert.equal(substanceScore('Nvidia guarantees $105bn for a 8 gigawatt site'), 1);
+  // Every negative, including the first-party penalty.
+  assert.equal(
+    substanceScore('Advancing our commitment, celebrating the journey', { uncorroboratedFirstParty: true }),
+    0
+  );
+  // Neutral headline sits in the middle.
+  assert.equal(substanceScore('Neurosymbolic Embodied Agents'), 0.5);
+});
+
+test('the beat no longer biases the score — balance is enforced by the per-beat cap alone', () => {
+  const now = Date.parse('2026-08-18T12:00:00Z');
+  const item = { tier: 2, publisher: 'a', url: 'https://a.com/1', title: 'A company raises $40m', publishedAt: new Date(now).toISOString() };
+  const asModels = scoreCluster({ items: [item], beat: 'models' }, { seenUrls: new Set(), now });
+  const asPolicy = scoreCluster({ items: [item], beat: 'policy' }, { seenUrls: new Set(), now });
+  assert.equal(asModels.score, asPolicy.score);
 });
