@@ -1,0 +1,22 @@
+{
+  "date": "2026-08-18",
+  "reviewedAt": "2026-08-18T06:00:00Z",
+  "edition": {
+    "date": "2026-08-18",
+    "storyCount": 9,
+    "sourceCount": 13,
+    "sha256": "bb79919f107ea31c1b77720512d250229affb2944bed21510e375e5be57f72a7"
+  },
+  "scores": { "sourcing": 5, "accuracy": 5, "prose": 4, "selection": 4, "balance": 4 },
+  "total": 22,
+  "verdict": "pass",
+  "evidence": [
+    { "dimension": "sourcing", "note": "Every high-confidence story names a directly-opened tier-1 primary: the lead cites nvidianews.nvidia.com directly (Jensen Huang and Sam Altman quotes came from that page, not secondhand), Model Hypnosis cites the arXiv abstract itself, Firebird and Grok 4.6 cite blogs.nvidia.com and x.ai. Where no primary exists — Anthropic's revenue figure is investor-leaked, not company-confirmed — confidence is capped at medium and the body says so explicitly ('The figures have not been confirmed by Anthropic on the record')." },
+    { "dimension": "accuracy", "note": "Vendor claims are consistently framed as claims, not results — 'Z.ai says it surfaced more than 2,400 vulnerabilities', 'xAI reports it leads that model', not stated as flat fact. All dollar and gigawatt figures carry their basis (e.g. '$1.5 billion in SB Energy and up to $105 billion in lease and power payment obligations', not a bare headline number)." },
+    { "dimension": "prose", "note": "Clean throughout; the one place it strains is the Groq body's second-paragraph opening sentence, which runs long carrying both the Nvidia licensing context and the antitrust-structuring aside in one clause." },
+    { "dimension": "selection", "note": "The lead is defensible on materiality and durability (a $105bn guarantee is the largest single figure of the day and sets a template other campuses will follow), but the CNBC-poll brief is more interesting than important next to it — kept because society's minQuota still needs real material, not filler." },
+    { "dimension": "balance", "note": "Policy sits at 0 against a target of 1 — see notes. Nvidia appears as a party in 3 of 9 stories (lead, Groq, Firebird), close to the rubric's one-third caution line, but each is a genuinely distinct event and edition.summary names Nvidia's centrality in its first sentence rather than burying it." }
+  ],
+  "revisions": [],
+  "notes": "Policy beat is empty against a quota target of 1 (minQuota is 0, so this does not block on its own — but it is a real gap worth recording). Before writing, I searched seven distinct angles for a fresh policy story: EU AI Act enforcement (the only genuinely fresh angle, but it duplicates a source already used in the 2026-08-17 edition — validate.mjs correctly rejected it), US antitrust/FTC-DOJ (no dated action this week, only background), AI copyright litigation (the most current lead, NYT v. Perplexity, was filed in December 2025), the California AI Transparency Act (sources conflicted on the effective date and the only one I could open was dated March 2026), Executive Order 14409 (a real August 1 implementation deadline, but the only source I could open was outside the 480-hour lookback and unlisted in the source book), and China/India AI governance (nothing dated this week, only ongoing background). Rather than force a stale or single-tier-4-sourced item through, I left the beat empty and am recording why. Two items worth carrying into a future run: (1) input/sources.json has no dedicated policy-tracking outlet at tier 2 or better — Politico, Axios's policy vertical, or a law-firm AI-regulation tracker would raise the hit rate; (2) the wire/candidates harvest has almost no policy-beat feed coverage (harvest.mjs's TOPIC_SEARCHES has a policy query, but it returned nothing usable today), so policy research currently depends entirely on live WebSearch rather than the harvested candidate pool the other beats draw from."
+}
