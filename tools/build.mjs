@@ -1334,7 +1334,10 @@ if (!editions.length) {
 
 const latest = editions[0];
 const candidates = loadLatestCandidates();
-const wireItems = selectWireItems(candidates, { limit: 24, sourceBook });
+// 24 was a cautious number chosen before the wire had a per-source cap, when a single
+// high-frequency feed could take most of the page. With that cap in place the extra slots go
+// to additional publishers rather than more of the same one, so the ceiling can come up.
+const wireItems = selectWireItems(candidates, { limit: 40, sourceBook });
 
 const ctx = {
   site,

@@ -35,6 +35,18 @@ const { beats, edition: editionRules } = readJSON(join(ROOT, 'input', 'beats.jso
 const sourceBook = readJSON(join(ROOT, 'input', 'sources.json'));
 const candidates = readJSON(candidatesPath);
 
+// Two different questions, two different maps — conflating them is what capped this tier.
+//
+// selectionCap: how many headlines this beat may list in the digest. The digest is a headline
+// aggregator, not a written paper, so it gets `digestQuota`. It previously reused `quota` —
+// the editorial target for a hand-written edition — which capped the whole digest at the sum
+// of those quotas: nine items, on a day with 82 usable clusters available.
+//
+// beatQuota/maxQuota: which beats the paper considers most important, fed to scoreCluster's
+// beatPriority term as a ratio. That has to stay on the editorial quotas: the term is scaled
+// to land in 0–1, and dividing a digestQuota of 14 by a maxQuota of 3 would push one weighted
+// component past its own ceiling and quietly distort every score in the ranking.
+const selectionCap = new Map(beats.map((b) => [b.id, b.digestQuota ?? b.quota]));
 const beatQuota = new Map(beats.map((b) => [b.id, b.quota]));
 const maxQuota = Math.max(...beats.map((b) => b.quota));
 
@@ -113,7 +125,7 @@ const scored = clusters.map((cluster) => {
 const byBeat = new Map(beats.map((b) => [b.id, []]));
 for (const entry of scored.sort((a, b) => b.score - a.score)) {
   const bucket = byBeat.get(entry.cluster.beat);
-  if (bucket && bucket.length < beatQuota.get(entry.cluster.beat)) bucket.push(entry);
+  if (bucket && bucket.length < selectionCap.get(entry.cluster.beat)) bucket.push(entry);
 }
 
 const selected = [...byBeat.values()].flat().sort((a, b) => b.score - a.score);

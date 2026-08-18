@@ -51,6 +51,48 @@ test('classifyBeat returns null for empty or unrelated text rather than forcing 
   assert.equal(classifyBeat({ title: 'Local weather forecast for the weekend', summary: '' }, beats), null);
 });
 
+// The 18 Aug 2026 coverage review: requiring two overlapping words of any kind discarded 59%
+// of AI-relevant items, because a short headline has few chances to hit twice. These beats
+// carry `keywords`, so a single curated, beat-unique term is allowed to decide.
+const keyworded = [
+  {
+    id: 'models',
+    label: 'Models',
+    blurb: 'Frontier releases and benchmarks.',
+    quota: 3,
+    keywords: ['gemini', 'claude', 'weights', 'benchmark', 'model'],
+    queries: ['open weights model release'],
+  },
+  {
+    id: 'society',
+    label: 'Society',
+    blurb: 'Labour, security and public reaction.',
+    quota: 1,
+    keywords: ['deepfake', 'workers', 'survey', 'model'],
+    queries: ['AI jobs impact study'],
+  },
+];
+
+test('a single distinctive keyword classifies a headline too short to overlap twice', () => {
+  // Three words, one keyword. Unmistakably a models story to any reader.
+  assert.equal(classifyBeat({ title: 'Introducing Gemini 3.7 Flash', summary: '' }, keyworded), 'models');
+  assert.equal(classifyBeat({ title: 'New deepfake rules', summary: '' }, keyworded), 'society');
+});
+
+test('a keyword two beats share is not decisive alone — it still needs a second match', () => {
+  // "model" is in both beats' keywords, so it proves nothing on its own.
+  assert.equal(classifyBeat({ title: 'A model appeared', summary: '' }, keyworded), null);
+  // With a genuine second signal it resolves.
+  assert.equal(classifyBeat({ title: 'A model benchmark appeared', summary: '' }, keyworded), 'models');
+});
+
+test('only curated keywords can be decisive — never a word that drifted in from a search query', () => {
+  // "open" reaches the models vocabulary through the query "open weights model release", but
+  // a word nobody chose as a classifier signal must not decide a story by itself. This is the
+  // Open Mike Eagle bug restated: it is about provenance of the word, not its rarity.
+  assert.equal(classifyBeat({ title: 'Open Mike Eagle drops a breakup record', summary: '' }, keyworded), null);
+});
+
 test('isAiRelevant is the gate that should have caught the regression case before classification ever ran', () => {
   assert.equal(isAiRelevant('Open Mike Eagle and Kenny Segal crafted a hip-hop breakup masterpiece'), false);
   assert.equal(isAiRelevant('Google releases new Gemini model'), true);

@@ -168,6 +168,56 @@
       "readMinutes": 2
     },
     {
+      "id": "2026-08-18-stripe-openrouter-acquisition",
+      "slug": "stripe-openrouter-acquisition",
+      "beat": "business",
+      "prominence": "standard",
+      "kicker": "Acquisitions",
+      "headline": "Stripe is reported to be buying OpenRouter for more than $7bn, five times its May valuation",
+      "deck": "The model-routing gateway raised at $1.3bn three months ago. Stripe has declined to comment, and the price has not been confirmed by either company.",
+      "summary": [
+        "Stripe has finalized a deal to acquire OpenRouter for more than $7 billion, according to Bloomberg, whose reporting was the basis for wider coverage of the deal.",
+        "OpenRouter operates a gateway that lets developers route requests across more than 400 AI models through one interface, and says it has around 8 million users.",
+        "The price is roughly 5.4 times the $1.3 billion valuation OpenRouter raised at in a $113 million Series B in May, three months earlier.",
+        "Stripe declined to comment, saying it does not comment on rumour or speculation; neither company has confirmed the figure publicly."
+      ],
+      "body": [
+        "Stripe has finalized an agreement to acquire OpenRouter for more than $7 billion, Bloomberg reported on Aug. 16. TechCrunch and other outlets carried the figure the same day, all attributing it to Bloomberg's reporting rather than to independent confirmation. Stripe declined to comment, saying it does not comment on rumour or speculation, and neither company has publicly confirmed the price.",
+        "OpenRouter sells a single API gateway that routes requests across what it says are more than 400 models, letting developers switch between providers without rewriting code, with centralized billing on top. The company reports around 8 million users. Its chief executive, Alex Atallah, has described the product as the equivalent of Stripe for AI — a single access point across systems that avoids lock-in to any one provider.",
+        "The reported price is about 5.4 times the $1.3 billion valuation OpenRouter raised at in May, when it closed a $113 million Series B. The Wall Street Journal reported last month that the two companies were in acquisition talks, so the direction of travel was known before the price was; what is new is the number, and it is a large step up over three months.",
+        "The strategic logic on Stripe's side is that model routing and metered AI billing look structurally like payments infrastructure: many providers, variable per-unit pricing, and a customer who wants one integration and one invoice. That is a coherent thesis, but it is also a thesis about a market that barely existed two years ago, being bought at a multiple set in a private round rather than by any public comparison."
+      ],
+      "whyItMatters": "If the figure holds, it prices the plumbing between applications and models — not a model, not a chip — at more than $7 billion, which is a bet that the routing layer is where durable margin sits rather than a thin pass-through that model providers eventually absorb into their own APIs. The counter-case is straightforward: every major lab already wants to be the single integration a developer reaches for, and a gateway's value depends on customers continuing to want optionality more than they want a first-party relationship. Nothing here is confirmed by either company, so the number is a report, not a fact on a balance sheet.",
+      "confidence": "medium",
+      "publishedAt": "2026-08-16T20:57:00Z",
+      "entities": [
+        "Stripe",
+        "OpenRouter",
+        "Alex Atallah"
+      ],
+      "tags": [
+        "acquisition",
+        "infrastructure"
+      ],
+      "sources": [
+        {
+          "title": "Stripe will reportedly acquire AI gateway startup OpenRouter for $7B+",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/",
+          "publishedAt": "2026-08-16T20:57:00Z",
+          "tier": 2
+        },
+        {
+          "title": "Stripe Finalizes Deal to Acquire AI Startup OpenRouter for Over $7 Billion",
+          "publisher": "Bloomberg",
+          "url": "https://www.bloomberg.com/news/articles/2026-08-16/stripe-nears-deal-to-buy-ai-firm-openrouter-for-over-7-billion",
+          "publishedAt": "2026-08-16T00:00:00Z",
+          "tier": 2
+        }
+      ],
+      "readMinutes": 2
+    },
+    {
       "id": "2026-08-18-zai-glm-5-3-shield-open-source",
       "slug": "zai-glm-5-3-shield-open-source",
       "beat": "models",
@@ -396,8 +446,8 @@
     }
   ],
   "signals": {
-    "storyCount": 9,
-    "sourceCount": 13,
+    "storyCount": 10,
+    "sourceCount": 15,
     "primaryCount": 5,
     "publisherCount": 9,
     "beatCount": 5

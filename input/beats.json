@@ -1,5 +1,5 @@
 {
-  "$comment": "Beats are the sections of the paper. The research skill works this list top to bottom. `quota` is the target number of stories per edition; `minQuota` is the floor below which the edition is still publishable.",
+  "$comment": "Beats are the sections of the paper. The research skill works this list top to bottom. `quota` is the target number of stories per edition for the edited paper; `minQuota` is the floor below which the edition is still publishable. `digestQuota` is the separate, much larger cap for the no-AI Tier 1.5 digest — a headline aggregator should carry far more per beat than a written paper does, and reusing `quota` there capped the digest at nine items regardless of how much news existed. `keywords` is the classifier vocabulary used by tools/lib/classify.mjs; `queries` are WebSearch seeds for the editorial research stage. Those were the same list until 18 Aug 2026, which meant the classifier was matching real headlines against a handful of search phrases and discarding 59% of genuinely AI-relevant items — including a $7bn acquisition.",
   "beats": [
     {
       "id": "models",
@@ -8,6 +8,15 @@
       "accent": "#c8102e",
       "quota": 3,
       "minQuota": 1,
+      "digestQuota": 14,
+      "keywords": [
+        "model", "models", "release", "launch", "frontier", "weights", "benchmark",
+        "parameters", "context", "window", "tokens", "multimodal", "reasoning",
+        "chatbot", "assistant", "llm", "gpt", "claude", "gemini", "llama", "qwen",
+        "deepseek", "mistral", "grok", "glm", "kimi", "sora", "checkpoint",
+        "deprecation", "version", "flagship", "coding", "agentic", "distillation",
+        "quantization", "inference", "api", "pricing", "opus", "sonnet", "haiku"
+      ],
       "queries": [
         "frontier model release this week",
         "new LLM benchmark results",
@@ -23,6 +32,15 @@
       "accent": "#5b3fd6",
       "quota": 1,
       "minQuota": 1,
+      "digestQuota": 10,
+      "keywords": [
+        "paper", "arxiv", "study", "research", "researchers", "interpretability",
+        "alignment", "evaluation", "eval", "method", "methods", "training",
+        "learning", "reinforcement", "rlhf", "transformer", "architecture",
+        "neural", "empirical", "experiment", "theory", "analysis", "probing",
+        "mechanistic", "scaling", "emergent", "hypothesis", "dataset", "ablation",
+        "robustness", "generalization", "embeddings", "attention", "preprint"
+      ],
       "queries": [
         "notable AI paper arxiv this week",
         "interpretability research result",
@@ -37,6 +55,15 @@
       "accent": "#0f7a5a",
       "quota": 1,
       "minQuota": 1,
+      "digestQuota": 10,
+      "keywords": [
+        "funding", "raise", "raised", "round", "series", "valuation", "revenue",
+        "profit", "earnings", "acquisition", "acquire", "acquires", "merger",
+        "ipo", "listing", "investors", "investment", "startup", "enterprise",
+        "customers", "deal", "billion", "million", "market", "growth", "hiring",
+        "layoffs", "partnership", "contract", "sales", "subscription", "stake",
+        "shutdown", "shuts", "monetization", "commercial", "buyout"
+      ],
       "queries": [
         "AI startup funding round announced",
         "AI company revenue report",
@@ -52,6 +79,16 @@
       "accent": "#b45309",
       "quota": 1,
       "minQuota": 0,
+      "digestQuota": 8,
+      "keywords": [
+        "regulation", "regulator", "regulatory", "law", "laws", "legislation",
+        "bill", "court", "lawsuit", "sued", "sues", "ruling", "judge", "copyright",
+        "antitrust", "compliance", "enforcement", "ban", "banned", "restrictions",
+        "government", "senate", "congress", "parliament", "commission", "ftc",
+        "doj", "privacy", "governance", "standards", "policy", "legal", "license",
+        "licensing", "liability", "export", "sanctions", "procurement", "filing",
+        "settlement", "probe", "investigation", "subpoena"
+      ],
       "queries": [
         "AI regulation announcement",
         "AI copyright lawsuit ruling",
@@ -67,6 +104,15 @@
       "accent": "#0369a1",
       "quota": 2,
       "minQuota": 0,
+      "digestQuota": 10,
+      "keywords": [
+        "chip", "chips", "gpu", "gpus", "tpu", "datacenter", "datacentre",
+        "cluster", "compute", "capacity", "gigawatt", "gigawatts", "megawatt",
+        "megawatts", "power", "energy", "grid", "cooling", "semiconductor",
+        "foundry", "wafer", "supply", "hardware", "accelerator", "networking",
+        "interconnect", "rack", "server", "servers", "nvidia", "blackwell",
+        "rubin", "cloud", "infrastructure", "fabrication", "nuclear", "campus"
+      ],
       "queries": [
         "AI datacenter buildout announcement",
         "AI chip supply news",
@@ -82,6 +128,16 @@
       "accent": "#7c2d6b",
       "quota": 1,
       "minQuota": 0,
+      "digestQuota": 8,
+      "keywords": [
+        "jobs", "employment", "labor", "labour", "workers", "workforce",
+        "education", "students", "school", "teachers", "health", "healthcare",
+        "medical", "security", "breach", "attack", "hackers", "vulnerability",
+        "deepfake", "misinformation", "disinformation", "bias", "discrimination",
+        "surveillance", "public", "opinion", "survey", "poll", "trust",
+        "adoption", "users", "consumers", "ethics", "harm", "impact", "society",
+        "culture", "artists", "writers", "military", "defense", "children"
+      ],
       "queries": [
         "AI jobs impact study",
         "AI in education policy",
