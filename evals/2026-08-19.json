@@ -1,0 +1,22 @@
+{
+  "date": "2026-08-19",
+  "reviewedAt": "2026-08-19T14:45:00Z",
+  "edition": {
+    "date": "2026-08-19",
+    "storyCount": 12,
+    "sourceCount": 19,
+    "sha256": "9a8b6ad09ffebd1e38e6fd3b7ed9974dab5f302ceb21dfc921e203aac50e6ab8"
+  },
+  "scores": { "sourcing": 4, "accuracy": 5, "prose": 4, "selection": 4, "balance": 4 },
+  "total": 21,
+  "verdict": "pass",
+  "evidence": [
+    { "dimension": "sourcing", "note": "Four stories (lead, microsoft-ai-chip-gap, anthropic-credit-facility, chatgpt-for-teens) rely on a tier-1/tier-2 primary that returned 403 to a direct fetch — Anthropic's PDF, the Guardian, Bloomberg and OpenAI. Each was handled under the rubric's blocked-primary rule: a source actually opened quotes the primary directly, confidence is capped at medium, and the prose attributes the claim to the reporting read rather than the document itself. chatgpt-for-teens was upgraded post-scoring from a tier-4 secondary (Tech Startups) to TechCrunch (tier 2, Sarah Perez byline, directly fetched), which also supplied a genuine counterpoint — the safeguards arrive years after ChatGPT scaled to 900 million weekly users with no teen mode. Correct handling throughout, but the four blocked-primary cases still cost a point rather than a clean 5." },
+    { "dimension": "accuracy", "note": "Every figure carries a basis — e.g. the Anthropic credit story states \"$2.5 billion five-year revolving credit line Anthropic arranged in 2025\" as the comparison point for the new $10bn target, and the Cerebras story explicitly separates the vendor's \"up to 30 times\" claim from The Register's finding that the doubled figure comes from a higher clock speed on the same transistor count." },
+    { "dimension": "prose", "note": "Bullets read as facts throughout — the lead's third bullet is \"The report also discloses an internal model, Model 2, that improves on Mythos 5 on many internal tasks but has no plans for external release,\" not a topic label. Docked from 5 only because a few whyItMatters paragraphs (microsoft-ai-chip-gap, chatgpt-for-teens) run long, multi-clause sentences that could be split." },
+    { "dimension": "selection", "note": "The lead (Anthropic's own risk-rating change and an unreleased, more-capable model) is well-argued but not unarguable — Pennsylvania's data-center order or the Microsoft chip-count investigation could each defend the slot instead. No sub-$10m funding rounds or unchecked vendor-benchmark leads made it in; Cerebras's headline number is paired with independent scrutiny rather than run as fact." },
+    { "dimension": "balance", "note": "Models lands one story against a quota of three; edition.summary says so directly (\"Models coverage stays thin today — nothing genuinely new cleared the bar beyond a Google API deprecation\") after a genuine search that found nothing else in the last 48 hours not already covered in Nos. 1-2. No company exceeds 2 of 12 stories (Anthropic: risk report + credit facility, on unrelated news)." }
+  ],
+  "revisions": [],
+  "notes": "node tools/validate.mjs --strict returns 0 errors and 5 warnings, not a clean strict pass. Four warnings are 'not in source book' notices for secondary corroborating outlets (unite.ai, nbcphiladelphia.com, insidetelecom.com, investing.com) deliberately left unregistered — each of those stories already has a genuine tier-1/2 primary anchoring it, and registering every incidental corroborating source would dilute input/sources.json rather than improve it. The fifth is the models beat's quota shortfall, disclosed in edition.summary; a Wire item on Nemotron 3.5 Lightning reaching SageMaker JumpStart was checked and passed over as cloud availability for an already-released model, not a capability change. Six legitimate primaries that were simply missing from the book were added this run: pa.gov, cerebras.ai, ai.google.dev, fortune.com, theregister.com and pewresearch.org (analogous to existing entries like nvidia.com, blog.google and gov.uk). Plain `node tools/validate.mjs` returns 0 errors, 0 blocking warnings, exit 0."
+}
