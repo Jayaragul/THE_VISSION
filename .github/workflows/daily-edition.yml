@@ -38,6 +38,11 @@ jobs:
     timeout-minutes: 40
     permissions:
       contents: read
+      # anthropics/claude-code-action@v1 mints a short-lived OIDC token for its own auth path;
+      # without this the job fails in ~25s with "Could not fetch an OIDC token" before it ever
+      # reaches the research prompt. This does not grant repo write — that guarantee is
+      # `contents: read` above, unchanged.
+      id-token: write
 
     steps:
       - uses: actions/checkout@v4

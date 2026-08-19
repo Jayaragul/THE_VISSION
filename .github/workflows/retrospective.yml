@@ -19,6 +19,10 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  # anthropics/claude-code-action@v1 mints a short-lived OIDC token for its own auth path;
+  # without this the job fails before it ever reaches the prompt. See daily-edition.yml for
+  # the failure this fixes — same action, same gap.
+  id-token: write
 
 jobs:
   retrospective:
