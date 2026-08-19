@@ -475,6 +475,9 @@ export const MOTIFS_BY_BEAT = {
   policy: ['scales', 'institution', 'globe', 'paperPlot'],
   infrastructure: ['serverRack', 'chipDie', 'coolingTowers', 'powerGrid'],
   society: ['peopleNetwork', 'cityscape', 'globe', 'scales'],
+  // India spans company, founder, funding and policy stories rather than one subject of its
+  // own, so it draws from the same motifs those topics already use elsewhere.
+  india: ['growthChart', 'institution', 'peopleNetwork', 'globe'],
 };
 
 export const MOTIF_NAMES = Object.keys(MOTIFS);
