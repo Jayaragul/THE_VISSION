@@ -7,7 +7,7 @@
 // the repo and run it again: you get byte-identical output. Nothing here reaches
 // the network, and no HTML file is ever hand-edited.
 
-import { readdirSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 import { basename, dirname, join, resolve as resolvePath } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -1339,8 +1339,17 @@ const candidates = loadLatestCandidates();
 // to additional publishers rather than more of the same one, so the ceiling can come up.
 const wireItems = selectWireItems(candidates, { limit: 40, sourceBook });
 
+// Inlined rather than linked as an <img>. The mark is drawn with fill="currentColor" so it
+// tracks the footer's text colour in both themes and through the manual toggle — and an SVG
+// loaded through <img> gets its own document context, where currentColor resolves to black
+// and the mark disappears against the dark footer.
+const communityMark = site.community?.logo
+  ? readFileSync(join(ROOT, site.community.logo), 'utf8').replace(/<\?xml[^>]*\?>\s*/, '').trim()
+  : null;
+
 const ctx = {
   site,
+  communityMark,
   beats,
   beatMap,
   sourceBook,

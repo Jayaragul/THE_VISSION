@@ -107,4 +107,13 @@
       if (el) io.observe(el);
     });
   }
+
+  // For whoever opens the console. This paper is read by people who do that.
+  try {
+    console.log(
+      '%cTHE VISSION%c\nBuilt by Jayaragul N · CBE Devs\nSource: https://github.com/Jayaragul/THE_VISSION',
+      'font-weight:700;font-size:15px',
+      'font-weight:400'
+    );
+  } catch (e) {}
 })();

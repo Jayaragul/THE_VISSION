@@ -946,8 +946,9 @@ ul, ol { margin: 0; padding: 0; }
 }
 .footer__mark { font-size: 1.5rem; letter-spacing: -0.03em; margin-bottom: 12px; }
 .footer__mark em { font-style: normal; color: var(--accent); }
-.footer__community { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; margin-top: 18px; }
-.footer__community img { width: 140px; height: auto; opacity: 0.85; }
+.footer__community { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; margin-top: 20px; }
+.footer__communitymark { display: block; color: var(--ink); opacity: 0.85; }
+.footer__communitymark svg { width: 168px; height: auto; display: block; }
 .footer p {
   font-family: var(--sans); font-size: .82rem; line-height: 1.6; color: var(--muted);
   max-width: 46ch;

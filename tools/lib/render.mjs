@@ -18,10 +18,24 @@ export function page(ctx, opts) {
   const canonical = opts.canonical ? `${site.baseUrl}/${opts.canonical}` : `${site.baseUrl}/`;
   const ogImage = opts.ogImage ? `${site.baseUrl}/${opts.ogImage}` : `${site.baseUrl}/assets/img/social-card.svg`;
 
+  // Signed in the source rather than on the page — a credit for anyone who opens view-source,
+  // which on a paper for developers is a fair share of the readership.
+  const colophon =
+    '\n' +
+    [
+      `  ${site.name} — ${site.tagline}`,
+      site.founder ? `  Built by ${site.founder}${site.community ? ` · ${site.community.name}` : ''}` : '',
+      site.social?.repo ? `  ${site.social.repo}` : '',
+    ]
+      .filter(Boolean)
+      .join('\n') +
+    '\n\n  Every page here is build output. The source of truth is generated/*.json.\n';
+
   return `<!doctype html>
 <html lang="${e(site.locale)}">
 <head>
 <meta charset="utf-8">
+<!--${colophon}-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${e(opts.title)}</title>
 <meta name="description" content="${e(opts.description)}">
@@ -134,7 +148,7 @@ function footer(ctx, opts) {
 <div>
 <div class="footer__mark">${e(first)} <em>${e(rest.join(' '))}</em></div>
 <p>${e(ctx.site.editorNote)}</p>
-${ctx.site.community ? `<p class="footer__community"><img src="${rel(d, ctx.site.community.logo)}" alt="${e(ctx.site.community.name)}" width="240" height="40" loading="lazy" decoding="async"><span>${e(ctx.site.community.note)}</span></p>` : ''}
+${ctx.site.community ? `<div class="footer__community">${ctx.communityMark ? `<span class="footer__communitymark" role="img" aria-label="${e(ctx.site.community.name)}">${ctx.communityMark}</span>` : ''}<span>${e(ctx.site.community.note)}</span></div>` : ''}
 </div>
 <div>
 <h4>Sections</h4>
@@ -166,7 +180,7 @@ ${ctx.site.community ? `<p class="footer__community"><img src="${rel(d, ctx.site
 </div>
 <div class="footer__base">
 <span>© ${e(String(ctx.latestDate).slice(0, 4))} ${e(ctx.site.copyrightHolder || ctx.site.name)}</span>
-${ctx.site.founder ? `<span>Founded by ${e(ctx.site.founder)}</span>` : ''}
+${ctx.site.founder ? `<span>Founded by ${e(ctx.site.founder)}${ctx.site.community ? ` · ${e(ctx.site.community.name)}` : ''}</span>` : ''}
 <span>No advertising. No sponsorship. No position in anything covered.</span>
 <span><a href="${e(ctx.site.social.repo)}/blob/main/LICENSE" rel="noopener" style="text-decoration:none">Licence</a> · Content CC BY-NC-ND 4.0</span>
 </div>
