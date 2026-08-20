@@ -947,8 +947,25 @@ ul, ol { margin: 0; padding: 0; }
 .footer__mark { font-size: 1.5rem; letter-spacing: -0.03em; margin-bottom: 12px; }
 .footer__mark em { font-style: normal; color: var(--accent); }
 .footer__community { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; margin-top: 20px; }
-.footer__communitymark { display: block; color: var(--ink); opacity: 0.85; }
-.footer__communitymark svg { width: 148px; height: auto; display: block; }
+/* No opacity here: a value below 1 creates a stacking context, which isolates the mark's
+   mix-blend-mode from the footer behind it and leaves the logo's white ground visible as a
+   slab. Fade the mark itself instead, further down. */
+.footer__communitymark { display: block; color: var(--ink); }
+.footer__communitymark svg,
+.footer__communitymark img { width: 118px; height: auto; display: block; }
+
+/* The community mark is black line art on an opaque white ground, with no alpha channel to
+   hide. Rather than pretend otherwise, it is presented on a white badge in both themes — the
+   art keeps the contrast it was drawn for, and the panel reads as deliberate.
+   mix-blend-mode was tried first and does not work here: the footer's own stacking context
+   isolates the blend, so the white ground stays visible as a slab either way. */
+.footer__communitymark.is-raster {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 14px;
+  width: max-content;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 18%);
+}
 .footer p {
   font-family: var(--sans); font-size: .82rem; line-height: 1.6; color: var(--muted);
   max-width: 46ch;

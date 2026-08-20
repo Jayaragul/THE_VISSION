@@ -21,6 +21,16 @@ const TYPES = {
   '.xml': 'application/xml; charset=utf-8',
   '.txt': 'text/plain; charset=utf-8',
   '.ico': 'image/x-icon',
+  // Raster and font types. Without these the fallback is application/octet-stream, which a
+  // browser will not decode as an image — a PNG then loads 200 OK and still renders nothing.
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.avif': 'image/avif',
+  '.gif': 'image/gif',
+  '.woff2': 'font/woff2',
+  '.woff': 'font/woff',
 };
 
 createServer((req, res) => {

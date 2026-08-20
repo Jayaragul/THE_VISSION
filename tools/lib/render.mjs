@@ -137,6 +137,17 @@ ${links}
 </div></nav>`;
 }
 
+/** The community mark: inlined when it is an SVG (so currentColor works), linked otherwise. */
+function communityMark(ctx, d) {
+  const c = ctx.site.community;
+  if (!c?.logo) return '';
+  if (ctx.communityMark) {
+    return `<span class="footer__communitymark" role="img" aria-label="${e(c.name)}">${ctx.communityMark}</span>`;
+  }
+  const dims = c.logoWidth && c.logoHeight ? ` width="${c.logoWidth}" height="${c.logoHeight}"` : '';
+  return `<span class="footer__communitymark is-raster"><img src="${rel(d, c.logo)}" alt="${e(c.name)}"${dims} loading="lazy" decoding="async"></span>`;
+}
+
 function footer(ctx, opts) {
   const d = opts.depth || 0;
   const beatLinks = ctx.site.nav
@@ -148,7 +159,7 @@ function footer(ctx, opts) {
 <div>
 <div class="footer__mark">${e(first)} <em>${e(rest.join(' '))}</em></div>
 <p>${e(ctx.site.editorNote)}</p>
-${ctx.site.community ? `<div class="footer__community">${ctx.communityMark ? `<span class="footer__communitymark" role="img" aria-label="${e(ctx.site.community.name)}">${ctx.communityMark}</span>` : ''}<span>${e(ctx.site.community.note)}</span></div>` : ''}
+${ctx.site.community ? `<div class="footer__community">${communityMark(ctx, d)}<span>${e(ctx.site.community.note)}</span></div>` : ''}
 </div>
 <div>
 <h4>Sections</h4>
