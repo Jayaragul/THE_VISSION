@@ -251,7 +251,7 @@ ${stale}
 <div>
 <h1 class="editorsnote__title">${e(ed.edition.title)}</h1>
 <p class="editorsnote__body">${e(ed.edition.summary)}</p>
-${isFront ? `<p class="wire__stamp">Published <time datetime="${e(ed.edition.generatedAt)}" data-relative>${e(formatMasthead(ed.edition.date))}, ${e(ed.edition.generatedAt.slice(11, 16))} UTC</time> · the edited tier, researched and written by Claude Code</p>` : ''}
+${isFront ? `<p class="wire__stamp">Published <time datetime="${e(ed.edition.generatedAt)}" data-relative>${e(formatMasthead(ed.edition.date))}, ${e(ed.edition.generatedAt.slice(11, 16))} UTC</time> · the edited tier, researched and written by the desk</p>` : ''}
 </div>
 </section>
 

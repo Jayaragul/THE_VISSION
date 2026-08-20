@@ -134,6 +134,7 @@ function footer(ctx, opts) {
 <div>
 <div class="footer__mark">${e(first)} <em>${e(rest.join(' '))}</em></div>
 <p>${e(ctx.site.editorNote)}</p>
+${ctx.site.community ? `<p class="footer__community"><img src="${rel(d, ctx.site.community.logo)}" alt="${e(ctx.site.community.name)}" width="240" height="40" loading="lazy" decoding="async"><span>${e(ctx.site.community.note)}</span></p>` : ''}
 </div>
 <div>
 <h4>Sections</h4>

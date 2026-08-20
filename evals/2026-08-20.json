@@ -1,0 +1,24 @@
+{
+  "date": "2026-08-20",
+  "reviewedAt": "2026-08-20T12:30:00Z",
+  "edition": {
+    "date": "2026-08-20",
+    "storyCount": 11,
+    "sourceCount": 19,
+    "sha256": "2ab159bf8e37d0e91faf28304b3291812b86a8dc07624e6e6936f63d9b419910"
+  },
+  "scores": { "sourcing": 4, "accuracy": 5, "prose": 4, "selection": 5, "balance": 4 },
+  "total": 22,
+  "verdict": "pass",
+  "evidence": [
+    { "dimension": "sourcing", "note": "The lead rests on a tier-1 primary that was opened and read in full (anthropic.com/research/Claude-accelerates-protein-design), plus the wet-lab collaborator's own write-up and independent trade coverage. Two stories cite Bloomberg reporting that returns 403 to an automated fetch (Fractile, SK Hynix); both are handled under the rubric's blocked-primary rule — attested by a source actually opened (Tom's Hardware, SK hynix's own newsroom), confidence capped at medium, and the prose attributes the claim to Bloomberg's reporting rather than to a document read directly. Docked one point for those two, per the rubric." },
+    { "dimension": "accuracy", "note": "Every figure carries its basis and the conditions that produced it — the lead does not report a single hit rate but distinguishes 26.7% and 22.6% (48-hour multi-target, up to 12,500 H100 hours) from 35.1% (24 hours per single target, up to 2,500 H100 hours each), which is the difference the vendor's own framing could have blurred. Unitree separates the 629% intraday peak from the 460% close rather than using the larger number as the headline figure." },
+    { "dimension": "prose", "note": "Vendor claims are consistently marked as claims: the Fractile story states its 100x/90% figures are \"company figures for hardware that does not yet exist in deployable form.\" Docked from 5 because two whyItMatters paragraphs (Unitree, Samsung) run long compound sentences that would read better split." },
+    { "dimension": "selection", "note": "The lead is defensible as the day's most material story — an agent autonomously beating a competition field at protein design is a capability result, not a funding round — and it carries Anthropic's own caveat that a binder is \"just the first step\" toward a drug, so it does not read as a press release. Nothing here repeats Nos. 1-3; the Grok 4.6 brief is explicitly scoped to the Bedrock availability and pricing, since the model itself already ran as a brief in No. 2." },
+    { "dimension": "balance", "note": "All seven beats are represented for the first time, including the new India beat (Sarvam/Nvidia). No company exceeds 2 of 11 stories. Anthropic appears in two (the protein lead and as Fractile's customer) but on unrelated news, and after two Anthropic stories in No. 3 the editor's note leads on the science rather than the company. Docked one point because Models runs 1 against a target of 3 — genuinely thin, and disclosed." }
+  ],
+  "revisions": [
+    "Replaced a South China Morning Post URL on the Unitree story that had been constructed rather than opened — caught during review, swapped for Caixin Global, which was fetched and read. This is the failure mode rule 1 exists to prevent and it should have been caught before the draft, not during it."
+  ],
+  "notes": "node tools/validate.mjs returns 0 errors, 1 warning (models beat at 1 against a target of 3), exit 0. Three errors were fixed during this run by changing the journalism rather than the checker: a Samsung headline that reused seven words of Tom's Hardware's own phrasing was rewritten around the regional price spread instead; and two stories that had no source above tier 3 were resolved by registering sources that legitimately belong in the book, not by relabelling what was there. Source book additions this run, all consistent with existing entries: Adaptyv Bio, SK hynix and Varonis as tier-1 primaries for their own research and announcements (the openai.com/nvidia.com pattern); Nikkei Asia, CSO Online and Caixin Global as tier-2 newsrooms; The Decoder, Medical Xpress and BNN Bloomberg as tier-3 secondaries; PLOS as tier 1 alongside Nature and Science."
+}
