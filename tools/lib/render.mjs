@@ -145,7 +145,10 @@ function communityMark(ctx, d) {
     return `<span class="footer__communitymark" role="img" aria-label="${e(c.name)}">${ctx.communityMark}</span>`;
   }
   const dims = c.logoWidth && c.logoHeight ? ` width="${c.logoWidth}" height="${c.logoHeight}"` : '';
-  return `<span class="footer__communitymark is-raster"><img src="${rel(d, c.logo)}" alt="${e(c.name)}"${dims} loading="lazy" decoding="async"></span>`;
+  // Deliberately not loading="lazy". The mark is small and it is brand identity, so a
+  // lazy-load heuristic that declines to fire leaves the footer with a blank badge — which is
+  // exactly what happened when this shipped lazy. Eager is the right trade for ~26KB.
+  return `<span class="footer__communitymark is-raster"><img src="${rel(d, c.logo)}" alt="${e(c.name)}"${dims} decoding="async"></span>`;
 }
 
 function footer(ctx, opts) {
