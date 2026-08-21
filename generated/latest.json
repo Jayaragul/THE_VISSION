@@ -1,348 +1,320 @@
 {
   "$schema": "https://jayaragul.github.io/THE_VISSION/schema/edition.schema.json",
   "edition": {
-    "date": "2026-08-20",
-    "number": 4,
-    "generatedAt": "2026-08-20T12:00:00Z",
-    "title": "An AI designs proteins that beat the competition winners, and a robot maker's debut goes vertical",
-    "summary": "Anthropic published wet-lab results in which Claude ran a protein design pipeline end to end and hit 14 of 15 targets, beating the winning entry on one of them — with the company itself noting a binder is only the first step toward a drug. Unitree's Shanghai listing rose as much as 629% before closing up 460%, the first mainland humanoid robot maker to go public. India's Sarvam is raising $74m in a round Nvidia is leading, and the chip supply chain tightened at both ends: Samsung raised foundry prices and China slowed critical optical materials to Taiwan.",
+    "date": "2026-08-21",
+    "number": 5,
+    "generatedAt": "2026-08-21T13:00:00Z",
+    "title": "An unpatched Grok flaw leaks chat history, and OpenAI bets privacy wins enterprises",
+    "summary": "Researchers demonstrated a working attack that makes Grok decrypt hidden instructions off a web page and mail the user's chat history to a stranger's server — reported to xAI eleven weeks ago and still working yesterday. OpenAI moved in the opposite direction, offering to retain nothing at all for frontier-model API customers. A light day otherwise: eight stories, with infrastructure and India empty and models running one short.",
     "generator": {
-      "model": "claude-sonnet-5",
+      "model": "claude-opus-5",
       "pipeline": "news-pipeline",
       "trigger": "manual"
     }
   },
   "stories": [
     {
-      "id": "2026-08-20-claude-protein-design-wet-lab",
-      "slug": "claude-protein-design-wet-lab",
-      "beat": "research",
-      "kicker": "Protein design",
-      "headline": "An AI agent ran a protein design pipeline unaided and hit 14 of 15 wet-lab targets",
-      "deck": "Anthropic reports hit rates of 22.6% to 35.1% against an industry norm of 10-15%, and says the work stays restricted in its public models pending a trusted-access programme.",
-      "summary": [
-        "Anthropic reported that Claude models designed protein binders that bound successfully against 14 of 15 targets tested in a wet lab, producing 354 confirmed binders from 1,320 designs.",
-        "Running against all targets at once in a 48-hour session, Mythos Preview hit 26.7% and Opus 4.8 hit 22.6%; given 24 hours per individual target, Mythos Preview reached 35.1%, against the 10-15% Anthropic calls typical.",
-        "Against one target, RBX1, the model reached a 40% hit rate versus 3.7% among entrants in an external competition, and its best design outperformed the winner of 245 submissions.",
-        "Anthropic cautions that minibinders are not a standard therapeutic format and that a high-affinity binder is only the first step toward a drug-like molecule."
-      ],
-      "body": [
-        "Anthropic published results on August 18 from a protein design campaign in which its Claude models drove the computational pipeline without human scientific guidance during execution. Across 15 targets, the models generated 1,320 designs — 30 per target per arm — of which 354 were confirmed as binders in wet-lab testing. Fourteen of the 15 targets yielded at least one working binder.",
-        "The headline numbers depend on how the work was scheduled. Given 48 hours of wall time and up to 12,500 NVIDIA H100 hours to attack every target simultaneously, Anthropic's Mythos Preview scored an overall hit rate of 26.7% and Opus 4.8 scored 22.6%. Narrowed to one target at a time, with 24 hours and up to 2,500 H100 hours each, Mythos Preview rose to 35.1%. Anthropic puts the typical rate for protein design campaigns at 10% to 15%.",
-        "The most striking single result came against RBX1, a protein involved in the targeted destruction of regulatory proteins. In single-target mode the model reached a 40% hit rate where competition participants had managed 3.7%, and its top design bound more tightly than the winning entry among 245 submissions. The physical work — synthesising and testing the sequences the models proposed — was carried out by Adaptyv Bio and Twist Bioscience rather than by Anthropic.",
-        "Anthropic is unusually direct about the limits. \"Protein minibinders are not a standard therapeutic modality for drugs,\" the company writes, adding that even for established formats such as monoclonal antibodies and small molecules, \"designing a high-affinity binder is just the first step in the process of generating a drug-like molecule.\" The company also says protein design and related biological capabilities remain restricted in the publicly available Claude Fable 5 while it builds trusted-access mechanisms and matching safeguards."
-      ],
-      "whyItMatters": "The interesting claim here is not the hit rate but the autonomy: a general-purpose model orchestrated a specialist computational pipeline well enough to beat the people who entered a competition designed for exactly that task. For a biotech team, that reframes the build-or-buy question — the bottleneck moves from having in-house design expertise to having wet-lab throughput to test what the agent proposes. The restriction on public models is the other half of the story: the capability exists and is gated, so access, not capability, is what a lab will be negotiating for.",
-      "prominence": "lead",
-      "publishedAt": "2026-08-18T00:00:00Z",
-      "confidence": "high",
-      "entities": [
-        "Anthropic",
-        "Adaptyv Bio",
-        "Twist Bioscience"
-      ],
-      "tags": [
-        "protein-design",
-        "ai-for-science",
-        "biology"
-      ],
-      "sources": [
-        {
-          "title": "How Claude is accelerating protein design and analytical chemistry",
-          "publisher": "Anthropic",
-          "url": "https://www.anthropic.com/research/Claude-accelerates-protein-design",
-          "publishedAt": "2026-08-18T00:00:00Z",
-          "tier": 1
-        },
-        {
-          "title": "Case study: Benchmarking Claude's protein designs in the wet lab",
-          "publisher": "Adaptyv Bio",
-          "url": "https://www.adaptyvbio.com/blog/anthropic-1",
-          "publishedAt": "2026-08-18T00:00:00Z",
-          "tier": 1
-        },
-        {
-          "title": "Anthropic says any lab can now let a language model agent run the whole protein design stack",
-          "publisher": "The Decoder",
-          "url": "https://the-decoder.com/anthropic-says-any-lab-can-now-let-a-language-model-agent-run-the-whole-protein-design-stack/",
-          "publishedAt": "2026-08-19T00:00:00Z",
-          "tier": 3
-        }
-      ],
-      "readMinutes": 2
-    },
-    {
-      "id": "2026-08-20-unitree-shanghai-listing",
-      "slug": "unitree-shanghai-listing",
-      "beat": "business",
-      "kicker": "Robotics",
-      "headline": "Unitree becomes mainland China's first listed humanoid robot maker, closing up 460%",
-      "deck": "The Hangzhou company raised 6.1bn yuan and rose as much as 629% intraday, on 2025 revenue of about $250m from robots still mostly used for demonstrations.",
-      "summary": [
-        "Unitree Robotics raised 6.1 billion yuan ($904 million) in its Shanghai STAR Market listing and began trading on August 19 at an IPO price of 150.80 yuan.",
-        "The stock rose as much as 629% intraday before closing 460% above the offer price, making it the first publicly traded humanoid robot maker on the mainland.",
-        "Founded in Hangzhou in 2016 by Wang Xingxing, the company reported 2025 revenue of 1.7 billion yuan (about $250 million), with more than 40% from overseas sales.",
-        "Chinese manufacturers dominated humanoid shipments in 2025, with Unitree and AGIBOT each shipping more than 5,000 units, though most remain used for demonstrations and research."
-      ],
-      "body": [
-        "Unitree Robotics began trading on Shanghai's STAR Market on August 19, becoming the first humanoid robot maker to list on the Chinese mainland. The company raised 6.1 billion yuan ($904 million) at an offer price of 150.80 yuan per share. The stock rose as much as 629% during the session before giving back some of the gain to close 460% above the IPO price.",
-        "Unitree was founded in Hangzhou in 2016 by Wang Xingxing and is among China's largest humanoid robot makers by sales. It reported 2025 revenue of 1.7 billion yuan, roughly $250 million, with more than 40% of that coming from outside China — a meaningful export share for a Chinese hardware company in a category the United States also treats as strategic.",
-        "The scale of the first-day move says more about demand for exposure to humanoid robotics than about Unitree's current business. Chinese manufacturers led global humanoid shipments in 2025, with Unitree and AGIBOT each shipping more than 5,000 units, well ahead of US competitors. But as the Associated Press noted in its coverage, most of those machines are still deployed for demonstrations, performances and research rather than production work."
-      ],
-      "whyItMatters": "A 460% first-day close on roughly $250m of revenue prices in a transition from demo units to deployed labour that has not happened yet, and Unitree is now the public comparable every other humanoid company will be valued against — including the US ones still private. For anyone building in robotics, this sets the fundraising environment for the next year; for anyone buying, the shipment lead Chinese makers hold is the more durable fact than the share price.",
-      "prominence": "top",
-      "publishedAt": "2026-08-19T00:00:00Z",
-      "confidence": "medium",
-      "entities": [
-        "Unitree Robotics",
-        "Wang Xingxing",
-        "AGIBOT"
-      ],
-      "tags": [
-        "robotics",
-        "ipo",
-        "china"
-      ],
-      "sources": [
-        {
-          "title": "Unitree to Debut at 61 Billion Yuan Valuation in Closely Watched Shanghai IPO",
-          "publisher": "Caixin Global",
-          "url": "https://www.caixinglobal.com/2026-08-18/unitree-to-debut-at-61-billion-yuan-valuation-in-closely-watched-shanghai-ipo-102475173.html",
-          "publishedAt": "2026-08-18T00:00:00Z",
-          "tier": 2
-        },
-        {
-          "title": "Shares in Chinese humanoid robot maker Unitree soar in its Shanghai trading debut",
-          "publisher": "BNN Bloomberg",
-          "url": "https://www.bnnbloomberg.ca/business/artificial-intelligence/2026/08/19/shares-in-chinese-humanoid-robot-maker-unitree-soar-in-its-shanghai-trading-debut/",
-          "publishedAt": "2026-08-19T00:00:00Z",
-          "tier": 3
-        }
-      ],
-      "readMinutes": 2
-    },
-    {
-      "id": "2026-08-20-sarvam-nvidia-series-b-extension",
-      "slug": "sarvam-nvidia-series-b-extension",
-      "beat": "india",
-      "kicker": "Sovereign AI",
-      "headline": "Nvidia leads a $74m extension into Sarvam, India's sovereign-model startup",
-      "deck": "The Bengaluru company reached unicorn status in June at a $1.5bn valuation, and the chipmaker backing it also supplies the GPUs India's sovereign AI programme runs on.",
-      "summary": [
-        "Sarvam AI is set to raise about $74 million (₹700 crore) in an extension of its Series B round, led by Nvidia with participation from Glade Brook Capital, Gaja Capital and Indigo Ventures.",
-        "Nvidia is reported to be putting in ₹238 crore (about $25 million) and Glade Brook ₹190.3 crore (about $20 million).",
-        "Sarvam closed the first tranche of its $300 million Series B in June, raising $234 million at a $1.5 billion post-money valuation and becoming one of only two Indian AI unicorns alongside Krutrim.",
-        "Founded in Bengaluru in 2023, Sarvam builds models and infrastructure for enterprises, developers and government, and open-sourced a 30B dense model and a 105B mixture-of-experts model in February."
-      ],
-      "body": [
-        "Sarvam AI is close to raising roughly $74 million — about ₹700 crore — in an extension of its Series B round, with Nvidia leading and Glade Brook Capital, Gaja Capital and Indigo Ventures among those participating, according to reporting from Entrackr and Inc42. Nvidia is reported to be contributing ₹238 crore, around $25 million, with Glade Brook at ₹190.3 crore.",
-        "The extension follows a first close in June, when Sarvam raised $234 million of a $300 million Series B at a $1.5 billion post-money valuation. That round made it one of only two Indian AI unicorns, alongside Bhavish Aggarwal's Krutrim. Founded in Bengaluru in 2023, Sarvam builds models, infrastructure and applications aimed at enterprises, developers and government agencies, and in February open-sourced two foundation models: a 30-billion-parameter dense model and a 105-billion-parameter mixture-of-experts model.",
-        "Nvidia leading the round is the detail worth pausing on. India's sovereign AI push — the IndiaAI Mission's compute pool and Krutrim's cloud among it — currently runs on imported accelerators, overwhelmingly Nvidia's. A supplier taking an equity position in the country's most prominent sovereign-model builder deepens a commercial relationship that the word \"sovereign\" is meant to describe an escape from."
-      ],
-      "whyItMatters": "For an Indian founder, this is the clearest signal yet that sovereign-AI capital is available at scale and that the bar is a shipped, open-weight model rather than a policy pitch — Sarvam open-sourced two before the money arrived. The tension worth watching is structural: a national AI programme whose flagship startup is part-owned by the company that also sells it every GPU it trains on has substituted one dependency for a closer one, and that arrangement will shape what \"sovereign\" can actually mean in Indian procurement.",
-      "prominence": "top",
-      "publishedAt": "2026-08-19T00:00:00Z",
-      "confidence": "medium",
-      "entities": [
-        "Sarvam AI",
-        "Nvidia",
-        "Krutrim",
-        "IndiaAI Mission"
-      ],
-      "tags": [
-        "india",
-        "funding",
-        "sovereign-ai"
-      ],
-      "sources": [
-        {
-          "title": "Sarvam To Raise $74 Mn In Series B Extension From NVIDIA, Others",
-          "publisher": "Inc42",
-          "url": "https://inc42.com/buzz/sarvam-to-raise-74-mn-in-series-b-extension-from-nvidia-others/",
-          "publishedAt": "2026-08-19T00:00:00Z",
-          "tier": 2
-        },
-        {
-          "title": "Sarvam AI board to approve $74 Mn funding from NVIDIA, Glade Brook, others",
-          "publisher": "Entrackr",
-          "url": "https://entrackr.com/exclusive/exclusive-sarvam-ai-board-to-approve-74-funding-mn-from-nvidia-glade-brook-others-12223413",
-          "publishedAt": "2026-08-19T00:00:00Z",
-          "tier": 3
-        }
-      ],
-      "readMinutes": 2
-    },
-    {
-      "id": "2026-08-20-fractile-anthropic-chip-deal",
-      "slug": "fractile-anthropic-chip-deal",
-      "beat": "infrastructure",
-      "kicker": "AI chips",
-      "headline": "Fractile seeks a $6.5bn valuation on an Anthropic chip deal and no shipping product",
-      "deck": "The British startup's valuation would rise more than sixfold since May on a $250m supply agreement for inference chips that are not expected to ship until 2027.",
-      "summary": [
-        "Fractile, a British AI chip startup, is in talks to raise about $600 million at a $6.5 billion valuation, Bloomberg reported on August 19.",
-        "The valuation would be more than six times the roughly $1 billion it raised at in May, when it took $220 million from Accel, Founders Fund and Factorial Funds.",
-        "The jump follows an initial agreement to sell Anthropic roughly $250 million of inference chips, with the intention of expanding the contract later.",
-        "Fractile's chips are not expected to ship until 2027; its claims of running large models far faster at lower cost are company figures with no deployed hardware behind them yet."
-      ],
-      "body": [
-        "Fractile, founded in 2022 by Oxford PhD Walter Goodwin, is in talks to raise roughly $600 million at a $6.5 billion valuation, Bloomberg reported on August 19. That would value the British chip startup at more than six times the roughly $1 billion it commanded in May, when it raised $220 million from Accel, Founders Fund and Factorial Funds.",
-        "What changed in between is a customer. Fractile reached an initial agreement to supply Anthropic with about $250 million of its inference chips, with both sides intending to expand the contract. The company's design places compute and memory on the same die using SRAM, rather than fetching weights from separate off-chip memory — an approach it calls memory-compute fusion, and one that sidesteps the DRAM the rest of the industry is currently competing for amid a severe memory squeeze.",
-        "The caveat is the timeline. Fractile's chips are not expected to ship until 2027, and its headline claims — running large language models up to 100 times faster than existing hardware at 90% lower operating cost — are company figures for hardware that does not yet exist in deployable form. Neither the performance nor the economics has been independently verified in production."
-      ],
-      "whyItMatters": "A sixfold valuation step on one supply agreement and no shipping silicon is a bet on the memory bottleneck rather than on Fractile's execution, and it tells you how much buyers will now pay to design around DRAM scarcity. For anyone planning inference capacity for 2027, the useful signal is that a major lab is willing to underwrite an unproven architecture to get off the standard memory supply chain — but a contract for chips that do not exist is a purchase option, not a roadmap you can build against.",
-      "prominence": "top",
-      "publishedAt": "2026-08-19T00:00:00Z",
-      "confidence": "medium",
-      "entities": [
-        "Fractile",
-        "Anthropic",
-        "Walter Goodwin",
-        "Accel"
-      ],
-      "tags": [
-        "ai-chips",
-        "inference",
-        "funding"
-      ],
-      "sources": [
-        {
-          "title": "AI Chip Startup Fractile in Talks for $6.5 Billion Value After Anthropic Deal",
-          "publisher": "Bloomberg",
-          "url": "https://www.bloomberg.com/news/articles/2026-08-19/ai-chip-startup-fractile-in-talks-for-6-5-billion-value-after-anthropic-deal",
-          "publishedAt": "2026-08-19T00:00:00Z",
-          "tier": 2
-        },
-        {
-          "title": "Anthropic in early talks to buy DRAM-less AI inference chips from UK startup",
-          "publisher": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-in-early-talks-to-buy-inference-chips-from-uk-startup",
-          "publishedAt": "2026-08-19T00:00:00Z",
-          "tier": 3
-        }
-      ],
-      "readMinutes": 2
-    },
-    {
-      "id": "2026-08-20-fda-ai-devices-outcomes-study",
-      "slug": "fda-ai-devices-outcomes-study",
+      "id": "2026-08-21-grok-cryptographic-context-injection",
+      "slug": "grok-cryptographic-context-injection",
       "beat": "society",
-      "kicker": "Medical AI",
-      "headline": "Three of 1,357 FDA-authorised AI medical devices were tested on patient outcomes",
-      "deck": "A PLOS Digital Health analysis found only 34 of the cleared devices were linked to a registered clinical trial, and most studies excluded pregnant women and adults over 75.",
+      "kicker": "AI security",
+      "headline": "Encrypted instructions on a web page make Grok hand over a user's chat history",
+      "deck": "Adversa AI reported the attack to xAI on 3 June and reproduced it again on 19 August; there is still no patch, no CVE and no workaround a user can apply.",
       "summary": [
-        "Of 1,357 AI-based medical devices authorised by the US Food and Drug Administration for patient care, only three were evaluated on patient-centred outcomes such as mortality, stroke, hospitalisation or quality of life.",
-        "Only 34 of the 1,357 devices were linked to a registered clinical trial at all, according to the analysis published in PLOS Digital Health on August 19.",
-        "Most of the evaluations that did exist were run in well-resourced health systems and excluded groups including pregnant women, adults over 75 and non-English speakers.",
-        "The authors, led by Rawan Abulibdeh at the University of Toronto, attribute the gap to financial and logistical incentives that reward speed of clearance over evidence of benefit."
+        "Adversa AI disclosed \"cryptographic context injection\": a web page carries an encrypted block of instructions plus the key to decrypt it, and Grok runs the decryption itself in its own sandbox.",
+        "Content classifiers cannot read ciphertext, so the malicious instructions pass the guardrail unexamined and are only assembled after the check has already been cleared.",
+        "In the demonstration Grok appended the user's name, coarse location, subscription tier and conversation history to a URL and fetched it, sending the data to a server the researchers controlled.",
+        "Adversa reported it to xAI and HackerOne on 3 June and followed up on 4 and 10 August; the attack still worked on 19 August against Grok 4.5 Fast at grok.com."
       ],
       "body": [
-        "An analysis published in PLOS Digital Health on August 19 examined all 1,357 AI-based medical devices the US Food and Drug Administration has authorised for use in patient care and found that three had been tested on whether they improve patient outcomes — measures such as mortality, stroke, hospitalisation or quality of life. Only 34 were linked to a registered clinical trial of any kind.",
-        "The evidence that does exist is also narrow. The authors, led by Rawan Abulibdeh at the University of Toronto, found most studies were conducted inside highly resourced health systems and excluded patient groups that are common in practice, including pregnant women, adults over 75 and people who do not speak English. A device validated only on the population easiest to study is a device whose behaviour outside that population is unknown.",
-        "The paper attributes the gap to structural incentives rather than negligence: outcome trials are slow and expensive, clearance does not require them, and the commercial reward goes to whoever reaches market first. The authors argue for more FDA oversight tying authorisation to demonstrated patient benefit."
+        "Researchers at Adversa AI have demonstrated an attack that turns Grok's own capabilities against its user: a web page carries a block of encrypted text alongside the instructions and key needed to decrypt it, and when the user asks Grok to summarise that page, the model performs the decryption in its Python sandbox and then acts on whatever it finds inside. Adversa calls the technique cryptographic context injection.",
+        "The reason it defeats the guardrail is structural rather than incidental. Safety classifiers inspect the text going into a model, and ciphertext is, to a classifier, meaningless noise — it carries no pattern to match. The malicious instructions do not exist in readable form until after the content check has already passed, at which point the model itself assembles them. \"The model runs that decryption inside its own code execution sandbox,\" wrote Rony Utevsky, Adversa's lead researcher.",
+        "What the decrypted instructions then direct Grok to do is collect the user's session data — full name, approximate location, subscription tier and the current conversation's prompts and history — build a URL with those values as query parameters, and fetch it using the model's own navigation tool. The data lands on a server the attacker controls. No confirmation prompt appears and nothing visible warns the user, whose only action was asking for a summary. Utevsky described the underlying problem as a framework that lets \"instructions and data parsed from an untrusted external page drive the invocation of a privileged, internet-connected tool\" with \"no effective egress boundary or consent gate.\"",
+        "The disclosure timeline is the part xAI will have the hardest time answering. Adversa reported the flaw to the company directly and through its HackerOne programme on 3 June, and followed up on 4 and 10 August without response. The Register reported that xAI acknowledged the report but gave no mitigation timeline. Adversa has run the attack roughly twenty times since June with about a 40% success rate, and reproduced it on 19 August against Grok 4.5 Fast on grok.com — a day before publication, eleven weeks after the first report.",
+        "There is no CVE identifier, no patch and no setting a user can change to protect themselves. The exposure is bounded by what Grok's web chat can reach, which is the account's own conversation data rather than anything on the user's machine."
       ],
-      "whyItMatters": "Regulatory clearance is routinely read as evidence a device works, and this puts a number on the distance between those two things — 1,354 of 1,357 cleared devices have no outcome evidence behind them. For anyone building clinical AI, that is both the competitive opening and the coming risk: outcome data is currently a differentiator nobody is required to produce, which is exactly the kind of gap regulators close retroactively.",
-      "prominence": "standard",
-      "publishedAt": "2026-08-19T00:00:00Z",
-      "confidence": "high",
+      "whyItMatters": "Any agent that can both read untrusted pages and make outbound network calls has this shape of hole, and the encryption twist shows why bolting a classifier onto the input is not a fix: a filter that inspects text cannot inspect text that has not been decrypted yet. If you are building on tool-using models, the control that actually holds is at the egress — what the agent is permitted to send, and to where — not at the prompt. A reader who ships an agent with web access and no allowlist on outbound requests has this bug too, whoever built the model underneath.",
+      "prominence": "lead",
+      "publishedAt": "2026-08-20T13:00:00Z",
+      "confidence": "medium",
       "entities": [
-        "FDA",
-        "PLOS Digital Health",
-        "University of Toronto"
+        "xAI",
+        "Grok",
+        "Adversa AI"
       ],
       "tags": [
-        "healthcare",
-        "regulation",
+        "prompt-injection",
+        "ai-security",
+        "vulnerability"
+      ],
+      "sources": [
+        {
+          "title": "Grok chat duped into swallowing injected instructions",
+          "publisher": "The Register",
+          "url": "https://www.theregister.com/ai-and-ml/2026/08/20/grok-chat-duped-into-swallowing-injected-instructions/5290019",
+          "publishedAt": "2026-08-20T00:00:00Z",
+          "tier": 2
+        },
+        {
+          "title": "New Cryptographic Context Injection Attack Could Let Web Pages Steal Grok Chat Data",
+          "publisher": "The Hacker News",
+          "url": "https://thehackernews.com/2026/08/new-cryptographic-context-injection.html",
+          "publishedAt": "2026-08-20T00:00:00Z",
+          "tier": 3
+        }
+      ],
+      "readMinutes": 3
+    },
+    {
+      "id": "2026-08-21-openai-zero-data-retention",
+      "slug": "openai-zero-data-retention",
+      "beat": "business",
+      "kicker": "Enterprise",
+      "headline": "OpenAI offers to keep nothing at all for frontier-model API customers",
+      "deck": "A companion system, Private Safety Processing, is meant to let automated abuse detection run across a customer's traffic without any employee seeing the prompts.",
+      "summary": [
+        "Approved API customers on OpenAI's frontier models can opt into Zero Data Retention, under which prompts and outputs are not stored after a request is processed.",
+        "Customer content is not available for employee review and is not used for training unless the customer explicitly opts in.",
+        "Private Safety Processing is previewing alongside it: automated systems look for misuse patterns across related interactions and return only a category-level risk signal, not the underlying content.",
+        "The system is in testing with early customers and starts rolling out in September, with further technical detail promised then."
+      ],
+      "body": [
+        "OpenAI said it will continue to offer Zero Data Retention for its frontier models to approved API customers, a configuration under which the company does not retain prompts or model outputs once a request has been served. Content under that arrangement is not available for employee review, and is not used to train OpenAI's models unless a customer explicitly opts in.",
+        "The harder problem the announcement addresses is that safety monitoring normally requires keeping the thing you are monitoring. As models take on longer and more autonomous work, the patterns worth catching stretch across many interactions rather than sitting inside a single prompt — and spotting those has historically meant retaining the traffic. OpenAI is previewing a system it calls Private Safety Processing to sever that dependency: automated systems examine related interactions for signs of misuse, and what reaches OpenAI is a limited signal naming the category of risky activity rather than the customer content that triggered it.",
+        "The company said the arrangement is being tested with early customers now and will begin rolling out in September, when it has promised more technical detail. Neither the eligibility criteria for approval nor the mechanism by which the safety signal is derived without exposing content has been published, which leaves the central claim — that pattern detection can run across retained-nothing traffic — resting on OpenAI's description of its own system rather than on anything an outside party can currently inspect."
+      ],
+      "whyItMatters": "Retention is the specific clause that stops regulated buyers — hospitals, banks, law firms — from putting real workloads on a frontier model, and it is a contractual objection rather than a capability one, so it is winnable without shipping a better model. The claim worth watching in September is the technical one: if safety classification genuinely runs without retention, it removes the standard argument that meaningful abuse monitoring and zero retention are mutually exclusive. If the detail shows the signal is derived from content held even briefly, buyers with a hard no-retention requirement are back where they started.",
+      "prominence": "top",
+      "publishedAt": "2026-08-19T19:00:00Z",
+      "confidence": "medium",
+      "entities": [
+        "OpenAI"
+      ],
+      "tags": [
+        "privacy",
+        "enterprise",
+        "data-retention"
+      ],
+      "sources": [
+        {
+          "title": "Offering Zero Data Retention for frontier models",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models/",
+          "publishedAt": "2026-08-19T19:00:00Z",
+          "tier": 1
+        },
+        {
+          "title": "OpenAI builds zero data retention system for frontier models",
+          "publisher": "The Stack",
+          "url": "https://www.thestack.technology/openai-zero-data-retention-frontier-models/",
+          "publishedAt": "2026-08-20T00:00:00Z",
+          "tier": 4
+        }
+      ],
+      "readMinutes": 2
+    },
+    {
+      "id": "2026-08-21-nevada-robotaxi-approvals",
+      "slug": "nevada-robotaxi-approvals",
+      "beat": "policy",
+      "kicker": "Autonomy",
+      "headline": "Nevada clears Tesla, Waymo and Uber to run up to 8,000 robotaxis in Clark County",
+      "deck": "Tesla took the largest allocation at 5,000 vehicles and then told regulators it does not expect to deploy anything close to that within the year.",
+      "summary": [
+        "The Nevada Transportation Authority voted unanimously to permit up to 8,000 robotaxis across Clark County over a 12-month window.",
+        "Tesla was cleared for 5,000 vehicles, Waymo for 1,000, Uber for 1,000 through its Motional and Zoox partnerships, and Zoox for 100 under an existing permit.",
+        "Tesla's Cybercab chief engineer Eric Early told the authority that 5,000 \"has always been a ceiling\" and put a realistic figure nearer 2,500.",
+        "Local taxi and livery operators objected, arguing the approvals will oversaturate the corridor between the airport and Las Vegas Boulevard."
+      ],
+      "body": [
+        "The Nevada Transportation Authority voted unanimously to allow up to 8,000 robotaxis to operate in Clark County over the next twelve months, splitting the allocation between four operators. Tesla received the largest share at 5,000 vehicles, followed by Waymo at 1,000 and Uber at 1,000 — the latter served through its partnerships with Motional and Zoox — with Zoox holding a further 100 under a permit it already had.",
+        "The permitted number and the expected number are not the same thing, and Tesla said so at the hearing. \"The 5,000 has always been a ceiling for us,\" the company's Cybercab chief engineer Eric Early told the authority, adding that he did not expect Tesla to be positioned to deploy 5,000 vehicles by this time next year and pointing instead to a realistic maximum nearer 2,500. Deployment across all four operators is expected to fall well short of the caps.",
+        "Local taxi and livery operators opposed the approvals through the Livery Operators Association, arguing that the volume will oversaturate the market and congest the so-called Golden Triangle between Harry Reid International Airport and Las Vegas Boulevard. The authority approved the permits over those objections."
+      ],
+      "whyItMatters": "A regulator granting a headline number an operator openly says it cannot reach makes the permit cap a poor proxy for how many autonomous vehicles will actually be on the road — useful to remember when the next jurisdiction announces a big figure. The more consequential detail is the unanimity: Nevada treated three separate autonomy stacks as approvable on the same day under one framework, which is a faster template for other states than case-by-case licensing.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-20T00:00:00Z",
+      "confidence": "medium",
+      "entities": [
+        "Tesla",
+        "Waymo",
+        "Uber",
+        "Zoox",
+        "Nevada Transportation Authority"
+      ],
+      "tags": [
+        "robotaxi",
+        "autonomous-vehicles",
+        "regulation"
+      ],
+      "sources": [
+        {
+          "title": "Tesla, Uber, and Waymo all get the OK to operate thousands of robotaxis in Nevada",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/20/tesla-uber-and-waymo-all-get-the-ok-to-operate-thousands-of-robotaxis-in-nevada/",
+          "publishedAt": "2026-08-20T00:00:00Z",
+          "tier": 2
+        }
+      ],
+      "readMinutes": 2
+    },
+    {
+      "id": "2026-08-21-pew-ai-authorship-web-study",
+      "slug": "pew-ai-authorship-web-study",
+      "beat": "research",
+      "kicker": "Measurement",
+      "headline": "A third of web pages published since ChatGPT launched show signs of AI authorship",
+      "deck": "Pew put the figure at 35% for pages published after November 2022, and flagged that detection tools misclassify human writing often enough to treat the number as directional.",
+      "summary": [
+        "Pew Research Center found that about 35% of web pages published after ChatGPT's November 2022 launch show signs of AI authorship or heavy AI editing.",
+        "The analysis drew on nearly 500,000 English-language pages collected over five years, with the headline figure from a 10,000-page random sample taken in July 2026.",
+        "Rates vary sharply by domain: .com pages showed AI authorship at roughly ten times the rate of .edu and .gov pages, which sat near 1%; .org came in at 4.6%.",
+        "Pew cautioned that AI-detection tools can misclassify human-written pages, and argues the result is directionally correct at scale rather than precise."
+      ],
+      "body": [
+        "Pew Research Center has put a number on how much of the web now carries machine fingerprints: roughly 35% of English-language pages published after ChatGPT's November 2022 launch show signs of AI authorship or substantial AI editing. The figure comes from a corpus of nearly 500,000 pages collected over five years, with the headline result drawn from a random 10,000-page sample taken in July 2026 and detection performed using Open Pangram's classifier.",
+        "The distribution matters more than the headline. Commercial .com pages showed AI authorship at approximately ten times the rate of .edu and .gov pages, which sat near 1%, with .org domains at 4.6%. Restricting the sample to pages published before ChatGPT existed and running the same detector produced a rate near 10%, which is a useful indication of the method's noise floor rather than evidence of pre-2022 AI writing.",
+        "Pew was direct about the limitation. Detection tools misclassify human-written text as machine-written, and no classifier reports its own error rate reliably at web scale, so the centre frames the finding as directionally correct rather than precise. The researchers also noted a rise in stylistic markers now associated with model output, including em dashes and the \"it's not X, it's Y\" construction — signals that are suggestive but that a human writer may legitimately produce."
+      ],
+      "whyItMatters": "If a third of recent pages are machine-written, then a third of what the next model scrapes is machine-written too, and the .com-versus-.gov gap says the contamination is concentrated exactly where general crawls collect most heavily. For anyone assembling a training corpus or a retrieval index, provenance filtering stops being a nice-to-have. The caveat cuts the other way as well: a 10% false-positive floor on pre-2022 pages means any downstream tool that penalises writers for looking AI-generated is wrong often enough to be unfair.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-20T17:18:58Z",
+      "confidence": "medium",
+      "entities": [
+        "Pew Research Center",
+        "ChatGPT",
+        "Open Pangram"
+      ],
+      "tags": [
+        "ai-detection",
+        "training-data",
         "research"
       ],
       "sources": [
         {
-          "title": "1,357 AI medical devices cleared, 3 actually tested on patient outcomes",
-          "publisher": "PLOS Digital Health",
-          "url": "https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0001597",
-          "publishedAt": "2026-08-19T00:00:00Z",
-          "tier": 1
-        },
-        {
-          "title": "Most AI medical devices cleared for use were not tested on patient outcomes",
-          "publisher": "Medical Xpress",
-          "url": "https://medicalxpress.com/news/2026-08-ai-medical-devices-patient-outcomes.html",
-          "publishedAt": "2026-08-19T00:00:00Z",
-          "tier": 3
+          "title": "A third of webpages published since ChatGPT's launch show signs of AI authorship, study finds",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/20/a-third-of-webpages-published-since-chatgpts-launch-show-signs-of-ai-authorship-study-finds/",
+          "publishedAt": "2026-08-20T17:18:58Z",
+          "tier": 2
         }
       ],
       "readMinutes": 2
     },
     {
-      "id": "2026-08-20-samsung-foundry-price-rise",
-      "slug": "samsung-foundry-price-rise",
-      "beat": "infrastructure",
-      "kicker": "Foundry",
-      "headline": "Chinese and US customers pay Samsung more than Taiwanese ones for the same nodes",
-      "deck": "New July orders on the 4nm and 5nm lines cost 10-15% more for customers in China and America, against 5-10% for those in Taiwan, as TSMC's capacity fills up.",
+      "id": "2026-08-21-openai-anthropic-business-share",
+      "slug": "openai-anthropic-business-share",
+      "beat": "business",
+      "kicker": "Market share",
+      "headline": "OpenAI is closing the gap with Anthropic among business buyers, card data suggests",
+      "deck": "Ramp's spending data puts Anthropic ahead at about 44% to OpenAI's 40% in July, with OpenAI growing faster this quarter — on a sample that skews to tech.",
       "summary": [
-        "Samsung raised prices on new July orders for its 4nm, 5nm and 8nm foundry processes, with increases of up to 15%.",
-        "Chips on the 4nm SF4 process rose 10-15% for customers in China and the United States but only 5-10% for customers in Taiwan; the 5nm SF5 line rose 10-15% and the older 8nm line by nearly 10%.",
-        "Samsung's SF4 line has run at full capacity since late last year, giving it room to raise prices as AI demand absorbs TSMC's leading-edge capacity."
+        "Corporate card provider Ramp put Anthropic at roughly 44% of its customers' AI vendor spend in July against OpenAI's 40%, from 41% and 39% respectively in May.",
+        "OpenAI is growing faster than Anthropic so far in the third quarter, according to the same data.",
+        "Nearly 56% of Ramp's business customers paid for AI services in July, up from 50% in March.",
+        "The sample covers more than 70,000 American businesses but excludes large enterprises using rival spend-management providers, and skews toward technology firms."
       ],
       "body": [
-        "Samsung raised prices on new foundry orders placed in July across its 4nm, 5nm and 8nm processes, by as much as 15%. The increases are not uniform by customer: chips on the 4-nanometre SF4 process went up 10% to 15% for customers in China and the United States, but 5% to 10% for customers in Taiwan. The 5-nanometre SF5 process rose 10% to 15%, and the ageing 8-nanometre line by close to 10%.",
-        "The pricing power is borrowed rather than earned. Demand for AI accelerators has absorbed most of TSMC's leading-edge capacity, and customers who cannot get slots there have fewer alternatives to Samsung — whose SF4 line has run full since late last year. Samsung has lost foundry market share to TSMC over the same period and raised prices regardless, which is what a supply squeeze rather than a competitive win looks like.",
-        "The regional spread is the detail with the longest tail. Charging Chinese and American customers more than Taiwanese ones for identical silicon is a pricing structure that tracks geopolitics as much as cost, in a market where second-source options at these nodes are already thin."
+        "Data from corporate card and expense provider Ramp indicates OpenAI is narrowing Anthropic's lead among business buyers. Anthropic held roughly 44% of AI vendor spend across Ramp's customer base in July against OpenAI's 40%, having been at 41% and 39% in May — a gap that widened before beginning to close, with OpenAI growing faster through the third quarter to date.",
+        "The broader figure in the same dataset is the adoption rate: nearly 56% of Ramp's business customers were paying for AI services in July, up from 50% in March. That is the number underneath both vendors' growth, and it suggests the contest between them is still being fought over an expanding pool of buyers rather than over each other's existing customers.",
+        "The sample's limits are substantial and worth stating plainly. Ramp covers more than 70,000 American businesses but does not capture large enterprises that use spend-management tools from providers such as American Express, and its customer base skews toward the technology industry, where both vendors' developer products are most heavily used. Ramp declined to provide dollar figures, sharing only percentages. An economist quoted by TechCrunch cautioned that with a month left in the quarter — \"that's like 30 AI years\" — the trend could shift again.",
+        "The reading also sits against Anthropic's reported revenue lead: the Wall Street Journal put its second-quarter revenue at $11.6bn against OpenAI's $6.7bn, a gap this paper covered on 19 August. Share of buyers and share of revenue are different measures, and a vendor can lead on one while trailing on the other."
       ],
-      "whyItMatters": "For any company taping out on an advanced node, the second source just got more expensive without getting better, which raises the floor cost of every custom AI chip programme currently being pitched as a way to escape Nvidia's margins. A 10-15% foundry increase does not sound like much until it compounds with the memory prices already climbing — the economics of building your own accelerator are moving against the companies that chose that path this year.",
+      "whyItMatters": "Card-spend panels are a leading indicator precisely because they capture the small and mid-sized buyers who switch quickly, and the tech skew that makes the sample unrepresentative of the whole economy makes it more informative about developer tooling specifically. For anyone choosing a vendor to standardise on, the signal here is that neither lead is settled enough to treat as permanent — and that the adoption rate climbing from 50% to 56% in four months matters more than which of the two is briefly ahead.",
       "prominence": "standard",
-      "publishedAt": "2026-08-19T00:00:00Z",
+      "publishedAt": "2026-08-20T22:36:37Z",
       "confidence": "medium",
       "entities": [
-        "Samsung",
-        "TSMC"
+        "OpenAI",
+        "Anthropic",
+        "Ramp"
       ],
       "tags": [
-        "semiconductors",
-        "foundry",
-        "supply-chain"
+        "market-share",
+        "enterprise"
       ],
       "sources": [
         {
-          "title": "Samsung raises advanced foundry prices by up to 15% as AI demand fills its 4nm lines",
-          "publisher": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/samsung-raises-advanced-foundry-prices-by-up-to-15-percent-as-ai-demand-fills-its-4nm-lines",
-          "publishedAt": "2026-08-19T00:00:00Z",
-          "tier": 3
+          "title": "OpenAI is gaining on Anthropic with business users, new data indicates",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/20/openai-is-gaining-on-anthropic-with-business-users-new-data-indicates/",
+          "publishedAt": "2026-08-20T22:36:37Z",
+          "tier": 2
         }
       ],
       "readMinutes": 2
     },
     {
-      "id": "2026-08-20-china-optical-materials-taiwan",
-      "slug": "china-optical-materials-taiwan",
-      "beat": "policy",
-      "kicker": "Export controls",
-      "headline": "China slows exports of germanium and quartz materials to Taiwan, Nikkei reports",
-      "deck": "Optical and chip-equipment suppliers report prolonged customs checks with no stated reason, forcing cancelled orders and longer production lead times.",
+      "id": "2026-08-21-bedrock-cross-region-inference",
+      "slug": "bedrock-cross-region-inference",
+      "beat": "models",
+      "kicker": "Model access",
+      "headline": "Bedrock adds cross-Region routing for GPT-5.6, pooling capacity across 25 regions",
+      "deck": "Requests for Sol, Terra and Luna can now draw on compute outside the region they were sent to, which AWS says holds throughput steady when a single region is saturated.",
       "summary": [
-        "China is restricting or delaying exports to Taiwan of germanium- and quartz-based materials and some magnets, Nikkei Asia reported on August 20.",
-        "Those materials are used in lenses critical to aerospace, defence and semiconductor manufacturing equipment.",
-        "Several Taiwanese optical manufacturers and chip equipment suppliers said Chinese shipments were held in prolonged customs checks without a stated reason, resulting in cancelled orders and extended lead times."
+        "Amazon Bedrock now supports cross-Region inference for all three GPT-5.6 variants — Sol, Terra and Luna — routing requests beyond the region they were submitted to.",
+        "AWS says the point is throughput under load: a request can draw on a broader compute pool rather than being bound by one region's spare capacity.",
+        "US geographic profiles keep routing inside North America; global profiles span the US, Canada, eight European regions, twelve in Asia Pacific, two in the Middle East and São Paulo.",
+        "All three variants take text and image input, carry a 1 million token context window, and support reasoning mode, server-side tool calling and prompt caching."
+      ],
+      "body": [
+        "Amazon Bedrock has enabled cross-Region inference for OpenAI's GPT-5.6 family, letting a request submitted in one AWS region be served by capacity in another. AWS frames the change as a throughput measure rather than a latency one: by allowing requests \"to draw on a broader pool of compute rather than being bound to one Region's available capacity,\" the service aims to hold performance steady when demand in a single region outruns what is provisioned there.",
+        "The routing is governed by geographic profiles, which is the part with compliance consequences. A US profile keeps both source and destination inside North America, drawing on US East in Northern Virginia and Ohio, US West in Oregon and Northern California, and Canada Central and Calgary. A global profile is far wider, spanning the United States, Canada, eight European regions, twelve across Asia Pacific, two in the Middle East and São Paulo — more than 25 regions in total.",
+        "All three GPT-5.6 variants are covered: Sol as the cost-efficient option, Terra balancing capability against price, and Luna as the most capable. Each accepts text and image input, carries a one-million-token context window, and supports reasoning mode, server-side tool calling and prompt caching. AWS pointed to its standard pricing page rather than announcing any change in rates alongside the routing feature."
+      ],
+      "whyItMatters": "Choosing between the two profile types is a data-residency decision dressed as a performance setting, and it is the kind of default that gets picked once during a prototype and inherited by production. A team with contractual obligations about where inference happens needs the US profile specifically; a team that selects the global profile for throughput has agreed, in effect, that a prompt submitted in Ohio may be processed in Singapore or São Paulo.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-20T00:00:00Z",
+      "confidence": "high",
+      "entities": [
+        "Amazon Web Services",
+        "Amazon Bedrock",
+        "OpenAI"
+      ],
+      "tags": [
+        "inference",
+        "cloud",
+        "model-access"
+      ],
+      "sources": [
+        {
+          "title": "Introducing cross-Region inference for OpenAI GPT-5.6 models on Amazon Bedrock",
+          "publisher": "Amazon",
+          "url": "https://aws.amazon.com/blogs/machine-learning/introducing-cross-region-inference-for-openai-gpt-5-6-models-on-amazon-bedrock/",
+          "publishedAt": "2026-08-20T00:00:00Z",
+          "tier": 1
+        }
+      ],
+      "readMinutes": 2
+    },
+    {
+      "id": "2026-08-21-google-preferred-sources-publishers",
+      "slug": "google-preferred-sources-publishers",
+      "beat": "society",
+      "kicker": "Publishing",
+      "headline": "Google gives publishers a button that lets readers pin them in Search and Discover",
+      "deck": "More than 345,000 sources have been selected since May, and Google says readers click through to a preferred source about twice as often.",
+      "summary": [
+        "Google released an embeddable \"Preferred Sources\" button that publishers can place on their own sites, letting a reader mark them as a favourite across Search, Discover and Google News.",
+        "Google says readers are about twice as likely to click through to a source they have marked as preferred.",
+        "More than 345,000 unique sources have been selected since the feature launched in May, previously reachable only through Google's own preferences page.",
+        "The company positions it as a response to publishers losing traffic as AI-generated answers resolve queries without a click."
       ],
       "prominence": "brief",
       "publishedAt": "2026-08-20T00:00:00Z",
       "confidence": "medium",
       "entities": [
-        "China",
-        "Taiwan"
+        "Google"
       ],
       "tags": [
-        "export-controls",
-        "supply-chain",
-        "semiconductors"
+        "publishing",
+        "search"
       ],
       "sources": [
         {
-          "title": "China slows exports of key optical, aerospace metals to Taiwan",
-          "publisher": "Nikkei Asia",
-          "url": "https://asia.nikkei.com/spotlight/supply-chain/exclusive-china-slows-exports-of-key-optical-aerospace-metals-to-taiwan",
+          "title": "Google gives publishers a new way to fight AI-driven traffic losses",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/20/google-gives-publishers-a-new-way-to-fight-ai-driven-traffic-losses/",
           "publishedAt": "2026-08-20T00:00:00Z",
           "tier": 2
         }
@@ -350,169 +322,47 @@
       "readMinutes": 1
     },
     {
-      "id": "2026-08-20-sk-hynix-buyback",
-      "slug": "sk-hynix-buyback",
+      "id": "2026-08-21-micro1-run-rate",
+      "slug": "micro1-run-rate",
       "beat": "business",
-      "kicker": "Memory",
-      "headline": "SK Hynix will buy back and cancel $28.6bn of its own shares on the AI memory boom",
-      "deck": "The 40 trillion won programme is the largest treasury share cancellation by a listed South Korean company, covering about 3.3% of shares outstanding.",
+      "kicker": "Training data",
+      "headline": "Micro1 says its gross run rate reached $500m, five times its level eight months ago",
+      "deck": "The AI training-data supplier nets $150m to $200m of that, and says it refuses to sell to Chinese developers on national-security grounds.",
       "summary": [
-        "SK Hynix approved a plan to repurchase and cancel 40 trillion won ($28.6 billion) of its own shares, the largest such cancellation by a listed South Korean company.",
-        "The buyback covers roughly 24.07 million shares, about 3.3% of shares outstanding, and runs from August 20 to November 19.",
-        "SK Hynix also said it will raise its 2025-2027 shareholder return commitment from a ceiling of 50% of cumulative free cash flow to a floor above that level.",
-        "The company said it believes the market is undervaluing the stock, after investor pressure on both it and Samsung to return more of the cash generated by AI memory demand."
+        "Micro1 reports a $500m gross annual run rate, up from $100m eight months ago, of which it retains $150m to $200m net after paying contracted experts.",
+        "The company supplies AI training data by contracting domain specialists — doctors, lawyers, scientists — plus reinforcement-learning evaluation, synthetic data and robotics pre-training sets.",
+        "Its off-the-shelf data carries 80–90% gross margins, against far thinner economics on the contracted-expert work.",
+        "It trails Mercor at about $2bn gross annualised revenue and Handshake at about $1bn; founder Ali Ansari says the company will not sell data to Chinese AI developers."
       ],
       "prominence": "brief",
-      "publishedAt": "2026-08-19T00:00:00Z",
+      "publishedAt": "2026-08-21T00:13:44Z",
       "confidence": "medium",
       "entities": [
-        "SK Hynix",
-        "Samsung"
+        "Micro1",
+        "Mercor",
+        "Handshake"
       ],
       "tags": [
-        "memory",
-        "buyback",
-        "earnings"
+        "training-data",
+        "funding"
       ],
       "sources": [
         {
-          "title": "SK hynix Accelerates 40 Trillion won Share Repurchase and Cancellation Program",
-          "publisher": "SK hynix",
-          "url": "https://news.skhynix.com/en/share-buyback-and-retirement/",
-          "publishedAt": "2026-08-19T00:00:00Z",
-          "tier": 1
-        },
-        {
-          "title": "SK Hynix Plans $28.6 Billion Share Buyback as AI Demand Drives Cash Flow",
-          "publisher": "Bloomberg",
-          "url": "https://www.bloomberg.com/news/articles/2026-08-19/sk-hynix-announces-28-6-billion-share-buy-back-on-ai-boom",
-          "publishedAt": "2026-08-19T00:00:00Z",
+          "title": "AI data startup Micro1 reaches $500M gross run rate amid AI training boom",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/20/ai-data-startup-micro1-reaches-500m-gross-run-rate-amid-ai-training-boom/",
+          "publishedAt": "2026-08-21T00:13:44Z",
           "tier": 2
-        }
-      ],
-      "readMinutes": 1
-    },
-    {
-      "id": "2026-08-20-copilot-cosnitch-patched",
-      "slug": "copilot-cosnitch-patched",
-      "beat": "society",
-      "kicker": "Cybersecurity",
-      "headline": "Microsoft patches a one-click Copilot data-theft flaw eight months after disclosure",
-      "deck": "The bug let a single malicious link pull data from a victim's connected Gmail, Drive and Calendar — and Copilot itself revealed the undocumented parameter that made it work.",
-      "summary": [
-        "Microsoft patched CVE-2026-24301, dubbed CoSnitch, on August 18, roughly eight months after Varonis Threat Labs reported it in December 2025.",
-        "The flaw let one click on a crafted link run an attacker's embedded prompt inside the victim's authenticated Copilot session, reaching connected Gmail, Google Drive, Google Calendar and Copilot chat history.",
-        "It relied on an undocumented autorun URL parameter that Copilot disclosed itself, unprompted, while explaining why auto-execution was supposed to be impossible.",
-        "Microsoft says it found no evidence the flaw was exploited before the patch shipped; it is the third Copilot vulnerability Varonis has disclosed this year."
-      ],
-      "prominence": "brief",
-      "publishedAt": "2026-08-19T00:00:00Z",
-      "confidence": "medium",
-      "entities": [
-        "Microsoft",
-        "Copilot",
-        "Varonis"
-      ],
-      "tags": [
-        "cybersecurity",
-        "prompt-injection",
-        "vulnerability"
-      ],
-      "sources": [
-        {
-          "title": "CoSnitch: When Your AI Assistant Becomes Its Own Whistleblower",
-          "publisher": "Varonis",
-          "url": "https://www.varonis.com/blog/cosnitch",
-          "publishedAt": "2026-08-19T00:00:00Z",
-          "tier": 1
-        },
-        {
-          "title": "Microsoft finally patches critical one-click Copilot vulnerability, almost eight months after learning of it",
-          "publisher": "CSO Online",
-          "url": "https://www.csoonline.com/article/4211342/microsoft-finally-patches-critical-one-click-copilot-vulnerability-more-than-eight-months-after-learning-of-it-2.html",
-          "publishedAt": "2026-08-19T00:00:00Z",
-          "tier": 2
-        }
-      ],
-      "readMinutes": 1
-    },
-    {
-      "id": "2026-08-20-grok-46-bedrock",
-      "slug": "grok-46-bedrock",
-      "beat": "models",
-      "kicker": "Distribution",
-      "headline": "Grok 4.6 reaches Amazon Bedrock with a 500K context window and tiered pricing",
-      "deck": "The model shipped on August 12; what is new is enterprise availability through AWS and a price that doubles once a prompt passes 200,000 tokens.",
-      "summary": [
-        "xAI's Grok 4.6 is now available through Amazon Bedrock to developers in supported AWS regions, extending the model beyond xAI's own API.",
-        "The model carries a 500,000-token context window and configurable reasoning effort at low, medium, high and xhigh settings.",
-        "Pricing steps up with prompt length: $2 per million input tokens and $6 per million output below 200,000 input tokens, doubling to $4 and $12 at or above that threshold."
-      ],
-      "prominence": "brief",
-      "publishedAt": "2026-08-19T00:00:00Z",
-      "confidence": "high",
-      "entities": [
-        "xAI",
-        "Grok",
-        "Amazon Bedrock"
-      ],
-      "tags": [
-        "models",
-        "api",
-        "pricing"
-      ],
-      "sources": [
-        {
-          "title": "Grok 4.6 on Amazon Bedrock",
-          "publisher": "xAI",
-          "url": "https://x.ai/news/grok-4-6-amazon-bedrock",
-          "publishedAt": "2026-08-19T00:00:00Z",
-          "tier": 1
-        }
-      ],
-      "readMinutes": 1
-    },
-    {
-      "id": "2026-08-20-google-student-ai-offer",
-      "slug": "google-student-ai-offer",
-      "beat": "business",
-      "kicker": "Distribution",
-      "headline": "Google gives US college students a free year of AI Pro and adds a study hub",
-      "deck": "The offer covers a $19.99-a-month plan, with students outside the US getting the cheaper AI Plus tier and 400GB of storage instead.",
-      "summary": [
-        "Google is offering eligible US college students 12 months of Google AI Pro free, a plan normally priced at $19.99 a month.",
-        "The tier includes four times higher Gemini usage limits, Gemini in Gmail and Docs, and 5TB of storage; students outside the US get AI Plus with Gemini Omni and 400GB instead.",
-        "Google also added a Student Hub inside Gemini for study notebooks, flashcards and practice quizzes."
-      ],
-      "prominence": "brief",
-      "publishedAt": "2026-08-19T00:00:00Z",
-      "confidence": "high",
-      "entities": [
-        "Google",
-        "Gemini"
-      ],
-      "tags": [
-        "education",
-        "consumer-ai",
-        "distribution"
-      ],
-      "sources": [
-        {
-          "title": "College students get 12 months of Google AI free",
-          "publisher": "Google",
-          "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/",
-          "publishedAt": "2026-08-19T00:00:00Z",
-          "tier": 1
         }
       ],
       "readMinutes": 1
     }
   ],
   "signals": {
-    "storyCount": 11,
-    "sourceCount": 19,
-    "primaryCount": 7,
-    "publisherCount": 17,
-    "beatCount": 7
+    "storyCount": 8,
+    "sourceCount": 10,
+    "primaryCount": 2,
+    "publisherCount": 6,
+    "beatCount": 5
   }
 }

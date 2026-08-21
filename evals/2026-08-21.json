@@ -1,0 +1,22 @@
+{
+  "date": "2026-08-21",
+  "reviewedAt": "2026-08-21T13:20:00Z",
+  "edition": {
+    "date": "2026-08-21",
+    "storyCount": 8,
+    "sourceCount": 10,
+    "sha256": "9fa62a1727fcdd23f66a6a03c69471f0a5a424b74935fc7316f2893b35f4bc06"
+  },
+  "scores": { "sourcing": 4, "accuracy": 5, "prose": 4, "selection": 4, "balance": 3 },
+  "total": 20,
+  "verdict": "pass",
+  "evidence": [
+    { "dimension": "sourcing", "note": "The lead runs on two genuinely independent openable sources — The Register (tier 2, Thomas Claburn) and The Hacker News (tier 3) — which agree on the disclosure dates, the exfiltrated fields and the absence of a patch. It has no tier-1 primary, correctly flagged by the validator: the primary would be Adversa AI's own writeup and no verified URL for it was obtained, so it is not cited. The OpenAI story leans on a blocked primary (openai.com returns 403) handled under the rubric's rule — attested by The Stack, confidence capped at medium, prose attributed to what was actually read." },
+    { "dimension": "accuracy", "note": "Contested claims were dropped rather than smoothed over. GLM-5.3's reported $1.4/$4.4 API pricing was cut because Z.ai's own documentation still lists API access as 'coming soon' and the reporting source could not be opened (VentureBeat returned 429). The AWS India availability claim was cut for the same reason — one source says the models launched locally in India, another says no India region carries them — so only the cross-Region routing, verified from AWS's own post, ran. Sample limits are stated in-line: the Ramp panel 'excludes large enterprises' and 'skews toward the technology industry'." },
+    { "dimension": "prose", "note": "The lead's second paragraph explains the mechanism rather than asserting it: 'ciphertext is, to a classifier, meaningless noise — it carries no pattern to match.' Docked from 5 because two whyItMatters paragraphs run long enough to want splitting, and the Bedrock story's body leans on list-like construction in its second paragraph." },
+    { "dimension": "selection", "note": "The lead is defensible on materiality and durability: a working, unpatched exfiltration path in a major consumer model, responsibly disclosed eleven weeks ago and reproduced the day before publication. The counter-argument is that it is a single vendor's bug rather than an industry-wide event, which is why it scores 4 rather than 5. No story repeats editions 1–4; the OpenAI/Anthropic share story explicitly references and distinguishes itself from the 19 August revenue story rather than re-running it." },
+    { "dimension": "balance", "note": "Weakest dimension and the reason the total is 20 rather than higher. Infrastructure and India are empty, models carries one against a target of three, and the shape is off house range in both directions — one top story against a 3–6 range, two briefs against 4–8, because only two stories had the two independent openable sources a top requires. edition.summary states the shortfall plainly rather than leaving a reader to notice it. No single company dominates: OpenAI appears in four of eight stories but as subject in two and as counterparty in two." }
+  ],
+  "revisions": [],
+  "notes": "node tools/validate.mjs returns 0 errors and 7 warnings, exit 0; --strict would block on the warnings. All seven are structural or disclosure warnings rather than sourcing defects: two shape warnings (top/brief counts), three beat-quota shortfalls, one 'lead has no tier-1 primary' (accurate — see sourcing evidence), and one unregistered secondary (thestack.technology, deliberately left out of the source book since the story is anchored by openai.com at tier 1). This edition was produced manually because the scheduled pipeline is failing: the Claude Code GitHub App is not installed on the repository, so anthropics/claude-code-action@v1 exits with 401 before the research prompt runs. The 19 and 20 August runs failed the same way and fell back to a wire-only refresh."
+}

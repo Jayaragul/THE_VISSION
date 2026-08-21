@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="A tilted set of balance scales — original cover illustration">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#432b4d"/><stop offset="0.55" stop-color="#24161e"/><stop offset="1" stop-color="#612e51"/>
+</linearGradient>
+<radialGradient id="core" cx="0.4" cy="0.35" r="0.75">
+<stop offset="0" stop-color="#a687f9" stop-opacity="0.95"/><stop offset="0.5" stop-color="#ad7cd7" stop-opacity="0.55"/><stop offset="1" stop-color="#9c338c" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="halo" cx="0.74" cy="0.58" r="0.85">
+<stop offset="0" stop-color="#a687f9" stop-opacity="0.4"/><stop offset="1" stop-color="#a687f9" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="vig" cx="0.5" cy="0.5" r="0.75">
+<stop offset="0.55" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.55"/>
+</radialGradient>
+<filter id="grain" x="0" y="0" width="100%" height="100%">
+<feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" result="t"/>
+<feColorMatrix type="saturate" values="0" in="t" result="g"/>
+</filter>
+<clipPath id="frame"><rect x="0" y="0" width="1200" height="675"/></clipPath>
+</defs>
+<rect width="1200" height="675" fill="url(#bg)"/>
+<g clip-path="url(#frame)" opacity="0.42"><path d="M -20 318.86 C 401.93 318.86, 401.93 341.63, 600 341.63 S 743.46 565.41, 1220 565.41 L 1220 586.46 C 743.46 586.46, 600 365.1, 401.93 367.51 S -20 344.74, -20 344.74 Z" fill="#a687f9" fill-opacity="0.14"/><path d="M -20 550.78 C 459.01 550.78, 459.01 231.13, 600 231.13 S 664.15 380.59, 1220 380.59 L 1220 413.96 C 664.15 413.96, 600 262.74, 459.01 260.97 S -20 580.61, -20 580.61 Z" fill="#9c338c" fill-opacity="0.27"/><path d="M -20 364.76 C 329.81 364.76, 329.81 374.86, 600 374.86 S 860.06 539.43, 1220 539.43 L 1220 551.67 C 860.06 551.67, 600 394.18, 329.81 401.26 S -20 391.16, -20 391.16 Z" fill="#ad7cd7" fill-opacity="0.41"/></g>
+<rect width="1200" height="675" fill="url(#halo)" style="mix-blend-mode:screen"/>
+<g clip-path="url(#frame)"><line x1="0" y1="0" x2="0" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="100" y1="0" x2="100" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="200" y1="0" x2="200" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="300" y1="0" x2="300" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="400" y1="0" x2="400" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="500" y1="0" x2="500" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="600" y1="0" x2="600" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="700" y1="0" x2="700" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="800" y1="0" x2="800" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="900" y1="0" x2="900" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="1000" y1="0" x2="1000" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="1100" y1="0" x2="1100" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="1200" y1="0" x2="1200" y2="675" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="0" y1="0" x2="1200" y2="0" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="0" y1="100" x2="1200" y2="100" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="0" y1="200" x2="1200" y2="200" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="0" y1="300" x2="1200" y2="300" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="0" y1="400" x2="1200" y2="400" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="0" y1="500" x2="1200" y2="500" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/><line x1="0" y1="600" x2="1200" y2="600" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/></g>
+<rect width="1200" height="675" fill="#24161e" opacity="0.3"/>
+<g clip-path="url(#frame)"><rect x="588" y="250" width="24" height="270" fill="#9c338c" fill-opacity="0.8"/><rect x="490" y="520" width="220" height="26" rx="5" fill="#ad7cd7" fill-opacity="0.85"/><circle cx="600" cy="200" r="16" fill="#a687f9"/><g transform="rotate(9.28 600 250)"><rect x="390" y="243" width="420" height="14" rx="6" fill="#a687f9" fill-opacity="0.95"/><line x1="390" y1="250" x2="390" y2="328" stroke="#ad7cd7" stroke-opacity="0.8" stroke-width="3"/><path d="M 318 328 Q 390 400 462 328 Z" fill="#9c338c" fill-opacity="0.75" stroke="#ad7cd7" stroke-opacity="0.7" stroke-width="2.5"/><line x1="810" y1="250" x2="810" y2="328" stroke="#ad7cd7" stroke-opacity="0.8" stroke-width="3"/><path d="M 738 328 Q 810 400 882 328 Z" fill="#9c338c" fill-opacity="0.75" stroke="#ad7cd7" stroke-opacity="0.7" stroke-width="2.5"/></g></g>
+<rect width="1200" height="675" fill="url(#vig)"/>
+<rect width="1200" height="675" filter="url(#grain)" opacity="0.14" style="mix-blend-mode:overlay"/>
+</svg>
