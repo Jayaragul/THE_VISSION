@@ -26,15 +26,16 @@ import { bestTier, publisherDiversity } from './cluster.mjs';
 
 const WEIGHTS = {
   // significance
-  corroboration: 0.28,
-  substance: 0.22,
+  corroboration: 0.26,
+  substance: 0.2,
   // freshness
-  recency: 0.2,
+  urgency: 0.12,
+  recency: 0.18,
   // trust
-  sourceQuality: 0.18,
+  sourceQuality: 0.16,
   // hygiene
-  novelty: 0.08,
-  publisherDiversity: 0.04,
+  novelty: 0.06,
+  publisherDiversity: 0.02,
 };
 
 function sourceQuality(tier) {
@@ -69,6 +70,55 @@ const EVENT_VERB =
 // at work", "Univé builds an AI-ready workforce" — all real digest entries from 18 Aug 2026.
 const CORPORATE_COMMS =
   /\b(advancing|working with|partnering|partners with|celebrat\w*|our commitment|committed to|expanding what|builds? an?\b|join us|introducing our|spotlight|ways to|how we|unlocking|empower\w*|reimagin\w*|journey|thrilled|excited to)\b/i;
+
+// --- urgency ---------------------------------------------------------------
+//
+// Two kinds of story a reader wants at the top of the page the hour it happens: something is
+// broken, or something shipped. Everything else can wait for the scroll.
+//
+// "down" is deliberately not matched bare. Headlines say "shares down 3%" and "costs come
+// down" far more often than "GitHub is down", so the outage sense is required to appear as a
+// verb phrase or alongside an unambiguous word like outage or offline.
+const BREAKING =
+  /\b(outage|offline|degraded|disruption|downtime|breach\w*|hacked|compromis\w+|exploit(ed|ing|s)?\b|zero.?day|vulnerabilit\w+|CVE-\d)\b|\b(is|are|was|were|went|goes|going)\s+down\b|\bdown\s+for\b/i;
+
+// A capability actually reaching users. Distinct from EVENT_VERB, which is a broad
+// "something happened" signal covering lawsuits, funding and departures too.
+// Verb forms only. A bare "launch" or "release" is usually a noun pointing at a past event —
+// "since ChatGPT's launch", "ahead of the release" — and matching it made retrospectives read
+// as breaking news. Infinitives are kept via the explicit to/will forms.
+const RELEASE = new RegExp(
+  [
+    '\\b(releases|released|releasing)\\b',
+    '\\b(launches|launched|launching)\\b',
+    '\\b(ships|shipped|shipping)\\b',
+    '\\b(?:to|will|set to)\\s+(?:launch|release|ship|roll out)\\b',
+    '\\bintroduc(es|ing)\\b',
+    '\\bunveil(s|ed|ing)\\b',
+    '\\b(now|generally) available\\b',
+    '\\bgeneral availability\\b',
+    '\\bavailable (?:now|today)\\b',
+    '\\bopen.?weights?\\b',
+    '\\bopen.?sourc(es|ed|ing)\\b',
+    '\\broll(s|ed|ing)? out\\b',
+  ].join('|'),
+  'i'
+);
+
+/**
+ * How much this wants to be at the top of the page right now, 0–1.
+ *
+ * Multiplied by recency rather than added to it, so urgency expires on its own: an outage
+ * reported forty hours ago is history, not breaking news, and a release announced last week
+ * has already been read. A stale item scores 0 here no matter which words it contains.
+ */
+export function urgencyScore(title, recency = 1) {
+  const text = String(title || '');
+  let base = 0;
+  if (BREAKING.test(text)) base = 1;
+  else if (RELEASE.test(text)) base = 0.6;
+  return base * Math.max(0, Math.min(1, recency));
+}
 
 /** Deterministic proxy for "is this a story or an announcement". Neutral at 0.5, clamped 0–1. */
 export function substanceScore(title, { uncorroboratedFirstParty = false } = {}) {
@@ -125,9 +175,12 @@ export function scoreCluster(cluster, { seenUrls, now, maxAgeHours = 48 }) {
 
   const diversity = publishers / cluster.items.length;
 
+  const urgency = urgencyScore(top?.title, recency);
+
   const score =
     corroboration * WEIGHTS.corroboration +
     substance * WEIGHTS.substance +
+    urgency * WEIGHTS.urgency +
     recency * WEIGHTS.recency +
     quality * WEIGHTS.sourceQuality +
     novelty * WEIGHTS.novelty +
@@ -138,6 +191,7 @@ export function scoreCluster(cluster, { seenUrls, now, maxAgeHours = 48 }) {
     breakdown: {
       corroboration,
       substance,
+      urgency,
       recency,
       sourceQuality: quality,
       novelty,

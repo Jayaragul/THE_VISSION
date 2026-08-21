@@ -8,7 +8,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { classifyBeat, tierOf, recencyScore } from '../tools/lib/classify.mjs';
 import { clusterItems, publisherDiversity, bestTier } from '../tools/lib/cluster.mjs';
-import { scoreCluster, confidenceOf, isInstitutional, substanceScore } from '../tools/lib/rank.mjs';
+import { scoreCluster, confidenceOf, isInstitutional, substanceScore, urgencyScore } from '../tools/lib/rank.mjs';
 import { isAiRelevant } from '../tools/lib/util.mjs';
 
 const beats = [
@@ -273,4 +273,53 @@ test('the beat no longer biases the score — balance is enforced by the per-bea
   const asModels = scoreCluster({ items: [item], beat: 'models' }, { seenUrls: new Set(), now });
   const asPolicy = scoreCluster({ items: [item], beat: 'policy' }, { seenUrls: new Set(), now });
   assert.equal(asModels.score, asPolicy.score);
+});
+
+test('urgencyScore ranks an outage above a release, and both above routine news', () => {
+  assert.equal(urgencyScore('GitHub is down for many users'), 1);
+  assert.equal(urgencyScore('Cloudflare reports a major outage'), 1);
+  assert.equal(urgencyScore('Anthropic releases Claude Opus 5'), 0.6);
+  assert.equal(urgencyScore('Regulators weigh new rules for AI firms'), 0);
+});
+
+// "down" is the whole reason this term needed care: the financial sense is far more common in
+// a headline than the outage sense, and matching it bare made every market story breaking news.
+test('urgencyScore does not treat the financial sense of "down" as an outage', () => {
+  assert.equal(urgencyScore('Nvidia shares close down 3% on chip export news'), 0);
+  assert.equal(urgencyScore('Inference costs come down as competition bites'), 0);
+  assert.equal(urgencyScore('AWS is down across several regions'), 1);
+});
+
+test('urgency expires with recency — stale breaking news is no longer urgent', () => {
+  assert.equal(urgencyScore('GitHub is down', 1), 1);
+  assert.equal(urgencyScore('GitHub is down', 0.5), 0.5);
+  // Outside the lookback window recency is 0, so nothing is urgent regardless of wording.
+  assert.equal(urgencyScore('GitHub is down', 0), 0);
+});
+
+test('a fresh outage outranks an equally-sourced routine story', () => {
+  const now = Date.parse('2026-08-21T12:00:00Z');
+  const at = new Date(now - 3600000).toISOString();
+  const mk = (title) => ({
+    items: [
+      { tier: 2, publisher: 'a', url: `https://a.com/${title.length}`, title, publishedAt: at },
+      { tier: 2, publisher: 'b', url: `https://b.com/${title.length}`, title, publishedAt: at },
+    ],
+  });
+  const outage = scoreCluster(mk('GitHub is down for many users worldwide'), { seenUrls: new Set(), now });
+  const routine = scoreCluster(mk('Analysts weigh the outlook for AI spending'), { seenUrls: new Set(), now });
+  assert.ok(
+    outage.score > routine.score,
+    `a live outage (${outage.score.toFixed(3)}) must outrank routine analysis (${routine.score.toFixed(3)})`
+  );
+});
+
+// "launch" and "release" are nouns as often as verbs in a headline, and the noun sense points
+// backwards at something that already happened — the opposite of urgent.
+test('urgencyScore ignores the past-event noun sense of launch and release', () => {
+  assert.equal(urgencyScore('A third of web pages published since ChatGPT’s launch show AI signs'), 0);
+  assert.equal(urgencyScore('Investors position ahead of the release'), 0);
+  // The verb senses still count, including the infinitive.
+  assert.equal(urgencyScore('OpenAI launches GPT-5.7'), 0.6);
+  assert.equal(urgencyScore('Meta to launch its next open-weights model'), 0.6);
 });

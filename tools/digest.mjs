@@ -77,11 +77,18 @@ function priorDigestUrls(beforeDate) {
 // "Open Mike Eagle and Kenny Segal crafted a hip-hop breakup masterpiece" ended up filed
 // under Models on the first run of this pipeline, via the single shared token "open".
 const usable = candidates.items.filter((item) => {
-  if (item.discoveryOnly) return false;
   if (!item.url || !/^https:\/\//i.test(item.url)) return false;
   if (!isAiRelevant(item.title)) return false;
   return true;
 });
+
+// An aggregator headline ends in its real publisher: "AWS brings … to India - CNBC TV18".
+// That name is the only part of the entry worth anything here, and it is what makes an
+// aggregator copy countable as corroboration rather than as one more "Google News" item.
+function viaPublisher(item) {
+  const m = /\s[-–—]\s([^-–—]{2,40})$/.exec(String(item.title || ''));
+  return m ? m[1].trim() : null;
+}
 
 const withMeta = [];
 for (const item of usable) {
@@ -89,10 +96,22 @@ for (const item of usable) {
   if (blocked) continue;
   const beat = classifyBeat(item, beats);
   if (!beat) continue;
-  withMeta.push({ ...item, tier, publisher: name || item.source, beat });
+  // Aggregator redirects stay in the pool as evidence but can never be cited: the URL is an
+  // opaque redirect, not the publisher's own page, and this tier has no model to follow it.
+  // Dropping them outright — which is what happened until now — discarded the only signal
+  // that eleven outlets ran the same story, so every cluster looked single-source and the
+  // digest reported "0 confirmed" on a day with heavily corroborated news.
+  const publisher = item.discoveryOnly ? viaPublisher(item) : name || item.source;
+  if (item.discoveryOnly && !publisher) continue; // no extractable publisher, no evidentiary value
+  withMeta.push({ ...item, tier, publisher, beat, citable: !item.discoveryOnly });
 }
 
-const clusters = clusterItems(withMeta).map((cluster) => {
+const clusters = clusterItems(withMeta)
+  // A cluster of nothing but aggregator copies has no headline the digest is allowed to print
+  // and no URL it is allowed to cite, however many outlets it represents. It is dropped rather
+  // than published without a source.
+  .filter((cluster) => cluster.items.some((i) => i.citable !== false))
+  .map((cluster) => {
   // The cluster's beat is whichever beat its member items agree on most — classifyBeat runs
   // per item before clustering, so a cluster of near-duplicate headlines usually agrees
   // already; a tie just takes the first item's call.
@@ -111,7 +130,12 @@ const scored = clusters.map((cluster) => {
     now,
     maxAgeHours: editionRules.lookbackHours,
   });
-  return { cluster, score, confidence: confidenceOf(cluster), tier };
+  // Confidence is judged on citable items only. Aggregator copies may lift a cluster's
+  // ranking, because ranking is an internal ordering decision — but "confirmed" is a printed
+  // claim, and printing it on the strength of sources the page does not show would be telling
+  // the reader something they cannot check. Ranking may use soft evidence; a claim may not.
+  const citableOnly = { ...cluster, items: cluster.items.filter((i) => i.citable !== false) };
+  return { cluster, score, confidence: confidenceOf(citableOnly), tier };
 });
 
 // Per-beat quota, same shape as the editorial pipeline's own targets — highest-scored
@@ -129,7 +153,10 @@ const items = selected.map(({ cluster, score, confidence }) => {
   // The title is the best-available source's own headline — highest tier first, then most
   // recent — never rewritten. This is the whole difference from the AI edition, made
   // structural rather than a matter of style.
-  const bySourceQuality = [...cluster.items].sort(
+  // Only citable items can supply the headline or the source list. Aggregator copies have
+  // already done their job by this point, in the corroboration count.
+  const citable = cluster.items.filter((i) => i.citable !== false);
+  const bySourceQuality = [...citable].sort(
     (a, b) => a.tier - b.tier || Date.parse(b.publishedAt || 0) - Date.parse(a.publishedAt || 0)
   );
   const best = bySourceQuality[0];
@@ -144,6 +171,27 @@ const items = selected.map(({ cluster, score, confidence }) => {
     tier: i.tier,
   }));
 
+  // Outlets seen covering this story through an aggregator. Named, never linked: the only URL
+  // on hand is an opaque redirect, and printing it as though it were the outlet's own page
+  // would be a citation the reader cannot follow to the thing it claims. Naming them is what
+  // makes the corroboration behind this item's ranking visible instead of hidden.
+  // "Amazon" and "Amazon Web Services (AWS)" are one outlet under two names, and listing the
+  // second as corroboration for the first would manufacture agreement out of a naming
+  // difference. Compare on a squashed form and treat containment either way as the same body.
+  const squash = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const cited = sources.map((s) => squash(s.publisher)).filter(Boolean);
+  const isCited = (p) => {
+    const q = squash(p);
+    return !q || cited.some((c) => c.includes(q) || q.includes(c));
+  };
+  const corroboratedBy = [
+    ...new Map(
+      cluster.items
+        .filter((i) => i.citable === false && i.publisher && !isCited(i.publisher))
+        .map((i) => [squash(i.publisher), i.publisher])
+    ).values(),
+  ].slice(0, 6);
+
   return {
     id: `${date}-${slug}`,
     slug,
@@ -153,6 +201,7 @@ const items = selected.map(({ cluster, score, confidence }) => {
     confidence,
     score: Math.round(score * 1000) / 1000,
     sources,
+    ...(corroboratedBy.length ? { corroboratedBy } : {}),
   };
 });
 
