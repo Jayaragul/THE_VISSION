@@ -1,0 +1,279 @@
+{
+  "$schema": "https://jayaragul.github.io/THE_VISSION/schema/edition.schema.json",
+  "edition": {
+    "date": "2026-08-22",
+    "number": 6,
+    "generatedAt": "2026-08-22T13:00:00Z",
+    "title": "The same model scores 30% or 100% depending on what you wrap around it",
+    "summary": "Nvidia reports that Claude Opus 5 went from 30% to a perfect score on ARC-AGI-3 with no change to the model — only to the scaffolding around it. Amazon's new agent benchmark points the same way from the opposite direction, finding that adding tools made agents worse and a newer Claude underperformed an older one. Elsewhere: $250m for orbital data centres, and an OpenAI-backed legal firm rebuilding on Chinese open weights. A Saturday: policy, society and India are empty, and only the lead carried two independent sources.",
+    "generator": {
+      "model": "claude-opus-5",
+      "pipeline": "news-pipeline",
+      "trigger": "manual"
+    }
+  },
+  "stories": [
+    {
+      "id": "2026-08-22-nvidia-avo-harness-arc-agi-3",
+      "slug": "nvidia-avo-harness-arc-agi-3",
+      "beat": "models",
+      "kicker": "Agents",
+      "headline": "Nvidia says the same model scores 30% or 100% on ARC-AGI-3 depending on its harness",
+      "deck": "Claude Opus 5 cleared all 183 levels wrapped in Nvidia's AVO system, against 30% on its own — a vendor-run result on a public benchmark, not yet independently reproduced.",
+      "summary": [
+        "Nvidia reports that Claude Opus 5 inside its Agentic Variation Operators harness scored 100.00 RHAE across all 25 public ARC-AGI-3 environments, completing all 183 levels.",
+        "The same model scored about 30% without the harness, according to Nvidia's account — the model was not retrained or changed.",
+        "AVO pairs a main agent that inspects, plans, implements and evaluates using persistent memory with a supervisor that redirects it when progress stalls.",
+        "It used 6,624 environment actions against VISTA's 7,542 on the same levels, roughly 12% fewer, though Nvidia says this was not a controlled ablation because the two systems differ architecturally."
+      ],
+      "body": [
+        "Nvidia has published a result that puts an uncomfortable number on how much of an AI agent's performance comes from the model and how much from the software around it. Running Claude Opus 5 inside its Agentic Variation Operators system, the company reports a 100.00 RHAE score across all 25 public environments of ARC-AGI-3, completing all 183 levels. The same model, Nvidia says, scores roughly 30% on the benchmark without that scaffolding. Nothing about Opus 5 was changed between the two figures.",
+        "ARC-AGI-3 is an interactive reasoning benchmark built from 2D games supplied without instructions, so a system has to work out the rules by playing. AVO's structure is a loop with a second opinion attached: a main agent inspects the current state, plans a move, implements it and evaluates the result, carrying implementations and reasoning forward in persistent memory, while a separate supervisor watches the wider trajectory and intervenes when the search stalls. Adel El Hallak, a vice-president of product in Nvidia's AI unit, described the harness to TechCrunch as \"the scaffolding around the model...the set of tools that it utilizes\" together with \"the runtime and the associated skills and libraries.\"",
+        "Nvidia's own summary of the finding is the blunter version: \"The model matters, but the model is not the entire agent.\" Against VISTA, the previous leading system on the same 183 public levels, AVO used 6,624 environment actions to VISTA's 7,542 — about 12% fewer. Nvidia is explicit that this is not a controlled ablation, because the two systems differ in architecture and in how they represent observations, so the action-count gap should not be read as a like-for-like efficiency measurement.",
+        "The caveat that matters most is one the number itself cannot resolve: this is a hardware and platform vendor reporting its own system's score on a public benchmark, and no independent party has yet reproduced it. The benchmark is public and the accompanying paper is on arXiv, so reproduction is possible; until it happens, 100% is a claim about AVO made by the company that built AVO. Nvidia also ran limited experiments pairing AVO with GPT-5.6 Sol on harder subsets, which suggests the harness is not tuned to a single model, though it has not published comparable full-set figures for that pairing."
+      ],
+      "whyItMatters": "If a 70-point swing on a reasoning benchmark can come from scaffolding alone, then most published model comparisons are measuring the evaluation harness as much as the model, and a team choosing between vendors on benchmark tables is partly choosing between other people's plumbing. The practical read for anyone building agents is that persistent memory and a supervisor loop are worth more engineering attention than the next model upgrade — and the commercial read is that Nvidia, which sells the hardware underneath all of it, has an obvious interest in the industry believing exactly that.",
+      "prominence": "lead",
+      "publishedAt": "2026-08-21T00:00:00Z",
+      "confidence": "medium",
+      "entities": ["NVIDIA", "Claude Opus 5", "ARC-AGI-3"],
+      "tags": ["agents", "benchmarks", "harness"],
+      "sources": [
+        {
+          "title": "NVIDIA AVO Reaches 100% on ARC-AGI-3, Demonstrating a Frontier-Level General-Purpose Architecture for Long-Horizon Autonomous Agents",
+          "publisher": "NVIDIA",
+          "url": "https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/",
+          "publishedAt": "2026-08-21T00:00:00Z",
+          "tier": 1
+        },
+        {
+          "title": "Nvidia just showed that the harness, not the AI model, is now the real hero",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/21/nvidia-just-showed-that-the-harness-not-the-ai-model-is-now-the-real-hero/",
+          "publishedAt": "2026-08-21T00:00:00Z",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-08-22-sop-bench-agent-benchmark",
+      "slug": "sop-bench-agent-benchmark",
+      "beat": "research",
+      "kicker": "Evaluation",
+      "headline": "Amazon's business-process benchmark finds more tools make AI agents worse",
+      "deck": "Success nearly halved when the six tools an agent needed were buried among twenty, and Claude 4.5 underperformed Claude 4 on reasoning-style agents.",
+      "summary": [
+        "SOP-Bench tests AI agents against real standard operating procedures across twelve business domains, with more than 2,000 tasks carrying working tools and ground-truth answers.",
+        "Burying the six tools a task required among twenty options nearly halved success rates, indicating tool selection is itself a failure mode.",
+        "Across eleven frontier models, newer was not reliably better: Claude 4.5 underperformed Claude 4 on reasoning-style agents.",
+        "Success ranged from roughly 90% on simple procedures such as email triage down to about 25% on complex ones such as video annotation."
+      ],
+      "body": [
+        "Amazon has released SOP-Bench, a benchmark that evaluates AI agents on real standard operating procedures rather than isolated task proxies. Built with domain experts who authored authentic procedures from industrial workflows — with Claude 3.5 Sonnet v2 generating executable task specifications, tool interfaces and datasets that the experts then validated — it spans twelve domains including healthcare, logistics, finance and content moderation, and contains more than 2,000 tasks with functioning tools and ground-truth answers.",
+        "The most useful finding is a negative one. When the six tools an agent actually needed were placed among twenty available options, success rates nearly halved. Choosing correctly from a crowded toolset is, on this evidence, a distinct capability from executing a procedure once the right tool is in hand — and one that current agents handle poorly. The benchmark assesses seven capabilities in combination, including state tracking, error recovery and decision-making under uncertainty, on the argument that a procedure requires all of them at once.",
+        "Testing eleven frontier models also undercut the assumption that model recency tracks agent quality: Claude 4.5 underperformed Claude 4 on reasoning-style agents, and no single model-and-agent combination led across procedures. Reasoning-style agents edged out function-calling agents overall while varying substantially by procedure. Absolute performance spanned roughly 90% on simple work such as email triage down to about 25% on complex work such as video annotation. The benchmark was presented at KDD 2026 and is published on GitHub and Hugging Face."
+      ],
+      "whyItMatters": "The tool-crowding result is directly actionable and cuts against how most agent frameworks are built: the common instinct is to register every tool an agent might conceivably need, and this says that doing so degrades the agent measurably. Scoping the toolset per task is cheaper than any model upgrade. The finding that a newer Claude lost to an older one on reasoning agents is the more uncomfortable one, because it means teams treating a version bump as a free improvement should be re-running their own evaluations rather than assuming the direction of travel.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-21T00:00:00Z",
+      "confidence": "high",
+      "entities": ["Amazon Science", "SOP-Bench"],
+      "tags": ["benchmarks", "agents", "evaluation"],
+      "sources": [
+        {
+          "title": "SOP-Bench: A new benchmark for evaluating AI agents on real business procedures",
+          "publisher": "Amazon Science",
+          "url": "https://www.amazon.science/blog/sop-bench-a-new-benchmark-for-evaluating-ai-agents-on-real-business-procedures",
+          "publishedAt": "2026-08-21T00:00:00Z",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-08-22-starcloud-orbital-data-centres",
+      "slug": "starcloud-orbital-data-centres",
+      "beat": "infrastructure",
+      "kicker": "Orbital compute",
+      "headline": "Starcloud raises $250m for orbital data centres as launch capacity tightens",
+      "deck": "The round values the 25-person company at $2.3bn, with Nvidia putting in $25m — and its chief executive naming Falcon 9's 2028 retirement as the binding constraint.",
+      "summary": [
+        "Starcloud raised a $250m extension to its March Series A, taking that round to $420m in total and valuing the company at $2.3bn.",
+        "Manhattan West Ventures led, with Nvidia contributing $25m alongside Cisco, Benchmark, EQT, NFX and others.",
+        "The company runs Nvidia H100 GPUs in orbit and is building 8 kW Starcloud-2 compute satellites for rideshare launches in 2027.",
+        "Chief executive Philip Johnston said launch is \"pretty constrained right now\" because SpaceX's Falcon 9 programme is scheduled to end in 2028."
+      ],
+      "body": [
+        "Starcloud has raised a $250m extension to the $170m Series A it closed in March, valuing the Woodinville, Washington company at $2.3bn. Manhattan West Ventures led the round, with Nvidia investing $25m alongside Cisco, Benchmark, EQT, Soma, NFX, 776, Cedar Capital, Goanna Capital and Standard Capital. The company employs 25 people.",
+        "Starcloud builds AI inference satellites, and already operates Nvidia H100 GPUs in orbit. Its production focus is Starcloud-2, an 8 kW compute satellite intended for rideshare launches in 2027, with a larger Starcloud-3 spacecraft designed for SpaceX's Starship. Nvidia's Vera Rubin Space-1 chip is slated for deployment in late 2028. The company has asked the FCC for authorisation covering 88,000 spacecraft operations.",
+        "The constraint the raise is meant to address is not demand or silicon but rides to orbit. \"Launch is pretty constrained right now because [SpaceX's] Falcon 9 program is scheduled to end in 2028,\" chief executive Philip Johnston told TechCrunch — a retirement that removes the workhorse vehicle before its replacements are reliably available, which is an awkward window for a company whose product only works once it is above the atmosphere."
+      ],
+      "whyItMatters": "Orbital data centres are usually pitched on power and cooling economics, and this round quietly reframes the bottleneck as logistics: the scarce input is launch slots, not capital or chips. That makes Starcloud's valuation partly a bet on the launch market of 2027–28 rather than purely on compute demand, and it explains Nvidia's participation — a customer for orbital GPUs is also a customer for the chips whether or not the orbital thesis works out.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-21T00:00:00Z",
+      "confidence": "medium",
+      "entities": ["Starcloud", "NVIDIA", "SpaceX"],
+      "tags": ["data-centers", "space", "funding"],
+      "sources": [
+        {
+          "title": "Starcloud raises $250 million for orbital data centers as launch options dry up",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/21/starcloud-raises-200-million-for-orbital-data-centers-as-launch-options-dry-up/",
+          "publishedAt": "2026-08-21T00:00:00Z",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-08-22-harvey-kimi-k3-open-weights",
+      "slug": "harvey-kimi-k3-open-weights",
+      "beat": "business",
+      "kicker": "Open weights",
+      "headline": "OpenAI-backed legal firm Harvey rebuilds its model on China's open-weight Kimi K3",
+      "deck": "Harvey previously tuned closed models from Anthropic, OpenAI and Google; it now post-trains Moonshot AI's open base, citing inference cost and the ability to train on legal data.",
+      "summary": [
+        "Harvey, the San Francisco legal-technology company backed by OpenAI, has built a model called Harvey Tenet on Moonshot AI's open-weight Kimi K3 base.",
+        "The company previously customised proprietary closed models from Anthropic, OpenAI and Google for legal work.",
+        "It cites lower inference costs and the ability to post-train on specialised legal data for higher accuracy as the reasons for the switch.",
+        "Harvey claims state-of-the-art performance on complex legal work with the result; no independent benchmark figures were published."
+      ],
+      "body": [
+        "Harvey, a San Francisco legal-technology firm counting OpenAI among its backers, has rebuilt its core model on Chinese open weights. Harvey Tenet is post-trained on Moonshot AI's Kimi K3 base, replacing an approach that customised proprietary closed models from Anthropic, OpenAI and Google. The company says the switch was driven by lower inference costs and by the ability to post-train on specialised legal data for higher accuracy — something a closed API model does not permit in the same way.",
+        "Harvey describes the result as achieving state-of-the-art performance on complex legal work. No independent benchmark figures accompanied that claim, and the South China Morning Post's report did not include cost or performance numbers, so the scale of the improvement is the company's own characterisation rather than a measured result.",
+        "Simon Hedlin, an AI policy researcher quoted in the report, called it \"a great example of open-weight models\" allowing developers to specialise systems by post-training on industry data. The wider significance is the direction of the substitution: an American company with an OpenAI investment on its cap table concluded that a Chinese open-weight base served its economics better than the closed American models it had been building on."
+      ],
+      "whyItMatters": "This is the open-weights argument arriving in a regulated, high-stakes vertical rather than a hobbyist one, and the deciding factors were cost and the right to train on your own data — neither of which a frontier lab can concede without changing its product. For anyone weighing a closed API against an open base, the relevant question this raises is not capability parity but whether the ability to post-train on proprietary data is worth more than the gap at the frontier. Harvey's answer, with legal liability attached, was yes.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-21T00:00:00Z",
+      "confidence": "medium",
+      "entities": ["Harvey", "Moonshot AI", "OpenAI"],
+      "tags": ["open-weights", "legal-tech"],
+      "sources": [
+        {
+          "title": "OpenAI-backed legal tech firm pivots to Chinese Kimi K3 open-weight model",
+          "publisher": "South China Morning Post",
+          "url": "https://www.scmp.com/tech/tech-trends/article/3364827/openai-backed-legal-tech-firm-pivots-chinese-kimi-k3-open-weight-model",
+          "publishedAt": "2026-08-21T00:00:00Z",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-08-22-china-telecom-token-factories",
+      "slug": "china-telecom-token-factories",
+      "beat": "infrastructure",
+      "kicker": "Compute supply",
+      "headline": "China's state carriers turn spare capacity into AI compute, with one unit up 95%",
+      "deck": "China Telecom's intelligent-computing revenue nearly doubled and China Unicom booked 41.9bn yuan from compute power, as the operators resell capacity as \"token factories\".",
+      "summary": [
+        "China Mobile, China Telecom and China Unicom are building out AI compute resale, billing for the tokens their infrastructure processes.",
+        "China Telecom reported a 95% surge in intelligent computing revenue, with broader intelligent-business revenue up 7.1% to 31.1bn yuan ($4.6bn) and cloud revenue up 7.8% to 61.8bn yuan.",
+        "China Unicom booked 41.9bn yuan in computing-power revenue across data centres, leased compute, software and cloud AI services, a 13% increase.",
+        "China Telecom's Xirang orchestration software now supports more than 20 chip architectures, a hedge against reliance on any single supplier."
+      ],
+      "body": [
+        "China's three state-owned carriers — China Mobile, China Telecom and China Unicom — are converting telecoms infrastructure into AI compute businesses, reselling capacity and billing for the tokens processed on it. The framing the sector uses is \"token factories\", and the reported numbers suggest it is becoming a material revenue line rather than a positioning exercise.",
+        "China Telecom reported a 95% surge in intelligent computing revenue. Its broader intelligent-business revenue rose 7.1% to 31.1bn yuan, about $4.6bn, and cloud revenue rose 7.8% to 61.8bn yuan. China Unicom booked 41.9bn yuan in computing-power revenue spanning data centres, leased compute, software and cloud AI services, up 13%.",
+        "The technical detail worth noting is architectural breadth rather than scale. China Telecom's Xirang orchestration software now extends support to more than 20 chip architectures, and China Unicom's UniAI platform connects over 200 large language models while managing more than 500 terabytes of curated data. Supporting that many architectures is expensive engineering that only makes sense where the supply of any particular accelerator cannot be relied on."
+      ],
+      "whyItMatters": "Twenty-plus supported chip architectures is what export-controlled compute procurement looks like in software: rather than betting on one accelerator, the carriers have paid to make their orchestration layer indifferent to which silicon it lands on. For anyone modelling the effect of chip restrictions, that is evidence the constraint is being absorbed as engineering cost and heterogeneity rather than as a hard ceiling on capacity.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-21T00:00:00Z",
+      "confidence": "medium",
+      "entities": ["China Telecom", "China Unicom", "China Mobile"],
+      "tags": ["compute", "china", "cloud"],
+      "sources": [
+        {
+          "title": "China's telecoms giants bet on 'token factories' as AI drives revenue growth",
+          "publisher": "South China Morning Post",
+          "url": "https://www.scmp.com/tech/big-tech/article/3364873/chinas-telecoms-giants-bet-token-factories-ai-drives-revenue-growth",
+          "publishedAt": "2026-08-21T00:00:00Z",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-08-22-nvidia-cloverleaf-stake",
+      "slug": "nvidia-cloverleaf-stake",
+      "beat": "infrastructure",
+      "kicker": "Power",
+      "headline": "Nvidia takes a minority stake in power-infrastructure developer Cloverleaf",
+      "deck": "Several hundred million dollars into a company that sits between utilities and data centres, days after Nvidia put $1.5bn into an OpenAI-linked site in Ohio.",
+      "summary": [
+        "Nvidia has taken a minority stake in Cloverleaf Infrastructure for an undisclosed sum reported as several hundred million dollars.",
+        "Cloverleaf, founded in 2024 and having raised $300m that year, works between utility companies and data centres on power infrastructure and site development.",
+        "The deal follows Nvidia's $1.5bn investment earlier in the week into SB Energy's OpenAI-linked Ohio project.",
+        "No capacity figures, locations or timelines were disclosed."
+      ],
+      "prominence": "brief",
+      "publishedAt": "2026-08-21T00:00:00Z",
+      "confidence": "medium",
+      "entities": ["NVIDIA", "Cloverleaf Infrastructure"],
+      "tags": ["data-centers", "power", "investment"],
+      "sources": [
+        {
+          "title": "Nvidia partners with data center developer Cloverleaf",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/21/nvidia-partners-with-data-center-developer-cloverleaf/",
+          "publishedAt": "2026-08-21T00:00:00Z",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-08-22-outer-biosciences-living-skin",
+      "slug": "outer-biosciences-living-skin",
+      "beat": "research",
+      "kicker": "AI for biology",
+      "headline": "Outer Biosciences trains a skincare model on human tissue kept alive for a month",
+      "deck": "Keeping surgical skin viable for weeks rather than days lets the company observe collagen remodelling, feeding results back into a model that proposes new compounds.",
+      "summary": [
+        "Outer Biosciences, founded in 2022 by Michael Polansky, trains AI models on living human skin tissue to identify new skincare compounds.",
+        "A proprietary support system keeps donated surgical tissue viable for up to a month against an industry norm of days, allowing observation of slow processes such as collagen remodelling and barrier repair.",
+        "The model predicts which untested chemicals will benefit specific skin functions; results from tissue testing feed back to improve it, producing roughly one candidate every six weeks with six active leads.",
+        "The company has raised about $23m and employs 19 people near Cambridge, Massachusetts."
+      ],
+      "prominence": "brief",
+      "publishedAt": "2026-08-22T00:00:00Z",
+      "confidence": "medium",
+      "entities": ["Outer Biosciences", "Michael Polansky"],
+      "tags": ["ai-for-science", "biotech"],
+      "sources": [
+        {
+          "title": "Michael Polansky is training an AI model on skin that's still alive",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/21/michael-polansky-is-training-an-ai-model-on-skin-thats-still-alive/",
+          "publishedAt": "2026-08-22T00:00:00Z",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-08-22-nvidia-kv-cache-transfer",
+      "slug": "nvidia-kv-cache-transfer",
+      "beat": "models",
+      "kicker": "Inference",
+      "headline": "Nvidia moves a KV cache between models with linear regression, skipping the re-prefill",
+      "deck": "Transferring a 32,768-token cache from Qwen3 14B to 32B took 278 milliseconds against seven seconds to recompute it, holding 73% to 98% of standalone accuracy.",
+      "summary": [
+        "Nvidia researchers describe a method for handing a KV cache from one model to another, avoiding the full recomputation a receiving model normally performs.",
+        "The mapper is fitted with per-head ridge regression on a calibration set of 500 text sequences — linear algebra rather than a trained network.",
+        "Reported speed-ups run from 2.7 to 25 times against re-prefilling, while retaining 73% to 98% of the target model's standalone accuracy.",
+        "Tested across Qwen3, Llama 3.1 and Ministral 3 from 3B to 70B, including an 8.8x parameter jump from Llama 3.1 8B to 70B that held 72.8% accuracy."
+      ],
+      "prominence": "brief",
+      "publishedAt": "2026-08-21T00:00:00Z",
+      "confidence": "medium",
+      "entities": ["NVIDIA", "Qwen3", "Llama 3.1"],
+      "tags": ["inference", "kv-cache", "efficiency"],
+      "sources": [
+        {
+          "title": "Nvidia finds that simple linear math can replace costly AI model handoffs",
+          "publisher": "VentureBeat",
+          "url": "https://venturebeat.com/technology/nvidia-finds-that-simple-linear-math-can-replace-costly-ai-model-handoffs",
+          "publishedAt": "2026-08-21T00:00:00Z",
+          "tier": 3
+        }
+      ]
+    }
+  ]
+}

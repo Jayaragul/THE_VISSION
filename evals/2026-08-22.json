@@ -1,0 +1,22 @@
+{
+  "date": "2026-08-22",
+  "reviewedAt": "2026-08-22T13:25:00Z",
+  "edition": {
+    "date": "2026-08-22",
+    "storyCount": 8,
+    "sourceCount": 9,
+    "sha256": "45ed5527d645f668b82f7888bd1e5b8f475894ee48720e2066b305a1a0f28728"
+  },
+  "scores": { "sourcing": 4, "accuracy": 5, "prose": 4, "selection": 5, "balance": 3 },
+  "total": 21,
+  "verdict": "pass",
+  "evidence": [
+    { "dimension": "sourcing", "note": "The lead carries a tier-1 primary (developer.nvidia.com) alongside independent tier-2 reporting from TechCrunch, and both were opened and read. Every other story rests on a single source, which is why this is 4 rather than 5 — defensible for standards and briefs under the rules, but thin. One story was cut outright during review: a brief on AVO's GPT-5.6 Sol side-experiments had only thenewstack.io (tier 4) and would have failed the gate. The correct fix was editorial rather than mechanical — it was the same story as the lead, not a separate one — so it was merged into the lead's final paragraph and replaced with a genuinely distinct story." },
+    { "dimension": "accuracy", "note": "The lead's central number is framed as what it is throughout: 'a vendor-run result on a public benchmark, not yet independently reproduced', and the body states plainly that '100% is a claim about AVO made by the company that built AVO'. Nvidia's own caveat that the VISTA action-count comparison 'was not a controlled ablation' is carried rather than dropped. Harvey's 'state-of-the-art' claim is attributed to the company with an explicit note that no independent benchmark figures accompanied it." },
+    { "dimension": "prose", "note": "Bullets state facts with their basis attached — 'used 6,624 environment actions against VISTA's 7,542 on the same levels, roughly 12% fewer'. The lead's deck adds the caveat the headline cannot carry rather than restating it. Docked from 5 because the China telecoms story's second paragraph is close to a list of figures, and two whyItMatters paragraphs run long." },
+    { "dimension": "selection", "note": "The lead is the strongest available on both materiality and durability: a 70-point swing attributable to scaffolding rather than the model changes how a reader should read every benchmark table, and SOP-Bench independently supports the same thesis from the opposite direction — more tools made agents worse. Pairing those two was the edition's main editorial judgement. Nothing repeats editions 1–5." },
+    { "dimension": "balance", "note": "Weakest dimension. Policy, society and India are all empty, models runs one short of quota, and the shape is outside house range in both directions — zero top stories against a 3–6 range, three briefs against 4–8. Nothing was promoted to top artificially, because top requires two genuinely independent sources and only the lead had them. edition.summary states all of this rather than leaving a reader to infer it. Nvidia is subject or participant in four of eight stories, which is high but reflects a day on which it published research, took a stake in Cloverleaf and invested in Starcloud." }
+  ],
+  "revisions": [],
+  "notes": "node tools/validate.mjs returns 0 errors and 6 warnings, exit 0; --strict would block. All six are shape or quota warnings that edition.summary discloses; none is a sourcing defect. Produced manually again: the scheduled pipeline has now failed four consecutive days because the Claude Code GitHub App is not installed on the repository, so anthropics/claude-code-action@v1 exits 401 before the research prompt runs. The Gemini scout added on 21 August is wired but inert until a GEMINI_API_KEY secret exists, and would not have rescued these runs in any case — it supplies leads, it does not write editions."
+}
