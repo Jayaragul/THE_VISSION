@@ -1,9 +1,9 @@
 {
   "$comment": "Leads, not sources. Every item here is exactly as trustworthy as a search snippet — open it, verify it, and cite the real publisher before it appears in an edition. Items with discoveryOnly:true come from a news-search aggregator and point at a redirect, not the publisher; never cite the aggregator itself.",
-  "harvestedAt": "2026-08-23T00:59:22.803Z",
+  "harvestedAt": "2026-08-23T03:14:23.749Z",
   "feedCount": 29,
-  "okCount": 28,
-  "itemCount": 638,
+  "okCount": 27,
+  "itemCount": 617,
   "feeds": [
     {
       "feed": "TechCrunch",
@@ -119,22 +119,22 @@
     {
       "feed": "Google News",
       "ok": true,
-      "count": 8
+      "count": 6
     },
     {
       "feed": "Google News",
       "ok": true,
-      "count": 5
+      "count": 7
     },
     {
       "feed": "Google News",
       "ok": true,
-      "count": 20
+      "count": 21
     },
     {
       "feed": "Google News",
       "ok": true,
-      "count": 37
+      "count": 40
     },
     {
       "feed": "Google News",
@@ -148,11 +148,92 @@
     },
     {
       "feed": "Hugging Face — trending models",
-      "ok": true,
-      "count": 25
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 429"
     }
   ],
   "items": [
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "How developers are trying to remove Anthropic’s AI text watermarks - The Indian Express",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOTW9McEFXR3pRX05IcUN3aC13XzVZaHd1Z0ZOUGw4ZkVIWHI1eGRxWTFxVVlhWmFENGozb0wyUG9iQjFMV0lrd0dNUTlUQmwtcVZ6b0dYcG54QWc0cmZIZ3dDeVJPVFBnVl9lQWNNTWYxTGFVV3hyZENpS0llaEhONEF0cHdRczB4aDBDRmZ1Uy15WHo3VXFFcEJyUExjUFc0bkp0VExfeDM5Vno1clFWY2IzUDczZkZ1Q0luSGYyUnprVXlkeVRTUjZLZlV4Y2vSAdYBQVVfeXFMTXh0UHEza0xJalc0cHhfcVU4N0JnUXVnQTFPS25UTjVZMEltS1B6TTl5bWhTejUwMlFyVEZTTjFLaHU2d1lLcXJERHNZaFBKYkdDWGZXWGpVRmVfSmNrcVB5a2lzX3NVYWVXeXhEM3pENTd6SWstaEpzUDZ0QmpBSlFHdHk1SXdRX21femtmWGJmcTVfRFRITGRBR0VhN01zQnRJbDNFSFV3RmUxWjRlRlYzeXNZOC1MNFdXMk5USXR3Qk5iOFZEVXNmVUZ4bmJqemlsLWJfUQ?oc=5",
+      "publishedAt": "2026-08-23T03:00:42.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMizwFBVV95cUxOTW9McEFXR3pRX05IcUN3aC13XzVZaHd1Z0ZOUGw4ZkVIWHI1eGRxWTFxVVlhWmFENGozb0wyUG9iQjFMV0lrd0dNUTlUQmwtcVZ6b0dYcG54QWc0cmZIZ3dDeVJPVFBnVl9lQWNNTWYxTGFVV3hyZENpS0llaEhONEF0cHdRczB4aDBDRmZ1Uy15WHo3VXFFcEJyUExjUFc0bkp0VExfeDM5Vno1clFWY2IzUDczZkZ1Q0luSGYyUnprVXlkeVRTUj"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Are humanoid robots the future? Chinese makers instead highlight practical design",
+      "url": "https://www.scmp.com/tech/tech-trends/article/3364911/are-humanoid-robots-future-chinese-makers-instead-highlight-practical-design?utm_source=rss_feed",
+      "publishedAt": "2026-08-23T03:00:12.000Z",
+      "summary": "Humanoid robots were still among the biggest crowd-pleasers at this year’s World Robot Conference (WRC) in Beijing, though other types of robots, such as wheeled machines, were gaining momentum as the industry moves from demonstration to deployment. At Unitree Robotics’ packed booth at the conference, bipedal models pl"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Bites to bytes: Thai street food app feeds into hunger for authenticity",
+      "url": "https://www.scmp.com/week-asia/lifestyle-culture/article/3364869/bites-bytes-thai-street-food-app-feeds-hunger-authenticity?utm_source=rss_feed",
+      "publishedAt": "2026-08-23T03:00:07.000Z",
+      "summary": "Bangkok’s best street food has always existed on a kind of mental map for Thai food writer Choltanutkun Tun-atiruj. It is built from habit, cravings and neighbourhood rhythms: the office crowds, the schools, the university nearby and the vendors selling everything from moo ping (grilled pork skewers) and sticky rice to"
+    },
+    {
+      "source": "TechCrunch",
+      "discoveryOnly": false,
+      "title": "Two years after launch, Walmart’s Flipkart is closing in on India’s quick-commerce leaders",
+      "url": "https://techcrunch.com/2026/08/22/two-years-after-launch-walmarts-flipkart-is-closing-in-on-indias-quick-commerce-leaders/",
+      "publishedAt": "2026-08-23T03:00:00.000Z",
+      "summary": "Flipkart's quick-commerce venture is delivering 1.1 million to 1.2 million orders a day, nearly triple its November volume."
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Tech paradox: fear of being left behind drives China non-programmers to build own AI tools",
+      "url": "https://www.scmp.com/news/people-culture/trending-china/article/3364949/tech-paradox-fear-being-left-behind-drives-china-non-programmers-build-own-ai-tools?utm_source=rss_feed",
+      "publishedAt": "2026-08-23T02:49:19.000Z",
+      "summary": "A growing number of non-programmers across China are developing their own AI tools, primarily motivated by concerns about falling behind as technology reshapes work and daily life. The anxiety surrounding this shift is almost palpable. AI courses and side-hustle tutorials have flooded mainland social media as employers"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "China builds world’s first custom plant immunity system for epidemic response",
+      "url": "https://www.scmp.com/news/china/science/article/3364933/china-builds-worlds-first-custom-plant-immunity-system-epidemic-response?utm_source=rss_feed",
+      "publishedAt": "2026-08-23T02:00:10.000Z",
+      "summary": "Chinese scientists have created an AI-guided platform to engineer custom plant immune receptors to rapidly combat emerging diseases that threaten plants, including commercial crops vulnerable to devastating outbreaks. Their programmable synthetic immune receptors can be introduced into plants to help them detect protei"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Kalimpong Chalak Mahasangh Appeals to Drivers Amid Sikkim AI Permit Debate - voiceofsikkim.com",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9PM1p1bU9GdXg2ZFRlc04ybkdRejJjbWxKLTlfcXBzVURVUHgwWTktQmIwdk9jZTcwTWNQc1daUlpoakZDV1h6VnhucEJQT2E5bWoxc01veWM4Qi1qejFqUUpaVV9NOWJGQ0dVMzdINFFaTDN0U1dseWhtZDR2RGc?oc=5",
+      "publishedAt": "2026-08-23T01:53:25.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE9PM1p1bU9GdXg2ZFRlc04ybkdRejJjbWxKLTlfcXBzVURVUHgwWTktQmIwdk9jZTcwTWNQc1daUlpoakZDV1h6VnhucEJQT2E5bWoxc01veWM4Qi1qejFqUUpaVV9NOWJGQ0dVMzdINFFaTDN0U1dseWhtZDR2RGc?oc=5\" target=\"_blank\">Kalimpong Chalak Mahasangh Appeals to Drivers Amid Sikkim AI Permit Debate</"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Canada’s Carney refuses to take Trump’s ‘bait’, confronting US in trade war",
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3364948/canadas-carney-refuses-take-trumps-bait-confronting-us-trade-war?utm_source=rss_feed",
+      "publishedAt": "2026-08-23T01:46:24.000Z",
+      "summary": "Siding with Canadians weary of provocations from Washington, Prime Minister Mark Carney stood up to US President Donald Trump, rejecting what he called an “unfair” trade deal – a gamble that could prove economically risky. “We will not allow any nation to determine our future. We will set our own course to keep buildin"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Hong Kong can open a lucrative new frontier as Chinese tech IP hub",
+      "url": "https://www.scmp.com/opinion/hong-kong-opinion/article/3364571/hong-kong-can-open-lucrative-new-frontier-chinese-tech-ip-hub?utm_source=rss_feed",
+      "publishedAt": "2026-08-23T01:30:06.000Z",
+      "summary": "Since 2021, Hong Kong’s development as a regional intellectual property (IP) trading centre has featured in China’s five-year plans and the policy addresses of chief executives Carrie Lam Cheng Yuet-ngor and John Lee Ka-chiu. There are good strategic reasons to see considerable potential in developing the city as an IP"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "How Opatra’s ‘coercive’ tactics in Hong Kong echo global ‘Dead Sea sales scams’",
+      "url": "https://www.scmp.com/news/hong-kong/article/3364938/how-opatras-coercive-tactics-hong-kong-echo-global-dead-sea-sales-scams?utm_source=rss_feed",
+      "publishedAt": "2026-08-23T01:00:12.000Z",
+      "summary": "Allegedly aggressive sales tactics and business operations in Hong Kong’s beauty product sector closely mirror the global “Dead Sea sales scams” uncovered years ago, documents on WikiLeaks have shown. The controversy has prompted calls from experts for the city’s government to strengthen regulation by expanding propose"
+    },
     {
       "source": "Google News",
       "discoveryOnly": true,
@@ -165,9 +246,9 @@
       "source": "Google News",
       "discoveryOnly": true,
       "title": "3 AI Stocks Powering The Next Wave Of Cloud And Automation - simplywall.st",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPaWx6ZUlVOTBCNXZ3eXFGV1I3c05xNXdsdXhsYk9VYV80RURSMU5Ib045WVVoaWdDUVBoSFpteUc1YjZwc0RreUtlM21OWkdaTmlTWk1OaG5FQUcybmRmVjYyMlNhSWswNVpLZ0JGUk9LbW5DeHJNSTRrckc0UnlwaFVpS1cxUUlxSXczYlNQSGwySTY5WWNBUi1LVFBjZ0dLMW90d3Y3WXZ6TU1TWUhXakZVWWE1VmtMWUE00gHAAUFVX3lxTE1pRUIzUXQ3ck9oa3ZRVXRwVVNaMW9vdTJHa0M3RVl1eFB2djBXakt3b3MzbDZUR3JkQ0RmYUpWN0RtZjIxWlZ5R0xFOThIeGd2cGhyekl0UHRCT2ZwSUhrXzNTR0VmQ1JBdU1YT1M0UE0ydDNuS3plakNubmRsTlpEeDFDWWRNVUd6YVF4RkN4WmE5SjR2VWhjSFpkRlZZT05xcmNKWk5weGR3VHVWX3dOT3J5bW1EMkdhbmpGOUlLLQ?oc=5",
-      "publishedAt": "2026-08-23T00:35:23.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiuwFBVV95cUxPaWx6ZUlVOTBCNXZ3eXFGV1I3c05xNXdsdXhsYk9VYV80RURSMU5Ib045WVVoaWdDUVBoSFpteUc1YjZwc0RreUtlM21OWkdaTmlTWk1OaG5FQUcybmRmVjYyMlNhSWswNVpLZ0JGUk9LbW5DeHJNSTRrckc0UnlwaFVpS1cxUUlxSXczYlNQSGwySTY5WWNBUi1LVFBjZ0dLMW90d3Y3WXZ6TU1TWUhXakZVWWE1VmtMWUE00gHAAUFVX3lxTE1pRU"
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNaUVCM1F0N3JPaGt2UVV0cFVTWjFvb3UyR2tDN0VZdXhQdnYwV2pLd29zM2w2VEdyZENEZmFKVjdEbWYyMVpWeUdMRTk4SHhndnBocnpJdFB0Qk9mcElIa18zU0dFZkNSQXVNWE9TNFBNMnQzbkt6ZWpDbm5kbE5aRHgxQ1lkTVVHemFReEZDeFphOUo0dlVoY0haZEZWWU9OcXJjSlpOcHhkd1R1Vl93Tk9yeW1tRDJHYW5qRjlJSy3SAcABQVVfeXFMTWlFQjNRdDdyT2hrdlFVdHBVU1oxb291MkdrQzdFWXV4UHZ2MFdqS3dvczNsNlRHcmRDRGZhSlY3RG1mMjFaVnlHTEU5OEh4Z3ZwaHJ6SXRQdEJPZnBJSGtfM1NHRWZDUkF1TVhPUzRQTTJ0M25LemVqQ25uZGxOWkR4MUNZZE1VR3phUXhGQ3haYTlKNHZVaGNIWmRGVllPTnFyY0paTnB4ZHdUdVZfd05PcnltbUQyR2FuakY5SUst?oc=5",
+      "publishedAt": "2026-08-23T00:35:26.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxNaUVCM1F0N3JPaGt2UVV0cFVTWjFvb3UyR2tDN0VZdXhQdnYwV2pLd29zM2w2VEdyZENEZmFKVjdEbWYyMVpWeUdMRTk4SHhndnBocnpJdFB0Qk9mcElIa18zU0dFZkNSQXVNWE9TNFBNMnQzbkt6ZWpDbm5kbE5aRHgxQ1lkTVVHemFReEZDeFphOUo0dlVoY0haZEZWWU9OcXJjSlpOcHhkd1R1Vl93Tk9yeW1tRDJHYW5qRjlJSy3SAcABQVVfeX"
     },
     {
       "source": "SCMP — China",
@@ -176,6 +257,14 @@
       "url": "https://www.scmp.com/week-asia/politics/article/3364866/malaysia-voter-anger-fuels-third-force-against-anwar?utm_source=rss_feed",
       "publishedAt": "2026-08-23T00:00:14.000Z",
       "summary": "Malaysian politics runs on grudges and few illustrate that better than the one nursed by Rafizi Ramli. A year after losing the deputy presidency of Prime Minister Anwar Ibrahim’s People’s Justice Party (PKR), he has built a vehicle for the disaffected, aimed squarely at the coalition of which he was once part. Parti Be"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Nvidia Is Spending $6 Billion to Build a Powerful U.S. Alternative to Chinese AI - WSJ",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPWHdVbW56NVZvU3ZwQTRIcmdRUVVZWjBVc1J4TFhhVUs2VE5RY21CNEpSdHA2NUJLa0daUVhYcGJwaGh6bERReE5fcFdFdHJ5bWpXa1dPTkFweDVVS3AycGxMa3VqS2JDS0VTZDNIb2RYLVVYcmdxT2xQUUpRSXNFbHhTTVozVjVyUkVYRmItTzc5SlIwS2M0NVZseUtUWFZDX3V6azMxTHJhdHJwYm5XU28yUmlzUQ?oc=5",
+      "publishedAt": "2026-08-23T00:00:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitgFBVV95cUxPWHdVbW56NVZvU3ZwQTRIcmdRUVVZWjBVc1J4TFhhVUs2VE5RY21CNEpSdHA2NUJLa0daUVhYcGJwaGh6bERReE5fcFdFdHJ5bWpXa1dPTkFweDVVS3AycGxMa3VqS2JDS0VTZDNIb2RYLVVYcmdxT2xQUUpRSXNFbHhTTVozVjVyUkVYRmItTzc5SlIwS2M0NVZseUtUWFZDX3V6azMxTHJhdHJwYm5XU28yUmlzUQ?oc=5\" target=\"_blank\">N"
     },
     {
       "source": "SCMP — China",
@@ -200,6 +289,22 @@
       "url": "https://www.scmp.com/news/asia/south-asia/article/3364946/india-launches-rescue-mission-panama-flagged-cargo-ship-sinks-east-coast?utm_source=rss_feed",
       "publishedAt": "2026-08-22T22:31:16.000Z",
       "summary": "India’s maritime rescue agency lost communication on Saturday with a Panama-flagged cargo vessel that sank off the coast of eastern ‌India, the Indian coastguard said. The vessel had 24 crew on board, including 20 Chinese nationals, three Myanmar nationals and one Bangladeshi, according to Commandant Amit Uniyal, a spo"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Japan gov’t launches in-house-developed AI to assist civil servants - Qatar Tribune",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNa29MY2F3MnlHSWFGYjllQl95Y3hzMHBZZFlCTDFYclV3a0RCemtDRTVjeHllT0dJZGFNcDgta2RVVVZIUDdyMWhhYmVWQ0RtZDkzMGpjeVVmZU5uSFQ1Xy1rY2U0MnpSOWF1UUdwc3hnUldsY2c2d2NSeDdUbGpsUHZKM1g4T2hPNEhTbF9MT2pNUEkzVDFmRnhIRGlUSFRMTVdVcU5iLXkwRjBIUFliUndMUGExamJmekRGbdIBwgFBVV95cUxQWEliV1dXSENMRnpnMU1WWjV2eUo0Nkt6MDIyYTNuRkVFZUx3clo2MFFsYTVsSnZlRmFCS0F2V3kyM2ZEaDl3bmNURjJjSVhyeERlc0JiOWxPQ0xKeTRLWkxrOFZ4b2VUWW81OEY4OFoxcUVkZU5BMXNhYW84bXVWRU9JNGEwZzc5WENnT2Uyb0pHOWdsMHFmS0poYV9kbnl1Ym5neDFPR2Y3MTJhNkMtSUxianJ2RHNRUGwyRFJlTzVRQQ?oc=5",
+      "publishedAt": "2026-08-22T22:21:33.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxNa29MY2F3MnlHSWFGYjllQl95Y3hzMHBZZFlCTDFYclV3a0RCemtDRTVjeHllT0dJZGFNcDgta2RVVVZIUDdyMWhhYmVWQ0RtZDkzMGpjeVVmZU5uSFQ1Xy1rY2U0MnpSOWF1UUdwc3hnUldsY2c2d2NSeDdUbGpsUHZKM1g4T2hPNEhTbF9MT2pNUEkzVDFmRnhIRGlUSFRMTVdVcU5iLXkwRjBIUFliUndMUGExamJmekRGbdIBwgFBVV95cUxQWE"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "How to Build Amazon Bedrock AI Agents: 12 Steps [2026] - tech-insider.org",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1XcFg2eGxlQVZ2bjlROWtXbVQ5MnhjZ1R3OHhjVV92Q0g0bm1OU01jOHVjZWU2ZFhzVU84WURqaC1oZl90R29OVWVDTEgwZ0VNa2FjN0hQMGQ1RUhlZ1Z4TmRFeEI4R3gzMWs3ZHk4NUl5dlQ5UkFj?oc=5",
+      "publishedAt": "2026-08-22T22:14:34.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMid0FVX3lxTE1XcFg2eGxlQVZ2bjlROWtXbVQ5MnhjZ1R3OHhjVV92Q0g0bm1OU01jOHVjZWU2ZFhzVU84WURqaC1oZl90R29OVWVDTEgwZ0VNa2FjN0hQMGQ1RUhlZ1Z4TmRFeEI4R3gzMWs3ZHk4NUl5dlQ5UkFj?oc=5\" target=\"_blank\">How to Build Amazon Bedrock AI Agents: 12 Steps [2026]</a>&nbsp;&nbsp;<font color=\"#6f6"
     },
     {
       "source": "Google News",
@@ -332,14 +437,6 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "A 30-Month Study Tracking 27,000 Middle and High School Students: The Deeper the AI Use, the Worse the Closed-Book Exam Scores — Cognitive Offloading Is Draining Learning Ability - finance.biggo.com",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBGWVpVNTVIUGZhUnc5UHpJc0lvWXJENEwtRkZHcVR1ZjBhai1HYmVtZjNHSGNDYjlPdnNDb1pCWDZSNk5fLWpCUGJYZzJGSkRDMDNRVEo2RjZyMVlQQUNXVmI3ZjdIT0ZxQXdZOXVpQ1Z3NGllNVE?oc=5",
-      "publishedAt": "2026-08-22T18:20:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMidkFVX3lxTFBGWVpVNTVIUGZhUnc5UHpJc0lvWXJENEwtRkZHcVR1ZjBhai1HYmVtZjNHSGNDYjlPdnNDb1pCWDZSNk5fLWpCUGJYZzJGSkRDMDNRVEo2RjZyMVlQQUNXVmI3ZjdIT0ZxQXdZOXVpQ1Z3NGllNVE?oc=5\" target=\"_blank\">A 30-Month Study Tracking 27,000 Middle and High School Students: The Deeper the AI Use,"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
       "title": "An Anonymous AI Called 'Ox Alpha' Just Dropped on OpenRouter—And the Internet Thought It Was Gemini - nokiapoweruser.com",
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNYVQ0R0p5VG53VVVvTEx4c2xHdm4xd0poV2hmeERvWmlzTHdrdy1qODlkTVhZWTVlRjR5U1MzX0lPOVhjbE1oNjBKYVVnakFFb1daV3lldG9vME4tcm5OZ1Z0UUpqelRVcnFzX0lQOFFISXl6dzU5YWlVaG5vaEYxU1lpdkg?oc=5",
       "publishedAt": "2026-08-22T18:11:21.000Z",
@@ -450,12 +547,36 @@
       "summary": "U.S. battery startups pulled in $500 million in grants from the Department of Energy, throwing a lifeline to an industry that was on the ropes after EV incentives were slashed."
     },
     {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "These Are The 20 Space Startups Whose Founders Met PM Modi At Yesterday’s Event - OfficeChai",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPRmI4LUwzQWVlRndEa1VFRUdLYXNSRkZGWE1xTFJPUmJ6QkNDUGJLdGdZVE11TDZ0Q1o3aDhxNEN1dDBsdEtiRXU1OEo1STlPUGtXaVFzWmJzUE9JLWdFWFk5cFFGMUU2TnE0azBoejZYV1F4VGNZU3JTSEMteW1Sa214ZFpURHdBel9TMERPbG5QdTlPdVcwR1k1cWFna1YtODhfcEZaN1A1bUhVa3NYTQ?oc=5",
+      "publishedAt": "2026-08-22T15:05:49.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxPRmI4LUwzQWVlRndEa1VFRUdLYXNSRkZGWE1xTFJPUmJ6QkNDUGJLdGdZVE11TDZ0Q1o3aDhxNEN1dDBsdEtiRXU1OEo1STlPUGtXaVFzWmJzUE9JLWdFWFk5cFFGMUU2TnE0azBoejZYV1F4VGNZU3JTSEMteW1Sa214ZFpURHdBel9TMERPbG5QdTlPdVcwR1k1cWFna1YtODhfcEZaN1A1bUhVa3NYTQ?oc=5\" target=\"_blank\">These Are"
+    },
+    {
       "source": "The Verge",
       "discoveryOnly": false,
       "title": "W. Kamau Bell has the most practical ‘most indispensable tool’",
       "url": "https://www.theverge.com/report/980452/w-kamau-bell-whos-with-me-comedy-interview",
       "publishedAt": "2026-08-22T15:00:00.000Z",
       "summary": "W. Kamau Bell is one of those people who has always just seemed to be there. From Totally Biased, to Politically Re-Active, United Shades of America, and We Need to Talk About Cosby, his blend of comedy, social commentary, and political activism has helped him stand out. He's won a Peabody and four Emmys, been […]"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Twin1 AI Raises $20M Seed Round to Build Enterprise AI Twins - N24 Haber",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNSm5HQVRmeFp3eE9CSGw4WkIxUG5PLVhuNXFFSmctTENlRFhPRjdQN3lHWnFXM1d2cmwtc1Bpajg4MEsyd1h3YUJLVHgwaktFM05tbTNFSEpIMjQwcWdfbnJQTFhQcWZFaFM1d2Rsd0tWTjR6SDVLRkIyYXlPVnp1Y3d1RVJPWGF6ZmxyQ1hMQjVzWER3YW16MDFqRzk?oc=5",
+      "publishedAt": "2026-08-22T14:55:43.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxNSm5HQVRmeFp3eE9CSGw4WkIxUG5PLVhuNXFFSmctTENlRFhPRjdQN3lHWnFXM1d2cmwtc1Bpajg4MEsyd1h3YUJLVHgwaktFM05tbTNFSEpIMjQwcWdfbnJQTFhQcWZFaFM1d2Rsd0tWTjR6SDVLRkIyYXlPVnp1Y3d1RVJPWGF6ZmxyQ1hMQjVzWER3YW16MDFqRzk?oc=5\" target=\"_blank\">Twin1 AI Raises $20M Seed Round to B"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Tech Giants Invest $16 Billion in AI World Models Race - N24 Haber",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPRV9tX1AtWnFvUkFJQ3pGNXBmYWJSX2djYnZMLUNwRVBEek9lWTZHZjVLVk05OGJZVTdGdGlXc051Qi0xUzdjeFhvUmZlcDZoQ2xlcUVoTmNPbUctOHU5UlpESFU3SmM4UmY3bFFldDFTeldlbC0xSDc3M2NnSTh5blZWOHE0c09MMnUwbXVfellpOEdS?oc=5",
+      "publishedAt": "2026-08-22T14:55:33.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilAFBVV95cUxPRV9tX1AtWnFvUkFJQ3pGNXBmYWJSX2djYnZMLUNwRVBEek9lWTZHZjVLVk05OGJZVTdGdGlXc051Qi0xUzdjeFhvUmZlcDZoQ2xlcUVoTmNPbUctOHU5UlpESFU3SmM4UmY3bFFldDFTeldlbC0xSDc3M2NnSTh5blZWOHE0c09MMnUwbXVfellpOEdS?oc=5\" target=\"_blank\">Tech Giants Invest $16 Billion in AI World Mode"
     },
     {
       "source": "SCMP — China",
@@ -514,6 +635,14 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi3AFBVV95cUxQbkVsUjNZYUFQVGRNZnZ6RG9ZYm0xSGp6VDNqX0JCQ1BGY2o5d3VpcUhRdUYzaG9uV2JRUHVNQmpNLU9lS1RzVTNOaWNPS1E0c1FZOTROR09tZTlSdW51RWhsamE2WUNUQ0tpb0x2LVp6VklNTDdGQzM3MDRDcHp3Mzh2eWRzeVVqRUstNDJxMXZnX3VsTWFsc2xCVk45STlSNEtMTXhra1diMFRLVDdmUFBvbWZSempUcmx3S1hBTjF5dFVENlpoaW"
     },
     {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Chip startup Velaura AI hits $1 billion valuation in $110 million round - The Daily Star",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNOVBMOHJ0VTQwQ1RoRUQtMmpHOG9uWTBKODVtbmlXWGFkNENMQ3NjdlZjQXNveFQtN3QxV0NPd2JsSHNWcHFPekhBSG9KMUhicG01dlMyVFZGN293V2pIYjh3MGlpNlpsSHhPUGhueEQ2UWNBcV9ZZmRWMGZHNU10TEdkRGRJTnpnRkNySkNqcnZxZ0M3dEFSQk9lbnF5Z1Y0RVc3TkRxY1BGYXdJSFBjUUR4WFAwaFFoanptektQb09UZw?oc=5",
+      "publishedAt": "2026-08-22T13:54:40.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwgFBVV95cUxNOVBMOHJ0VTQwQ1RoRUQtMmpHOG9uWTBKODVtbmlXWGFkNENMQ3NjdlZjQXNveFQtN3QxV0NPd2JsSHNWcHFPekhBSG9KMUhicG01dlMyVFZGN293V2pIYjh3MGlpNlpsSHhPUGhueEQ2UWNBcV9ZZmRWMGZHNU10TEdkRGRJTnpnRkNySkNqcnZxZ0M3dEFSQk9lbnF5Z1Y0RVc3TkRxY1BGYXdJSFBjUUR4WFAwaFFoanptektQb09UZw?oc=5\" t"
+    },
+    {
       "source": "The Verge",
       "discoveryOnly": false,
       "title": "Amazon just hiked the prices for Echo, Fire TV, and Kindle products by up to 60 percent",
@@ -544,6 +673,14 @@
       "url": "https://www.wired.com/review/saily-ultra-esim/",
       "publishedAt": "2026-08-22T13:00:00.000Z",
       "summary": "For uninterrupted service as you country-hop, the Saily Ultra eSIM works well and comes with plentiful perks. It’s pricey though."
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "CrowdStrike expands Falcon AI tools on AWS for cloud security - scanx.trade",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPbFNWLWpqNlB1bUpZRVlPZU1jWVpCYVhHLUlXVjdrRlhGck1ZbEppZk15NjhFLW80NE52OEVZSHlGNGpVWXV3NUVuRUJPdEVudVZrRGN2VEdoQngtYnp2WE9Dd1dSYWVIYXg4T25DVTB4N0FDdmVoT2NOY3BMbTBHNkhfZ2dUWUhwMmJ2WlRjbS1HQk1NU0N0OFZvR2pwOUxORTgwODBVMlVXaHl0TzdKeDd0eFVHdG84bDRCaUJTQQ?oc=5",
+      "publishedAt": "2026-08-22T12:45:40.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxPbFNWLWpqNlB1bUpZRVlPZU1jWVpCYVhHLUlXVjdrRlhGck1ZbEppZk15NjhFLW80NE52OEVZSHlGNGpVWXV3NUVuRUJPdEVudVZrRGN2VEdoQngtYnp2WE9Dd1dSYWVIYXg4T25DVTB4N0FDdmVoT2NOY3BMbTBHNkhfZ2dUWUhwMmJ2WlRjbS1HQk1NU0N0OFZvR2pwOUxORTgwODBVMlVXaHl0TzdKeDd0eFVHdG84bDRCaUJTQQ?oc=5\" targe"
     },
     {
       "source": "Google News",
@@ -682,14 +819,6 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi2AFBVV95cUxQUmNmZTdTRElfcFAteXRYTXVXd08yTGdXOWdNb1M3enFaeU45V1pXa1E2TDE4VWRmbmhVaGdwV2xBalZrbWxuZGFyYk5rcHRKelk4X2RGUTRrQ0V6U2l2aTlyTEY4WVQyVkhoOHJDMXdRYTRuaW1xSWJMVXFTQ3pRRjk4OTRiVm5UZkVQcm5PTUZ3NllNQmZUZjBkb3RZY0RQZkcwWExjYUpqaTcwMzNiV0VUcmtMSTE5Z3lxQTJjbnBLbk5RUmVzNl"
     },
     {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "DeepMind Expands AI Research in Games with EVE Online Partnership - blockchain.news",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFA4blNSOWRHMWJSN1RuT3BUN2pfOThXS0VHTnBibk1Ic2RQR3Bwc29ybXozV05SelJGZ3FrZnhSSGFJb0tZQkVXYXpNZGQ4MHpHc2dDTEliOHZfUVJud3dZZi1MNVVVbXJiRy00QUNLam0?oc=5",
-      "publishedAt": "2026-08-22T10:41:41.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMicEFVX3lxTFA4blNSOWRHMWJSN1RuT3BUN2pfOThXS0VHTnBibk1Ic2RQR3Bwc29ybXozV05SelJGZ3FrZnhSSGFJb0tZQkVXYXpNZGQ4MHpHc2dDTEliOHZfUVJud3dZZi1MNVVVbXJiRy00QUNLam0?oc=5\" target=\"_blank\">DeepMind Expands AI Research in Games with EVE Online Partnership</a>&nbsp;&nbsp;<font color=\"#6"
-    },
-    {
       "source": "SCMP — China",
       "discoveryOnly": false,
       "title": "Man hospitalised after bamboo scaffolding collapses in Sham Shui Po",
@@ -728,6 +857,14 @@
       "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5jYkpNdE54RV9ldk1nakJxV25BWVlDdHR3YXlMSUFCT1VJT2xZcTB0MzdwZmhfdUduMTludUZxc2ZremdOQUpRZms3TWQ0Z3d5dFVnREdnemxNQWZKQ2ZuaUQ4TQ?oc=5",
       "publishedAt": "2026-08-22T10:24:30.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiY0FVX3lxTE5jYkpNdE54RV9ldk1nakJxV25BWVlDdHR3YXlMSUFCT1VJT2xZcTB0MzdwZmhfdUduMTludUZxc2ZremdOQUpRZms3TWQ0Z3d5dFVnREdnemxNQWZKQ2ZuaUQ4TQ?oc=5\" target=\"_blank\">Startup Wrap: MENA founders secure millions as new growth capital enters the market</a>&nbsp;&nbsp;<font color=\"#"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Using generative AI to transform production with Volkswagen Group and AWS - Amazon Web Services (AWS)",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOWkUxdU9nenFteTl5QU53cjlvY2wxel9yY3F5YW5INVl2cHJBWnJMSmo4elMwVHJ3WDNPak5vMVNYYnRWTHFLdXVlSVR1c0tpT1FGdWNCc0xLNXFYWVlpalJTZGU2SjJib2FHbktzenl2WGZIOW9xalNvazVlRzJuM25JUGhNb28wdTNDeGpQR05pQQ?oc=5",
+      "publishedAt": "2026-08-22T10:10:44.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxOWkUxdU9nenFteTl5QU53cjlvY2wxel9yY3F5YW5INVl2cHJBWnJMSmo4elMwVHJ3WDNPak5vMVNYYnRWTHFLdXVlSVR1c0tpT1FGdWNCc0xLNXFYWVlpalJTZGU2SjJib2FHbktzenl2WGZIOW9xalNvazVlRzJuM25JUGhNb28wdTNDeGpQR05pQQ?oc=5\" target=\"_blank\">Using generative AI to transform production with "
     },
     {
       "source": "SCMP — China",
@@ -802,6 +939,14 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxPdV93UFFkc0JGNFdqTVk0ZU5vNkZrTzdTZlJCZGdFVlQwa0tkRjBGd0JUOWRVLU5VS2tpdjVuWmhtVzBQZVhpcVNSZ3BfbWh3UVZpOFZNWWNzSmt0dm0yVnU4RU5BSndYdGRJanVoZHM1MUhESE45dENyU0lOckRwRVhIa3hyUE9PZG1fYTg1NmFhbkVia3JjWGVtalpXNzhqa2dYZQ?oc=5\" target=\"_blank\">Apple Music to add labels"
     },
     {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Federal Govt Urged To Close AI Infrastructure Gap - LEADERSHIP Newspapers",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBnc1RRSTIzZ0VuTmo4QzMxcm42VFV5TjlCM0t4UXNSUl9Nb3lKVFFUdEl1WnVCMmxyclhRVWFzODNYeUFUeEZEVmV5bWRCZ3hxajlUNE42UHZFc2RoTXFVWXlxQlZqTTFYZTFJaVNiVDBrVnRNQ0g1NllFcTM?oc=5",
+      "publishedAt": "2026-08-22T09:18:20.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMifEFVX3lxTFBnc1RRSTIzZ0VuTmo4QzMxcm42VFV5TjlCM0t4UXNSUl9Nb3lKVFFUdEl1WnVCMmxyclhRVWFzODNYeUFUeEZEVmV5bWRCZ3hxajlUNE42UHZFc2RoTXFVWXlxQlZqTTFYZTFJaVNiVDBrVnRNQ0g1NllFcTM?oc=5\" target=\"_blank\">Federal Govt Urged To Close AI Infrastructure Gap</a>&nbsp;&nbsp;<font color=\"#6"
+    },
+    {
       "source": "WIRED",
       "discoveryOnly": false,
       "title": "NASA Cancels Its Rescue Mission for the Aging Swift Telescope",
@@ -860,18 +1005,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Bridging The AI Governance Gap: Why Deep Integration Is Driving A Surge In Cybersecurity Incidents - Scoop - New Zealand News",
-      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQdWg3alJsTWcyaTMxUWxwUjBELWN5N2hyQjlzbW1Bekw2ampoSGQyTVJxNXhMOXBERWFWbE9oUnd4anhVNEZGbE1IbGhtTU9fQmpLbE1tM3MwcEN2U1Y1QkZFVTZybEpHWFprTTNwUkpBbGpRMWtpbF9ZWVlncnVFUnotTGFpX2ZQSmxld2d0Rl9DR25IdUF4M1d1OEF2Sk9NSXVqelpVQzBLVUhURjduR3d6MTg5a1BhVmhMNnJxbzI1aGdaOEhMY2ZCRHNqcXJlMFJEcg?oc=5",
-      "publishedAt": "2026-08-22T08:03:03.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxQdWg3alJsTWcyaTMxUWxwUjBELWN5N2hyQjlzbW1Bekw2ampoSGQyTVJxNXhMOXBERWFWbE9oUnd4anhVNEZGbE1IbGhtTU9fQmpLbE1tM3MwcEN2U1Y1QkZFVTZybEpHWFprTTNwUkpBbGpRMWtpbF9ZWVlncnVFUnotTGFpX2ZQSmxld2d0Rl9DR25IdUF4M1d1OEF2Sk9NSXVqelpVQzBLVUhURjduR3d6MTg5a1BhVmhMNnJxbzI1aGdaOEhMY2"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Has Philippines’ Marcos missed his chance to stop the Dutertes?",
-      "url": "https://www.scmp.com/week-asia/people/article/3364891/has-philippines-marcos-missed-his-chance-stop-dutertes?utm_source=rss_feed",
-      "publishedAt": "2026-08-22T08:00:10.000Z",
-      "summary": "Less than two years before the Philippines chooses its next president, Ferdinand Marcos Jnr still has no candidate to carry his banner. Sara Duterte-Carpio, his estranged vice-president and fiercest political rival, has already declared her intention to run and remains the early front runner, despite an impeachment tri"
+      "title": "Forbes 2026 AI 50 List | Top Artificial Intelligence Companies - Forbes",
+      "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE5uUGIzcFRTdFZwdkxZTnpHdUpfVmhCQ21iczlSQjJrMnlSa19sYzB4S2JuVC1wSWo1UFhRWnlpVWtrb0NIN1RmS2Nn?oc=5",
+      "publishedAt": "2026-08-22T08:00:35.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiSkFVX3lxTE5uUGIzcFRTdFZwdkxZTnpHdUpfVmhCQ21iczlSQjJrMnlSa19sYzB4S2JuVC1wSWo1UFhRWnlpVWtrb0NIN1RmS2Nn?oc=5\" target=\"_blank\">Forbes 2026 AI 50 List | Top Artificial Intelligence Companies</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Forbes</font>"
     },
     {
       "source": "Google News",
@@ -882,36 +1019,12 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi1wFBVV95cUxQYkFROXh6V0pxT0N0YWRWbHNJSXZCYWVmVTZZMGNmY0ZNZE9BbC1NX1dfdjJjNzMtcDA5YTU4R25SeUZZWGo3OUFybnROZGRndEQ3VlZ5bGlaNWNySEdKUGdpSjI3U2tmejRKMFVLSG1iQy04anBjT0VuR2lIMXVJemNROGJUand5N25fSEFJbjk0SEgxdnRGNWRyQzRyU0FtcDBndnY0V1BYUmx5c3ctNlh5bUJtVUFUWWRGakFZencxcXpkeW84MT"
     },
     {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Full fee waivers rise 20-fold to 280,000 after healthcare reform, minister says",
-      "url": "https://www.scmp.com/news/hong-kong/health-environment/article/3364912/full-fee-waivers-rise-20-fold-280000-after-healthcare-reform-minister-says?utm_source=rss_feed",
-      "publishedAt": "2026-08-22T07:08:08.000Z",
-      "summary": "About 280,000 patients have secured full fee waivers since Hong Kong’s public healthcare charges were overhauled at the start of the year, a 20-fold increase from the previous figure of 14,000, the health minister has said. Secretary for Health Lo Chung-mau revealed the figures on Saturday as he defended the reform, wh"
-    },
-    {
       "source": "Google News",
       "discoveryOnly": true,
       "title": "AI startup raises $20m to build ‘digital twins’ that copy office workers - Arabian Business",
       "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOcEtMdnZpOHUtSmZiQXZ5SUh5dTV4eXlxTlBZcVV6UHQ5emxqR2JmcmwyWWVNY3FsalI0WkV2em5NNlJNVFE0VHZxSXRmV0RPTlRTV2VjT2tobjNvZWtSa1RtRk1Pd0tsMnVFMENCRXZMeXpOcWVmOHg5bUdkX0dhNVdDcmYzMUhMcEFoVU1sakJnb1pHUGVyVTZqUWNXYUNJSlgtQmhwTU15MHk4eThF?oc=5",
       "publishedAt": "2026-08-22T07:02:31.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMirwFBVV95cUxOcEtMdnZpOHUtSmZiQXZ5SUh5dTV4eXlxTlBZcVV6UHQ5emxqR2JmcmwyWWVNY3FsalI0WkV2em5NNlJNVFE0VHZxSXRmV0RPTlRTV2VjT2tobjNvZWtSa1RtRk1Pd0tsMnVFMENCRXZMeXpOcWVmOHg5bUdkX0dhNVdDcmYzMUhMcEFoVU1sakJnb1pHUGVyVTZqUWNXYUNJSlgtQmhwTU15MHk4eThF?oc=5\" target=\"_blank\">AI startup "
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Beyblade battles drive up sales at Hong Kong malls, but how long will the trend last?",
-      "url": "https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3364910/beyblade-battles-drive-sales-hong-kong-malls-how-long-will-trend-last?utm_source=rss_feed",
-      "publishedAt": "2026-08-22T06:52:56.000Z",
-      "summary": "The sharp clatter of spinning metal tops, cheers, sighs of frustration and shouts of “three, two, one … Go shoot!” echo across a shopping centre in Hong Kong’s New Territories on a weekday. In shops across Tuen Mun Town Plaza, children, teens and young adults hunch over small plastic battle arenas, unleashing their top"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Why South Korea wants to rebuild a DMZ railway despite Kim’s cold shoulder",
-      "url": "https://www.scmp.com/news/asia/east-asia/article/3364909/why-south-korea-wants-rebuild-dmz-railway-despite-kims-cold-shoulder?utm_source=rss_feed",
-      "publishedAt": "2026-08-22T06:44:13.000Z",
-      "summary": "Near the heavily fortified frontier dividing the Korean peninsula, the abandoned Woljeong-ri station is being recast as a symbol of South Korea’s hopes to reconcile with the North. But plans to reconnect South Korea’s northernmost station to the rail network come at an awkward moment, as Pyongyang ignores Seoul’s overt"
     },
     {
       "source": "Google News",
@@ -924,42 +1037,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Phoebe Gates’ AI Startup Hits $180M In Under A Year Yohendrick Piñango (pPFDLIxjlB) - Mshale",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1hQV9pcHdaaVFxdUJaeHdCdW5uM1BHTXJ6OXhFWG5URXFHUDJrLXlLOHpyLXdkdWcxbVk4UEg3Uzh1SlJjV1BfSGk3Z01MWlJ2UEZqUTg2R3RBNkE?oc=5",
-      "publishedAt": "2026-08-22T06:21:43.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE1hQV9pcHdaaVFxdUJaeHdCdW5uM1BHTXJ6OXhFWG5URXFHUDJrLXlLOHpyLXdkdWcxbVk4UEg3Uzh1SlJjV1BfSGk3Z01MWlJ2UEZqUTg2R3RBNkE?oc=5\" target=\"_blank\">Phoebe Gates’ AI Startup Hits $180M In Under A Year Yohendrick Piñango (pPFDLIxjlB)</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Msh"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
       "title": "Starcloud’s $250 Million Raise Puts 88,000-Satellite AI Compute Plan in Focus at $2.3 Billion Valuation - ascendants.in",
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOM2toSG1XT0FPR3NFQ2E4d09PN1pjNmd2YTd5Z3A0NzdMUk0tSTdpZDNaWmlabk5Da3RqLXdGRXNucGdyYUdBTm9jVGlfMXlraHpWQXZjdGNieFFlV05lYlFfU3ZkRDY2VE40bmRFN2lxa0pibDg1elp0X2ZFV213Nzd2S0ZXOFVOWXU1QWRsUW9iLVg1dm9YUHVmUDU5U3B3LU41cHg0VmlOUUlSRUROSmhR?oc=5",
       "publishedAt": "2026-08-22T06:11:55.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMisgFBVV95cUxOM2toSG1XT0FPR3NFQ2E4d09PN1pjNmd2YTd5Z3A0NzdMUk0tSTdpZDNaWmlabk5Da3RqLXdGRXNucGdyYUdBTm9jVGlfMXlraHpWQXZjdGNieFFlV05lYlFfU3ZkRDY2VE40bmRFN2lxa0pibDg1elp0X2ZFV213Nzd2S0ZXOFVOWXU1QWRsUW9iLVg1dm9YUHVmUDU5U3B3LU41cHg0VmlOUUlSRUROSmhR?oc=5\" target=\"_blank\">Starclo"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "India joins China and South Korea in push for Arctic shipping routes",
-      "url": "https://www.scmp.com/week-asia/economics/article/3364859/india-joins-china-and-south-korea-push-arctic-shipping-routes?utm_source=rss_feed",
-      "publishedAt": "2026-08-22T06:00:33.000Z",
-      "summary": "Climate change and conflict are conspiring to open up the Arctic to Asian commercial shipping, with China, South Korea and India all eyeing the icy short cut to Europe. Last Saturday, Chinese shipping company Sea Legend launched the first scheduled weekly container service across the top of the world, marking the reali"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Components crunch: China’s carmakers face rising costs to keep intelligence edge",
-      "url": "https://www.scmp.com/business/china-evs/article/3364766/components-crunch-chinas-carmakers-face-rising-costs-keep-intelligence-edge?utm_source=rss_feed",
-      "publishedAt": "2026-08-22T06:00:26.000Z",
-      "summary": "Chinese smart vehicle makers have been hit by another setback as a global components shortage collides with surging prices of raw materials, driven by the artificial intelligence boom. It would take at least a year for the global supply chain to ramp up production of printed circuit boards (PCBs) and multilayer ceramic"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "US court strikes down Trump visa ban affecting South Asian nations",
-      "url": "https://www.scmp.com/news/world/united-states-canada/article/3364905/us-court-strikes-down-trump-visa-ban-affecting-south-asian-nations?utm_source=rss_feed",
-      "publishedAt": "2026-08-22T05:51:59.000Z",
-      "summary": "A US ⁠judge has struck down a Trump administration ⁠policy suspending the issuance of immigrant visas to applicants from 75 countries, saying that the policy exceeded Secretary of State Marco Rubio’s statutory authority. US District Judge Jeannette Vargas in Manhattan said on Friday ⁠that the policy that the ‌State Dep"
     },
     {
       "source": "Google News",
@@ -988,6 +1069,14 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
+      "title": "Perception vs. Reality: Leading in the Age of AI - GovTech",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNRDlIZHhPOHZSRHJlN29JR2lwejRpM1h1NFl3ZUh6WFJrSHYwS1FFem1PSTJneWlfTENmWjhWazJ1eFdKV1dOLVhNa3BkX0VmSVVKbjhHc0c5ZG9pYmUwQWNPdzZPX2JTamZzeXJ5SWZzVUhwYzhXRWY5WXJJd2YwbEJTZHFkUTJhMVp3b2tJU3N2TDVFS015YUd3?oc=5",
+      "publishedAt": "2026-08-22T04:47:05.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxNRDlIZHhPOHZSRHJlN29JR2lwejRpM1h1NFl3ZUh6WFJrSHYwS1FFem1PSTJneWlfTENmWjhWazJ1eFdKV1dOLVhNa3BkX0VmSVVKbjhHc0c5ZG9pYmUwQWNPdzZPX2JTamZzeXJ5SWZzVUhwYzhXRWY5WXJJd2YwbEJTZHFkUTJhMVp3b2tJU3N2TDVFS015YUd3?oc=5\" target=\"_blank\">Perception vs. Reality: Leading in the "
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
       "title": "AI Gets the Billions. India's Startup Money Is Moving Elsewhere - TICE News",
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPVU5ROV9xbm9EbFZMVVlQZHZMaGNVYjREbHJBSmp3OUlQcFNhVDRyMnZEa3owdDM3RGFMeGlOOFVVcWExS0xDQl9uRllEWWlxbGIzdDlmMkRmZDNqdXZCNVlzVm94UXhjb2UyQ3RCSjJnRTBOc2lZaDVqeTF6OFpaaEd3QjNrcFRJYTFWbkVxbkNsQTRicTJzTWJVRzJsTzZj0gGgAUFVX3lxTE9VTlE5X3Fub0RsVkxVWVBkdkxoY1ViNERsckFKanc5SVBwU2FUNHIydkRrejB0MzdEYUx4aU44VVVxYTFLTENCX25GWURZaXFsYjN0OWYyRGZkM2p1dkI1WXNWb3hReGNvZTJDdEJKMmdFME5zaVloNWp5MXo4WlpoR3dCM2twVElhMVZuRXFuQ2xBNGJxMnNNYlVHMmxPNmM?oc=5",
       "publishedAt": "2026-08-22T04:27:23.000Z",
@@ -1012,7 +1101,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Pakistan, Google Sign MoU to Deploy AI for Digital FBR - Profit by Pakistan Today",
+      "title": "Pakistan, Google sign MoU as tech giant to help FBR deploy AI for digitalisation - Profit by Pakistan Today",
       "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQMVRyaFRJQlJ2YUhXLWwwUlg5Vjl0dXg1NDFDQ0RsYzRJcC15LTJER3B5RURsR2NsU0Q4dnlVUVlaWVlOUk5PcnF0R0xNS1Zqb3pfN19FRlgyWXZUSmkwNUdXQkdfQWNFTVdUVXlWLTFINHhNR1kyWGVmdXRtZXJTVGhzUGd1aTBNUEotNzJYeXV2MVoxaE93cFdOY0hneUZiV0hsZmlfcTBINTZXem9weTN1ODlRS2F1bjlKX3lNaFkyZktE?oc=5",
       "publishedAt": "2026-08-22T03:35:39.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMixAFBVV95cUxQMVRyaFRJQlJ2YUhXLWwwUlg5Vjl0dXg1NDFDQ0RsYzRJcC15LTJER3B5RURsR2NsU0Q4dnlVUVlaWVlOUk5PcnF0R0xNS1Zqb3pfN19FRlgyWXZUSmkwNUdXQkdfQWNFTVdUVXlWLTFINHhNR1kyWGVmdXRtZXJTVGhzUGd1aTBNUEotNzJYeXV2MVoxaE93cFdOY0hneUZiV0hsZmlfcTBINTZXem9weTN1ODlRS2F1bjlKX3lNaFkyZktE?oc=5\""
@@ -1332,14 +1421,6 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "All In Capital leads pre-seed round in healthcare infrastructure startup Tross - Dailyhunt",
-      "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPSWpETHVXa0JwV3FIQmtIdU5NeDIwSEQwTlFkcTlvRTI3MGNKbDVWdWNSdG51MEhmRjFvR3drTFBUU0g5NkZ2a1VvSXdQOFRlLUFYYWljajlfRlRpa0JxbkR1X3NqbFBTdVM0eUpaM3FxMVItZnJIQUpJNF9zTHFMVWpPZFY2QkhFNDVGVk1TMVk4RUhRbzBrcDZWdms5YmhWZDFrMkh2SFRqZXNNMzRpUFB4QmNmTWhza2g3RkkwTHdoVFVNNHAwS1pMUm1vNEdfTW10SDJmVllwTzNHRWh1T0FlWkhjZENVbVl0V3phMWdVSU9QMHlIZS1ubk0xX1E?oc=5",
-      "publishedAt": "2026-08-21T20:08:49.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi_wFBVV95cUxPSWpETHVXa0JwV3FIQmtIdU5NeDIwSEQwTlFkcTlvRTI3MGNKbDVWdWNSdG51MEhmRjFvR3drTFBUU0g5NkZ2a1VvSXdQOFRlLUFYYWljajlfRlRpa0JxbkR1X3NqbFBTdVM0eUpaM3FxMVItZnJIQUpJNF9zTHFMVWpPZFY2QkhFNDVGVk1TMVk4RUhRbzBrcDZWdms5YmhWZDFrMkh2SFRqZXNNMzRpUFB4QmNmTWhza2g3RkkwTHdoVFVNNHAwS1"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
       "title": "Claude Security Now Runs on Mythos 5, Anthropic's Most Powerful Cyber Model Reaches Every Enterprise - Pasquale Pillitteri",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBUTkswdEZhRWZTcTlPZnpQRU9Wc3djQS0tdkxZRjZrQ0Z1eS1VR1VXR3loVlRhX00yY0xFU2NiQ0V3YzZzLVMzekVTR3pQQTFtTDBHbENiZ0dsTGpRa05rMHdWcGUwUktSNXV4SUg5X3NaVnRBc2VZMnl5Vm1oTkE?oc=5",
       "publishedAt": "2026-08-21T20:00:47.000Z",
@@ -1444,18 +1525,18 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Best AI Search (GEO/AEO) Agencies for Home Services (2026) Report Published by Lockhart Research - Barchart.com",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQZ1llcGRJTXF2SGNuWFFkdFRST0tmWDA5LUhXdGl1VEtZRW9aX29vX0h6NHh5VWt6R2RLZGpBcjVfVmJNdVdXN2NDbklqNWlMQ2RhOG5Yem04X1JybmNGVXVuNEVITTFad2hfU2U3cGwxbVp3b1ZXekZmZUlIeVhxbmk1cTFUOTh3OVVKTnVINEZFZlNDb0kzMHRVdklocHo3MnVZX1FzVk5yb0dZYmZGSmh4c0VNODZLcl9uV2kxQzNtQnQ3Ylo4NlFZbnBpMk56?oc=5",
-      "publishedAt": "2026-08-21T18:24:41.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi0AFBVV95cUxQZ1llcGRJTXF2SGNuWFFkdFRST0tmWDA5LUhXdGl1VEtZRW9aX29vX0h6NHh5VWt6R2RLZGpBcjVfVmJNdVdXN2NDbklqNWlMQ2RhOG5Yem04X1JybmNGVXVuNEVITTFad2hfU2U3cGwxbVp3b1ZXekZmZUlIeVhxbmk1cTFUOTh3OVVKTnVINEZFZlNDb0kzMHRVdklocHo3MnVZX1FzVk5yb0dZYmZGSmh4c0VNODZLcl9uV2kxQzNtQnQ3Ylo4Nl"
+      "title": "MarginEdge expands restaurant operations platform with $80M Series D - Technical.ly",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOV3BEYlpXTl85NDg2WS1QeGdJU2VLeGZIbWZ0bk04YXA3ZExDUlVfTF9jUXljd1hIOEhIR1pJaWZ0LUR6bGJWTVVvTHNLMW5XTDFBUDR2SjVQX0tPT255MDNVM1FYMFBER3k2WWxKZ1hDYk1YaFpsWGlaYXEtZkE0V09hWnllZDRwelhXeVo1QzRhUQ?oc=5",
+      "publishedAt": "2026-08-21T18:27:52.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxOV3BEYlpXTl85NDg2WS1QeGdJU2VLeGZIbWZ0bk04YXA3ZExDUlVfTF9jUXljd1hIOEhIR1pJaWZ0LUR6bGJWTVVvTHNLMW5XTDFBUDR2SjVQX0tPT255MDNVM1FYMFBER3k2WWxKZ1hDYk1YaFpsWGlaYXEtZkE0V09hWnllZDRwelhXeVo1QzRhUQ?oc=5\" target=\"_blank\">MarginEdge expands restaurant operations platform"
     },
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Japan to Require AI Firms to Disclose Training Data - TechStory",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE55SXZ2Z1lGOVdPemxIR2EzUXlGY25zWHZUYkhVSFdQamFoTkNJWjJjcHl6N0N5MGdabjdnWkZFeVlTVHJrYWg1VjZxNkxySC1zV2pxOEc4cVQ4N3JES2RfRFVtSEFZOWNrUGs3RDI5eThyU3kxMWVpSy04bE84Zw?oc=5",
-      "publishedAt": "2026-08-21T18:24:35.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMifkFVX3lxTE55SXZ2Z1lGOVdPemxIR2EzUXlGY25zWHZUYkhVSFdQamFoTkNJWjJjcHl6N0N5MGdabjdnWkZFeVlTVHJrYWg1VjZxNkxySC1zV2pxOEc4cVQ4N3JES2RfRFVtSEFZOWNrUGs3RDI5eThyU3kxMWVpSy04bE84Zw?oc=5\" target=\"_blank\">Japan to Require AI Firms to Disclose Training Data</a>&nbsp;&nbsp;<font colo"
+      "title": "Best AI Search (GEO/AEO) Agencies for Home Services (2026) Report Published by Lockhart Research - Barchart.com",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQZ1llcGRJTXF2SGNuWFFkdFRST0tmWDA5LUhXdGl1VEtZRW9aX29vX0h6NHh5VWt6R2RLZGpBcjVfVmJNdVdXN2NDbklqNWlMQ2RhOG5Yem04X1JybmNGVXVuNEVITTFad2hfU2U3cGwxbVp3b1ZXekZmZUlIeVhxbmk1cTFUOTh3OVVKTnVINEZFZlNDb0kzMHRVdklocHo3MnVZX1FzVk5yb0dZYmZGSmh4c0VNODZLcl9uV2kxQzNtQnQ3Ylo4NlFZbnBpMk56?oc=5",
+      "publishedAt": "2026-08-21T18:24:41.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi0AFBVV95cUxQZ1llcGRJTXF2SGNuWFFkdFRST0tmWDA5LUhXdGl1VEtZRW9aX29vX0h6NHh5VWt6R2RLZGpBcjVfVmJNdVdXN2NDbklqNWlMQ2RhOG5Yem04X1JybmNGVXVuNEVITTFad2hfU2U3cGwxbVp3b1ZXekZmZUlIeVhxbmk1cTFUOTh3OVVKTnVINEZFZlNDb0kzMHRVdklocHo3MnVZX1FzVk5yb0dZYmZGSmh4c0VNODZLcl9uV2kxQzNtQnQ3Ylo4Nl"
     },
     {
       "source": "Google News",
@@ -1666,22 +1747,6 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMirAFBVV95cUxPWnBZdHlsSTFKYXVaOHFKYklVYU9ZS193YjBJS1MzZ0VVX0Z0NXdVczZ0WDhzMlpDRFFiQkplQmh2MXdWd3k5em9xdkM5aVZ6U3kxTTRaRVJnZ1lZcGVhY2pRY2J5a08xYUZYZGhnZm0xdUNrZWxqcE5QS2JyU1pLbWU0SUpCQWFaUVNycG5jdUg0X2QyaFUtTGl6RllFeEozeUFjRmpRLVlrdWtw?oc=5\" target=\"_blank\">Accelerating ai"
     },
     {
-      "source": "TechCrunch",
-      "discoveryOnly": false,
-      "title": "Why is the DOJ investigating Andreessen Horowitz’s board seats?",
-      "url": "https://techcrunch.com/video/why-is-the-doj-investigating-andreessen-horowitzs-board-seats/",
-      "publishedAt": "2026-08-21T16:53:39.000Z",
-      "summary": "Andreessen Horowitz has two partners sitting on the boards of companies that now compete with each other: Ben Horowitz at Databricks and Martin Casado at Fivetran. Nothing too scandalous on the surface, except the Department of Justice has reportedly been investigating the arrangement for almost a year, dusting off a 1"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Meta Launches Pocket App That Lets You Create and Share Games - ProPakistani",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxObi0za3d2RnFQS3h4ZElSYXlFd3ZqYTItS29nTy13UTdwRFI3NEpOTmxLWHV3SlZYVlBDWEIwTWdDRHV1bjdYZVNvb0FWelZLaWtIWjRwVWFrRFN3dnBLUjJjeVl4SlowejBEWnhTdVd6R1hRWE5BTmh1VnZuUUJhZF9mSjRTa0RidG5NY1VYdmZTdHVFR2lEWXJJSzNhQdIBowFBVV95cUxOejAtV2t1NmhlN0dtcnA1NkZQcUhsRXpjX0pOZm5vSkhFWU5aWE5ELWRuYk9kdFhjcnFtbXdpU0tYcGpUUFFoSFhLVFNDREdxYzNfY2F5U3hlb2d6WFkwa3JYbmxIUHJyODM1LVk2S2EtQW80NFM0UW9uZEEwbW9rbjM0RzVObklXM0drTlIxNVVQYjBEM0l3bEI1SkZaTHYzM0ZF?oc=5",
-      "publishedAt": "2026-08-21T16:52:30.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMingFBVV95cUxObi0za3d2RnFQS3h4ZElSYXlFd3ZqYTItS29nTy13UTdwRFI3NEpOTmxLWHV3SlZYVlBDWEIwTWdDRHV1bjdYZVNvb0FWelZLaWtIWjRwVWFrRFN3dnBLUjJjeVl4SlowejBEWnhTdVd6R1hRWE5BTmh1VnZuUUJhZF9mSjRTa0RidG5NY1VYdmZTdHVFR2lEWXJJSzNhQdIBowFBVV95cUxOejAtV2t1NmhlN0dtcnA1NkZQcUhsRXpjX0pOZm5vSk"
-    },
-    {
       "source": "Ars Technica",
       "discoveryOnly": false,
       "title": "Fighter jets help destroy Russian drone boat near European offshore gas platform",
@@ -1764,6 +1829,14 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
+      "title": "Google Lost About $186 Billion After 4 of Its Top AI Researchers Left, but Sundar Pichai Says Google Will Be ‘A Founding Investor’ Anyway - Barchart.com",
+      "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNRG1FdDNKVV9taDhPekxydzcteDA1QXlKX1l4ZUtsQVBTdWc0ZXV2OHF3M1NETmg1SkFZbXp1U3JKbllYeERyMjZvQi10MHctWHhJVmJWVWNnd1BlRTRwbVRibnE1Ym4wMlVPeWFnNUs1SnB1aEJEbmh5ZkFaMndrelRwRzRhQXlWckRoVGRqcGxleHJTbVVSemxGbWJCd1VsbEsyN2RfVklRWVFPVUlHekFiZzlOQjBpZFRXZHNqWmVVZ2JxTUlwWVJGRDNwMUpYN1JkamNSX2VJeFpyb3BhcW5uOFFkWUR4cXVrMi1CU1U0RUxCMFhURi05RzBSTTVMOEJ0cHpvcG8?oc=5",
+      "publishedAt": "2026-08-21T15:48:17.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiAJBVV95cUxNRG1FdDNKVV9taDhPekxydzcteDA1QXlKX1l4ZUtsQVBTdWc0ZXV2OHF3M1NETmg1SkFZbXp1U3JKbllYeERyMjZvQi10MHctWHhJVmJWVWNnd1BlRTRwbVRibnE1Ym4wMlVPeWFnNUs1SnB1aEJEbmh5ZkFaMndrelRwRzRhQXlWckRoVGRqcGxleHJTbVVSemxGbWJCd1VsbEsyN2RfVklRWVFPVUlHekFiZzlOQjBpZFRXZHNqWmVVZ2JxTUlwWV"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
       "title": "The Week’s 10 Biggest Funding Rounds: Defense Tech, AI Tools And Infrastructure Lead The Way - Crunchbase News",
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPRG9JR041RTJKNHBDcmZBU3IzM05GNGNLZWEyeUJtSkxDa0tMOVk3OE5PcF9DaHZXX2tuZ21HWC00YnNGdXFjV2xoVWlOWjlVRmNFNV9VeHdmZi1XcEtMV1lEaEU0YXpDYnk2OXlFVWNsQmlSb0ViUERJbjgzRGN3VjZEd1VhZDZlRXRFaVBzNU1BaXBURWw1dFA0MnBudklUTWc?oc=5",
       "publishedAt": "2026-08-21T15:42:23.000Z",
@@ -1780,10 +1853,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Alberta’s AI data centre plans face heated questions at Redwater town hall - St. Albert Gazette",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNRWlNVUh6OURGWFVHRWlRS2Y4aFh0eElMLXZ2R3Q2UVZITFNFb2FKOTdfZnJpdF9OYk9UQ0g2cVF4b1hQYS1DZkZFUElyaVlGNW9GdHI5MnNZWDVja1puc0F3Qk45T0ZLNzVkdEZ5VU45SEUzU2M3cXZZaERFT2JaY3RUbTZLbDFXamltMnZIYkU4eGhqaGF4Zi1wZlpzaHQ4U0RzUi1EWkE1VEhEQlF4anVldEtYdUpCWHhFVVZ4dllEUlU?oc=5",
+      "title": "Beyond Local: Alberta’s AI data centre plans face heated questions at Redwater town hall - The Albertan",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPamF0RVQ2YmlEbVRKaUw2WXM5SGJpN1NuTTBJY2hWSHE1bXR1OFVvdE9ta0FwVFhIZS1xVTBNal8ydkI4VlJTOUdVTjg5ak1UWGd5dDE5Tmlyalloend4Q0FCSVpnOVU4RHZWOTFrLVpySEpQSjFFX2hBYi01clFBazNjWmdHTUo2TW9Pa1VFWm55b0NDOXdVeV9aZVVrY3ZkUXRibTRRRTdrVTJvLUIzZGhiU1VOUFRNVXI1U0pGY3U?oc=5",
       "publishedAt": "2026-08-21T15:27:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwwFBVV95cUxNRWlNVUh6OURGWFVHRWlRS2Y4aFh0eElMLXZ2R3Q2UVZITFNFb2FKOTdfZnJpdF9OYk9UQ0g2cVF4b1hQYS1DZkZFUElyaVlGNW9GdHI5MnNZWDVja1puc0F3Qk45T0ZLNzVkdEZ5VU45SEUzU2M3cXZZaERFT2JaY3RUbTZLbDFXamltMnZIYkU4eGhqaGF4Zi1wZlpzaHQ4U0RzUi1EWkE1VEhEQlF4anVldEtYdUpCWHhFVVZ4dllEUlU?oc=5\" "
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxPamF0RVQ2YmlEbVRKaUw2WXM5SGJpN1NuTTBJY2hWSHE1bXR1OFVvdE9ta0FwVFhIZS1xVTBNal8ydkI4VlJTOUdVTjg5ak1UWGd5dDE5Tmlyalloend4Q0FCSVpnOVU4RHZWOTFrLVpySEpQSjFFX2hBYi01clFBazNjWmdHTUo2TW9Pa1VFWm55b0NDOXdVeV9aZVVrY3ZkUXRibTRRRTdrVTJvLUIzZGhiU1VOUFRNVXI1U0pGY3U?oc=5\" targ"
     },
     {
       "source": "Google News",
@@ -1932,6 +2005,14 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
+      "title": "Meta Launches Pocket App That Lets You Create and Share Games - ProPakistani",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOejAtV2t1NmhlN0dtcnA1NkZQcUhsRXpjX0pOZm5vSkhFWU5aWE5ELWRuYk9kdFhjcnFtbXdpU0tYcGpUUFFoSFhLVFNDREdxYzNfY2F5U3hlb2d6WFkwa3JYbmxIUHJyODM1LVk2S2EtQW80NFM0UW9uZEEwbW9rbjM0RzVObklXM0drTlIxNVVQYjBEM0l3bEI1SkZaTHYzM0ZF0gGjAUFVX3lxTE56MC1Xa3U2aGU3R21ycDU2RlBxSGxFemNfSk5mbm9KSEVZTlpYTkQtZG5iT2R0WGNycW1td2lTS1hwalRQUWhIWEtUU0NER3FjM19jYXlTeGVvZ3pYWTBrclhubEhQcnI4MzUtWTZLYS1BbzQ0UzRRb25kQTBtb2tuMzRHNU5uSVczR2tOUjE1VVBiMEQzSXdsQjVKRlpMdjMzRkU?oc=5",
+      "publishedAt": "2026-08-21T12:42:36.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiowFBVV95cUxOejAtV2t1NmhlN0dtcnA1NkZQcUhsRXpjX0pOZm5vSkhFWU5aWE5ELWRuYk9kdFhjcnFtbXdpU0tYcGpUUFFoSFhLVFNDREdxYzNfY2F5U3hlb2d6WFkwa3JYbmxIUHJyODM1LVk2S2EtQW80NFM0UW9uZEEwbW9rbjM0RzVObklXM0drTlIxNVVQYjBEM0l3bEI1SkZaTHYzM0ZF0gGjAUFVX3lxTE56MC1Xa3U2aGU3R21ycDU2RlBxSGxFemNfSk"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
       "title": "AI Models’ ‘Creative’ Output is Becoming Similar Across Providers - Unite.AI",
       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNMVM5Q3ZqdkdtWThBZTlWNmU5M0RMRjBOQVpBbDZfVy1iQVlLWVUwM3BnaXdTX0dvdmJodVZUTUVmYm92eDJBQlZvdUZNeXUtS21fMlFFSzB5aHU2c3hGMTdCdUp5QXpGOWV0U0E4TEI0UzZwMEJPMTBuemFXeFFxQUNteWhBeFY4ZXJadw?oc=5",
       "publishedAt": "2026-08-21T12:41:06.000Z",
@@ -2020,10 +2101,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Building AI-ready institutions with ASCEND-AI - Open Access Government",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPaWRIdXRTSk5DMzlscGxFd0FCalliMDNJcG9WTFNEN082d3U4aG1oazR4X2ZiTDZQWkZ4eldUa3M5YkV5ZEYxa0FQM01mc3ZsTnplYk0xM0wtVUMyMlQwMkRIT0ludzRjTWQ5VnNXNDdaYUdpSjBlclRpY3o2WDU3WHFFR1RvX3hob2QyWGFGSFBreUdSQ1haVnpVQXV4ZDA?oc=5",
-      "publishedAt": "2026-08-21T11:49:11.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMinwFBVV95cUxPaWRIdXRTSk5DMzlscGxFd0FCalliMDNJcG9WTFNEN082d3U4aG1oazR4X2ZiTDZQWkZ4eldUa3M5YkV5ZEYxa0FQM01mc3ZsTnplYk0xM0wtVUMyMlQwMkRIT0ludzRjTWQ5VnNXNDdaYUdpSjBlclRpY3o2WDU3WHFFR1RvX3hob2QyWGFGSFBreUdSQ1haVnpVQXV4ZDA?oc=5\" target=\"_blank\">Building AI-ready institutions w"
+      "title": "Callosum Raises a $100 Million Seed Led by Atomico, UK Sovereign AI on the Cap Table: - HedgeCo.Net",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQYW1ITUVJcVNZZU0xQWlLT3Bud1FzMDVhSkU3S1BTTlEzek40Sl9WeEZTX3FLbFNaRWJPV0RDSU9jQ01WQ2RKblA3dXJYMjJOQzJWSzc5bjc1LUxxVHAtUTVTMUhfUlRYbW9Mb2wzcm5rMmttOVI3YTlRaEpQM3FJSlRxUkZtbHYxTW1ZNXowaWZxM3dEbm9ISFpNdUF3S3RGVlpvYlkzR3I2MGRFcWR4SkxtRnZCSzVYelJlRg?oc=5",
+      "publishedAt": "2026-08-21T11:49:15.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxQYW1ITUVJcVNZZU0xQWlLT3Bud1FzMDVhSkU3S1BTTlEzek40Sl9WeEZTX3FLbFNaRWJPV0RDSU9jQ01WQ2RKblA3dXJYMjJOQzJWSzc5bjc1LUxxVHAtUTVTMUhfUlRYbW9Mb2wzcm5rMmttOVI3YTlRaEpQM3FJSlRxUkZtbHYxTW1ZNXowaWZxM3dEbm9ISFpNdUF3S3RGVlpvYlkzR3I2MGRFcWR4SkxtRnZCSzVYelJlRg?oc=5\" target=\"_"
     },
     {
       "source": "Google News",
@@ -2044,18 +2125,18 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Anthropic launches Claude Academy with hundreds of AI lessons. What do they teach? - dev.ua",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE0wNmt4Ym1ON1RIRi04ZERDd0t5cmtscWtKVENJeGNhbDBjdHl0MmEzVHpxQVpSTzVCcFBueGUycHF1azQtQWpRTUp6Q3NHWkNHN1NxdUswYkRjTy1X?oc=5",
-      "publishedAt": "2026-08-21T11:25:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE0wNmt4Ym1ON1RIRi04ZERDd0t5cmtscWtKVENJeGNhbDBjdHl0MmEzVHpxQVpSTzVCcFBueGUycHF1azQtQWpRTUp6Q3NHWkNHN1NxdUswYkRjTy1X?oc=5\" target=\"_blank\">Anthropic launches Claude Academy with hundreds of AI lessons. What do they teach?</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">dev"
+      "title": "Google, Pele Brand Reconstruct Legendary 1959 Lost Goal 07/14/2026 - MediaPost",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOWnJjOU1JQVB4TDJLT1kwWjdoTjNHN3F3dWl6cTZKS003VEFUQ293NjZmUGR6azN5bkE1ZzdOZjJuSGF3UXp0M2ZIOGYxRDBHWGxYUEQ1bDFHR19tS2ZIVVZnQkh6dWpLOEJRRDFZU3pSNmRFOXJ6T0xTN2RPVjdBRXFrdGdDb0JuNFlkZ1BmS3VoanFBOGZHT1hnWkxWUkt1c3lPZ2tUVGZqUVFMMld0UmVCX3VOZUE4?oc=5",
+      "publishedAt": "2026-08-21T11:25:40.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxOWnJjOU1JQVB4TDJLT1kwWjdoTjNHN3F3dWl6cTZKS003VEFUQ293NjZmUGR6azN5bkE1ZzdOZjJuSGF3UXp0M2ZIOGYxRDBHWGxYUEQ1bDFHR19tS2ZIVVZnQkh6dWpLOEJRRDFZU3pSNmRFOXJ6T0xTN2RPVjdBRXFrdGdDb0JuNFlkZ1BmS3VoanFBOGZHT1hnWkxWUkt1c3lPZ2tUVGZqUVFMMld0UmVCX3VOZUE4?oc=5\" target=\"_blank\""
     },
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "I worked at OpenAI. Here are the guardrails we need now | Miles Brundage - The Guardian",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPY1FuS0ZpTFcxZnl2MGU3SF9XcEhhOGd6M3FnLVg3emZ3VFhjeTgwVXdyMjZlRkNDbkpuU1lDRkpjVG5tVjkxczdtbVhOeUR2S3NjVDQ4RmF6RjM2TWpKR3FsVmlBaXROX0RmeDZCNnI0OE9QN2pLRDdsRkNOQ3E0aWVEcFM?oc=5",
-      "publishedAt": "2026-08-21T11:21:50.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMihAFBVV95cUxPY1FuS0ZpTFcxZnl2MGU3SF9XcEhhOGd6M3FnLVg3emZ3VFhjeTgwVXdyMjZlRkNDbkpuU1lDRkpjVG5tVjkxczdtbVhOeUR2S3NjVDQ4RmF6RjM2TWpKR3FsVmlBaXROX0RmeDZCNnI0OE9QN2pLRDdsRkNOQ3E0aWVEcFM?oc=5\" target=\"_blank\">I worked at OpenAI. Here are the guardrails we need now | Miles Brun"
+      "title": "Anthropic launches Claude Academy with hundreds of AI lessons. What do they teach? - dev.ua",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE0wNmt4Ym1ON1RIRi04ZERDd0t5cmtscWtKVENJeGNhbDBjdHl0MmEzVHpxQVpSTzVCcFBueGUycHF1azQtQWpRTUp6Q3NHWkNHN1NxdUswYkRjTy1X?oc=5",
+      "publishedAt": "2026-08-21T11:25:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE0wNmt4Ym1ON1RIRi04ZERDd0t5cmtscWtKVENJeGNhbDBjdHl0MmEzVHpxQVpSTzVCcFBueGUycHF1azQtQWpRTUp6Q3NHWkNHN1NxdUswYkRjTy1X?oc=5\" target=\"_blank\">Anthropic launches Claude Academy with hundreds of AI lessons. What do they teach?</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">dev"
     },
     {
       "source": "Google News",
@@ -2082,36 +2163,12 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMisgJBVV95cUxQVGlfSXVMdmVDODNQUmcyTTBoLWFGUVkxbnVaR204cEUzbVAyXzVraDlrTEV5eWdtNktQSmV6T3VOWFkzRVJha3VCaE5zSHh2RHl4dm9zN3Y4R05LcVlNcTkzRkpQTGJYdUU5VFl4a05vY0dTQ2toTkU5eVBzOG5JeDV3QVZJYS0yRERqZS1HNDJvcE1Ma0o4cFo0aElGcE9wQ3htTEhqV0YwTGFLaFN0d3FiQVhGWTdCdEdfUlFURVpSMllCMWgtRU"
     },
     {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "AI-Driven Modular Microfactories Emerge as a Global Manufacturing Frontier, Backed by Record Investment and Government Policy Mandates - Yahoo Finance Singapore",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQODBrRl9FU3lrcjVHalo4a2VVWUhBaVpLLUoxc2hKMC1qaXBmTm1CNkE1MEtaTFNQbkxRZU54THFSZW1Id0M1TnkzSmhEMmprRHRHTHNxblktUkVmNVdvUUJFdm1FeGxwdTUzSXdIeGFaUlJ0RmJsbUNZS3UyLXdrZkZSX3htUzVzTFZLa0paWTFoUQ?oc=5",
-      "publishedAt": "2026-08-21T11:15:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxQODBrRl9FU3lrcjVHalo4a2VVWUhBaVpLLUoxc2hKMC1qaXBmTm1CNkE1MEtaTFNQbkxRZU54THFSZW1Id0M1TnkzSmhEMmprRHRHTHNxblktUkVmNVdvUUJFdm1FeGxwdTUzSXdIeGFaUlJ0RmJsbUNZS3UyLXdrZkZSX3htUzVzTFZLa0paWTFoUQ?oc=5\" target=\"_blank\">AI-Driven Modular Microfactories Emerge as a Glob"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Funding Wrap: CtrlS, Navi, Rezolv raise fresh capital - ET Entrepreneur",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNX0toY3RxeU5XdG82QXhEVFNhVWZ2QkR0MVU0Zmgxc1h6Y1RUcUdxLUd3a2xLemU0akUwMXlxeENkZktaWHBRTGhsZ0xVYUtOMVVYOVRUMWwzaHZzcHEzNThCQXZ6Tm93UGNTNkhuVG9HMUFZMWdGSE54cHJjU09DMEpqaEkybHJua1FvNU4xVDJSLXplcC1tX0MtWWFRc2lzaDMwb1JyQzlYeHlSOEhKLVdiUXR5U1lTRmlFVjR5LXNYQndGMHfSAcYBQVVfeXFMTV9LaGN0cXlOV3RvNkF4RFRTYVVmdkJEdDFVNGZoMXNYemNUVHFHcS1Hd2tsS3plNGpFMDF5cXhDZGZLWlhwUUxobGdMVWFLTjFVWDlUVDFsM2h2c3BxMzU4QkF2ek5vd1BjUzZIblRvRzFBWTFnRkhOeHByY1NPQzBKamhJMmxybmtRbzVOMVQyUi16ZXAtbV9DLVlhUXNpc2gzMG9SckM5WHh5UjhISi1XYlF0eVNZU0ZpRVY0eS1zWEJ3RjB3?oc=5",
-      "publishedAt": "2026-08-21T11:03:10.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMixgFBVV95cUxNX0toY3RxeU5XdG82QXhEVFNhVWZ2QkR0MVU0Zmgxc1h6Y1RUcUdxLUd3a2xLemU0akUwMXlxeENkZktaWHBRTGhsZ0xVYUtOMVVYOVRUMWwzaHZzcHEzNThCQXZ6Tm93UGNTNkhuVG9HMUFZMWdGSE54cHJjU09DMEpqaEkybHJua1FvNU4xVDJSLXplcC1tX0MtWWFRc2lzaDMwb1JyQzlYeHlSOEhKLVdiUXR5U1lTRmlFVjR5LXNYQndGMHfSAc"
-    },
-    {
       "source": "Ars Technica",
       "discoveryOnly": false,
       "title": "As demand for Meta AI glasses explodes, it’s harder to avoid creepy recordings",
       "url": "https://arstechnica.com/tech-policy/2026/08/meta-ai-glasses-may-get-creepier-and-apps-that-detect-them-arent-perfect/",
       "publishedAt": "2026-08-21T11:00:53.000Z",
       "summary": "Ars looks at Zuckoff, the latest free app detecting Meta AI glasses amid privacy backlash."
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "5 Interesting Startup Deals You May Have Missed: AI For Everything From Recycling To Breathing To Winning Construction Bids - Crunchbase News",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOSW5ZLXFkcUZGYU5kT2JwemNnTHpVdmx6SzZoWlNic3I1VVFIdERPZlhUZm1pdnJqTGRZZUoxS1BvRGxFS3dPZW9wa2hWbk16dHdqeFBBTGdZaGZkSXlScVc3U3RuYUptNU9kdTY3czM4bGxqeXBtTzlMMGNxUVBaUnJacmpuTTNpTmtHTF9kYjIwM3FHVjcybnUyZw?oc=5",
-      "publishedAt": "2026-08-21T11:00:42.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimwFBVV95cUxOSW5ZLXFkcUZGYU5kT2JwemNnTHpVdmx6SzZoWlNic3I1VVFIdERPZlhUZm1pdnJqTGRZZUoxS1BvRGxFS3dPZW9wa2hWbk16dHdqeFBBTGdZaGZkSXlScVc3U3RuYUptNU9kdTY3czM4bGxqeXBtTzlMMGNxUVBaUnJacmpuTTNpTmtHTF9kYjIwM3FHVjcybnUyZw?oc=5\" target=\"_blank\">5 Interesting Startup Deals You May H"
     },
     {
       "source": "Ars Technica",
@@ -2140,7 +2197,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Tencent’s In-Testing Agent Wallet Preempted by Amazon: Key Developments in AI-Powered Digital Wallet Innovation - 36Kr",
+      "title": "Tencent’s In-Testing Agent Wallet Preempted by Amazon: Key Developments in AI-Powered Digital Wallet Innovation - 36 Kr",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBSUTdkNzd6NjNSNDRXcnhwSXBGZ2M4YWw3OWFwSE1hWmFSaEhlQTNMNEVkN0RPUkRkTmFpVk1fVDRJV2lZYkhlQ3RhSlZ4bGtUR1FR?oc=5",
       "publishedAt": "2026-08-21T10:52:34.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiU0FVX3lxTFBSUTdkNzd6NjNSNDRXcnhwSXBGZ2M4YWw3OWFwSE1hWmFSaEhlQTNMNEVkN0RPUkRkTmFpVk1fVDRJV2lZYkhlQ3RhSlZ4bGtUR1FR?oc=5\" target=\"_blank\">Tencent’s In-Testing Agent Wallet Preempted by Amazon: Key Developments in AI-Powered Digital Wallet Innovation</a>&nbsp;&nbsp;<font co"
@@ -2184,14 +2241,6 @@
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNa0F2VTRObWowNUoyZlFFc1g1UzlhSnE4czVnT3RrX0htNVYtTnFJYzQtcWRyRlV5aF8wbTVhQWE5ZG5XVkZpOEtQblRLY3lFS2NVbFJVc1h3OGFsMEh3MTRVZjBURjVxN3IycVMwM1ZWRkNOS2YyYmZMVDhhUUFQV3ZGcDgtaFk2SElGUUhfcXB1VEdUSDBDZmxKZHhRTTNTNnc?oc=5",
       "publishedAt": "2026-08-21T10:22:22.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiogFBVV95cUxNa0F2VTRObWowNUoyZlFFc1g1UzlhSnE4czVnT3RrX0htNVYtTnFJYzQtcWRyRlV5aF8wbTVhQWE5ZG5XVkZpOEtQblRLY3lFS2NVbFJVc1h3OGFsMEh3MTRVZjBURjVxN3IycVMwM1ZWRkNOS2YyYmZMVDhhUUFQV3ZGcDgtaFk2SElGUUhfcXB1VEdUSDBDZmxKZHhRTTNTNnc?oc=5\" target=\"_blank\">New Anthropic safety system "
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Plymouth-based Oshen raises €4.27 million to scale robot swarms that act as the ocean’s “eyes and ears” - EU-Startups",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOMFY4M3IxQ1dpbVc2U09EVko1cDBVeG96YXNaTFF1VHRsNGxOVndsc3hxc0JadHRMalFfZ0hKOWlkcEY3ZXhyclJ3QTk0TkxYSGVSTDI2UXBsdXFrZ3JUd0VTV1Zwak1JV0gtbEI4VDEtOWh0V1h4aVVGbVMyUXV6ZG1fYi1VSUJzd0x2NklMNHlacVRhcFJzeGN4RzZULXliaDJ1UU82emdvQV9uNVVVd3REdlBObGhBX0lHMFhUcHVOd29zYjluQ2lPeHprN2wwTW9N?oc=5",
-      "publishedAt": "2026-08-21T10:14:27.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi0wFBVV95cUxOMFY4M3IxQ1dpbVc2U09EVko1cDBVeG96YXNaTFF1VHRsNGxOVndsc3hxc0JadHRMalFfZ0hKOWlkcEY3ZXhyclJ3QTk0TkxYSGVSTDI2UXBsdXFrZ3JUd0VTV1Zwak1JV0gtbEI4VDEtOWh0V1h4aVVGbVMyUXV6ZG1fYi1VSUJzd0x2NklMNHlacVRhcFJzeGN4RzZULXliaDJ1UU82emdvQV9uNVVVd3REdlBObGhBX0lHMFhUcHVOd29zYjluQ2"
     },
     {
       "source": "Google News",
@@ -2260,26 +2309,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "What VNV's marks imply for Breadfast and Baly, new Saudi growth fund - FWDStart",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPTEIxSC02S3JlQ0FUM2tzTzlWMUxGenVtcm43dWphNkZuWmJoWG02dnI5LTN1SHJ4Y2ZZVTZVWmV6SnZPWG9GS0w0bmNHR0tKRE9rMnpDYXZLdy1pTEtQUXAxeFI4NGtlZ3FLLUtWbkw4Z2RBTm9ORGIwTXZuUThqT211YXl2STVUb0V0QldMMk9sNV9pbFppbQ?oc=5",
-      "publishedAt": "2026-08-21T08:50:19.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxPTEIxSC02S3JlQ0FUM2tzTzlWMUxGenVtcm43dWphNkZuWmJoWG02dnI5LTN1SHJ4Y2ZZVTZVWmV6SnZPWG9GS0w0bmNHR0tKRE9rMnpDYXZLdy1pTEtQUXAxeFI4NGtlZ3FLLUtWbkw4Z2RBTm9ORGIwTXZuUThqT211YXl2STVUb0V0QldMMk9sNV9pbFppbQ?oc=5\" target=\"_blank\">What VNV's marks imply for Breadfast and "
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
       "title": "OpenAI GPT-5.6 Terra and Luna Models now available on Amazon Bedrock in India - varindia.com",
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQRG9HcVVvMUhkbW96Rlo5NGJhYmFRMndDWTNPU0ZlQUVhVVhaNzRnZHBSam9SQjNYZG9QYWNsTERYMW5jYjdiVVpMb191TkhYMExqeHh4VlcyRmc5NG8xenJzQXV1OEs4Q3oxNE1sNS1GRzc5bUFKUDY4dUtFS251TzRYUHBPbWl1VjdUR0RCS0hQMDlGa1ZNQ0gzRUlZbmg0cnY2cmc5dFhsYWs?oc=5",
       "publishedAt": "2026-08-21T08:12:45.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqwFBVV95cUxQRG9HcVVvMUhkbW96Rlo5NGJhYmFRMndDWTNPU0ZlQUVhVVhaNzRnZHBSam9SQjNYZG9QYWNsTERYMW5jYjdiVVpMb191TkhYMExqeHh4VlcyRmc5NG8xenJzQXV1OEs4Q3oxNE1sNS1GRzc5bUFKUDY4dUtFS251TzRYUHBPbWl1VjdUR0RCS0hQMDlGa1ZNQ0gzRUlZbmg0cnY2cmc5dFhsYWs?oc=5\" target=\"_blank\">OpenAI GPT-5.6 T"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Hyundai Motor's 'Ioniq V', Pre-orders Begin in China Starting at 22.8 Million Won - starnewskorea.com",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPWGwtbk5SeFpNSEFxZFk2MGpKemwyVFVtUV84WnJpWmlMbVFHNjY4QmExRV9iajlOaWlfREt2d0o3ZDhaNWRiRFAxTkJueE5TaUFEN21lOXNxcTJTQXNieGVWZlIwaTRpWGx0aTRGcGpCcE5DeU9XTzlYM1RHRVJaVHBWZw?oc=5",
-      "publishedAt": "2026-08-21T07:58:09.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMigwFBVV95cUxPWGwtbk5SeFpNSEFxZFk2MGpKemwyVFVtUV84WnJpWmlMbVFHNjY4QmExRV9iajlOaWlfREt2d0o3ZDhaNWRiRFAxTkJueE5TaUFEN21lOXNxcTJTQXNieGVWZlIwaTRpWGx0aTRGcGpCcE5DeU9XTzlYM1RHRVJaVHBWZw?oc=5\" target=\"_blank\">Hyundai Motor's 'Ioniq V', Pre-orders Begin in China Starting at 22.8"
     },
     {
       "source": "Google News",
@@ -2304,6 +2337,14 @@
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOZ2NBOHk2ZXNlQ1ZQR1pLckJHVlNrM1FERDh2ZGtDNm5Zd2N1SExENDNUUmN5R2sxdGlGaWdONlFxWWw2U3lFVWJVXzR6YTVoSFhzSmdoY2JMOUJMOXpmR0lsVXUwd0xKeVRRQmdxNG1QN0RlaTFIT3d0T0Z4aXdxay11OUw?oc=5",
       "publishedAt": "2026-08-21T07:00:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMihAFBVV95cUxOZ2NBOHk2ZXNlQ1ZQR1pLckJHVlNrM1FERDh2ZGtDNm5Zd2N1SExENDNUUmN5R2sxdGlGaWdONlFxWWw2U3lFVWJVXzR6YTVoSFhzSmdoY2JMOUJMOXpmR0lsVXUwd0xKeVRRQmdxNG1QN0RlaTFIT3d0T0Z4aXdxay11OUw?oc=5\" target=\"_blank\">OpenAI Announces Over 20% GPT-5.6 Sol Price Cut, Undercutting Claude"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Amazon Reports Strong Q3 Amid AI and Cloud Expansion - TechRepublic",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBzUEZGdUNmLWhieUJ3MnZsQjl0WTQ1aGlOVDFpY3Q0dC1IemM1T3JnZlV5V3d0eVlEbk4wWjlLTjJmNXlSNEtGVXU2eDM1M042MVRuY1NmZko1MVBjSjdpLTZwTmxoemVYb3lVcHRzaWRWWjRVV3g0?oc=5",
+      "publishedAt": "2026-08-21T07:00:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMid0FVX3lxTFBzUEZGdUNmLWhieUJ3MnZsQjl0WTQ1aGlOVDFpY3Q0dC1IemM1T3JnZlV5V3d0eVlEbk4wWjlLTjJmNXlSNEtGVXU2eDM1M042MVRuY1NmZko1MVBjSjdpLTZwTmxoemVYb3lVcHRzaWRWWjRVV3g0?oc=5\" target=\"_blank\">Amazon Reports Strong Q3 Amid AI and Cloud Expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6"
     },
     {
       "source": "WIRED",
@@ -2332,22 +2373,6 @@
     {
       "source": "WIRED",
       "discoveryOnly": false,
-      "title": "Paramount+ Coupon Codes and Deals for August 2026",
-      "url": "https://www.wired.com/story/paramount-plus-coupon-code/",
-      "publishedAt": "2026-08-21T05:00:00.000Z",
-      "summary": "Save on streaming with the latest Paramount+ promo codes and deals, including 50% off subscriptions, free trials, and more."
-    },
-    {
-      "source": "WIRED",
-      "discoveryOnly": false,
-      "title": "Zoro Coupon Codes: 55% Off August",
-      "url": "https://www.wired.com/story/zoro-promo-code/",
-      "publishedAt": "2026-08-21T05:00:00.000Z",
-      "summary": "Find the best Zoro coupon codes, deals, and free shipping offers to save big on industrial equipment, tools, and supplies this month."
-    },
-    {
-      "source": "WIRED",
-      "discoveryOnly": false,
       "title": "NordVPN Coupons: 75% Off, Plus 3 Months Free in August 2026",
       "url": "https://www.wired.com/story/nordvpn-coupon/",
       "publishedAt": "2026-08-21T05:00:00.000Z",
@@ -2364,10 +2389,18 @@
     {
       "source": "WIRED",
       "discoveryOnly": false,
-      "title": "Home Depot Promo Codes: 30% Off in August 2026",
-      "url": "https://www.wired.com/story/home-depot-promo-code/",
+      "title": "Paramount+ Coupon Codes and Deals for August 2026",
+      "url": "https://www.wired.com/story/paramount-plus-coupon-code/",
       "publishedAt": "2026-08-21T05:00:00.000Z",
-      "summary": "Save up to 50% today with the latest Home Depot promo codes for appliances, power tools, and more this August."
+      "summary": "Save on streaming with the latest Paramount+ promo codes and deals, including 50% off subscriptions, free trials, and more."
+    },
+    {
+      "source": "WIRED",
+      "discoveryOnly": false,
+      "title": "Zoro Coupon Codes: 55% Off August",
+      "url": "https://www.wired.com/story/zoro-promo-code/",
+      "publishedAt": "2026-08-21T05:00:00.000Z",
+      "summary": "Find the best Zoro coupon codes, deals, and free shipping offers to save big on industrial equipment, tools, and supplies this month."
     },
     {
       "source": "WIRED",
@@ -2380,34 +2413,10 @@
     {
       "source": "WIRED",
       "discoveryOnly": false,
-      "title": "Lenovo Coupon Codes: 15% Off in August 2026",
-      "url": "https://www.wired.com/story/lenovo-coupon-code/",
-      "publishedAt": "2026-08-21T05:00:00.000Z",
-      "summary": "Whether you’re shopping for a ThinkPad, Yoga laptop, or Legion gaming PC, these Lenovo discount codes and promotions can help you save big on your next tech upgrade."
-    },
-    {
-      "source": "WIRED",
-      "discoveryOnly": false,
       "title": "Meta Quest Promo Codes and Coupons for August 2026",
       "url": "https://www.wired.com/story/meta-quest-promo-code/",
       "publishedAt": "2026-08-21T05:00:00.000Z",
       "summary": "Experience cutting-edge VR and save up to 20% with coupons for the latest games, Meta Quest 3, Ray-Ban AI glasses, and more deals."
-    },
-    {
-      "source": "WIRED",
-      "discoveryOnly": false,
-      "title": "Ray-Ban Promo Codes: Save 50% in August 2026",
-      "url": "https://www.wired.com/story/ray-ban-promo-code/",
-      "publishedAt": "2026-08-21T05:00:00.000Z",
-      "summary": "Upgrade your frames with major savings on classic shapes, custom designs, and prescription lenses using these verified Ray-Ban discounts."
-    },
-    {
-      "source": "WIRED",
-      "discoveryOnly": false,
-      "title": "30% Off Canon Promo Codes | August 2026",
-      "url": "https://www.wired.com/story/canon-promo-code/",
-      "publishedAt": "2026-08-21T05:00:00.000Z",
-      "summary": "Save an extra 10% or 30% with Canon coupon codes, plus up to $1,600 on cameras, printers, and more this August."
     },
     {
       "source": "WIRED",
@@ -2424,6 +2433,38 @@
       "url": "https://www.wired.com/story/hoka-coupon-code/",
       "publishedAt": "2026-08-21T05:00:00.000Z",
       "summary": "Unlock free expedited shipping or 10% off with today’s Hoka discount codes, plus save up to 30% with the best discounts for August 2026."
+    },
+    {
+      "source": "WIRED",
+      "discoveryOnly": false,
+      "title": "Lenovo Coupon Codes: 15% Off in August 2026",
+      "url": "https://www.wired.com/story/lenovo-coupon-code/",
+      "publishedAt": "2026-08-21T05:00:00.000Z",
+      "summary": "Whether you’re shopping for a ThinkPad, Yoga laptop, or Legion gaming PC, these Lenovo discount codes and promotions can help you save big on your next tech upgrade."
+    },
+    {
+      "source": "WIRED",
+      "discoveryOnly": false,
+      "title": "30% Off Canon Promo Codes | August 2026",
+      "url": "https://www.wired.com/story/canon-promo-code/",
+      "publishedAt": "2026-08-21T05:00:00.000Z",
+      "summary": "Save an extra 10% or 30% with Canon coupon codes, plus up to $1,600 on cameras, printers, and more this August."
+    },
+    {
+      "source": "WIRED",
+      "discoveryOnly": false,
+      "title": "Ray-Ban Promo Codes: Save 50% in August 2026",
+      "url": "https://www.wired.com/story/ray-ban-promo-code/",
+      "publishedAt": "2026-08-21T05:00:00.000Z",
+      "summary": "Upgrade your frames with major savings on classic shapes, custom designs, and prescription lenses using these verified Ray-Ban discounts."
+    },
+    {
+      "source": "WIRED",
+      "discoveryOnly": false,
+      "title": "Home Depot Promo Codes: 30% Off in August 2026",
+      "url": "https://www.wired.com/story/home-depot-promo-code/",
+      "publishedAt": "2026-08-21T05:00:00.000Z",
+      "summary": "Save up to 50% today with the latest Home Depot promo codes for appliances, power tools, and more this August."
     },
     {
       "source": "WIRED",
@@ -2456,14 +2497,6 @@
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNNHROU1VCeURmZHVLLXJnRTlCd0wxMFJVVm1MTDRYSWZTYkpSRDNKOF8tcHpsUGo3MVk0dUN2cTFoNGZEZ1hPRElkWE1YOExzWDhQZV9fRGxoYW9IMDV0N0oycEU0RDdldWlmem9uankwdldWeVNvVE1MYWw2UkNBWGZ1ZzdOYVl1eUhXLThzSQ?oc=5",
       "publishedAt": "2026-08-21T03:42:21.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMijwFBVV95cUxNNHROU1VCeURmZHVLLXJnRTlCd0wxMFJVVm1MTDRYSWZTYkpSRDNKOF8tcHpsUGo3MVk0dUN2cTFoNGZEZ1hPRElkWE1YOExzWDhQZV9fRGxoYW9IMDV0N0oycEU0RDdldWlmem9uankwdldWeVNvVE1MYWw2UkNBWGZ1ZzdOYVl1eUhXLThzSQ?oc=5\" target=\"_blank\">Anthropic Watermarks Claude to Meet New EU AI Act Rul"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "RUFARO MAFINYANI | The AI tool landscape — a curated map by business function - Business Day",
-      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOWXR3N3B3eUdlUHdBVEdSTTh3d21wN0dYTHd0T3ZiTHMwSmpaQ3FVa0VNTDh6bzI0WTVmS2t3N3JHdEI2ZjFvVVBEWGRqV0tRblBZWVg4U2pDLXVELVd6b3hfMFM0RG0wYXo2a0tsTXNGZmp0TENOcFBvN0JfNGhZc1dQNGhhOHF3cm81czJkSHpENWxUN00wbVN0Y2llY0E5Vmd4SDIxLU9VUFhndkNsZVlvVjNjai1vZWk3ZU1oeWU?oc=5",
-      "publishedAt": "2026-08-21T03:00:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxOWXR3N3B3eUdlUHdBVEdSTTh3d21wN0dYTHd0T3ZiTHMwSmpaQ3FVa0VNTDh6bzI0WTVmS2t3N3JHdEI2ZjFvVVBEWGRqV0tRblBZWVg4U2pDLXVELVd6b3hfMFM0RG0wYXo2a0tsTXNGZmp0TENOcFBvN0JfNGhZc1dQNGhhOHF3cm81czJkSHpENWxUN00wbVN0Y2llY0E5Vmd4SDIxLU9VUFhndkNsZVlvVjNjai1vZWk3ZU1oeWU?oc=5\" targ"
     },
     {
       "source": "VentureBeat",
@@ -3210,14 +3243,6 @@
       "summary": "Accurate and responsible medical question answering (QA) is important in healthcare, where complex cases require factual knowledge and nuanced reasoning. Existing medical QA systems, typically based on single-agent architectures and static retrieval, often lack adaptability, persistent memory, and structured decision-m"
     },
     {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "OBLITERATUS/Qwen3.8-27B-OBLITERATED",
-      "url": "https://huggingface.co/OBLITERATUS/Qwen3.8-27B-OBLITERATED",
-      "publishedAt": "2026-08-19T14:53:08.000Z",
-      "summary": "mlx, safetensors, gguf, qwen3_5, abliterated, uncensored"
-    },
-    {
       "source": "arXiv — cs.MA",
       "discoveryOnly": false,
       "title": "DentAgent: Evidence-Centric Multi-Agent Coordination for Multimodal Dental Reasoning",
@@ -3378,22 +3403,6 @@
       "summary": "Asana used OpenAI Codex to replace an outdated testing system in two weeks, completing work expected to take five years for about $12K."
     },
     {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "ornith-ai/Ornith-1.5-35B-A3B-GGUF",
-      "url": "https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B-GGUF",
-      "publishedAt": "2026-08-18T06:38:41.000Z",
-      "summary": "transformers, gguf, text-generation, license:mit, endpoints_compatible, region:us"
-    },
-    {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "ornith-ai/Ornith-1.5-35B-A3B",
-      "url": "https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B",
-      "publishedAt": "2026-08-18T06:24:38.000Z",
-      "summary": "transformers, safetensors, qwen3_5_moe, image-text-to-text, text-generation, conversational"
-    },
-    {
       "source": "OpenAI",
       "discoveryOnly": false,
       "title": "How NVIDIA scales expertise with ChatGPT Work",
@@ -3418,22 +3427,6 @@
       "summary": null
     },
     {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
-      "url": "https://huggingface.co/HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
-      "publishedAt": "2026-08-17T15:15:19.000Z",
-      "summary": "gguf, uncensored, qwen3.8, multimodal, vision, mtp"
-    },
-    {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
-      "url": "https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-MLX",
-      "publishedAt": "2026-08-17T14:10:50.000Z",
-      "summary": "mlx, safetensors, qwen3_5, abliterated, qwen3.8, uncensored"
-    },
-    {
       "source": "IEEE Spectrum — AI",
       "discoveryOnly": false,
       "title": "From AI Copilots to Agent Swarms",
@@ -3456,14 +3449,6 @@
       "url": "https://blogs.nvidia.com/blog/securing-the-infrastructure-of-intelligence/",
       "publishedAt": "2026-08-17T12:34:51.000Z",
       "summary": "AI factories are the defining infrastructure of the AI era — where compute transforms energy and data into intelligence that powers every business, industry and country. In the AI economy, compute is revenue. AI factories require a full stack of critical resources: advanced chips, packaging, memory and networking — as "
-    },
-    {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "DavidAU/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-NM-DAU-NEO-MAX-MTP-GGUF",
-      "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-NM-DAU-NEO-MAX-MTP-GGUF",
-      "publishedAt": "2026-08-17T08:48:09.000Z",
-      "summary": "gguf, qwen3_5, unsloth, GAIN Training, COLD-FUSION, finetune"
     },
     {
       "source": "Google AI",
@@ -3498,14 +3483,6 @@
       "summary": "OpenAI funds 14 independent projects exploring new AI policy ideas to expand economic opportunity and strengthen societal resilience in the Intelligence Age."
     },
     {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF",
-      "url": "https://huggingface.co/huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF",
-      "publishedAt": "2026-08-16T13:18:55.000Z",
-      "summary": "transformers, gguf, abliterated, uncensored, huihui, qwen3"
-    },
-    {
       "source": "IEEE Spectrum — AI",
       "discoveryOnly": false,
       "title": "The CPU Comeback Is Upon Us",
@@ -3514,60 +3491,12 @@
       "summary": "Earlier this year, leaders at Amazon Web Services delivered a new mandate to their engineers: They need to conserve CPU cycles at all costs. AWS has reportedly experienced an explosion in wait times for CPU server capacity as AI workloads strain the company’s cloud infrastructure. The issue seemingly took AWS off guard"
     },
     {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "huihui-ai/Huihui-Qwen3.8-27B-abliterated",
-      "url": "https://huggingface.co/huihui-ai/Huihui-Qwen3.8-27B-abliterated",
-      "publishedAt": "2026-08-16T08:22:24.000Z",
-      "summary": "transformers, safetensors, qwen3_5, image-text-to-text, abliterated, uncensored"
-    },
-    {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "orcarouter/Qwen3.8-27B-Uncensored-GGUF",
-      "url": "https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-GGUF",
-      "publishedAt": "2026-08-16T07:34:08.000Z",
-      "summary": "gguf, abliterated, qwen, qwen3, qwen3.8, llama.cpp"
-    },
-    {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "z-lab/Qwen3.8-27B-DFlash2",
-      "url": "https://huggingface.co/z-lab/Qwen3.8-27B-DFlash2",
-      "publishedAt": "2026-08-15T21:26:10.000Z",
-      "summary": "transformers, safetensors, qwen3, dflash2, speculative-decoding, block-diffusion"
-    },
-    {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "empero-ai/Qwen3.8-27B-Ridge-GGUF",
-      "url": "https://huggingface.co/empero-ai/Qwen3.8-27B-Ridge-GGUF",
-      "publishedAt": "2026-08-15T14:25:18.000Z",
-      "summary": "gguf, llama.cpp, quantized, qwen3.8, qwen3.5, ridge"
-    },
-    {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "orcarouter/Qwen3.8-27B-Uncensored-FP8",
-      "url": "https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-FP8",
-      "publishedAt": "2026-08-15T05:45:04.000Z",
-      "summary": "transformers, safetensors, qwen3_5, image-text-to-text, abliterated, qwen3.8"
-    },
-    {
       "source": "NVIDIA",
       "discoveryOnly": false,
       "title": "Universitas Gadjah Mada, Indosat and NVIDIA Open Indonesia’s First University AI Center to Develop Local AI Talent",
       "url": "https://blogs.nvidia.com/blog/ugm-indosat-nvidia-ai-technology-center/",
       "publishedAt": "2026-08-14T17:13:05.000Z",
       "summary": "Indonesia is taking charge of its AI future. This week, the Ministry of Communication and Digital Affairs (Komdigi), Indosat Ooredoo Hutchison (Indosat or IOH), NVIDIA and Universitas Gadjah Mada (UGM) launched the UGM Indosat NVIDIA AI Technology Center (NVAITC) in Yogyakarta — the country’s first university-based AI "
-    },
-    {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF",
-      "url": "https://huggingface.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF",
-      "publishedAt": "2026-08-14T03:43:36.000Z",
-      "summary": "llama.cpp, gguf, uncensored, qwen3.8, mtp, speculative-decoding"
     },
     {
       "source": "Hugging Face — blog",
@@ -3634,22 +3563,6 @@
       "summary": "OpenAI appoints Dali Rajic as Chief Revenue Officer to lead its global revenue organization and help businesses realize the full value of AI."
     },
     {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "unsloth/Qwen3.8-27B-GGUF",
-      "url": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF",
-      "publishedAt": "2026-08-13T08:28:40.000Z",
-      "summary": "gguf, qwen3_5, unsloth, base_model:Qwen/Qwen3.8-27B, base_model:quantized:Qwen/Qwen3.8-27B, license:apache-2.0"
-    },
-    {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "Qwen/Qwen3.8-27B-FP8",
-      "url": "https://huggingface.co/Qwen/Qwen3.8-27B-FP8",
-      "publishedAt": "2026-08-13T08:01:58.000Z",
-      "summary": "transformers, safetensors, qwen3_5, image-text-to-text, conversational, base_model:Qwen/Qwen3.8-27B"
-    },
-    {
       "source": "Meta Newsroom",
       "discoveryOnly": false,
       "title": "The Future Is for Everyone: Free AI Glasses for Every Blind and Visually Impaired Adult Vision Ireland Supports",
@@ -3666,14 +3579,6 @@
       "summary": "An update on Meta's compliance with Australia's social media ban The post Meta’s Compliance with Australia’s Social Media Ban appeared first on Meta Newsroom ."
     },
     {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "deepseek-ai/DeepSeek-V4-Pro-0813",
-      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813",
-      "publishedAt": "2026-08-13T03:05:06.000Z",
-      "summary": "transformers, safetensors, deepseek_v4, text-generation, conversational, arxiv:2606.19348"
-    },
-    {
       "source": "Hugging Face — blog",
       "discoveryOnly": false,
       "title": "What We Learned by Reproducing 2,200 papers from ICML",
@@ -3688,14 +3593,6 @@
       "url": "https://huggingface.co/blog/allenai/olmoearth-embeddings",
       "publishedAt": "2026-08-12T16:14:36.000Z",
       "summary": null
-    },
-    {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "superwhisper/s1-mini",
-      "url": "https://huggingface.co/superwhisper/s1-mini",
-      "publishedAt": "2026-08-12T14:33:55.000Z",
-      "summary": "transformers, safetensors, qwen3, text-generation, asr, automatic-speech-recognition"
     },
     {
       "source": "IEEE Spectrum — AI",
@@ -3962,28 +3859,12 @@
       "summary": "The global buildout of AI infrastructure reached a new milestone today — Firebird, an emerging AI cloud, launched the CIS region’s largest AI factory in Armenia, establishing a new AI computing hub powered by NVIDIA accelerated computing and Dell Technologies high-performance AI infrastructure. Nikol Pashinyan, prime m"
     },
     {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "Qwen/Qwen3.8-2.4T-A95B",
-      "url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
-      "publishedAt": "2026-08-08T01:50:52.000Z",
-      "summary": "transformers, safetensors, qwen3_5_moe_text, text-generation, conversational, license:other"
-    },
-    {
       "source": "OpenAI",
       "discoveryOnly": false,
       "title": "Responding to the next frontier of critical cyber capabilities",
       "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities",
       "publishedAt": "2026-08-07T15:20:00.000Z",
       "summary": "OpenAI is sharing preliminary cybersecurity evaluations for Astra and the steps we’re taking to strengthen safeguards and security controls."
-    },
-    {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "MiniMaxAI/MiniMax-Music3",
-      "url": "https://huggingface.co/MiniMaxAI/MiniMax-Music3",
-      "publishedAt": "2026-08-07T12:23:29.000Z",
-      "summary": "diffusers, safetensors, minimax_music3, music-generation, text-to-music, pytorch"
     },
     {
       "source": "OpenAI",
@@ -4106,14 +3987,6 @@
       "summary": "This May, 37 researchers from roughly two dozen top universities and tech companies published a paper on ArXiv, arguing that scientists should stop writing papers. Why? Because artificial intelligence needs a different format, and AI’s needs, they say, should be the priority. “AI agents are becoming first-class partici"
     },
     {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "Qwen/Qwen3.8-27B",
-      "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-      "publishedAt": "2026-08-05T08:22:59.000Z",
-      "summary": "transformers, safetensors, qwen3_5, image-text-to-text, conversational, license:apache-2.0"
-    },
-    {
       "source": "OpenAI",
       "discoveryOnly": false,
       "title": "Third-party cyber evaluations involving OpenAI models",
@@ -4178,14 +4051,6 @@
       "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/July_AI_Recap_still.max-600x600.format-webp.webp\">Here are Google’s latest AI updates from July 2026"
     },
     {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "TenStrip/10Eros-Max",
-      "url": "https://huggingface.co/TenStrip/10Eros-Max",
-      "publishedAt": "2026-08-04T03:15:02.000Z",
-      "summary": "text-to-video, image-text-to-video, image-to-video, base_model:MiniMaxAI/MiniMax-H3, base_model:finetune:MiniMaxAI/MiniMax-H3, license:other"
-    },
-    {
       "source": "OpenAI",
       "discoveryOnly": false,
       "title": "New ways to learn and teach with ChatGPT Work and Codex",
@@ -4248,14 +4113,6 @@
       "url": "https://openai.com/index/ten-advances-in-mathematics",
       "publishedAt": "2026-08-01T00:00:00.000Z",
       "summary": "OpenAI shares new results on long-standing open problems in mathematics and theoretical computer science, including advances in geometry, cryptography, and complexity."
-    },
-    {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "deepseek-ai/DeepSeek-V4-Flash-0731",
-      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
-      "publishedAt": "2026-07-31T07:30:24.000Z",
-      "summary": "transformers, safetensors, deepseek_v4, text-generation, conversational, arxiv:2606.19348"
     },
     {
       "source": "Amazon Science",
@@ -4370,14 +4227,6 @@
       "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Dinner_parties.max-600x600.format-webp.webp\">These AI features can help you craft a menu, design a tablescape, and handle other party-planning tasks."
     },
     {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "MiniMaxAI/MiniMax-H3",
-      "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
-      "publishedAt": "2026-07-28T10:45:18.000Z",
-      "summary": "minimax-h3, diffusers, safetensors, text-to-video, image-to-video, image-text-to-video"
-    },
-    {
       "source": "IEEE Spectrum — AI",
       "discoveryOnly": false,
       "title": "Why AI-Driven Cognitive Systems Are Redefining Radar and Electronic Warfare",
@@ -4424,14 +4273,6 @@
       "url": "https://spectrum.ieee.org/nasa-ai-satellite-image-analysis",
       "publishedAt": "2026-07-23T13:00:01.000Z",
       "summary": "The viability of orbital data centers hosting the largest and most capable large language models (LLMs) remains hotly contested. But enormous deployments that require thousands of GPUs aren’t the only way LLMs might prove useful in space. NASA’s Jet Propulsion Laboratory recently sent Google’s Gemma 3 to space, achievi"
-    },
-    {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "Lightricks/LTX-2.5",
-      "url": "https://huggingface.co/Lightricks/LTX-2.5",
-      "publishedAt": "2026-07-23T07:55:24.000Z",
-      "summary": "diffusion-single-file, image-to-video, text-to-video, video-to-video, image-text-to-video, audio-to-video"
     },
     {
       "source": "Hugging Face — blog",
@@ -5248,14 +5089,6 @@
       "url": "https://www.amazon.science/blog/preserving-the-privacy-of-ai-training-data",
       "publishedAt": "2026-04-29T17:59:07.000Z",
       "summary": "How we reproduced three attacks that extract private training data from AI models and the cryptographic defenses that stop them."
-    },
-    {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "froggeric/Qwen-Fixed-Chat-Templates",
-      "url": "https://huggingface.co/froggeric/Qwen-Fixed-Chat-Templates",
-      "publishedAt": "2026-04-23T15:28:14.000Z",
-      "summary": "mlx, jinja, chat-template, qwen, qwen3.5, qwen3.6"
     }
   ]
 }
