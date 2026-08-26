@@ -91,6 +91,16 @@ jobs:
           # Read by the prompt below and written into edition.generator.model, so the archive
           # records which model actually wrote each edition.
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.5-flash' }}
+          # Gemini CLI 0.39+ refuses to auto-approve any tool — even under --yolo — in a
+          # directory it has not been told to trust, and a CI checkout is never pre-trusted.
+          # Google's own guidance for this action splits on whether the workflow touches
+          # untrusted data: this one does, since research reads arbitrary web content via
+          # web_fetch, so their instruction is to harden first and only then set this. The
+          # hardening is the two steps above it — contents: read with no push credential
+          # anywhere in this job, and the shell/ask_user denylist in
+          # .gemini/policies/vission.toml — plus the publish job's independent re-validation
+          # and its check that the diff touches only publishable paths.
+          GEMINI_CLI_TRUST_WORKSPACE: 'true'
         with:
           gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
           gemini_model: ${{ vars.GEMINI_MODEL || 'gemini-2.5-flash' }}

@@ -48,6 +48,13 @@ jobs:
 
       - name: Propose rule changes
         uses: google-github-actions/run-gemini-cli@v0.1.22
+        env:
+          # Gemini CLI 0.39+ refuses to auto-approve any tool in an untrusted directory, and a
+          # fresh CI checkout is never pre-trusted — see daily-edition.yml for the full
+          # explanation. This job is the clearer case for setting it: it reads only this
+          # repository's own evals and generated editions, never arbitrary external content,
+          # so there is no untrusted data in play at all.
+          GEMINI_CLI_TRUST_WORKSPACE: 'true'
         with:
           gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
           gemini_model: ${{ vars.GEMINI_MODEL || 'gemini-2.5-flash' }}
