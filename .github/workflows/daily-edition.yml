@@ -148,6 +148,15 @@ jobs:
             .claude/skills/editorial-review/SKILL.md and write evals/<date>.json — that file
             gives the exact shape, including the edition hash binding the validator checks.
 
+            Two mistakes a previous run made, both caught by the gate and worth naming
+            directly: it labelled a story confidence "high" on a tier-2-only source — "high"
+            requires an actual tier-1 primary, not just that you are confident in tier-2
+            reporting — and it edited the edition after writing the eval file, which left the
+            eval's hash binding describing an edition that no longer existed. If you touch a
+            story's sources after running editorial-review, recompute and rewrite the eval's
+            edition block before you finish — the validator checks it against the file on disk,
+            not against what was true when you wrote it.
+
             Do NOT run git — you have no push credential in this job regardless. Do NOT run
             tools/build.mjs; the publish job does that from a clean checkout.
 
