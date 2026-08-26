@@ -317,7 +317,7 @@ export function sourceList(ctx, sources) {
 // "medium confidence" means; the tag should say it. Shown for every level, including high —
 // omitting the tag on the best case reads as a missing label, not as reassurance, to someone
 // who doesn't already know the convention.
-const CONFIDENCE_LABEL = {
+export const CONFIDENCE_LABEL = {
   high: 'Primary source confirmed',
   medium: 'Credible reporting, no primary',
   low: 'Single source, unconfirmed',

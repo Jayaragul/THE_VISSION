@@ -369,7 +369,7 @@ ${/* This line shows the edition date ("26 August 2026"), so its machine-readabl
 <span><time datetime="${e(ed.edition.generatedAt)}">${e(formatMasthead(ed.edition.date))}</time></span>
 <span>${story.readMinutes} min read</span>
 <span>${story.sources.length} source${story.sources.length === 1 ? '' : 's'}</span>
-${story.confidence ? `<span><span class="tag${story.confidence === 'high' ? '' : ' tag--low'}">${e(story.confidence)} confidence</span></span>` : ''}
+${story.confidence ? `<span><span class="tag${story.confidence === 'high' ? '' : ' tag--low'}" title="${e(story.confidence)} confidence">${e(R.CONFIDENCE_LABEL[story.confidence] || story.confidence)}</span></span>` : ''}
 </div>
 </div>
 
