@@ -1,11 +1,11 @@
 {
   "$schema": "https://jayaragul.github.io/THE_VISSION/schema/edition.schema.json",
   "edition": {
-    "date": "2026-08-22",
-    "number": 6,
-    "generatedAt": "2026-08-22T13:00:00Z",
-    "title": "The same model scores 30% or 100% depending on what you wrap around it",
-    "summary": "Nvidia reports that Claude Opus 5 went from 30% to a perfect score on ARC-AGI-3 with no change to the model — only to the scaffolding around it. Amazon's new agent benchmark points the same way from the opposite direction, finding that adding tools made agents worse and a newer Claude underperformed an older one. Elsewhere: $250m for orbital data centres, and an OpenAI-backed legal firm rebuilding on Chinese open weights. A Saturday: policy, society and India are empty, and only the lead carried two independent sources.",
+    "date": "2026-08-26",
+    "number": 7,
+    "generatedAt": "2026-08-26T15:00:00Z",
+    "title": "Stanford puts a number on the entry-level jobs gap, and Bill Gates changes his mind",
+    "summary": "New Stanford payroll data shows the employment gap for young workers in AI-exposed jobs widening from 15% to 19% in a year — not mass displacement, but a hiring freeze aimed at people without experience yet. Bill Gates, who called the disruption \"manageable\" three years ago, now says the industry has crossed every danger threshold it named. Elsewhere: OpenAI's 13th senior departure this year, an Nvidia efficiency claim worth reading with its own caveats, and Bengaluru's Ringg AI pushing voice agents past the phone call. Only one story cleared the two-source bar for top; Policy is empty today.",
     "generator": {
       "model": "claude-opus-5",
       "pipeline": "news-pipeline",
@@ -14,340 +14,421 @@
   },
   "stories": [
     {
-      "id": "2026-08-22-nvidia-avo-harness-arc-agi-3",
-      "slug": "nvidia-avo-harness-arc-agi-3",
-      "beat": "models",
-      "kicker": "Agents",
-      "headline": "Nvidia says the same model scores 30% or 100% on ARC-AGI-3 depending on its harness",
-      "deck": "Claude Opus 5 cleared all 183 levels wrapped in Nvidia's AVO system, against 30% on its own — a vendor-run result on a public benchmark, not yet independently reproduced.",
+      "id": "2026-08-26-stanford-entry-level-employment-gap",
+      "slug": "stanford-entry-level-employment-gap",
+      "beat": "research",
+      "kicker": "Labour data",
+      "headline": "Stanford payroll data shows AI's hiring freeze on young workers widening, not stabilising",
+      "deck": "The employment gap for 22-to-25-year-olds in AI-exposed jobs grew from 15% to 19% in a year, and the mechanism is reduced hiring, not layoffs.",
       "summary": [
-        "Nvidia reports that Claude Opus 5 inside its Agentic Variation Operators harness scored 100.00 RHAE across all 25 public ARC-AGI-3 environments, completing all 183 levels.",
-        "The same model scored about 30% without the harness, according to Nvidia's account — the model was not retrained or changed.",
-        "AVO pairs a main agent that inspects, plans, implements and evaluates using persistent memory with a supervisor that redirects it when progress stalls.",
-        "It used 6,624 environment actions against VISTA's 7,542 on the same levels, roughly 12% fewer, though Nvidia says this was not a controlled ablation because the two systems differ architecturally."
+        "Stanford's Digital Economy Lab, using ADP payroll data, finds employment among workers aged 22–25 in highly AI-exposed occupations is 19% below where it would be had it kept pace with less-exposed peers — up from a 15% gap a year earlier.",
+        "The researchers find no widespread, economy-wide displacement; the effect is concentrated specifically in young, inexperienced workers.",
+        "The adjustment operates through reduced hiring of young workers rather than increased separations of those already employed.",
+        "Employment fell in occupations built on codified knowledge — the kind textbooks and documentation can teach — while employment among experienced workers in tacit-knowledge occupations held flat or rose."
       ],
       "body": [
-        "Nvidia has published a result that puts an uncomfortable number on how much of an AI agent's performance comes from the model and how much from the software around it. Running Claude Opus 5 inside its Agentic Variation Operators system, the company reports a 100.00 RHAE score across all 25 public environments of ARC-AGI-3, completing all 183 levels. The same model, Nvidia says, scores roughly 30% on the benchmark without that scaffolding. Nothing about Opus 5 was changed between the two figures.",
-        "ARC-AGI-3 is an interactive reasoning benchmark built from 2D games supplied without instructions, so a system has to work out the rules by playing. AVO's structure is a loop with a second opinion attached: a main agent inspects the current state, plans a move, implements it and evaluates the result, carrying implementations and reasoning forward in persistent memory, while a separate supervisor watches the wider trajectory and intervenes when the search stalls. Adel El Hallak, a vice-president of product in Nvidia's AI unit, described the harness to TechCrunch as \"the scaffolding around the model...the set of tools that it utilizes\" together with \"the runtime and the associated skills and libraries.\"",
-        "Nvidia's own summary of the finding is the blunter version: \"The model matters, but the model is not the entire agent.\" Against VISTA, the previous leading system on the same 183 public levels, AVO used 6,624 environment actions to VISTA's 7,542 — about 12% fewer. Nvidia is explicit that this is not a controlled ablation, because the two systems differ in architecture and in how they represent observations, so the action-count gap should not be read as a like-for-like efficiency measurement.",
-        "The caveat that matters most is one the number itself cannot resolve: this is a hardware and platform vendor reporting its own system's score on a public benchmark, and no independent party has yet reproduced it. The benchmark is public and the accompanying paper is on arXiv, so reproduction is possible; until it happens, 100% is a claim about AVO made by the company that built AVO. Nvidia also ran limited experiments pairing AVO with GPT-5.6 Sol on harder subsets, which suggests the harness is not tuned to a single model, though it has not published comparable full-set figures for that pairing."
+        "New payroll data from Stanford's Digital Economy Lab puts a specific, widening number on a question that has mostly been argued in the abstract: how much is AI actually displacing entry-level work. Researchers Erik Brynjolfsson, Bharat Chandar and Ruyu Chen, using ADP payroll records and occupational AI-exposure measures, find that employment among workers aged 22 to 25 in highly AI-exposed occupations now sits 19% below where it would be had it tracked employment among similarly aged workers in less-exposed occupations. A year earlier, in July 2025, that gap was 15%.",
+        "The study is explicit about what it is not finding. \"We do not see widespread, economy-wide job displacement associated with AI,\" the authors write — average employment across their full ADP sample rose roughly 6% from November 2022 to June 2026, while employment in the most AI-exposed occupations grew only about 4%. The effect is narrow and concentrated, not a broad contraction.",
+        "Where it concentrates is the more useful finding. The adjustment shows up almost entirely as reduced hiring of young workers rather than as increased separations among people already in a job — companies are not firing junior staff so much as declining to hire replacements for the tasks AI can now do. And the divide tracks a specific distinction: employment fell in occupations built on codified knowledge, the kind that can be taught through documentation and formal training, while employment among experienced workers in occupations built on tacit knowledge — skill acquired through practice and mentorship rather than text — held flat or rose. \"This pattern is consistent with a world in which generative AI is particularly effective at reproducing and applying knowledge that has already been encoded in text,\" the authors write.",
+        "The finding updates the same team's earlier \"Canaries in the Coal Mine?\" research, and the direction of travel is the story: a real, measurable gap that widened over the past year rather than stabilising, even as the study's own headline finding is that there is no broad, economy-wide AI jobs crisis."
       ],
-      "whyItMatters": "If a 70-point swing on a reasoning benchmark can come from scaffolding alone, then most published model comparisons are measuring the evaluation harness as much as the model, and a team choosing between vendors on benchmark tables is partly choosing between other people's plumbing. The practical read for anyone building agents is that persistent memory and a supervisor loop are worth more engineering attention than the next model upgrade — and the commercial read is that Nvidia, which sells the hardware underneath all of it, has an obvious interest in the industry believing exactly that.",
+      "whyItMatters": "For anyone hiring, this reframes the AI-jobs question from \"how many jobs will AI take\" to \"who bears the adjustment cost\" — and the answer, in this data, is specifically people without the tacit knowledge that comes from having already had the job. A company that stops hiring juniors because AI now covers the codified parts of entry-level work is making a rational near-term choice that removes its own pipeline for the tacit knowledge those juniors would have built into senior staff a decade from now. That is a cost the quarterly hiring decision does not price in.",
       "prominence": "lead",
-      "publishedAt": "2026-08-21T00:00:00Z",
-      "confidence": "medium",
+      "publishedAt": "2026-08-12T00:00:00Z",
+      "confidence": "high",
       "entities": [
-        "NVIDIA",
-        "Claude Opus 5",
-        "ARC-AGI-3"
+        "Stanford Digital Economy Lab",
+        "Erik Brynjolfsson",
+        "ADP"
       ],
       "tags": [
-        "agents",
-        "benchmarks",
-        "harness"
+        "labor",
+        "employment",
+        "research"
       ],
       "sources": [
         {
-          "title": "NVIDIA AVO Reaches 100% on ARC-AGI-3, Demonstrating a Frontier-Level General-Purpose Architecture for Long-Horizon Autonomous Agents",
-          "publisher": "NVIDIA",
-          "url": "https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/",
-          "publishedAt": "2026-08-21T00:00:00Z",
+          "title": "No Widespread Displacement, but the AI Employment Gap for Young Workers Has Widened to 19%",
+          "publisher": "Stanford Digital Economy Lab",
+          "url": "https://digitaleconomy.stanford.edu/news/canariesaug26/",
+          "publishedAt": "2026-08-12T00:00:00Z",
           "tier": 1
         },
         {
-          "title": "Nvidia just showed that the harness, not the AI model, is now the real hero",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/08/21/nvidia-just-showed-that-the-harness-not-the-ai-model-is-now-the-real-hero/",
-          "publishedAt": "2026-08-21T00:00:00Z",
+          "title": "Real-World Experience Is A Hedge Against AI Displacement, Study Suggests",
+          "publisher": "Forbes",
+          "url": "https://www.forbes.com/sites/joemckendrick/2026/08/12/real-world-experience-is-a-hedge-against-ai-displacement-study-shows/",
+          "publishedAt": "2026-08-12T00:00:00Z",
           "tier": 2
         }
       ],
       "readMinutes": 3
     },
     {
-      "id": "2026-08-22-sop-bench-agent-benchmark",
-      "slug": "sop-bench-agent-benchmark",
-      "beat": "research",
-      "kicker": "Evaluation",
-      "headline": "Amazon's business-process benchmark finds more tools make AI agents worse",
-      "deck": "Success nearly halved when the six tools an agent needed were buried among twenty, and Claude 4.5 underperformed Claude 4 on reasoning-style agents.",
+      "id": "2026-08-26-bill-gates-ai-danger-thresholds",
+      "slug": "bill-gates-ai-danger-thresholds",
+      "beat": "society",
+      "kicker": "Risk",
+      "headline": "Bill Gates says AI has crossed every danger threshold the industry once named as a limit",
+      "deck": "Three years after calling AI-driven job disruption \"manageable,\" Gates now argues the economy, biosecurity and criminal misuse thresholds have all been passed.",
       "summary": [
-        "SOP-Bench tests AI agents against real standard operating procedures across twelve business domains, with more than 2,000 tasks carrying working tools and ground-truth answers.",
-        "Burying the six tools a task required among twenty options nearly halved success rates, indicating tool selection is itself a failure mode.",
-        "Across eleven frontier models, newer was not reliably better: Claude 4.5 underperformed Claude 4 on reasoning-style agents.",
-        "Success ranged from roughly 90% on simple procedures such as email triage down to about 25% on complex ones such as video annotation."
+        "Gates told MIT Technology Review: \"We've crossed the threshold in terms of [AI's] bio-capabilities, cyber-capabilities, psychosocial capabilities, job-market-destruction capabilities, and even the lack of control.\"",
+        "He estimates bioterrorism risk from AI-designed molecules at roughly 50 times more likely than a natural pandemic, and says any model able to design novel molecules should be monitored.",
+        "He proposes a tax on AI usage revenue to fund a social safety net, a tax or restriction on robotic labour, and categories of work formally reserved for humans.",
+        "The position is a reversal: three years ago Gates described coming AI-driven job disruption as a manageable transition; he now expects \"far fewer\" jobs than exist today."
       ],
       "body": [
-        "Amazon has released SOP-Bench, a benchmark that evaluates AI agents on real standard operating procedures rather than isolated task proxies. Built with domain experts who authored authentic procedures from industrial workflows — with Claude 3.5 Sonnet v2 generating executable task specifications, tool interfaces and datasets that the experts then validated — it spans twelve domains including healthcare, logistics, finance and content moderation, and contains more than 2,000 tasks with functioning tools and ground-truth answers.",
-        "The most useful finding is a negative one. When the six tools an agent actually needed were placed among twenty available options, success rates nearly halved. Choosing correctly from a crowded toolset is, on this evidence, a distinct capability from executing a procedure once the right tool is in hand — and one that current agents handle poorly. The benchmark assesses seven capabilities in combination, including state tracking, error recovery and decision-making under uncertainty, on the argument that a procedure requires all of them at once.",
-        "Testing eleven frontier models also undercut the assumption that model recency tracks agent quality: Claude 4.5 underperformed Claude 4 on reasoning-style agents, and no single model-and-agent combination led across procedures. Reasoning-style agents edged out function-calling agents overall while varying substantially by procedure. Absolute performance spanned roughly 90% on simple work such as email triage down to about 25% on complex work such as video annotation. The benchmark was presented at KDD 2026 and is published on GitHub and Hugging Face."
+        "Bill Gates has reversed a position he held publicly as recently as three years ago, when he described AI-driven labour disruption as a manageable transition. In an interview with MIT Technology Review, Gates said the industry has now crossed every threshold it once treated as a hypothetical limit: \"We've crossed the threshold in terms of [AI's] bio-capabilities, cyber-capabilities, psychosocial capabilities, job-market-destruction capabilities, and even the lack of control.\" He added: \"I'm just stunned at the lack of concern and discussion outside of the industry.\"",
+        "His most specific claim concerns biosecurity. Gates argues that any AI model capable of designing novel molecules should be subject to monitoring, and puts the risk of AI-enabled bioterrorism at roughly 50 times more likely than a naturally occurring pandemic. He also says AI has lowered the skill floor for cyberattacks to the point that people with no technical background can now conduct them.",
+        "On jobs, Gates told Fortune separately that both white-collar work — customer support, software engineering, paralegal tasks — and blue-collar work in construction and hospitality face displacement by the end of the decade, and that AI companionship products risk stunting child development: \"I doubt I would have put in the same work if I had had an AI companion back then. They talk to you in ways you're already comfortable with.\"",
+        "His proposed responses are policy, not product features: a tax on AI usage revenue to fund social-safety-net spending, taxation or restriction of robotic labour, a set of jobs formally reserved for human workers by social agreement, and international coordination — explicitly including China — on monitoring models capable of designing novel molecules. Gates frames this as requiring government expertise rather than industry self-regulation."
       ],
-      "whyItMatters": "The tool-crowding result is directly actionable and cuts against how most agent frameworks are built: the common instinct is to register every tool an agent might conceivably need, and this says that doing so degrades the agent measurably. Scoping the toolset per task is cheaper than any model upgrade. The finding that a newer Claude lost to an older one on reasoning agents is the more uncomfortable one, because it means teams treating a version bump as a free improvement should be re-running their own evaluations rather than assuming the direction of travel.",
-      "prominence": "standard",
-      "publishedAt": "2026-08-21T00:00:00Z",
-      "confidence": "high",
+      "whyItMatters": "Gates is not a safety researcher with an incentive to sound alarms; he is a former industry CEO whose prior public position was reassurance, and the reversal is the news as much as the content of the warning. His specific proposals — a usage tax, human-reserved job categories — are the kind of policy a legislature could actually draft, which moves this from ambient concern to something builders and investors should treat as a live regulatory scenario rather than background noise.",
+      "prominence": "top",
+      "publishedAt": "2026-08-26T00:00:00Z",
+      "confidence": "medium",
       "entities": [
-        "Amazon Science",
-        "SOP-Bench"
+        "Bill Gates"
       ],
       "tags": [
-        "benchmarks",
-        "agents",
-        "evaluation"
+        "ai-safety",
+        "policy",
+        "labor"
       ],
       "sources": [
         {
-          "title": "SOP-Bench: A new benchmark for evaluating AI agents on real business procedures",
-          "publisher": "Amazon Science",
-          "url": "https://www.amazon.science/blog/sop-bench-a-new-benchmark-for-evaluating-ai-agents-on-real-business-procedures",
-          "publishedAt": "2026-08-21T00:00:00Z",
+          "title": "Bill Gates says we've passed AI's danger thresholds. Now what?",
+          "publisher": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/08/26/1142946/bill-gates-ai-danger-threshold/",
+          "publishedAt": "2026-08-26T00:00:00Z",
+          "tier": 2
+        },
+        {
+          "title": "Bill Gates fears world leaders are unprepared for 3 major AI risks",
+          "publisher": "Fortune",
+          "url": "https://fortune.com/2026/08/26/bill-gates-ai-warning-risks-benefit-world-leaders/",
+          "publishedAt": "2026-08-26T00:00:00Z",
+          "tier": 2
+        }
+      ],
+      "readMinutes": 2
+    },
+    {
+      "id": "2026-08-26-openai-data-center-chief-departure",
+      "slug": "openai-data-center-chief-departure",
+      "beat": "business",
+      "kicker": "Leadership",
+      "headline": "OpenAI's data centre chief exits in the company's 13th senior departure this year",
+      "deck": "Chris Malone leaves after 16 months and a reorganisation moved him off reporting to Greg Brockman; his responsibilities now split across three separate leaders.",
+      "summary": [
+        "Chris Malone, OpenAI's head of data centers since March 2025, departed last week after an infrastructure reorganisation reassigned him from reporting to President Greg Brockman to reporting to VP Sachin Katti.",
+        "His responsibilities are now split among three leaders: Uday Ruddarraju on the data center team, Brent Mayo on build and delivery, and Spas Lazarov on data center engineering.",
+        "It is the 13th senior executive departure at OpenAI in 2026, following Fidji Simo, Brad Lightcap, Denise Dresser and Kate Rouch among others.",
+        "OpenAI said: \"We have a strong, deeply experienced data center team in place, with clear leadership and the technical expertise to execute our plans.\""
+      ],
+      "body": [
+        "Chris Malone, OpenAI's head of data centers, has left the company after roughly 16 months in the role, TechCrunch reported. Malone joined OpenAI in March 2025 following close to five years at Meta and more than a decade at Google, and had reported directly to President Greg Brockman until an infrastructure reorganisation moved him under Chief Technology and Product Officer Sachin Katti. His departure followed shortly after that change.",
+        "Malone's responsibilities have been redistributed rather than replaced by a single successor: Uday Ruddarraju now leads the data center team, Brent Mayo manages the build and delivery program, and Spas Lazarov oversees data center engineering. OpenAI has committed to spending roughly $600 billion on compute infrastructure by 2030, making the leadership of that build-out a materially consequential role to leave unfilled by one clear successor.",
+        "The exit is the 13th senior departure at OpenAI so far in 2026, in a list that includes Fidji Simo (Product & Business Chief, July), Chief Operating Officer Brad Lightcap (August), Chief Revenue Officer Denise Dresser after an eight-month tenure (August), Chief Marketing Officer Kate Rouch (April), and Head of Ethics Chloé Bakalar (July). OpenAI's statement addressed the specific role rather than the pattern: \"We have a strong, deeply experienced data center team in place, with clear leadership and the technical expertise to execute our plans.\"",
+        "The turnover comes as OpenAI has confidentially filed for an IPO and is targeting a public listing by 2027 — a period in which prospective investors typically read executive stability as a signal about the company they are being asked to price."
+      ],
+      "whyItMatters": "A 13th senior departure in one year is no longer a personnel story about one executive; it is a pattern investors evaluating OpenAI's IPO filing will have to underwrite, and the data center role specifically sits on top of a $600 billion infrastructure commitment with no single named leader now accountable for it. For any company with a large committed compute contract running through OpenAI, the practical question raised is continuity of execution on build-out timelines, not the reasons any one executive gave for leaving.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-25T00:00:00Z",
+      "confidence": "medium",
+      "entities": [
+        "OpenAI",
+        "Chris Malone",
+        "Greg Brockman"
+      ],
+      "tags": [
+        "leadership",
+        "openai",
+        "ipo"
+      ],
+      "sources": [
+        {
+          "title": "OpenAI loses a top data center exec as stream of high-profile departures continues",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/25/openai-loses-a-top-data-center-exec-as-stream-of-high-profile-departures-continues/",
+          "publishedAt": "2026-08-25T00:00:00Z",
+          "tier": 2
+        }
+      ],
+      "readMinutes": 2
+    },
+    {
+      "id": "2026-08-26-nvidia-vera-rubin-nvl72-efficiency",
+      "slug": "nvidia-vera-rubin-nvl72-efficiency",
+      "beat": "infrastructure",
+      "kicker": "AI chips",
+      "headline": "Nvidia claims Vera Rubin NVL72 delivers 30 times the throughput per watt of its last generation",
+      "deck": "The figure comes from an agentic-coding benchmark still pending independent review by SemiAnalysis, and Nvidia's own post notes it doesn't yet reflect the new CPU's tool-calling performance.",
+      "summary": [
+        "Nvidia says Vera Rubin NVL72 delivers up to 30 times the throughput per megawatt of the prior-generation GB300 NVL72 on agentic workloads, and up to 35 times lower token costs.",
+        "The figures come from SemiAnalysis's AgentX benchmark, built on recorded real-world agentic coding sessions; Nvidia's own post says the results are \"currently pending SemiAnalysis review.\"",
+        "GB300 NVL72, the comparison baseline, itself claimed up to 15 times the throughput per megawatt of the Hopper generation it replaced.",
+        "Nvidia states the results \"don't yet reflect Vera CPU performance for tool calling,\" and says the system is in full production and scaling across the ecosystem now."
+      ],
+      "body": [
+        "Nvidia says its next-generation Vera Rubin NVL72 system delivers up to 30 times the throughput per megawatt of the current GB300 NVL72 generation on agentic workloads, and up to 35 times lower cost per token. The comparison uses SemiAnalysis's AgentX benchmark, built from recorded real-world agentic coding sessions that preserve growing context, tool calls and sub-agent spawning rather than a synthetic workload.",
+        "Vera Rubin NVL72 is a seven-chip architecture combining a new Vera CPU, the Groq 3 LPU, an NVLink 6 switch, a BlueField-4 DPU, Spectrum-6 SPX networking and a ConnectX-9 SuperNIC, built around fifth-generation Tensor Cores and a third-generation Transformer Engine. Nvidia says the system is in full production and scaling across its ecosystem now.",
+        "Nvidia's own post carries two caveats worth weighing before treating the headline figure as settled. The results are \"currently pending SemiAnalysis review\" — meaning the independent party whose benchmark produced the number has not yet confirmed it — and the figures explicitly \"don't yet reflect Vera CPU performance for tool calling,\" a core part of the agentic workload the benchmark is meant to represent. The 30x figure is also being compared against GB300 NVL72, itself a system Nvidia previously claimed delivered up to 15x the efficiency of the Hopper generation before it, so the underlying comparison chain rests entirely on Nvidia's own prior and current claims about its own hardware."
+      ],
+      "whyItMatters": "A generational efficiency claim this large changes the economics of running agentic workloads at scale if it holds, which is exactly why the two caveats Nvidia itself included matter more than the headline number: a pending third-party review and an admission that a core agentic capability isn't yet reflected mean the 30x figure is a target the hardware is being marketed toward, not yet a confirmed result. Anyone sizing infrastructure spend against this claim should wait for SemiAnalysis's own published review before treating it as more than Nvidia's stated ambition for its own chip.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-24T00:00:00Z",
+      "confidence": "medium",
+      "entities": [
+        "NVIDIA",
+        "SemiAnalysis"
+      ],
+      "tags": [
+        "ai-chips",
+        "inference",
+        "benchmarks"
+      ],
+      "sources": [
+        {
+          "title": "Up to 30x More Work Per Watt: NVIDIA Vera Rubin NVL72 Sets a New Efficiency Bar for AI Agents",
+          "publisher": "NVIDIA",
+          "url": "https://blogs.nvidia.com/blog/vera-rubin-nvl72-efficiency-ai-agents/",
+          "publishedAt": "2026-08-24T00:00:00Z",
           "tier": 1
         }
       ],
       "readMinutes": 2
     },
     {
-      "id": "2026-08-22-starcloud-orbital-data-centres",
-      "slug": "starcloud-orbital-data-centres",
-      "beat": "infrastructure",
-      "kicker": "Orbital compute",
-      "headline": "Starcloud raises $250m for orbital data centres as launch capacity tightens",
-      "deck": "The round values the 25-person company at $2.3bn, with Nvidia putting in $25m — and its chief executive naming Falcon 9's 2028 retirement as the binding constraint.",
+      "id": "2026-08-26-ringg-ai-peak-xv-funding",
+      "slug": "ringg-ai-peak-xv-funding",
+      "beat": "india",
+      "kicker": "Voice AI",
+      "headline": "Bengaluru's Ringg AI raises $10 million as it pushes voice agents past the phone call",
+      "deck": "The Series A extension, led by Peak XV, brings the company's total funding to $15.5 million; it already handles 20 million call attempts a month for Cred, Flipkart and Practo.",
       "summary": [
-        "Starcloud raised a $250m extension to its March Series A, taking that round to $420m in total and valuing the company at $2.3bn.",
-        "Manhattan West Ventures led, with Nvidia contributing $25m alongside Cisco, Benchmark, EQT, NFX and others.",
-        "The company runs Nvidia H100 GPUs in orbit and is building 8 kW Starcloud-2 compute satellites for rideshare launches in 2027.",
-        "Chief executive Philip Johnston said launch is \"pretty constrained right now\" because SpaceX's Falcon 9 programme is scheduled to end in 2028."
+        "Ringg AI, a Bengaluru voice-AI startup, raised a $10 million Series A extension led by Peak XV Partners, bringing its total Series A to $15.5 million.",
+        "The company processes 20 million call attempts monthly, automating customer support, appointment booking, abandoned-cart recovery and loan collection for clients including Cred, Flipkart, Practo, Groww, Policybazaar and Shell.",
+        "Ringg originally launched as DesiVocal, a text-to-speech platform, before pivoting to enterprise voice AI agents.",
+        "The company has grown to 40 employees, with more than 15 hired in the past three months, and is expanding from voice into chat, WhatsApp and browser-based support."
       ],
       "body": [
-        "Starcloud has raised a $250m extension to the $170m Series A it closed in March, valuing the Woodinville, Washington company at $2.3bn. Manhattan West Ventures led the round, with Nvidia investing $25m alongside Cisco, Benchmark, EQT, Soma, NFX, 776, Cedar Capital, Goanna Capital and Standard Capital. The company employs 25 people.",
-        "Starcloud builds AI inference satellites, and already operates Nvidia H100 GPUs in orbit. Its production focus is Starcloud-2, an 8 kW compute satellite intended for rideshare launches in 2027, with a larger Starcloud-3 spacecraft designed for SpaceX's Starship. Nvidia's Vera Rubin Space-1 chip is slated for deployment in late 2028. The company has asked the FCC for authorisation covering 88,000 spacecraft operations.",
-        "The constraint the raise is meant to address is not demand or silicon but rides to orbit. \"Launch is pretty constrained right now because [SpaceX's] Falcon 9 program is scheduled to end in 2028,\" chief executive Philip Johnston told TechCrunch — a retirement that removes the workhorse vehicle before its replacements are reliably available, which is an awkward window for a company whose product only works once it is above the atmosphere."
+        "Ringg AI, a Bengaluru voice-AI startup, has raised a $10 million Series A extension led by Peak XV Partners, bringing its total Series A funding to $15.5 million. The company processes 20 million call attempts a month, automating tasks like appointment booking for healthcare providers, abandoned-cart recovery for e-commerce, KYC checks for fintech companies, and loan collection — work drawing on named clients including Cred, Flipkart, Practo, Groww, Policybazaar and Shell.",
+        "The company did not start as a voice-agent business. It launched as DesiVocal, a text-to-speech platform, before pivoting toward enterprise voice AI agents that complete tasks rather than simply converse. Co-founder Siddharth Tripathi described the shift in framing directly: \"We are trying to position ourselves as a platform for agents that bring outcomes or get things done rather than voice agents.\"",
+        "Ringg has grown to 40 employees, more than 15 of them hired in the past three months, and is extending beyond phone calls into chat, WhatsApp and browser-based support — the \"past the phone call\" expansion the round is meant to fund. Founders Siddharth Tripathi, Kali CV and Utkarsh Shukla lead the company."
       ],
-      "whyItMatters": "Orbital data centres are usually pitched on power and cooling economics, and this round quietly reframes the bottleneck as logistics: the scarce input is launch slots, not capital or chips. That makes Starcloud's valuation partly a bet on the launch market of 2027–28 rather than purely on compute demand, and it explains Nvidia's participation — a customer for orbital GPUs is also a customer for the chips whether or not the orbital thesis works out.",
+      "whyItMatters": "Ringg's named client list — Cred, Flipkart, Practo, Groww, Policybazaar — is a cross-section of India's largest consumer platforms already routing real customer interactions through a voice agent, which is a more concrete adoption signal than most enterprise-AI funding announcements carry. For builders watching the Indian market specifically, a company originating in text-to-speech and pivoting to outcome-based voice agents is a template other regional AI startups are likely to follow rather than a one-off.",
       "prominence": "standard",
-      "publishedAt": "2026-08-21T00:00:00Z",
+      "publishedAt": "2026-08-25T00:00:00Z",
       "confidence": "medium",
       "entities": [
-        "Starcloud",
-        "NVIDIA",
-        "SpaceX"
+        "Ringg AI",
+        "Peak XV Partners"
       ],
       "tags": [
-        "data-centers",
-        "space",
-        "funding"
+        "funding",
+        "voice-ai",
+        "india"
       ],
       "sources": [
         {
-          "title": "Starcloud raises $250 million for orbital data centers as launch options dry up",
+          "title": "India's Ringg gets backing from Peak XV as it pushes voice AI past the phone call",
           "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/08/21/starcloud-raises-200-million-for-orbital-data-centers-as-launch-options-dry-up/",
-          "publishedAt": "2026-08-21T00:00:00Z",
+          "url": "https://techcrunch.com/2026/08/25/indias-ringg-gets-backing-from-peak-xv-as-it-pushes-voice-ai-past-the-phone-call/",
+          "publishedAt": "2026-08-25T00:00:00Z",
           "tier": 2
         }
       ],
       "readMinutes": 2
     },
     {
-      "id": "2026-08-22-harvey-kimi-k3-open-weights",
-      "slug": "harvey-kimi-k3-open-weights",
-      "beat": "business",
+      "id": "2026-08-26-ibm-granite-4-2",
+      "slug": "ibm-granite-4-2",
+      "beat": "models",
       "kicker": "Open weights",
-      "headline": "OpenAI-backed legal firm Harvey rebuilds its model on China's open-weight Kimi K3",
-      "deck": "Harvey previously tuned closed models from Anthropic, OpenAI and Google; it now post-trains Moonshot AI's open base, citing inference cost and the ability to train on legal data.",
+      "headline": "IBM ships Granite 4.2, an Apache-licensed reasoning model built for local deployment",
+      "deck": "The 3B, 8B and 30B models add a thinking-mode toggle and a 512K-token context window, with the larger two trained further on agentic software-engineering tasks.",
       "summary": [
-        "Harvey, the San Francisco legal-technology company backed by OpenAI, has built a model called Harvey Tenet on Moonshot AI's open-weight Kimi K3 base.",
-        "The company previously customised proprietary closed models from Anthropic, OpenAI and Google for legal work.",
-        "It cites lower inference costs and the ability to post-train on specialised legal data for higher accuracy as the reasons for the switch.",
-        "Harvey claims state-of-the-art performance on complex legal work with the result; no independent benchmark figures were published."
+        "IBM released Granite 4.2 in three sizes — 3B, 8B and 30B parameters — as dense, decoder-only reasoning models with a switchable thinking and non-thinking mode.",
+        "Context windows extend to 512K tokens; the 8B and 30B variants received additional agentic reinforcement learning in software engineering, terminal operations and web search.",
+        "On SWE-Bench Verified the 8B model scores 47.67% and the 30B scores 57.00%; on AIME25 the models score 78.33%, 86.67% and 89.17% by size.",
+        "All three are released under the Apache 2.0 license with FP8, FP4 and GGUF quantizations available for local deployment."
       ],
       "body": [
-        "Harvey, a San Francisco legal-technology firm counting OpenAI among its backers, has rebuilt its core model on Chinese open weights. Harvey Tenet is post-trained on Moonshot AI's Kimi K3 base, replacing an approach that customised proprietary closed models from Anthropic, OpenAI and Google. The company says the switch was driven by lower inference costs and by the ability to post-train on specialised legal data for higher accuracy — something a closed API model does not permit in the same way.",
-        "Harvey describes the result as achieving state-of-the-art performance on complex legal work. No independent benchmark figures accompanied that claim, and the South China Morning Post's report did not include cost or performance numbers, so the scale of the improvement is the company's own characterisation rather than a measured result.",
-        "Simon Hedlin, an AI policy researcher quoted in the report, called it \"a great example of open-weight models\" allowing developers to specialise systems by post-training on industry data. The wider significance is the direction of the substitution: an American company with an OpenAI investment on its cap table concluded that a Chinese open-weight base served its economics better than the closed American models it had been building on."
+        "IBM has released Granite 4.2, its first family of dense, decoder-only reasoning models, in three sizes — 3B, 8B and 30B parameters — sharing identical architecture but differing in training depth. All three support a switchable thinking and non-thinking mode, letting a simpler query skip the reasoning overhead a harder one needs, and extend context windows to 512K tokens.",
+        "The larger two models received additional agentic reinforcement learning specifically in software engineering, terminal operations and web search, on top of pre-training across roughly 15 trillion tokens and supervised fine-tuning on about 100 billion tokens covering reasoning, coding and tool use. On SWE-Bench Verified the 8B model scores 47.67% and the 30B scores 57.00%; on AIME25 the three sizes score 78.33%, 86.67% and 89.17% respectively.",
+        "All three are released under the Apache 2.0 license, with FP8, FP4 and GGUF quantizations available specifically to support local deployment rather than requiring a hosted API — the explicit target of the release given rising interest in running capable models on local hardware."
       ],
-      "whyItMatters": "This is the open-weights argument arriving in a regulated, high-stakes vertical rather than a hobbyist one, and the deciding factors were cost and the right to train on your own data — neither of which a frontier lab can concede without changing its product. For anyone weighing a closed API against an open base, the relevant question this raises is not capability parity but whether the ability to post-train on proprietary data is worth more than the gap at the frontier. Harvey's answer, with legal liability attached, was yes.",
+      "whyItMatters": "A 30B model clearing 57% on SWE-Bench Verified under an Apache 2.0 license, quantized down to FP4 for local GPUs, changes the calculus for teams that want agentic coding capability without sending code to a third-party API — a real constraint for regulated industries and anyone under a strict no-external-inference policy. IBM entering this specific niche, rather than competing purely on frontier benchmarks, signals it is targeting enterprise deployment constraints ahead of raw capability leadership.",
       "prominence": "standard",
-      "publishedAt": "2026-08-21T00:00:00Z",
-      "confidence": "medium",
+      "publishedAt": "2026-08-25T00:00:00Z",
+      "confidence": "high",
       "entities": [
-        "Harvey",
-        "Moonshot AI",
-        "OpenAI"
+        "IBM",
+        "Granite"
       ],
       "tags": [
         "open-weights",
-        "legal-tech"
+        "local-llm"
       ],
       "sources": [
         {
-          "title": "OpenAI-backed legal tech firm pivots to Chinese Kimi K3 open-weight model",
-          "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/tech/tech-trends/article/3364827/openai-backed-legal-tech-firm-pivots-chinese-kimi-k3-open-weight-model",
-          "publishedAt": "2026-08-21T00:00:00Z",
-          "tier": 2
+          "title": "Granite 4.2: How They're Built",
+          "publisher": "Hugging Face",
+          "url": "https://huggingface.co/blog/ibm-granite/granite-4-2",
+          "publishedAt": "2026-08-25T00:00:00Z",
+          "tier": 1
         }
       ],
       "readMinutes": 2
     },
     {
-      "id": "2026-08-22-china-telecom-token-factories",
-      "slug": "china-telecom-token-factories",
-      "beat": "infrastructure",
-      "kicker": "Compute supply",
-      "headline": "China's state carriers turn spare capacity into AI compute, with one unit up 95%",
-      "deck": "China Telecom's intelligent-computing revenue nearly doubled and China Unicom booked 41.9bn yuan from compute power, as the operators resell capacity as \"token factories\".",
+      "id": "2026-08-26-stability-ai-76-million",
+      "slug": "stability-ai-76-million",
+      "beat": "business",
+      "kicker": "Funding",
+      "headline": "Stability AI raises $76 million backed by Universal, Sony and Warner Music",
+      "deck": "The round brings total funding to $232 million and includes EA and AMD Ventures, aimed at expanding creative-production tools and professional services.",
       "summary": [
-        "China Mobile, China Telecom and China Unicom are building out AI compute resale, billing for the tokens their infrastructure processes.",
-        "China Telecom reported a 95% surge in intelligent computing revenue, with broader intelligent-business revenue up 7.1% to 31.1bn yuan ($4.6bn) and cloud revenue up 7.8% to 61.8bn yuan.",
-        "China Unicom booked 41.9bn yuan in computing-power revenue across data centres, leased compute, software and cloud AI services, a 13% increase.",
-        "China Telecom's Xirang orchestration software now supports more than 20 chip architectures, a hedge against reliance on any single supplier."
+        "Stability AI, maker of Stable Diffusion, raised $76 million in a round backed by Universal Music Group, Sony Music Group, Warner Music Group, Electronic Arts, AMD Ventures and Pacific Alliance Ventures.",
+        "Total funding raised to date reaches $232 million; valuation was not disclosed.",
+        "The company plans to expand its creative production product suite and grow its professional services division.",
+        "CEO Prem Akkaraju called the round \"an affirmation of our vision where generative AI empowers every producer, musician, and storyteller.\""
       ],
-      "body": [
-        "China's three state-owned carriers — China Mobile, China Telecom and China Unicom — are converting telecoms infrastructure into AI compute businesses, reselling capacity and billing for the tokens processed on it. The framing the sector uses is \"token factories\", and the reported numbers suggest it is becoming a material revenue line rather than a positioning exercise.",
-        "China Telecom reported a 95% surge in intelligent computing revenue. Its broader intelligent-business revenue rose 7.1% to 31.1bn yuan, about $4.6bn, and cloud revenue rose 7.8% to 61.8bn yuan. China Unicom booked 41.9bn yuan in computing-power revenue spanning data centres, leased compute, software and cloud AI services, up 13%.",
-        "The technical detail worth noting is architectural breadth rather than scale. China Telecom's Xirang orchestration software now extends support to more than 20 chip architectures, and China Unicom's UniAI platform connects over 200 large language models while managing more than 500 terabytes of curated data. Supporting that many architectures is expensive engineering that only makes sense where the supply of any particular accelerator cannot be relied on."
-      ],
-      "whyItMatters": "Twenty-plus supported chip architectures is what export-controlled compute procurement looks like in software: rather than betting on one accelerator, the carriers have paid to make their orchestration layer indifferent to which silicon it lands on. For anyone modelling the effect of chip restrictions, that is evidence the constraint is being absorbed as engineering cost and heterogeneity rather than as a hard ceiling on capacity.",
-      "prominence": "standard",
-      "publishedAt": "2026-08-21T00:00:00Z",
+      "prominence": "brief",
+      "publishedAt": "2026-08-25T00:00:00Z",
       "confidence": "medium",
       "entities": [
-        "China Telecom",
-        "China Unicom",
-        "China Mobile"
+        "Stability AI",
+        "Universal Music Group",
+        "Sony Music Group"
       ],
       "tags": [
-        "compute",
+        "funding",
+        "generative-media"
+      ],
+      "sources": [
+        {
+          "title": "Stability AI, maker of image generator Stable Diffusion, raises $76 million in fresh funding",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/25/stability-ai-maker-of-image-generator-stable-diffusion-raises-76-million-in-fresh-funding/",
+          "publishedAt": "2026-08-25T00:00:00Z",
+          "tier": 2
+        }
+      ],
+      "readMinutes": 1
+    },
+    {
+      "id": "2026-08-26-minimax-revenue-283-percent",
+      "slug": "minimax-revenue-283-percent",
+      "beat": "business",
+      "kicker": "China AI",
+      "headline": "MiniMax revenue surges 283% but stays well short of its full-year forecast",
+      "deck": "H1 revenue reached $116.6m and enterprise revenue grew 703%, yet that is only about a third of the $363.77m analysts had projected for the full year.",
+      "summary": [
+        "MiniMax reported H1 2026 revenue of $116.6 million, up 283% year-over-year from $79 million in full-year 2025 revenue.",
+        "Enterprise segment revenue grew 703% to $73.9 million, the fastest-growing part of the business.",
+        "The company has reached only about 32% of the $363.77 million full-year revenue analysts had forecast, attributed to intense competition among US and Chinese AI labs.",
+        "Gross margin improved to 17.9% from 12.1%, while adjusted net loss widened 111.2% to $293 million."
+      ],
+      "prominence": "brief",
+      "publishedAt": "2026-08-26T00:00:00Z",
+      "confidence": "medium",
+      "entities": [
+        "MiniMax"
+      ],
+      "tags": [
         "china",
-        "cloud"
+        "revenue"
       ],
       "sources": [
         {
-          "title": "China's telecoms giants bet on 'token factories' as AI drives revenue growth",
+          "title": "MiniMax revenue surges 283% but remains behind pace to meet forecast amid crowded AI race",
           "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/tech/big-tech/article/3364873/chinas-telecoms-giants-bet-token-factories-ai-drives-revenue-growth",
-          "publishedAt": "2026-08-21T00:00:00Z",
+          "url": "https://www.scmp.com/tech/big-tech/article/3365341/minimax-revenue-surges-283-remains-behind-pace-meet-forecast-amid-crowded-ai-race",
+          "publishedAt": "2026-08-26T00:00:00Z",
           "tier": 2
         }
       ],
-      "readMinutes": 2
+      "readMinutes": 1
     },
     {
-      "id": "2026-08-22-nvidia-cloverleaf-stake",
-      "slug": "nvidia-cloverleaf-stake",
+      "id": "2026-08-26-perplexity-nvidia-portable-computer",
+      "slug": "perplexity-nvidia-portable-computer",
       "beat": "infrastructure",
-      "kicker": "Power",
-      "headline": "Nvidia takes a minority stake in power-infrastructure developer Cloverleaf",
-      "deck": "Several hundred million dollars into a company that sits between utilities and data centres, days after Nvidia put $1.5bn into an OpenAI-linked site in Ohio.",
+      "kicker": "Local inference",
+      "headline": "Perplexity and Nvidia ship a local AI agent platform that bills nothing per token",
+      "deck": "Portable Computer runs Qwen, Perplexity's own PPLX model and Nvidia's Nemotron on a single RTX GPU with at least 24GB of memory, escalating to cloud models only when needed.",
       "summary": [
-        "Nvidia has taken a minority stake in Cloverleaf Infrastructure for an undisclosed sum reported as several hundred million dollars.",
-        "Cloverleaf, founded in 2024 and having raised $300m that year, works between utility companies and data centres on power infrastructure and site development.",
-        "The deal follows Nvidia's $1.5bn investment earlier in the week into SB Energy's OpenAI-linked Ohio project.",
-        "No capacity figures, locations or timelines were disclosed."
+        "Perplexity's Portable Computer packages models, agent orchestration, inference and sandboxing into one application that runs on user-owned hardware with zero per-task token billing.",
+        "It requires an RTX GPU with at least 24GB of VRAM — a GeForce RTX 3090 or newer — and supports Qwen 3.8 27B, Perplexity's own PPLX 27B, and Nvidia's Nemotron 3.5 Lightning.",
+        "The advertised 260,000-token context is optimised in practice for roughly 100,000 tokens, and a PII classifier screens outgoing context before any escalation to cloud models.",
+        "Available now on Linux for Pro, Max, Enterprise Pro and Enterprise Max subscribers; Windows support is due in September 2026."
       ],
       "prominence": "brief",
-      "publishedAt": "2026-08-21T00:00:00Z",
+      "publishedAt": "2026-08-25T00:00:00Z",
       "confidence": "medium",
       "entities": [
-        "NVIDIA",
-        "Cloverleaf Infrastructure"
+        "Perplexity",
+        "NVIDIA"
       ],
       "tags": [
-        "data-centers",
-        "power",
-        "investment"
+        "local-ai",
+        "inference"
       ],
       "sources": [
         {
-          "title": "Nvidia partners with data center developer Cloverleaf",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/08/21/nvidia-partners-with-data-center-developer-cloverleaf/",
-          "publishedAt": "2026-08-21T00:00:00Z",
-          "tier": 2
-        }
-      ],
-      "readMinutes": 1
-    },
-    {
-      "id": "2026-08-22-outer-biosciences-living-skin",
-      "slug": "outer-biosciences-living-skin",
-      "beat": "research",
-      "kicker": "AI for biology",
-      "headline": "Outer Biosciences trains a skincare model on human tissue kept alive for a month",
-      "deck": "Keeping surgical skin viable for weeks rather than days lets the company observe collagen remodelling, feeding results back into a model that proposes new compounds.",
-      "summary": [
-        "Outer Biosciences, founded in 2022 by Michael Polansky, trains AI models on living human skin tissue to identify new skincare compounds.",
-        "A proprietary support system keeps donated surgical tissue viable for up to a month against an industry norm of days, allowing observation of slow processes such as collagen remodelling and barrier repair.",
-        "The model predicts which untested chemicals will benefit specific skin functions; results from tissue testing feed back to improve it, producing roughly one candidate every six weeks with six active leads.",
-        "The company has raised about $23m and employs 19 people near Cambridge, Massachusetts."
-      ],
-      "prominence": "brief",
-      "publishedAt": "2026-08-22T00:00:00Z",
-      "confidence": "medium",
-      "entities": [
-        "Outer Biosciences",
-        "Michael Polansky"
-      ],
-      "tags": [
-        "ai-for-science",
-        "biotech"
-      ],
-      "sources": [
-        {
-          "title": "Michael Polansky is training an AI model on skin that's still alive",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/08/21/michael-polansky-is-training-an-ai-model-on-skin-thats-still-alive/",
-          "publishedAt": "2026-08-22T00:00:00Z",
-          "tier": 2
-        }
-      ],
-      "readMinutes": 1
-    },
-    {
-      "id": "2026-08-22-nvidia-kv-cache-transfer",
-      "slug": "nvidia-kv-cache-transfer",
-      "beat": "models",
-      "kicker": "Inference",
-      "headline": "Nvidia moves a KV cache between models with linear regression, skipping the re-prefill",
-      "deck": "Transferring a 32,768-token cache from Qwen3 14B to 32B took 278 milliseconds against seven seconds to recompute it, holding 73% to 98% of standalone accuracy.",
-      "summary": [
-        "Nvidia researchers describe a method for handing a KV cache from one model to another, avoiding the full recomputation a receiving model normally performs.",
-        "The mapper is fitted with per-head ridge regression on a calibration set of 500 text sequences — linear algebra rather than a trained network.",
-        "Reported speed-ups run from 2.7 to 25 times against re-prefilling, while retaining 73% to 98% of the target model's standalone accuracy.",
-        "Tested across Qwen3, Llama 3.1 and Ministral 3 from 3B to 70B, including an 8.8x parameter jump from Llama 3.1 8B to 70B that held 72.8% accuracy."
-      ],
-      "prominence": "brief",
-      "publishedAt": "2026-08-21T00:00:00Z",
-      "confidence": "medium",
-      "entities": [
-        "NVIDIA",
-        "Qwen3",
-        "Llama 3.1"
-      ],
-      "tags": [
-        "inference",
-        "kv-cache",
-        "efficiency"
-      ],
-      "sources": [
-        {
-          "title": "Nvidia finds that simple linear math can replace costly AI model handoffs",
+          "title": "Perplexity partners with Nvidia to launch Portable Computer, a fully local AI agent with zero token costs",
           "publisher": "VentureBeat",
-          "url": "https://venturebeat.com/technology/nvidia-finds-that-simple-linear-math-can-replace-costly-ai-model-handoffs",
-          "publishedAt": "2026-08-21T00:00:00Z",
+          "url": "https://venturebeat.com/infrastructure/perplexity-partners-with-nvidia-to-launch-portable-computer-a-fully-local-ai-agent-with-zero-token-costs",
+          "publishedAt": "2026-08-25T00:00:00Z",
           "tier": 3
+        }
+      ],
+      "readMinutes": 1
+    },
+    {
+      "id": "2026-08-26-claude-cowork-unified-memory",
+      "slug": "claude-cowork-unified-memory",
+      "beat": "models",
+      "kicker": "Product",
+      "headline": "Anthropic unifies Claude's memory across chat and Cowork so context carries over",
+      "deck": "Sensitive categories like health and political-belief data stay excluded by default, and government ID numbers are never stored regardless of settings.",
+      "summary": [
+        "Anthropic merged Claude's memory system across chat and Cowork, so details established in a conversation carry into Cowork without being re-entered.",
+        "Memory updates continuously during a conversation rather than being summarised only at session end, and syncs between chat and Cowork in real time.",
+        "Sensitive categories — health information, political beliefs, gender identity — are excluded from memory by default, with an opt-in toggle to include them; government IDs and Social Security numbers are never stored.",
+        "The feature is on by default across Free, Pro and Max plans on web, desktop and mobile, and requires the latest app version on iOS and Android."
+      ],
+      "prominence": "brief",
+      "publishedAt": "2026-08-25T00:00:00Z",
+      "confidence": "medium",
+      "entities": [
+        "Anthropic",
+        "Claude"
+      ],
+      "tags": [
+        "product",
+        "memory",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "title": "Claude Cowork finally remembers what you told the app in chat",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/25/claude-cowork-finally-remembers-what-you-told-the-app-in-chat/",
+          "publishedAt": "2026-08-25T00:00:00Z",
+          "tier": 2
         }
       ],
       "readMinutes": 1
     }
   ],
   "signals": {
-    "storyCount": 8,
-    "sourceCount": 9,
-    "primaryCount": 2,
-    "publisherCount": 5,
-    "beatCount": 4
+    "storyCount": 10,
+    "sourceCount": 12,
+    "primaryCount": 3,
+    "publisherCount": 9,
+    "beatCount": 6
   }
 }

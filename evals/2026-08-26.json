@@ -1,0 +1,25 @@
+{
+  "date": "2026-08-26",
+  "reviewedAt": "2026-08-26T15:40:00Z",
+  "edition": {
+    "date": "2026-08-26",
+    "storyCount": 10,
+    "sourceCount": 12,
+    "sha256": "cc4fabb5898194112c0d5e086f782b5c363bc7d5157acef44413df31bdb1b46f"
+  },
+  "scores": { "sourcing": 4, "accuracy": 5, "prose": 4, "selection": 5, "balance": 3 },
+  "total": 21,
+  "verdict": "pass",
+  "evidence": [
+    { "dimension": "sourcing", "note": "The lead carries a genuine tier-1 primary (digitaleconomy.stanford.edu, read directly — methodology, named researchers, exact figures) plus independent tier-2 confirmation (Forbes, same figures, same authors, published the same day as the primary). The top story (Bill Gates) rests on two tier-2 outlets with distinct framing — MIT Technology Review's interview transcript versus Fortune's three-risks framing — rather than one wire item run twice. Every standard/brief has at least one opened, real source; none is fabricated. Docked from 5 because six of ten stories run on a single tier-2 source, which is within the rules but thin, and because this draft itself shipped with 'confidence: high' on six stories whose best source was tier 2 — caught by validate.mjs, not by the drafting, and corrected to medium before this review." },
+    { "dimension": "accuracy", "note": "Vendor claims are marked as claims: the Nvidia story states outright that the 30x figure is 'currently pending SemiAnalysis review' and that Nvidia's own post 'admits a core agentic capability isn't yet reflected,' with the whyItMatters explicitly telling the reader to wait for the independent review before treating the number as confirmed. The Stanford figures (15%->19%) are stated with their basis and cross-checked word-for-word against Forbes' independent write-up of the same study before use." },
+    { "dimension": "prose", "note": "Bullets are facts throughout, e.g. the lead's third bullet: 'The adjustment operates through reduced hiring of young workers rather than increased separations of those already employed' states a mechanism, not a topic. The OpenAI whyItMatters ends on a concrete, arguable claim rather than a truism. Docked from 5 for two long compound sentences in the Nvidia body paragraph explaining the caveat chain." },
+    { "dimension": "selection", "note": "The lead is close to unarguable: primary-sourced, data-driven, directly answers a question the paper's own readers ask (is AI actually taking jobs, and whose), and updates a widening trend rather than restating an old finding. No sub-$10m rounds ran (Ringg $10m, Stability $76m both clear the floor); the Nvidia vendor claim was not run uncritically. Nothing repeats editions 1-6." },
+    { "dimension": "balance", "note": "Weakest dimension. Only one story (the lead) reached genuinely independent two-source status beyond the lead itself required; 'top' sits at 1 against a house range of 3-6 because nothing else cleared that bar honestly rather than being forced there. Policy is empty and Models is one short of quota; edition.summary states both plainly. No company dominates: OpenAI, Nvidia and Anthropic each appear once; business carries 3 of 10 stories, on the high side but not a majority." }
+  ],
+  "revisions": [
+    "Six stories shipped with confidence \"high\" on tier-2-only sourcing in the first draft; caught by validate.mjs and corrected to \"medium\" before this review, since \"high\" requires an actual tier-1 primary rather than confidence in tier-2 reporting.",
+    "Two standard stories (Ringg AI, IBM Granite 4.2) were drafted with summary-only content and no body or whyItMatters; caught by validate.mjs's schema check and given full three-paragraph bodies and a whyItMatters before this review, since prominence:\"standard\" requires both."
+  ],
+  "notes": "node tools/validate.mjs returns 0 errors and 3 warnings, exit 0; --strict would block. All three are shape/quota warnings disclosed in edition.summary, none a sourcing defect. Written manually: this is the same day the scheduled Gemini pipeline ran for the first time after the GEMINI_CLI_TRUST_WORKSPACE fix, got all the way through research, and failed the gate on two genuine errors of its own (a confidence label without a tier-1 primary, and a stale eval binding after a late edit) — notably the same class of confidence-labelling mistake this draft also made and self-corrected before publishing. The prompt was updated afterward to name both mistakes directly for the next scheduled run."
+}
