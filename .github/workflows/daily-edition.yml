@@ -235,7 +235,7 @@ jobs:
       - name: Assert the diff only touches publishable paths
         run: |
           set -euo pipefail
-          ALLOWED='^(generated/|story/|edition/|entity/|assets/img/covers/|index\.html$|archive\.html$|topics\.html$|hackathons\.html$|methodology\.html$|legal\.html$|terms\.html$|privacy\.html$|404\.html$|rss\.xml$|sitemap\.xml$|robots\.txt$|llms\.txt$|\.nojekyll$)'
+          ALLOWED='^(generated/|story/|edition/|entity/|assets/img/covers/|index\.html$|archive\.html$|topics\.html$|search\.html$|hackathons\.html$|methodology\.html$|legal\.html$|terms\.html$|privacy\.html$|404\.html$|rss\.xml$|sitemap\.xml$|robots\.txt$|llms\.txt$|\.nojekyll$)'
           CHANGED="$(git status --porcelain | awk '{print $2}')"
           BAD="$(echo "$CHANGED" | grep -vE "$ALLOWED" || true)"
           if [ -n "$BAD" ]; then

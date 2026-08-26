@@ -921,6 +921,125 @@ ${nav}
   });
 }
 
+/**
+ * Search over every published story. Static site, so this is entirely client-side: fetches
+ * /generated/search-index.json once and filters it in the browser. No server, no dependency,
+ * degrades to "type a query, see nothing until JS loads" rather than breaking — the archive
+ * link right below it still works with JS off.
+ */
+function renderSearch(ctx) {
+  const content = `<div class="wrap">
+<section class="editorsnote">
+<div class="editorsnote__label">Search</div>
+<div>
+<h1 class="editorsnote__title">Search every story this paper has published.</h1>
+<p class="editorsnote__body">Matches headlines, decks, companies and topics across the full archive. Runs
+entirely in your browser against a single downloaded index — nothing is sent anywhere, and there is nothing
+to send it to.</p>
+</div>
+</section>
+<section class="section" style="border-bottom:0">
+<input type="search" id="search-input" class="search-input" placeholder="Search stories — try a company, model or topic…" autocomplete="off" aria-label="Search stories">
+<p id="search-status" class="search-status" role="status"></p>
+<div id="search-results"></div>
+</section>
+</div>
+<script>
+(function () {
+  var input = document.getElementById('search-input');
+  var status = document.getElementById('search-status');
+  var results = document.getElementById('search-results');
+  var indexUrl = ${JSON.stringify(R.rel(0, 'generated/search-index.json'))};
+  var beatLabels = ${JSON.stringify(Object.fromEntries(ctx.beats.map((b) => [b.id, b.label])))};
+  var storyBase = ${JSON.stringify(R.rel(0, 'story/'))};
+  var data = null;
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  // Substring match across headline, deck, kicker and entities, weighted so a headline hit
+  // ranks above a deck hit, an entity hit above either — searching "Nvidia" should surface
+  // every Nvidia story before a story that merely mentions Nvidia in passing prose.
+  function score(item, q) {
+    var s = 0;
+    var headline = item.headline.toLowerCase();
+    var deck = (item.deck || '').toLowerCase();
+    var entities = (item.entities || []).join(' ').toLowerCase();
+    if (entities.indexOf(q) !== -1) s += 5;
+    if (headline.indexOf(q) !== -1) s += 3;
+    if ((item.kicker || '').toLowerCase().indexOf(q) !== -1) s += 2;
+    if (deck.indexOf(q) !== -1) s += 1;
+    return s;
+  }
+
+  function render(items, q) {
+    if (!q) {
+      status.textContent = data.length + ' stories indexed. Start typing to search.';
+      results.innerHTML = '';
+      return;
+    }
+    if (!items.length) {
+      status.textContent = 'No stories match "' + q + '".';
+      results.innerHTML = '';
+      return;
+    }
+    status.textContent = items.length + ' result' + (items.length === 1 ? '' : 's');
+    results.innerHTML = items
+      .slice(0, 40)
+      .map(function (item) {
+        var beat = beatLabels[item.beat] || item.beat;
+        return (
+          '<a class="archive__row" href="' + storyBase + item.id + '.html">' +
+          '<span class="archive__n" style="font-family:var(--sans);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em">' + escapeHtml(beat) + '</span>' +
+          '<span class="archive__title">' + escapeHtml(item.headline) + '</span>' +
+          '<span class="archive__n">' + escapeHtml(item.date) + '</span>' +
+          '</a>'
+        );
+      })
+      .join('');
+  }
+
+  function runSearch() {
+    var q = input.value.trim().toLowerCase();
+    if (!data) return;
+    if (!q) { render([], ''); return; }
+    var scored = data
+      .map(function (item) { return { item: item, s: score(item, q) }; })
+      .filter(function (r) { return r.s > 0; })
+      .sort(function (a, b) { return b.s - a.s || b.item.date.localeCompare(a.item.date); })
+      .map(function (r) { return r.item; });
+    render(scored, q);
+  }
+
+  status.textContent = 'Loading the archive…';
+  fetch(indexUrl)
+    .then(function (r) { return r.json(); })
+    .then(function (json) {
+      data = json;
+      render([], '');
+      input.addEventListener('input', runSearch);
+      var params = new URLSearchParams(location.search);
+      var initial = params.get('q');
+      if (initial) { input.value = initial; runSearch(); }
+    })
+    .catch(function () {
+      status.textContent = 'Could not load the search index. Try the archive instead.';
+    });
+})();
+</script>`;
+
+  return R.page(ctx, {
+    depth: 0,
+    canonical: 'search.html',
+    title: `Search — ${site.name}`,
+    description: `Search every story THE VISSION has published, across every edition.`,
+    content,
+  });
+}
+
 function renderHackathons(ctx, editions) {
   const all = hackathonBook.hackathons || [];
   // Expiry is measured against the newest edition, not the clock, so the page stays a pure
@@ -1294,6 +1413,7 @@ function renderSitemap(editions, entities, digests, wireHistory) {
     { loc: `${site.baseUrl}/`, priority: '1.0', freq: 'daily' },
     { loc: `${site.baseUrl}/archive.html`, priority: '0.6', freq: 'daily' },
     { loc: `${site.baseUrl}/topics.html`, priority: '0.6', freq: 'daily' },
+    { loc: `${site.baseUrl}/search.html`, priority: '0.5', freq: 'weekly' },
     ...(digests.length ? [{ loc: `${site.baseUrl}/digest.html`, priority: '0.6', freq: 'hourly' }] : []),
     ...digests.map((d) => ({
       loc: `${site.baseUrl}/${digestPath(d.edition.date)}`,
@@ -1517,6 +1637,7 @@ prune('wire', '.html', new Set(wireHistory.map((w) => `${w.date}.html`)));
 
 write('archive.html', renderArchive(ctx, editions, digests, wireHistory));
 write('topics.html', renderTopics(ctx, entities));
+write('search.html', renderSearch(ctx));
 write('hackathons.html', renderHackathons(ctx, editions));
 write('methodology.html', renderMethodology(ctx, editions));
 write('legal.html', renderLegal(ctx));
@@ -1611,6 +1732,32 @@ write(
     null,
     2
   ) + '\n'
+);
+
+// Search index. Every published story, one flat array, deliberately thin — headline, deck,
+// beat, entities and date, not the full body — so it stays cheap to fetch even as the
+// archive grows into the hundreds. search.html filters this client-side; nothing here talks
+// to a server, because there isn't one. Sorted newest-first, the same convention as
+// everywhere else, so a tied relevance score still favours the more recent story.
+write(
+  'generated/search-index.json',
+  JSON.stringify(
+    editions.flatMap((ed) =>
+      ed.stories.map((s) => ({
+        id: s.id,
+        headline: s.headline,
+        deck: s.deck,
+        kicker: s.kicker,
+        beat: s.beat,
+        entities: s.entities || [],
+        date: ed.edition.date,
+        confidence: s.confidence,
+        url: R.storyPath(s),
+      }))
+    ),
+    null,
+    0
+  )
 );
 
 write('generated/latest.json', JSON.stringify(latest, null, 2) + '\n');

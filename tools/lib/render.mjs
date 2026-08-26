@@ -183,6 +183,7 @@ function beatnav(ctx, opts) {
   return `<nav class="beatnav" aria-label="Sections"><div class="wrap beatnav__in">
 ${links}
 <span class="beatnav__sep"></span>
+<a href="${rel(d, 'search.html')}">Search</a>
 <a class="is-quiet" href="${opts.anchorNav ? '#wire' : `${home}#wire`}">Wire</a>
 <a class="is-quiet" href="${rel(d, 'digest.html')}">Digest</a>
 <a class="is-quiet" href="${rel(d, 'hackathons.html')}">Hackathons</a>
@@ -259,6 +260,18 @@ ${ctx.site.founder ? `<span>Founded by ${e(ctx.site.founder)}${ctx.site.communit
 
 // ----------------------------------------------------------------- pieces ---
 
+/** "T1" means nothing to a reader who hasn't opened Methodology. sources.json already
+ *  defines the plain-language version of every tier ("Primary", "Newsroom", "Secondary",
+ *  "Unvetted") — this just surfaces it instead of inventing new wording. The number stays,
+ *  small, for anyone who does know the system; the title attribute carries the fuller note
+ *  ("The organisation, filing, paper or dataset itself.") for a hover or long-press. */
+export function tierLabel(ctx, tier) {
+  return ctx.sourceBook.tiers?.[tier]?.label || `Tier ${tier}`;
+}
+function tierNote(ctx, tier) {
+  return ctx.sourceBook.tiers?.[tier]?.note || '';
+}
+
 export function sourceChips(ctx, sources, limit = 4) {
   const shown = sources.slice(0, limit);
   const extra = sources.length - shown.length;
@@ -267,10 +280,12 @@ export function sourceChips(ctx, sources, limit = 4) {
       const host = hostOf(s.url);
       const known = matchPublisher(host, ctx.sourceBook.publishers);
       const tier = s.tier ?? known?.tier ?? 4;
-      return `<a class="source${tier === 1 ? ' source--t1' : ''}" href="${e(s.url)}" rel="noopener nofollow" target="_blank" title="${e(s.title)}">
+      const label = tierLabel(ctx, tier);
+      const note = tierNote(ctx, tier);
+      return `<a class="source${tier === 1 ? ' source--t1' : ''}" href="${e(s.url)}" rel="noopener nofollow" target="_blank" title="${e(s.title)}${note ? ` — ${e(label)}: ${e(note)}` : ''}">
 <span class="source__mark" aria-hidden="true">${e(monogram(s.publisher))}</span>
 <span>${e(s.publisher)}</span>
-<span class="source__tier">T${tier}</span>
+<span class="source__tier">${e(label)}</span>
 </a>`;
     })
     .join('');
@@ -283,16 +298,30 @@ export function sourceList(ctx, sources) {
       const host = hostOf(s.url);
       const known = matchPublisher(host, ctx.sourceBook.publishers);
       const tier = s.tier ?? known?.tier ?? 4;
+      const label = tierLabel(ctx, tier);
+      const note = tierNote(ctx, tier);
       return `<li>
 <span class="source__mark" aria-hidden="true">${e(monogram(s.publisher))}</span>
 <span>
 <a href="${e(s.url)}" rel="noopener nofollow" target="_blank">${e(s.title)}</a>
-<span class="pub">${e(s.publisher)} · Tier ${tier}${s.publishedAt ? ` · ${e(formatShort(s.publishedAt))}` : ''}</span>
+<span class="pub"><span${note ? ` title="${e(note)}"` : ''}>${e(s.publisher)} · ${e(label)}</span>${s.publishedAt ? ` · ${e(formatShort(s.publishedAt))}` : ''}</span>
 </span>
 </li>`;
     })
     .join('')}</ol>`;
 }
+
+// Plain-language version of schema/edition.schema.json's own confidence definition — "high =
+// primary source confirms. medium = credible reporting, no primary. low = single source or
+// contested." A reader who has never opened Methodology should not need to look up what
+// "medium confidence" means; the tag should say it. Shown for every level, including high —
+// omitting the tag on the best case reads as a missing label, not as reassurance, to someone
+// who doesn't already know the convention.
+const CONFIDENCE_LABEL = {
+  high: 'Primary source confirmed',
+  medium: 'Credible reporting, no primary',
+  low: 'Single source, unconfirmed',
+};
 
 function metaLine(ctx, story, depth) {
   const beat = ctx.beatMap.get(story.beat);
@@ -300,8 +329,11 @@ function metaLine(ctx, story, depth) {
   if (beat) parts.push(`<a href="${rel(depth, 'index.html')}#${e(beat.id)}" style="text-decoration:none">${e(beat.label)}</a>`);
   if (story.readMinutes) parts.push(`${story.readMinutes} min read`);
   if (story.publishedAt) parts.push(`<time datetime="${e(story.publishedAt)}" data-relative>${e(formatShort(story.publishedAt))}</time>`);
-  if (story.confidence && story.confidence !== 'high') {
-    parts.push(`<span class="tag tag--low">${e(story.confidence)} confidence</span>`);
+  if (story.confidence) {
+    const plain = CONFIDENCE_LABEL[story.confidence] || story.confidence;
+    parts.push(
+      `<span class="tag${story.confidence === 'high' ? '' : ' tag--low'}" title="${e(story.confidence)} confidence">${e(plain)}</span>`
+    );
   }
   return `<div class="meta">${parts.map((p) => `<span>${p}</span>`).join('')}</div>`;
 }

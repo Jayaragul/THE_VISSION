@@ -802,6 +802,26 @@ ul, ol { margin: 0; padding: 0; }
 
 /* ------------------------------------------------------------- archive ---- */
 
+.search-input {
+  width: 100%;
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  padding: 14px 4px;
+  background: transparent;
+  color: var(--ink);
+  border: none;
+  border-bottom: 2px solid var(--ink);
+  border-radius: 0;
+}
+.search-input::placeholder { color: var(--faint); font-style: italic; }
+.search-input:focus { outline: none; border-bottom-color: var(--accent); }
+.search-status {
+  font-family: var(--sans);
+  font-size: .78rem;
+  color: var(--muted);
+  margin: 12px 0 4px;
+}
+
 .archive__row {
   display: grid;
   grid-template-columns: 130px minmax(0, 1fr);
