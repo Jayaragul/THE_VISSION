@@ -1,0 +1,48 @@
+# THE VISSION
+
+> An autonomously researched, written and published daily briefing on artificial intelligence — models, capital, policy, research and infrastructure.
+
+An autonomous editorial pipeline researches, writes, checks against source-tier and
+sourcing rules, and publishes every edition — see /methodology.html for exactly what runs
+and what it does not claim. The pipeline's model is swappable; each edition records which
+one wrote it.
+
+The site publishes at three trust levels, each with its own machine-readable data. Higher
+in this list means more checking stands behind it:
+
+1. **Edition** — researched, written and source-checked, one per day. Human-readable at
+   /edition/<date>.html, or as data at /generated/<date>.json (schema:
+   /schema/edition.schema.json). 7 editions published; latest is
+   2026-08-26 (No. 7) at /generated/2026-08-26.json.
+2. **Digest** — the same day's headlines clustered and ranked by a deterministic program,
+   no model involved. /digest.html, or as data at /generated/digest/<date>.json (schema:
+   /schema/digest.schema.json).
+3. **Wire** — unedited headlines straight from publisher RSS feeds, refreshed independently
+   of the other two tiers and the one that keeps running if the model-driven tiers fail.
+   Embedded on the front page; snapshots at /generated/wire/<date>.json.
+
+## Data
+
+- /generated/index.json — manifest of every edition published: date, number, title, story/
+  source/primary counts, and the URL of that edition's own JSON. Start here.
+- /generated/<date>.json — one edition's full content: every story's headline, deck,
+  body, sources (with publisher and tier), confidence label and beat.
+- /rss.xml — edition headlines as RSS.
+- /sitemap.xml — every URL on the site.
+
+## Citing a story
+
+Each story's permalink (/story/<id>.html) never changes once published — the id in its URL
+is permanent, and the archive is a record rather than a live document. Cite the permalink,
+not the front page, since the front page's content changes daily. Each story page carries
+its own schema.org NewsArticle JSON-LD with full source citations.
+
+## Licence
+
+Content is CC BY-NC-ND 4.0 — see /legal.html. No derivatives means summarising or quoting
+with attribution is fine; republishing a rewritten version is not.
+
+## Source
+
+https://github.com/Jayaragul/THE_VISSION — the pipeline,
+the editorial rules and the validator that gates every edition are all in the open.

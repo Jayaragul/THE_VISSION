@@ -360,7 +360,13 @@ function renderStoryPage(ctx, ed, story) {
 <div class="article__byline">
 <span class="byline__name">THE VISSION Desk</span>
 <div class="meta" style="margin:0">
-<span><time datetime="${e(story.publishedAt || ed.edition.generatedAt)}">${e(formatMasthead(ed.edition.date))}</time></span>
+${/* This line shows the edition date ("26 August 2026"), so its machine-readable datetime
+      must be the edition's own date too — not story.publishedAt, which is when the
+      underlying event happened and can be days earlier. A <time> element's datetime
+      attribute has to describe the text it wraps; encoding a different date than the one
+      printed is the exact defect a reader flagged after comparing the two by hand. The
+      source's own date is shown separately, correctly, in each source citation below. */ ''}
+<span><time datetime="${e(ed.edition.generatedAt)}">${e(formatMasthead(ed.edition.date))}</time></span>
 <span>${story.readMinutes} min read</span>
 <span>${story.sources.length} source${story.sources.length === 1 ? '' : 's'}</span>
 ${story.confidence ? `<span><span class="tag${story.confidence === 'high' ? '' : ' tag--low'}">${e(story.confidence)} confidence</span></span>` : ''}
@@ -433,7 +439,12 @@ editorial rules before release. <a href="${R.rel(depth, 'methodology.html')}" st
       '@type': 'NewsArticle',
       headline: story.headline,
       description: story.deck,
-      datePublished: story.publishedAt || ed.edition.generatedAt,
+      // datePublished describes this NewsArticle — THE VISSION's own story — not the event it
+      // reports on. story.publishedAt is when the underlying event happened, which can be
+      // days before THE VISSION wrote about it (the Stanford study this caught: study
+      // published 12 Aug, THE VISSION's article on it 26 Aug). Using the earlier date here
+      // told search engines and agents this article was two weeks older than it actually is.
+      datePublished: ed.edition.generatedAt,
       dateModified: ed.edition.generatedAt,
       articleSection: beat?.label || story.beat,
       keywords: (story.tags || []).join(', '),
@@ -1516,6 +1527,65 @@ write('rss.xml', renderRSS(editions));
 write('sitemap.xml', renderSitemap(editions, entities, digests, wireHistory));
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${site.baseUrl}/sitemap.xml\n`);
 write('.nojekyll', '');
+
+// llms.txt (see llmstxt.org) — an orientation file for language models and agents, in the
+// same spirit as robots.txt for crawlers. Lists only endpoints that are actually real: this
+// is a static site with no server, so there is no query API, search endpoint or MCP server
+// to describe, however useful one might be. Regenerated on every build from the same
+// editions array everything else on the site uses, so the numbers here can't drift from
+// what's actually published the way a hand-maintained copy would.
+write(
+  'llms.txt',
+  `# ${site.name}
+
+> ${site.description}
+
+An autonomous editorial pipeline researches, writes, checks against source-tier and
+sourcing rules, and publishes every edition — see /methodology.html for exactly what runs
+and what it does not claim. The pipeline's model is swappable; each edition records which
+one wrote it.
+
+The site publishes at three trust levels, each with its own machine-readable data. Higher
+in this list means more checking stands behind it:
+
+1. **Edition** — researched, written and source-checked, one per day. Human-readable at
+   /edition/<date>.html, or as data at /generated/<date>.json (schema:
+   /schema/edition.schema.json). ${editions.length} editions published; latest is
+   ${latest.edition.date} (No. ${latest.edition.number}) at /generated/${latest.edition.date}.json.
+2. **Digest** — the same day's headlines clustered and ranked by a deterministic program,
+   no model involved. /digest.html, or as data at /generated/digest/<date>.json (schema:
+   /schema/digest.schema.json).
+3. **Wire** — unedited headlines straight from publisher RSS feeds, refreshed independently
+   of the other two tiers and the one that keeps running if the model-driven tiers fail.
+   Embedded on the front page; snapshots at /generated/wire/<date>.json.
+
+## Data
+
+- /generated/index.json — manifest of every edition published: date, number, title, story/
+  source/primary counts, and the URL of that edition's own JSON. Start here.
+- /generated/<date>.json — one edition's full content: every story's headline, deck,
+  body, sources (with publisher and tier), confidence label and beat.
+- /rss.xml — edition headlines as RSS.
+- /sitemap.xml — every URL on the site.
+
+## Citing a story
+
+Each story's permalink (/story/<id>.html) never changes once published — the id in its URL
+is permanent, and the archive is a record rather than a live document. Cite the permalink,
+not the front page, since the front page's content changes daily. Each story page carries
+its own schema.org NewsArticle JSON-LD with full source citations.
+
+## Licence
+
+Content is CC BY-NC-ND 4.0 — see /legal.html. No derivatives means summarising or quoting
+with attribution is fine; republishing a rewritten version is not.
+
+## Source
+
+${site.social?.repo || 'See the repository linked from the site footer.'} — the pipeline,
+the editorial rules and the validator that gates every edition are all in the open.
+`
+);
 
 // Machine-readable manifest — this is the API for anything that wants the data.
 write(
