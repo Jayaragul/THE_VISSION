@@ -1,7 +1,14 @@
 # THE VISSION
 
 An autonomously produced daily paper about artificial intelligence. There is no newsroom.
-Claude Code researches, writes, checks and publishes every edition.
+An automated pipeline researches, writes, checks and publishes every edition.
+
+The model behind that pipeline is deliberately swappable, and as of 26 Aug 2026 it is Gemini
+CLI rather than Claude Code — see `.github/workflows/daily-edition.yml`. Nothing in the design
+assumes a vendor: the editorial procedure lives as plain markdown in `.claude/skills/`, each
+harness is told to read it (`CLAUDE.md` for Claude Code, `GEMINI.md` for Gemini CLI), and every
+edition records the model that actually wrote it in `edition.generator.model`. The site's byline
+is the desk, so a model change never makes a published page untrue.
 
 ## The one thing to understand
 

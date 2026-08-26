@@ -1,0 +1,62 @@
+# Shell allowlist for the pipeline's model steps.
+#
+# The action runs `gemini --yolo`, which auto-approves every tool call — correct for CI, where
+# no human is present to confirm one, but it means the approval prompt is not a control here.
+# This file is the control. It replaces the tool restriction the previous harness expressed as
+# `--allowedTools ... Bash(node tools/*),Bash(git log:*),Bash(git diff:*)`, which would
+# otherwise have been silently dropped in the move to Gemini.
+#
+# It matters most in the weekly retrospective, which unlike the daily research job holds
+# `contents: write` and `pull-requests: write`. Without an allowlist a confused or manipulated
+# run there could `git push` directly to main, bypassing the human review gate that is the
+# entire point of that workflow.
+#
+# Deny is the low-priority default and the allowances are specific, so a command nobody
+# anticipated is refused rather than permitted. Denied tools are dropped from the model's
+# tool list entirely rather than failing at call time.
+
+# Default: no shell.
+[[rule]]
+toolName = "run_shell_command"
+decision = "deny"
+priority = 10
+
+# The repository's own zero-dependency tooling: edition-info, harvest, validate, digest, build.
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = "node tools/"
+decision = "allow"
+priority = 100
+
+# Reading history is how the retrospective finds patterns across editions. Both are read-only.
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = "git log"
+decision = "allow"
+priority = 100
+
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = "git diff"
+decision = "allow"
+priority = 100
+
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = "git status"
+decision = "allow"
+priority = 100
+
+# Listing evals and generated editions — the retrospective's prompt asks for exactly this.
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = "ls "
+decision = "allow"
+priority = 100
+
+# No interactive prompt can be answered in CI, and a model asking for one would hang the job
+# until the timeout rather than fail cleanly.
+[[rule]]
+toolName = "ask_user"
+decision = "deny"
+priority = 100

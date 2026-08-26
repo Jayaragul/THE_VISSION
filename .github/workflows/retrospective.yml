@@ -2,7 +2,7 @@ name: Weekly retrospective
 
 # The self-improvement loop, with a human gate.
 #
-# Once a week Claude reads the last seven editions and their eval scores, finds the pattern
+# Once a week the model reads the last seven editions and their eval scores, finds the pattern
 # that keeps costing the paper points, and proposes a fix to the RULES — a new check in the
 # validator, a banned construction in editorial.md, a quota that does not match reality.
 #
@@ -19,10 +19,6 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  # anthropics/claude-code-action@v1 mints a short-lived OIDC token for its own auth path;
-  # without this the job fails before it ever reaches the prompt. See daily-edition.yml for
-  # the failure this fixes — same action, same gap.
-  id-token: write
 
 jobs:
   retrospective:
@@ -38,15 +34,32 @@ jobs:
         with:
           node-version: '22'
 
+      # The action runs `gemini --yolo`, so the approval prompt is not a control in CI. The
+      # policy file is: it denies run_shell_command by default and allows only this repo own
+      # tooling and read-only git, restoring the restriction the previous harness expressed as
+      # --allowedTools. Installed to the home directory because that is where the CLI loads
+      # policies from; it is version-controlled here so the allowlist is reviewable.
+      - name: Install the shell allowlist
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/.gemini/policies"
+          cp .gemini/policies/vission.toml "$HOME/.gemini/policies/vission.toml"
+          echo "policy installed:"; cat "$HOME/.gemini/policies/vission.toml" | head -5
+
       - name: Propose rule changes
-        uses: anthropics/claude-code-action@v1
+        uses: google-github-actions/run-gemini-cli@v0.1.22
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          claude_args: |
-            --model claude-opus-5
-            --max-turns 40
-            --allowedTools Read,Write,Edit,Glob,Grep,Bash(node tools/*),Bash(git log:*),Bash(git diff:*)
+          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
+          gemini_model: ${{ vars.GEMINI_MODEL || 'gemini-2.5-flash' }}
+          settings: |
+            {
+              "context": {
+                "fileFiltering": { "respectGitIgnore": true }
+              }
+            }
           prompt: |
+            Read GEMINI.md first for this repository's rules and tooling.
+
             Run a retrospective on THE VISSION's last seven editions.
 
             Read evals/rubric.md, then every evals/<date>.json for the last seven editions
