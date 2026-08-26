@@ -64,6 +64,11 @@ const FEEDS = [
   { source: 'arXiv — cs.AI', url: 'https://export.arxiv.org/api/query?search_query=cat:cs.AI&sortBy=submittedDate&sortOrder=descending&max_results=30' },
   { source: 'arXiv — cs.CL', url: 'https://export.arxiv.org/api/query?search_query=cat:cs.CL&sortBy=submittedDate&sortOrder=descending&max_results=20' },
   { source: 'arXiv — cs.MA', url: 'https://export.arxiv.org/api/query?search_query=cat:cs.MA&sortBy=submittedDate&sortOrder=descending&max_results=15' },
+  // Added 26 Aug 2026: a robotics paper (Nvidia/UC Berkeley's tactile-manipulation work) was
+  // invisible to this harvest despite covering exactly what this paper is meant to catch,
+  // because cs.AI/cs.CL/cs.MA are all non-robotics categories. Robot learning and manipulation
+  // papers are filed under cs.RO specifically.
+  { source: 'arXiv — cs.RO', url: 'https://export.arxiv.org/api/query?search_query=cat:cs.RO&sortBy=submittedDate&sortOrder=descending&max_results=20' },
 ];
 
 // No lab publishes a feed for "everything happening with Chinese models" in English, and
@@ -74,7 +79,7 @@ const FEEDS = [
 // the real underlying source before it can be cited. Treat it exactly like a WebSearch hit.
 const TOPIC_SEARCHES = [
   'Gemini AI model Google DeepMind',
-  '(Qwen OR DeepSeek OR "Kimi K" OR GLM OR MiniMax OR Baidu Ernie) AI model China',
+  '(Qwen OR DeepSeek OR "Kimi K" OR GLM OR "Z.ai" OR MiniMax OR Baidu Ernie) AI model China',
   'Mistral AI model release',
   'Anthropic Claude announcement',
   '(Amazon OR AWS) (Nova OR Bedrock OR Trainium OR Rufus) AI',
