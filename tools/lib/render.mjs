@@ -115,19 +115,75 @@ function masthead(ctx, opts) {
 <a class="masthead__title" href="${rel(d, 'index.html')}">${mark}</a>
 <div class="masthead__rule" role="presentation"></div>
 <div class="masthead__tagline">${e(ctx.site.tagline)}</div>
+${ctx.site.editorNote ? `<p class="masthead__note">${e(ctx.site.editorNote)}</p>` : ''}
 </div>
 </header>`;
+}
+
+/**
+ * The three tiers, stated plainly and in descending order of how much checking stands behind
+ * them. Without this the site's structure is only discoverable by noticing two links in the
+ * nav: a first-time reader had no way to learn that the Digest and the Wire exist, let alone
+ * that they are held to different standards than the edition they are looking at.
+ */
+export function tierStrip(ctx, opts = {}) {
+  const d = opts.depth || 0;
+  const n = (v) => (typeof v === 'number' && v > 0 ? v : null);
+  const rows = [
+    {
+      name: 'The Edition',
+      count: n(opts.editionCount),
+      unit: 'stories',
+      blurb: 'Researched, written and checked against the paper’s own rules before it publishes.',
+      href: null,
+    },
+    {
+      name: 'The Digest',
+      count: n(opts.digestCount),
+      unit: 'items',
+      blurb: 'Clustered and ranked by a deterministic program. No model wrote a word of it.',
+      href: rel(d, 'digest.html'),
+    },
+    {
+      name: 'The Wire',
+      count: n(opts.wireCount),
+      unit: 'headlines',
+      blurb: 'Straight from publishers’ own feeds, unverified. Leads, not reporting.',
+      href: opts.anchorNav ? '#wire' : `${rel(d, 'index.html')}#wire`,
+    },
+  ];
+
+  return `<section class="tiers" aria-label="What is on this site">
+<div class="tiers__grid">
+${rows
+  .map((r) => {
+    const meta = r.count ? `<span class="tiers__count">${r.count} ${e(r.unit)}</span>` : '';
+    const head = r.href
+      ? `<a class="tiers__name" href="${r.href}">${e(r.name)}</a>`
+      : `<span class="tiers__name is-here">${e(r.name)} <span class="tiers__you">you are here</span></span>`;
+    return `<div class="tiers__item">${head}${meta}<p class="tiers__blurb">${e(r.blurb)}</p></div>`;
+  })
+  .join('')}
+</div>
+</section>`;
 }
 
 function beatnav(ctx, opts) {
   const d = opts.depth || 0;
   const home = rel(d, 'index.html');
-  const links = ctx.site.nav
+  // On the front page, only link beats that actually have a section today — an anchor
+  // pointing at a heading that was not rendered scrolls the reader nowhere and reads as a
+  // broken link. Away from the front page every beat is listed, because the anchor resolves
+  // against whatever edition the reader lands on.
+  const present = opts.presentBeats;
+  const shown = present ? ctx.site.nav.filter((n) => present.has(n.id)) : ctx.site.nav;
+  const links = shown
     .map((n) => `<a href="${opts.anchorNav ? `#${e(n.id)}` : `${home}#${e(n.id)}`}">${e(n.label)}</a>`)
     .join('');
   return `<nav class="beatnav" aria-label="Sections"><div class="wrap beatnav__in">
 ${links}
 <span class="beatnav__sep"></span>
+<a class="is-quiet" href="${opts.anchorNav ? '#wire' : `${home}#wire`}">Wire</a>
 <a class="is-quiet" href="${rel(d, 'digest.html')}">Digest</a>
 <a class="is-quiet" href="${rel(d, 'hackathons.html')}">Hackathons</a>
 <a class="is-quiet" href="${rel(d, 'topics.html')}">Topics</a>

@@ -19,6 +19,12 @@ import { selectWireItems, wireBlock, wireItemsHTML, stalenessBanner, wirePath, s
 import * as R from './lib/render.mjs';
 
 const ROOT = resolvePath(dirname(fileURLToPath(import.meta.url)), '..');
+
+/** "Policy", "Policy and Society", "Policy, Society and India" — an Oxford-comma-free list. */
+function listSentence(parts) {
+  if (parts.length <= 1) return parts[0] || '';
+  return `${parts.slice(0, -1).join(', ')} and ${parts[parts.length - 1]}`;
+}
 const OUT = (...p) => join(ROOT, ...p);
 
 const site = readJSON(OUT('input', 'site.json'));
@@ -206,14 +212,21 @@ function renderEditionPage(ctx, ed, { depth, canonical, isFront, prev, next }) {
       .filter((s) => s.beat === id && s !== lead && s.prominence !== 'brief')
       .sort(byProminence);
 
+  // Beats with nothing in them used to render a full section each — heading, blurb, a "0
+  // stories" count and an apology. On a normal light day that was four of seven sections, so
+  // roughly half the front page was dedicated to saying nothing happened. The disclosure is
+  // worth keeping and the four blocks are not, so the empty ones collapse into a single line
+  // printed once, below.
+  const emptyBeats = site.nav.filter((nav) => !inBeat(nav.id).length);
+  const presentBeats = new Set(site.nav.filter((nav) => inBeat(nav.id).length).map((n) => n.id));
+
   const beatSections = site.nav
+    .filter((nav) => inBeat(nav.id).length)
     .map((nav) => {
       const beat = beatMap.get(nav.id) || nav;
       const list = inBeat(nav.id);
       let inner;
-      if (!list.length) {
-        inner = `<p class="empty" style="padding:28px 0;text-align:left">No ${e(beat.label.toLowerCase())} stories cleared the bar in this edition.</p>`;
-      } else if (list.length <= 2) {
+      if (list.length <= 2) {
         inner = `<div class="cards">${list.map((s) => R.card(ctx, s, depth)).join('')}</div>`;
       } else {
         const [a, b, c, ...rest] = list;
@@ -229,6 +242,12 @@ ${inner}
 </section>`;
     })
     .join('');
+
+  // The four blocks, replaced by one sentence. Still says a beat came up empty; no longer
+  // spends a screen doing it.
+  const emptyNote = emptyBeats.length
+    ? `<p class="emptybeats">Nothing cleared the bar today in ${listSentence(emptyBeats.map((b) => e(b.label)))}.</p>`
+    : '';
 
   const editionNav =
     prev || next
@@ -260,12 +279,25 @@ ${R.leadBlock(ctx, lead, depth)}
 ${R.briefingBlock(ctx, briefs, depth)}
 </section>
 
+${
+  isFront
+    ? R.tierStrip(ctx, {
+        depth,
+        anchorNav: true,
+        editionCount: ed.signals?.storyCount,
+        digestCount: ctx.latestDigestCount,
+        wireCount: ctx.wireItems?.length,
+      })
+    : ''
+}
+
 <section class="section" style="border-bottom:0;padding-bottom:0">
 ${R.signalsBlock(ed.signals)}
+${emptyNote}
 </section>
 
-${beatSections}
 ${wire}
+${beatSections}
 ${editionNav}
 </div>`;
 
@@ -273,6 +305,9 @@ ${editionNav}
     depth,
     canonical,
     anchorNav: true,
+    // Only the front page hides beats that came up empty; a dated edition page is a record
+    // and lists what it listed on the day.
+    presentBeats: isFront ? presentBeats : null,
     title: isFront
       ? `${site.name} — ${site.tagline}`
       : `${site.name}, ${formatShort(ed.edition.date)} — Edition No. ${ed.edition.number}`,
@@ -1348,9 +1383,14 @@ const communityMark =
     ? readFileSync(join(ROOT, site.community.logo), 'utf8').replace(/<\?xml[^>]*\?>\s*/, '').trim()
     : null;
 
+// Loaded before the context is built rather than beside the digest pages further down: the
+// front page's tier strip prints how many items today's digest holds, and it renders first.
+const digests = loadDigests();
+
 const ctx = {
   site,
   communityMark,
+  latestDigestCount: digests[0]?.items?.length || null,
   beats,
   beatMap,
   sourceBook,
@@ -1427,7 +1467,6 @@ for (const ent of entities.values()) {
 
 // Same pattern as the AI edition: every digest gets a permanent dated page, and the
 // newest one is additionally the thing digest.html shows.
-const digests = loadDigests();
 digests.forEach((d, i) => {
   write(digestPath(d.edition.date), renderDigestPage(ctx, digests, { index: i, isLatest: false }));
 });
