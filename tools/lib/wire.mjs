@@ -92,7 +92,14 @@ These are raw feed headlines, collected automatically and <strong>not verified, 
 endorsed</strong> by THE VISSION. They are leads, not reporting. Edited stories are everything
 above this line.
 </p>
+${/* Forty headlines is a reasonable desktop column and a very long scroll on a phone, where
+      it sits between the reader and the rest of the paper. On narrow screens CSS shows the
+      first twelve and this checkbox reveals the rest — a checkbox rather than a script so it
+      works with JS disabled, and so nothing here depends on app.js loading. Both the input
+      and the label are inert on desktop, where the whole list is shown anyway. */ ''}
+<input type="checkbox" id="wire-showall" class="wire__toggleinput">
 <ul class="wire">${wireItemsHTML(items, { sourceBook })}</ul>
+<label for="wire-showall" class="wire__toggle">Show all ${items.length} headlines</label>
 ${harvestedAt ? `<p class="wire__stamp">Collected <time datetime="${e(harvestedAt)}" data-relative>${e(harvestedAt.slice(0, 10))}, ${e(harvestedAt.slice(11, 16))} UTC</time> · runs four times a day, no model in the loop</p>` : ''}
 </section>`;
 }

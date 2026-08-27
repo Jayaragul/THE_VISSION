@@ -256,6 +256,11 @@ ul, ol { margin: 0; padding: 0; }
   transition: color .15s, border-color .15s, background .15s;
 }
 .themetoggle:hover { color: var(--ink); border-color: var(--rule-strong); background: var(--surface-2); }
+@media (max-width: 700px) {
+  /* 29px tall before — under the 44px minimum, and it sits in the corner where a thumb is
+     least accurate. Padding grows rather than font size, so the bar's height is unchanged. */
+  .themetoggle { padding: 11px 14px; }
+}
 
 /* ------------------------------------------------------------ masthead ---- */
 
@@ -352,6 +357,13 @@ ul, ol { margin: 0; padding: 0; }
   color: var(--muted);
   margin: 0;
 }
+@media (max-width: 700px) {
+  /* The tier names are links to the Digest and Wire, and at 20px tall they were the smallest
+     tap targets on the page — on the one component whose whole job is orienting a new
+     reader. Padding, not font size, so the type scale is unchanged. */
+  .tiers__name { display: inline-block; padding: 10px 0; }
+  .tiers__item { padding: 14px 18px 18px; gap: 4px; }
+}
 
 /* Replaces the block-per-empty-beat the front page used to print. */
 .emptybeats {
@@ -392,6 +404,40 @@ ul, ol { margin: 0; padding: 0; }
 .beatnav a[aria-current="page"] { color: var(--accent); }
 .beatnav__sep { flex: 1 1 auto; min-width: 8px; }
 .beatnav a.is-quiet { color: var(--faint); }
+
+/* On a phone this nav is roughly three screens wide and scrolls sideways, so anything past
+   the first few beats is invisible unless you happen to try swiping a bar that doesn't look
+   swipeable. The fade is the affordance: a gradient at the right edge that only appears
+   while there is more to scroll to, which is what tells a thumb the row continues.
+   Targets also grow to 44px, the minimum comfortable tap size — they were 31px. */
+@media (max-width: 700px) {
+  .beatnav__in {
+    height: 52px;
+    gap: 2px;
+    /* Room for the fade so the last item never sits underneath it. */
+    padding-right: 28px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+  .beatnav a {
+    padding: 13px 12px;
+    scroll-snap-align: start;
+  }
+  .beatnav {
+    position: relative;
+  }
+  .beatnav::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 32px;
+    pointer-events: none;
+    background: linear-gradient(to right, transparent, var(--surface));
+  }
+  /* The separator pushes secondary links to the far right on desktop. On a phone that just
+     adds dead scroll distance between the beats and Search, so it collapses. */
+  .beatnav__sep { flex: 0 0 10px; min-width: 10px; }
+}
 
 /* -------------------------------------------------------- editor's note --- */
 
@@ -968,6 +1014,44 @@ ul, ol { margin: 0; padding: 0; }
   text-decoration: none;
 }
 .wire__link:hover .wire__title { color: var(--accent); }
+/* Desktop shows the whole wire, so the expand control is inert and hidden. It is not
+   display:none on the input, because a focusable control that vanishes entirely is a
+   keyboard trap on the pages where it does apply. */
+.wire__toggleinput { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.wire__toggle { display: none; }
+
+@media (max-width: 700px) {
+  /* 12px padding gave a ~40px row. Bumped so each headline is a comfortable target, since
+     the wire is a long list of links and mis-taps are most likely exactly here. */
+  .wire__link { padding: 15px 0; }
+
+  /* Show twelve, then stop. The rest are one tap away rather than forty scrolls. */
+  .wire__item:nth-child(n + 13) { display: none; }
+  .wire__toggleinput:checked ~ .wire .wire__item { display: block; }
+  .wire__toggleinput:checked ~ .wire__toggle { display: none; }
+
+  .wire__toggle {
+    display: block;
+    margin-top: 16px;
+    padding: 14px 16px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: .76rem;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .wire__toggle:active { background: var(--surface-2); }
+  /* Keyboard users get a visible ring on the label, since the real input is off-screen. */
+  .wire__toggleinput:focus-visible ~ .wire__toggle {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
 .wire__mark {
   width: 22px; height: 22px;
   border-radius: 4px;
@@ -1071,6 +1155,14 @@ ul, ol { margin: 0; padding: 0; }
   font-variant-numeric: normal;
 }
 .footer li a:hover { color: var(--ink); }
+@media (max-width: 700px) {
+  /* Footer links were 16px tall in a dense 9px-gap list — the hardest thing on the page to
+     tap accurately, and the footer is where the section and legal links live. Making each
+     one a block with vertical padding turns the whole row into the target rather than just
+     the glyphs; the visible gap is reduced to compensate so the footer doesn't get taller. */
+  .footer ul { gap: 0; }
+  .footer li a { display: block; padding: 11px 0; }
+}
 .footer__base {
   display: flex; flex-wrap: wrap; gap: 14px 26px;
   padding-top: 24px;

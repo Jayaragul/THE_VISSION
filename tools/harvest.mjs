@@ -69,6 +69,11 @@ const FEEDS = [
   // because cs.AI/cs.CL/cs.MA are all non-robotics categories. Robot learning and manipulation
   // papers are filed under cs.RO specifically.
   { source: 'arXiv — cs.RO', url: 'https://export.arxiv.org/api/query?search_query=cat:cs.RO&sortBy=submittedDate&sortOrder=descending&max_results=20' },
+  // Added 26 Aug 2026 for the same reason as cs.RO, and it is the larger gap of the two:
+  // cs.LG is where most architecture and training-method work is filed. Google's
+  // Recirculation paper — a change to how information moves through a transformer at
+  // inference — was invisible here despite being exactly this paper's subject.
+  { source: 'arXiv — cs.LG', url: 'https://export.arxiv.org/api/query?search_query=cat:cs.LG&sortBy=submittedDate&sortOrder=descending&max_results=25' },
 ];
 
 // No lab publishes a feed for "everything happening with Chinese models" in English, and
@@ -79,7 +84,19 @@ const FEEDS = [
 // the real underlying source before it can be cited. Treat it exactly like a WebSearch hit.
 const TOPIC_SEARCHES = [
   'Gemini AI model Google DeepMind',
-  '(Qwen OR DeepSeek OR "Kimi K" OR GLM OR "Z.ai" OR MiniMax OR Baidu Ernie) AI model China',
+  // Zhipu is the company; Z.ai is the product domain and GLM the model family. Coverage uses
+  // all three interchangeably, and a query naming only some of them misses the rest — the
+  // GLM-5.3 release was reported under "Zhipu" by outlets this harvest never saw.
+  '(Qwen OR DeepSeek OR "Kimi K" OR GLM OR Zhipu OR "Z.ai" OR MiniMax OR Baidu Ernie) AI model China',
+  // Several labs now soft-launch a model anonymously under a codename, let it climb the
+  // public leaderboards, and only claim it days later — Ox Alpha did exactly this. Nothing
+  // keyed to a company name can catch that window, because the company is deliberately not
+  // named yet; the leaderboards and the speculation are the only signal there is.
+  'new AI model preview OR "stealth launch" OR anonymous model OpenRouter leaderboard',
+  // Vertical, post-trained models on top of open weights are a distinct and growing class
+  // this harvest had no coverage of at all: Harvey's legal model built on Kimi K3 was
+  // invisible, and the general AI press feeds only picked it up sporadically.
+  'legal OR finance OR healthcare AI model fine-tuned enterprise launch',
   'Mistral AI model release',
   'Anthropic Claude announcement',
   '(Amazon OR AWS) (Nova OR Bedrock OR Trainium OR Rufus) AI',
