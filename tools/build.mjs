@@ -127,6 +127,91 @@ function collectEntities(editions) {
   return bySlug;
 }
 
+/**
+ * The week's dominant subject: the entity that appeared across the most separate editions in
+ * the seven days ending at the latest edition.
+ *
+ * Ranked on how many distinct editions mentioned it, not how many stories — one busy day
+ * about a single company is a news cycle, whereas the same name recurring across four
+ * separate days is a genuine running story, which is what a weekly slot should hold.
+ *
+ * Grouped by slug rather than by the raw string, because "Nvidia" and "NVIDIA" are tagged
+ * both ways across editions and counted as two different companies otherwise — the entity
+ * pages already merge them this way, and this now agrees with them.
+ *
+ * Derived entirely from edition dates, never the clock, so the build stays a pure function of
+ * its inputs and only changes when a new edition actually publishes.
+ */
+function topicOfTheWeek(editions) {
+  if (!editions.length) return null;
+  const latest = editions[0].edition.date;
+  const cutoff = new Date(`${latest}T00:00:00Z`);
+  cutoff.setUTCDate(cutoff.getUTCDate() - 6);
+  const from = cutoff.toISOString().slice(0, 10);
+
+  const inWeek = editions.filter((ed) => ed.edition.date >= from && ed.edition.date <= latest);
+  const bySlug = new Map();
+  for (const ed of inWeek) {
+    for (const story of ed.stories) {
+      for (const name of story.entities || []) {
+        const slug = slugify(name);
+        if (!slug) continue;
+        if (!bySlug.has(slug)) bySlug.set(slug, { slug, name, stories: [], dates: new Set() });
+        const entry = bySlug.get(slug);
+        entry.stories.push({ story, ed });
+        entry.dates.add(ed.edition.date);
+      }
+    }
+  }
+
+  const ranked = [...bySlug.values()].sort(
+    (a, b) => b.dates.size - a.dates.size || b.stories.length - a.stories.length || a.slug.localeCompare(b.slug)
+  );
+  const top = ranked[0];
+  // One mention on one day is not a theme. Below this the slot says nothing useful and is
+  // better left out than filled for the sake of filling it.
+  if (!top || top.dates.size < 2) return null;
+
+  top.stories.sort(
+    (a, b) => b.ed.edition.date.localeCompare(a.ed.edition.date) || byProminence(a.story, b.story)
+  );
+  return { ...top, from, to: latest, editionsCovered: top.dates.size };
+}
+
+/** The weekly slot on the front page. Renders nothing when no subject recurred across at
+ *  least two editions — an empty week is a real outcome and better stated by absence than by
+ *  promoting a one-day story to a weekly theme. */
+function topicOfWeekBlock(ctx, topic, depth) {
+  if (!topic) return '';
+  const shown = topic.stories.slice(0, 5);
+  const rows = shown
+    .map(
+      ({ story, ed }) => `<a class="totw__row" href="${R.rel(depth, R.storyPath(story))}">
+<span class="totw__date">${e(formatShort(ed.edition.date))}</span>
+<span class="totw__headline">${e(story.headline)}</span>
+</a>`
+    )
+    .join('');
+
+  return `<section class="section totw" id="topic-of-the-week">
+<div class="section__head">
+<h2 class="section__title">Topic of the Week</h2>
+<span class="section__blurb">The subject that kept returning, ${e(formatShort(topic.from))} – ${e(formatShort(topic.to))}</span>
+<span class="section__count">${topic.editionsCovered} editions</span>
+</div>
+<div class="totw__grid">
+<div>
+<h3 class="totw__name"><a href="${R.rel(depth, `entity/${topic.slug}.html`)}">${e(topic.name)}</a></h3>
+<p class="totw__why">Named in ${topic.stories.length} ${topic.stories.length === 1 ? 'story' : 'stories'} across
+${topic.editionsCovered} separate editions this week — chosen for recurring across days rather than for
+dominating any single one.</p>
+<a class="totw__all" href="${R.rel(depth, `entity/${topic.slug}.html`)}">Every ${e(topic.name)} story →</a>
+</div>
+<div class="totw__rows">${rows}</div>
+</div>
+</section>`;
+}
+
 const PROMINENCE_ORDER = { lead: 0, top: 1, standard: 2, brief: 3 };
 const byProminence = (a, b) =>
   (PROMINENCE_ORDER[a.prominence] ?? 9) - (PROMINENCE_ORDER[b.prominence] ?? 9);
@@ -270,7 +355,16 @@ ${stale}
 <div>
 <h1 class="editorsnote__title">${e(ed.edition.title)}</h1>
 <p class="editorsnote__body">${e(ed.edition.summary)}</p>
-${isFront ? `<p class="wire__stamp">Published <time datetime="${e(ed.edition.generatedAt)}" data-relative>${e(formatMasthead(ed.edition.date))}, ${e(ed.edition.generatedAt.slice(11, 16))} UTC</time> · the edited tier, researched and written by the desk</p>` : ''}
+${(() => {
+  const mode = R.editionMode(ed);
+  const stamp = `Published <time datetime="${e(ed.edition.generatedAt)}" data-relative>${e(formatMasthead(ed.edition.date))}, ${e(ed.edition.generatedAt.slice(11, 16))} UTC</time>`;
+  // Printed on every edition, front page and dated page alike — a reader looking at an
+  // archived edition needs to know how that one was made, not how today's was.
+  const badge = mode
+    ? ` · <span class="editionmode editionmode--${e(ed.edition.generator.trigger)}" title="${e(mode.note)}">${e(mode.label)}</span>`
+    : '';
+  return `<p class="wire__stamp">${stamp}${badge}</p>`;
+})()}
 </div>
 </section>
 
@@ -290,6 +384,8 @@ ${
       })
     : ''
 }
+
+${isFront ? topicOfWeekBlock(ctx, ctx.topicOfWeek, depth) : ''}
 
 <section class="section" style="border-bottom:0;padding-bottom:0">
 ${R.signalsBlock(ed.signals)}
@@ -312,6 +408,15 @@ ${editionNav}
       ? `${site.name} — ${site.tagline}`
       : `${site.name}, ${formatShort(ed.edition.date)} — Edition No. ${ed.edition.number}`,
     description: ed.edition.summary.slice(0, 300),
+    // Every company, model and body named in this edition, plus its beats — the page's real
+    // subject matter, taken from the stories on it.
+    keywords: [
+      ...new Set([
+        ...ed.stories.flatMap((s) => s.entities || []),
+        ...ed.stories.map((s) => beatMap.get(s.beat)?.label).filter(Boolean),
+        'artificial intelligence',
+      ]),
+    ],
     editionDate: ed.edition.date,
     editionNumber: ed.edition.number,
     ogImage: R.coverPath(lead),
@@ -430,6 +535,9 @@ editorial rules before release. <a href="${R.rel(depth, 'methodology.html')}" st
     title: `${story.headline} — ${site.name}`,
     description: story.deck,
     ogType: 'article',
+    keywords: [
+      ...new Set([...(story.entities || []), ...(story.tags || []), beat?.label].filter(Boolean)),
+    ],
     ogImage: R.coverPath(story),
     editionDate: ed.edition.date,
     editionNumber: ed.edition.number,
@@ -652,7 +760,7 @@ function renderMethodology(ctx, editions) {
 <section class="editorsnote">
 <div class="editorsnote__label">Methodology</div>
 <div>
-<h1 class="editorsnote__title">Nobody writes this paper.</h1>
+<h1 class="editorsnote__title">A paper that is trying to write itself.</h1>
 <p class="editorsnote__body">${e(site.description)}</p>
 </div>
 </section>
@@ -660,10 +768,18 @@ function renderMethodology(ctx, editions) {
 <section class="section">
 <div class="article__grid">
 <div class="prose">
-<p>Every edition of ${e(site.name)} is produced by an automated pipeline. There is no
-newsroom, no editor reading proofs at midnight, and no human deciding which story leads.
-That is unusual enough to be worth explaining precisely, because a reader cannot judge
-what they cannot see.</p>
+<p>Every edition of ${e(site.name)} is produced by the same pipeline, the same editorial
+rules and the same validator. What changes is whether a person had to press the button.
+Each edition says which it was, on the edition itself: an <strong>autonomous edition</strong>
+ran end to end on a schedule with nobody in the loop, and a <strong>human-run edition</strong>
+means the scheduled run failed its gate and a person ran the identical procedure by hand.</p>
+
+<p>This page used to say nobody writes this paper. That was the intent, and for a stretch of
+${e(String(editions.length))} editions it was not yet true — every one of them was human-run
+after a scheduled attempt failed. Documenting that is more useful than hiding it: a paper
+whose entire claim is that you can check its work cannot be the one page on the site you
+have to take on faith. The label on each edition is generated from what actually ran, not
+set by hand, so it cannot quietly drift back into flattery.</p>
 
 <p>The repository holds three things the pipeline reads and one thing it writes. It reads
 the <strong>skills</strong>, which are the standing instructions for how to research and how
@@ -1522,6 +1638,7 @@ const ctx = {
   site,
   communityMark,
   latestDigestCount: digests[0]?.items?.length || null,
+  topicOfWeek: topicOfTheWeek(editions),
   beats,
   beatMap,
   sourceBook,

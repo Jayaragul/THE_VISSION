@@ -42,6 +42,14 @@ export function page(ctx, opts) {
 <link rel="canonical" href="${e(canonical)}">
 <meta name="generator" content="THE VISSION pipeline">
 <meta name="robots" content="index, follow, max-image-preview:large">
+${/* Google has ignored meta keywords since 2009, so this is not here for search rank — it is
+     here because agents and scrapers parsing a page for topicality still read it, and this
+     paper's readership includes those. Built from the entities and tags actually attached to
+     the stories on the page, never from a hand-kept list, so it cannot describe content the
+     page does not contain. */ ''}
+${opts.keywords?.length ? `<meta name="keywords" content="${e(opts.keywords.slice(0, 20).join(', '))}">` : ''}
+<meta name="news_keywords" content="${e((opts.keywords || ['artificial intelligence']).slice(0, 10).join(', '))}">
+<meta property="og:locale" content="${e((site.locale || 'en').replace('-', '_'))}">
 
 <meta property="og:type" content="${opts.ogType || 'website'}">
 <meta property="og:site_name" content="${e(site.name)}">
@@ -317,6 +325,36 @@ export function sourceList(ctx, sources) {
 // "medium confidence" means; the tag should say it. Shown for every level, including high —
 // omitting the tag on the best case reads as a missing label, not as reassurance, to someone
 // who doesn't already know the convention.
+/**
+ * How an edition was actually produced, printed on the edition itself.
+ *
+ * The methodology page said "Nobody writes this paper" while every edition published so far
+ * carried trigger:"manual" — written by hand after the scheduled pipeline failed its gate.
+ * Documenting the fallback is more interesting than pretending it didn't happen, and a paper
+ * whose whole pitch is verifiability cannot be the one page on the site that isn't checkable.
+ *
+ * Driven by edition.generator.trigger rather than a hand-set field, so it cannot drift from
+ * what actually ran.
+ */
+export const EDITION_MODE = {
+  schedule: {
+    label: 'Autonomous edition',
+    note: 'Researched, written, validated and published by the pipeline with no human in the loop.',
+  },
+  manual: {
+    label: 'Human-run edition',
+    note: 'Produced by a person running the same pipeline and editorial rules by hand, because the scheduled run did not pass its gate.',
+  },
+  backfill: {
+    label: 'Backfilled edition',
+    note: 'Written after the fact for a date the pipeline missed, reporting only what was known then.',
+  },
+};
+
+export function editionMode(ed) {
+  return EDITION_MODE[ed?.edition?.generator?.trigger] || null;
+}
+
 export const CONFIDENCE_LABEL = {
   high: 'Primary source confirmed',
   medium: 'Credible reporting, no primary',

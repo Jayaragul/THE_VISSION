@@ -848,6 +848,52 @@ ul, ol { margin: 0; padding: 0; }
 
 /* ------------------------------------------------------------- archive ---- */
 
+/* ------------------------------------------------ topic of the week ------- */
+
+.totw__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 30px;
+}
+.totw__name { font-family: var(--serif); font-size: 1.9rem; line-height: 1.15; margin-bottom: 10px; }
+.totw__name a { text-decoration: none; color: var(--ink); }
+.totw__name a:hover { color: var(--accent); }
+.totw__why { font-family: var(--sans); font-size: .86rem; line-height: 1.55; color: var(--muted); }
+.totw__all {
+  display: inline-block; margin-top: 14px;
+  font-family: var(--sans); font-size: .76rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--accent); text-decoration: none;
+}
+.totw__row {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 16px; align-items: baseline;
+  padding: 12px 0;
+  border-top: 1px solid var(--rule);
+  text-decoration: none;
+}
+.totw__row:first-child { border-top: 0; }
+.totw__date { font-family: var(--mono); font-size: .72rem; color: var(--faint); white-space: nowrap; }
+.totw__headline { font-family: var(--serif); font-size: 1.02rem; line-height: 1.35; color: var(--ink); }
+.totw__row:hover .totw__headline { color: var(--accent); }
+@media (max-width: 760px) {
+  .totw__grid { grid-template-columns: 1fr; gap: 20px; }
+  .totw__name { font-size: 1.6rem; }
+  .totw__row { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
+}
+
+/* How an edition was produced, stated on the edition. Autonomous is the accent colour
+   because it is the claim the paper is actually making; the fallback modes are muted but
+   never hidden — that distinction is the honest part. */
+.editionmode {
+  font-weight: 600;
+  color: var(--muted);
+  border-bottom: 1px dotted var(--rule-strong);
+  cursor: help;
+}
+.editionmode--schedule { color: var(--accent); border-bottom-color: var(--accent); }
+
 .search-input {
   width: 100%;
   font-family: var(--serif);
