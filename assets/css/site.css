@@ -225,10 +225,24 @@ ul, ol { margin: 0; padding: 0; }
 }
 .topbar__in {
   display: flex; align-items: center; gap: 16px;
-  height: 40px;
+  /* min-height, not height: a fixed height on a row that can wrap is what caused four items
+     to overlap into an illegible stack on a narrow phone — the row was clipped to 40px no
+     matter how much content it actually held once it wrapped. */
+  min-height: 40px;
+  flex-wrap: wrap;
+  padding: 6px 0;
 }
 .topbar__date { text-transform: uppercase; font-weight: 550; letter-spacing: .1em; }
 .topbar__spacer { margin-left: auto; }
+@media (max-width: 700px) {
+  /* Edition number and the relative "updated" stamp are both shown again, more fully, a
+     few lines down — the edition number in the masthead area, the absolute publish time in
+     the byline under the lead. Dropping them here is the actual fix: four items competing
+     for one 320px-wide row is what wrapped into the overlapping mess in the first place, not
+     a spacing tweak on top of the same four items. */
+  .topbar__in { flex-wrap: nowrap; gap: 10px; }
+  .topbar__edition-number, .topbar .live { display: none; }
+}
 
 .live {
   display: inline-flex; align-items: center; gap: 7px;

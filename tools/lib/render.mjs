@@ -107,7 +107,7 @@ function topbar(ctx, opts) {
   const stamp = opts.editionDate ? formatMasthead(opts.editionDate) : formatMasthead(ctx.latestDate);
   return `<div class="topbar"><div class="wrap topbar__in">
 <span class="topbar__date">${e(stamp)}</span>
-${opts.editionNumber ? `<span>No. ${opts.editionNumber}</span>` : ''}
+${opts.editionNumber ? `<span class="topbar__edition-number">No. ${opts.editionNumber}</span>` : ''}
 <span class="topbar__spacer"></span>
 ${ctx.generatedAt ? `<span class="live">Updated <time datetime="${e(ctx.generatedAt)}" data-relative>${e(formatShort(ctx.generatedAt))}</time></span>` : ''}
 <button class="themetoggle" type="button" data-theme-toggle>Dark</button>
