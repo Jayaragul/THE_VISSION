@@ -102,6 +102,42 @@ so make it say something.
 
 Do not set `readMinutes` or `signals` — the build computes them.
 
+### Continuity — do this every run
+
+These three optional fields are what stop the paper from being a pile of disconnected days.
+They cost about a minute each and they are the reason a reader comes back.
+
+| Field | When to set it |
+| --- | --- |
+| `openQuestion` | **Any story running at `confidence: low` or `medium` almost certainly needs one.** Write the specific unresolved thing as a question of fact a later edition could answer. |
+| `thread: {id, label}` | When a story continues one this paper has already run. Check `node tools/edition-info.mjs` and the last week of editions first. |
+| `resolves: {story, outcome}` | When today's news answers an earlier `openQuestion`. **Check `open-questions.html` at the start of every run.** |
+
+**`openQuestion` must be answerable.** *"Does the acquisition get signed?"* qualifies.
+*"What happens next in AI?"* does not — that is a topic, not a question. It is also not a
+hedge: the confidence label already carries the hedge. This is the paper naming what it
+does not know, so it can be held to it.
+
+**Never invent a thread.** Two stories sharing an entity are not the same story — "Google"
+spans five editions of this archive without being one. If you are not certain the story
+continues an earlier one, leave `thread` off. Rule 7.
+
+**Resolving is not optional, and publishing an unflattering answer is the whole point.**
+Before writing, read `open-questions.html`. If the day's news settles one of them, file a
+story carrying `resolves` — *including when the answer shows this paper was wrong*. An
+unconfirmed claim that is never returned to is indistinguishable from a quiet mistake, and
+a ledger that only ever records vindications is worth nothing.
+
+### Correcting a published story
+
+Never edit a published claim silently. Add a `corrections` entry (`at`, `what`) to the
+story in its original `generated/<date>.json`, leaving the id and URL untouched (rule 3),
+then re-run the build. The correction appears on the story and on `corrections.html`.
+
+Because the edition hash changes, `evals/<date>.json` will fail its binding check — update
+its `sha256` **and** add a line to `revisions` saying what was corrected and how it was
+found. That record is the point.
+
 ## Stage 4 — The gate
 
 ```bash
