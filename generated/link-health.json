@@ -1,0 +1,196 @@
+{
+  "$comment": "Written by tools/linkcheck.mjs. Only unhealthy links are recorded; a healthy link has no row and a recovered link drops out. \"blocked\" (403/429/451) is NOT a dead link — the publisher blocks automated fetches while serving human readers. Only confirmedGone (404/410 on 3 consecutive checks) is treated as rot by the build.",
+  "updatedAt": "2026-08-28T08:18:06.286Z",
+  "goneAfter": 3,
+  "totalPublished": 112,
+  "checkedThisRun": 112,
+  "summary": {
+    "ok": 99,
+    "blocked": 13,
+    "gone": 0,
+    "error": 0,
+    "confirmedGone": 0
+  },
+  "links": {
+    "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/": {
+      "publisher": "OpenAI",
+      "stories": [
+        "2026-08-17-openai-astra-cyber-pause"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-08-28T08:18:06.286Z",
+      "lastChecked": "2026-08-28T08:18:06.286Z"
+    },
+    "https://www.bloomberg.com/news/articles/2026-08-12/ai-startup-cognition-in-new-funding-talks-at-40-billion-value": {
+      "publisher": "Bloomberg",
+      "stories": [
+        "2026-08-17-cognition-40bn-talks"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-08-28T08:16:45.074Z",
+      "lastChecked": "2026-08-28T08:18:06.286Z"
+    },
+    "https://www.bloomberg.com/news/articles/2026-08-17/anthropic-revenue-run-rate-surpasses-65-billion-ahead-of-ipo": {
+      "publisher": "Bloomberg",
+      "stories": [
+        "2026-08-18-anthropic-revenue-65bn"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-08-28T08:16:45.074Z",
+      "lastChecked": "2026-08-28T08:18:06.286Z"
+    },
+    "https://www.bloomberg.com/news/articles/2026-08-16/stripe-nears-deal-to-buy-ai-firm-openrouter-for-over-7-billion": {
+      "publisher": "Bloomberg",
+      "stories": [
+        "2026-08-18-stripe-openrouter-acquisition"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-08-28T08:16:45.074Z",
+      "lastChecked": "2026-08-28T08:18:06.286Z"
+    },
+    "https://www.bloomberg.com/news/articles/2026-08-18/anthropic-pre-ipo-credit-facility-set-to-climb-past-10-billion": {
+      "publisher": "Bloomberg",
+      "stories": [
+        "2026-08-19-anthropic-credit-facility"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-08-28T08:16:45.074Z",
+      "lastChecked": "2026-08-28T08:18:06.286Z"
+    },
+    "https://www.investing.com/news/stock-market-news/anthropic-targets-10b-credit-facility-ahead-of-planned-public-debut--bloomberg-4865794": {
+      "publisher": "Investing.com",
+      "stories": [
+        "2026-08-19-anthropic-credit-facility"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-08-28T08:16:45.074Z",
+      "lastChecked": "2026-08-28T08:18:06.286Z"
+    },
+    "https://www.forbes.com/sites/conormurray/2026/08/18/most-young-americans-are-more-concerned-about-ai-than-excited-pew-survey-finds/": {
+      "publisher": "Forbes",
+      "stories": [
+        "2026-08-19-pew-ai-concern-survey"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-08-28T08:16:45.074Z",
+      "lastChecked": "2026-08-28T08:18:06.286Z"
+    },
+    "https://www.bloomberg.com/news/articles/2026-08-19/ai-chip-startup-fractile-in-talks-for-6-5-billion-value-after-anthropic-deal": {
+      "publisher": "Bloomberg",
+      "stories": [
+        "2026-08-20-fractile-anthropic-chip-deal"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-08-28T08:16:45.074Z",
+      "lastChecked": "2026-08-28T08:18:06.286Z"
+    },
+    "https://www.bloomberg.com/news/articles/2026-08-19/sk-hynix-announces-28-6-billion-share-buy-back-on-ai-boom": {
+      "publisher": "Bloomberg",
+      "stories": [
+        "2026-08-20-sk-hynix-buyback"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-08-28T08:16:45.074Z",
+      "lastChecked": "2026-08-28T08:18:06.286Z"
+    },
+    "https://openai.com/index/offering-zero-data-retention-for-frontier-models/": {
+      "publisher": "OpenAI",
+      "stories": [
+        "2026-08-21-openai-zero-data-retention"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-08-28T08:16:45.074Z",
+      "lastChecked": "2026-08-28T08:18:06.286Z"
+    },
+    "https://venturebeat.com/technology/nvidia-finds-that-simple-linear-math-can-replace-costly-ai-model-handoffs": {
+      "publisher": "VentureBeat",
+      "stories": [
+        "2026-08-22-nvidia-kv-cache-transfer"
+      ],
+      "status": "blocked",
+      "code": 429,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-08-28T08:16:45.074Z",
+      "lastChecked": "2026-08-28T08:18:06.286Z"
+    },
+    "https://venturebeat.com/infrastructure/perplexity-partners-with-nvidia-to-launch-portable-computer-a-fully-local-ai-agent-with-zero-token-costs": {
+      "publisher": "VentureBeat",
+      "stories": [
+        "2026-08-26-perplexity-nvidia-portable-computer"
+      ],
+      "status": "blocked",
+      "code": 429,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-08-28T08:16:45.074Z",
+      "lastChecked": "2026-08-28T08:18:06.286Z"
+    },
+    "https://www.courtlistener.com/docket/72379655/anthropic-pbc-v-us-department-of-war/": {
+      "publisher": "CourtListener",
+      "stories": [
+        "2026-08-28-anthropic-pentagon-blacklist-ruling"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-08-28T08:16:45.074Z",
+      "lastChecked": "2026-08-28T08:18:06.286Z"
+    },
+    "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-in-early-talks-to-buy-inference-chips-from-uk-startup": {
+      "publisher": "Tom's Hardware",
+      "stories": [
+        "2026-08-20-fractile-anthropic-chip-deal"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-08-28T08:16:45.074Z",
+      "lastChecked": "2026-08-28T08:16:45.074Z"
+    },
+    "https://techcrunch.com/2026/08/26/nvidia-nears-deal-to-buy-hugging-face-for-about-13-billion/": {
+      "publisher": "TechCrunch",
+      "stories": [
+        "2026-08-28-nvidia-hugging-face-acquisition-report"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-08-28T08:16:45.074Z",
+      "lastChecked": "2026-08-28T08:16:45.074Z"
+    }
+  }
+}

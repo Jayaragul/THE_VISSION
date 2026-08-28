@@ -17,6 +17,7 @@ import {
 import { renderCover } from './lib/cover.mjs';
 import { selectWireItems, wireBlock, wireItemsHTML, stalenessBanner, wirePath, snapshotWire, loadWireHistory } from './lib/wire.mjs';
 import * as R from './lib/render.mjs';
+import { collectThreads, collectOpenQuestions, collectCorrections, daysBetween } from './lib/continuity.mjs';
 
 const ROOT = resolvePath(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -30,6 +31,7 @@ const OUT = (...p) => join(ROOT, ...p);
 const site = readJSON(OUT('input', 'site.json'));
 const { beats } = readJSON(OUT('input', 'beats.json'));
 const sourceBook = readJSON(OUT('input', 'sources.json'));
+const retention = readJSON(OUT('input', 'retention.json'));
 const hackathonBook = existsSync(OUT('input', 'hackathons.json'))
   ? readJSON(OUT('input', 'hackathons.json'))
   : { hackathons: [] };
@@ -439,7 +441,7 @@ ${editionNav}
 
 // ------------------------------------------------------------ story pages ---
 
-function renderStoryPage(ctx, ed, story) {
+function renderStoryPage(ctx, ed, story, { thread = null, answer = null } = {}) {
   const depth = 1;
   const beat = beatMap.get(story.beat);
   const related = ed.stories
@@ -488,11 +490,17 @@ ${story.summary.map((s) => `<li>${e(s)}</li>`).join('')}
 </ul>
 </div>
 
+${correctionsBlock(story)}
+
 <div class="prose">${body || `<p>${e(story.deck)}</p>`}</div>
 
 ${story.whyItMatters
       ? `<div class="callout"><div class="callout__label">Why it matters</div><p>${e(story.whyItMatters)}</p></div>`
       : ''}
+
+${openQuestionBlock(story, answer, depth)}
+
+${threadBlock(thread, story.id, depth)}
 
 ${story.entities?.length
       ? `<div class="topics" style="margin-top:30px">${story.entities
@@ -755,6 +763,218 @@ ${ent.items.map(leadRow).join('')}
   });
 }
 
+// ------------------------------------------------------------- continuity ----
+//
+// Collectors live in tools/lib/continuity.mjs so they can be tested without running a
+// build; what follows is only their rendering.
+
+/** The timeline shown on a story that belongs to a thread. Suppressed for a thread of one,
+ *  where "the story so far" would just repeat the story you are reading. */
+function threadBlock(thread, currentId, depth) {
+  if (!thread || thread.items.length < 2) return '';
+  return `<section class="thread">
+<div class="thread__label">The story so far · <a href="${R.rel(depth, `thread/${thread.id}.html`)}">${e(thread.label)}</a></div>
+<ol class="thread__list">
+${thread.items
+    .map(({ ed, story }) => {
+      const here = story.id === currentId;
+      const title = here
+        ? `<span class="thread__title">${e(story.headline)}</span>`
+        : `<a class="thread__title" href="${R.rel(depth, R.storyPath(story))}">${e(story.headline)}</a>`;
+      return `<li class="thread__item${here ? ' is-here' : ''}">
+<span class="thread__date">${e(formatShort(ed.edition.date))}</span>
+${title}
+</li>`;
+    })
+    .join('')}
+</ol>
+</section>`;
+}
+
+function correctionsBlock(story) {
+  if (!story.corrections?.length) return '';
+  return `<section class="correction">
+<div class="correction__label">Corrected after publication</div>
+${story.corrections
+    .map(
+      (c) =>
+        `<p class="correction__body"><time datetime="${e(c.at)}">${e(formatMasthead(c.at.slice(0, 10)))}</time> — ${e(c.what)}</p>`
+    )
+    .join('')}
+</section>`;
+}
+
+/** The unresolved-claim marker on a story page, and its answer once one exists. */
+function openQuestionBlock(story, answer, depth) {
+  if (!story.openQuestion) return '';
+  return `<section class="openq${answer ? ' is-answered' : ''}">
+<div class="openq__label">${answer ? 'This was left open — and later answered' : 'What this desk does not yet know'}</div>
+<p class="openq__q">${e(story.openQuestion)}</p>
+${answer
+      ? `<p class="openq__a"><span class="openq__stamp">${e(formatShort(answer.ed.edition.date))}</span> ${e(answer.story.resolves.outcome)}
+<a class="openq__link" href="${R.rel(depth, R.storyPath(answer.story))}">Read the follow-up</a></p>`
+      : `<p class="openq__pending">Still open. When the paper finds out, it will say so here and on the
+<a href="${R.rel(depth, 'open-questions.html')}">open questions</a> page — including if it got this wrong.</p>`}
+</section>`;
+}
+
+function renderThread(ctx, thread) {
+  const depth = 1;
+  const first = thread.items[0];
+  const last = thread.items[thread.items.length - 1];
+  const span = daysBetween(first.ed.edition.date, last.ed.edition.date);
+
+  const content = `<div class="wrap">
+<div class="crumbs">
+<a href="${R.rel(depth, 'index.html')}">Front page</a><span>/</span>
+<a href="${R.rel(depth, 'archive.html')}">Archive</a>
+</div>
+<section class="editorsnote">
+<div class="editorsnote__label">Continuing story</div>
+<div>
+<h1 class="editorsnote__title">${e(thread.label)}</h1>
+<p class="editorsnote__body">${thread.items.length} instalment${thread.items.length === 1 ? '' : 's'}${span > 0 ? ` over ${span} day${span === 1 ? '' : 's'}` : ''}, oldest first.
+Every entry was written on the day it ran and has not been rewritten since.</p>
+</div>
+</section>
+<section class="section">
+<div class="rows">
+${thread.items
+    .map(
+      ({ ed, story }) => `<article class="row" style="--beat-accent:${e(ctx.beatMap.get(story.beat)?.accent || '')}">
+<a href="${R.rel(depth, R.storyPath(story))}" tabindex="-1" aria-hidden="true">
+<img class="row__cover" src="${R.rel(depth, R.coverPath(story))}" alt="" width="1200" height="675" loading="lazy">
+</a>
+<div>
+<div class="kicker">${e(story.kicker)} · ${e(formatShort(ed.edition.date))}</div>
+<h3 class="row__title"><a href="${R.rel(depth, R.storyPath(story))}">${e(story.headline)}</a></h3>
+<p class="row__deck clamp-2">${e(story.deck)}</p>
+</div>
+</article>`
+    )
+    .join('')}
+</div>
+</section>
+</div>`;
+
+  return R.page(ctx, {
+    depth,
+    canonical: `thread/${thread.id}.html`,
+    title: `${thread.label} — ${site.name}`,
+    description: `Every instalment ${site.name} has published in the continuing story: ${thread.label}. Oldest first.`,
+    keywords: [thread.label, ...new Set(thread.items.flatMap(({ story }) => story.entities || []))].slice(0, 12),
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: thread.label,
+      hasPart: thread.items.map(({ story }) => ({
+        '@type': 'NewsArticle',
+        headline: story.headline,
+        url: `${site.baseUrl}/${R.storyPath(story)}`,
+      })),
+    },
+    content,
+  });
+}
+
+function renderOpenQuestions(ctx, questions, editions) {
+  const depth = 0;
+  const today = editions[0]?.edition.date;
+  const open = questions.filter((q) => !q.answer);
+  const answered = questions.filter((q) => q.answer).reverse();
+
+  const row = (q) => `<article class="openq-row${q.answer ? ' is-answered' : ''}">
+<div class="openq-row__meta">
+<a href="${R.rel(depth, R.storyPath(q.story))}">${e(formatShort(q.ed.edition.date))}</a>
+${q.answer
+      ? `<span class="openq-row__badge is-closed">Answered after ${daysBetween(q.ed.edition.date, q.answer.ed.edition.date)} day${daysBetween(q.ed.edition.date, q.answer.ed.edition.date) === 1 ? '' : 's'}</span>`
+      : `<span class="openq-row__badge">Open ${daysBetween(q.ed.edition.date, today)} day${daysBetween(q.ed.edition.date, today) === 1 ? '' : 's'}</span>`}
+</div>
+<h3 class="openq-row__q">${e(q.question)}</h3>
+<p class="openq-row__from">From <a href="${R.rel(depth, R.storyPath(q.story))}">${e(q.story.headline)}</a></p>
+${q.answer
+      ? `<p class="openq-row__a">${e(q.answer.story.resolves.outcome)} <a href="${R.rel(depth, R.storyPath(q.answer.story))}">Follow-up →</a></p>`
+      : ''}
+</article>`;
+
+  const content = `<div class="wrap">
+<section class="editorsnote">
+<div class="editorsnote__label">Open questions</div>
+<div>
+<h1 class="editorsnote__title">What this paper does not yet know</h1>
+<p class="editorsnote__body">Every day this desk publishes things that are not settled — a deal reported but
+unsigned, a ruling under appeal. Most papers print the hedge once and move on, which makes an honest
+"unconfirmed" impossible to tell apart from a quiet mistake. So each one is recorded here until it is
+answered, and the answer is published even when it means the paper was wrong.
+${open.length ? `<strong>${open.length} still open</strong>${answered.length ? `, ${answered.length} answered` : ''}.` : 'None open right now.'}</p>
+</div>
+</section>
+
+${open.length
+      ? `<section class="section">
+<div class="section__head"><h2 class="section__title">Still open</h2>
+<span class="section__note">Longest outstanding first</span></div>
+${open.map(row).join('')}
+</section>`
+      : ''}
+
+${answered.length
+      ? `<section class="section">
+<div class="section__head"><h2 class="section__title">Answered</h2>
+<span class="section__note">Most recently closed first</span></div>
+${answered.map(row).join('')}
+</section>`
+      : ''}
+</div>`;
+
+  return R.page(ctx, {
+    depth,
+    canonical: 'open-questions.html',
+    title: `Open questions — ${site.name}`,
+    description: `Claims ${site.name} published without confirmation, tracked until they are answered — including when the answer shows the paper was wrong.`,
+    keywords: ['open questions', 'unconfirmed reports', 'AI news accountability', 'corrections', site.name],
+    content,
+  });
+}
+
+function renderCorrections(ctx, corrections) {
+  const depth = 0;
+  const content = `<div class="wrap">
+<section class="editorsnote">
+<div class="editorsnote__label">Corrections</div>
+<div>
+<h1 class="editorsnote__title">Every correction this paper has made</h1>
+<p class="editorsnote__body">A published story keeps its id and its URL forever, so a correction is added to
+it rather than replacing what was there. All of them are listed here, newest first — including the ones
+nobody complained about. ${corrections.length ? `${corrections.length} to date.` : 'None to date.'}</p>
+</div>
+</section>
+${corrections.length
+      ? `<section class="section">
+${corrections
+          .map(
+            (c) => `<article class="correction-row">
+<div class="correction-row__meta"><time datetime="${e(c.at)}">${e(formatMasthead(c.at.slice(0, 10)))}</time>
+<span>·</span><a href="${R.rel(depth, R.editionPath(c.ed.edition.date))}">${e(formatShort(c.ed.edition.date))} edition</a></div>
+<h3 class="correction-row__title"><a href="${R.rel(depth, R.storyPath(c.story))}">${e(c.story.headline)}</a></h3>
+<p class="correction-row__body">${e(c.what)}</p>
+</article>`
+          )
+          .join('')}
+</section>`
+      : `<section class="section"><p class="emptybeats">No corrections yet. When there are, they appear here permanently.</p></section>`}
+</div>`;
+
+  return R.page(ctx, {
+    depth,
+    canonical: 'corrections.html',
+    title: `Corrections — ${site.name}`,
+    description: `Every post-publication correction ${site.name} has made, listed permanently and newest first.`,
+    keywords: ['corrections', 'accuracy', 'editorial standards', site.name],
+    content,
+  });
+}
+
 function renderMethodology(ctx, editions) {
   const content = `<div class="wrap">
 <section class="editorsnote">
@@ -903,6 +1123,12 @@ ${site.founder ? `${e(site.name)} was founded by <strong style="color:var(--ink-
 // does not attempt — a machine clustering and ranking headlines is not the same claim as a
 // machine understanding them, and this page is built to never blur that line.
 
+/** Newest first, capped at the retention window. The digest is a ranked snapshot of other
+ *  publishers' headlines, not a permalink the paper has promised to keep — so unlike an
+ *  edition it is allowed to age out. Rendering only the window is what enforces it: the
+ *  prune() pass further down then removes the HTML that fell off the end. Left uncapped,
+ *  daily digest pages alone would consume roughly a third of the GitHub Pages ceiling
+ *  before the archive itself did. See input/retention.json. */
 function loadDigests() {
   const dir = OUT('generated', 'digest');
   if (!existsSync(dir)) return [];
@@ -910,6 +1136,7 @@ function loadDigests() {
     .filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
     .sort()
     .reverse()
+    .slice(0, retention.windows.digestPages)
     .map((f) => readJSON(join(dir, f)));
 }
 
@@ -1529,6 +1756,14 @@ function renderSitemap(editions, entities, digests, wireHistory) {
     { loc: `${site.baseUrl}/`, priority: '1.0', freq: 'daily' },
     { loc: `${site.baseUrl}/archive.html`, priority: '0.6', freq: 'daily' },
     { loc: `${site.baseUrl}/topics.html`, priority: '0.6', freq: 'daily' },
+    { loc: `${site.baseUrl}/open-questions.html`, priority: '0.7', freq: 'daily' },
+    { loc: `${site.baseUrl}/corrections.html`, priority: '0.4', freq: 'weekly' },
+    ...[...threads.values()].map((t) => ({
+      loc: `${site.baseUrl}/thread/${t.id}.html`,
+      priority: '0.6',
+      freq: 'weekly',
+      lastmod: t.items[t.items.length - 1].ed.edition.date,
+    })),
     { loc: `${site.baseUrl}/search.html`, priority: '0.5', freq: 'weekly' },
     ...(digests.length ? [{ loc: `${site.baseUrl}/digest.html`, priority: '0.6', freq: 'hourly' }] : []),
     ...digests.map((d) => ({
@@ -1696,15 +1931,34 @@ editions.forEach((ed, i) => {
   );
 });
 
+// Continuity: threads, the open-question ledger and the corrections record. Built before
+// the story pages because a story page shows its own thread timeline and whether its open
+// question has since been answered.
+const threads = collectThreads(editions);
+const openQuestions = collectOpenQuestions(editions);
+const corrections = collectCorrections(editions);
+const answerByStory = new Map(openQuestions.filter((q) => q.answer).map((q) => [q.story.id, q.answer]));
+
 // One page per story.
 const expectedStoryFiles = new Set();
 let storyCount = 0;
 for (const ed of editions) {
   for (const story of ed.stories) {
-    write(R.storyPath(story), renderStoryPage(ctx, ed, story));
+    write(
+      R.storyPath(story),
+      renderStoryPage(ctx, ed, story, {
+        thread: story.thread?.id ? threads.get(story.thread.id) : null,
+        answer: answerByStory.get(story.id) || null,
+      })
+    );
     expectedStoryFiles.add(`${story.id}.html`);
     storyCount++;
   }
+}
+
+// One page per continuing story.
+for (const thread of threads.values()) {
+  write(`thread/${thread.id}.html`, renderThread(ctx, thread));
 }
 
 // One page per topic, plus the index.
@@ -1749,10 +2003,13 @@ const expectedEntityFiles = new Set([...entities.values()].map((ent) => `${ent.s
 prune('story', '.html', expectedStoryFiles);
 prune('assets/img/covers', '.svg', expectedCovers);
 prune('entity', '.html', expectedEntityFiles);
+prune('thread', '.html', new Set([...threads.keys()].map((id) => `${id}.html`)));
 prune('digest', '.html', new Set(digests.map((d) => `${d.edition.date}.html`)));
 prune('wire', '.html', new Set(wireHistory.map((w) => `${w.date}.html`)));
 
 write('archive.html', renderArchive(ctx, editions, digests, wireHistory));
+write('open-questions.html', renderOpenQuestions(ctx, openQuestions, editions));
+write('corrections.html', renderCorrections(ctx, corrections));
 write('topics.html', renderTopics(ctx, entities));
 write('search.html', renderSearch(ctx));
 write('hackathons.html', renderHackathons(ctx, editions));

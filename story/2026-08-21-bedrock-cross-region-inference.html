@@ -106,9 +106,15 @@
 </ul>
 </div>
 
+
+
 <div class="prose"><p>Amazon Bedrock has enabled cross-Region inference for OpenAI&#39;s GPT-5.6 family, letting a request submitted in one AWS region be served by capacity in another. AWS frames the change as a throughput measure rather than a latency one: by allowing requests &quot;to draw on a broader pool of compute rather than being bound to one Region&#39;s available capacity,&quot; the service aims to hold performance steady when demand in a single region outruns what is provisioned there.</p><p>The routing is governed by geographic profiles, which is the part with compliance consequences. A US profile keeps both source and destination inside North America, drawing on US East in Northern Virginia and Ohio, US West in Oregon and Northern California, and Canada Central and Calgary. A global profile is far wider, spanning the United States, Canada, eight European regions, twelve across Asia Pacific, two in the Middle East and São Paulo — more than 25 regions in total.</p><p>All three GPT-5.6 variants are covered: Sol as the cost-efficient option, Terra balancing capability against price, and Luna as the most capable. Each accepts text and image input, carries a one-million-token context window, and supports reasoning mode, server-side tool calling and prompt caching. AWS pointed to its standard pricing page rather than announcing any change in rates alongside the routing feature.</p></div>
 
 <div class="callout"><div class="callout__label">Why it matters</div><p>Choosing between the two profile types is a data-residency decision dressed as a performance setting, and it is the kind of default that gets picked once during a prototype and inherited by production. A team with contractual obligations about where inference happens needs the US profile specifically; a team that selects the global profile for throughput has agreed, in effect, that a prompt submitted in Ohio may be processed in Singapore or São Paulo.</p></div>
+
+
+
+
 
 <div class="topics" style="margin-top:30px"><a class="topic" href="../entity/amazon-web-services.html">Amazon Web Services</a><a class="topic" href="../entity/amazon-bedrock.html">Amazon Bedrock</a><a class="topic" href="../entity/openai.html">OpenAI</a></div>
 </article>
@@ -159,8 +165,11 @@ editorial rules before release. <a href="../methodology.html" style="color:var(-
 <li><a href="../hackathons.html">Hackathons</a></li>
 <li><a href="../topics.html">Topics</a></li>
 <li><a href="../archive.html">Archive</a></li>
+<li><a href="../open-questions.html">Open questions</a></li>
 <li><a href="../methodology.html">Methodology</a></li>
-<li><a href="../legal.html">Corrections &amp; rights</a></li>
+
+<li><a href="../corrections.html">Corrections</a></li>
+<li><a href="../legal.html">Rights &amp; licensing</a></li>
 <li><a href="../terms.html">Terms of use</a></li>
 <li><a href="../privacy.html">Privacy</a></li>
 <li><a href="../rss.xml">RSS feed</a></li>

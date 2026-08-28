@@ -106,9 +106,15 @@
 </ul>
 </div>
 
+
+
 <div class="prose"><p>Cerebras unveiled the CS-4, the first system in its next-generation Nexus rack-scale platform, on August 18. The company says the system delivers up to 30 times the token-generation speed of GPU-based systems and up to 10 times more throughput per watt than its own previous-generation CS-3, with first shipments beginning this quarter.</p><p>The system&#39;s WSE-3 Turbo chip doubles memory bandwidth to 43.2 petabytes per second, cuts chip-to-chip interconnect latency to 2 microseconds from 5, and Cerebras rates it at 250 petaflops of sparse FP16 compute against 25 petaflops dense. The CS-4 rack packs three of the wafer-scale accelerators, up from one in the prior generation, for a combined 132 gigabytes of on-chip SRAM. Cerebras also redesigned the chip&#39;s power and cooling into what it calls a Wafer-Scale Backpack, which it says cuts deployment time from days to hours.</p><p>An independent analysis by The Register found the doubled performance figure comes largely from a higher clock speed — roughly 2.8GHz versus 1.4GHz previously — on what is otherwise the same process technology, wafer size and transistor count, rather than a new chip design. It also noted that the 250-petaflop sparse-compute figure depends on sparsity, which as a general rule doesn&#39;t benefit large language model inference, and that the peak memory-bandwidth figure is &quot;purely theoretical&quot; because the chip lacks the compute to actually saturate its own SRAM.</p><p>Cerebras&#39;s own more concrete figure — 4,400 tokens per second running the open gpt-oss-120b model — is a real benchmark result rather than a vendor multiplier, though it applies to one specific model. The Register also noted Cerebras has shifted from selling standalone inference hardware toward disaggregated architectures built with AWS and AMD, in which GPUs handle a model&#39;s prefill stage and Cerebras chips handle token decoding — a partnership structure that suggests the prior standalone design had real limits of its own.</p></div>
 
 <div class="callout"><div class="callout__label">Why it matters</div><p>For anyone shopping for inference hardware, the gap between Cerebras&#39;s &quot;30x faster&quot; headline and The Register&#39;s finding that the underlying chip is largely the same silicon at a higher clock speed is the difference between a genuine architecture win and a tuning update marketed as one, and the 4,400-tokens-per-second figure on a named, open model is the number worth comparing against a GPU cluster&#39;s own measured throughput, not the multiplier.</p></div>
+
+
+
+
 
 <div class="topics" style="margin-top:30px"><a class="topic" href="../entity/cerebras.html">Cerebras</a><a class="topic" href="../entity/amd.html">AMD</a><a class="topic" href="../entity/openai.html">OpenAI</a></div>
 </article>
@@ -165,8 +171,11 @@ editorial rules before release. <a href="../methodology.html" style="color:var(-
 <li><a href="../hackathons.html">Hackathons</a></li>
 <li><a href="../topics.html">Topics</a></li>
 <li><a href="../archive.html">Archive</a></li>
+<li><a href="../open-questions.html">Open questions</a></li>
 <li><a href="../methodology.html">Methodology</a></li>
-<li><a href="../legal.html">Corrections &amp; rights</a></li>
+
+<li><a href="../corrections.html">Corrections</a></li>
+<li><a href="../legal.html">Rights &amp; licensing</a></li>
 <li><a href="../terms.html">Terms of use</a></li>
 <li><a href="../privacy.html">Privacy</a></li>
 <li><a href="../rss.xml">RSS feed</a></li>

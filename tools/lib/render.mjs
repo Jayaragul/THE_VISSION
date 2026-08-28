@@ -240,8 +240,13 @@ ${ctx.site.community ? `<div class="footer__community">${communityMark(ctx, d)}<
 <li><a href="${rel(d, 'hackathons.html')}">Hackathons</a></li>
 <li><a href="${rel(d, 'topics.html')}">Topics</a></li>
 <li><a href="${rel(d, 'archive.html')}">Archive</a></li>
+<li><a href="${rel(d, 'open-questions.html')}">Open questions</a></li>
 <li><a href="${rel(d, 'methodology.html')}">Methodology</a></li>
-<li><a href="${rel(d, 'legal.html')}">Corrections &amp; rights</a></li>
+${/* This used to point at legal.html, which covers rights and takedowns but has never
+      held a single correction. Now that corrections.html exists and is the actual record,
+      the link that says "Corrections" goes to it. */ ''}
+<li><a href="${rel(d, 'corrections.html')}">Corrections</a></li>
+<li><a href="${rel(d, 'legal.html')}">Rights &amp; licensing</a></li>
 <li><a href="${rel(d, 'terms.html')}">Terms of use</a></li>
 <li><a href="${rel(d, 'privacy.html')}">Privacy</a></li>
 <li><a href="${rel(d, 'rss.xml')}">RSS feed</a></li>

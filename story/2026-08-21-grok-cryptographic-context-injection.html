@@ -106,9 +106,29 @@
 </ul>
 </div>
 
+
+
 <div class="prose"><p>Researchers at Adversa AI have demonstrated an attack that turns Grok&#39;s own capabilities against its user: a web page carries a block of encrypted text alongside the instructions and key needed to decrypt it, and when the user asks Grok to summarise that page, the model performs the decryption in its Python sandbox and then acts on whatever it finds inside. Adversa calls the technique cryptographic context injection.</p><p>The reason it defeats the guardrail is structural rather than incidental. Safety classifiers inspect the text going into a model, and ciphertext is, to a classifier, meaningless noise — it carries no pattern to match. The malicious instructions do not exist in readable form until after the content check has already passed, at which point the model itself assembles them. &quot;The model runs that decryption inside its own code execution sandbox,&quot; wrote Rony Utevsky, Adversa&#39;s lead researcher.</p><p>What the decrypted instructions then direct Grok to do is collect the user&#39;s session data — full name, approximate location, subscription tier and the current conversation&#39;s prompts and history — build a URL with those values as query parameters, and fetch it using the model&#39;s own navigation tool. The data lands on a server the attacker controls. No confirmation prompt appears and nothing visible warns the user, whose only action was asking for a summary. Utevsky described the underlying problem as a framework that lets &quot;instructions and data parsed from an untrusted external page drive the invocation of a privileged, internet-connected tool&quot; with &quot;no effective egress boundary or consent gate.&quot;</p><p>The disclosure timeline is the part xAI will have the hardest time answering. Adversa reported the flaw to the company directly and through its HackerOne programme on 3 June, and followed up on 4 and 10 August without response. The Register reported that xAI acknowledged the report but gave no mitigation timeline. Adversa has run the attack roughly twenty times since June with about a 40% success rate, and reproduced it on 19 August against Grok 4.5 Fast on grok.com — a day before publication, eleven weeks after the first report.</p><p>There is no CVE identifier, no patch and no setting a user can change to protect themselves. The exposure is bounded by what Grok&#39;s web chat can reach, which is the account&#39;s own conversation data rather than anything on the user&#39;s machine.</p></div>
 
 <div class="callout"><div class="callout__label">Why it matters</div><p>Any agent that can both read untrusted pages and make outbound network calls has this shape of hole, and the encryption twist shows why bolting a classifier onto the input is not a fix: a filter that inspects text cannot inspect text that has not been decrypted yet. If you are building on tool-using models, the control that actually holds is at the egress — what the agent is permitted to send, and to where — not at the prompt. A reader who ships an agent with web access and no allowlist on outbound requests has this bug too, whoever built the model underneath.</p></div>
+
+
+
+<section class="thread">
+<div class="thread__label">The story so far · <a href="../thread/grok-4-6.html">Grok 4.6, from launch to leak</a></div>
+<ol class="thread__list">
+<li class="thread__item">
+<span class="thread__date">18 Aug 2026</span>
+<a class="thread__title" href="../story/2026-08-18-xai-grok-4-6.html">xAI ships Grok 4.6, matching GPT-5.6 Sol on Artificial Analysis&#39;s intelligence index</a>
+</li><li class="thread__item">
+<span class="thread__date">20 Aug 2026</span>
+<a class="thread__title" href="../story/2026-08-20-grok-46-bedrock.html">Grok 4.6 reaches Amazon Bedrock with a 500K context window and tiered pricing</a>
+</li><li class="thread__item is-here">
+<span class="thread__date">21 Aug 2026</span>
+<span class="thread__title">Encrypted instructions on a web page make Grok hand over a user&#39;s chat history</span>
+</li>
+</ol>
+</section>
 
 <div class="topics" style="margin-top:30px"><a class="topic" href="../entity/xai.html">xAI</a><a class="topic" href="../entity/grok.html">Grok</a><a class="topic" href="../entity/adversa-ai.html">Adversa AI</a></div>
 </article>
@@ -165,8 +185,11 @@ editorial rules before release. <a href="../methodology.html" style="color:var(-
 <li><a href="../hackathons.html">Hackathons</a></li>
 <li><a href="../topics.html">Topics</a></li>
 <li><a href="../archive.html">Archive</a></li>
+<li><a href="../open-questions.html">Open questions</a></li>
 <li><a href="../methodology.html">Methodology</a></li>
-<li><a href="../legal.html">Corrections &amp; rights</a></li>
+
+<li><a href="../corrections.html">Corrections</a></li>
+<li><a href="../legal.html">Rights &amp; licensing</a></li>
 <li><a href="../terms.html">Terms of use</a></li>
 <li><a href="../privacy.html">Privacy</a></li>
 <li><a href="../rss.xml">RSS feed</a></li>

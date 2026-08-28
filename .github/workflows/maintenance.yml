@@ -1,0 +1,130 @@
+name: Maintenance
+
+# The slow-moving failures. Nothing here is urgent on any given day, which is exactly why
+# it needs a schedule: these are the problems that never announce themselves and are only
+# noticed years later, when the archive has quietly stopped being true or the site has
+# stopped deploying.
+#
+#   1. Link rot — the paper's central promise is that every story carries a source you can
+#      open. Roughly half of cited links rot within a decade, oldest first, where nobody is
+#      looking. On its first run this check found two dead citations, one of them hours old.
+#   2. Storage capacity — GitHub Pages stops publishing at 1 GB with no gradual warning.
+#      The archive grows every single day and the ceiling arrives on a predictable date, so
+#      it should arrive as a scheduled decision rather than an outage.
+#
+# Weekly is deliberate. Daily would hammer other people's servers for a signal that moves
+# on the scale of months.
+
+on:
+  schedule:
+    - cron: '17 4 * * 1'   # Mondays, 04:17 UTC — off the hour, away from the daily edition
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: maintenance
+  cancel-in-progress: false
+
+jobs:
+  maintenance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # Walks every source URL the paper has ever cited. Never fails the job: a publisher
+      # having a bad afternoon is not a reason to go red, and the ledger records repeat
+      # observations rather than single blips.
+      - name: Check every published source link
+        run: node tools/linkcheck.mjs
+
+      - name: Report storage capacity
+        run: node tools/retention.mjs --prune
+
+      - name: Rebuild so the site reflects the ledger
+        run: |
+          set -euo pipefail
+          node tools/build.mjs
+          node tools/validate.mjs
+
+      - name: Commit the ledger
+        run: |
+          set -euo pipefail
+          git config user.name  "THE VISSION pipeline"
+          git config user.email "actions@github.com"
+          if git diff --quiet; then
+            echo "Nothing changed — no rot, no pruning, no rebuild drift."
+            exit 0
+          fi
+          git add -A
+          git commit -m "Weekly maintenance — link ledger and retention sweep"
+          git push
+
+      # Two distinct alarms, both quiet by default. A confirmed dead citation is a
+      # journalism problem; the capacity ceiling is an engineering one with a year of
+      # warning. Neither should page anyone, both should be impossible to miss later.
+      - name: Raise an issue if the archive needs attention
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+
+          ROT="$(node -e "try{const l=require('./generated/link-health.json');process.stdout.write(String(l.summary.confirmedGone||0))}catch{process.stdout.write('0')}")"
+          PCT="$(node tools/retention.mjs | grep -oE '^\s+[0-9.]+% of the' | grep -oE '[0-9.]+' | head -1 || echo 0)"
+          WARN_AT="$(node -e "process.stdout.write(String(require('./input/retention.json').capacity.warnAtPercent))")"
+
+          NEED=0
+          BODY="Weekly maintenance ran on $(date -u '+%Y-%m-%d %H:%M UTC').
+
+          Run: ${RUN_URL}
+          "
+
+          if [ "$ROT" -gt 0 ]; then
+            NEED=1
+            BODY="${BODY}
+
+          ## ${ROT} confirmed dead citation(s)
+
+          These returned 404/410 on three consecutive weekly checks, so this is rot rather
+          than a publisher having a bad day. The stories keep their citations — the archive
+          is a record, not a working draft — but each needs either an archived copy or a
+          note. See \`generated/link-health.json\`.
+
+          Note that a \`blocked\` link is NOT dead: many newsrooms refuse automated fetches
+          while serving human readers normally. Only \`confirmedGone\` counts."
+          fi
+
+          if awk "BEGIN{exit !($PCT >= $WARN_AT)}"; then
+            NEED=1
+            BODY="${BODY}
+
+          ## Storage at ${PCT}% of the GitHub Pages ceiling
+
+          Past the ${WARN_AT}% mark. This is the scheduled signal to start the archive
+          migration described under 'When the archive outgrows Pages' in CLAUDE.md. There is
+          normally a year or more of runway at this point — it is a planning trigger, not an
+          incident. Run \`node tools/retention.mjs\` for the projected crossing date."
+          fi
+
+          if [ "$NEED" -eq 0 ]; then
+            echo "Archive healthy: ${ROT} dead links, ${PCT}% of ceiling."
+            exit 0
+          fi
+
+          EXISTING="$(gh issue list --state open --label archive-health --json number --jq '.[0].number' || true)"
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "$BODY"
+          else
+            gh label create archive-health --color 0e8a16 --description "Link rot and storage capacity" 2>/dev/null || true
+            gh issue create --title "Archive maintenance" --label archive-health --body "$BODY"
+          fi

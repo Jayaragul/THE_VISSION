@@ -5,7 +5,7 @@
     "date": "2026-08-20",
     "storyCount": 11,
     "sourceCount": 19,
-    "sha256": "2ab159bf8e37d0e91faf28304b3291812b86a8dc07624e6e6936f63d9b419910"
+    "sha256": "2fece5dc854d6a95356290d348f5bba0990a14e380b940c13b9289a92b2b2e36"
   },
   "scores": { "sourcing": 4, "accuracy": 5, "prose": 4, "selection": 5, "balance": 4 },
   "total": 22,
@@ -18,7 +18,8 @@
     { "dimension": "balance", "note": "All seven beats are represented for the first time, including the new India beat (Sarvam/Nvidia). No company exceeds 2 of 11 stories. Anthropic appears in two (the protein lead and as Fractile's customer) but on unrelated news, and after two Anthropic stories in No. 3 the editor's note leads on the science rather than the company. Docked one point because Models runs 1 against a target of 3 — genuinely thin, and disclosed." }
   ],
   "revisions": [
-    "Replaced a South China Morning Post URL on the Unitree story that had been constructed rather than opened — caught during review, swapped for Caixin Global, which was fetched and read. This is the failure mode rule 1 exists to prevent and it should have been caught before the draft, not during it."
+    "Replaced a South China Morning Post URL on the Unitree story that had been constructed rather than opened — caught during review, swapped for Caixin Global, which was fetched and read. This is the failure mode rule 1 exists to prevent and it should have been caught before the draft, not during it.",
+    "Corrected a Tom's Hardware source URL that returned 404: the slug had been truncated and now ends in \"-fractile\". Caught by the new weekly link check, not by review — the same constructed-URL failure mode already recorded above, found this time by a machine rather than a reader. Also marked as an instalment of the \"grok-4-6\" thread."
   ],
   "notes": "node tools/validate.mjs returns 0 errors, 1 warning (models beat at 1 against a target of 3), exit 0. Three errors were fixed during this run by changing the journalism rather than the checker: a Samsung headline that reused seven words of Tom's Hardware's own phrasing was rewritten around the regional price spread instead; and two stories that had no source above tier 3 were resolved by registering sources that legitimately belong in the book, not by relabelling what was there. Source book additions this run, all consistent with existing entries: Adaptyv Bio, SK hynix and Varonis as tier-1 primaries for their own research and announcements (the openai.com/nvidia.com pattern); Nikkei Asia, CSO Online and Caixin Global as tier-2 newsrooms; The Decoder, Medical Xpress and BNN Bloomberg as tier-3 secondaries; PLOS as tier 1 alongside Nature and Science."
 }

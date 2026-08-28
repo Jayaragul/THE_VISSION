@@ -106,9 +106,15 @@
 </ul>
 </div>
 
+
+
 <div class="prose"><p>Nvidia released Nemotron 3.5 Lightning on 11 August, a 30-billion-parameter mixture-of-experts model built for agentic workloads rather than conversation. The pitch is throughput per unit of compute on tasks that run for a long time and call tools repeatedly, which is a different optimisation target from the one frontier chat models are tuned for.</p><p>The performance claims are Nvidia&#39;s own, and they are stated loosely. The company reports up to four times the output speed and 30% faster agentic task completion compared with other models in its class, without naming the class or the models, and cites PinchBench results against unspecified comparisons. These are vendor figures until someone independent runs them.</p><p>The more interesting half of the release is NeMo Switchyard, an open-source routing library that directs individual steps of an agent workflow to different models on the basis of cost, speed and task requirements, across open, proprietary and Nvidia models. Nvidia&#39;s internal benchmarks put the cost of completing a task at close to a third of running Opus 4.8 alone while holding accuracy.</p><p>Both ship broadly — Lightning through Hugging Face, ModelScope, OpenRouter and build.nvidia.com as an NIM microservice, Switchyard through GitHub. A chip company shipping a router that will happily send work to a competitor&#39;s model is a coherent position: Nvidia does not need to win the model layer if every route still runs on its hardware.</p></div>
 
 <div class="callout"><div class="callout__label">Why it matters</div><p>Routing is where the economics of agents get decided. If a workflow can drop to a small model for most steps and reserve a frontier model for the few that need it, the cost curve of agentic software changes shape — and whoever defines the router sits upstream of everyone else&#39;s inference bill.</p></div>
+
+
+
+
 
 <div class="topics" style="margin-top:30px"><a class="topic" href="../entity/nvidia.html">Nvidia</a><a class="topic" href="../entity/nemotron-3-5-lightning.html">Nemotron 3.5 Lightning</a><a class="topic" href="../entity/nemo-switchyard.html">NeMo Switchyard</a></div>
 </article>
@@ -159,8 +165,11 @@ editorial rules before release. <a href="../methodology.html" style="color:var(-
 <li><a href="../hackathons.html">Hackathons</a></li>
 <li><a href="../topics.html">Topics</a></li>
 <li><a href="../archive.html">Archive</a></li>
+<li><a href="../open-questions.html">Open questions</a></li>
 <li><a href="../methodology.html">Methodology</a></li>
-<li><a href="../legal.html">Corrections &amp; rights</a></li>
+
+<li><a href="../corrections.html">Corrections</a></li>
+<li><a href="../legal.html">Rights &amp; licensing</a></li>
 <li><a href="../terms.html">Terms of use</a></li>
 <li><a href="../privacy.html">Privacy</a></li>
 <li><a href="../rss.xml">RSS feed</a></li>

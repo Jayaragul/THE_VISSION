@@ -106,9 +106,15 @@
 </ul>
 </div>
 
+
+
 <div class="prose"><p>Nvidia has published a result that puts an uncomfortable number on how much of an AI agent&#39;s performance comes from the model and how much from the software around it. Running Claude Opus 5 inside its Agentic Variation Operators system, the company reports a 100.00 RHAE score across all 25 public environments of ARC-AGI-3, completing all 183 levels. The same model, Nvidia says, scores roughly 30% on the benchmark without that scaffolding. Nothing about Opus 5 was changed between the two figures.</p><p>ARC-AGI-3 is an interactive reasoning benchmark built from 2D games supplied without instructions, so a system has to work out the rules by playing. AVO&#39;s structure is a loop with a second opinion attached: a main agent inspects the current state, plans a move, implements it and evaluates the result, carrying implementations and reasoning forward in persistent memory, while a separate supervisor watches the wider trajectory and intervenes when the search stalls. Adel El Hallak, a vice-president of product in Nvidia&#39;s AI unit, described the harness to TechCrunch as &quot;the scaffolding around the model...the set of tools that it utilizes&quot; together with &quot;the runtime and the associated skills and libraries.&quot;</p><p>Nvidia&#39;s own summary of the finding is the blunter version: &quot;The model matters, but the model is not the entire agent.&quot; Against VISTA, the previous leading system on the same 183 public levels, AVO used 6,624 environment actions to VISTA&#39;s 7,542 — about 12% fewer. Nvidia is explicit that this is not a controlled ablation, because the two systems differ in architecture and in how they represent observations, so the action-count gap should not be read as a like-for-like efficiency measurement.</p><p>The caveat that matters most is one the number itself cannot resolve: this is a hardware and platform vendor reporting its own system&#39;s score on a public benchmark, and no independent party has yet reproduced it. The benchmark is public and the accompanying paper is on arXiv, so reproduction is possible; until it happens, 100% is a claim about AVO made by the company that built AVO. Nvidia also ran limited experiments pairing AVO with GPT-5.6 Sol on harder subsets, which suggests the harness is not tuned to a single model, though it has not published comparable full-set figures for that pairing.</p></div>
 
 <div class="callout"><div class="callout__label">Why it matters</div><p>If a 70-point swing on a reasoning benchmark can come from scaffolding alone, then most published model comparisons are measuring the evaluation harness as much as the model, and a team choosing between vendors on benchmark tables is partly choosing between other people&#39;s plumbing. The practical read for anyone building agents is that persistent memory and a supervisor loop are worth more engineering attention than the next model upgrade — and the commercial read is that Nvidia, which sells the hardware underneath all of it, has an obvious interest in the industry believing exactly that.</p></div>
+
+
+
+
 
 <div class="topics" style="margin-top:30px"><a class="topic" href="../entity/nvidia.html">NVIDIA</a><a class="topic" href="../entity/claude-opus-5.html">Claude Opus 5</a><a class="topic" href="../entity/arc-agi-3.html">ARC-AGI-3</a></div>
 </article>
@@ -165,8 +171,11 @@ editorial rules before release. <a href="../methodology.html" style="color:var(-
 <li><a href="../hackathons.html">Hackathons</a></li>
 <li><a href="../topics.html">Topics</a></li>
 <li><a href="../archive.html">Archive</a></li>
+<li><a href="../open-questions.html">Open questions</a></li>
 <li><a href="../methodology.html">Methodology</a></li>
-<li><a href="../legal.html">Corrections &amp; rights</a></li>
+
+<li><a href="../corrections.html">Corrections</a></li>
+<li><a href="../legal.html">Rights &amp; licensing</a></li>
 <li><a href="../terms.html">Terms of use</a></li>
 <li><a href="../privacy.html">Privacy</a></li>
 <li><a href="../rss.xml">RSS feed</a></li>

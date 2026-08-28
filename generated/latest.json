@@ -48,6 +48,11 @@
         "government-contracts",
         "ai-safety"
       ],
+      "thread": {
+        "id": "anthropic-pentagon",
+        "label": "Anthropic versus the Pentagon"
+      },
+      "openQuestion": "Does the government's expected appeal overturn Judge Lin's ruling, and how does the parallel D.C. Circuit case land?",
       "sources": [
         {
           "title": "Anthropic PBC v. U.S. Department of War, 3:26-cv-01996",
@@ -75,12 +80,12 @@
       "deck": "The Information reported Nvidia \"agreed to buy\" the open-model hub for roughly $13 billion, while Business Insider says talks could still collapse; neither company has commented.",
       "summary": [
         "The Information reported Nvidia has agreed to acquire Hugging Face for approximately $12.9–13 billion.",
-        "Business Insider, reporting separately, said talks \"had not yet produced a signed agreement and could still atomize.\"",
+        "Business Insider, reporting separately, said talks \"had not yet produced a signed agreement and could still fall apart.\"",
         "Neither Nvidia nor Hugging Face has issued a public statement confirming or denying a deal.",
         "Hugging Face hosts the largest public repository of open-weight AI models and datasets; an acquisition by Nvidia would hand a chipmaker unusual influence over the software layer much of the open-source AI ecosystem depends on."
       ],
       "body": [
-        "Nvidia is reportedly close to acquiring Hugging Face, the platform that hosts the largest public library of open-weight AI models, according to The Information, which put the price at roughly $12.9 to $13 billion and said the two companies had already agreed to the deal. Business Insider, reporting separately, offered a more cautious account: talks were advanced but had \"not yet produced a signed agreement and could still atomize.\"",
+        "Nvidia is reportedly close to acquiring Hugging Face, the platform that hosts the largest public library of open-weight AI models, according to The Information, which put the price at roughly $12.9 to $13 billion and said the two companies had already agreed to the deal. Business Insider, reporting separately, offered a more cautious account: talks were advanced but had \"not yet produced a signed agreement and could still fall apart.\"",
         "Neither company has confirmed the talks publicly. TechCrunch, which reviewed both reports, noted the discrepancy directly rather than resolving it, and no signed agreement, deal terms, or closing timeline have been independently verified as of publication.",
         "If it happens, the acquisition would be notable less for the price than for what Hugging Face represents: the default distribution point for open-weight models from Meta, Mistral, DeepSeek, Qwen and dozens of smaller labs, plus the datasets and tooling much of the research community builds on. Nvidia already supplies the hardware most of that ecosystem trains and runs on; owning the hub it's distributed through would be a different kind of leverage."
       ],
@@ -99,11 +104,26 @@
         "open-weights",
         "nvidia"
       ],
+      "thread": {
+        "id": "nvidia-hugging-face",
+        "label": "Nvidia's bid for Hugging Face"
+      },
+      "openQuestion": "Does Nvidia's reported $12.9bn acquisition of Hugging Face reach a signed agreement, or fall apart?",
+      "corrections": [
+        {
+          "at": "2026-08-28T15:10:00Z",
+          "what": "Business Insider was quoted as saying the talks could still \"atomize\". The reported wording is \"fall apart\"; the quotation has been corrected. The desk's error in drafting — a word that was never said should not have appeared inside quotation marks."
+        },
+        {
+          "at": "2026-08-28T15:10:00Z",
+          "what": "The TechCrunch citation pointed at a URL that returns 404. The article is \"Nvidia closes in on Hugging Face acquisition\"; the link and the cited headline have been corrected to match it. Caught by the link check, not by review."
+        }
+      ],
       "sources": [
         {
-          "title": "Nvidia Nears Deal to Buy Hugging Face for About $13 Billion",
+          "title": "Nvidia closes in on Hugging Face acquisition",
           "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/08/26/nvidia-nears-deal-to-buy-hugging-face-for-about-13-billion/",
+          "url": "https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/",
           "publishedAt": "2026-08-26T23:32:00Z",
           "tier": 2
         },

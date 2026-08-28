@@ -106,9 +106,15 @@
 </ul>
 </div>
 
+
+
 <div class="prose"><p>Amazon has released SOP-Bench, a benchmark that evaluates AI agents on real standard operating procedures rather than isolated task proxies. Built with domain experts who authored authentic procedures from industrial workflows — with Claude 3.5 Sonnet v2 generating executable task specifications, tool interfaces and datasets that the experts then validated — it spans twelve domains including healthcare, logistics, finance and content moderation, and contains more than 2,000 tasks with functioning tools and ground-truth answers.</p><p>The most useful finding is a negative one. When the six tools an agent actually needed were placed among twenty available options, success rates nearly halved. Choosing correctly from a crowded toolset is, on this evidence, a distinct capability from executing a procedure once the right tool is in hand — and one that current agents handle poorly. The benchmark assesses seven capabilities in combination, including state tracking, error recovery and decision-making under uncertainty, on the argument that a procedure requires all of them at once.</p><p>Testing eleven frontier models also undercut the assumption that model recency tracks agent quality: Claude 4.5 underperformed Claude 4 on reasoning-style agents, and no single model-and-agent combination led across procedures. Reasoning-style agents edged out function-calling agents overall while varying substantially by procedure. Absolute performance spanned roughly 90% on simple work such as email triage down to about 25% on complex work such as video annotation. The benchmark was presented at KDD 2026 and is published on GitHub and Hugging Face.</p></div>
 
 <div class="callout"><div class="callout__label">Why it matters</div><p>The tool-crowding result is directly actionable and cuts against how most agent frameworks are built: the common instinct is to register every tool an agent might conceivably need, and this says that doing so degrades the agent measurably. Scoping the toolset per task is cheaper than any model upgrade. The finding that a newer Claude lost to an older one on reasoning agents is the more uncomfortable one, because it means teams treating a version bump as a free improvement should be re-running their own evaluations rather than assuming the direction of travel.</p></div>
+
+
+
+
 
 <div class="topics" style="margin-top:30px"><a class="topic" href="../entity/amazon-science.html">Amazon Science</a><a class="topic" href="../entity/sop-bench.html">SOP-Bench</a></div>
 </article>
@@ -159,8 +165,11 @@ editorial rules before release. <a href="../methodology.html" style="color:var(-
 <li><a href="../hackathons.html">Hackathons</a></li>
 <li><a href="../topics.html">Topics</a></li>
 <li><a href="../archive.html">Archive</a></li>
+<li><a href="../open-questions.html">Open questions</a></li>
 <li><a href="../methodology.html">Methodology</a></li>
-<li><a href="../legal.html">Corrections &amp; rights</a></li>
+
+<li><a href="../corrections.html">Corrections</a></li>
+<li><a href="../legal.html">Rights &amp; licensing</a></li>
 <li><a href="../terms.html">Terms of use</a></li>
 <li><a href="../privacy.html">Privacy</a></li>
 <li><a href="../rss.xml">RSS feed</a></li>

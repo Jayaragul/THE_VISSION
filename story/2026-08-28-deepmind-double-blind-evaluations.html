@@ -106,9 +106,15 @@
 </ul>
 </div>
 
+
+
 <div class="prose"><p>Google DeepMind says it has run the first double-blind evaluation of a proprietary, frontier-class AI model — a setup designed to solve a structural problem in how closed models get tested: the company that owns the model can see what questions it&#39;s being tested on, and the evaluator either has to trust the company&#39;s own API or would need the model&#39;s weights to test independently, which the company will not hand over.</p><p>The pilot tested Gemini Flash Lite in partnership with the Singapore AI Safety Institute, OpenMined, AVERI and MLCommons, using Google Cloud Confidential Space together with an Nvidia H100 confidential GPU and Intel TDX host memory encryption. The cryptographic setup is built so the external evaluator&#39;s test questions never become visible to Google, and Google&#39;s model weights never become visible to the evaluator — each side&#39;s data stays confined to what DeepMind calls a cryptographic &quot;box.&quot;</p><p>The problem the pilot targets is benchmark contamination: if a model has already encountered a test&#39;s questions somewhere in its training data, its score on that test stops measuring real capability and starts measuring memorization. DeepMind&#39;s own framing of the trade-off it says the pilot eliminates: &quot;Double-blind evaluations eliminate this compromise...we can cryptographically verify that both the external evaluation data and the proprietary model remain private to their respective owners.&quot;</p><p>DeepMind positions the pilot as a template for higher-stakes evaluation contexts going forward — cybersecurity testing and government evaluations in particular, where both the model owner&#39;s IP and the evaluator&#39;s test material carry sensitivity that neither side has previously been able to fully protect while still allowing an independent check.</p></div>
 
 <div class="callout"><div class="callout__label">Why it matters</div><p>Benchmark contamination is one of the more persistent, least-resolved credibility problems in AI evaluation — every capability claim ultimately rests on trusting either the lab&#39;s self-reported numbers or an evaluator&#39;s access to material the lab would rather keep private. A working cryptographic method for testing a closed model without either side seeing the other&#39;s data is infrastructure other labs and regulators could adopt, not just a one-off DeepMind exercise.</p></div>
+
+
+
+
 
 <div class="topics" style="margin-top:30px"><a class="topic" href="../entity/google-deepmind.html">Google DeepMind</a><a class="topic" href="../entity/singapore-ai-safety-institute.html">Singapore AI Safety Institute</a><a class="topic" href="../entity/mlcommons.html">MLCommons</a></div>
 </article>
@@ -159,8 +165,11 @@ editorial rules before release. <a href="../methodology.html" style="color:var(-
 <li><a href="../hackathons.html">Hackathons</a></li>
 <li><a href="../topics.html">Topics</a></li>
 <li><a href="../archive.html">Archive</a></li>
+<li><a href="../open-questions.html">Open questions</a></li>
 <li><a href="../methodology.html">Methodology</a></li>
-<li><a href="../legal.html">Corrections &amp; rights</a></li>
+
+<li><a href="../corrections.html">Corrections</a></li>
+<li><a href="../legal.html">Rights &amp; licensing</a></li>
 <li><a href="../terms.html">Terms of use</a></li>
 <li><a href="../privacy.html">Privacy</a></li>
 <li><a href="../rss.xml">RSS feed</a></li>

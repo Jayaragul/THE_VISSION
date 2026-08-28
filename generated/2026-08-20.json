@@ -202,6 +202,12 @@
         "inference",
         "funding"
       ],
+      "corrections": [
+        {
+          "at": "2026-08-28T15:10:00Z",
+          "what": "The Tom's Hardware citation pointed at a truncated URL that returned 404; the link now carries the full slug ending in \"-fractile\" and resolves to the article as cited. The desk's error in transcription, caught by the weekly link check. No claim in the story changes."
+        }
+      ],
       "sources": [
         {
           "title": "AI Chip Startup Fractile in Talks for $6.5 Billion Value After Anthropic Deal",
@@ -213,7 +219,7 @@
         {
           "title": "Anthropic in early talks to buy DRAM-less AI inference chips from UK startup",
           "publisher": "Tom's Hardware",
-          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-in-early-talks-to-buy-inference-chips-from-uk-startup",
+          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-in-early-talks-to-buy-inference-chips-from-uk-startup-fractile",
           "publishedAt": "2026-08-19T00:00:00Z",
           "tier": 3
         }
@@ -452,6 +458,7 @@
         "api",
         "pricing"
       ],
+      "thread": { "id": "grok-4-6", "label": "Grok 4.6, from launch to leak" },
       "sources": [
         {
           "title": "Grok 4.6 on Amazon Bedrock",

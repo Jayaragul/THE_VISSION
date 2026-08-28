@@ -100,6 +100,46 @@
         },
         "entities": { "type": "array", "maxItems": 12, "items": { "type": "string", "maxLength": 60 } },
         "tags": { "type": "array", "maxItems": 10, "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" } },
+        "thread": {
+          "type": "object",
+          "required": ["id", "label"],
+          "additionalProperties": false,
+          "properties": {
+            "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 60 },
+            "label": { "type": "string", "minLength": 8, "maxLength": 80 }
+          },
+          "description": "Marks this story as an instalment in a continuing one. Set deliberately, never inferred: shared entities are not a thread — two stories can both mention Google and have nothing to do with each other, and a machine-guessed 'story so far' would assert a connection the desk never checked. Same id across editions builds the timeline at thread/<id>.html."
+        },
+        "openQuestion": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 240,
+          "description": "The specific thing this story leaves unresolved, written as a question of fact that a later edition could actually answer. Not a hedge and not a topic — 'Does the acquisition get signed?' qualifies, 'What happens next in AI?' does not. Collected on open-questions.html until some later story carries resolves pointing back at this one."
+        },
+        "resolves": {
+          "type": "object",
+          "required": ["story", "outcome"],
+          "additionalProperties": false,
+          "properties": {
+            "story": { "type": "string", "description": "The id of the earlier story whose openQuestion this settles." },
+            "outcome": { "type": "string", "minLength": 20, "maxLength": 400, "description": "What the answer turned out to be, including when the desk got it wrong." }
+          },
+          "description": "Closes an earlier open question. This is the paper keeping its own score: an unconfirmed claim that is never returned to is indistinguishable from one that was quietly wrong."
+        },
+        "corrections": {
+          "type": "array",
+          "maxItems": 10,
+          "items": {
+            "type": "object",
+            "required": ["at", "what"],
+            "additionalProperties": false,
+            "properties": {
+              "at": { "type": "string", "format": "date-time" },
+              "what": { "type": "string", "minLength": 20, "maxLength": 400, "description": "What was wrong and what it now says. Written so a reader who saw the original can tell exactly what changed." }
+            }
+          },
+          "description": "Amendments made after publication. The story id and its URL never change (rule 3) — the correction is additive and permanent, and appears on the story page and on corrections.html. A paper that silently edits its archive has no archive."
+        },
         "cover": {
           "type": "object",
           "additionalProperties": false,

@@ -106,9 +106,15 @@
 </ul>
 </div>
 
+
+
 <div class="prose"><p>Pew Research Center has put a number on how much of the web now carries machine fingerprints: roughly 35% of English-language pages published after ChatGPT&#39;s November 2022 launch show signs of AI authorship or substantial AI editing. The figure comes from a corpus of nearly 500,000 pages collected over five years, with the headline result drawn from a random 10,000-page sample taken in July 2026 and detection performed using Open Pangram&#39;s classifier.</p><p>The distribution matters more than the headline. Commercial .com pages showed AI authorship at approximately ten times the rate of .edu and .gov pages, which sat near 1%, with .org domains at 4.6%. Restricting the sample to pages published before ChatGPT existed and running the same detector produced a rate near 10%, which is a useful indication of the method&#39;s noise floor rather than evidence of pre-2022 AI writing.</p><p>Pew was direct about the limitation. Detection tools misclassify human-written text as machine-written, and no classifier reports its own error rate reliably at web scale, so the centre frames the finding as directionally correct rather than precise. The researchers also noted a rise in stylistic markers now associated with model output, including em dashes and the &quot;it&#39;s not X, it&#39;s Y&quot; construction — signals that are suggestive but that a human writer may legitimately produce.</p></div>
 
 <div class="callout"><div class="callout__label">Why it matters</div><p>If a third of recent pages are machine-written, then a third of what the next model scrapes is machine-written too, and the .com-versus-.gov gap says the contamination is concentrated exactly where general crawls collect most heavily. For anyone assembling a training corpus or a retrieval index, provenance filtering stops being a nice-to-have. The caveat cuts the other way as well: a 10% false-positive floor on pre-2022 pages means any downstream tool that penalises writers for looking AI-generated is wrong often enough to be unfair.</p></div>
+
+
+
+
 
 <div class="topics" style="margin-top:30px"><a class="topic" href="../entity/pew-research-center.html">Pew Research Center</a><a class="topic" href="../entity/chatgpt.html">ChatGPT</a><a class="topic" href="../entity/open-pangram.html">Open Pangram</a></div>
 </article>
@@ -159,8 +165,11 @@ editorial rules before release. <a href="../methodology.html" style="color:var(-
 <li><a href="../hackathons.html">Hackathons</a></li>
 <li><a href="../topics.html">Topics</a></li>
 <li><a href="../archive.html">Archive</a></li>
+<li><a href="../open-questions.html">Open questions</a></li>
 <li><a href="../methodology.html">Methodology</a></li>
-<li><a href="../legal.html">Corrections &amp; rights</a></li>
+
+<li><a href="../corrections.html">Corrections</a></li>
+<li><a href="../legal.html">Rights &amp; licensing</a></li>
 <li><a href="../terms.html">Terms of use</a></li>
 <li><a href="../privacy.html">Privacy</a></li>
 <li><a href="../rss.xml">RSS feed</a></li>

@@ -1261,8 +1261,117 @@ ul, ol { margin: 0; padding: 0; }
 }
 .topic:hover { border-color: var(--accent); color: var(--accent); }
 
+/* --- continuity: threads, open questions, corrections ---------------------- */
+
+/* A story's place in a continuing one. Deliberately quieter than .callout — this is
+   orientation, not argument, and it sits below the piece rather than interrupting it. */
+.thread { border-top: 2px solid var(--ink); padding-top: 14px; margin: 34px 0; max-width: 68ch; }
+.thread__label {
+  font-family: var(--sans); font-size: .68rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 14px; font-variant-numeric: normal;
+}
+.thread__label a { color: inherit; }
+.thread__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.thread__item {
+  display: grid; grid-template-columns: 88px 1fr; gap: 14px; align-items: baseline;
+  padding: 9px 0 9px 14px; border-left: 2px solid var(--rule);
+}
+.thread__item.is-here { border-left-color: var(--accent); background: var(--surface-2); }
+.thread__date {
+  font-family: var(--sans); font-size: .72rem; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--faint); font-variant-numeric: normal;
+}
+.thread__title { font-family: var(--serif); font-size: 1rem; line-height: 1.45; color: var(--ink); }
+.thread__item.is-here .thread__title { font-weight: 600; }
+a.thread__title { text-decoration: none; }
+a.thread__title:hover { color: var(--accent); }
+@media (max-width: 620px) {
+  .thread__item { grid-template-columns: 1fr; gap: 3px; }
+}
+
+/* The unresolved claim. Accent-bordered because it is a promise the paper is making to
+   come back, and it should read as a commitment rather than a disclaimer. */
+.openq {
+  border-left: 3px solid var(--accent); background: var(--accent-soft);
+  padding: 16px 18px; margin: 34px 0; max-width: 68ch; border-radius: 0 4px 4px 0;
+}
+.openq.is-answered { border-left-color: var(--rule-strong); background: var(--surface-2); }
+.openq__label {
+  font-family: var(--sans); font-size: .68rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 8px; font-variant-numeric: normal;
+}
+.openq.is-answered .openq__label { color: var(--muted); }
+.openq__q { font-family: var(--serif); font-size: 1.08rem; line-height: 1.55; color: var(--ink); margin: 0; }
+.openq__pending, .openq__a {
+  font-family: var(--sans); font-size: .85rem; line-height: 1.6;
+  color: var(--ink-2); margin: 10px 0 0;
+}
+.openq__stamp {
+  font-size: .7rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--faint); margin-right: 6px; font-variant-numeric: normal;
+}
+.openq__link, .openq__pending a { color: var(--accent); }
+
+/* The ledger page. */
+.openq-row { border-top: 1px solid var(--rule); padding: 20px 0; }
+.openq-row__meta {
+  display: flex; gap: 12px; align-items: center; margin-bottom: 8px;
+  font-family: var(--sans); font-size: .72rem; letter-spacing: .08em;
+  text-transform: uppercase; font-variant-numeric: normal;
+}
+.openq-row__meta a { color: var(--faint); text-decoration: none; }
+.openq-row__meta a:hover { color: var(--accent); }
+.openq-row__badge {
+  padding: 3px 9px; border-radius: 999px; font-weight: 650;
+  background: var(--accent-soft); color: var(--accent); border: 1px solid currentColor;
+}
+.openq-row__badge.is-closed { background: var(--surface-2); color: var(--muted); border-color: var(--rule-strong); }
+.openq-row__q { font-family: var(--serif); font-size: 1.15rem; line-height: 1.4; margin: 0 0 6px; }
+.openq-row__from, .openq-row__a {
+  font-family: var(--sans); font-size: .85rem; line-height: 1.6; color: var(--muted); margin: 0;
+}
+.openq-row__a { color: var(--ink-2); margin-top: 8px; }
+.openq-row__from a, .openq-row__a a { color: var(--accent); text-decoration: none; }
+.openq-row__from a:hover, .openq-row__a a:hover { text-decoration: underline; }
+
+/* Corrections. Never hidden, never styled as an afterthought — the point of publishing
+   one is that a reader who saw the original can find out it changed. */
+.correction {
+  border-left: 3px solid var(--accent); background: var(--surface-2);
+  padding: 14px 16px; margin: 26px 0; max-width: 68ch; border-radius: 0 4px 4px 0;
+}
+.correction__label {
+  font-family: var(--sans); font-size: .68rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 7px; font-variant-numeric: normal;
+}
+.correction__body {
+  font-family: var(--sans); font-size: .86rem; line-height: 1.62; color: var(--ink-2); margin: 0 0 6px;
+}
+.correction__body:last-child { margin-bottom: 0; }
+.correction__body time { color: var(--faint); }
+
+.correction-row { border-top: 1px solid var(--rule); padding: 20px 0; }
+.correction-row__meta {
+  display: flex; gap: 8px; align-items: center; margin-bottom: 7px;
+  font-family: var(--sans); font-size: .72rem; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--faint); font-variant-numeric: normal;
+}
+.correction-row__meta a { color: var(--faint); text-decoration: none; }
+.correction-row__meta a:hover { color: var(--accent); }
+.correction-row__title { font-family: var(--serif); font-size: 1.1rem; line-height: 1.4; margin: 0 0 7px; }
+.correction-row__title a { text-decoration: none; }
+.correction-row__title a:hover { color: var(--accent); }
+.correction-row__body {
+  font-family: var(--sans); font-size: .86rem; line-height: 1.62; color: var(--ink-2); margin: 0;
+}
+
 @media print {
   .topbar, .beatnav, .themetoggle, .progress, .footer { display: none; }
   body { background: #fff; color: #000; font-size: 11pt; }
   .lead, .section { border: 0; }
+  /* A correction is part of the record; it must survive being printed. */
+  .correction, .openq { border-left-width: 2px; background: none; }
 }

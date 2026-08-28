@@ -5,7 +5,7 @@
     "date": "2026-08-28",
     "storyCount": 8,
     "sourceCount": 11,
-    "sha256": "76d829b915fa0fea7385e646972ddbd427f7a7ac35555ea4c3060536bb3678d7"
+    "sha256": "51c4efc5e5b26edbc83dfa5b08d5a927221f29da6705eb5be187a17d9f43f71f"
   },
   "scores": { "sourcing": 3, "accuracy": 4, "prose": 4, "selection": 4, "balance": 2 },
   "total": 17,
@@ -21,7 +21,8 @@
     "A UK Ofgem grid-connection-fee story was fully drafted with two sources (ofgem.gov.uk, theregister.com) but both were dated 28-30 days before this edition, past the 480h lookback ceiling; rather than backdating or re-labelling, the story was cut entirely before this review, dropping the edition from 9 stories to 8 and leaving infrastructure one short of quota.",
     "Two quoted passages in the lead ran 35 words, over the house limit for quotation length; both were trimmed to keep the same substantive claim without adding editorializing before this review.",
     "The Nvidia/Hugging Face story shipped in the first draft as prominence 'top' with confidence 'low' and only one source (TechCrunch); validate.mjs flagged both the source-count shortfall and the low-confidence-at-top warning. A second, independently-reported source (Fortune) was added and confidence raised to medium to reflect that the existence of acquisition talks is well corroborated even though the deal's signed status is not, before this review.",
-    "news.wfsu.org and npr.org were added to input/sources.json (tier 4 and tier 2 respectively) after being used as directly-opened sources today; neither changes any story's declared tier, this only removes the 'not in source book' warning for two outlets this desk had not cited before."
+    "news.wfsu.org and npr.org were added to input/sources.json (tier 4 and tier 2 respectively) after being used as directly-opened sources today; neither changes any story's declared tier, this only removes the 'not in source book' warning for two outlets this desk had not cited before.",
+    "Two corrections published against the Nvidia/Hugging Face story within hours of release. First, Business Insider was quoted as saying talks could \"atomize\" when the reported word is \"fall apart\" — a word that was never said appeared inside quotation marks, which is the drafting error this desk least tolerates. Second, the TechCrunch citation pointed at a URL returning 404. Both were found by tools/linkcheck.mjs on its first run, not by review. Also added an open question on the Pentagon appeal and thread markers on two stories."
   ],
   "notes": "node tools/validate.mjs --strict returns 0 errors and 5 warnings (2 top vs house range 3-6, 3 briefs vs house range 4-8, and three beats — infrastructure, society, india — short of quota); all five are shape/quota warnings disclosed in edition.summary, none a sourcing defect, and --strict would block on them the same way it blocks on the already-published 2026-08-26 edition's own 3 warnings. Written manually after courtlistener.com, npr.org, cnbc.com, axios.com, nbcnews.com and us.cnn.com all returned 403/451 to automated fetch for the day's lead story — an unusually wide block pattern that forced heavier reliance on the blocked-primary exception than any prior edition this week."
 }

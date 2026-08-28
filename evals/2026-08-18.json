@@ -5,7 +5,7 @@
     "date": "2026-08-18",
     "storyCount": 10,
     "sourceCount": 15,
-    "sha256": "a5e366143e5ddd7b5827eeebbe4213d88da7fff07ee68f635d970fc5a46cc8b8"
+    "sha256": "c559f3940611b0a60e821612c770b903c20209ecb31acfd57b2e2b9cfceb1c06"
   },
   "scores": { "sourcing": 5, "accuracy": 5, "prose": 4, "selection": 4, "balance": 4 },
   "total": 22,
@@ -17,6 +17,8 @@
     { "dimension": "selection", "note": "Stripe/OpenRouter was added on re-score after the classifier fix surfaced it — a $7bn acquisition is materially bigger than the $350m Groq round already running, and its absence was a real miss in the first pass. It runs at standard rather than top because the price traces to a single Bloomberg scoop that neither company has confirmed; prominence follows the sourcing, not the size of the number." },
     { "dimension": "balance", "note": "Policy sits at 0 against a target of 1 — see notes. Nvidia is a party in 3 of 10 stories, close to the rubric's one-third caution line, but each is a distinct event and edition.summary names Nvidia's centrality in its first sentence rather than burying it." }
   ],
-  "revisions": [],
+  "revisions": [
+    "Marked as an instalment of the \"grok-4-6\" thread after publication. Metadata only — no claim, source or word of prose changed. Recorded here because the edition hash moved and the binding had to be re-made."
+  ],
   "notes": "Re-scored from scratch after adding the Stripe/OpenRouter story; the eval-binding check in tools/validate.mjs correctly blocked publication on the stale 9-story binding, which is exactly the drift this mechanism exists to catch.\n\nPolicy is still empty against a quota target of 1 (minQuota is 0, so it does not block). This run is a partial vindication of the classifier fix and a clean example of the sourcing rule holding: the repaired classifier DID surface a genuine, in-window policy candidate the old one hid — WIRED's 14 Aug piece on state lawmakers drafting bills to bar human-AI marriage. It still does not run, because wired.com cannot be fetched by this pipeline and rule 1 is that a source which cannot be opened is not a source. The corroborating coverage that IS openable (Wisconsin's bill via WSAW, Ohio HB 469 via Fox News) dates to February 2026, far outside even the 480-hour maxLookback, so it cannot stand in for the fresh reporting. Correct outcome: no policy story.\n\nCarried forward from the first pass, both still true and both now better evidenced: (1) input/sources.json has no dedicated policy-tracking outlet at tier 2 or better that this pipeline can actually open — Politico or a law-firm regulation tracker would raise the hit rate, and WIRED being unfetchable is a live example of the gap; (2) harvest.mjs's policy topic search returned nothing usable today, so policy research still depends on live WebSearch rather than the harvested pool the other beats draw from."
 }

@@ -1,0 +1,26 @@
+{
+  "$comment": "What the paper keeps forever, and what it lets go. This file exists because a daily publication is a compounding storage problem: at edition 8 nobody notices, and by edition 900 the site no longer deploys. The split below is not a storage trick — it follows the three-tier trust model the paper already publishes under. The Edition is a promise (a story id is a permalink, rule 3 in CLAUDE.md) and is never pruned. The Digest and the Wire are ranked snapshots of other people's headlines, carry no permalink promise, and are the parts that may age out.",
+
+  "permanent": {
+    "$comment": "Never pruned by any tool, at any age. Breaking one of these breaks a published URL, which the paper has promised it will not do.",
+    "paths": [
+      "generated/<date>.json",
+      "story/<id>.html",
+      "edition/<date>.html",
+      "assets/img/covers/<id>.svg",
+      "evals/<date>.json"
+    ]
+  },
+
+  "windows": {
+    "$comment": "Days of history kept for the tiers that carry no permalink promise. The build renders only what falls inside the window; its existing prune() then removes whatever fell out, so the window is enforced by rebuilding rather than by deleting.",
+    "digestPages": 90,
+    "candidates": 7
+  },
+
+  "capacity": {
+    "$comment": "GitHub Pages publishes at most 1 GB. That ceiling is not a warning the platform gives you gradually — the deploy simply starts failing. tools/retention.mjs projects the crossing date from measured growth so it arrives as a scheduled decision instead of an outage. When usedPercent passes warnAtPercent, the migration in CLAUDE.md ('When the archive outgrows Pages') is the next move, and there is a year or more to make it.",
+    "limitMB": 1024,
+    "warnAtPercent": 70
+  }
+}
