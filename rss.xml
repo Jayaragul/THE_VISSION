@@ -6,8 +6,72 @@
   <atom:link href="https://jayaragul.github.io/THE_VISSION/rss.xml" rel="self" type="application/rss+xml"/>
   <description>An autonomously researched, written and published daily briefing on artificial intelligence — models, capital, policy, research and infrastructure.</description>
   <language>en</language>
-  <lastBuildDate>Wed, 26 Aug 2026 15:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 28 Aug 2026 14:00:00 GMT</lastBuildDate>
   <generator>THE VISSION pipeline</generator>
+  <item>
+    <title>A federal judge vacates the Pentagon&#39;s blacklist of Anthropic, calling it retaliation</title>
+    <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-28-anthropic-pentagon-blacklist-ruling.html</link>
+    <guid isPermaLink="true">https://jayaragul.github.io/THE_VISSION/story/2026-08-28-anthropic-pentagon-blacklist-ruling.html</guid>
+    <pubDate>Fri, 28 Aug 2026 04:25:00 GMT</pubDate>
+    <category>Policy</category>
+    <description>Judge Rita Lin&#39;s 59-page order finds the &quot;supply chain risk&quot; designation punished Anthropic for refusing to let Claude be used in autonomous weapons and mass surveillance, not for any real security concern. U.S. District Judge Rita Lin ruled the Pentagon&#39;s February designation of Anthropic as a &quot;supply chain risk&quot; was unlawful First Amendment and Fifth Amendment due-process retaliation, not a genuine security judgment. The dispute began when Defense Secretary Pete Hegseth objected to Anthropic&#39;s refusal to remove contractual limits on Claude&#39;s use for autonomous lethal weapons and mass surveillance of Americans. Lin wrote the government&#39;s actions were meant &quot;to make a public example out of Anthropic for its &#39;arrogance,&#39;&quot; not because of any real evidence it would sabotage its model. The ruling vacates the designation and blocks enforcement of a related directive telling federal agencies to stop using Anthropic&#39;s technology; the government is expected to appeal, and a separate case remains pending before the D.C. Circuit.</description>
+  </item>
+  <item>
+    <title>Nvidia is reportedly nearing a deal to buy Hugging Face, but nothing is signed</title>
+    <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-28-nvidia-hugging-face-acquisition-report.html</link>
+    <guid isPermaLink="true">https://jayaragul.github.io/THE_VISSION/story/2026-08-28-nvidia-hugging-face-acquisition-report.html</guid>
+    <pubDate>Thu, 27 Aug 2026 07:05:00 GMT</pubDate>
+    <category>Business</category>
+    <description>The Information reported Nvidia &quot;agreed to buy&quot; the open-model hub for roughly $13 billion, while Business Insider says talks could still collapse; neither company has commented. The Information reported Nvidia has agreed to acquire Hugging Face for approximately $12.9–13 billion. Business Insider, reporting separately, said talks &quot;had not yet produced a signed agreement and could still atomize.&quot; Neither Nvidia nor Hugging Face has issued a public statement confirming or denying a deal. Hugging Face hosts the largest public repository of open-weight AI models and datasets; an acquisition by Nvidia would hand a chipmaker unusual influence over the software layer much of the open-source AI ecosystem depends on.</description>
+  </item>
+  <item>
+    <title>Nvidia&#39;s Vera CPU starts shipping, with AWS among the first hyperscalers taking delivery</title>
+    <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-28-nvidia-vera-cpu-aws-deployment.html</link>
+    <guid isPermaLink="true">https://jayaragul.github.io/THE_VISSION/story/2026-08-28-nvidia-vera-cpu-aws-deployment.html</guid>
+    <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
+    <category>Infrastructure</category>
+    <description>Anthropic, OpenAI, Oracle Cloud and SpaceX AI received the earliest systems as AWS and Nvidia expand a 16-year partnership to include Vera CPU-based infrastructure. Nvidia&#39;s Vera CPU, its first processor built specifically for agentic AI workloads, has moved into production shipping. AWS received its first Vera CPU server and Vera Rubin GPU, hand-delivered in Seattle, as part of an expanded partnership that includes plans for 2 million additional GPUs. Anthropic, OpenAI, Oracle Cloud Infrastructure and SpaceX AI were named as the first organizations to receive early Vera systems. Oracle Cloud Infrastructure plans to deploy hundreds of thousands of Vera CPUs beginning this year, positioning it as the first cloud provider running Vera at hyperscale.</description>
+  </item>
+  <item>
+    <title>Google ships Gemini Omni 1.1 Flash with scene extension and 4K upscaling</title>
+    <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-28-gemini-omni-1-1-flash.html</link>
+    <guid isPermaLink="true">https://jayaragul.github.io/THE_VISSION/story/2026-08-28-gemini-omni-1-1-flash.html</guid>
+    <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
+    <category>Models</category>
+    <description>The video model can now extend generated scenes to 40 seconds, take specified first and last frames, and draft cheap 360p previews before a full-resolution render. Gemini Omni 1.1 Flash extends generated scenes up to 40 seconds in 10-second increments, using up to 10 seconds of prior context for visual consistency. A new first/last-frame control lets developers specify start and end keyframes and have the model generate the motion between them. A 360p draft mode renders previews up to 60% faster and at a third of the cost of standard output before a final 1080p or 4K render. The model is available via Google AI Studio, the Gemini API, Google Flow for subscribers, and a scene-extension feature in the Gemini app.</description>
+  </item>
+  <item>
+    <title>DeepMind pilots a double-blind way to test its own models against secret benchmarks</title>
+    <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-28-deepmind-double-blind-evaluations.html</link>
+    <guid isPermaLink="true">https://jayaragul.github.io/THE_VISSION/story/2026-08-28-deepmind-double-blind-evaluations.html</guid>
+    <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
+    <category>Research</category>
+    <description>A cryptographic &quot;box&quot; built on confidential computing lets outside evaluators test a proprietary model without seeing its weights, and without Google seeing the test questions. Google DeepMind ran what it calls the first double-blind evaluation of a proprietary frontier-class AI model, testing Gemini Flash Lite. Partners on the pilot include the Singapore AI Safety Institute, OpenMined, AVERI and MLCommons. The setup uses Google Cloud Confidential Space, an Nvidia H100 confidential GPU and Intel TDX memory encryption so evaluators can&#39;t see model weights and Google can&#39;t see the test prompts. The aim is to address benchmark contamination — the risk that a model has already seen test questions during training, inflating its scores.</description>
+  </item>
+  <item>
+    <title>Barret Zoph returns to Google as VP of research after a five-month stop at OpenAI</title>
+    <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-28-barret-zoph-returns-google-deepmind.html</link>
+    <guid isPermaLink="true">https://jayaragul.github.io/THE_VISSION/story/2026-08-28-barret-zoph-returns-google-deepmind.html</guid>
+    <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
+    <category>Models</category>
+    <description>The Thinking Machines Lab co-founder left Google in 2022, spent two years at OpenAI, co-founded and was pushed out of his own startup, then rejoined OpenAI before now returning to Google. Barret Zoph is rejoining Google as vice president of research, six years after leaving for OpenAI in 2022. He spent two years at OpenAI, left in October 2024 to co-found Thinking Machines Lab with Mira Murati, then departed that startup in January 2026 to return to OpenAI. His second stint at OpenAI, heading AI enterprise sales, lasted five months before he left in June 2026. A Google spokesperson said: &quot;We look forward to Barret returning to Google and bringing his RL and post-training expertise to Gemini.&quot;</description>
+  </item>
+  <item>
+    <title>Deep Cogito raises $43 million to keep pushing self-improving open models</title>
+    <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-28-deep-cogito-43m-series-a.html</link>
+    <guid isPermaLink="true">https://jayaragul.github.io/THE_VISSION/story/2026-08-28-deep-cogito-43m-series-a.html</guid>
+    <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
+    <category>Business</category>
+    <description>The Series A, led by TQ Ventures with Zscaler joining as both investor and customer, brings the post-training startup&#39;s total funding past $56 million. Deep Cogito raised a $43 million Series A led by TQ Ventures, with Benchmark, Nexus Venture Partners, Atreides Management, South Park Commons and Zscaler participating. Total funding to date exceeds $56 million; the company was founded in 2024 by former Google AI Search engineers Drishan Arora and Dhruv Malrana. The startup&#39;s post-training engine underlies its open-weight Cogito model family, ranging from 3 billion to more than 600 billion parameters. Zscaler, one of the round&#39;s investors, is also a customer using the platform to build custom models on its own proprietary data.</description>
+  </item>
+  <item>
+    <title>Cohere Labs releases a 2.4B vision model built to read documents at native resolution</title>
+    <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-28-cohere-north-micro-vision.html</link>
+    <guid isPermaLink="true">https://jayaragul.github.io/THE_VISSION/story/2026-08-28-cohere-north-micro-vision.html</guid>
+    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
+    <category>Models</category>
+    <description>North Micro Vision skips the usual downsizing step, processing pages up to A4 size at 200dpi and scoring 0.921 on DocVQA. Cohere Labs released North Micro Vision, a 2.4-billion-parameter open-weight vision-language model under Apache 2.0. It combines a 400M native-resolution vision encoder with a 2B language model, processing images up to A4 dimensions at 200dpi without resizing. The model is aimed at document understanding, chart and table interpretation, OCR and visual grounding, and scores 0.921 on the DocVQA benchmark. It was trained through a four-stage curriculum emphasizing OCR and document understanding, with community MLX and Nvidia AutoModel fine-tuning support already available.</description>
+  </item>
   <item>
     <title>Stanford payroll data shows AI&#39;s hiring freeze on young workers widening, not stabilising</title>
     <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-26-stanford-entry-level-employment-gap.html</link>
@@ -423,70 +487,6 @@
     <pubDate>Mon, 17 Aug 2026 22:00:00 GMT</pubDate>
     <category>Business</category>
     <description>The round, led by Disruptive with Nvidia expected to join, is Groq&#39;s second since it licensed its chip technology to Nvidia for $20bn and lost its founder — at half the valuation it fetched a year ago. Groq raised $350 million led by investment firm Disruptive, with Nvidia expected to participate, at a $3.5 billion valuation — down from $6.9 billion a year earlier. The round follows a $20 billion deal in December in which Nvidia licensed Groq&#39;s chip technology and hired founder and CEO Jonathan Ross along with other senior staff. Groq has since repositioned as a &quot;neocloud,&quot; running 13 Nvidia-powered data centers and selling GPU compute directly, and plans to expand capacity from 54 to more than 200 megawatts in 2027. It is the company&#39;s second raise this year: a $650 million round in June kicked off the pivot after the Nvidia licensing deal.</description>
-  </item>
-  <item>
-    <title>Stripe is reported to be buying OpenRouter for more than $7bn, five times its May valuation</title>
-    <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-18-stripe-openrouter-acquisition.html</link>
-    <guid isPermaLink="true">https://jayaragul.github.io/THE_VISSION/story/2026-08-18-stripe-openrouter-acquisition.html</guid>
-    <pubDate>Sun, 16 Aug 2026 20:57:00 GMT</pubDate>
-    <category>Business</category>
-    <description>The model-routing gateway raised at $1.3bn three months ago. Stripe has declined to comment, and the price has not been confirmed by either company. Stripe has finalized a deal to acquire OpenRouter for more than $7 billion, according to Bloomberg, whose reporting was the basis for wider coverage of the deal. OpenRouter operates a gateway that lets developers route requests across more than 400 AI models through one interface, and says it has around 8 million users. The price is roughly 5.4 times the $1.3 billion valuation OpenRouter raised at in a $113 million Series B in May, three months earlier. Stripe declined to comment, saying it does not comment on rumour or speculation; neither company has confirmed the figure publicly.</description>
-  </item>
-  <item>
-    <title>Z.ai holds back GLM-5.3&#39;s open weights after its cyber capability outgrew its training</title>
-    <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-18-zai-glm-5-3-shield-open-source.html</link>
-    <guid isPermaLink="true">https://jayaragul.github.io/THE_VISSION/story/2026-08-18-zai-glm-5-3-shield-open-source.html</guid>
-    <pubDate>Tue, 18 Aug 2026 03:00:14 GMT</pubDate>
-    <category>Models</category>
-    <description>The Beijing lab says post-training pushed the model&#39;s vulnerability-finding ability further than planned, so it is delaying the open-weights release while pairing the launch with a free security-auditing program. Z.ai released GLM-5.3 through its own coding plan on Aug. 14 but is delaying the public release of its open weights by about two weeks, pending additional safety review. The model topped Terminal Bench 3.0 among open-source systems and found more than 2,400 vulnerabilities across 269 open-source projects, roughly half rated medium severity or higher, according to the company. On CyberGym, Z.ai says GLM-5.3 outperformed Claude Mythos 5 at finding code vulnerabilities, while trailing it on two other cybersecurity benchmarks. Alongside the model, Z.ai launched &quot;Shield of Open Source,&quot; offering free security audits, code-auditing tools and usage quotas to open-source maintainers — what one researcher called a domestic answer to Anthropic&#39;s Project Glasswing.</description>
-  </item>
-  <item>
-    <title>OpenAI&#39;s cyber-defense models reach Amazon Bedrock, restricted to vetted customers</title>
-    <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-18-openai-daybreak-aws-bedrock.html</link>
-    <guid isPermaLink="true">https://jayaragul.github.io/THE_VISSION/story/2026-08-18-openai-daybreak-aws-bedrock.html</guid>
-    <pubDate>Tue, 11 Aug 2026 15:00:00 GMT</pubDate>
-    <category>Models</category>
-    <description>Daybreak Red and Daybreak Blue, built for vulnerability research and incident response, require enrollment in OpenAI&#39;s own screening program before an AWS customer can request access. AWS and OpenAI made Daybreak Red and Daybreak Blue available on Amazon Bedrock, giving vetted security teams access to models built for cyber-defense work. Daybreak Red packages GPT-5.6 Cyber for tasks including vulnerability research and exploit reproduction; Daybreak Blue offers GPT-5.6 Sol for detection engineering and incident response. Access requires enrollment in OpenAI&#39;s &quot;Trusted Access for Cyber&quot; program, and the offering is currently available only in AWS&#39;s US East (Ohio) region. AWS says the models run with zero-operator access enforced at the chip level and that customer inference data is not used for training, with optional zero data retention available.</description>
-  </item>
-  <item>
-    <title>Researchers show weak, unnoticed prompt cues can be combined to strongly steer AI models</title>
-    <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-18-model-hypnosis-subliminal-control.html</link>
-    <guid isPermaLink="true">https://jayaragul.github.io/THE_VISSION/story/2026-08-18-model-hypnosis-subliminal-control.html</guid>
-    <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
-    <category>Research</category>
-    <description>The technique, which the authors call &quot;model hypnosis,&quot; works across model families and sizes and transfers between models, complicating both AI safety review and interpretability work. A new paper titled &quot;Model Hypnosis&quot; finds that individually weak, inconspicuous prompt cues — paraphrases, minor typos — can be combined to strongly steer model behavior. The authors, Enric Boix-Adsera and Benedict Tessler, report the effect occurs across model families and scales, including in frontier reasoning models. Hypnotic prompts built against one model can transfer to a different one, according to the paper, which the researchers argue poses a challenge for both safety evaluation and interpretability.</description>
-  </item>
-  <item>
-    <title>Most young Americans say they don&#39;t trust any major AI company&#39;s CEO, CNBC poll finds</title>
-    <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-18-cnbc-poll-ai-executive-trust.html</link>
-    <guid isPermaLink="true">https://jayaragul.github.io/THE_VISSION/story/2026-08-18-cnbc-poll-ai-executive-trust.html</guid>
-    <pubDate>Thu, 13 Aug 2026 15:16:00 GMT</pubDate>
-    <category>Society</category>
-    <description>In a survey of 1,088 people aged 18 to 34, Palantir&#39;s Alex Karp scored worst at 81% distrust and Microsoft&#39;s Satya Nadella scored best — and still ended up net-distrusted. A CNBC/Generation Lab poll of 1,088 Americans aged 18 to 34 asked whether they trust nine AI-industry leaders to act responsibly; a majority distrusted every one of them. Palantir CEO Alex Karp scored worst, distrusted by 81% of respondents, followed by Palantir chairman Peter Thiel at 79% and Anthropic CEO Dario Amodei at 76%. Microsoft CEO Satya Nadella scored best but was still net-distrusted, at 65% distrust versus 35% trust — the only executive tested with a trust share above 30%.</description>
-  </item>
-  <item>
-    <title>Firebird opens the CIS region&#39;s largest AI data center in Armenia, built in six months</title>
-    <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-18-firebird-armenia-ai-factory.html</link>
-    <guid isPermaLink="true">https://jayaragul.github.io/THE_VISSION/story/2026-08-18-firebird-armenia-ai-factory.html</guid>
-    <pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate>
-    <category>Infrastructure</category>
-    <description>The site is planned to host more than 70,000 Nvidia Rubin and Blackwell GPUs and scale to 300 megawatts, with Armenia&#39;s prime minister among the officials at the opening. Firebird opened what it calls the largest AI data center in the CIS region in Armenia, planned to deploy more than 70,000 Nvidia Rubin and Blackwell GPUs. The facility is targeting 300 megawatts of capacity by the end of 2027 and was built in just over six months from planning to operation. Partners include Nvidia, Dell Technologies, Schneider Electric and Vertiv; Armenian Prime Minister Nikol Pashinyan attended the opening alongside Kazakhstani and U.S. officials.</description>
-  </item>
-  <item>
-    <title>xAI ships Grok 4.6, matching GPT-5.6 Sol on Artificial Analysis&#39;s intelligence index</title>
-    <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-18-xai-grok-4-6.html</link>
-    <guid isPermaLink="true">https://jayaragul.github.io/THE_VISSION/story/2026-08-18-xai-grok-4-6.html</guid>
-    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
-    <category>Models</category>
-    <description>The update keeps Grok 4.5&#39;s base model and 500,000-token context, spending the gains on longer training for agentic and knowledge-work tasks rather than a larger model. xAI released Grok 4.6, a post-training update to Grok 4.5 focused on long-running agentic tasks and knowledge work, at $2 per million input tokens and $6 per million output tokens. The model matches GPT-5.6 Sol at a score of 61 on the Artificial Analysis Intelligence Index, and xAI reports it leads that model on several knowledge-work benchmarks, including CursorBench 3.2 at 69.9%. The company says the gains came from a longer supplemental training run and reinforcement learning in agentic environments, not a larger base model.</description>
-  </item>
-  <item>
-    <title>Nvidia hands the AI build-out to Wall Street with a $500bn financing push</title>
-    <link>https://jayaragul.github.io/THE_VISSION/story/2026-08-17-nvidia-500bn-compute-financing.html</link>
-    <guid isPermaLink="true">https://jayaragul.github.io/THE_VISSION/story/2026-08-17-nvidia-500bn-compute-financing.html</guid>
-    <pubDate>Mon, 10 Aug 2026 13:00:00 GMT</pubDate>
-    <category>Infrastructure</category>
-    <description>Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR will raise third-party capital for data centres, with Nvidia backstopping part of the value of the chips pledged as collateral. Six asset managers will mobilise more than $500bn of third-party capital through independent compute financing platforms, announced on 10 August. Nvidia will cover up to 25% of the shortfall if GPUs pledged as collateral fail to hold their expected value, according to TechCrunch&#39;s reporting. The structure keeps the borrowing off Nvidia&#39;s balance sheet while giving customers a route to finance hardware they could not buy outright. Jensen Huang says the aim is to bring independent, long-term institutional capital into AI infrastructure, after bond markets balked at circular financing.</description>
   </item>
 </channel>
 </rss>

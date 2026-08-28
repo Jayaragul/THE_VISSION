@@ -1,434 +1,376 @@
 {
   "$schema": "https://jayaragul.github.io/THE_VISSION/schema/edition.schema.json",
   "edition": {
-    "date": "2026-08-26",
-    "number": 7,
-    "generatedAt": "2026-08-26T15:00:00Z",
-    "title": "Stanford puts a number on the entry-level jobs gap, and Bill Gates changes his mind",
-    "summary": "New Stanford payroll data shows the employment gap for young workers in AI-exposed jobs widening from 15% to 19% in a year — not mass displacement, but a hiring freeze aimed at people without experience yet. Bill Gates, who called the disruption \"manageable\" three years ago, now says the industry has crossed every danger threshold it named. Elsewhere: OpenAI's 13th senior departure this year, an Nvidia efficiency claim worth reading with its own caveats, and Bengaluru's Ringg AI pushing voice agents past the phone call. Only one story cleared the two-source bar for top; Policy is empty today.",
+    "date": "2026-08-28",
+    "number": 8,
+    "generatedAt": "2026-08-28T14:00:00Z",
+    "title": "A judge tells the Pentagon its Anthropic blacklist was retaliation, not security",
+    "summary": "Judge Rita Lin's 59-page order vacates the Pentagon's \"supply chain risk\" label on Anthropic, finding it punished the company for refusing to let Claude be used in autonomous weapons and surveillance. Elsewhere: reports differ on whether Nvidia has agreed to buy Hugging Face; Nvidia's Vera CPU starts shipping to AWS and three AI labs; and Google ships a sharper video model and pilots blind model evaluation. A light edition — a fully-drafted UK power-grid story was cut when its sources ran past this desk's freshness limit.",
     "generator": {
-      "model": "claude-opus-5",
+      "model": "claude-sonnet-5",
       "pipeline": "news-pipeline",
       "trigger": "manual"
     }
   },
   "stories": [
     {
-      "id": "2026-08-26-stanford-entry-level-employment-gap",
-      "slug": "stanford-entry-level-employment-gap",
-      "beat": "research",
-      "kicker": "Labour data",
-      "headline": "Stanford payroll data shows AI's hiring freeze on young workers widening, not stabilising",
-      "deck": "The employment gap for 22-to-25-year-olds in AI-exposed jobs grew from 15% to 19% in a year, and the mechanism is reduced hiring, not layoffs.",
+      "id": "2026-08-28-anthropic-pentagon-blacklist-ruling",
+      "slug": "anthropic-pentagon-blacklist-ruling",
+      "beat": "policy",
+      "kicker": "Courts",
+      "headline": "A federal judge vacates the Pentagon's blacklist of Anthropic, calling it retaliation",
+      "deck": "Judge Rita Lin's 59-page order finds the \"supply chain risk\" designation punished Anthropic for refusing to let Claude be used in autonomous weapons and mass surveillance, not for any real security concern.",
       "summary": [
-        "Stanford's Digital Economy Lab, using ADP payroll data, finds employment among workers aged 22–25 in highly AI-exposed occupations is 19% below where it would be had it kept pace with less-exposed peers — up from a 15% gap a year earlier.",
-        "The researchers find no widespread, economy-wide displacement; the effect is concentrated specifically in young, inexperienced workers.",
-        "The adjustment operates through reduced hiring of young workers rather than increased separations of those already employed.",
-        "Employment fell in occupations built on codified knowledge — the kind textbooks and documentation can teach — while employment among experienced workers in tacit-knowledge occupations held flat or rose."
+        "U.S. District Judge Rita Lin ruled the Pentagon's February designation of Anthropic as a \"supply chain risk\" was unlawful First Amendment and Fifth Amendment due-process retaliation, not a genuine security judgment.",
+        "The dispute began when Defense Secretary Pete Hegseth objected to Anthropic's refusal to remove contractual limits on Claude's use for autonomous lethal weapons and mass surveillance of Americans.",
+        "Lin wrote the government's actions were meant \"to make a public example out of Anthropic for its 'arrogance,'\" not because of any real evidence it would sabotage its model.",
+        "The ruling vacates the designation and blocks enforcement of a related directive telling federal agencies to stop using Anthropic's technology; the government is expected to appeal, and a separate case remains pending before the D.C. Circuit."
       ],
       "body": [
-        "New payroll data from Stanford's Digital Economy Lab puts a specific, widening number on a question that has mostly been argued in the abstract: how much is AI actually displacing entry-level work. Researchers Erik Brynjolfsson, Bharat Chandar and Ruyu Chen, using ADP payroll records and occupational AI-exposure measures, find that employment among workers aged 22 to 25 in highly AI-exposed occupations now sits 19% below where it would be had it tracked employment among similarly aged workers in less-exposed occupations. A year earlier, in July 2025, that gap was 15%.",
-        "The study is explicit about what it is not finding. \"We do not see widespread, economy-wide job displacement associated with AI,\" the authors write — average employment across their full ADP sample rose roughly 6% from November 2022 to June 2026, while employment in the most AI-exposed occupations grew only about 4%. The effect is narrow and concentrated, not a broad contraction.",
-        "Where it concentrates is the more useful finding. The adjustment shows up almost entirely as reduced hiring of young workers rather than as increased separations among people already in a job — companies are not firing junior staff so much as declining to hire replacements for the tasks AI can now do. And the divide tracks a specific distinction: employment fell in occupations built on codified knowledge, the kind that can be taught through documentation and formal training, while employment among experienced workers in occupations built on tacit knowledge — skill acquired through practice and mentorship rather than text — held flat or rose. \"This pattern is consistent with a world in which generative AI is particularly effective at reproducing and applying knowledge that has already been encoded in text,\" the authors write.",
-        "The finding updates the same team's earlier \"Canaries in the Coal Mine?\" research, and the direction of travel is the story: a real, measurable gap that widened over the past year rather than stabilising, even as the study's own headline finding is that there is no broad, economy-wide AI jobs crisis."
+        "A federal judge has vacated the Pentagon's designation of Anthropic as a \"supply chain risk,\" ruling in a 59-page order that the label was retaliation for the company's public criticism of the Department of Defense rather than a genuine national-security judgment. U.S. District Judge Rita Lin, of the Northern District of California, found the government's conduct violated both the First Amendment and the Fifth Amendment's due-process clause.",
+        "The dispute traces to February 2026, when President Trump and Defense Secretary Pete Hegseth accused Anthropic of endangering national security and formally designated it a supply chain risk — an unusual step for a software vendor rather than a hardware supplier. Anthropic has said the real trigger was its refusal to strip two contractual restrictions from a roughly $200 million Pentagon deal: guardrails barring Claude's use in autonomous lethal weapons systems and in mass surveillance of Americans. Anthropic sued in March, calling the designation an \"unlawful campaign of retaliation.\"",
+        "Lin's order was blunt about the government's actual motive: the designation was meant \"to make a public example out of Anthropic for its 'arrogance,'\" not based on any real evidence the company would sabotage its own model. The ruling both vacates the supply-chain-risk label and blocks enforcement of a related directive ordering federal agencies to cease using Anthropic's technology.",
+        "The order is a preliminary but forceful win in an ongoing fight — Anthropic's parallel case challenging related conduct is still pending before the D.C. Circuit Court of Appeals, and the administration is expected to contest Thursday's ruling. The case sits alongside a separate irony noted in coverage of the dispute: OpenAI signed its own Pentagon contract within hours of Anthropic being punished."
       ],
-      "whyItMatters": "For anyone hiring, this reframes the AI-jobs question from \"how many jobs will AI take\" to \"who bears the adjustment cost\" — and the answer, in this data, is specifically people without the tacit knowledge that comes from having already had the job. A company that stops hiring juniors because AI now covers the codified parts of entry-level work is making a rational near-term choice that removes its own pipeline for the tacit knowledge those juniors would have built into senior staff a decade from now. That is a cost the quarterly hiring decision does not price in.",
+      "whyItMatters": "This is the most direct legal test yet of whether a government client can use procurement power to override an AI company's own safety guardrails, and a federal judge just said no in unusually pointed terms — calling the security rationale \"empty\" as a matter of law rather than deferring to executive-branch discretion, which courts often do on national-security claims. For every AI company weighing a government contract, the ruling is now evidence that refusing military end-use terms carries real legal protection, not just reputational risk.",
       "prominence": "lead",
-      "publishedAt": "2026-08-12T00:00:00Z",
-      "confidence": "high",
+      "publishedAt": "2026-08-28T04:25:00Z",
+      "confidence": "medium",
       "entities": [
-        "Stanford Digital Economy Lab",
-        "Erik Brynjolfsson",
-        "ADP"
+        "Anthropic",
+        "Rita Lin",
+        "Pete Hegseth",
+        "U.S. Department of Defense"
       ],
       "tags": [
-        "labor",
-        "employment",
-        "research"
+        "policy",
+        "courts",
+        "government-contracts",
+        "ai-safety"
       ],
       "sources": [
         {
-          "title": "No Widespread Displacement, but the AI Employment Gap for Young Workers Has Widened to 19%",
-          "publisher": "Stanford Digital Economy Lab",
-          "url": "https://digitaleconomy.stanford.edu/news/canariesaug26/",
-          "publishedAt": "2026-08-12T00:00:00Z",
+          "title": "Anthropic PBC v. U.S. Department of War, 3:26-cv-01996",
+          "publisher": "CourtListener",
+          "url": "https://www.courtlistener.com/docket/72379655/anthropic-pbc-v-us-department-of-war/",
+          "publishedAt": "2026-08-27T00:00:00Z",
           "tier": 1
         },
         {
-          "title": "Real-World Experience Is A Hedge Against AI Displacement, Study Suggests",
-          "publisher": "Forbes",
-          "url": "https://www.forbes.com/sites/joemckendrick/2026/08/12/real-world-experience-is-a-hedge-against-ai-displacement-study-shows/",
-          "publishedAt": "2026-08-12T00:00:00Z",
-          "tier": 2
-        }
-      ],
-      "readMinutes": 3
-    },
-    {
-      "id": "2026-08-26-bill-gates-ai-danger-thresholds",
-      "slug": "bill-gates-ai-danger-thresholds",
-      "beat": "society",
-      "kicker": "Risk",
-      "headline": "Bill Gates says AI has crossed every danger threshold the industry once named as a limit",
-      "deck": "Three years after calling AI-driven job disruption \"manageable,\" Gates now argues the economy, biosecurity and criminal misuse thresholds have all been passed.",
-      "summary": [
-        "Gates told MIT Technology Review: \"We've crossed the threshold in terms of [AI's] bio-capabilities, cyber-capabilities, psychosocial capabilities, job-market-destruction capabilities, and even the lack of control.\"",
-        "He estimates bioterrorism risk from AI-designed molecules at roughly 50 times more likely than a natural pandemic, and says any model able to design novel molecules should be monitored.",
-        "He proposes a tax on AI usage revenue to fund a social safety net, a tax or restriction on robotic labour, and categories of work formally reserved for humans.",
-        "The position is a reversal: three years ago Gates described coming AI-driven job disruption as a manageable transition; he now expects \"far fewer\" jobs than exist today."
-      ],
-      "body": [
-        "Bill Gates has reversed a position he held publicly as recently as three years ago, when he described AI-driven labour disruption as a manageable transition. In an interview with MIT Technology Review, Gates said the industry has now crossed every threshold it once treated as a hypothetical limit: \"We've crossed the threshold in terms of [AI's] bio-capabilities, cyber-capabilities, psychosocial capabilities, job-market-destruction capabilities, and even the lack of control.\" He added: \"I'm just stunned at the lack of concern and discussion outside of the industry.\"",
-        "His most specific claim concerns biosecurity. Gates argues that any AI model capable of designing novel molecules should be subject to monitoring, and puts the risk of AI-enabled bioterrorism at roughly 50 times more likely than a naturally occurring pandemic. He also says AI has lowered the skill floor for cyberattacks to the point that people with no technical background can now conduct them.",
-        "On jobs, Gates told Fortune separately that both white-collar work — customer support, software engineering, paralegal tasks — and blue-collar work in construction and hospitality face displacement by the end of the decade, and that AI companionship products risk stunting child development: \"I doubt I would have put in the same work if I had had an AI companion back then. They talk to you in ways you're already comfortable with.\"",
-        "His proposed responses are policy, not product features: a tax on AI usage revenue to fund social-safety-net spending, taxation or restriction of robotic labour, a set of jobs formally reserved for human workers by social agreement, and international coordination — explicitly including China — on monitoring models capable of designing novel molecules. Gates frames this as requiring government expertise rather than industry self-regulation."
-      ],
-      "whyItMatters": "Gates is not a safety researcher with an incentive to sound alarms; he is a former industry CEO whose prior public position was reassurance, and the reversal is the news as much as the content of the warning. His specific proposals — a usage tax, human-reserved job categories — are the kind of policy a legislature could actually draft, which moves this from ambient concern to something builders and investors should treat as a live regulatory scenario rather than background noise.",
-      "prominence": "top",
-      "publishedAt": "2026-08-26T00:00:00Z",
-      "confidence": "medium",
-      "entities": [
-        "Bill Gates"
-      ],
-      "tags": [
-        "ai-safety",
-        "policy",
-        "labor"
-      ],
-      "sources": [
-        {
-          "title": "Bill Gates says we've passed AI's danger thresholds. Now what?",
-          "publisher": "MIT Technology Review",
-          "url": "https://www.technologyreview.com/2026/08/26/1142946/bill-gates-ai-danger-threshold/",
-          "publishedAt": "2026-08-26T00:00:00Z",
-          "tier": 2
-        },
-        {
-          "title": "Bill Gates fears world leaders are unprepared for 3 major AI risks",
-          "publisher": "Fortune",
-          "url": "https://fortune.com/2026/08/26/bill-gates-ai-warning-risks-benefit-world-leaders/",
-          "publishedAt": "2026-08-26T00:00:00Z",
-          "tier": 2
+          "title": "Judge says Pentagon's measures against Anthropic were 'illegal and baseless'",
+          "publisher": "The Associated Press (via WFSU)",
+          "url": "https://news.wfsu.org/npr-news/2026-08-28/judge-says-pentagons-measures-against-anthropic-were-illegal-and-baseless",
+          "publishedAt": "2026-08-28T04:25:00Z",
+          "tier": 4
         }
       ],
       "readMinutes": 2
     },
     {
-      "id": "2026-08-26-openai-data-center-chief-departure",
-      "slug": "openai-data-center-chief-departure",
+      "id": "2026-08-28-nvidia-hugging-face-acquisition-report",
+      "slug": "nvidia-hugging-face-acquisition-report",
       "beat": "business",
-      "kicker": "Leadership",
-      "headline": "OpenAI's data centre chief exits in the company's 13th senior departure this year",
-      "deck": "Chris Malone leaves after 16 months and a reorganisation moved him off reporting to Greg Brockman; his responsibilities now split across three separate leaders.",
+      "kicker": "M&A",
+      "headline": "Nvidia is reportedly nearing a deal to buy Hugging Face, but nothing is signed",
+      "deck": "The Information reported Nvidia \"agreed to buy\" the open-model hub for roughly $13 billion, while Business Insider says talks could still collapse; neither company has commented.",
       "summary": [
-        "Chris Malone, OpenAI's head of data centers since March 2025, departed last week after an infrastructure reorganisation reassigned him from reporting to President Greg Brockman to reporting to VP Sachin Katti.",
-        "His responsibilities are now split among three leaders: Uday Ruddarraju on the data center team, Brent Mayo on build and delivery, and Spas Lazarov on data center engineering.",
-        "It is the 13th senior executive departure at OpenAI in 2026, following Fidji Simo, Brad Lightcap, Denise Dresser and Kate Rouch among others.",
-        "OpenAI said: \"We have a strong, deeply experienced data center team in place, with clear leadership and the technical expertise to execute our plans.\""
+        "The Information reported Nvidia has agreed to acquire Hugging Face for approximately $12.9–13 billion.",
+        "Business Insider, reporting separately, said talks \"had not yet produced a signed agreement and could still atomize.\"",
+        "Neither Nvidia nor Hugging Face has issued a public statement confirming or denying a deal.",
+        "Hugging Face hosts the largest public repository of open-weight AI models and datasets; an acquisition by Nvidia would hand a chipmaker unusual influence over the software layer much of the open-source AI ecosystem depends on."
       ],
       "body": [
-        "Chris Malone, OpenAI's head of data centers, has left the company after roughly 16 months in the role, TechCrunch reported. Malone joined OpenAI in March 2025 following close to five years at Meta and more than a decade at Google, and had reported directly to President Greg Brockman until an infrastructure reorganisation moved him under Chief Technology and Product Officer Sachin Katti. His departure followed shortly after that change.",
-        "Malone's responsibilities have been redistributed rather than replaced by a single successor: Uday Ruddarraju now leads the data center team, Brent Mayo manages the build and delivery program, and Spas Lazarov oversees data center engineering. OpenAI has committed to spending roughly $600 billion on compute infrastructure by 2030, making the leadership of that build-out a materially consequential role to leave unfilled by one clear successor.",
-        "The exit is the 13th senior departure at OpenAI so far in 2026, in a list that includes Fidji Simo (Product & Business Chief, July), Chief Operating Officer Brad Lightcap (August), Chief Revenue Officer Denise Dresser after an eight-month tenure (August), Chief Marketing Officer Kate Rouch (April), and Head of Ethics Chloé Bakalar (July). OpenAI's statement addressed the specific role rather than the pattern: \"We have a strong, deeply experienced data center team in place, with clear leadership and the technical expertise to execute our plans.\"",
-        "The turnover comes as OpenAI has confidentially filed for an IPO and is targeting a public listing by 2027 — a period in which prospective investors typically read executive stability as a signal about the company they are being asked to price."
+        "Nvidia is reportedly close to acquiring Hugging Face, the platform that hosts the largest public library of open-weight AI models, according to The Information, which put the price at roughly $12.9 to $13 billion and said the two companies had already agreed to the deal. Business Insider, reporting separately, offered a more cautious account: talks were advanced but had \"not yet produced a signed agreement and could still atomize.\"",
+        "Neither company has confirmed the talks publicly. TechCrunch, which reviewed both reports, noted the discrepancy directly rather than resolving it, and no signed agreement, deal terms, or closing timeline have been independently verified as of publication.",
+        "If it happens, the acquisition would be notable less for the price than for what Hugging Face represents: the default distribution point for open-weight models from Meta, Mistral, DeepSeek, Qwen and dozens of smaller labs, plus the datasets and tooling much of the research community builds on. Nvidia already supplies the hardware most of that ecosystem trains and runs on; owning the hub it's distributed through would be a different kind of leverage."
       ],
-      "whyItMatters": "A 13th senior departure in one year is no longer a personnel story about one executive; it is a pattern investors evaluating OpenAI's IPO filing will have to underwrite, and the data center role specifically sits on top of a $600 billion infrastructure commitment with no single named leader now accountable for it. For any company with a large committed compute contract running through OpenAI, the practical question raised is continuity of execution on build-out timelines, not the reasons any one executive gave for leaving.",
-      "prominence": "standard",
-      "publishedAt": "2026-08-25T00:00:00Z",
-      "confidence": "medium",
-      "entities": [
-        "OpenAI",
-        "Chris Malone",
-        "Greg Brockman"
-      ],
-      "tags": [
-        "leadership",
-        "openai",
-        "ipo"
-      ],
-      "sources": [
-        {
-          "title": "OpenAI loses a top data center exec as stream of high-profile departures continues",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/08/25/openai-loses-a-top-data-center-exec-as-stream-of-high-profile-departures-continues/",
-          "publishedAt": "2026-08-25T00:00:00Z",
-          "tier": 2
-        }
-      ],
-      "readMinutes": 2
-    },
-    {
-      "id": "2026-08-26-nvidia-vera-rubin-nvl72-efficiency",
-      "slug": "nvidia-vera-rubin-nvl72-efficiency",
-      "beat": "infrastructure",
-      "kicker": "AI chips",
-      "headline": "Nvidia claims Vera Rubin NVL72 delivers 30 times the throughput per watt of its last generation",
-      "deck": "The figure comes from an agentic-coding benchmark still pending independent review by SemiAnalysis, and Nvidia's own post notes it doesn't yet reflect the new CPU's tool-calling performance.",
-      "summary": [
-        "Nvidia says Vera Rubin NVL72 delivers up to 30 times the throughput per megawatt of the prior-generation GB300 NVL72 on agentic workloads, and up to 35 times lower token costs.",
-        "The figures come from SemiAnalysis's AgentX benchmark, built on recorded real-world agentic coding sessions; Nvidia's own post says the results are \"currently pending SemiAnalysis review.\"",
-        "GB300 NVL72, the comparison baseline, itself claimed up to 15 times the throughput per megawatt of the Hopper generation it replaced.",
-        "Nvidia states the results \"don't yet reflect Vera CPU performance for tool calling,\" and says the system is in full production and scaling across the ecosystem now."
-      ],
-      "body": [
-        "Nvidia says its next-generation Vera Rubin NVL72 system delivers up to 30 times the throughput per megawatt of the current GB300 NVL72 generation on agentic workloads, and up to 35 times lower cost per token. The comparison uses SemiAnalysis's AgentX benchmark, built from recorded real-world agentic coding sessions that preserve growing context, tool calls and sub-agent spawning rather than a synthetic workload.",
-        "Vera Rubin NVL72 is a seven-chip architecture combining a new Vera CPU, the Groq 3 LPU, an NVLink 6 switch, a BlueField-4 DPU, Spectrum-6 SPX networking and a ConnectX-9 SuperNIC, built around fifth-generation Tensor Cores and a third-generation Transformer Engine. Nvidia says the system is in full production and scaling across its ecosystem now.",
-        "Nvidia's own post carries two caveats worth weighing before treating the headline figure as settled. The results are \"currently pending SemiAnalysis review\" — meaning the independent party whose benchmark produced the number has not yet confirmed it — and the figures explicitly \"don't yet reflect Vera CPU performance for tool calling,\" a core part of the agentic workload the benchmark is meant to represent. The 30x figure is also being compared against GB300 NVL72, itself a system Nvidia previously claimed delivered up to 15x the efficiency of the Hopper generation before it, so the underlying comparison chain rests entirely on Nvidia's own prior and current claims about its own hardware."
-      ],
-      "whyItMatters": "A generational efficiency claim this large changes the economics of running agentic workloads at scale if it holds, which is exactly why the two caveats Nvidia itself included matter more than the headline number: a pending third-party review and an admission that a core agentic capability isn't yet reflected mean the 30x figure is a target the hardware is being marketed toward, not yet a confirmed result. Anyone sizing infrastructure spend against this claim should wait for SemiAnalysis's own published review before treating it as more than Nvidia's stated ambition for its own chip.",
-      "prominence": "standard",
-      "publishedAt": "2026-08-24T00:00:00Z",
+      "whyItMatters": "Readers should treat this as an unconfirmed report, not a completed acquisition — two outlets differ on whether an agreement actually exists, and neither company will say. But even as a rumor, the number is a useful marker of what infrastructure players think open-model distribution is now worth, and the strategic logic — a chipmaker controlling the platform independent labs rely on to reach users — would matter regardless of who ends up owning it.",
+      "prominence": "top",
+      "publishedAt": "2026-08-27T07:05:00Z",
       "confidence": "medium",
       "entities": [
         "NVIDIA",
-        "SemiAnalysis"
+        "Hugging Face",
+        "The Information",
+        "Business Insider"
+      ],
+      "tags": [
+        "mergers-and-acquisitions",
+        "open-weights",
+        "nvidia"
+      ],
+      "sources": [
+        {
+          "title": "Nvidia Nears Deal to Buy Hugging Face for About $13 Billion",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/26/nvidia-nears-deal-to-buy-hugging-face-for-about-13-billion/",
+          "publishedAt": "2026-08-26T23:32:00Z",
+          "tier": 2
+        },
+        {
+          "title": "Nvidia nears $12.9 billion deal to buy open-source AI platform Hugging Face, report says",
+          "publisher": "Fortune",
+          "url": "https://fortune.com/2026/08/27/nvidia-hugging-face-billion-dollar-deal-open-source-ai/",
+          "publishedAt": "2026-08-27T07:05:00Z",
+          "tier": 2
+        }
+      ],
+      "readMinutes": 2
+    },
+    {
+      "id": "2026-08-28-nvidia-vera-cpu-aws-deployment",
+      "slug": "nvidia-vera-cpu-aws-deployment",
+      "beat": "infrastructure",
+      "kicker": "AI chips",
+      "headline": "Nvidia's Vera CPU starts shipping, with AWS among the first hyperscalers taking delivery",
+      "deck": "Anthropic, OpenAI, Oracle Cloud and SpaceX AI received the earliest systems as AWS and Nvidia expand a 16-year partnership to include Vera CPU-based infrastructure.",
+      "summary": [
+        "Nvidia's Vera CPU, its first processor built specifically for agentic AI workloads, has moved into production shipping.",
+        "AWS received its first Vera CPU server and Vera Rubin GPU, hand-delivered in Seattle, as part of an expanded partnership that includes plans for 2 million additional GPUs.",
+        "Anthropic, OpenAI, Oracle Cloud Infrastructure and SpaceX AI were named as the first organizations to receive early Vera systems.",
+        "Oracle Cloud Infrastructure plans to deploy hundreds of thousands of Vera CPUs beginning this year, positioning it as the first cloud provider running Vera at hyperscale."
+      ],
+      "body": [
+        "Nvidia says its Vera CPU — the company's first processor built specifically for agentic AI workloads rather than general compute — has moved into production shipping at scale. The 88-core chip is designed around the demands of AI agents that act rather than just answer, and Nvidia claims up to 1.8 times faster per-core performance on agentic workloads than prior-generation designs, alongside 1.2TB/s of memory bandwidth.",
+        "AWS is among the first hyperscalers taking delivery. Nvidia and AWS announced an expansion of their 16-year partnership that includes plans for 2 million additional GPUs and Vera CPU-based infrastructure on AWS; the first Vera CPU server and Vera Rubin GPU were hand-delivered to AWS in Seattle by Nvidia Vice President of Hyperscale and HPC Ian Buck.",
+        "Nvidia named four early recipients of initial Vera systems: Anthropic and OpenAI in San Francisco, Oracle Cloud Infrastructure, and SpaceX AI in Palo Alto. Oracle has committed to the most aggressive rollout, planning to deploy hundreds of thousands of Vera CPUs beginning this year — making it, on Nvidia's account, the first cloud provider to run Vera at hyperscale.",
+        "Buck framed the chip as a response to a shift already underway in how AI workloads run: \"Agentic AI is creating a new CPU moment in the AI factory — as models move from answering to acting, Vera is purpose-built to keep that work moving at scale.\""
+      ],
+      "whyItMatters": "A CPU built around agent workloads rather than general-purpose compute is Nvidia betting that the shift from chatbots to autonomous agents is durable enough to justify purpose-built silicon, not just software tuning on existing chips. The list of first recipients — two frontier labs, a major cloud provider and a rocket company's AI division — signals which customers Nvidia expects to push agentic workloads hardest first.",
+      "prominence": "top",
+      "publishedAt": "2026-08-27T00:00:00Z",
+      "confidence": "high",
+      "entities": [
+        "NVIDIA",
+        "Amazon Web Services",
+        "Anthropic",
+        "OpenAI",
+        "Oracle"
       ],
       "tags": [
         "ai-chips",
-        "inference",
+        "infrastructure",
+        "nvidia"
+      ],
+      "sources": [
+        {
+          "title": "Delivering Vera: NVIDIA's First CPU Built for Agents Is Shipping Now",
+          "publisher": "NVIDIA",
+          "url": "https://blogs.nvidia.com/blog/vera-cpu-delivery/",
+          "publishedAt": "2026-08-27T00:00:00Z",
+          "tier": 1
+        },
+        {
+          "title": "Hot Chips 2026: Nvidia breaks down 88-core Vera CPU",
+          "publisher": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/pc-components/cpus/hot-chips-2026-nvidia-breaks-down-88-core-vera-cpu-spatial-multithreading-benchmarked-1-2-tb-s-socamm2-memory-agentic-workloads-detailed-and-more",
+          "publishedAt": "2026-08-24T00:00:00Z",
+          "tier": 3
+        }
+      ],
+      "readMinutes": 2
+    },
+    {
+      "id": "2026-08-28-gemini-omni-1-1-flash",
+      "slug": "gemini-omni-1-1-flash",
+      "beat": "models",
+      "kicker": "Generative video",
+      "headline": "Google ships Gemini Omni 1.1 Flash with scene extension and 4K upscaling",
+      "deck": "The video model can now extend generated scenes to 40 seconds, take specified first and last frames, and draft cheap 360p previews before a full-resolution render.",
+      "summary": [
+        "Gemini Omni 1.1 Flash extends generated scenes up to 40 seconds in 10-second increments, using up to 10 seconds of prior context for visual consistency.",
+        "A new first/last-frame control lets developers specify start and end keyframes and have the model generate the motion between them.",
+        "A 360p draft mode renders previews up to 60% faster and at a third of the cost of standard output before a final 1080p or 4K render.",
+        "The model is available via Google AI Studio, the Gemini API, Google Flow for subscribers, and a scene-extension feature in the Gemini app."
+      ],
+      "body": [
+        "Google has released Gemini Omni 1.1 Flash, a production-ready update to its generative video model aimed squarely at developers rather than casual users, adding a set of editing controls the company says move teams \"beyond generating videos to truly directing them.\"",
+        "The headline addition is scene extension: the model can now stretch a generated clip up to 40 seconds in 10-second increments, drawing on up to 10 seconds of prior context each time to keep motion and characters visually consistent across the extension. A new first/last-frame control lets a developer specify the opening and closing frames of a shot and have the model fill in the camera movement and motion between them.",
+        "For cost and iteration speed, a new 360p draft mode renders lightweight previews up to 60% faster and at roughly a third of the cost of a standard 720p render, letting a team iterate cheaply before committing to a full-resolution pass. Finished output can be upscaled natively to 1080p or 4K, and the model accepts up to three seconds of reference video in its multimodal input to preserve a character's appearance or a specific visual style across a shot.",
+        "The model is available through Google AI Studio for experimentation, the Gemini API and Gemini Enterprise Agent Platform for production use, Google Flow for AI Plus, Pro and Ultra subscribers, and a scene-extension feature built into the consumer Gemini app."
+      ],
+      "whyItMatters": "Draft-then-upscale workflows and explicit start/end-frame control are the kind of production controls video-editing professionals have been asking generative tools for, rather than the novelty-clip generation most video models still ship. Pricing the cheap draft mode at a third of standard cost is Google's bet that iteration speed, not just output quality, is what determines whether a studio actually adopts a generative model into a real pipeline.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-27T00:00:00Z",
+      "confidence": "high",
+      "entities": [
+        "Google",
+        "Google DeepMind",
+        "Gemini"
+      ],
+      "tags": [
+        "generative-media",
+        "models"
+      ],
+      "sources": [
+        {
+          "title": "Gemini Omni 1.1 Flash lets you build with more control",
+          "publisher": "Google",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/",
+          "publishedAt": "2026-08-27T00:00:00Z",
+          "tier": 1
+        }
+      ],
+      "readMinutes": 2
+    },
+    {
+      "id": "2026-08-28-deepmind-double-blind-evaluations",
+      "slug": "deepmind-double-blind-evaluations",
+      "beat": "research",
+      "kicker": "Evaluation",
+      "headline": "DeepMind pilots a double-blind way to test its own models against secret benchmarks",
+      "deck": "A cryptographic \"box\" built on confidential computing lets outside evaluators test a proprietary model without seeing its weights, and without Google seeing the test questions.",
+      "summary": [
+        "Google DeepMind ran what it calls the first double-blind evaluation of a proprietary frontier-class AI model, testing Gemini Flash Lite.",
+        "Partners on the pilot include the Singapore AI Safety Institute, OpenMined, AVERI and MLCommons.",
+        "The setup uses Google Cloud Confidential Space, an Nvidia H100 confidential GPU and Intel TDX memory encryption so evaluators can't see model weights and Google can't see the test prompts.",
+        "The aim is to address benchmark contamination — the risk that a model has already seen test questions during training, inflating its scores."
+      ],
+      "body": [
+        "Google DeepMind says it has run the first double-blind evaluation of a proprietary, frontier-class AI model — a setup designed to solve a structural problem in how closed models get tested: the company that owns the model can see what questions it's being tested on, and the evaluator either has to trust the company's own API or would need the model's weights to test independently, which the company will not hand over.",
+        "The pilot tested Gemini Flash Lite in partnership with the Singapore AI Safety Institute, OpenMined, AVERI and MLCommons, using Google Cloud Confidential Space together with an Nvidia H100 confidential GPU and Intel TDX host memory encryption. The cryptographic setup is built so the external evaluator's test questions never become visible to Google, and Google's model weights never become visible to the evaluator — each side's data stays confined to what DeepMind calls a cryptographic \"box.\"",
+        "The problem the pilot targets is benchmark contamination: if a model has already encountered a test's questions somewhere in its training data, its score on that test stops measuring real capability and starts measuring memorization. DeepMind's own framing of the trade-off it says the pilot eliminates: \"Double-blind evaluations eliminate this compromise...we can cryptographically verify that both the external evaluation data and the proprietary model remain private to their respective owners.\"",
+        "DeepMind positions the pilot as a template for higher-stakes evaluation contexts going forward — cybersecurity testing and government evaluations in particular, where both the model owner's IP and the evaluator's test material carry sensitivity that neither side has previously been able to fully protect while still allowing an independent check."
+      ],
+      "whyItMatters": "Benchmark contamination is one of the more persistent, least-resolved credibility problems in AI evaluation — every capability claim ultimately rests on trusting either the lab's self-reported numbers or an evaluator's access to material the lab would rather keep private. A working cryptographic method for testing a closed model without either side seeing the other's data is infrastructure other labs and regulators could adopt, not just a one-off DeepMind exercise.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-27T00:00:00Z",
+      "confidence": "high",
+      "entities": [
+        "Google DeepMind",
+        "Singapore AI Safety Institute",
+        "MLCommons"
+      ],
+      "tags": [
+        "evaluation",
+        "research",
         "benchmarks"
       ],
       "sources": [
         {
-          "title": "Up to 30x More Work Per Watt: NVIDIA Vera Rubin NVL72 Sets a New Efficiency Bar for AI Agents",
-          "publisher": "NVIDIA",
-          "url": "https://blogs.nvidia.com/blog/vera-rubin-nvl72-efficiency-ai-agents/",
-          "publishedAt": "2026-08-24T00:00:00Z",
+          "title": "Piloting the world's first double-blind AI evaluations",
+          "publisher": "Google DeepMind",
+          "url": "https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/",
+          "publishedAt": "2026-08-27T00:00:00Z",
           "tier": 1
         }
       ],
       "readMinutes": 2
     },
     {
-      "id": "2026-08-26-ringg-ai-peak-xv-funding",
-      "slug": "ringg-ai-peak-xv-funding",
-      "beat": "india",
-      "kicker": "Voice AI",
-      "headline": "Bengaluru's Ringg AI raises $10 million as it pushes voice agents past the phone call",
-      "deck": "The Series A extension, led by Peak XV, brings the company's total funding to $15.5 million; it already handles 20 million call attempts a month for Cred, Flipkart and Practo.",
-      "summary": [
-        "Ringg AI, a Bengaluru voice-AI startup, raised a $10 million Series A extension led by Peak XV Partners, bringing its total Series A to $15.5 million.",
-        "The company processes 20 million call attempts monthly, automating customer support, appointment booking, abandoned-cart recovery and loan collection for clients including Cred, Flipkart, Practo, Groww, Policybazaar and Shell.",
-        "Ringg originally launched as DesiVocal, a text-to-speech platform, before pivoting to enterprise voice AI agents.",
-        "The company has grown to 40 employees, with more than 15 hired in the past three months, and is expanding from voice into chat, WhatsApp and browser-based support."
-      ],
-      "body": [
-        "Ringg AI, a Bengaluru voice-AI startup, has raised a $10 million Series A extension led by Peak XV Partners, bringing its total Series A funding to $15.5 million. The company processes 20 million call attempts a month, automating tasks like appointment booking for healthcare providers, abandoned-cart recovery for e-commerce, KYC checks for fintech companies, and loan collection — work drawing on named clients including Cred, Flipkart, Practo, Groww, Policybazaar and Shell.",
-        "The company did not start as a voice-agent business. It launched as DesiVocal, a text-to-speech platform, before pivoting toward enterprise voice AI agents that complete tasks rather than simply converse. Co-founder Siddharth Tripathi described the shift in framing directly: \"We are trying to position ourselves as a platform for agents that bring outcomes or get things done rather than voice agents.\"",
-        "Ringg has grown to 40 employees, more than 15 of them hired in the past three months, and is extending beyond phone calls into chat, WhatsApp and browser-based support — the \"past the phone call\" expansion the round is meant to fund. Founders Siddharth Tripathi, Kali CV and Utkarsh Shukla lead the company."
-      ],
-      "whyItMatters": "Ringg's named client list — Cred, Flipkart, Practo, Groww, Policybazaar — is a cross-section of India's largest consumer platforms already routing real customer interactions through a voice agent, which is a more concrete adoption signal than most enterprise-AI funding announcements carry. For builders watching the Indian market specifically, a company originating in text-to-speech and pivoting to outcome-based voice agents is a template other regional AI startups are likely to follow rather than a one-off.",
-      "prominence": "standard",
-      "publishedAt": "2026-08-25T00:00:00Z",
-      "confidence": "medium",
-      "entities": [
-        "Ringg AI",
-        "Peak XV Partners"
-      ],
-      "tags": [
-        "funding",
-        "voice-ai",
-        "india"
-      ],
-      "sources": [
-        {
-          "title": "India's Ringg gets backing from Peak XV as it pushes voice AI past the phone call",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/08/25/indias-ringg-gets-backing-from-peak-xv-as-it-pushes-voice-ai-past-the-phone-call/",
-          "publishedAt": "2026-08-25T00:00:00Z",
-          "tier": 2
-        }
-      ],
-      "readMinutes": 2
-    },
-    {
-      "id": "2026-08-26-ibm-granite-4-2",
-      "slug": "ibm-granite-4-2",
+      "id": "2026-08-28-barret-zoph-returns-google-deepmind",
+      "slug": "barret-zoph-returns-google-deepmind",
       "beat": "models",
-      "kicker": "Open weights",
-      "headline": "IBM ships Granite 4.2, an Apache-licensed reasoning model built for local deployment",
-      "deck": "The 3B, 8B and 30B models add a thinking-mode toggle and a 512K-token context window, with the larger two trained further on agentic software-engineering tasks.",
+      "kicker": "Talent",
+      "headline": "Barret Zoph returns to Google as VP of research after a five-month stop at OpenAI",
+      "deck": "The Thinking Machines Lab co-founder left Google in 2022, spent two years at OpenAI, co-founded and was pushed out of his own startup, then rejoined OpenAI before now returning to Google.",
       "summary": [
-        "IBM released Granite 4.2 in three sizes — 3B, 8B and 30B parameters — as dense, decoder-only reasoning models with a switchable thinking and non-thinking mode.",
-        "Context windows extend to 512K tokens; the 8B and 30B variants received additional agentic reinforcement learning in software engineering, terminal operations and web search.",
-        "On SWE-Bench Verified the 8B model scores 47.67% and the 30B scores 57.00%; on AIME25 the models score 78.33%, 86.67% and 89.17% by size.",
-        "All three are released under the Apache 2.0 license with FP8, FP4 and GGUF quantizations available for local deployment."
-      ],
-      "body": [
-        "IBM has released Granite 4.2, its first family of dense, decoder-only reasoning models, in three sizes — 3B, 8B and 30B parameters — sharing identical architecture but differing in training depth. All three support a switchable thinking and non-thinking mode, letting a simpler query skip the reasoning overhead a harder one needs, and extend context windows to 512K tokens.",
-        "The larger two models received additional agentic reinforcement learning specifically in software engineering, terminal operations and web search, on top of pre-training across roughly 15 trillion tokens and supervised fine-tuning on about 100 billion tokens covering reasoning, coding and tool use. On SWE-Bench Verified the 8B model scores 47.67% and the 30B scores 57.00%; on AIME25 the three sizes score 78.33%, 86.67% and 89.17% respectively.",
-        "All three are released under the Apache 2.0 license, with FP8, FP4 and GGUF quantizations available specifically to support local deployment rather than requiring a hosted API — the explicit target of the release given rising interest in running capable models on local hardware."
-      ],
-      "whyItMatters": "A 30B model clearing 57% on SWE-Bench Verified under an Apache 2.0 license, quantized down to FP4 for local GPUs, changes the calculus for teams that want agentic coding capability without sending code to a third-party API — a real constraint for regulated industries and anyone under a strict no-external-inference policy. IBM entering this specific niche, rather than competing purely on frontier benchmarks, signals it is targeting enterprise deployment constraints ahead of raw capability leadership.",
-      "prominence": "standard",
-      "publishedAt": "2026-08-25T00:00:00Z",
-      "confidence": "high",
-      "entities": [
-        "IBM",
-        "Granite"
-      ],
-      "tags": [
-        "open-weights",
-        "local-llm"
-      ],
-      "sources": [
-        {
-          "title": "Granite 4.2: How They're Built",
-          "publisher": "Hugging Face",
-          "url": "https://huggingface.co/blog/ibm-granite/granite-4-2",
-          "publishedAt": "2026-08-25T00:00:00Z",
-          "tier": 1
-        }
-      ],
-      "readMinutes": 2
-    },
-    {
-      "id": "2026-08-26-stability-ai-76-million",
-      "slug": "stability-ai-76-million",
-      "beat": "business",
-      "kicker": "Funding",
-      "headline": "Stability AI raises $76 million backed by Universal, Sony and Warner Music",
-      "deck": "The round brings total funding to $232 million and includes EA and AMD Ventures, aimed at expanding creative-production tools and professional services.",
-      "summary": [
-        "Stability AI, maker of Stable Diffusion, raised $76 million in a round backed by Universal Music Group, Sony Music Group, Warner Music Group, Electronic Arts, AMD Ventures and Pacific Alliance Ventures.",
-        "Total funding raised to date reaches $232 million; valuation was not disclosed.",
-        "The company plans to expand its creative production product suite and grow its professional services division.",
-        "CEO Prem Akkaraju called the round \"an affirmation of our vision where generative AI empowers every producer, musician, and storyteller.\""
+        "Barret Zoph is rejoining Google as vice president of research, six years after leaving for OpenAI in 2022.",
+        "He spent two years at OpenAI, left in October 2024 to co-found Thinking Machines Lab with Mira Murati, then departed that startup in January 2026 to return to OpenAI.",
+        "His second stint at OpenAI, heading AI enterprise sales, lasted five months before he left in June 2026.",
+        "A Google spokesperson said: \"We look forward to Barret returning to Google and bringing his RL and post-training expertise to Gemini.\""
       ],
       "prominence": "brief",
-      "publishedAt": "2026-08-25T00:00:00Z",
+      "publishedAt": "2026-08-27T00:00:00Z",
       "confidence": "medium",
       "entities": [
-        "Stability AI",
-        "Universal Music Group",
-        "Sony Music Group"
+        "Barret Zoph",
+        "Google DeepMind",
+        "OpenAI",
+        "Thinking Machines Lab"
       ],
       "tags": [
-        "funding",
-        "generative-media"
+        "talent",
+        "models"
       ],
       "sources": [
         {
-          "title": "Stability AI, maker of image generator Stable Diffusion, raises $76 million in fresh funding",
+          "title": "Barret Zoph, the Thinking Machines co-founder who defected to OpenAI, is now at Google",
           "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/08/25/stability-ai-maker-of-image-generator-stable-diffusion-raises-76-million-in-fresh-funding/",
-          "publishedAt": "2026-08-25T00:00:00Z",
+          "url": "https://techcrunch.com/2026/08/27/barret-zoph-the-thinking-machines-co-founder-who-defected-to-openai-is-now-at-google/",
+          "publishedAt": "2026-08-27T00:00:00Z",
           "tier": 2
         }
       ],
       "readMinutes": 1
     },
     {
-      "id": "2026-08-26-minimax-revenue-283-percent",
-      "slug": "minimax-revenue-283-percent",
+      "id": "2026-08-28-deep-cogito-43m-series-a",
+      "slug": "deep-cogito-43m-series-a",
       "beat": "business",
-      "kicker": "China AI",
-      "headline": "MiniMax revenue surges 283% but stays well short of its full-year forecast",
-      "deck": "H1 revenue reached $116.6m and enterprise revenue grew 703%, yet that is only about a third of the $363.77m analysts had projected for the full year.",
+      "kicker": "Funding",
+      "headline": "Deep Cogito raises $43 million to keep pushing self-improving open models",
+      "deck": "The Series A, led by TQ Ventures with Zscaler joining as both investor and customer, brings the post-training startup's total funding past $56 million.",
       "summary": [
-        "MiniMax reported H1 2026 revenue of $116.6 million, up 283% year-over-year from $79 million in full-year 2025 revenue.",
-        "Enterprise segment revenue grew 703% to $73.9 million, the fastest-growing part of the business.",
-        "The company has reached only about 32% of the $363.77 million full-year revenue analysts had forecast, attributed to intense competition among US and Chinese AI labs.",
-        "Gross margin improved to 17.9% from 12.1%, while adjusted net loss widened 111.2% to $293 million."
+        "Deep Cogito raised a $43 million Series A led by TQ Ventures, with Benchmark, Nexus Venture Partners, Atreides Management, South Park Commons and Zscaler participating.",
+        "Total funding to date exceeds $56 million; the company was founded in 2024 by former Google AI Search engineers Drishan Arora and Dhruv Malrana.",
+        "The startup's post-training engine underlies its open-weight Cogito model family, ranging from 3 billion to more than 600 billion parameters.",
+        "Zscaler, one of the round's investors, is also a customer using the platform to build custom models on its own proprietary data."
       ],
       "prominence": "brief",
       "publishedAt": "2026-08-26T00:00:00Z",
       "confidence": "medium",
       "entities": [
-        "MiniMax"
+        "Deep Cogito",
+        "TQ Ventures",
+        "Zscaler"
       ],
       "tags": [
-        "china",
-        "revenue"
+        "funding",
+        "open-weights"
       ],
       "sources": [
         {
-          "title": "MiniMax revenue surges 283% but remains behind pace to meet forecast amid crowded AI race",
-          "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/tech/big-tech/article/3365341/minimax-revenue-surges-283-remains-behind-pace-meet-forecast-amid-crowded-ai-race",
+          "title": "Deep Cogito raises $43M to develop self-improving AI models",
+          "publisher": "SiliconANGLE",
+          "url": "https://siliconangle.com/2026/08/26/deep-cogito-raises-43m-to-develop-self-improving-ai-models/",
           "publishedAt": "2026-08-26T00:00:00Z",
-          "tier": 2
-        }
-      ],
-      "readMinutes": 1
-    },
-    {
-      "id": "2026-08-26-perplexity-nvidia-portable-computer",
-      "slug": "perplexity-nvidia-portable-computer",
-      "beat": "infrastructure",
-      "kicker": "Local inference",
-      "headline": "Perplexity and Nvidia ship a local AI agent platform that bills nothing per token",
-      "deck": "Portable Computer runs Qwen, Perplexity's own PPLX model and Nvidia's Nemotron on a single RTX GPU with at least 24GB of memory, escalating to cloud models only when needed.",
-      "summary": [
-        "Perplexity's Portable Computer packages models, agent orchestration, inference and sandboxing into one application that runs on user-owned hardware with zero per-task token billing.",
-        "It requires an RTX GPU with at least 24GB of VRAM — a GeForce RTX 3090 or newer — and supports Qwen 3.8 27B, Perplexity's own PPLX 27B, and Nvidia's Nemotron 3.5 Lightning.",
-        "The advertised 260,000-token context is optimised in practice for roughly 100,000 tokens, and a PII classifier screens outgoing context before any escalation to cloud models.",
-        "Available now on Linux for Pro, Max, Enterprise Pro and Enterprise Max subscribers; Windows support is due in September 2026."
-      ],
-      "prominence": "brief",
-      "publishedAt": "2026-08-25T00:00:00Z",
-      "confidence": "medium",
-      "entities": [
-        "Perplexity",
-        "NVIDIA"
-      ],
-      "tags": [
-        "local-ai",
-        "inference"
-      ],
-      "sources": [
-        {
-          "title": "Perplexity partners with Nvidia to launch Portable Computer, a fully local AI agent with zero token costs",
-          "publisher": "VentureBeat",
-          "url": "https://venturebeat.com/infrastructure/perplexity-partners-with-nvidia-to-launch-portable-computer-a-fully-local-ai-agent-with-zero-token-costs",
-          "publishedAt": "2026-08-25T00:00:00Z",
           "tier": 3
         }
       ],
       "readMinutes": 1
     },
     {
-      "id": "2026-08-26-claude-cowork-unified-memory",
-      "slug": "claude-cowork-unified-memory",
+      "id": "2026-08-28-cohere-north-micro-vision",
+      "slug": "cohere-north-micro-vision",
       "beat": "models",
-      "kicker": "Product",
-      "headline": "Anthropic unifies Claude's memory across chat and Cowork so context carries over",
-      "deck": "Sensitive categories like health and political-belief data stay excluded by default, and government ID numbers are never stored regardless of settings.",
+      "kicker": "Open weights",
+      "headline": "Cohere Labs releases a 2.4B vision model built to read documents at native resolution",
+      "deck": "North Micro Vision skips the usual downsizing step, processing pages up to A4 size at 200dpi and scoring 0.921 on DocVQA.",
       "summary": [
-        "Anthropic merged Claude's memory system across chat and Cowork, so details established in a conversation carry into Cowork without being re-entered.",
-        "Memory updates continuously during a conversation rather than being summarised only at session end, and syncs between chat and Cowork in real time.",
-        "Sensitive categories — health information, political beliefs, gender identity — are excluded from memory by default, with an opt-in toggle to include them; government IDs and Social Security numbers are never stored.",
-        "The feature is on by default across Free, Pro and Max plans on web, desktop and mobile, and requires the latest app version on iOS and Android."
+        "Cohere Labs released North Micro Vision, a 2.4-billion-parameter open-weight vision-language model under Apache 2.0.",
+        "It combines a 400M native-resolution vision encoder with a 2B language model, processing images up to A4 dimensions at 200dpi without resizing.",
+        "The model is aimed at document understanding, chart and table interpretation, OCR and visual grounding, and scores 0.921 on the DocVQA benchmark.",
+        "It was trained through a four-stage curriculum emphasizing OCR and document understanding, with community MLX and Nvidia AutoModel fine-tuning support already available."
       ],
       "prominence": "brief",
-      "publishedAt": "2026-08-25T00:00:00Z",
-      "confidence": "medium",
+      "publishedAt": "2026-08-12T00:00:00Z",
+      "confidence": "high",
       "entities": [
-        "Anthropic",
-        "Claude"
+        "Cohere",
+        "Cohere Labs"
       ],
       "tags": [
-        "product",
-        "memory",
-        "privacy"
+        "open-weights",
+        "models"
       ],
       "sources": [
         {
-          "title": "Claude Cowork finally remembers what you told the app in chat",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/08/25/claude-cowork-finally-remembers-what-you-told-the-app-in-chat/",
-          "publishedAt": "2026-08-25T00:00:00Z",
-          "tier": 2
+          "title": "Meet North Micro Vision: A 2.4B Native-Resolution Vision-Language Model",
+          "publisher": "Hugging Face",
+          "url": "https://huggingface.co/blog/CohereLabs/meet-north-micro-vision-instruct",
+          "publishedAt": "2026-08-12T00:00:00Z",
+          "tier": 1
         }
       ],
       "readMinutes": 1
     }
   ],
   "signals": {
-    "storyCount": 10,
-    "sourceCount": 12,
-    "primaryCount": 3,
-    "publisherCount": 9,
-    "beatCount": 6
+    "storyCount": 8,
+    "sourceCount": 11,
+    "primaryCount": 5,
+    "publisherCount": 10,
+    "beatCount": 5
   }
 }

@@ -1,0 +1,27 @@
+{
+  "date": "2026-08-28",
+  "reviewedAt": "2026-08-28T14:30:00Z",
+  "edition": {
+    "date": "2026-08-28",
+    "storyCount": 8,
+    "sourceCount": 11,
+    "sha256": "76d829b915fa0fea7385e646972ddbd427f7a7ac35555ea4c3060536bb3678d7"
+  },
+  "scores": { "sourcing": 3, "accuracy": 4, "prose": 4, "selection": 4, "balance": 2 },
+  "total": 17,
+  "verdict": "pass",
+  "evidence": [
+    { "dimension": "sourcing", "note": "The lead's primary (courtlistener.com) returned 403 to every fetch attempt today, as did NPR, CNBC, Axios, NBC News and CNN on the same story — an unusually wide block pattern for one day. Handled per the blocked-primary rule: WFSU's AP-wire copy was opened directly and quotes the ruling verbatim, so the primary is cited but confidence is capped at medium and the prose attributes claims to the reporting actually read. Every other story has at least one directly-opened source; two (Nvidia/Hugging Face, Vera CPU) carry a genuinely independent second source from a different publisher. Docked two points because five of eight stories run on a single source and the lead's own primary was never actually read." },
+    { "dimension": "accuracy", "note": "The Nvidia/Hugging Face story is written as an open question, not a fact — the body states plainly that TechCrunch's own review 'noted the discrepancy directly rather than resolving it' and confidence is medium, not high, reflecting that the deal itself remains unconfirmed. Figures in the Ofgem-adjacent infrastructure story were dropped rather than run stale (see revisions). Quoted passages were trimmed to stay under the house limit without changing their meaning." },
+    { "dimension": "prose", "note": "WhyItMatters lines make arguable claims rather than restating the headline, e.g. the Pentagon story's point that the ruling is 'evidence that refusing military end-use terms carries real legal protection, not just reputational risk.' The edition summary states its own thinness plainly rather than papering over it." },
+    { "dimension": "selection", "note": "The lead is a genuine first-of-its-kind legal ruling with real stakes for every AI vendor holding a government contract, not a recycled announcement. The Nvidia/Hugging Face item is run as an open question because that is what it currently is, not inflated to a confirmed deal. Nothing repeats prior editions this week." },
+    { "dimension": "balance", "note": "Weakest dimension by a wide margin. Top sits at 2 against a house range of 3-6, briefs at 3 against 4-8, and three beats (infrastructure, society, india) are short of quota — India specifically has run zero stories in two straight editions. An originally-drafted UK Ofgem story (infrastructure, would have closed one gap) was cut entirely rather than run on month-old sources; see revisions. edition.summary discloses the shortfall rather than hiding it." }
+  ],
+  "revisions": [
+    "A UK Ofgem grid-connection-fee story was fully drafted with two sources (ofgem.gov.uk, theregister.com) but both were dated 28-30 days before this edition, past the 480h lookback ceiling; rather than backdating or re-labelling, the story was cut entirely before this review, dropping the edition from 9 stories to 8 and leaving infrastructure one short of quota.",
+    "Two quoted passages in the lead ran 35 words, over the house limit for quotation length; both were trimmed to keep the same substantive claim without adding editorializing before this review.",
+    "The Nvidia/Hugging Face story shipped in the first draft as prominence 'top' with confidence 'low' and only one source (TechCrunch); validate.mjs flagged both the source-count shortfall and the low-confidence-at-top warning. A second, independently-reported source (Fortune) was added and confidence raised to medium to reflect that the existence of acquisition talks is well corroborated even though the deal's signed status is not, before this review.",
+    "news.wfsu.org and npr.org were added to input/sources.json (tier 4 and tier 2 respectively) after being used as directly-opened sources today; neither changes any story's declared tier, this only removes the 'not in source book' warning for two outlets this desk had not cited before."
+  ],
+  "notes": "node tools/validate.mjs --strict returns 0 errors and 5 warnings (2 top vs house range 3-6, 3 briefs vs house range 4-8, and three beats — infrastructure, society, india — short of quota); all five are shape/quota warnings disclosed in edition.summary, none a sourcing defect, and --strict would block on them the same way it blocks on the already-published 2026-08-26 edition's own 3 warnings. Written manually after courtlistener.com, npr.org, cnbc.com, axios.com, nbcnews.com and us.cnn.com all returned 403/451 to automated fetch for the day's lead story — an unusually wide block pattern that forced heavier reliance on the blocked-primary exception than any prior edition this week."
+}

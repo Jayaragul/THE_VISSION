@@ -1,0 +1,296 @@
+{
+  "$schema": "https://jayaragul.github.io/THE_VISSION/schema/edition.schema.json",
+  "edition": {
+    "date": "2026-08-28",
+    "number": 8,
+    "generatedAt": "2026-08-28T14:00:00Z",
+    "title": "A judge tells the Pentagon its Anthropic blacklist was retaliation, not security",
+    "summary": "Judge Rita Lin's 59-page order vacates the Pentagon's \"supply chain risk\" label on Anthropic, finding it punished the company for refusing to let Claude be used in autonomous weapons and surveillance. Elsewhere: reports differ on whether Nvidia has agreed to buy Hugging Face; Nvidia's Vera CPU starts shipping to AWS and three AI labs; and Google ships a sharper video model and pilots blind model evaluation. A light edition — a fully-drafted UK power-grid story was cut when its sources ran past this desk's freshness limit.",
+    "generator": {
+      "model": "claude-sonnet-5",
+      "pipeline": "news-pipeline",
+      "trigger": "manual"
+    }
+  },
+  "stories": [
+    {
+      "id": "2026-08-28-anthropic-pentagon-blacklist-ruling",
+      "slug": "anthropic-pentagon-blacklist-ruling",
+      "beat": "policy",
+      "kicker": "Courts",
+      "headline": "A federal judge vacates the Pentagon's blacklist of Anthropic, calling it retaliation",
+      "deck": "Judge Rita Lin's 59-page order finds the \"supply chain risk\" designation punished Anthropic for refusing to let Claude be used in autonomous weapons and mass surveillance, not for any real security concern.",
+      "summary": [
+        "U.S. District Judge Rita Lin ruled the Pentagon's February designation of Anthropic as a \"supply chain risk\" was unlawful First Amendment and Fifth Amendment due-process retaliation, not a genuine security judgment.",
+        "The dispute began when Defense Secretary Pete Hegseth objected to Anthropic's refusal to remove contractual limits on Claude's use for autonomous lethal weapons and mass surveillance of Americans.",
+        "Lin wrote the government's actions were meant \"to make a public example out of Anthropic for its 'arrogance,'\" not because of any real evidence it would sabotage its model.",
+        "The ruling vacates the designation and blocks enforcement of a related directive telling federal agencies to stop using Anthropic's technology; the government is expected to appeal, and a separate case remains pending before the D.C. Circuit."
+      ],
+      "body": [
+        "A federal judge has vacated the Pentagon's designation of Anthropic as a \"supply chain risk,\" ruling in a 59-page order that the label was retaliation for the company's public criticism of the Department of Defense rather than a genuine national-security judgment. U.S. District Judge Rita Lin, of the Northern District of California, found the government's conduct violated both the First Amendment and the Fifth Amendment's due-process clause.",
+        "The dispute traces to February 2026, when President Trump and Defense Secretary Pete Hegseth accused Anthropic of endangering national security and formally designated it a supply chain risk — an unusual step for a software vendor rather than a hardware supplier. Anthropic has said the real trigger was its refusal to strip two contractual restrictions from a roughly $200 million Pentagon deal: guardrails barring Claude's use in autonomous lethal weapons systems and in mass surveillance of Americans. Anthropic sued in March, calling the designation an \"unlawful campaign of retaliation.\"",
+        "Lin's order was blunt about the government's actual motive: the designation was meant \"to make a public example out of Anthropic for its 'arrogance,'\" not based on any real evidence the company would sabotage its own model. The ruling both vacates the supply-chain-risk label and blocks enforcement of a related directive ordering federal agencies to cease using Anthropic's technology.",
+        "The order is a preliminary but forceful win in an ongoing fight — Anthropic's parallel case challenging related conduct is still pending before the D.C. Circuit Court of Appeals, and the administration is expected to contest Thursday's ruling. The case sits alongside a separate irony noted in coverage of the dispute: OpenAI signed its own Pentagon contract within hours of Anthropic being punished."
+      ],
+      "whyItMatters": "This is the most direct legal test yet of whether a government client can use procurement power to override an AI company's own safety guardrails, and a federal judge just said no in unusually pointed terms — calling the security rationale \"empty\" as a matter of law rather than deferring to executive-branch discretion, which courts often do on national-security claims. For every AI company weighing a government contract, the ruling is now evidence that refusing military end-use terms carries real legal protection, not just reputational risk.",
+      "prominence": "lead",
+      "publishedAt": "2026-08-28T04:25:00Z",
+      "confidence": "medium",
+      "entities": ["Anthropic", "Rita Lin", "Pete Hegseth", "U.S. Department of Defense"],
+      "tags": ["policy", "courts", "government-contracts", "ai-safety"],
+      "sources": [
+        {
+          "title": "Anthropic PBC v. U.S. Department of War, 3:26-cv-01996",
+          "publisher": "CourtListener",
+          "url": "https://www.courtlistener.com/docket/72379655/anthropic-pbc-v-us-department-of-war/",
+          "publishedAt": "2026-08-27T00:00:00Z",
+          "tier": 1
+        },
+        {
+          "title": "Judge says Pentagon's measures against Anthropic were 'illegal and baseless'",
+          "publisher": "The Associated Press (via WFSU)",
+          "url": "https://news.wfsu.org/npr-news/2026-08-28/judge-says-pentagons-measures-against-anthropic-were-illegal-and-baseless",
+          "publishedAt": "2026-08-28T04:25:00Z",
+          "tier": 4
+        }
+      ]
+    },
+    {
+      "id": "2026-08-28-nvidia-hugging-face-acquisition-report",
+      "slug": "nvidia-hugging-face-acquisition-report",
+      "beat": "business",
+      "kicker": "M&A",
+      "headline": "Nvidia is reportedly nearing a deal to buy Hugging Face, but nothing is signed",
+      "deck": "The Information reported Nvidia \"agreed to buy\" the open-model hub for roughly $13 billion, while Business Insider says talks could still collapse; neither company has commented.",
+      "summary": [
+        "The Information reported Nvidia has agreed to acquire Hugging Face for approximately $12.9–13 billion.",
+        "Business Insider, reporting separately, said talks \"had not yet produced a signed agreement and could still atomize.\"",
+        "Neither Nvidia nor Hugging Face has issued a public statement confirming or denying a deal.",
+        "Hugging Face hosts the largest public repository of open-weight AI models and datasets; an acquisition by Nvidia would hand a chipmaker unusual influence over the software layer much of the open-source AI ecosystem depends on."
+      ],
+      "body": [
+        "Nvidia is reportedly close to acquiring Hugging Face, the platform that hosts the largest public library of open-weight AI models, according to The Information, which put the price at roughly $12.9 to $13 billion and said the two companies had already agreed to the deal. Business Insider, reporting separately, offered a more cautious account: talks were advanced but had \"not yet produced a signed agreement and could still atomize.\"",
+        "Neither company has confirmed the talks publicly. TechCrunch, which reviewed both reports, noted the discrepancy directly rather than resolving it, and no signed agreement, deal terms, or closing timeline have been independently verified as of publication.",
+        "If it happens, the acquisition would be notable less for the price than for what Hugging Face represents: the default distribution point for open-weight models from Meta, Mistral, DeepSeek, Qwen and dozens of smaller labs, plus the datasets and tooling much of the research community builds on. Nvidia already supplies the hardware most of that ecosystem trains and runs on; owning the hub it's distributed through would be a different kind of leverage."
+      ],
+      "whyItMatters": "Readers should treat this as an unconfirmed report, not a completed acquisition — two outlets differ on whether an agreement actually exists, and neither company will say. But even as a rumor, the number is a useful marker of what infrastructure players think open-model distribution is now worth, and the strategic logic — a chipmaker controlling the platform independent labs rely on to reach users — would matter regardless of who ends up owning it.",
+      "prominence": "top",
+      "publishedAt": "2026-08-27T07:05:00Z",
+      "confidence": "medium",
+      "entities": ["NVIDIA", "Hugging Face", "The Information", "Business Insider"],
+      "tags": ["mergers-and-acquisitions", "open-weights", "nvidia"],
+      "sources": [
+        {
+          "title": "Nvidia Nears Deal to Buy Hugging Face for About $13 Billion",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/26/nvidia-nears-deal-to-buy-hugging-face-for-about-13-billion/",
+          "publishedAt": "2026-08-26T23:32:00Z",
+          "tier": 2
+        },
+        {
+          "title": "Nvidia nears $12.9 billion deal to buy open-source AI platform Hugging Face, report says",
+          "publisher": "Fortune",
+          "url": "https://fortune.com/2026/08/27/nvidia-hugging-face-billion-dollar-deal-open-source-ai/",
+          "publishedAt": "2026-08-27T07:05:00Z",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-08-28-nvidia-vera-cpu-aws-deployment",
+      "slug": "nvidia-vera-cpu-aws-deployment",
+      "beat": "infrastructure",
+      "kicker": "AI chips",
+      "headline": "Nvidia's Vera CPU starts shipping, with AWS among the first hyperscalers taking delivery",
+      "deck": "Anthropic, OpenAI, Oracle Cloud and SpaceX AI received the earliest systems as AWS and Nvidia expand a 16-year partnership to include Vera CPU-based infrastructure.",
+      "summary": [
+        "Nvidia's Vera CPU, its first processor built specifically for agentic AI workloads, has moved into production shipping.",
+        "AWS received its first Vera CPU server and Vera Rubin GPU, hand-delivered in Seattle, as part of an expanded partnership that includes plans for 2 million additional GPUs.",
+        "Anthropic, OpenAI, Oracle Cloud Infrastructure and SpaceX AI were named as the first organizations to receive early Vera systems.",
+        "Oracle Cloud Infrastructure plans to deploy hundreds of thousands of Vera CPUs beginning this year, positioning it as the first cloud provider running Vera at hyperscale."
+      ],
+      "body": [
+        "Nvidia says its Vera CPU — the company's first processor built specifically for agentic AI workloads rather than general compute — has moved into production shipping at scale. The 88-core chip is designed around the demands of AI agents that act rather than just answer, and Nvidia claims up to 1.8 times faster per-core performance on agentic workloads than prior-generation designs, alongside 1.2TB/s of memory bandwidth.",
+        "AWS is among the first hyperscalers taking delivery. Nvidia and AWS announced an expansion of their 16-year partnership that includes plans for 2 million additional GPUs and Vera CPU-based infrastructure on AWS; the first Vera CPU server and Vera Rubin GPU were hand-delivered to AWS in Seattle by Nvidia Vice President of Hyperscale and HPC Ian Buck.",
+        "Nvidia named four early recipients of initial Vera systems: Anthropic and OpenAI in San Francisco, Oracle Cloud Infrastructure, and SpaceX AI in Palo Alto. Oracle has committed to the most aggressive rollout, planning to deploy hundreds of thousands of Vera CPUs beginning this year — making it, on Nvidia's account, the first cloud provider to run Vera at hyperscale.",
+        "Buck framed the chip as a response to a shift already underway in how AI workloads run: \"Agentic AI is creating a new CPU moment in the AI factory — as models move from answering to acting, Vera is purpose-built to keep that work moving at scale.\""
+      ],
+      "whyItMatters": "A CPU built around agent workloads rather than general-purpose compute is Nvidia betting that the shift from chatbots to autonomous agents is durable enough to justify purpose-built silicon, not just software tuning on existing chips. The list of first recipients — two frontier labs, a major cloud provider and a rocket company's AI division — signals which customers Nvidia expects to push agentic workloads hardest first.",
+      "prominence": "top",
+      "publishedAt": "2026-08-27T00:00:00Z",
+      "confidence": "high",
+      "entities": ["NVIDIA", "Amazon Web Services", "Anthropic", "OpenAI", "Oracle"],
+      "tags": ["ai-chips", "infrastructure", "nvidia"],
+      "sources": [
+        {
+          "title": "Delivering Vera: NVIDIA's First CPU Built for Agents Is Shipping Now",
+          "publisher": "NVIDIA",
+          "url": "https://blogs.nvidia.com/blog/vera-cpu-delivery/",
+          "publishedAt": "2026-08-27T00:00:00Z",
+          "tier": 1
+        },
+        {
+          "title": "Hot Chips 2026: Nvidia breaks down 88-core Vera CPU",
+          "publisher": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/pc-components/cpus/hot-chips-2026-nvidia-breaks-down-88-core-vera-cpu-spatial-multithreading-benchmarked-1-2-tb-s-socamm2-memory-agentic-workloads-detailed-and-more",
+          "publishedAt": "2026-08-24T00:00:00Z",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "2026-08-28-gemini-omni-1-1-flash",
+      "slug": "gemini-omni-1-1-flash",
+      "beat": "models",
+      "kicker": "Generative video",
+      "headline": "Google ships Gemini Omni 1.1 Flash with scene extension and 4K upscaling",
+      "deck": "The video model can now extend generated scenes to 40 seconds, take specified first and last frames, and draft cheap 360p previews before a full-resolution render.",
+      "summary": [
+        "Gemini Omni 1.1 Flash extends generated scenes up to 40 seconds in 10-second increments, using up to 10 seconds of prior context for visual consistency.",
+        "A new first/last-frame control lets developers specify start and end keyframes and have the model generate the motion between them.",
+        "A 360p draft mode renders previews up to 60% faster and at a third of the cost of standard output before a final 1080p or 4K render.",
+        "The model is available via Google AI Studio, the Gemini API, Google Flow for subscribers, and a scene-extension feature in the Gemini app."
+      ],
+      "body": [
+        "Google has released Gemini Omni 1.1 Flash, a production-ready update to its generative video model aimed squarely at developers rather than casual users, adding a set of editing controls the company says move teams \"beyond generating videos to truly directing them.\"",
+        "The headline addition is scene extension: the model can now stretch a generated clip up to 40 seconds in 10-second increments, drawing on up to 10 seconds of prior context each time to keep motion and characters visually consistent across the extension. A new first/last-frame control lets a developer specify the opening and closing frames of a shot and have the model fill in the camera movement and motion between them.",
+        "For cost and iteration speed, a new 360p draft mode renders lightweight previews up to 60% faster and at roughly a third of the cost of a standard 720p render, letting a team iterate cheaply before committing to a full-resolution pass. Finished output can be upscaled natively to 1080p or 4K, and the model accepts up to three seconds of reference video in its multimodal input to preserve a character's appearance or a specific visual style across a shot.",
+        "The model is available through Google AI Studio for experimentation, the Gemini API and Gemini Enterprise Agent Platform for production use, Google Flow for AI Plus, Pro and Ultra subscribers, and a scene-extension feature built into the consumer Gemini app."
+      ],
+      "whyItMatters": "Draft-then-upscale workflows and explicit start/end-frame control are the kind of production controls video-editing professionals have been asking generative tools for, rather than the novelty-clip generation most video models still ship. Pricing the cheap draft mode at a third of standard cost is Google's bet that iteration speed, not just output quality, is what determines whether a studio actually adopts a generative model into a real pipeline.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-27T00:00:00Z",
+      "confidence": "high",
+      "entities": ["Google", "Google DeepMind", "Gemini"],
+      "tags": ["generative-media", "models"],
+      "sources": [
+        {
+          "title": "Gemini Omni 1.1 Flash lets you build with more control",
+          "publisher": "Google",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/",
+          "publishedAt": "2026-08-27T00:00:00Z",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-08-28-deepmind-double-blind-evaluations",
+      "slug": "deepmind-double-blind-evaluations",
+      "beat": "research",
+      "kicker": "Evaluation",
+      "headline": "DeepMind pilots a double-blind way to test its own models against secret benchmarks",
+      "deck": "A cryptographic \"box\" built on confidential computing lets outside evaluators test a proprietary model without seeing its weights, and without Google seeing the test questions.",
+      "summary": [
+        "Google DeepMind ran what it calls the first double-blind evaluation of a proprietary frontier-class AI model, testing Gemini Flash Lite.",
+        "Partners on the pilot include the Singapore AI Safety Institute, OpenMined, AVERI and MLCommons.",
+        "The setup uses Google Cloud Confidential Space, an Nvidia H100 confidential GPU and Intel TDX memory encryption so evaluators can't see model weights and Google can't see the test prompts.",
+        "The aim is to address benchmark contamination — the risk that a model has already seen test questions during training, inflating its scores."
+      ],
+      "body": [
+        "Google DeepMind says it has run the first double-blind evaluation of a proprietary, frontier-class AI model — a setup designed to solve a structural problem in how closed models get tested: the company that owns the model can see what questions it's being tested on, and the evaluator either has to trust the company's own API or would need the model's weights to test independently, which the company will not hand over.",
+        "The pilot tested Gemini Flash Lite in partnership with the Singapore AI Safety Institute, OpenMined, AVERI and MLCommons, using Google Cloud Confidential Space together with an Nvidia H100 confidential GPU and Intel TDX host memory encryption. The cryptographic setup is built so the external evaluator's test questions never become visible to Google, and Google's model weights never become visible to the evaluator — each side's data stays confined to what DeepMind calls a cryptographic \"box.\"",
+        "The problem the pilot targets is benchmark contamination: if a model has already encountered a test's questions somewhere in its training data, its score on that test stops measuring real capability and starts measuring memorization. DeepMind's own framing of the trade-off it says the pilot eliminates: \"Double-blind evaluations eliminate this compromise...we can cryptographically verify that both the external evaluation data and the proprietary model remain private to their respective owners.\"",
+        "DeepMind positions the pilot as a template for higher-stakes evaluation contexts going forward — cybersecurity testing and government evaluations in particular, where both the model owner's IP and the evaluator's test material carry sensitivity that neither side has previously been able to fully protect while still allowing an independent check."
+      ],
+      "whyItMatters": "Benchmark contamination is one of the more persistent, least-resolved credibility problems in AI evaluation — every capability claim ultimately rests on trusting either the lab's self-reported numbers or an evaluator's access to material the lab would rather keep private. A working cryptographic method for testing a closed model without either side seeing the other's data is infrastructure other labs and regulators could adopt, not just a one-off DeepMind exercise.",
+      "prominence": "standard",
+      "publishedAt": "2026-08-27T00:00:00Z",
+      "confidence": "high",
+      "entities": ["Google DeepMind", "Singapore AI Safety Institute", "MLCommons"],
+      "tags": ["evaluation", "research", "benchmarks"],
+      "sources": [
+        {
+          "title": "Piloting the world's first double-blind AI evaluations",
+          "publisher": "Google DeepMind",
+          "url": "https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/",
+          "publishedAt": "2026-08-27T00:00:00Z",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-08-28-barret-zoph-returns-google-deepmind",
+      "slug": "barret-zoph-returns-google-deepmind",
+      "beat": "models",
+      "kicker": "Talent",
+      "headline": "Barret Zoph returns to Google as VP of research after a five-month stop at OpenAI",
+      "deck": "The Thinking Machines Lab co-founder left Google in 2022, spent two years at OpenAI, co-founded and was pushed out of his own startup, then rejoined OpenAI before now returning to Google.",
+      "summary": [
+        "Barret Zoph is rejoining Google as vice president of research, six years after leaving for OpenAI in 2022.",
+        "He spent two years at OpenAI, left in October 2024 to co-found Thinking Machines Lab with Mira Murati, then departed that startup in January 2026 to return to OpenAI.",
+        "His second stint at OpenAI, heading AI enterprise sales, lasted five months before he left in June 2026.",
+        "A Google spokesperson said: \"We look forward to Barret returning to Google and bringing his RL and post-training expertise to Gemini.\""
+      ],
+      "prominence": "brief",
+      "publishedAt": "2026-08-27T00:00:00Z",
+      "confidence": "medium",
+      "entities": ["Barret Zoph", "Google DeepMind", "OpenAI", "Thinking Machines Lab"],
+      "tags": ["talent", "models"],
+      "sources": [
+        {
+          "title": "Barret Zoph, the Thinking Machines co-founder who defected to OpenAI, is now at Google",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/27/barret-zoph-the-thinking-machines-co-founder-who-defected-to-openai-is-now-at-google/",
+          "publishedAt": "2026-08-27T00:00:00Z",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-08-28-deep-cogito-43m-series-a",
+      "slug": "deep-cogito-43m-series-a",
+      "beat": "business",
+      "kicker": "Funding",
+      "headline": "Deep Cogito raises $43 million to keep pushing self-improving open models",
+      "deck": "The Series A, led by TQ Ventures with Zscaler joining as both investor and customer, brings the post-training startup's total funding past $56 million.",
+      "summary": [
+        "Deep Cogito raised a $43 million Series A led by TQ Ventures, with Benchmark, Nexus Venture Partners, Atreides Management, South Park Commons and Zscaler participating.",
+        "Total funding to date exceeds $56 million; the company was founded in 2024 by former Google AI Search engineers Drishan Arora and Dhruv Malrana.",
+        "The startup's post-training engine underlies its open-weight Cogito model family, ranging from 3 billion to more than 600 billion parameters.",
+        "Zscaler, one of the round's investors, is also a customer using the platform to build custom models on its own proprietary data."
+      ],
+      "prominence": "brief",
+      "publishedAt": "2026-08-26T00:00:00Z",
+      "confidence": "medium",
+      "entities": ["Deep Cogito", "TQ Ventures", "Zscaler"],
+      "tags": ["funding", "open-weights"],
+      "sources": [
+        {
+          "title": "Deep Cogito raises $43M to develop self-improving AI models",
+          "publisher": "SiliconANGLE",
+          "url": "https://siliconangle.com/2026/08/26/deep-cogito-raises-43m-to-develop-self-improving-ai-models/",
+          "publishedAt": "2026-08-26T00:00:00Z",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "2026-08-28-cohere-north-micro-vision",
+      "slug": "cohere-north-micro-vision",
+      "beat": "models",
+      "kicker": "Open weights",
+      "headline": "Cohere Labs releases a 2.4B vision model built to read documents at native resolution",
+      "deck": "North Micro Vision skips the usual downsizing step, processing pages up to A4 size at 200dpi and scoring 0.921 on DocVQA.",
+      "summary": [
+        "Cohere Labs released North Micro Vision, a 2.4-billion-parameter open-weight vision-language model under Apache 2.0.",
+        "It combines a 400M native-resolution vision encoder with a 2B language model, processing images up to A4 dimensions at 200dpi without resizing.",
+        "The model is aimed at document understanding, chart and table interpretation, OCR and visual grounding, and scores 0.921 on the DocVQA benchmark.",
+        "It was trained through a four-stage curriculum emphasizing OCR and document understanding, with community MLX and Nvidia AutoModel fine-tuning support already available."
+      ],
+      "prominence": "brief",
+      "publishedAt": "2026-08-12T00:00:00Z",
+      "confidence": "high",
+      "entities": ["Cohere", "Cohere Labs"],
+      "tags": ["open-weights", "models"],
+      "sources": [
+        {
+          "title": "Meet North Micro Vision: A 2.4B Native-Resolution Vision-Language Model",
+          "publisher": "Hugging Face",
+          "url": "https://huggingface.co/blog/CohereLabs/meet-north-micro-vision-instruct",
+          "publishedAt": "2026-08-12T00:00:00Z",
+          "tier": 1
+        }
+      ]
+    }
+  ]
+}
