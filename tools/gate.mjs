@@ -22,7 +22,7 @@
 // is a record), so gating tomorrow's paper on them deadlocks the paper permanently.
 
 import { execFileSync } from 'node:child_process';
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, appendFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -54,7 +54,21 @@ if (!editions.length) {
   const msg =
     'No new or changed edition file under generated/. The research stage produced nothing to publish.';
   writeFileSync(REPORT, msg + '\n');
-  console.error(`\n✗ ${msg}\n`);
+
+  // Distinct from a normal gate failure, and the repair loop must sit this one out.
+  //
+  // Nothing written is not a repairable defect — there is no artifact to repair. A run
+  // where this happened handed the "no edition" message to the repair step as if it were a
+  // brief, and the model dutifully wrote an entire edition from scratch under a prompt that
+  // explicitly forbids new research. The result was exactly what that contradiction
+  // predicts: invented prominence values, single-source leads, headline-length slugs. Far
+  // worse than publishing nothing, which is what the wire fallback is for.
+  if (process.env.GITHUB_OUTPUT) {
+    appendFileSync(process.env.GITHUB_OUTPUT, 'no_edition=true\n');
+  }
+
+  console.error(`\n✗ ${msg}`);
+  console.error('  Skipping the repair loop — there is nothing to repair.\n');
   process.exit(1);
 }
 

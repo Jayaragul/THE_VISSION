@@ -202,7 +202,7 @@ jobs:
         run: node tools/gate.mjs
 
       - name: Repair — attempt 2
-        if: steps.gate1.outcome == 'failure'
+        if: steps.gate1.outcome == 'failure' && steps.gate1.outputs.no_edition != 'true'
         timeout-minutes: 12
         continue-on-error: true
         uses: google-github-actions/run-gemini-cli@v0.1.22
@@ -244,12 +244,12 @@ jobs:
       # and left a syntax error in it, which killed the gate on a parse error rather than a
       # verdict. The prompt already forbids it; this enforces it.
       - name: Contain repair — attempt 2
-        if: steps.gate1.outcome == 'failure'
+        if: steps.gate1.outcome == 'failure' && steps.gate1.outputs.no_edition != 'true'
         run: bash .github/contain-repair.sh
 
       - name: Gate — attempt 2
         id: gate2
-        if: steps.gate1.outcome == 'failure'
+        if: steps.gate1.outcome == 'failure' && steps.gate1.outputs.no_edition != 'true'
         continue-on-error: true
         run: node tools/gate.mjs
 
