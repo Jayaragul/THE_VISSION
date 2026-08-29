@@ -112,10 +112,13 @@ Rules for this repair:
     "standard" rather than inventing a second.
   - If two stories share a source, merge them or drop the weaker one.
 
-If you change ANY story after the editorial review ran, recompute the eval binding: the hash
-in evals/<date>.json must match the edition on disk when you finish. This is the single most
-repeated failure in this pipeline's history — the validator compares against the file, not
-against what was true when the review was written.
+If you changed ANY story above, the eval binding is now stale. Fix it with:
+
+    node tools/rebind-eval.mjs ${editions[0].replace('generated/', '').replace('.json', '')}
+
+Run that LAST, after every other edit, and do not hand-edit the hash or write your own
+script to compute it — this tool exists precisely so you do not have to. It rewrites only
+the binding block and leaves the review's scores and prose untouched.
 
 Then stop. The gate runs again automatically.
 `;

@@ -134,9 +134,17 @@ Never edit a published claim silently. Add a `corrections` entry (`at`, `what`) 
 story in its original `generated/<date>.json`, leaving the id and URL untouched (rule 3),
 then re-run the build. The correction appears on the story and on `corrections.html`.
 
-Because the edition hash changes, `evals/<date>.json` will fail its binding check — update
-its `sha256` **and** add a line to `revisions` saying what was corrected and how it was
-found. That record is the point.
+Because the edition hash changes, `evals/<date>.json` will fail its binding check. Re-bind it
+with:
+
+```bash
+node tools/rebind-eval.mjs <date>
+```
+
+Run it **last**, after every other edit. Never hand-edit the hash and never write a script to
+compute it — this tool is the supported way, and it rewrites only the binding block, leaving
+the review's scores and prose alone. Then add a line to `revisions` saying what was corrected
+and how it was found. That record is the point.
 
 ## Stage 4 — The gate
 

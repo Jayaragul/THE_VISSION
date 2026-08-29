@@ -33,15 +33,24 @@ while IFS= read -r f; do
   reverted=$((reverted + 1))
 done < <(git diff --name-only | grep -vE "$ALLOWED" || true)
 
-# New files dropped outside the allowed paths. gate-report.txt is this loop's own scratch
-# file and is expected to be there.
+# New files dropped outside the allowed paths.
+#
+# Three exemptions, all harness scratch rather than repository content: gate-report.txt is
+# this loop's own brief, and .gemini/ plus gemini-artifacts/ are written by the Gemini CLI
+# action itself. Deleting those was actively harmful — the first containment run removed
+# .gemini/settings.json between attempts, pulling the CLI's own configuration out from under
+# the next repair. Tracked files under .gemini/ (the shell allowlist) are still reverted by
+# the loop above; this only spares the action's untracked working files.
+SPARED='^(gate-report\.txt|\.gemini/|gemini-artifacts/)'
 while IFS= read -r f; do
   [ -z "$f" ] && continue
-  [ "$f" = "gate-report.txt" ] && continue
+  case "$f" in
+    gate-report.txt|.gemini/*|gemini-artifacts/*) continue ;;
+  esac
   echo "  removing stray: $f"
   rm -f "$f"
   reverted=$((reverted + 1))
-done < <(git ls-files --others --exclude-standard | grep -vE "$ALLOWED" || true)
+done < <(git ls-files --others --exclude-standard | grep -vE "$ALLOWED" | grep -vE "$SPARED" || true)
 
 if [ "$reverted" -gt 0 ]; then
   echo "::warning title=Repair reached outside edition data::Reverted ${reverted} file(s). A repair may only edit generated/ and evals/."
