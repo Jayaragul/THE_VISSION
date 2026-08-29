@@ -87,10 +87,13 @@ jobs:
             Prefer a machine check over a written rule every time. A check cannot be
             forgotten by the next run; a paragraph in a markdown file can.
 
-            Make the change, run `node tools/validate.mjs --strict` to confirm every existing
-            edition still passes, and run `node tools/build.mjs`. If your new check fails an
-            already-published edition, do NOT weaken the check and do NOT edit the archive —
-            say so in the PR body and let a human decide.
+            Make the change, run `node tools/validate.mjs` to confirm no existing edition
+            hits a hard error, and run `node tools/build.mjs`. Do not use --strict across the
+            archive: published editions carry warnings that rule 3 makes permanent — one lead
+            has no tier-1 primary and never will — and treating those as failures blocks all
+            future work. If your new check fails an already-published edition, do NOT weaken
+            the check and do NOT edit the archive — say so in the PR body and let a human
+            decide.
 
             Write the branch, commit and open a pull request titled
             "Retrospective: <the one-line problem>". In the body: the evidence from the score

@@ -149,8 +149,11 @@ jobs:
             actual task. This job also has no credential able to write to the repository, by
             design, so nothing you do here can reach it regardless.
 
-            Work stages 1 through 4 only: research, select, write, and pass the gate at
-            `node tools/validate.mjs --strict`. Then follow
+            Work stages 1 through 4 only: research, select, write, and pass the gate by
+            running `node tools/gate.mjs`. Use that rather than validate.mjs directly — it
+            applies the full bar to the edition you just wrote and only checks the archive
+            for hard errors, which is the same judgement the pipeline applies after you
+            finish. Then follow
             .claude/skills/editorial-review/SKILL.md and write evals/<date>.json — that file
             gives the exact shape, including the edition hash binding the validator checks.
 

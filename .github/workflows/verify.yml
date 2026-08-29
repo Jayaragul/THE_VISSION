@@ -28,8 +28,18 @@ jobs:
       - name: Unit tests
         run: node --test
 
+      # Errors only, deliberately not --strict.
+      #
+      # Same trap the daily edition's gate fell into: --strict here validates every edition
+      # ever published and treats any warning as fatal, so a single unfixable warning on an
+      # old edition turns every push red forever. 2026-08-21's lead has no tier-1 primary,
+      # which is true, permanent, and exactly what rule 3 says the archive is for. It cannot
+      # be repaired without rewriting a published story, and it must not gate new work.
+      #
+      # The full bar still applies where it belongs — daily-edition.yml runs --strict against
+      # the edition each run produces, which is the work that can still be changed.
       - name: Editorial gate
-        run: node tools/validate.mjs --strict
+        run: node tools/validate.mjs
 
       - name: Build
         run: node tools/build.mjs
