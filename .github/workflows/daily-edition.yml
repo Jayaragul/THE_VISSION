@@ -239,6 +239,13 @@ jobs:
             Do NOT run git. Do NOT run tools/build.mjs. When you are done, stop — the gate
             runs again automatically.
 
+      # A repair may only edit generated/ and evals/. One attempt edited tools/validate.mjs
+      # and left a syntax error in it, which killed the gate on a parse error rather than a
+      # verdict. The prompt already forbids it; this enforces it.
+      - name: Contain repair — attempt 2
+        if: steps.gate1.outcome == 'failure'
+        run: bash .github/contain-repair.sh
+
       - name: Gate — attempt 2
         id: gate2
         if: steps.gate1.outcome == 'failure'
@@ -277,6 +284,10 @@ jobs:
             three stories short still publishes. One with a fabricated source does not.
 
             Same constraints as before: no new research, no new stories, no git, no build.
+
+      - name: Contain repair — attempt 3
+        if: steps.gate1.outcome == 'failure' && steps.gate2.outcome == 'failure'
+        run: bash .github/contain-repair.sh
 
       # The real gate. Runs whatever happened above — if attempt 1 passed this is a cheap
       # re-confirmation, and it leaves gate-report.txt describing the final state either way.
