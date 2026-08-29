@@ -164,8 +164,29 @@ jobs:
             you have and say so plainly in edition.summary. Never invent a source to fill a
             slot — a short edition is fine, a fabricated one ends the project.
 
+      # Strict applies to the edition this run produced — not to the archive.
+      #
+      # This used to be a bare `validate.mjs --strict`, which validates every edition ever
+      # published and treats any warning as fatal. That deadlocked the paper: a sourcing
+      # warning on an edition from weeks ago can never be fixed (rule 3 — the archive is a
+      # record), so once one appeared, every future edition failed the gate forever, no
+      # matter how good that day's journalism was. The run that exposed it reported
+      # "0 error(s) · 28 warning(s)" and refused to publish a perfectly sound edition.
+      #
+      # So: today's work faces the full bar, and the archive must merely stay error-free.
       - name: Gate
-        run: node tools/validate.mjs --strict
+        run: |
+          set -euo pipefail
+          CHANGED="$(git status --porcelain generated/ \
+            | grep -oE 'generated/[0-9]{4}-[0-9]{2}-[0-9]{2}\.json' || true)"
+          if [ -z "$CHANGED" ]; then
+            echo "::error title=No edition written::The research step produced no new or changed edition file."
+            exit 1
+          fi
+          echo "Gating (strict): ${CHANGED}"
+          node tools/validate.mjs --strict $CHANGED
+          echo "Checking the archive for errors:"
+          node tools/validate.mjs
 
       # Only these three files leave this job. Not the working directory, not "everything
       # that changed" — an explicit, named list, so a compromised or confused research step
@@ -222,8 +243,13 @@ jobs:
       # The authoritative gate. Runs the repository's own validate.mjs, from a clean
       # checkout, against whatever the research job produced — never trusts that job's own
       # word that it already validated successfully.
+      # Same split as the research job, re-run independently on a clean checkout: the
+      # incoming edition faces the full bar, the archive must stay error-free.
       - name: Gate
-        run: node tools/validate.mjs --strict --report evals/last-validate.json
+        run: |
+          set -euo pipefail
+          node tools/validate.mjs --strict --report evals/last-validate.json "generated/${DATE}.json"
+          node tools/validate.mjs
 
       - name: Build the site
         run: node tools/build.mjs

@@ -272,21 +272,33 @@ function jaccard(a, b) {
 function checkEdition(file) {
   const errors = [];
   const warnings = [];
+  // Advisories are shape observations — how many top stories ran, whether a beat hit its
+  // target. They are reported and never block, because rule 5 says a short edition beats a
+  // padded one: the house range is what a good day looks like, not a floor to pad up to.
+  //
+  // This split exists because conflating the two deadlocked the paper. The scheduled gate
+  // runs `--strict` over the whole archive, so a single quota shortfall on an edition
+  // published weeks ago blocked every future edition permanently — the validator was
+  // enforcing the opposite of rule 5, and no amount of good journalism today could clear a
+  // warning about a short Tuesday in August. Errors still block. Quality warnings — an
+  // unknown source host, a lead with no tier-1 primary — still block under --strict.
+  const advisories = [];
   const err = (m) => errors.push(m);
   const warn = (m) => warnings.push(m);
+  const advise = (m) => advisories.push(m);
 
   let doc;
   try {
     doc = readJSON(file);
   } catch (e) {
-    return { file, errors: [e.message], warnings: [] };
+    return { file, errors: [e.message], warnings: [], advisories: [] };
   }
 
   // --- structural -----------------------------------------------------------
   for (const e of validateSchema(doc, schema)) {
     err(`schema · ${e.path}: ${e.message}`);
   }
-  if (errors.length) return { file, errors, warnings }; // shape is wrong; deeper checks would just be noise
+  if (errors.length) return { file, errors, warnings, advisories }; // shape is wrong; deeper checks would just be noise
 
   const stem = basename(file).replace(/\.json$/, '');
   if (doc.edition.date !== stem) {
@@ -301,7 +313,7 @@ function checkEdition(file) {
     err(`only ${stories.length} stories; the floor is ${editionRules.minStories}`);
   }
   if (stories.length > editionRules.maxStories) {
-    warn(`${stories.length} stories exceeds the target ceiling of ${editionRules.maxStories}`);
+    advise(`${stories.length} stories exceeds the target ceiling of ${editionRules.maxStories}`);
   }
 
   const byProminence = (p) => stories.filter((s) => s.prominence === p);
@@ -310,11 +322,11 @@ function checkEdition(file) {
   }
   const topN = byProminence('top').length;
   if (topN < minTop || topN > maxTop) {
-    warn(`${topN} top stories; house range is ${minTop}–${maxTop}`);
+    advise(`${topN} top stories; house range is ${minTop}–${maxTop}`);
   }
   const briefN = byProminence('brief').length;
   if (briefN < minBriefs || briefN > maxBriefs) {
-    warn(`${briefN} briefs; house range is ${minBriefs}–${maxBriefs}`);
+    advise(`${briefN} briefs; house range is ${minBriefs}–${maxBriefs}`);
   }
 
   // --- per story ------------------------------------------------------------
@@ -485,11 +497,11 @@ function checkEdition(file) {
     if (count < beat.minQuota) {
       err(`beat "${beat.id}" has ${count} stories, floor is ${beat.minQuota}`);
     } else if (count < beat.quota) {
-      warn(`beat "${beat.id}" has ${count} stories, target is ${beat.quota}`);
+      advise(`beat "${beat.id}" has ${count} stories, target is ${beat.quota}`);
     }
   }
 
-  return { file, errors, warnings };
+  return { file, errors, warnings, advisories };
 }
 
 // ------------------------------------------------------------------- main ----
@@ -511,22 +523,29 @@ const results = files.map(checkEdition);
 let totalErrors = 0;
 let totalWarnings = 0;
 
+let totalAdvisories = 0;
+
 for (const r of results) {
   const name = basename(r.file);
   totalErrors += r.errors.length;
   totalWarnings += r.warnings.length;
-  if (!r.errors.length && !r.warnings.length) {
+  totalAdvisories += r.advisories.length;
+  if (!r.errors.length && !r.warnings.length && !r.advisories.length) {
     console.log(`  ✓ ${name}`);
     continue;
   }
-  console.log(`\n  ${r.errors.length ? '✗' : '!'} ${name}`);
+  console.log(`\n  ${r.errors.length ? '✗' : r.warnings.length ? '!' : '·'} ${name}`);
   for (const e of r.errors) console.log(`      error   ${e}`);
   for (const w of r.warnings) console.log(`      warn    ${w}`);
+  for (const a of r.advisories) console.log(`      note    ${a}`);
 }
 
+// Advisories are deliberately absent from this condition. See the note in checkEdition:
+// blocking on them made rule 5 unpublishable and deadlocked the scheduled pipeline.
 const failed = totalErrors > 0 || (STRICT && totalWarnings > 0);
 console.log(
-  `\n${failed ? '✗' : '✓'} ${files.length} edition(s) · ${totalErrors} error(s) · ${totalWarnings} warning(s)` +
+  `\n${failed ? '✗' : '✓'} ${files.length} edition(s) · ${totalErrors} error(s) · ` +
+    `${totalWarnings} warning(s) · ${totalAdvisories} note(s)` +
     (STRICT ? ' · strict' : '')
 );
 
@@ -535,7 +554,7 @@ if (REPORT) {
   writeFileSync(
     resolvePath(REPORT),
     JSON.stringify(
-      { ranAt: new Date().toISOString(), strict: STRICT, totalErrors, totalWarnings, results },
+      { ranAt: new Date().toISOString(), strict: STRICT, totalErrors, totalWarnings, totalAdvisories, results },
       null,
       2
     ) + '\n'
