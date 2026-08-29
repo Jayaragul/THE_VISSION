@@ -256,8 +256,24 @@ function checkEvalBinding(doc, err, warn) {
   const actualSourceCount = new Set(doc.stories.flatMap((s) => (s.sources || []).map((src) => src.url))).size;
 
   if (binding.sha256 !== actualHash) {
+    // The counts are printed second, and only when they actually differ. Reporting them
+    // first was actively misleading: an edit to prose leaves both counts identical, so the
+    // error read "recorded 14 stories / 22 sources; this edition has 14 stories / 22
+    // sources" — which looks like the checker malfunctioning rather than a real mismatch,
+    // and told whoever had to fix it nothing about what to do. What changed is the hash.
+    const shape =
+      binding.storyCount === actualStoryCount && binding.sourceCount === actualSourceCount
+        ? `Story and source counts are unchanged (${actualStoryCount}/${actualSourceCount}), so the edition was edited after it was reviewed — prose, a source URL, or a metadata field.`
+        : `The edition also changed shape: reviewed ${binding.storyCount ?? '?'} stories / ${binding.sourceCount ?? '?'} sources, now ${actualStoryCount}/${actualSourceCount}.`;
+
     err(
-      `evals/${doc.edition.date}.json reviewed a different edition (recorded ${binding.storyCount ?? '?'} stories / ${binding.sourceCount ?? '?'} sources; this edition has ${actualStoryCount} stories / ${actualSourceCount} sources) — re-run the editorial-review skill`
+      `evals/${doc.edition.date}.json does not match this edition — its binding hash is stale.\n` +
+        `                reviewed: ${binding.sha256.slice(0, 16)}…\n` +
+        `                now:      ${actualHash.slice(0, 16)}…\n` +
+        `                ${shape}\n` +
+        `                Fix: re-review the edition as it now stands, then set edition.sha256 in\n` +
+        `                evals/${doc.edition.date}.json to the "now" hash above. Editing the edition after\n` +
+        `                review is fine; leaving the review pointing at the old version is not.`
     );
   }
 }
