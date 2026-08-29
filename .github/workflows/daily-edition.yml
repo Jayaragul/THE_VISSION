@@ -40,7 +40,13 @@ concurrency:
 jobs:
   research:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    # Research alone runs 25–32 minutes, and the repair loop needs room after it. At 40 the
+    # first loop-enabled run spent 32 minutes researching, failed the gate, started repair
+    # attempt 2 — and was killed mid-repair by the job deadline eight minutes later. The
+    # logic was right and the budget was wrong. 32 research + two ~12-minute repairs + setup
+    # fits inside 75 with margin; each repair is separately capped below so a hung one
+    # surrenders its slot instead of eating the whole run.
+    timeout-minutes: 75
     permissions:
       # Read only, and nothing else. The previous action needed `id-token: write` to mint an
       # OIDC token for its own auth; authenticating Gemini with an API key needs no such token,
@@ -196,6 +202,8 @@ jobs:
 
       - name: Repair — attempt 2
         if: steps.gate1.outcome == 'failure'
+        timeout-minutes: 12
+        continue-on-error: true
         uses: google-github-actions/run-gemini-cli@v0.1.22
         env:
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.5-flash' }}
@@ -237,8 +245,14 @@ jobs:
         continue-on-error: true
         run: node tools/gate.mjs
 
+      # continue-on-error on both repairs: a repair that times out or errors should still let
+      # the next gate run and judge the edition as it stands. A partially repaired edition
+      # that now passes is a good outcome, and a failed repair step is not itself a reason to
+      # throw the day away — only the final gate decides that.
       - name: Repair — attempt 3
         if: steps.gate1.outcome == 'failure' && steps.gate2.outcome == 'failure'
+        timeout-minutes: 12
+        continue-on-error: true
         uses: google-github-actions/run-gemini-cli@v0.1.22
         env:
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.5-flash' }}
