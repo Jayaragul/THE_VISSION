@@ -17,3 +17,8 @@ Thumbs.db
 .scratch/
 *.tmp
 gate-report.txt
+
+# The publish job downloads the research handoff artifact here. CI scratch, like the gate
+# report above it — and it sits in the working tree while the allowed-paths check runs, so
+# an untracked handoff/ would read as an out-of-scope change and block the publish.
+handoff/

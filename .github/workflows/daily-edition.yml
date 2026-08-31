@@ -410,10 +410,25 @@ jobs:
       # were compromised, a publish that touches anything outside the site's own build
       # output — a workflow file, a validator, an editorial rule — fails here instead of
       # reaching main.
+      #
+      # This list had drifted badly from what the pipeline actually produces, and nothing
+      # caught it because this job had never once run: every edition in the archive was
+      # committed by hand, so the first successful research stage would have been the first
+      # time these paths were ever compared against reality. Six legitimate outputs were
+      # missing — evals/, thread/, wire/, digest/, open-questions.html, corrections.html —
+      # and three of those appear on EVERY run, so the guard would have rejected the very
+      # first paper it was asked to pass.
+      #
+      # Two rules for editing it. It enumerates what `node tools/build.mjs` writes plus the
+      # two data directories the run legitimately adds to (generated/ and evals/), so when
+      # the build learns to write a new page this list learns it too. And it stays an
+      # allowlist: `tools/`, `input/`, `schema/`, `.github/`, `.claude/`, `.gemini/`,
+      # `assets/css/`, `assets/js/` and every root .md are not on it and must not be — those
+      # are the files a publish must never be able to change, which is the whole point.
       - name: Assert the diff only touches publishable paths
         run: |
           set -euo pipefail
-          ALLOWED='^(generated/|story/|edition/|entity/|assets/img/covers/|index\.html$|archive\.html$|topics\.html$|search\.html$|hackathons\.html$|methodology\.html$|legal\.html$|terms\.html$|privacy\.html$|404\.html$|rss\.xml$|sitemap\.xml$|robots\.txt$|llms\.txt$|\.nojekyll$)'
+          ALLOWED='^(generated/|evals/|story/|edition/|entity/|thread/|wire/|digest/|assets/img/covers/|assets/img/favicon\.svg$|assets/img/social-card\.svg$|[^/]+\.html$|[^/]+\.xml$|robots\.txt$|llms\.txt$|\.nojekyll$)'
           CHANGED="$(git status --porcelain | awk '{print $2}')"
           BAD="$(echo "$CHANGED" | grep -vE "$ALLOWED" || true)"
           if [ -n "$BAD" ]; then
