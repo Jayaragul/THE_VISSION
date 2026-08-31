@@ -125,6 +125,13 @@ Rules for this repair:
   - A top story needs two genuinely independent sources. If it only has one, demote it to
     "standard" rather than inventing a second.
   - If two stories share a source, merge them or drop the weaker one.
+  - "<host> is not in the source book (treated as tier 4)": you cannot clear this by editing
+    input/sources.json. That file is a human editorial standard, and every edit a repair
+    makes to it is reverted before this gate runs again — attempting it costs you an attempt
+    and changes nothing. Your only lever is the story: drop that source, and drop the story
+    as well if it was the only one carrying the claim.
+  - "<host> declared tier N, source book says M": correct the story's declared tier down to
+    what the book says. Never raise a source's tier to clear a check.
 
 Do not spend any of your time on the eval binding hash. Editing a story invalidates it, and
 the pipeline re-binds it for you: \`node tools/rebind-eval.mjs --changed\` runs between this
