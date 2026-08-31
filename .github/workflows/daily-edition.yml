@@ -43,9 +43,14 @@ jobs:
     # Research alone runs 25–32 minutes, and the repair loop needs room after it. At 40 the
     # first loop-enabled run spent 32 minutes researching, failed the gate, started repair
     # attempt 2 — and was killed mid-repair by the job deadline eight minutes later. The
-    # logic was right and the budget was wrong. 32 research + two ~12-minute repairs + setup
+    # logic was right and the budget was wrong. 32 research + two 15-minute repairs + setup
     # fits inside 75 with margin; each repair is separately capped below so a hung one
     # surrenders its slot instead of eating the whole run.
+    #
+    # The per-repair cap was 12, and attempt 3 hit it on every run it reached — 29 August
+    # twice, 30 August once — always killed mid-edit. Attempt 2 completing in under 10 was
+    # the tell that 12 was marginal rather than generous. The measured worst case now costs
+    # 32 + 15 + 15 + roughly 5 of setup and gates, which is 67.
     timeout-minutes: 75
     permissions:
       # Read only, and nothing else. The previous action needed `id-token: write` to mint an
@@ -206,7 +211,7 @@ jobs:
 
       - name: Repair — attempt 2
         if: steps.gate1.outcome == 'failure' && steps.gate1.outputs.no_edition != 'true'
-        timeout-minutes: 12
+        timeout-minutes: 15
         continue-on-error: true
         uses: google-github-actions/run-gemini-cli@v0.1.22
         env:
@@ -250,6 +255,24 @@ jobs:
         if: steps.gate1.outcome == 'failure' && steps.gate1.outputs.no_edition != 'true'
         run: bash .github/contain-repair.sh
 
+      # A repair that edits stories necessarily invalidates the eval's binding hash, and until
+      # now recomputing it was the model's job — the last line of every repair brief asks for
+      # exactly this command. It was the one instruction the loop could not afford to have
+      # ignored, and it was ignored on three consecutive runs: on 29 and 30 August a stale
+      # binding was the ONLY error left at the final gate, twice with no warnings beside it.
+      # Both days had converged on the journalism and both threw the paper away over a
+      # SHA-256, because attempt 3 spent its whole budget editing and was killed before it
+      # reached the end of the brief.
+      #
+      # So it stops being asked for and starts being done. This runs after containment, so it
+      # binds the edition as it will actually publish, and it runs whatever the repair did —
+      # including time out, which is precisely when the model cannot run it. It cannot mask a
+      # real defect: it only ever rewrites the binding block, so every editorial error the
+      # gate would have raised is still there to be raised a step later.
+      - name: Re-bind the eval — attempt 2
+        if: steps.gate1.outcome == 'failure' && steps.gate1.outputs.no_edition != 'true'
+        run: node tools/rebind-eval.mjs --changed
+
       - name: Gate — attempt 2
         id: gate2
         if: steps.gate1.outcome == 'failure' && steps.gate1.outputs.no_edition != 'true'
@@ -262,7 +285,7 @@ jobs:
       # throw the day away — only the final gate decides that.
       - name: Repair — attempt 3
         if: steps.gate1.outcome == 'failure' && steps.gate2.outcome == 'failure'
-        timeout-minutes: 12
+        timeout-minutes: 15
         continue-on-error: true
         uses: google-github-actions/run-gemini-cli@v0.1.22
         env:
@@ -292,6 +315,13 @@ jobs:
       - name: Contain repair — attempt 3
         if: steps.gate1.outcome == 'failure' && steps.gate2.outcome == 'failure'
         run: bash .github/contain-repair.sh
+
+      # Same reasoning as attempt 2, and this is the one that actually saves the day: attempt
+      # 3 is the repair that runs out of clock, so it is the repair least likely to have got
+      # to the re-bind itself.
+      - name: Re-bind the eval — attempt 3
+        if: steps.gate1.outcome == 'failure' && steps.gate2.outcome == 'failure'
+        run: node tools/rebind-eval.mjs --changed
 
       # The real gate. Runs whatever happened above — if attempt 1 passed this is a cheap
       # re-confirmation, and it leaves gate-report.txt describing the final state either way.

@@ -126,13 +126,14 @@ Rules for this repair:
     "standard" rather than inventing a second.
   - If two stories share a source, merge them or drop the weaker one.
 
-If you changed ANY story above, the eval binding is now stale. Fix it with:
+Do not spend any of your time on the eval binding hash. Editing a story invalidates it, and
+the pipeline re-binds it for you: \`node tools/rebind-eval.mjs --changed\` runs between this
+repair and the gate that judges it, so a "stale binding" line above is already handled. Never
+hand-edit that hash and never write your own script to compute one. Spend the whole of your
+budget on the errors that need judgement instead.
 
-    node tools/rebind-eval.mjs ${editions[0].replace('generated/', '').replace('.json', '')}
-
-Run that LAST, after every other edit, and do not hand-edit the hash or write your own
-script to compute it — this tool exists precisely so you do not have to. It rewrites only
-the binding block and leaves the review's scores and prose untouched.
+(Running this gate by hand rather than in the pipeline? Then run it yourself when you are
+done: \`node tools/rebind-eval.mjs ${editions[0].replace('generated/', '').replace('.json', '')}\`.)
 
 Then stop. The gate runs again automatically.
 `;
