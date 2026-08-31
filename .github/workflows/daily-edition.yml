@@ -344,10 +344,32 @@ jobs:
       # that changed" — an explicit, named list, so a compromised or confused research step
       # has nothing to smuggle downstream beyond edition data the publish job re-validates
       # from scratch anyway.
+      #
+      # The date comes from git, not from generated/index.json. It used to read
+      # `index.json.latest`, and that field names the last edition BUILT, not the one this
+      # run just wrote — index.json is only rewritten by tools/build.mjs, which this job is
+      # forbidden to run three steps up. So the pointer is stale here by construction, and
+      # the first run to ever get past the gate packaged yesterday's edition, handed it to
+      # publish, and republished No. 8 while today's paper — which had just passed strict
+      # with zero errors and zero warnings — was thrown away with the runner.
+      #
+      # This is the same git-based detection tools/gate.mjs and tools/rebind-eval.mjs use, so
+      # the edition that gets gated, re-bound and shipped is provably the same file. The
+      # pattern is anchored: generated/index.json, generated/latest.json and the wire, digest
+      # and candidates subdirectories all sit under generated/ and none of them can match it.
       - name: Package the edition for handoff
         run: |
           set -euo pipefail
-          DATE="$(node -e "console.log(require('./generated/index.json').latest)")"
+          DATE="$(git status --porcelain generated/ \
+            | awk '{print $2}' \
+            | grep -E '^generated/[0-9]{4}-[0-9]{2}-[0-9]{2}\.json$' \
+            | sed -E 's#generated/(.*)\.json#\1#' \
+            | sort | tail -1)"
+          if [ -z "$DATE" ]; then
+            echo "::error::No new or changed edition under generated/ — nothing to hand off."
+            exit 1
+          fi
+          echo "Handing off edition ${DATE}"
           mkdir -p handoff/generated handoff/generated/candidates handoff/evals
           cp "generated/${DATE}.json" "handoff/generated/${DATE}.json"
           cp "generated/candidates/${DATE}.json" "handoff/generated/candidates/${DATE}.json"
