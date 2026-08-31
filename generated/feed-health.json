@@ -1,156 +1,157 @@
 {
   "$comment": "Written by tools/harvest.mjs. consecutiveFailures resets to 0 on any successful fetch. A feed at or above the DEAD_AFTER threshold is reported loudly by the harvest and should be fixed or removed from FEEDS.",
-  "updatedAt": "2026-08-31T14:22:23.433Z",
+  "updatedAt": "2026-08-31T17:36:26.993Z",
   "deadAfter": 8,
   "feeds": {
     "TechCrunch": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 20
     },
     "The Verge": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 10
     },
     "Ars Technica": {
-      "consecutiveFailures": 0,
+      "consecutiveFailures": 1,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
-      "lastCount": 20
+      "lastOk": null,
+      "lastError": "HTTP 403",
+      "lastCount": 0
     },
     "WIRED": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 40
     },
     "VentureBeat": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 7
     },
     "MIT Technology Review": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 10
     },
     "IEEE Spectrum — AI": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 30
     },
     "SCMP — China": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 40
     },
     "NVIDIA": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 18
     },
     "Google AI": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 20
     },
     "Google DeepMind": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 40
     },
     "OpenAI": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 40
     },
     "Hugging Face — blog": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 40
     },
     "Amazon Science": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 25
     },
     "AWS — Machine Learning": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 20
     },
     "Microsoft": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 10
     },
     "Meta Newsroom": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 10
     },
     "Meta Engineering": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 9
     },
     "arXiv — cs.AI": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 30
     },
     "arXiv — cs.CL": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 20
     },
     "arXiv — cs.MA": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 15
     },
     "arXiv — cs.RO": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 20
     },
     "arXiv — cs.LG": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 25
     },
     "Google News": {
       "consecutiveFailures": 0,
       "totalRuns": 9,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 40
     },
     "Hugging Face — trending models": {
       "consecutiveFailures": 0,
       "totalRuns": 1,
-      "lastOk": "2026-08-31T14:22:23.433Z",
+      "lastOk": "2026-08-31T17:36:26.993Z",
       "lastCount": 25
     }
   }
