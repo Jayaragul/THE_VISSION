@@ -21,6 +21,12 @@ in this list means more checking stands behind it:
    of the other two tiers and the one that keeps running if the model-driven tiers fail.
    Embedded on the front page; snapshots at /generated/wire/<date>.json.
 
+A fourth page, the **Weekly review** (/weekly.html), is not a peer of the three tiers above
+— it introduces no new reporting. Once a week it synthesises what the paper already
+published: which of its own declared threads moved, what it asked and has not yet answered,
+and what it corrected. No model runs it; data at /generated/weekly/<date>.json (schema:
+/schema/weekly.schema.json).
+
 ## Data
 
 - /generated/index.json — manifest of every edition published: date, number, title, story/

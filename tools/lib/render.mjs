@@ -194,6 +194,7 @@ ${links}
 <a href="${rel(d, 'search.html')}">Search</a>
 <a class="is-quiet" href="${opts.anchorNav ? '#wire' : `${home}#wire`}">Wire</a>
 <a class="is-quiet" href="${rel(d, 'digest.html')}">Digest</a>
+<a class="is-quiet" href="${rel(d, 'weekly.html')}">Weekly</a>
 <a class="is-quiet" href="${rel(d, 'hackathons.html')}">Hackathons</a>
 <a class="is-quiet" href="${rel(d, 'topics.html')}">Topics</a>
 <a class="is-quiet" href="${rel(d, 'archive.html')}">Archive</a>
@@ -237,6 +238,7 @@ ${ctx.site.community ? `<div class="footer__community">${communityMark(ctx, d)}<
 <h4>The paper</h4>
 <ul>
 <li><a href="${rel(d, 'digest.html')}">Digest (no AI)</a></li>
+<li><a href="${rel(d, 'weekly.html')}">Weekly review</a></li>
 <li><a href="${rel(d, 'hackathons.html')}">Hackathons</a></li>
 <li><a href="${rel(d, 'topics.html')}">Topics</a></li>
 <li><a href="${rel(d, 'archive.html')}">Archive</a></li>

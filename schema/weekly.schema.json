@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jayaragul.github.io/THE_VISSION/schema/weekly.schema.json",
+  "title": "THE VISSION weekly review",
+  "description": "A once-a-week synthesis of the paper's OWN continuity fields — threads, open questions and corrections — over the trailing 7 calendar days ending at the latest published edition. No model, no new research: every string here is either copied verbatim from a field an edition already published (thread.label, openQuestion, resolves.outcome, corrections[].what) or a fixed template with a computed count substituted in. There is no url or free-text-citation field anywhere in this schema — the only pointer type is a storyId matching edition.schema.json's own permalink pattern, which is what makes 'this cannot introduce a new sourcing risk' a property of the schema rather than a promise about a generator. See tools/weekly.mjs.",
+  "type": "object",
+  "required": ["week", "threads", "openQuestions", "corrections"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "week": {
+      "type": "object",
+      "required": ["date", "from", "to", "editionDates", "stats", "generatedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "description": "The filename stem — the date this review was generated, not a claim about the news. Wall-clock at generation time, same convention as digest.edition.date."
+        },
+        "from": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "description": "= latest included edition date minus 6 days. Computed with the same arithmetic as build.mjs's topicOfTheWeek (setUTCDate, never new Date() against the wall clock) so the two can never silently disagree about what 'this week' means."
+        },
+        "to": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "description": "The latest published edition date on or before this review's own generation date. Never the wall clock."
+        },
+        "editionDates": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 7,
+          "items": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+          "description": "The editions that actually fell inside [from, to]. Can be 1, or several — never assumed to be 7. This archive has real multi-day gaps between editions, and padding this to look like a full week would be inventing a publishing cadence that didn't happen."
+        },
+        "stats": {
+          "type": "object",
+          "required": ["editionCount", "storyCount", "beatCount"],
+          "additionalProperties": false,
+          "properties": {
+            "editionCount": { "type": "integer", "minimum": 1 },
+            "storyCount": { "type": "integer", "minimum": 0 },
+            "beatCount": { "type": "integer", "minimum": 0 }
+          },
+          "description": "Plain counts of the paper's own output in the window — the one kind of number this page may state without a per-story citation, because 'N stories ran across M editions' is checkable by counting. A claim about the news itself is not."
+        },
+        "generatedAt": { "type": "string", "format": "date-time" },
+        "generator": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "pipeline": { "type": "string" },
+            "runId": { "type": "string" },
+            "trigger": { "type": "string", "enum": ["manual", "schedule", "backfill"] }
+          },
+          "description": "Deliberately no \"model\" key, unlike edition.generator — v1 of this pipeline calls no model at all."
+        }
+      }
+    },
+    "threads": {
+      "type": "array",
+      "maxItems": 40,
+      "items": { "$ref": "#/$defs/thread" },
+      "description": "The FULL standing list of every thread this archive has ever declared, not just ones that moved this week — a quiet week still shows the whole scoreboard rather than an empty section. Threads with no instalment inside the window simply carry an empty instalmentsThisWeek."
+    },
+    "openQuestions": {
+      "type": "object",
+      "required": ["askedThisWeek", "answeredThisWeek", "stillOpen"],
+      "additionalProperties": false,
+      "properties": {
+        "askedThisWeek": {
+          "type": "array",
+          "maxItems": 40,
+          "items": { "$ref": "#/$defs/askedQuestion" }
+        },
+        "answeredThisWeek": {
+          "type": "array",
+          "maxItems": 40,
+          "items": { "$ref": "#/$defs/answeredQuestion" }
+        },
+        "stillOpen": {
+          "type": "array",
+          "maxItems": 100,
+          "items": { "$ref": "#/$defs/openLedgerEntry" },
+          "description": "The FULL standing ledger of every question this archive has ever asked and never answered — not windowed. This is what lets the page function as a scoreboard ('N questions remain open') even in a week where nothing moved."
+        }
+      }
+    },
+    "corrections": {
+      "type": "array",
+      "maxItems": 40,
+      "items": { "$ref": "#/$defs/weeklyCorrection" },
+      "description": "Windowed on the correction's OWN `at` timestamp, never on the edition date of the story it corrects — a correction can land on a story published several editions earlier, and this archive already has exactly that case."
+    }
+  },
+  "$defs": {
+    "storyId": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}-[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Must match an id that exists somewhere in the full archive. tools/weekly.mjs refuses to write the file if any story id here does not resolve — a referential check this codebase has nowhere else."
+    },
+    "thread": {
+      "type": "object",
+      "required": ["id", "label", "instalmentsTotal", "openedAt", "instalmentsThisWeek"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 60 },
+        "label": { "type": "string", "minLength": 8, "maxLength": 80, "description": "Copied verbatim from the thread's newest instalment — never rewritten here." },
+        "instalmentsTotal": { "type": "integer", "minimum": 1 },
+        "openedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$", "description": "The edition date of the thread's first instalment." },
+        "instalmentsThisWeek": {
+          "type": "array",
+          "maxItems": 40,
+          "items": {
+            "type": "object",
+            "required": ["story", "editionDate", "prominence"],
+            "additionalProperties": false,
+            "properties": {
+              "story": { "$ref": "#/$defs/storyId" },
+              "editionDate": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+              "prominence": { "type": "string", "enum": ["lead", "top", "standard", "brief"] }
+            }
+          }
+        }
+      }
+    },
+    "askedQuestion": {
+      "type": "object",
+      "required": ["story", "question", "editionDate"],
+      "additionalProperties": false,
+      "properties": {
+        "story": { "$ref": "#/$defs/storyId" },
+        "question": { "type": "string", "minLength": 20, "maxLength": 240, "description": "Copied verbatim from story.openQuestion." },
+        "editionDate": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+      }
+    },
+    "answeredQuestion": {
+      "type": "object",
+      "required": ["story", "question", "askedAt", "answerStory", "answeredAt", "outcome", "afterDays"],
+      "additionalProperties": false,
+      "properties": {
+        "story": { "$ref": "#/$defs/storyId" },
+        "question": { "type": "string", "minLength": 20, "maxLength": 240 },
+        "askedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "answerStory": { "$ref": "#/$defs/storyId" },
+        "answeredAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "outcome": { "type": "string", "minLength": 20, "maxLength": 400, "description": "Copied verbatim from the answering story's resolves.outcome — including when it shows the desk was wrong. That is the entire value of the mechanism (CLAUDE.md)." },
+        "afterDays": { "type": "integer", "minimum": 0, "description": "daysBetween(askedAt, answeredAt) — reused from tools/lib/continuity.mjs so this number can never drift from open-questions.html's own." }
+      }
+    },
+    "openLedgerEntry": {
+      "type": "object",
+      "required": ["story", "question", "askedAt", "daysOpen"],
+      "additionalProperties": false,
+      "properties": {
+        "story": { "$ref": "#/$defs/storyId" },
+        "question": { "type": "string", "minLength": 20, "maxLength": 240 },
+        "askedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "daysOpen": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "daysBetween(askedAt, latest published edition date) — the SAME reference point open-questions.html itself uses (build.mjs's renderOpenQuestions reads `today` as editions[0].edition.date, never the wall clock), so this number matches that page exactly rather than drifting because the weekly happened to run on a different day."
+        }
+      }
+    },
+    "weeklyCorrection": {
+      "type": "object",
+      "required": ["story", "editionDate", "at", "what"],
+      "additionalProperties": false,
+      "properties": {
+        "story": { "$ref": "#/$defs/storyId" },
+        "editionDate": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "description": "The ORIGINAL story's edition date — can be well before this week's window, since a correction is windowed on when it was made, not on when the story ran."
+        },
+        "at": { "type": "string", "format": "date-time", "description": "Copied verbatim from the correction's own timestamp. This is what the window is filtered on." },
+        "what": { "type": "string", "minLength": 20, "maxLength": 400, "description": "Copied verbatim from story.corrections[].what." }
+      }
+    }
+  }
+}

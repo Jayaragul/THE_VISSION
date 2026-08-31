@@ -595,7 +595,7 @@ function tierChip(label, href, count, unit) {
     : `<span class="archive__tier archive__tier--missing">${e(label)} · not published</span>`;
 }
 
-function renderArchive(ctx, editions, digests, wireHistory) {
+function renderArchive(ctx, editions, digests, wireHistory, weeklies) {
   const byDate = new Map();
   const get = (date) => {
     if (!byDate.has(date)) byDate.set(date, { date, edition: null, digest: null, wire: null });
@@ -658,6 +658,21 @@ ${R.signalsBlock({
 ${R.sectionHead('Every day', 'Newest first — edition, digest and wire, side by side', dates.length)}
 ${rows || '<p class="empty">Nothing published yet.</p>'}
 </section>
+${weeklies?.length
+    ? `<section class="section">
+${R.sectionHead('Weekly reviews', `${weeklies.length} to date — a 7-day span doesn't fit the day-by-day rows above, so it gets its own list`)}
+${weeklies
+        .map(
+          (w) => `<div class="archive__row">
+<span class="archive__date">${e(formatShort(w.week.from))} – ${e(formatShort(w.week.to))}</span>
+<div class="archive__body">
+<span class="archive__title"><a href="${R.rel(0, weeklyPath(w.week.date))}">${w.week.stats.storyCount} stories, ${w.week.stats.editionCount} edition${w.week.stats.editionCount === 1 ? '' : 's'}</a></span>
+</div>
+</div>`
+        )
+        .join('')}
+</section>`
+    : ''}
 </div>`;
 
   return R.page(ctx, {
@@ -1074,6 +1089,19 @@ run that failed its own checks — the wire keeps refreshing on its own schedule
 page still shows what happened today. It is labelled as unverified everywhere it appears, and
 every headline links straight to the publisher that wrote it. Treat it exactly like a stack of
 newspapers on a desk, not like reporting.</p>
+
+<h2 id="weekly" style="font-size:1.3rem;margin:34px 0 12px">The weekly review: no model, no new research</h2>
+<p><strong>The weekly review</strong> is not a fourth tier alongside the three above — it introduces
+nothing new. Once a week, <code>tools/weekly.mjs</code> reads what the paper already published over
+the trailing 7 days and reports on itself: which of its own declared threads moved, which questions
+it asked and has not yet answered, and which stories it corrected. Every sentence is either copied
+verbatim from a field an edition already carried, or a plain count.</p>
+
+<p>There is nothing here for a model to write off-script because nothing calls one: <code>tools/weekly.mjs</code>
+makes no API call and touches no network, the same as the digest. A thread is never inferred from
+shared entities — CLAUDE.md's own rule 7 exists because that produces false connections on this
+archive — so the review only ever reports a connection the desk declared by hand, never one it
+guessed from two stories running the same week.</p>
 </div>
 
 <aside class="rail">
@@ -1142,6 +1170,21 @@ function loadDigests() {
 }
 
 const digestPath = (date) => (date ? `digest/${date}.html` : 'digest.html');
+
+// No .slice() here, unlike loadDigests() — a weekly review is permanent (input/retention.json
+// treats it like an edition, not like the ageable digest/wire tiers), so nothing prunes it and
+// nothing should silently stop rendering it after 90 of them exist.
+function loadWeeklies() {
+  const dir = OUT('generated', 'weekly');
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
+    .sort()
+    .reverse()
+    .map((f) => readJSON(join(dir, f)));
+}
+
+const weeklyPath = (date) => (date ? `weekly/${date}.html` : 'weekly.html');
 
 function digestItemRow(ctx, item, depth) {
   const beat = ctx.beatMap.get(item.beat);
@@ -1220,6 +1263,134 @@ ${nav}
       ? `Digest — ${site.name}`
       : `Digest, ${formatShort(digest.edition.date)} — ${site.name}`,
     description: `${digest.items.length} AI headlines for ${digest.edition.date}, clustered and ranked without a model — no generated prose, every title is a source's own.`,
+    content,
+  });
+}
+
+/**
+ * The weekly review: a fully deterministic scoreboard over generated/weekly/<date>.json — see
+ * tools/weekly.mjs. Every string here is either a fixed template with a computed count, or
+ * resolved by storyId back to a story this build already has fully loaded — the weekly file
+ * itself carries no headline or url of its own, only pointers, so there is nothing to render
+ * that this build cannot verify against the archive it is building from.
+ *
+ * Reuses .archive__row throughout rather than inventing new markup: this page reads as a
+ * scoreboard, not a magazine spread, which is the deliberate trade the zero-model design
+ * makes (voice for verifiability) — see the design note in tools/weekly.mjs.
+ */
+function renderWeeklyPage(ctx, weeklies, storiesById, { index, isLatest }) {
+  const weekly = weeklies[index];
+  const depth = isLatest ? 0 : 1;
+  const prev = weeklies[index + 1]?.week.date;
+  const next = weeklies[index - 1]?.week.date;
+  const { week, threads, openQuestions, corrections } = weekly;
+
+  // A storyId this build cannot resolve is a data problem tools/weekly.mjs's own
+  // referential check should have already caught before writing the file — this is a last,
+  // defensive line, not the primary guard, so it renders a plain label rather than crashing
+  // the whole build over one bad reference in an otherwise-fine week.
+  const resolve = (id) => storiesById.get(id) || null;
+  const storyLink = (id, label) => {
+    const found = resolve(id);
+    return found ? `<a href="${R.rel(depth, R.storyPath(found.story))}">${e(label ?? found.story.headline)}</a>` : e(label ?? id);
+  };
+
+  const archiveRow = (left, title, right, href) => `<div class="archive__row">
+<span class="archive__date">${left}</span>
+<div class="archive__body">
+<span class="archive__title">${href ? `<a href="${href}">${title}</a>` : title}</span>
+${right ? `<div class="archive__tiers"><span class="archive__n">${right}</span></div>` : ''}
+</div>
+</div>`;
+
+  const threadRows = threads.length
+    ? threads
+        .map((t) => {
+          const moved = t.instalmentsThisWeek;
+          const right = moved.length
+            ? `<strong>${moved.length} new</strong>: ${moved.map((m) => storyLink(m.story)).join(', ')}`
+            : `Quiet this week — ${t.instalmentsTotal} instalment${t.instalmentsTotal === 1 ? '' : 's'} total, opened ${e(formatShort(t.openedAt))}`;
+          return archiveRow(e(formatShort(t.openedAt)), e(t.label), right, R.rel(depth, `thread/${t.id}.html`));
+        })
+        .join('')
+    : '<p class="empty">No threads have been declared in this archive yet.</p>';
+
+  // "Asked this week" is deliberately not rendered as its own list — every question in it
+  // also appears in the standing ledger below (it is by definition still open the moment it
+  // is asked), and a fresh archive showed the exact same two lines twice in a row with
+  // nothing distinguishing them. The count in the section header already says how many are
+  // new; the ledger row itself gets a "New" marker instead of a duplicate listing.
+  const askedThisWeekIds = new Set(openQuestions.askedThisWeek.map((q) => q.story));
+  const answeredRows = openQuestions.answeredThisWeek
+    .map((q) =>
+      archiveRow(
+        e(formatShort(q.answeredAt)),
+        `${e(q.question)} — ${e(q.outcome)}`,
+        `Answered after ${q.afterDays} day${q.afterDays === 1 ? '' : 's'} · ${storyLink(q.answerStory, 'follow-up')}`
+      )
+    )
+    .join('');
+  const stillOpenRows = openQuestions.stillOpen.length
+    ? openQuestions.stillOpen
+        .map((q) =>
+          archiveRow(
+            e(formatShort(q.askedAt)),
+            storyLink(q.story, q.question),
+            `${askedThisWeekIds.has(q.story) ? '<strong>New</strong> · ' : ''}Open ${q.daysOpen} day${q.daysOpen === 1 ? '' : 's'}`
+          )
+        )
+        .join('')
+    : '<p class="empty">Nothing is currently open.</p>';
+
+  const correctionRows = corrections.length
+    ? corrections
+        .map((c) => archiveRow(e(formatShort(c.at.slice(0, 10))), storyLink(c.story, c.what), `From the ${e(formatShort(c.editionDate))} edition`))
+        .join('')
+    : '<p class="empty">No corrections were dated this week.</p>';
+
+  const nav =
+    prev || next
+      ? `<div class="meta" style="justify-content:space-between;padding:26px 0;border-top:1px solid var(--rule)">
+${prev ? `<a href="${R.rel(depth, weeklyPath(prev))}" style="text-decoration:none">← ${e(formatShort(prev))}</a>` : '<span></span>'}
+${next ? `<a href="${R.rel(depth, weeklyPath(next))}" style="text-decoration:none">${e(formatShort(next))} →</a>` : '<span></span>'}
+</div>`
+      : '';
+
+  const content = `<div class="wrap">
+<section class="editorsnote">
+<div class="editorsnote__label">Weekly review<br>No AI, no new research</div>
+<div>
+<h1 class="editorsnote__title">The week of ${e(formatShort(week.from))} – ${e(formatShort(week.to))}</h1>
+<p class="editorsnote__body">${week.stats.storyCount} stories across ${week.stats.editionCount} edition${week.stats.editionCount === 1 ? '' : 's'} and ${week.stats.beatCount} beat${week.stats.beatCount === 1 ? '' : 's'}. Nothing
+below is new reporting — every fact here already ran and is only being synthesised: which of the paper's own
+declared threads moved, what it asked and what it still owes an answer to, and what it corrected. <a href="${R.rel(depth, 'methodology.html')}#weekly">How this differs from the edited paper →</a></p>
+</div>
+</section>
+<section class="section">
+${R.sectionHead('Threads', `${threads.length} declared in this archive · ${threads.filter((t) => t.instalmentsThisWeek.length).length} moved this week`)}
+${threadRows}
+</section>
+<section class="section">
+${R.sectionHead('Open questions', `${openQuestions.askedThisWeek.length} asked this week · ${openQuestions.answeredThisWeek.length} answered this week · ${openQuestions.stillOpen.length} still open`)}
+${answeredRows}
+<div class="meta" style="margin:14px 0 8px">Still open, the full ledger</div>
+${stillOpenRows}
+</section>
+<section class="section">
+${R.sectionHead('Corrections', `${corrections.length} dated this week — may correct a story from an earlier week`)}
+${correctionRows}
+</section>
+${nav}
+</div>`;
+
+  return R.page(ctx, {
+    depth,
+    canonical: weeklyPath(isLatest ? null : week.date),
+    anchorNav: isLatest,
+    title: isLatest
+      ? `Weekly review — ${site.name}`
+      : `Weekly review, ${formatShort(week.from)}–${formatShort(week.to)} — ${site.name}`,
+    description: `A no-model synthesis of ${site.name}'s own threads, open questions and corrections for the week of ${week.from} to ${week.to}.`,
     content,
   });
 }
@@ -1858,7 +2029,7 @@ ${items}
 `;
 }
 
-function renderSitemap(editions, entities, digests, wireHistory) {
+function renderSitemap(editions, entities, digests, wireHistory, weeklies) {
   const urls = [
     { loc: `${site.baseUrl}/`, priority: '1.0', freq: 'daily' },
     { loc: `${site.baseUrl}/archive.html`, priority: '0.6', freq: 'daily' },
@@ -1884,6 +2055,13 @@ function renderSitemap(editions, entities, digests, wireHistory) {
       priority: '0.2',
       freq: 'yearly',
       lastmod: w.date,
+    })),
+    ...(weeklies.length ? [{ loc: `${site.baseUrl}/weekly.html`, priority: '0.5', freq: 'weekly' }] : []),
+    ...weeklies.map((w) => ({
+      loc: `${site.baseUrl}/${weeklyPath(w.week.date)}`,
+      priority: '0.4',
+      freq: 'monthly',
+      lastmod: w.week.date,
     })),
     { loc: `${site.baseUrl}/hackathons.html`, priority: '0.7', freq: 'weekly' },
     { loc: `${site.baseUrl}/methodology.html`, priority: '0.4', freq: 'monthly' },
@@ -1975,6 +2153,11 @@ const communityMark =
 // Loaded before the context is built rather than beside the digest pages further down: the
 // front page's tier strip prints how many items today's digest holds, and it renders first.
 const digests = loadDigests();
+
+// Deliberately not added to ctx or the front page — the design this follows keeps the
+// weekly review as a page a reader opts into, not a strip competing with today's actual
+// news. See renderWeeklyPage() and tools/weekly.mjs.
+const weeklies = loadWeeklies();
 
 const ctx = {
   site,
@@ -2083,6 +2266,17 @@ if (digests.length) {
   write(digestPath(null), renderDigestPage(ctx, digests, { index: 0, isLatest: true }));
 }
 
+// generated/weekly/<date>.json only ever carries storyId pointers, never a headline or url
+// of its own (schema/weekly.schema.json has no such field at all) — this is what resolves
+// them back to the story this build already has fully loaded.
+const storiesById = new Map(editions.flatMap((ed) => ed.stories.map((s) => [s.id, { story: s, ed }])));
+weeklies.forEach((w, i) => {
+  write(weeklyPath(w.week.date), renderWeeklyPage(ctx, weeklies, storiesById, { index: i, isLatest: false }));
+});
+if (weeklies.length) {
+  write(weeklyPath(null), renderWeeklyPage(ctx, weeklies, storiesById, { index: 0, isLatest: true }));
+}
+
 // One archived page per day the wire has a snapshot for. No "latest" alias here — the live,
 // current wire already lives embedded on the front page; these dated pages are the record.
 wireHistory.forEach((snap, i) => {
@@ -2113,8 +2307,9 @@ prune('entity', '.html', expectedEntityFiles);
 prune('thread', '.html', new Set([...threads.keys()].map((id) => `${id}.html`)));
 prune('digest', '.html', new Set(digests.map((d) => `${d.edition.date}.html`)));
 prune('wire', '.html', new Set(wireHistory.map((w) => `${w.date}.html`)));
+prune('weekly', '.html', new Set(weeklies.map((w) => `${w.week.date}.html`)));
 
-write('archive.html', renderArchive(ctx, editions, digests, wireHistory));
+write('archive.html', renderArchive(ctx, editions, digests, wireHistory, weeklies));
 write('open-questions.html', renderOpenQuestions(ctx, openQuestions, editions));
 write('corrections.html', renderCorrections(ctx, corrections));
 write('topics.html', renderTopics(ctx, entities));
@@ -2126,7 +2321,7 @@ write('terms.html', renderTerms(ctx));
 write('privacy.html', renderPrivacy(ctx));
 write('404.html', render404(ctx));
 write('rss.xml', renderRSS(editions));
-write('sitemap.xml', renderSitemap(editions, entities, digests, wireHistory));
+write('sitemap.xml', renderSitemap(editions, entities, digests, wireHistory, weeklies));
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${site.baseUrl}/sitemap.xml\n`);
 write('.nojekyll', '');
 
@@ -2160,6 +2355,12 @@ in this list means more checking stands behind it:
 3. **Wire** — unedited headlines straight from publisher RSS feeds, refreshed independently
    of the other two tiers and the one that keeps running if the model-driven tiers fail.
    Embedded on the front page; snapshots at /generated/wire/<date>.json.
+
+A fourth page, the **Weekly review** (/weekly.html), is not a peer of the three tiers above
+— it introduces no new reporting. Once a week it synthesises what the paper already
+published: which of its own declared threads moved, what it asked and has not yet answered,
+and what it corrected. No model runs it; data at /generated/weekly/<date>.json (schema:
+/schema/weekly.schema.json).
 
 ## Data
 

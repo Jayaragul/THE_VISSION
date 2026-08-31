@@ -1,0 +1,107 @@
+{
+  "$schema": "../../schema/weekly.schema.json",
+  "week": {
+    "date": "2026-08-31",
+    "from": "2026-08-22",
+    "to": "2026-08-28",
+    "editionDates": [
+      "2026-08-22",
+      "2026-08-26",
+      "2026-08-28"
+    ],
+    "stats": {
+      "editionCount": 3,
+      "storyCount": 26,
+      "beatCount": 7
+    },
+    "generatedAt": "2026-08-31T19:58:20.703Z",
+    "generator": {
+      "pipeline": "weekly-review",
+      "trigger": "schedule"
+    }
+  },
+  "threads": [
+    {
+      "id": "grok-4-6",
+      "label": "Grok 4.6, from launch to leak",
+      "instalmentsTotal": 3,
+      "openedAt": "2026-08-18",
+      "instalmentsThisWeek": []
+    },
+    {
+      "id": "anthropic-pentagon",
+      "label": "Anthropic versus the Pentagon",
+      "instalmentsTotal": 1,
+      "openedAt": "2026-08-28",
+      "instalmentsThisWeek": [
+        {
+          "story": "2026-08-28-anthropic-pentagon-blacklist-ruling",
+          "editionDate": "2026-08-28",
+          "prominence": "lead"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-hugging-face",
+      "label": "Nvidia's bid for Hugging Face",
+      "instalmentsTotal": 1,
+      "openedAt": "2026-08-28",
+      "instalmentsThisWeek": [
+        {
+          "story": "2026-08-28-nvidia-hugging-face-acquisition-report",
+          "editionDate": "2026-08-28",
+          "prominence": "top"
+        }
+      ]
+    }
+  ],
+  "openQuestions": {
+    "askedThisWeek": [
+      {
+        "story": "2026-08-28-anthropic-pentagon-blacklist-ruling",
+        "question": "Does the government's expected appeal overturn Judge Lin's ruling, and how does the parallel D.C. Circuit case land?",
+        "editionDate": "2026-08-28"
+      },
+      {
+        "story": "2026-08-28-nvidia-hugging-face-acquisition-report",
+        "question": "Does Nvidia's reported $12.9bn acquisition of Hugging Face reach a signed agreement, or fall apart?",
+        "editionDate": "2026-08-28"
+      }
+    ],
+    "answeredThisWeek": [],
+    "stillOpen": [
+      {
+        "story": "2026-08-28-anthropic-pentagon-blacklist-ruling",
+        "question": "Does the government's expected appeal overturn Judge Lin's ruling, and how does the parallel D.C. Circuit case land?",
+        "askedAt": "2026-08-28",
+        "daysOpen": 0
+      },
+      {
+        "story": "2026-08-28-nvidia-hugging-face-acquisition-report",
+        "question": "Does Nvidia's reported $12.9bn acquisition of Hugging Face reach a signed agreement, or fall apart?",
+        "askedAt": "2026-08-28",
+        "daysOpen": 0
+      }
+    ]
+  },
+  "corrections": [
+    {
+      "story": "2026-08-20-fractile-anthropic-chip-deal",
+      "editionDate": "2026-08-20",
+      "at": "2026-08-28T15:10:00Z",
+      "what": "The Tom's Hardware citation pointed at a truncated URL that returned 404; the link now carries the full slug ending in \"-fractile\" and resolves to the article as cited. The desk's error in transcription, caught by the weekly link check. No claim in the story changes."
+    },
+    {
+      "story": "2026-08-28-nvidia-hugging-face-acquisition-report",
+      "editionDate": "2026-08-28",
+      "at": "2026-08-28T15:10:00Z",
+      "what": "Business Insider was quoted as saying the talks could still \"atomize\". The reported wording is \"fall apart\"; the quotation has been corrected. The desk's error in drafting — a word that was never said should not have appeared inside quotation marks."
+    },
+    {
+      "story": "2026-08-28-nvidia-hugging-face-acquisition-report",
+      "editionDate": "2026-08-28",
+      "at": "2026-08-28T15:10:00Z",
+      "what": "The TechCrunch citation pointed at a URL that returns 404. The article is \"Nvidia closes in on Hugging Face acquisition\"; the link and the cited headline have been corrected to match it. Caught by the link check, not by review."
+    }
+  ]
+}

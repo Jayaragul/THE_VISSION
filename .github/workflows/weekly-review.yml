@@ -1,0 +1,93 @@
+name: Weekly Review
+
+# A fully deterministic synthesis of the paper's own continuity fields — threads, open
+# questions, corrections — over the trailing 7 calendar days. No model, no API key, no
+# network access: same posture as digest.yml, and for the same reason. See tools/weekly.mjs
+# for what this is and, just as importantly, what it deliberately does not do.
+#
+# Monday, offset from the two other Monday jobs already in this repo (maintenance.yml at
+# 04:17, retrospective.yml at 08:00) so three scheduled jobs don't race the shared
+# `concurrency: group: publish` on the same morning.
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Week-ending date (YYYY-MM-DD). Leave blank for today.'
+        required: false
+        type: string
+
+concurrency:
+  # Shared with daily-edition.yml, digest.yml and wire.yml — all four push to main.
+  group: publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  weekly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Compute the week and write generated/weekly/<date>.json
+        run: |
+          set -euo pipefail
+          DATE="${{ inputs.date }}"
+          if [ -z "$DATE" ]; then DATE="$(date -u '+%Y-%m-%d')"; fi
+          TRIGGER="${{ github.event_name == 'schedule' && 'schedule' || 'manual' }}"
+          node tools/weekly.mjs "$DATE" "$TRIGGER"
+
+      - name: Build the site
+        run: node tools/build.mjs
+
+      - name: Publish
+        run: |
+          set -euo pipefail
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No new weekly review — nothing to publish."
+            exit 0
+          fi
+          # user.email is Jayaragul's own noreply address, not github-actions[bot]'s — GitHub
+          # attributes contributor credit by email, so a bot-owned email here makes
+          # github-actions[bot] a permanent second entry in the contributors graph no matter
+          # what user.name says.
+          git config user.name  "the-vission-desk[bot]"
+          git config user.email "135336604+Jayaragul@users.noreply.github.com"
+          git add -A
+          git commit -m "Weekly review — $(date -u '+%Y-%m-%d')"
+          git pull --rebase --autostash origin main
+          git push
+
+      - name: Report failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          EXISTING="$(gh issue list --state open --label weekly-review-failure --json number --jq '.[0].number' || true)"
+          BODY="The weekly review failed on $(date -u '+%Y-%m-%d %H:%M UTC').
+
+          Run: ${RUN_URL}
+
+          This tier needs no API key and no network access, so a failure here is a bug in
+          tools/weekly.mjs or tools/lib/weekly.mjs — most likely the referential-integrity
+          check refusing to write over a dangling resolves.story, or a schema mismatch — not
+          an auth or spend issue. The daily edition and digest are unaffected."
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "$BODY"
+          else
+            gh label create weekly-review-failure --color 0e8a16 --description "Weekly review failure" 2>/dev/null || true
+            gh issue create --title "Weekly review failed" --label weekly-review-failure --body "$BODY"
+          fi

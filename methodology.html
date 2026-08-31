@@ -65,6 +65,7 @@
 <a href="./search.html">Search</a>
 <a class="is-quiet" href="./index.html#wire">Wire</a>
 <a class="is-quiet" href="./digest.html">Digest</a>
+<a class="is-quiet" href="./weekly.html">Weekly</a>
 <a class="is-quiet" href="./hackathons.html">Hackathons</a>
 <a class="is-quiet" href="./topics.html">Topics</a>
 <a class="is-quiet" href="./archive.html">Archive</a>
@@ -169,6 +170,19 @@ run that failed its own checks — the wire keeps refreshing on its own schedule
 page still shows what happened today. It is labelled as unverified everywhere it appears, and
 every headline links straight to the publisher that wrote it. Treat it exactly like a stack of
 newspapers on a desk, not like reporting.</p>
+
+<h2 id="weekly" style="font-size:1.3rem;margin:34px 0 12px">The weekly review: no model, no new research</h2>
+<p><strong>The weekly review</strong> is not a fourth tier alongside the three above — it introduces
+nothing new. Once a week, <code>tools/weekly.mjs</code> reads what the paper already published over
+the trailing 7 days and reports on itself: which of its own declared threads moved, which questions
+it asked and has not yet answered, and which stories it corrected. Every sentence is either copied
+verbatim from a field an edition already carried, or a plain count.</p>
+
+<p>There is nothing here for a model to write off-script because nothing calls one: <code>tools/weekly.mjs</code>
+makes no API call and touches no network, the same as the digest. A thread is never inferred from
+shared entities — CLAUDE.md's own rule 7 exists because that produces false connections on this
+archive — so the review only ever reports a connection the desk declared by hand, never one it
+guessed from two stories running the same week.</p>
 </div>
 
 <aside class="rail">
@@ -212,6 +226,7 @@ THE VISSION was founded by <strong style="color:var(--ink-2)">Jayaragul N</stron
 <h4>The paper</h4>
 <ul>
 <li><a href="./digest.html">Digest (no AI)</a></li>
+<li><a href="./weekly.html">Weekly review</a></li>
 <li><a href="./hackathons.html">Hackathons</a></li>
 <li><a href="./topics.html">Topics</a></li>
 <li><a href="./archive.html">Archive</a></li>

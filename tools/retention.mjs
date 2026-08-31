@@ -106,6 +106,11 @@ const breakdown = {
   'digest/ + generated/digest (windowed)': sizeOf('digest') + sizeOf(join('generated', 'digest')),
   'generated/candidates (scratch)': sizeOf(join('generated', 'candidates')),
   'generated/wire (unwindowed — kept forever)': sizeOf(join('generated', 'wire')),
+  // Permanent per input/retention.json (a weekly cites the paper's own permalinks, same
+  // promise as an edition), but NOT folded into PERMANENT_DIRS/perEdition above: one file a
+  // week, not one a day, so dividing it into the daily editionCount would overstate the
+  // slope this report exists to get right. Reported, not projected.
+  'weekly/ + generated/weekly (permanent, not per-edition)': sizeOf('weekly') + sizeOf(join('generated', 'weekly')),
   // Grows with the archive rather than the edition, and rebuilt in full on every build — the
   // one thing this line item cannot show is the git-history cost of that, because walk()
   // reads the working tree and .git is explicitly excluded above. Worth revisiting once the
