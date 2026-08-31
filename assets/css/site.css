@@ -955,6 +955,33 @@ ul, ol { margin: 0; padding: 0; }
   .archive__row { grid-template-columns: 1fr; gap: 6px; }
 }
 
+/* A search result carries a tier chip .archive__row's own 2-column grid has no room for —
+   a 3rd column, not a modified .archive__row (that grid is shared with archive.html and
+   topics.html, which do not have a chip to place). */
+.archive__row--search {
+  grid-template-columns: 74px minmax(0, 1fr) auto;
+  align-items: center;
+}
+.result-kind {
+  display: inline-block;
+  font-family: var(--sans); font-size: .62rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 3px;
+  font-variant-numeric: normal;
+  white-space: nowrap;
+}
+.result-kind--story { background: var(--accent-soft); color: var(--accent); }
+.result-kind--digest { background: var(--surface-3); color: var(--muted); }
+.result-kind--wire { background: var(--surface-2); color: var(--faint); }
+.result-beat {
+  display: block;
+  font-family: var(--sans); font-size: .68rem; color: var(--faint);
+  text-transform: uppercase; letter-spacing: .06em; margin-top: 3px;
+}
+@media (max-width: 620px) {
+  .archive__row--search { grid-template-columns: 1fr; gap: 6px; }
+}
+
 /* ----------------------------------------------------------- hackathons --- */
 
 .hack {

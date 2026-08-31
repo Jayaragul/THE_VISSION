@@ -12,12 +12,13 @@ import { basename, dirname, join, resolve as resolvePath } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   readJSON, escapeHTML as e, escapeXML, formatMasthead, formatShort,
-  hostOf, matchPublisher, readMinutes, hash32, slugify,
+  hostOf, matchPublisher, readMinutes, hash32, slugify, STOPWORDS,
 } from './lib/util.mjs';
 import { renderCover } from './lib/cover.mjs';
 import { selectWireItems, wireBlock, wireItemsHTML, stalenessBanner, wirePath, snapshotWire, loadWireHistory } from './lib/wire.mjs';
 import * as R from './lib/render.mjs';
 import { collectThreads, collectOpenQuestions, collectCorrections, daysBetween } from './lib/continuity.mjs';
+import { collectDocs, buildSearchIndex } from './lib/searchindex.mjs';
 
 const ROOT = resolvePath(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -1146,7 +1147,7 @@ function digestItemRow(ctx, item, depth) {
   const beat = ctx.beatMap.get(item.beat);
   const primary = item.sources[0];
   const rest = item.sources.slice(1);
-  return `<article class="digest-item"${beat ? ` style="--beat-accent:${e(beat.accent)}"` : ''}>
+  return `<article class="digest-item" id="${e(item.id)}"${beat ? ` style="--beat-accent:${e(beat.accent)}"` : ''}>
 <span class="digest-item__badge digest-item__badge--${item.confidence === 'confirmed' ? 'confirmed' : 'single'}">${item.confidence === 'confirmed' ? 'Confirmed' : 'Single source'}</span>
 <h3 class="digest-item__title"><a href="${e(primary.url)}" rel="noopener nofollow" target="_blank">${e(item.title)}</a></h3>
 <div class="meta">
@@ -1265,24 +1266,39 @@ ${nav}
 }
 
 /**
- * Search over every published story. Static site, so this is entirely client-side: fetches
- * /generated/search-index.json once and filters it in the browser. No server, no dependency,
- * degrades to "type a query, see nothing until JS loads" rather than breaking — the archive
- * link right below it still works with JS off.
+ * Search over the whole archive — every published story, plus the digest and wire tiers,
+ * deduplicated by source URL. Static site, so this is entirely client-side: fetches
+ * /generated/search-index.json once and ranks it in the browser with BM25F. No server, no
+ * dependency, degrades to "type a query, see nothing until JS loads" rather than breaking —
+ * the archive link right below it still works with JS off.
+ *
+ * The scorer here is a hand-written copy of tools/lib/searchindex.mjs's queryIndex(), the
+ * same way escapeHtml just below is already a hand-written copy of util.mjs's escapeHTML —
+ * a <script> tag cannot import from tools/lib. queryIndex() is the tested reference; if the
+ * two drift, that function (and test/searchindex.test.mjs) is the one to trust.
+ *
+ * Deliberately not semantic. Three designs were prototyped against this exact archive — a
+ * latent-semantic layer, a co-occurrence expansion, a character-trigram fuzzy layer — and
+ * all three measured their own mechanism producing junk on a corpus this size (documents
+ * average a dozen tokens; there isn't enough co-occurrence to learn "chip" means
+ * "semiconductor" from headlines alone). What was actually broken — "nvidia chips" not
+ * matching a headline reading "Nvidia's chip" — was a tokenization bug, and fixing that is
+ * what this rewrite actually does.
  */
 function renderSearch(ctx) {
   const content = `<div class="wrap">
 <section class="editorsnote">
 <div class="editorsnote__label">Search</div>
 <div>
-<h1 class="editorsnote__title">Search every story this paper has published.</h1>
-<p class="editorsnote__body">Matches headlines, decks, companies and topics across the full archive. Runs
-entirely in your browser against a single downloaded index — nothing is sent anywhere, and there is nothing
-to send it to.</p>
+<h1 class="editorsnote__title">Search the whole archive.</h1>
+<p class="editorsnote__body">Every published story, plus the ranked digest and the raw wire — each
+result labelled with which one it came from, since only the Edition is this paper's own reporting.
+Runs entirely in your browser against a single downloaded index — nothing is sent anywhere, and
+there is nothing to send it to.</p>
 </div>
 </section>
 <section class="section" style="border-bottom:0">
-<input type="search" id="search-input" class="search-input" placeholder="Search stories — try a company, model or topic…" autocomplete="off" aria-label="Search stories">
+<input type="search" id="search-input" class="search-input" placeholder="Search stories, digest and wire — try a company, model or topic…" autocomplete="off" aria-label="Search the archive">
 <p id="search-status" class="search-status" role="status"></p>
 <div id="search-results"></div>
 </section>
@@ -1294,8 +1310,12 @@ to send it to.</p>
   var results = document.getElementById('search-results');
   var indexUrl = ${JSON.stringify(R.rel(0, 'generated/search-index.json'))};
   var beatLabels = ${JSON.stringify(Object.fromEntries(ctx.beats.map((b) => [b.id, b.label])))};
-  var storyBase = ${JSON.stringify(R.rel(0, 'story/'))};
-  var data = null;
+  var kindLabels = { story: 'Edition', digest: 'Digest', wire: 'Wire' };
+  // Generated from the same STOPWORDS set the build tokenizer uses, so this list at least
+  // can never drift even though the two tokenizer FUNCTIONS are separate copies.
+  var stopwords = ${JSON.stringify([...STOPWORDS])};
+  var idx = null;
+  var debounceTimer = null;
 
   function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
@@ -1303,41 +1323,129 @@ to send it to.</p>
     });
   }
 
-  // Substring match across headline, deck, kicker and entities, weighted so a headline hit
-  // ranks above a deck hit, an entity hit above either — searching "Nvidia" should surface
-  // every Nvidia story before a story that merely mentions Nvidia in passing prose.
-  function score(item, q) {
-    var s = 0;
-    var headline = item.headline.toLowerCase();
-    var deck = (item.deck || '').toLowerCase();
-    var entities = (item.entities || []).join(' ').toLowerCase();
-    if (entities.indexOf(q) !== -1) s += 5;
-    if (headline.indexOf(q) !== -1) s += 3;
-    if ((item.kicker || '').toLowerCase().indexOf(q) !== -1) s += 2;
-    if (deck.indexOf(q) !== -1) s += 1;
-    return s;
+  // Mirrors searchStem() in tools/lib/util.mjs.
+  function stem(w) {
+    if (w.length > 4 && w.slice(-3) === 'ies') return w.slice(0, -3) + 'y';
+    if (w.length > 4 && w.slice(-1) === 's' && w.slice(-2) !== 'ss' && w.slice(-2) !== 'us') {
+      return w.slice(0, -1);
+    }
+    return w;
   }
 
-  function render(items, q) {
+  // Mirrors searchTokens() in tools/lib/util.mjs — same possessive-before-punctuation
+  // ordering, same "no length filter, stopwords only" rule that keeps AI/EU/UK/US searchable.
+  function tokenize(s) {
+    var stopSet = {};
+    for (var i = 0; i < stopwords.length; i++) stopSet[stopwords[i]] = true;
+    var out = [];
+    var raw = String(s)
+      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[\\u0300-\\u036f]/g, '')
+      .replace(/['’]s\\b/g, '')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim()
+      .split(/\\s+/);
+    for (var j = 0; j < raw.length; j++) {
+      var w = raw[j];
+      if (w && !stopSet[w]) out.push(stem(w));
+    }
+    return out;
+  }
+
+  function lowerBound(sorted, target) {
+    var lo = 0, hi = sorted.length;
+    while (lo < hi) {
+      var mid = (lo + hi) >> 1;
+      if (sorted[mid] < target) lo = mid + 1; else hi = mid;
+    }
+    return lo;
+  }
+
+  // Mirrors queryIndex() in tools/lib/searchindex.mjs. See that function's own comment for
+  // why an unmatched query returns an explicit no-match rather than a sorted zero-score list.
+  function query(q) {
+    var tokens = tokenize(q);
+    if (!tokens.length) return { state: 'empty', ignored: [], hits: [] };
+
+    var dict = idx.dict;
+    var matched = {}; // term -> weight
+    var ignored = [];
+    for (var ti = 0; ti < tokens.length; ti++) {
+      var tok = tokens[ti];
+      var lo = lowerBound(dict, tok);
+      if (dict[lo] === tok) {
+        matched[tok] = 1;
+        continue;
+      }
+      if (ti === tokens.length - 1 && tok.length >= 3) {
+        var found = 0;
+        for (var i2 = lo; i2 < dict.length && dict[i2].indexOf(tok) === 0; i2++) {
+          matched[dict[i2]] = 0.6;
+          found++;
+        }
+        if (!found) ignored.push(tok);
+      } else {
+        ignored.push(tok);
+      }
+    }
+
+    var terms = Object.keys(matched);
+    if (!terms.length) return { state: 'noMatch', ignored: ignored, hits: [] };
+
+    var scores = {}; // docIndex -> score
+    for (var k = 0; k < terms.length; k++) {
+      var term = terms[k];
+      var ti2 = lowerBound(dict, term);
+      if (dict[ti2] !== term) continue;
+      var df = idx.df[ti2];
+      var idf = Math.log(1 + (idx.n - df + 0.5) / (df + 0.5));
+      var pair = idx.post[ti2];
+      var docIdx = pair[0], tfs = pair[1];
+      for (var m = 0; m < docIdx.length; m++) {
+        var d = docIdx[m];
+        var tf = tfs[m];
+        var norm = 1 - idx.b + idx.b * (idx.docLengths[d] / (idx.avgdl || 1));
+        var contribution = matched[term] * idf * ((tf * (idx.k1 + 1)) / (tf + idx.k1 * norm));
+        scores[d] = (scores[d] || 0) + contribution;
+      }
+    }
+
+    var ranked = Object.keys(scores).map(function (d) { return +d; });
+    ranked.sort(function (a, b) {
+      return scores[b] - scores[a] || idx.docs[b].date.localeCompare(idx.docs[a].date);
+    });
+    return {
+      state: 'ok',
+      ignored: ignored,
+      hits: ranked.slice(0, 40).map(function (d) { return idx.docs[d]; }),
+    };
+  }
+
+  function render(q, outcome) {
     if (!q) {
-      status.textContent = data.length + ' stories indexed. Start typing to search.';
+      status.textContent = idx.docs.length + ' items indexed — stories, digest and wire. Start typing to search.';
       results.innerHTML = '';
       return;
     }
-    if (!items.length) {
-      status.textContent = 'No stories match "' + q + '".';
+    if (outcome.state === 'noMatch') {
+      status.textContent = 'No matches for "' + q + '".';
       results.innerHTML = '';
       return;
     }
-    status.textContent = items.length + ' result' + (items.length === 1 ? '' : 's');
-    results.innerHTML = items
-      .slice(0, 40)
+    var note = outcome.ignored.length
+      ? ' (ignored: ' + outcome.ignored.map(escapeHtml).join(', ') + ')'
+      : '';
+    status.textContent = outcome.hits.length + ' result' + (outcome.hits.length === 1 ? '' : 's') + note;
+    results.innerHTML = outcome.hits
       .map(function (item) {
-        var beat = beatLabels[item.beat] || item.beat;
+        var beat = item.beat ? (beatLabels[item.beat] || item.beat) : '';
+        var kind = kindLabels[item.kind] || item.kind;
         return (
-          '<a class="archive__row" href="' + storyBase + item.id + '.html">' +
-          '<span class="archive__n" style="font-family:var(--sans);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em">' + escapeHtml(beat) + '</span>' +
-          '<span class="archive__title">' + escapeHtml(item.headline) + '</span>' +
+          '<a class="archive__row archive__row--search" href="' + escapeHtml(item.url) + '">' +
+          '<span class="result-kind result-kind--' + item.kind + '">' + escapeHtml(kind) + '</span>' +
+          '<span class="archive__title">' + escapeHtml(item.title) +
+          (beat ? '<span class="result-beat">' + escapeHtml(beat) + '</span>' : '') + '</span>' +
           '<span class="archive__n">' + escapeHtml(item.date) + '</span>' +
           '</a>'
         );
@@ -1346,24 +1454,23 @@ to send it to.</p>
   }
 
   function runSearch() {
-    var q = input.value.trim().toLowerCase();
-    if (!data) return;
-    if (!q) { render([], ''); return; }
-    var scored = data
-      .map(function (item) { return { item: item, s: score(item, q) }; })
-      .filter(function (r) { return r.s > 0; })
-      .sort(function (a, b) { return b.s - a.s || b.item.date.localeCompare(a.item.date); })
-      .map(function (r) { return r.item; });
-    render(scored, q);
+    var q = input.value.trim();
+    if (!idx) return;
+    render(q, q ? query(q) : { state: 'empty', ignored: [], hits: [] });
+  }
+
+  function debouncedSearch() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(runSearch, 120);
   }
 
   status.textContent = 'Loading the archive…';
   fetch(indexUrl)
     .then(function (r) { return r.json(); })
     .then(function (json) {
-      data = json;
-      render([], '');
-      input.addEventListener('input', runSearch);
+      idx = json;
+      runSearch();
+      input.addEventListener('input', debouncedSearch);
       var params = new URLSearchParams(location.search);
       var initial = params.get('q');
       if (initial) { input.value = initial; runSearch(); }
@@ -1378,7 +1485,7 @@ to send it to.</p>
     depth: 0,
     canonical: 'search.html',
     title: `Search — ${site.name}`,
-    description: `Search every story THE VISSION has published, across every edition.`,
+    description: `Search every story, digest headline and wire item THE VISSION has ever published.`,
     content,
   });
 }
@@ -2108,27 +2215,21 @@ write(
   ) + '\n'
 );
 
-// Search index. Every published story, one flat array, deliberately thin — headline, deck,
-// beat, entities and date, not the full body — so it stays cheap to fetch even as the
-// archive grows into the hundreds. search.html filters this client-side; nothing here talks
-// to a server, because there isn't one. Sorted newest-first, the same convention as
-// everywhere else, so a tied relevance score still favours the more recent story.
+// Search index: a BM25F inverted index over every published story plus the digest and wire
+// tiers, deduplicated by source URL — see tools/lib/searchindex.mjs for why this is BM25 and
+// not a semantic layer, and for why deduplication matters (the same headline otherwise
+// resurfaces once per tier). search.html filters this client-side; nothing here talks to a
+// server, because there isn't one.
+//
+// Built from `digests` and `wireHistory` — the SAME already-loaded, already-windowed arrays
+// the digest and wire pages themselves render from — never from a fresh directory read.
+// loadDigests() slices to retention.windows.digestPages (90 days) while generated/digest/
+// keeps every file forever, so indexing from the directory would link a search result at a
+// digest page prune() has already deleted.
 write(
   'generated/search-index.json',
   JSON.stringify(
-    editions.flatMap((ed) =>
-      ed.stories.map((s) => ({
-        id: s.id,
-        headline: s.headline,
-        deck: s.deck,
-        kicker: s.kicker,
-        beat: s.beat,
-        entities: s.entities || [],
-        date: ed.edition.date,
-        confidence: s.confidence,
-        url: R.storyPath(s),
-      }))
-    ),
+    buildSearchIndex(collectDocs({ editions, digests, wireHistory, digestPathFn: digestPath })),
     null,
     0
   )

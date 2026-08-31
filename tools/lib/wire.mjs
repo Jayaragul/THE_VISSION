@@ -59,13 +59,19 @@ export function selectWireItems(candidates, { limit = 24, sourceBook, perSourceC
   return out;
 }
 
+// A wire item carries no id of its own in generated/wire/<date>.json — only title, url,
+// source and publishedAt. The "w-<i>" anchor below is positional, not a permalink: it holds
+// only within one rendering of one day's snapshot, which is consistent with the wire
+// carrying no permalink promise at all (input/retention.json; rule 3 in CLAUDE.md governs
+// story ids, not wire items). It exists so a search result can deep-link to the specific
+// row that matched instead of landing a reader on an unmarked 40-item page.
 export function wireItemsHTML(items, { sourceBook } = {}) {
   return items
-    .map((item) => {
+    .map((item, i) => {
       const host = hostOf(item.url);
       const known = sourceBook ? matchPublisher(host, sourceBook.publishers) : null;
       const publisher = known?.name || item.source || host;
-      return `<li class="wire__item">
+      return `<li class="wire__item" id="w-${i}">
 <a class="wire__link" href="${e(item.url)}" rel="noopener nofollow" target="_blank">
 <span class="wire__mark" aria-hidden="true">${e(monogram(publisher))}</span>
 <span class="wire__body">

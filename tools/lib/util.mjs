@@ -233,6 +233,47 @@ export const STOPWORDS = new Set([
   'from', 'as', 'is', 'are', 'was', 'were', 'be', 'been', 'it', 'its', 'that', 'this',
 ]);
 
+// ---------------------------------------------------------------- search ----
+
+// Search needs its OWN stemmer and tokenizer, not the digest classifier's — cluster.mjs and
+// classify.mjs both apply a `w.length > 2` filter that silently drops two-letter identifiers
+// (ai, eu, uk, us), a defect cluster.mjs's own comment already names for GPT/AWS/EU/API/xAI
+// without actually fixing it. Search cannot inherit that: "AI" is the single most frequent
+// term in this paper's whole corpus. Extending STOPWORDS itself was considered and rejected
+// — that Set is imported by validate.mjs's copyright gate, classify.mjs's beat classifier and
+// cluster.mjs's digest clustering, so widening it here would silently change all three.
+
+/** classify.mjs's stemmer drops one trailing 's'. Search adds two more of the cheapest,
+ *  safest English patterns — plural -ies and a guard against stemming words that only look
+ *  plural (bonus, us, status) — without reaching for a real stemming library. */
+export function searchStem(word) {
+  if (word.length > 4 && word.endsWith('ies')) return word.slice(0, -3) + 'y';
+  if (word.length > 4 && word.endsWith('s') && !word.endsWith('ss') && !word.endsWith('us')) {
+    return word.slice(0, -1);
+  }
+  return word;
+}
+
+/** Tokenize for the search index. Differs from classify.mjs/cluster.mjs in exactly one way,
+ *  deliberately: no length filter, only a stopword filter — see the comment above.
+ *
+ *  The possessive strip runs BEFORE punctuation is collapsed to spaces, and that ordering is
+ *  the whole fix: "Nvidia's" was previously splitting into "nvidia" + a bare "s" token, and
+ *  that "s" alone had non-trivial document frequency across the archive — pure index noise
+ *  that diluted every query touching it. */
+export function searchTokens(str) {
+  return String(str)
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/\p{Diacritic}/gu, '')
+    .replace(/['’]s\b/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .filter((w) => w && !STOPWORDS.has(w))
+    .map(searchStem);
+}
+
 export function monogram(name) {
   const words = String(name).replace(/[^A-Za-z0-9 ]/g, ' ').trim().split(/\s+/);
   if (words.length === 0) return '??';

@@ -11,7 +11,7 @@
 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Search — THE VISSION</title>
-<meta name="description" content="Search every story THE VISSION has published, across every edition.">
+<meta name="description" content="Search every story, digest headline and wire item THE VISSION has ever published.">
 <link rel="canonical" href="https://jayaragul.github.io/THE_VISSION/search.html">
 <meta name="generator" content="THE VISSION pipeline">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -23,12 +23,12 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="THE VISSION">
 <meta property="og:title" content="Search — THE VISSION">
-<meta property="og:description" content="Search every story THE VISSION has published, across every edition.">
+<meta property="og:description" content="Search every story, digest headline and wire item THE VISSION has ever published.">
 <meta property="og:url" content="https://jayaragul.github.io/THE_VISSION/search.html">
 <meta property="og:image" content="https://jayaragul.github.io/THE_VISSION/assets/img/social-card.svg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Search — THE VISSION">
-<meta name="twitter:description" content="Search every story THE VISSION has published, across every edition.">
+<meta name="twitter:description" content="Search every story, digest headline and wire item THE VISSION has ever published.">
 <meta name="twitter:image" content="https://jayaragul.github.io/THE_VISSION/assets/img/social-card.svg">
 
 <meta name="author" content="THE VISSION Desk — founded by Jayaragul N">
@@ -76,14 +76,15 @@
 <section class="editorsnote">
 <div class="editorsnote__label">Search</div>
 <div>
-<h1 class="editorsnote__title">Search every story this paper has published.</h1>
-<p class="editorsnote__body">Matches headlines, decks, companies and topics across the full archive. Runs
-entirely in your browser against a single downloaded index — nothing is sent anywhere, and there is nothing
-to send it to.</p>
+<h1 class="editorsnote__title">Search the whole archive.</h1>
+<p class="editorsnote__body">Every published story, plus the ranked digest and the raw wire — each
+result labelled with which one it came from, since only the Edition is this paper's own reporting.
+Runs entirely in your browser against a single downloaded index — nothing is sent anywhere, and
+there is nothing to send it to.</p>
 </div>
 </section>
 <section class="section" style="border-bottom:0">
-<input type="search" id="search-input" class="search-input" placeholder="Search stories — try a company, model or topic…" autocomplete="off" aria-label="Search stories">
+<input type="search" id="search-input" class="search-input" placeholder="Search stories, digest and wire — try a company, model or topic…" autocomplete="off" aria-label="Search the archive">
 <p id="search-status" class="search-status" role="status"></p>
 <div id="search-results"></div>
 </section>
@@ -95,8 +96,12 @@ to send it to.</p>
   var results = document.getElementById('search-results');
   var indexUrl = "./generated/search-index.json";
   var beatLabels = {"models":"Models","research":"Research","business":"Business","policy":"Policy","infrastructure":"Infrastructure","society":"Society","india":"India"};
-  var storyBase = "./story/";
-  var data = null;
+  var kindLabels = { story: 'Edition', digest: 'Digest', wire: 'Wire' };
+  // Generated from the same STOPWORDS set the build tokenizer uses, so this list at least
+  // can never drift even though the two tokenizer FUNCTIONS are separate copies.
+  var stopwords = ["the","a","an","and","or","of","to","in","on","for","with","at","by","from","as","is","are","was","were","be","been","it","its","that","this"];
+  var idx = null;
+  var debounceTimer = null;
 
   function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
@@ -104,41 +109,129 @@ to send it to.</p>
     });
   }
 
-  // Substring match across headline, deck, kicker and entities, weighted so a headline hit
-  // ranks above a deck hit, an entity hit above either — searching "Nvidia" should surface
-  // every Nvidia story before a story that merely mentions Nvidia in passing prose.
-  function score(item, q) {
-    var s = 0;
-    var headline = item.headline.toLowerCase();
-    var deck = (item.deck || '').toLowerCase();
-    var entities = (item.entities || []).join(' ').toLowerCase();
-    if (entities.indexOf(q) !== -1) s += 5;
-    if (headline.indexOf(q) !== -1) s += 3;
-    if ((item.kicker || '').toLowerCase().indexOf(q) !== -1) s += 2;
-    if (deck.indexOf(q) !== -1) s += 1;
-    return s;
+  // Mirrors searchStem() in tools/lib/util.mjs.
+  function stem(w) {
+    if (w.length > 4 && w.slice(-3) === 'ies') return w.slice(0, -3) + 'y';
+    if (w.length > 4 && w.slice(-1) === 's' && w.slice(-2) !== 'ss' && w.slice(-2) !== 'us') {
+      return w.slice(0, -1);
+    }
+    return w;
   }
 
-  function render(items, q) {
+  // Mirrors searchTokens() in tools/lib/util.mjs — same possessive-before-punctuation
+  // ordering, same "no length filter, stopwords only" rule that keeps AI/EU/UK/US searchable.
+  function tokenize(s) {
+    var stopSet = {};
+    for (var i = 0; i < stopwords.length; i++) stopSet[stopwords[i]] = true;
+    var out = [];
+    var raw = String(s)
+      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/['’]s\b/g, '')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim()
+      .split(/\s+/);
+    for (var j = 0; j < raw.length; j++) {
+      var w = raw[j];
+      if (w && !stopSet[w]) out.push(stem(w));
+    }
+    return out;
+  }
+
+  function lowerBound(sorted, target) {
+    var lo = 0, hi = sorted.length;
+    while (lo < hi) {
+      var mid = (lo + hi) >> 1;
+      if (sorted[mid] < target) lo = mid + 1; else hi = mid;
+    }
+    return lo;
+  }
+
+  // Mirrors queryIndex() in tools/lib/searchindex.mjs. See that function's own comment for
+  // why an unmatched query returns an explicit no-match rather than a sorted zero-score list.
+  function query(q) {
+    var tokens = tokenize(q);
+    if (!tokens.length) return { state: 'empty', ignored: [], hits: [] };
+
+    var dict = idx.dict;
+    var matched = {}; // term -> weight
+    var ignored = [];
+    for (var ti = 0; ti < tokens.length; ti++) {
+      var tok = tokens[ti];
+      var lo = lowerBound(dict, tok);
+      if (dict[lo] === tok) {
+        matched[tok] = 1;
+        continue;
+      }
+      if (ti === tokens.length - 1 && tok.length >= 3) {
+        var found = 0;
+        for (var i2 = lo; i2 < dict.length && dict[i2].indexOf(tok) === 0; i2++) {
+          matched[dict[i2]] = 0.6;
+          found++;
+        }
+        if (!found) ignored.push(tok);
+      } else {
+        ignored.push(tok);
+      }
+    }
+
+    var terms = Object.keys(matched);
+    if (!terms.length) return { state: 'noMatch', ignored: ignored, hits: [] };
+
+    var scores = {}; // docIndex -> score
+    for (var k = 0; k < terms.length; k++) {
+      var term = terms[k];
+      var ti2 = lowerBound(dict, term);
+      if (dict[ti2] !== term) continue;
+      var df = idx.df[ti2];
+      var idf = Math.log(1 + (idx.n - df + 0.5) / (df + 0.5));
+      var pair = idx.post[ti2];
+      var docIdx = pair[0], tfs = pair[1];
+      for (var m = 0; m < docIdx.length; m++) {
+        var d = docIdx[m];
+        var tf = tfs[m];
+        var norm = 1 - idx.b + idx.b * (idx.docLengths[d] / (idx.avgdl || 1));
+        var contribution = matched[term] * idf * ((tf * (idx.k1 + 1)) / (tf + idx.k1 * norm));
+        scores[d] = (scores[d] || 0) + contribution;
+      }
+    }
+
+    var ranked = Object.keys(scores).map(function (d) { return +d; });
+    ranked.sort(function (a, b) {
+      return scores[b] - scores[a] || idx.docs[b].date.localeCompare(idx.docs[a].date);
+    });
+    return {
+      state: 'ok',
+      ignored: ignored,
+      hits: ranked.slice(0, 40).map(function (d) { return idx.docs[d]; }),
+    };
+  }
+
+  function render(q, outcome) {
     if (!q) {
-      status.textContent = data.length + ' stories indexed. Start typing to search.';
+      status.textContent = idx.docs.length + ' items indexed — stories, digest and wire. Start typing to search.';
       results.innerHTML = '';
       return;
     }
-    if (!items.length) {
-      status.textContent = 'No stories match "' + q + '".';
+    if (outcome.state === 'noMatch') {
+      status.textContent = 'No matches for "' + q + '".';
       results.innerHTML = '';
       return;
     }
-    status.textContent = items.length + ' result' + (items.length === 1 ? '' : 's');
-    results.innerHTML = items
-      .slice(0, 40)
+    var note = outcome.ignored.length
+      ? ' (ignored: ' + outcome.ignored.map(escapeHtml).join(', ') + ')'
+      : '';
+    status.textContent = outcome.hits.length + ' result' + (outcome.hits.length === 1 ? '' : 's') + note;
+    results.innerHTML = outcome.hits
       .map(function (item) {
-        var beat = beatLabels[item.beat] || item.beat;
+        var beat = item.beat ? (beatLabels[item.beat] || item.beat) : '';
+        var kind = kindLabels[item.kind] || item.kind;
         return (
-          '<a class="archive__row" href="' + storyBase + item.id + '.html">' +
-          '<span class="archive__n" style="font-family:var(--sans);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em">' + escapeHtml(beat) + '</span>' +
-          '<span class="archive__title">' + escapeHtml(item.headline) + '</span>' +
+          '<a class="archive__row archive__row--search" href="' + escapeHtml(item.url) + '">' +
+          '<span class="result-kind result-kind--' + item.kind + '">' + escapeHtml(kind) + '</span>' +
+          '<span class="archive__title">' + escapeHtml(item.title) +
+          (beat ? '<span class="result-beat">' + escapeHtml(beat) + '</span>' : '') + '</span>' +
           '<span class="archive__n">' + escapeHtml(item.date) + '</span>' +
           '</a>'
         );
@@ -147,24 +240,23 @@ to send it to.</p>
   }
 
   function runSearch() {
-    var q = input.value.trim().toLowerCase();
-    if (!data) return;
-    if (!q) { render([], ''); return; }
-    var scored = data
-      .map(function (item) { return { item: item, s: score(item, q) }; })
-      .filter(function (r) { return r.s > 0; })
-      .sort(function (a, b) { return b.s - a.s || b.item.date.localeCompare(a.item.date); })
-      .map(function (r) { return r.item; });
-    render(scored, q);
+    var q = input.value.trim();
+    if (!idx) return;
+    render(q, q ? query(q) : { state: 'empty', ignored: [], hits: [] });
+  }
+
+  function debouncedSearch() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(runSearch, 120);
   }
 
   status.textContent = 'Loading the archive…';
   fetch(indexUrl)
     .then(function (r) { return r.json(); })
     .then(function (json) {
-      data = json;
-      render([], '');
-      input.addEventListener('input', runSearch);
+      idx = json;
+      runSearch();
+      input.addEventListener('input', debouncedSearch);
       var params = new URLSearchParams(location.search);
       var initial = params.get('q');
       if (initial) { input.value = initial; runSearch(); }

@@ -57,6 +57,12 @@ function sizeOf(dir) {
   return bytes;
 }
 
+function sizeOfFile(path) {
+  const full = OUT(path);
+  if (!existsSync(full)) return 0;
+  return statSync(full).size;
+}
+
 const mb = (bytes) => bytes / 1024 / 1024;
 const fmt = (bytes) => `${mb(bytes).toFixed(1)} MB`;
 
@@ -84,6 +90,13 @@ const perEdition = editionCount ? permanentBytes / editionCount : 0;
 
 // entity/ grows sublinearly — entities recur across editions — so it is reported but
 // deliberately left out of the projection, which would otherwise overstate the slope.
+//
+// generated/wire is NOT windowed, unlike the label this line item carried until it was
+// corrected here: loadWireHistory() in tools/lib/wire.mjs has no slice, unlike loadDigests()
+// in build.mjs, which caps at retention.windows.digestPages. Every wire snapshot ever taken
+// is kept and rendered forever. That may be worth windowing to match the digest, but this
+// tool's job is to measure and report honestly, not to decide policy on its own — so the
+// label now says what actually happens instead of what was intended.
 const breakdown = {
   'story/ (permanent)': sizeOf('story'),
   'edition/ (permanent)': sizeOf('edition'),
@@ -92,7 +105,12 @@ const breakdown = {
   'entity/ (permanent, sublinear)': sizeOf('entity'),
   'digest/ + generated/digest (windowed)': sizeOf('digest') + sizeOf(join('generated', 'digest')),
   'generated/candidates (scratch)': sizeOf(join('generated', 'candidates')),
-  'generated/wire (windowed)': sizeOf(join('generated', 'wire')),
+  'generated/wire (unwindowed — kept forever)': sizeOf(join('generated', 'wire')),
+  // Grows with the archive rather than the edition, and rebuilt in full on every build — the
+  // one thing this line item cannot show is the git-history cost of that, because walk()
+  // reads the working tree and .git is explicitly excluded above. Worth revisiting once the
+  // index is large enough that its own size is a meaningful fraction of a day's growth.
+  'generated/search-index.json': sizeOfFile(join('generated', 'search-index.json')),
 };
 
 // ------------------------------------------------------------- scratch ----
