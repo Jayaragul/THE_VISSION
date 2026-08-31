@@ -1,6 +1,6 @@
 {
   "$comment": "Written by tools/linkcheck.mjs. Only unhealthy links are recorded; a healthy link has no row and a recovered link drops out. \"blocked\" (403/429/451) is NOT a dead link — the publisher blocks automated fetches while serving human readers. Only confirmedGone (404/410 on 3 consecutive checks) is treated as rot by the build.",
-  "updatedAt": "2026-08-28T08:18:06.286Z",
+  "updatedAt": "2026-08-31T10:55:47.252Z",
   "goneAfter": 3,
   "totalPublished": 112,
   "checkedThisRun": 112,
@@ -22,7 +22,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:18:06.286Z",
-      "lastChecked": "2026-08-28T08:18:06.286Z"
+      "lastChecked": "2026-08-31T10:55:47.252Z"
     },
     "https://www.bloomberg.com/news/articles/2026-08-12/ai-startup-cognition-in-new-funding-talks-at-40-billion-value": {
       "publisher": "Bloomberg",
@@ -34,7 +34,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-08-28T08:18:06.286Z"
+      "lastChecked": "2026-08-31T10:55:47.252Z"
     },
     "https://www.bloomberg.com/news/articles/2026-08-17/anthropic-revenue-run-rate-surpasses-65-billion-ahead-of-ipo": {
       "publisher": "Bloomberg",
@@ -46,7 +46,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-08-28T08:18:06.286Z"
+      "lastChecked": "2026-08-31T10:55:47.252Z"
     },
     "https://www.bloomberg.com/news/articles/2026-08-16/stripe-nears-deal-to-buy-ai-firm-openrouter-for-over-7-billion": {
       "publisher": "Bloomberg",
@@ -58,7 +58,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-08-28T08:18:06.286Z"
+      "lastChecked": "2026-08-31T10:55:47.252Z"
     },
     "https://www.bloomberg.com/news/articles/2026-08-18/anthropic-pre-ipo-credit-facility-set-to-climb-past-10-billion": {
       "publisher": "Bloomberg",
@@ -70,7 +70,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-08-28T08:18:06.286Z"
+      "lastChecked": "2026-08-31T10:55:47.252Z"
     },
     "https://www.investing.com/news/stock-market-news/anthropic-targets-10b-credit-facility-ahead-of-planned-public-debut--bloomberg-4865794": {
       "publisher": "Investing.com",
@@ -82,19 +82,19 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-08-28T08:18:06.286Z"
+      "lastChecked": "2026-08-31T10:55:47.252Z"
     },
-    "https://www.forbes.com/sites/conormurray/2026/08/18/most-young-americans-are-more-concerned-about-ai-than-excited-pew-survey-finds/": {
-      "publisher": "Forbes",
+    "https://openai.com/index/introducing-parental-controls/": {
+      "publisher": "OpenAI",
       "stories": [
-        "2026-08-19-pew-ai-concern-survey"
+        "2026-08-19-chatgpt-for-teens"
       ],
       "status": "blocked",
       "code": 403,
       "consecutiveGone": 0,
       "confirmedGone": false,
-      "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-08-28T08:18:06.286Z"
+      "firstSeenBad": "2026-08-31T10:55:47.252Z",
+      "lastChecked": "2026-08-31T10:55:47.252Z"
     },
     "https://www.bloomberg.com/news/articles/2026-08-19/ai-chip-startup-fractile-in-talks-for-6-5-billion-value-after-anthropic-deal": {
       "publisher": "Bloomberg",
@@ -106,7 +106,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-08-28T08:18:06.286Z"
+      "lastChecked": "2026-08-31T10:55:47.252Z"
     },
     "https://www.bloomberg.com/news/articles/2026-08-19/sk-hynix-announces-28-6-billion-share-buy-back-on-ai-boom": {
       "publisher": "Bloomberg",
@@ -118,7 +118,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-08-28T08:18:06.286Z"
+      "lastChecked": "2026-08-31T10:55:47.252Z"
     },
     "https://openai.com/index/offering-zero-data-retention-for-frontier-models/": {
       "publisher": "OpenAI",
@@ -130,7 +130,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-08-28T08:18:06.286Z"
+      "lastChecked": "2026-08-31T10:55:47.252Z"
     },
     "https://venturebeat.com/technology/nvidia-finds-that-simple-linear-math-can-replace-costly-ai-model-handoffs": {
       "publisher": "VentureBeat",
@@ -142,7 +142,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-08-28T08:18:06.286Z"
+      "lastChecked": "2026-08-31T10:55:47.252Z"
     },
     "https://venturebeat.com/infrastructure/perplexity-partners-with-nvidia-to-launch-portable-computer-a-fully-local-ai-agent-with-zero-token-costs": {
       "publisher": "VentureBeat",
@@ -154,7 +154,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-08-28T08:18:06.286Z"
+      "lastChecked": "2026-08-31T10:55:47.252Z"
     },
     "https://www.courtlistener.com/docket/72379655/anthropic-pbc-v-us-department-of-war/": {
       "publisher": "CourtListener",
@@ -166,7 +166,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-08-28T08:18:06.286Z"
+      "lastChecked": "2026-08-31T10:55:47.252Z"
     },
     "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-in-early-talks-to-buy-inference-chips-from-uk-startup": {
       "publisher": "Tom's Hardware",
