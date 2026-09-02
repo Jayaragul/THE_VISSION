@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--
+  THE VISSION — The daily record of artificial intelligence
+  Built by Jayaragul N · CBE Devs
+  https://github.com/Jayaragul/THE_VISSION
+
+  Every page here is build output. The source of truth is generated/*.json.
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CordisBench tests how language models reason about software lifecycles inside agents — THE VISSION</title>
+<meta name="description" content="The 1,200-question benchmark reveals that frontier models struggle to anticipate how plugin changes and component teardowns propagate through complex software environments.">
+<link rel="canonical" href="https://jayaragul.github.io/THE_VISSION/story/2026-09-02-cordisbench-agent-lifecycle-reasoning-benchmark.html">
+<meta name="generator" content="THE VISSION pipeline">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta name="keywords" content="arXiv, OpenAI, Research">
+<meta name="news_keywords" content="arXiv, OpenAI, Research">
+<meta property="og:locale" content="en">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="THE VISSION">
+<meta property="og:title" content="CordisBench tests how language models reason about software lifecycles inside agents — THE VISSION">
+<meta property="og:description" content="The 1,200-question benchmark reveals that frontier models struggle to anticipate how plugin changes and component teardowns propagate through complex software environments.">
+<meta property="og:url" content="https://jayaragul.github.io/THE_VISSION/story/2026-09-02-cordisbench-agent-lifecycle-reasoning-benchmark.html">
+<meta property="og:image" content="https://jayaragul.github.io/THE_VISSION/assets/img/covers/2026-09-02-cordisbench-agent-lifecycle-reasoning-benchmark.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CordisBench tests how language models reason about software lifecycles inside agents — THE VISSION">
+<meta name="twitter:description" content="The 1,200-question benchmark reveals that frontier models struggle to anticipate how plugin changes and component teardowns propagate through complex software environments.">
+<meta name="twitter:image" content="https://jayaragul.github.io/THE_VISSION/assets/img/covers/2026-09-02-cordisbench-agent-lifecycle-reasoning-benchmark.svg">
+
+<meta name="author" content="THE VISSION Desk — founded by Jayaragul N">
+<meta name="theme-color" content="#c8102e" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c0b0a" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="THE VISSION" href="../rss.xml">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>try{var t=localStorage.getItem('tv-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"CordisBench tests how language models reason about software lifecycles inside agents","description":"The 1,200-question benchmark reveals that frontier models struggle to anticipate how plugin changes and component teardowns propagate through complex software environments.","datePublished":"2026-09-02T11:45:00Z","dateModified":"2026-09-02T11:45:00Z","articleSection":"Research","keywords":"","author":{"@type":"Organization","name":"THE VISSION Desk","url":"https://jayaragul.github.io/THE_VISSION"},"publisher":{"@type":"Organization","name":"THE VISSION","url":"https://jayaragul.github.io/THE_VISSION"},"mainEntityOfPage":"https://jayaragul.github.io/THE_VISSION/story/2026-09-02-cordisbench-agent-lifecycle-reasoning-benchmark.html","image":["https://jayaragul.github.io/THE_VISSION/assets/img/covers/2026-09-02-cordisbench-agent-lifecycle-reasoning-benchmark.svg"],"citation":[{"@type":"CreativeWork","name":"CordisBench: Can Language Models Reason About Component Lifecycles in Dynamic Agent Harnesses?","url":"https://arxiv.org/abs/2609.01600v1","publisher":{"@type":"Organization","name":"arXiv"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","name":"THE VISSION","url":"https://jayaragul.github.io/THE_VISSION/","description":"An autonomously researched, written and published daily briefing on artificial intelligence — models, capital, policy, research and infrastructure.","slogan":"The daily record of artificial intelligence","foundingDate":"2026","founder":{"@type":"Person","name":"Jayaragul N"},"copyrightHolder":{"@type":"Person","name":"Jayaragul N"},"logo":"https://jayaragul.github.io/THE_VISSION/assets/img/social-card.svg","sameAs":["https://github.com/Jayaragul/THE_VISSION"],"ethicsPolicy":"https://jayaragul.github.io/THE_VISSION/methodology.html","publishingPrinciples":"https://jayaragul.github.io/THE_VISSION/methodology.html"}</script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><div class="wrap topbar__in">
+<span class="topbar__date">Wednesday, 2 September 2026</span>
+<span class="topbar__edition-number">No. 10</span>
+<span class="topbar__spacer"></span>
+<span class="live">Updated <time datetime="2026-09-02T11:45:00Z" data-relative>2 Sep 2026</time></span>
+<button class="themetoggle" type="button" data-theme-toggle>Dark</button>
+</div></div>
+<header class="masthead">
+<div class="wrap">
+<a class="masthead__title" href="../index.html">THE <em>VISSION</em></a>
+<div class="masthead__rule" role="presentation"></div>
+<div class="masthead__tagline">The daily record of artificial intelligence</div>
+<p class="masthead__note">Every story on this site is researched, written and published by an autonomous editorial pipeline. Every claim links to its primary source.</p>
+</div>
+</header>
+<nav class="beatnav" aria-label="Sections"><div class="wrap beatnav__in">
+<a href="../index.html#models">Models</a><a href="../index.html#research">Research</a><a href="../index.html#business">Business</a><a href="../index.html#policy">Policy</a><a href="../index.html#infrastructure">Infrastructure</a><a href="../index.html#society">Society</a><a href="../index.html#india">India</a>
+<span class="beatnav__sep"></span>
+<a href="../search.html">Search</a>
+<a class="is-quiet" href="../index.html#wire">Wire</a>
+<a class="is-quiet" href="../digest.html">Digest</a>
+<a class="is-quiet" href="../weekly.html">Weekly</a>
+<a class="is-quiet" href="../hackathons.html">Hackathons</a>
+<a class="is-quiet" href="../topics.html">Topics</a>
+<a class="is-quiet" href="../archive.html">Archive</a>
+<a class="is-quiet" href="../methodology.html">Method</a>
+<a class="is-quiet" href="../rss.xml">RSS</a>
+</div></nav>
+<main id="main">
+<div class="wrap article">
+<div class="crumbs">
+<a href="../index.html">Front page</a><span>/</span>
+<a href="../index.html#research">Research</a><span>/</span>
+<a href="../edition/2026-09-02.html">2 Sep 2026</a>
+</div>
+
+<div class="article__grid">
+<article style="--beat-accent:#5b3fd6">
+<div class="kicker">Agent evaluation</div>
+<h1 class="article__title">CordisBench tests how language models reason about software lifecycles inside agents</h1>
+<p class="article__deck">The 1,200-question benchmark reveals that frontier models struggle to anticipate how plugin changes and component teardowns propagate through complex software environments.</p>
+
+<div class="article__byline">
+<span class="byline__name">THE VISSION Desk</span>
+<div class="meta" style="margin:0">
+
+<span><time datetime="2026-09-02T11:45:00Z">Wednesday, 2 September 2026</time></span>
+<span>2 min read</span>
+<span>1 source</span>
+<span><span class="tag" title="high confidence">Primary source confirmed</span></span>
+</div>
+</div>
+
+<img class="article__cover" src="../assets/img/covers/2026-09-02-cordisbench-agent-lifecycle-reasoning-benchmark.svg" alt="" width="1200" height="675" fetchpriority="high">
+<p class="article__caption">Original cover art, generated for this story. THE VISSION does not republish third-party press imagery.</p>
+
+<div class="callout">
+<div class="callout__label">The short version</div>
+<ul class="keypoints" style="border-left-color:var(--accent);margin-bottom:0">
+<li>Researchers introduced CordisBench, a 1,200-question benchmark designed to test how language models reason about component lifecycles in dynamic agent harnesses, per a September 1 arXiv paper.</li><li>The evaluation reveals that while models handle simple environments well, their reliability collapses when tracking complex interactions, requiring up to 3,000 reasoning tokens per question.</li><li>The authors suggest that developers can bypass this high computational cost by integrating independent finite reference semantics that align perfectly with runtime executions.</li>
+</ul>
+</div>
+
+
+
+<div class="prose"><p>A new research paper published on arXiv on September 1 has introduced CordisBench, a benchmark designed to evaluate how effectively language models (LMs) reason about the software components they interact with. Authored by Damien Sileo and Dimitri Kachler, the paper, titled &#39;CordisBench: Can Language Models Reason About Component Lifecycles in Dynamic Agent Harnesses?&#39;, highlights a critical reasoning bottleneck for modern autonomous agents.</p><p>Dynamic agent harnesses let LMs modify the very software environment that shapes their own execution, such as adding or disabling plugins. This capability introduces a new cognitive burden: a local component change can propagate through software dependencies, requiring meticulous teardowns and cleanups. CordisBench evaluates this ability across 1,200 questions using Cordis, a runtime environment that manages component dependencies and system reconfigurations.</p><p>The authors found that while frontier models excel at managing simple setups, their performance degrades significantly when tracking systems with up to 32 cascading interactions. Reasoning about final states and sequential teardowns proved particularly difficult. The benchmark revealed a high computational cost: for a 16-interaction task, OpenAI&#39;s GPT-5.6 Luna required nearly 3,000 reasoning tokens per question at a medium reasoning setting. To address this, the authors developed independent finite reference semantics that match Cordis executions perfectly, suggesting developers can use deterministic structures to bypass expensive LM reasoning.</p></div>
+
+<div class="callout"><div class="callout__label">Why it matters</div><p>As agents are given more autonomy to reconfigure their own software harnesses, they must be able to predict how their environment will react to a change before they execute it. CordisBench exposes that frontier models are highly inefficient at tracking these state cascades, warning developers that relying purely on LLM reasoning for system configuration is a high-latency, high-cost anti-pattern that should be replaced with deterministic state tracking.</p></div>
+
+
+
+
+
+<div class="topics" style="margin-top:30px"><a class="topic" href="../entity/arxiv.html">arXiv</a><a class="topic" href="../entity/openai.html">OpenAI</a></div>
+</article>
+
+<aside class="rail">
+<div class="rail__block">
+<h2 class="rail__title">Sources</h2>
+<ol class="sourcelist"><li>
+<span class="source__mark" aria-hidden="true">AR</span>
+<span>
+<a href="https://arxiv.org/abs/2609.01600v1" rel="noopener nofollow" target="_blank">CordisBench: Can Language Models Reason About Component Lifecycles in Dynamic Agent Harnesses?</a>
+<span class="pub"><span title="The organisation, filing, paper or dataset itself.">arXiv · Primary</span></span>
+</span>
+</li></ol>
+</div>
+<div class="rail__block">
+<h2 class="rail__title">Also in this edition</h2>
+<ul class="rail__list">
+<li><a href="../story/2026-09-02-verbal-reinforcement-learning-arxiv-paper.html"><span class="k">Research</span>Researchers outline the rise of Verbal Reinforcement Learning to replace scalar rewards</a></li><li><a href="../story/2026-09-02-ai-interstellar-trajectory-fermi-mission.html"><span class="k">Research</span>AI-designed solar-bypass trajectory plots 80,000-year voyage to Alpha Centauri</a></li><li><a href="../story/2026-09-02-anthropic-claude-fable-mythos-5-1-release.html"><span class="k">Models</span>Anthropic releases Claude Fable 5.1 and Mythos 5.1, cutting cache prices by 75%</a></li><li><a href="../story/2026-09-02-afterquery-unicorn-valuation-forbes-report.html"><span class="k">Business</span>AfterQuery achieves $3.2 billion valuation as Y Combinator&#39;s fastest-ever unicorn</a></li><li><a href="../story/2026-09-02-unsealed-anthropic-staff-chats-sony-music-suit.html"><span class="k">Policy</span>Unsealed Anthropic staff chats (&quot;zlibrary my beloved&quot;) revealed in music publisher suit</a></li>
+</ul>
+</div>
+<div class="rail__block">
+<h2 class="rail__title">How this was made</h2>
+<p style="font-family:var(--sans);font-size:.82rem;line-height:1.6;color:var(--muted)">
+Researched, written and published by an automated pipeline, then checked against the paper's
+editorial rules before release. <a href="../methodology.html" style="color:var(--accent)">Read the method</a>.
+</p>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<footer class="footer"><div class="wrap">
+<div class="footer__grid">
+<div>
+<div class="footer__mark">THE <em>VISSION</em></div>
+<p>Every story on this site is researched, written and published by an autonomous editorial pipeline. Every claim links to its primary source.</p>
+<div class="footer__community"><span class="footer__communitymark is-raster"><img src="../assets/img/cbe-devs.png" alt="CBE Devs" width="552" height="524" decoding="async"></span><span>A CBE Devs project.</span></div>
+</div>
+<div>
+<h4>Sections</h4>
+<ul><li><a href="../index.html#models">Models</a></li><li><a href="../index.html#research">Research</a></li><li><a href="../index.html#business">Business</a></li><li><a href="../index.html#policy">Policy</a></li><li><a href="../index.html#infrastructure">Infrastructure</a></li><li><a href="../index.html#society">Society</a></li><li><a href="../index.html#india">India</a></li></ul>
+</div>
+<div>
+<h4>The paper</h4>
+<ul>
+<li><a href="../digest.html">Digest (no AI)</a></li>
+<li><a href="../weekly.html">Weekly review</a></li>
+<li><a href="../hackathons.html">Hackathons</a></li>
+<li><a href="../topics.html">Topics</a></li>
+<li><a href="../archive.html">Archive</a></li>
+<li><a href="../open-questions.html">Open questions</a></li>
+<li><a href="../methodology.html">Methodology</a></li>
+
+<li><a href="../corrections.html">Corrections</a></li>
+<li><a href="../legal.html">Rights &amp; licensing</a></li>
+<li><a href="../terms.html">Terms of use</a></li>
+<li><a href="../privacy.html">Privacy</a></li>
+<li><a href="../rss.xml">RSS feed</a></li>
+<li><a href="../generated/index.json">Data (JSON)</a></li>
+</ul>
+</div>
+<div>
+<h4>Open</h4>
+<ul>
+<li><a href="https://github.com/Jayaragul/THE_VISSION" rel="noopener">Source repository</a></li>
+<li><a href="https://github.com/Jayaragul/THE_VISSION/tree/main/input" rel="noopener">Editorial rules</a></li>
+<li><a href="https://github.com/Jayaragul/THE_VISSION/tree/main/evals" rel="noopener">Evaluations</a></li>
+</ul>
+</div>
+</div>
+<div class="footer__base">
+<span>© 2026 Jayaragul N</span>
+<span>Founded by Jayaragul N · CBE Devs</span>
+<span>No advertising. No sponsorship. No position in anything covered.</span>
+<span><a href="https://github.com/Jayaragul/THE_VISSION/blob/main/LICENSE" rel="noopener" style="text-decoration:none">Licence</a> · Content CC BY-NC-ND 4.0</span>
+</div>
+</div></footer>
+<script src="../assets/js/app.js" defer></script>
+</body>
+</html>

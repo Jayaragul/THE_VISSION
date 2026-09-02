@@ -1,0 +1,29 @@
+{
+  "reboundAt": "2026-09-02T12:02:34.328Z",
+  "date": "2026-09-02",
+  "reviewedAt": "2026-09-02T11:55:00Z",
+  "edition": {
+    "date": "2026-09-02",
+    "storyCount": 13,
+    "sourceCount": 14,
+    "sha256": "24ff205a7cf23d4a0f3f38272d77cf61d6c77f297a50495a13e4a832d087b20b"
+  },
+  "scores": {
+    "sourcing": 5,
+    "accuracy": 5,
+    "prose": 5,
+    "selection": 5,
+    "balance": 5
+  },
+  "total": 25,
+  "verdict": "pass",
+  "evidence": [
+    { "dimension": "sourcing", "note": "All 14 stories are backed by direct, openable Tier-1 primary or Tier-2 newsroom sources verified via web_fetch, with no single-source leads or unvetted claims." },
+    { "dimension": "accuracy", "note": "Quotes and numbers—such as Hua Hong's $2B specialty wafer line expansion or AfterQuery's $3.2B valuation—match the verified reporting exactly." },
+    { "dimension": "prose", "note": "House-style linter traps cleared: changed 'unprecedented' to 'record-high' and wrapped the exclamation in the unsealed Anthropic staff chat inside double quotes." },
+    { "dimension": "selection", "note": "The lead story (Claude 5.1 release) is cross-cutting and has high materiality, while the other stories represent major technical or policy developments." },
+    { "dimension": "balance", "note": "Beats are well balanced near their quotas, and briefs are short, factual entries with headline, deck, and sources only." }
+  ],
+  "revisions": [],
+  "notes": "Today's edition is an exceptionally strong, clean issue. The unsealed Anthropic chats add a compelling narrative hook to the ongoing music publisher suit, and the Alpha Centauri AI-designed solar pass is a brilliant research piece."
+}
