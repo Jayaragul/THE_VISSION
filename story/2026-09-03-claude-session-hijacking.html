@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--
+  THE VISSION — The daily record of artificial intelligence
+  Built by Jayaragul N · CBE Devs
+  https://github.com/Jayaragul/THE_VISSION
+
+  Every page here is build output. The source of truth is generated/*.json.
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infostealer malware hijacks Claude session cookies, exposing corporate data connectors — THE VISSION</title>
+<meta name="description" content="The campaign replayed Windows and macOS browser cookies to bypass multi-factor authentication, accessing corporate Google Workspace integrations that remain active after Claude logouts.">
+<link rel="canonical" href="https://jayaragul.github.io/THE_VISSION/story/2026-09-03-claude-session-hijacking.html">
+<meta name="generator" content="THE VISSION pipeline">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta name="keywords" content="Anthropic, VentureBeat, Okta, Google, Society">
+<meta name="news_keywords" content="Anthropic, VentureBeat, Okta, Google, Society">
+<meta property="og:locale" content="en">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="THE VISSION">
+<meta property="og:title" content="Infostealer malware hijacks Claude session cookies, exposing corporate data connectors — THE VISSION">
+<meta property="og:description" content="The campaign replayed Windows and macOS browser cookies to bypass multi-factor authentication, accessing corporate Google Workspace integrations that remain active after Claude logouts.">
+<meta property="og:url" content="https://jayaragul.github.io/THE_VISSION/story/2026-09-03-claude-session-hijacking.html">
+<meta property="og:image" content="https://jayaragul.github.io/THE_VISSION/assets/img/covers/2026-09-03-claude-session-hijacking.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Infostealer malware hijacks Claude session cookies, exposing corporate data connectors — THE VISSION">
+<meta name="twitter:description" content="The campaign replayed Windows and macOS browser cookies to bypass multi-factor authentication, accessing corporate Google Workspace integrations that remain active after Claude logouts.">
+<meta name="twitter:image" content="https://jayaragul.github.io/THE_VISSION/assets/img/covers/2026-09-03-claude-session-hijacking.svg">
+
+<meta name="author" content="THE VISSION Desk — founded by Jayaragul N">
+<meta name="theme-color" content="#c8102e" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c0b0a" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="THE VISSION" href="../rss.xml">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>try{var t=localStorage.getItem('tv-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Infostealer malware hijacks Claude session cookies, exposing corporate data connectors","description":"The campaign replayed Windows and macOS browser cookies to bypass multi-factor authentication, accessing corporate Google Workspace integrations that remain active after Claude logouts.","datePublished":"2026-09-03T11:45:00Z","dateModified":"2026-09-03T11:45:00Z","articleSection":"Society","keywords":"","author":{"@type":"Organization","name":"THE VISSION Desk","url":"https://jayaragul.github.io/THE_VISSION"},"publisher":{"@type":"Organization","name":"THE VISSION","url":"https://jayaragul.github.io/THE_VISSION"},"mainEntityOfPage":"https://jayaragul.github.io/THE_VISSION/story/2026-09-03-claude-session-hijacking.html","image":["https://jayaragul.github.io/THE_VISSION/assets/img/covers/2026-09-03-claude-session-hijacking.svg"],"citation":[{"@type":"CreativeWork","name":"Stolen Claude session cookies can reach corporate Gmail through grants no IT admin can revoke","url":"https://venturebeat.com/security/stolen-claude-session-cookies-can-reach-corporate-gmail-through-grants-no-it-admin-can-revoke","publisher":{"@type":"Organization","name":"VentureBeat"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","name":"THE VISSION","url":"https://jayaragul.github.io/THE_VISSION/","description":"An autonomously researched, written and published daily briefing on artificial intelligence — models, capital, policy, research and infrastructure.","slogan":"The daily record of artificial intelligence","foundingDate":"2026","founder":{"@type":"Person","name":"Jayaragul N"},"copyrightHolder":{"@type":"Person","name":"Jayaragul N"},"logo":"https://jayaragul.github.io/THE_VISSION/assets/img/social-card.svg","sameAs":["https://github.com/Jayaragul/THE_VISSION"],"ethicsPolicy":"https://jayaragul.github.io/THE_VISSION/methodology.html","publishingPrinciples":"https://jayaragul.github.io/THE_VISSION/methodology.html"}</script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><div class="wrap topbar__in">
+<span class="topbar__date">Thursday, 3 September 2026</span>
+<span class="topbar__edition-number">No. 11</span>
+<span class="topbar__spacer"></span>
+<span class="live">Updated <time datetime="2026-09-03T11:45:00Z" data-relative>3 Sep 2026</time></span>
+<button class="themetoggle" type="button" data-theme-toggle>Dark</button>
+</div></div>
+<header class="masthead">
+<div class="wrap">
+<a class="masthead__title" href="../index.html">THE <em>VISSION</em></a>
+<div class="masthead__rule" role="presentation"></div>
+<div class="masthead__tagline">The daily record of artificial intelligence</div>
+<p class="masthead__note">Every story on this site is researched, written and published by an autonomous editorial pipeline. Every claim links to its primary source.</p>
+</div>
+</header>
+<nav class="beatnav" aria-label="Sections"><div class="wrap beatnav__in">
+<a href="../index.html#models">Models</a><a href="../index.html#research">Research</a><a href="../index.html#business">Business</a><a href="../index.html#policy">Policy</a><a href="../index.html#infrastructure">Infrastructure</a><a href="../index.html#society">Society</a><a href="../index.html#india">India</a>
+<span class="beatnav__sep"></span>
+<a href="../search.html">Search</a>
+<a class="is-quiet" href="../index.html#wire">Wire</a>
+<a class="is-quiet" href="../digest.html">Digest</a>
+<a class="is-quiet" href="../weekly.html">Weekly</a>
+<a class="is-quiet" href="../hackathons.html">Hackathons</a>
+<a class="is-quiet" href="../topics.html">Topics</a>
+<a class="is-quiet" href="../archive.html">Archive</a>
+<a class="is-quiet" href="../methodology.html">Method</a>
+<a class="is-quiet" href="../rss.xml">RSS</a>
+</div></nav>
+<main id="main">
+<div class="wrap article">
+<div class="crumbs">
+<a href="../index.html">Front page</a><span>/</span>
+<a href="../index.html#society">Society</a><span>/</span>
+<a href="../edition/2026-09-03.html">3 Sep 2026</a>
+</div>
+
+<div class="article__grid">
+<article style="--beat-accent:#7c2d6b">
+<div class="kicker">Cybersecurity</div>
+<h1 class="article__title">Infostealer malware hijacks Claude session cookies, exposing corporate data connectors</h1>
+<p class="article__deck">The campaign replayed Windows and macOS browser cookies to bypass multi-factor authentication, accessing corporate Google Workspace integrations that remain active after Claude logouts.</p>
+
+<div class="article__byline">
+<span class="byline__name">THE VISSION Desk</span>
+<div class="meta" style="margin:0">
+
+<span><time datetime="2026-09-03T11:45:00Z">Thursday, 3 September 2026</time></span>
+<span>2 min read</span>
+<span>1 source</span>
+<span><span class="tag tag--low" title="medium confidence">Credible reporting, no primary</span></span>
+</div>
+</div>
+
+<img class="article__cover" src="../assets/img/covers/2026-09-03-claude-session-hijacking.svg" alt="" width="1200" height="675" fetchpriority="high">
+<p class="article__caption">Original cover art, generated for this story. THE VISSION does not republish third-party press imagery.</p>
+
+<div class="callout">
+<div class="callout__label">The short version</div>
+<ul class="keypoints" style="border-left-color:var(--accent);margin-bottom:0">
+<li>Anthropic notified users that infostealer malware campaigns have hijacked active Claude session cookies to bypass login guards, VentureBeat reported on September 2.</li><li>The breach primarily affected card-billed, self-serve accounts that bypass corporate identity providers, exposing chat histories, project files, and Google Workspace integrations.</li><li>Security telemetry shows that up to 61% of enterprise conversations on Claude run through personal browser identities, leaving session cookies highly vulnerable to malware.</li>
+</ul>
+</div>
+
+
+
+<div class="prose"><p>Anthropic has begun notifying customers that cybercriminals are replaying stolen browser session cookies to hijack paid Claude accounts, bypassing multi-factor authentication (MFA) and single sign-on (SSO) login protections, VentureBeat reported on September 2. The campaign utilized common infostealer malware families — including Vidar, LummaC2, and RedLine on Windows, and Atomic Stealer on macOS — to harvest active session data from users&#39; machines.</p><p>The compromised sessions primarily affected self-serve, card-billed accounts, including personal Pro subscriptions and team seats. These accounts often operate outside the governance of corporate IT identity providers. The exposure risk is severe: once inside an active Claude session, attackers can access chat histories, uploaded proprietary files, and active data connectors. Furthermore, while signing out of Claude invalidates the stolen session cookie, security researchers warn that the sign-out does not revoke underlying OAuth permissions granted to Claude, potentially leaving connected Google Workspace or Microsoft OneDrive accounts exposed.</p><p>The campaign highlights a massive security gap in enterprise AI adoption. Security telemetry from LayerX and Akamai indicates that 61% of corporate conversations on Claude (and 47% of all enterprise AI conversations) are conducted through personal browser identities rather than enterprise consoles. To address this, security vendors are rushing out new standards; Okta launched Agent SSO in late August to govern AI agents as first-class identities, and Google Chrome has introduced Device Bound Session Credentials to bind session cookies to a device&#39;s hardware TPM, though adoption remains low.</p></div>
+
+<div class="callout"><div class="callout__label">Why it matters</div><p>The shift from credential theft to session hijacking represents a critical vulnerability for corporate AI deployments. When employees use personal logins for work tasks, they bypass enterprise identity controls and expose connected corporate drives to infostealers. The persistent nature of OAuth connections means a single compromised browser cookie on an employee&#39;s personal laptop can grant hackers a long-term, unrevokable bridge directly into corporate Google Workspace or Microsoft cloud accounts, making agent identity management the most critical front in enterprise cybersecurity.</p></div>
+
+
+
+
+
+<div class="topics" style="margin-top:30px"><a class="topic" href="../entity/anthropic.html">Anthropic</a><a class="topic" href="../entity/venturebeat.html">VentureBeat</a><a class="topic" href="../entity/okta.html">Okta</a><a class="topic" href="../entity/google.html">Google</a></div>
+</article>
+
+<aside class="rail">
+<div class="rail__block">
+<h2 class="rail__title">Sources</h2>
+<ol class="sourcelist"><li>
+<span class="source__mark" aria-hidden="true">VE</span>
+<span>
+<a href="https://venturebeat.com/security/stolen-claude-session-cookies-can-reach-corporate-gmail-through-grants-no-it-admin-can-revoke" rel="noopener nofollow" target="_blank">Stolen Claude session cookies can reach corporate Gmail through grants no IT admin can revoke</a>
+<span class="pub"><span title="Credible but derivative; corroboration only.">VentureBeat · Secondary</span></span>
+</span>
+</li></ol>
+</div>
+<div class="rail__block">
+<h2 class="rail__title">Also in this edition</h2>
+<ul class="rail__list">
+<li><a href="../story/2026-09-03-anker-mindbase-hub.html"><span class="k">Society</span>Anker launches Eufy MindBase local AI hub to process security video on-device</a></li><li><a href="../story/2026-09-03-google-gemini-3-8-flash-cyber.html"><span class="k">Models</span>Google launches Gemini 3.8 Flash and Flash Cyber, targeting autonomous agents</a></li><li><a href="../story/2026-09-03-wonderful-series-c-funding.html"><span class="k">Business</span>Wonderful raises $550 million at $5 billion valuation for its AI operating system</a></li><li><a href="../story/2026-09-03-microsoft-reporting-azure-revenue.html"><span class="k">Infrastructure</span>Microsoft restructures financial segments, disclosing Azure cloud revenues for first time</a></li><li><a href="../story/2026-09-03-nvidia-crowdstrike-agentic-security.html"><span class="k">Models</span>NVIDIA and CrowdStrike partner at Fal.Con 2026 to launch SafeMind agentic defense</a></li>
+</ul>
+</div>
+<div class="rail__block">
+<h2 class="rail__title">How this was made</h2>
+<p style="font-family:var(--sans);font-size:.82rem;line-height:1.6;color:var(--muted)">
+Researched, written and published by an automated pipeline, then checked against the paper's
+editorial rules before release. <a href="../methodology.html" style="color:var(--accent)">Read the method</a>.
+</p>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<footer class="footer"><div class="wrap">
+<div class="footer__grid">
+<div>
+<div class="footer__mark">THE <em>VISSION</em></div>
+<p>Every story on this site is researched, written and published by an autonomous editorial pipeline. Every claim links to its primary source.</p>
+<div class="footer__community"><span class="footer__communitymark is-raster"><img src="../assets/img/cbe-devs.png" alt="CBE Devs" width="552" height="524" decoding="async"></span><span>A CBE Devs project.</span></div>
+</div>
+<div>
+<h4>Sections</h4>
+<ul><li><a href="../index.html#models">Models</a></li><li><a href="../index.html#research">Research</a></li><li><a href="../index.html#business">Business</a></li><li><a href="../index.html#policy">Policy</a></li><li><a href="../index.html#infrastructure">Infrastructure</a></li><li><a href="../index.html#society">Society</a></li><li><a href="../index.html#india">India</a></li></ul>
+</div>
+<div>
+<h4>The paper</h4>
+<ul>
+<li><a href="../digest.html">Digest (no AI)</a></li>
+<li><a href="../weekly.html">Weekly review</a></li>
+<li><a href="../hackathons.html">Hackathons</a></li>
+<li><a href="../topics.html">Topics</a></li>
+<li><a href="../archive.html">Archive</a></li>
+<li><a href="../open-questions.html">Open questions</a></li>
+<li><a href="../methodology.html">Methodology</a></li>
+
+<li><a href="../corrections.html">Corrections</a></li>
+<li><a href="../legal.html">Rights &amp; licensing</a></li>
+<li><a href="../terms.html">Terms of use</a></li>
+<li><a href="../privacy.html">Privacy</a></li>
+<li><a href="../rss.xml">RSS feed</a></li>
+<li><a href="../generated/index.json">Data (JSON)</a></li>
+</ul>
+</div>
+<div>
+<h4>Open</h4>
+<ul>
+<li><a href="https://github.com/Jayaragul/THE_VISSION" rel="noopener">Source repository</a></li>
+<li><a href="https://github.com/Jayaragul/THE_VISSION/tree/main/input" rel="noopener">Editorial rules</a></li>
+<li><a href="https://github.com/Jayaragul/THE_VISSION/tree/main/evals" rel="noopener">Evaluations</a></li>
+</ul>
+</div>
+</div>
+<div class="footer__base">
+<span>© 2026 Jayaragul N</span>
+<span>Founded by Jayaragul N · CBE Devs</span>
+<span>No advertising. No sponsorship. No position in anything covered.</span>
+<span><a href="https://github.com/Jayaragul/THE_VISSION/blob/main/LICENSE" rel="noopener" style="text-decoration:none">Licence</a> · Content CC BY-NC-ND 4.0</span>
+</div>
+</div></footer>
+<script src="../assets/js/app.js" defer></script>
+</body>
+</html>
