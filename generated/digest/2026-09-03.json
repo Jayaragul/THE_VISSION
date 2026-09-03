@@ -2,10 +2,56 @@
   "$schema": "../../schema/digest.schema.json",
   "edition": {
     "date": "2026-09-03",
-    "generatedAt": "2026-09-03T07:09:23.720Z",
+    "generatedAt": "2026-09-03T14:32:50.787Z",
     "itemCount": 62
   },
   "items": [
+    {
+      "id": "2026-09-03-nvidia-buys-hugging-face-the-github-of-ai-for-13-billion",
+      "slug": "nvidia-buys-hugging-face-the-github-of-ai-for-13-billion",
+      "beat": "infrastructure",
+      "title": "Nvidia buys Hugging Face, the GitHub of AI, for $13 billion",
+      "publishedAt": "2026-09-03T13:34:13.000Z",
+      "confidence": "confirmed",
+      "score": 0.647,
+      "sources": [
+        {
+          "title": "Nvidia buys Hugging Face, the GitHub of AI, for $13 billion",
+          "publisher": "Ars Technica",
+          "url": "https://arstechnica.com/ai/2026/09/nvidia-buys-hugging-face-the-github-of-ai-for-13-billion/",
+          "tier": 2
+        },
+        {
+          "title": "Nvidia’s Hugging Face Acquisition Is a $12.9 Billion Bet on Open-Source AI",
+          "publisher": "WIRED",
+          "url": "https://www.wired.com/story/nvidias-hugging-face-acquisition-is-a-dollar129-billion-bet-on-open-source-ai/",
+          "tier": 2
+        },
+        {
+          "title": "Nvidia is buying Hugging Face for almost $13 billion",
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/tech/985474/nvidia-buying-hugging-face-deal",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-03-fine-tuning-a-350m-model-for-better-structured-outputs-in-10",
+      "slug": "fine-tuning-a-350m-model-for-better-structured-outputs-in-10",
+      "beat": "models",
+      "title": "Fine-tuning a 350M Model for Better Structured Outputs in 100 GRPO Steps",
+      "publishedAt": "2026-09-03T00:00:00.000Z",
+      "confidence": "single-source",
+      "score": 0.612,
+      "sources": [
+        {
+          "title": "Fine-tuning a 350M Model for Better Structured Outputs in 100 GRPO Steps",
+          "publisher": "Hugging Face",
+          "url": "https://huggingface.co/blog/grpo-with-trl-ifstruct",
+          "tier": 1
+        }
+      ]
+    },
     {
       "id": "2026-09-03-automated-vulnerability-injection-in-smart-contracts-using-l",
       "slug": "automated-vulnerability-injection-in-smart-contracts-using-l",
@@ -58,18 +104,58 @@
       ]
     },
     {
-      "id": "2026-09-03-mainland-chinese-investors-buy-hong-kong-tech-stocks-in-ai-p",
-      "slug": "mainland-chinese-investors-buy-hong-kong-tech-stocks-in-ai-p",
+      "id": "2026-09-03-nvidia-to-acquire-hugging-face",
+      "slug": "nvidia-to-acquire-hugging-face",
       "beat": "business",
-      "title": "Mainland Chinese investors buy Hong Kong tech stocks in AI pivot, sell financials",
-      "publishedAt": "2026-09-03T03:20:10.000Z",
-      "confidence": "single-source",
-      "score": 0.571,
+      "title": "NVIDIA to Acquire Hugging Face",
+      "publishedAt": "2026-09-03T11:56:49.000Z",
+      "confidence": "confirmed",
+      "score": 0.563,
       "sources": [
         {
-          "title": "Mainland Chinese investors buy Hong Kong tech stocks in AI pivot, sell financials",
+          "title": "NVIDIA to Acquire Hugging Face",
+          "publisher": "NVIDIA",
+          "url": "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/",
+          "tier": 1
+        },
+        {
+          "title": "Nvidia confirms it will buy Hugging Face for $12.9 billion",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/09/03/nvidia-confirms-it-will-buy-hugging-face-for-12-9-billion/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-03-ugly-ai-food-photos-are-only-the-beginning",
+      "slug": "ugly-ai-food-photos-are-only-the-beginning",
+      "beat": "society",
+      "title": "Ugly AI Food Photos Are Only the Beginning",
+      "publishedAt": "2026-09-03T11:00:00.000Z",
+      "confidence": "single-source",
+      "score": 0.55,
+      "sources": [
+        {
+          "title": "Ugly AI Food Photos Are Only the Beginning",
+          "publisher": "WIRED",
+          "url": "https://www.wired.com/story/ugly-ai-food-photos-are-only-the-beginning/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-03-are-z-ai-and-minimax-heading-down-opposite-financial-paths-m",
+      "slug": "are-z-ai-and-minimax-heading-down-opposite-financial-paths-m",
+      "beat": "business",
+      "title": "Are Z.ai and MiniMax heading down opposite financial paths months after Hong Kong IPOs?",
+      "publishedAt": "2026-09-03T10:38:59.000Z",
+      "confidence": "single-source",
+      "score": 0.548,
+      "sources": [
+        {
+          "title": "Are Z.ai and MiniMax heading down opposite financial paths months after Hong Kong IPOs?",
           "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/business/china-business/article/3366174/mainland-chinese-investors-buy-hong-kong-tech-stocks-ai-pivot-sell-financials?utm_source=rss_feed",
+          "url": "https://www.scmp.com/tech/tech-trends/article/3366253/are-zai-and-minimax-heading-down-opposite-financial-paths-months-after-hong-kong-ipos?utm_source=rss_feed",
           "tier": 2
         }
       ]
@@ -88,6 +174,40 @@
           "publisher": "VentureBeat",
           "url": "https://venturebeat.com/security/googles-gemini-3-8-flash-is-built-for-agents-while-its-cyber-twin-hunts-vulnerabilities",
           "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "2026-09-03-scaling-agentic-ai-pilots-across-the-enterprise",
+      "slug": "scaling-agentic-ai-pilots-across-the-enterprise",
+      "beat": "business",
+      "title": "Scaling agentic AI pilots across the enterprise",
+      "publishedAt": "2026-09-03T09:30:32.000Z",
+      "confidence": "single-source",
+      "score": 0.544,
+      "sources": [
+        {
+          "title": "Scaling agentic AI pilots across the enterprise",
+          "publisher": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/09/03/1142868/scaling-agentic-ai-pilots-across-the-enterprise/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-03-smart-toilets-are-already-using-ai-to-analyze-your-poop",
+      "slug": "smart-toilets-are-already-using-ai-to-analyze-your-poop",
+      "beat": "society",
+      "title": "Smart Toilets Are Already Using AI to Analyze Your Poop",
+      "publishedAt": "2026-09-03T09:30:00.000Z",
+      "confidence": "single-source",
+      "score": 0.544,
+      "sources": [
+        {
+          "title": "Smart Toilets Are Already Using AI to Analyze Your Poop",
+          "publisher": "WIRED",
+          "url": "https://www.wired.com/story/smart-toilets-using-ai-to-analyze-your-poop/",
+          "tier": 2
         }
       ]
     },
@@ -122,6 +242,23 @@
           "publisher": "arXiv",
           "url": "https://arxiv.org/abs/2609.02876v1",
           "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-09-03-tech-race-flashpoint-huang-musk-push-back-on-ai-guard-rails",
+      "slug": "tech-race-flashpoint-huang-musk-push-back-on-ai-guard-rails",
+      "beat": "infrastructure",
+      "title": "Tech race flashpoint: Huang, Musk push back on AI guard rails amid heated US-China rivalry",
+      "publishedAt": "2026-09-03T08:00:26.000Z",
+      "confidence": "single-source",
+      "score": 0.538,
+      "sources": [
+        {
+          "title": "Tech race flashpoint: Huang, Musk push back on AI guard rails amid heated US-China rivalry",
+          "publisher": "South China Morning Post",
+          "url": "https://www.scmp.com/tech/big-tech/article/3366216/tech-race-flashpoint-huang-musk-push-back-ai-guard-rails-amid-heated-us-china-rivalry?utm_source=rss_feed",
+          "tier": 2
         }
       ]
     },
@@ -415,23 +552,6 @@
       ]
     },
     {
-      "id": "2026-09-03-researchers-fear-safety-disaster-ahead-of-openai-s-astra-rel",
-      "slug": "researchers-fear-safety-disaster-ahead-of-openai-s-astra-rel",
-      "beat": "models",
-      "title": "Researchers fear safety disaster ahead of OpenAI’s Astra release",
-      "publishedAt": "2026-09-02T16:40:50.000Z",
-      "confidence": "single-source",
-      "score": 0.531,
-      "sources": [
-        {
-          "title": "Researchers fear safety disaster ahead of OpenAI’s Astra release",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/988334/openai-astra-ai-monitoring-safety",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-09-03-language-models-can-control-their-own-attention",
       "slug": "language-models-can-control-their-own-attention",
       "beat": "models",
@@ -534,29 +654,6 @@
       ]
     },
     {
-      "id": "2026-09-03-trump-administration-sides-with-openai-in-new-york-times-cop",
-      "slug": "trump-administration-sides-with-openai-in-new-york-times-cop",
-      "beat": "policy",
-      "title": "Trump Administration Sides With OpenAI in New York Times Copyright Lawsuit",
-      "publishedAt": "2026-09-02T18:41:02.000Z",
-      "confidence": "confirmed",
-      "score": 0.515,
-      "sources": [
-        {
-          "title": "Trump Administration Sides With OpenAI in New York Times Copyright Lawsuit",
-          "publisher": "WIRED",
-          "url": "https://www.wired.com/story/trump-administration-sides-with-ai-giants-new-york-times-lawsuit/",
-          "tier": 2
-        },
-        {
-          "title": "The Trump administration is supporting OpenAI in the NYT copyright lawsuit",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/988344/trump-administration-new-york-times-openai-lawsuit",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-09-03-wildfab-multi-axis-3d-printing-from-models-in-the-wild",
       "slug": "wildfab-multi-axis-3d-printing-from-models-in-the-wild",
       "beat": "infrastructure",
@@ -587,23 +684,6 @@
           "publisher": "arXiv",
           "url": "https://arxiv.org/abs/2609.02402v1",
           "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-09-03-trump-calls-xi-s-washington-visit-exciting-but-claims-us-lea",
-      "slug": "trump-calls-xi-s-washington-visit-exciting-but-claims-us-lea",
-      "beat": "business",
-      "title": "Trump calls Xi’s Washington visit ‘exciting’, but claims US leads China in AI race",
-      "publishedAt": "2026-09-02T23:13:30.000Z",
-      "confidence": "single-source",
-      "score": 0.505,
-      "sources": [
-        {
-          "title": "Trump calls Xi’s Washington visit ‘exciting’, but claims US leads China in AI race",
-          "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/news/china/diplomacy/article/3366162/trump-calls-xis-washington-visit-exciting-claims-us-leads-china-ai-race?utm_source=rss_feed",
-          "tier": 2
         }
       ]
     },
@@ -676,6 +756,23 @@
       ]
     },
     {
+      "id": "2026-09-03-trump-administration-sides-with-openai-in-new-york-times-cop",
+      "slug": "trump-administration-sides-with-openai-in-new-york-times-cop",
+      "beat": "policy",
+      "title": "Trump Administration Sides With OpenAI in New York Times Copyright Lawsuit",
+      "publishedAt": "2026-09-02T18:41:02.000Z",
+      "confidence": "single-source",
+      "score": 0.428,
+      "sources": [
+        {
+          "title": "Trump Administration Sides With OpenAI in New York Times Copyright Lawsuit",
+          "publisher": "WIRED",
+          "url": "https://www.wired.com/story/trump-administration-sides-with-ai-giants-new-york-times-lawsuit/",
+          "tier": 2
+        }
+      ]
+    },
+    {
       "id": "2026-09-03-these-russian-mathematicians-taught-ai-models-how-to-talk-to",
       "slug": "these-russian-mathematicians-taught-ai-models-how-to-talk-to",
       "beat": "business",
@@ -688,6 +785,23 @@
           "title": "These Russian Mathematicians Taught AI Models How to Talk to Each Other Without Using Words",
           "publisher": "WIRED",
           "url": "https://www.wired.com/story/russian-startup-mostik-ai-models-communication/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-03-moonshot-ai-creator-of-kimi-k3-model-has-filed-for-hong-kong",
+      "slug": "moonshot-ai-creator-of-kimi-k3-model-has-filed-for-hong-kong",
+      "beat": "business",
+      "title": "Moonshot AI – creator of Kimi K3 model – has filed for Hong Kong IPO: sources",
+      "publishedAt": "2026-09-03T13:00:02.000Z",
+      "confidence": "single-source",
+      "score": 0.423,
+      "sources": [
+        {
+          "title": "Moonshot AI – creator of Kimi K3 model – has filed for Hong Kong IPO: sources",
+          "publisher": "South China Morning Post",
+          "url": "https://www.scmp.com/tech/big-tech/article/3366271/moonshot-ai-creator-kimi-k3-model-has-filed-hong-kong-ipo-sources?utm_source=rss_feed",
           "tier": 2
         }
       ]
@@ -744,23 +858,6 @@
       ]
     },
     {
-      "id": "2026-09-03-google-is-sending-mrbeast-into-the-wilderness-armed-with-ai",
-      "slug": "google-is-sending-mrbeast-into-the-wilderness-armed-with-ai",
-      "beat": "business",
-      "title": "Google is sending MrBeast into the wilderness, armed with AI",
-      "publishedAt": "2026-09-02T15:47:03.000Z",
-      "confidence": "single-source",
-      "score": 0.418,
-      "sources": [
-        {
-          "title": "Google is sending MrBeast into the wilderness, armed with AI",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/tech/988355/mrbeast-google-partnership-gemini-fitbit",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-09-03-real-time-intelligence-with-ibm-time-series-models-on-conflu",
       "slug": "real-time-intelligence-with-ibm-time-series-models-on-conflu",
       "beat": "business",
@@ -812,40 +909,6 @@
       ]
     },
     {
-      "id": "2026-09-03-universitas-gadjah-mada-indosat-and-nvidia-open-indonesia-s",
-      "slug": "universitas-gadjah-mada-indosat-and-nvidia-open-indonesia-s",
-      "beat": "infrastructure",
-      "title": "Universitas Gadjah Mada, Indosat and NVIDIA Open Indonesia’s First University AI Center to Develop Local AI Talent",
-      "publishedAt": "2026-08-14T17:13:05.000Z",
-      "confidence": "single-source",
-      "score": 0.367,
-      "sources": [
-        {
-          "title": "Universitas Gadjah Mada, Indosat and NVIDIA Open Indonesia’s First University AI Center to Develop Local AI Talent",
-          "publisher": "NVIDIA",
-          "url": "https://blogs.nvidia.com/blog/ugm-indosat-nvidia-ai-technology-center/",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-09-03-nvidia-and-local-ai-community-fuel-open-source-models-and-in",
-      "slug": "nvidia-and-local-ai-community-fuel-open-source-models-and-in",
-      "beat": "infrastructure",
-      "title": "NVIDIA and Local AI Community Fuel Open Source Models and Intelligent Agents",
-      "publishedAt": "2026-08-11T13:00:25.000Z",
-      "confidence": "single-source",
-      "score": 0.367,
-      "sources": [
-        {
-          "title": "NVIDIA and Local AI Community Fuel Open Source Models and Intelligent Agents",
-          "publisher": "NVIDIA",
-          "url": "https://blogs.nvidia.com/blog/local-ai-open-source-models-agents-nemotron/",
-          "tier": 1
-        }
-      ]
-    },
-    {
       "id": "2026-09-03-forward-deployed-engineering-is-how-enterprise-ai-learns",
       "slug": "forward-deployed-engineering-is-how-enterprise-ai-learns",
       "beat": "business",
@@ -892,23 +955,6 @@
           "title": "Manage agents, tools and skills at scale with AWS Agent Registry",
           "publisher": "Amazon",
           "url": "https://aws.amazon.com/blogs/machine-learning/manage-agents-tools-and-skills-at-scale-with-aws-agent-registry/",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-09-03-a-milestone-in-expanding-access-to-ai",
-      "slug": "a-milestone-in-expanding-access-to-ai",
-      "beat": "business",
-      "title": "A milestone in expanding access to AI",
-      "publishedAt": "2026-08-31T04:00:00.000Z",
-      "confidence": "single-source",
-      "score": 0.317,
-      "sources": [
-        {
-          "title": "A milestone in expanding access to AI",
-          "publisher": "OpenAI",
-          "url": "https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads",
           "tier": 1
         }
       ]
@@ -982,23 +1028,6 @@
       ]
     },
     {
-      "id": "2026-09-03-strengthening-singapore-s-ai-future-a-new-national-partnersh",
-      "slug": "strengthening-singapore-s-ai-future-a-new-national-partnersh",
-      "beat": "society",
-      "title": "Strengthening Singapore’s AI Future: A New National Partnership",
-      "publishedAt": "2026-05-16T09:13:34.000Z",
-      "confidence": "single-source",
-      "score": 0.317,
-      "sources": [
-        {
-          "title": "Strengthening Singapore’s AI Future: A New National Partnership",
-          "publisher": "Google DeepMind",
-          "url": "https://deepmind.google/blog/strengthening-singapores-ai-future-a-new-national-partnership/",
-          "tier": 1
-        }
-      ]
-    },
-    {
       "id": "2026-09-03-investing-in-multi-agent-ai-safety-research",
       "slug": "investing-in-multi-agent-ai-safety-research",
       "beat": "india",
@@ -1012,23 +1041,6 @@
           "publisher": "Google DeepMind",
           "url": "https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/",
           "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-09-03-the-hugging-face-hack-could-indicate-cultural-issues-at-open",
-      "slug": "the-hugging-face-hack-could-indicate-cultural-issues-at-open",
-      "beat": "society",
-      "title": "The Hugging Face hack could indicate cultural issues at OpenAI",
-      "publishedAt": "2026-08-31T18:00:00.000Z",
-      "confidence": "single-source",
-      "score": 0.313,
-      "sources": [
-        {
-          "title": "The Hugging Face hack could indicate cultural issues at OpenAI",
-          "publisher": "MIT Technology Review",
-          "url": "https://www.technologyreview.com/2026/08/31/1143180/hugging-face-hack-could-indicate-cultural-issues-at-openai/",
-          "tier": 2
         }
       ]
     },
