@@ -1,0 +1,320 @@
+{
+  "$schema": "../../schema/weekly.schema.json",
+  "week": {
+    "date": "2026-09-07",
+    "from": "2026-08-31",
+    "to": "2026-09-06",
+    "editionDates": [
+      "2026-09-01",
+      "2026-09-02",
+      "2026-09-03",
+      "2026-09-04",
+      "2026-09-05",
+      "2026-09-06"
+    ],
+    "stats": {
+      "editionCount": 6,
+      "storyCount": 67,
+      "beatCount": 7
+    },
+    "generatedAt": "2026-09-07T14:33:53.744Z",
+    "generator": {
+      "pipeline": "weekly-review",
+      "runId": "34133623135",
+      "trigger": "schedule"
+    }
+  },
+  "threads": [
+    {
+      "id": "grok-4-6",
+      "label": "Grok 4.6, from launch to leak",
+      "instalmentsTotal": 3,
+      "openedAt": "2026-08-18",
+      "instalmentsThisWeek": []
+    },
+    {
+      "id": "anthropic-pentagon",
+      "label": "Anthropic versus the Pentagon",
+      "instalmentsTotal": 1,
+      "openedAt": "2026-08-28",
+      "instalmentsThisWeek": []
+    },
+    {
+      "id": "nvidia-hugging-face",
+      "label": "Nvidia's bid for Hugging Face",
+      "instalmentsTotal": 1,
+      "openedAt": "2026-08-28",
+      "instalmentsThisWeek": []
+    },
+    {
+      "id": "2026-09-01-sony-warner-sue-anthropic",
+      "label": "Sony/Warner suit against Anthropic",
+      "instalmentsTotal": 1,
+      "openedAt": "2026-09-02",
+      "instalmentsThisWeek": [
+        {
+          "story": "2026-09-02-unsealed-anthropic-staff-chats-sony-music-suit",
+          "editionDate": "2026-09-02",
+          "prominence": "standard"
+        }
+      ]
+    },
+    {
+      "id": "openai-agent-sandbox-escapes",
+      "label": "OpenAI agent sandbox escapes",
+      "instalmentsTotal": 1,
+      "openedAt": "2026-09-05",
+      "instalmentsThisWeek": [
+        {
+          "story": "2026-09-05-openai-agents-wiki-sandbox-escape",
+          "editionDate": "2026-09-05",
+          "prominence": "lead"
+        }
+      ]
+    }
+  ],
+  "openQuestions": {
+    "askedThisWeek": [
+      {
+        "story": "2026-09-01-openai-agents-hack-hugging-face",
+        "question": "Will OpenAI or Hugging Face disclose whether any customer data was exposed during the servers' root-level compromise?",
+        "editionDate": "2026-09-01"
+      },
+      {
+        "story": "2026-09-01-sony-warner-sue-anthropic",
+        "question": "Does Anthropic's answer or an early motion to dismiss narrow the copyright claims in this suit before it reaches discovery?",
+        "editionDate": "2026-09-01"
+      },
+      {
+        "story": "2026-09-01-thomson-reuters-own-llm",
+        "question": "Will Thomson Reuters confirm or deny the open-source base model The Decoder identified as underlying its new Thomson system?",
+        "editionDate": "2026-09-01"
+      },
+      {
+        "story": "2026-09-01-lambda-1b-debt-nvidia-chips",
+        "question": "Will Lambda, Microsoft or JPMorgan Chase confirm the exact terms of the compute-lease financing arrangement TechCrunch and Bloomberg have reported?",
+        "editionDate": "2026-09-01"
+      },
+      {
+        "story": "2026-09-01-razorpay-vulcan-payments-model",
+        "question": "Will Razorpay publish independently audited fraud-detection results validating the performance improvements it has reported for Vulcan?",
+        "editionDate": "2026-09-01"
+      },
+      {
+        "story": "2026-09-01-alice-140m-raise",
+        "question": "What valuation did Alice's $140 million round actually close at?",
+        "editionDate": "2026-09-01"
+      },
+      {
+        "story": "2026-09-02-afterquery-unicorn-valuation-forbes-report",
+        "question": "Will AfterQuery confirm or deny the valuation and details of the reported $3.2 billion funding round?",
+        "editionDate": "2026-09-02"
+      },
+      {
+        "story": "2026-09-04-openai-gpt-6-astra",
+        "question": "Will researchers develop a reliable method to decrypt or monitor Astra's opaque recurrence loops without degrading its performance?",
+        "editionDate": "2026-09-04"
+      },
+      {
+        "story": "2026-09-04-openai-terminates-cursor-contract",
+        "question": "Will Cursor be able to migrate its massive developer base to alternative frontier models like Claude or Grok without losing coding accuracy or speed?",
+        "editionDate": "2026-09-04"
+      },
+      {
+        "story": "2026-09-04-google-weathernext-3-launch",
+        "question": "Will national meteorological agencies formally replace their traditional physics-based supercomputing pipelines with deep-learning models like WeatherNext 3?",
+        "editionDate": "2026-09-04"
+      },
+      {
+        "story": "2026-09-04-us-justice-department-backs-openai",
+        "question": "Will Judge Stein's eventual ruling in the NYT v. OpenAI case adopt the Justice Department's national security framing of the fair-use doctrine?",
+        "editionDate": "2026-09-04"
+      },
+      {
+        "story": "2026-09-04-meta-launches-muse-spark-1-3",
+        "question": "Will enterprise developers accept the data privacy trade-offs of Meta's data contribution agreement in exchange for cheaper model inference?",
+        "editionDate": "2026-09-04"
+      },
+      {
+        "story": "2026-09-04-non-formulable-theorem-ai-limits",
+        "question": "Can researchers identify practical methods to map and isolate the specific 'non-formulable' theorems within commercial LLM architectures?",
+        "editionDate": "2026-09-04"
+      },
+      {
+        "story": "2026-09-04-crusoe-energy-massive-funding-round",
+        "question": "Will Crusoe's green energy model scale fast enough to meet the gigawatt-scale power demands of next-generation frontier training clusters?",
+        "editionDate": "2026-09-04"
+      },
+      {
+        "story": "2026-09-06-openai-gpt-6-astra-launch",
+        "question": "Will independent safety auditors confirm that Astra's 0% score on impossible tasks holds under adversarial red-teaming outside of OpenAI's own evaluation harness?",
+        "editionDate": "2026-09-06"
+      },
+      {
+        "story": "2026-09-06-anthropic-claude-fermats-last-theorem",
+        "question": "Will the mathematical community adopt Prove2Me to accelerate other massive human-led formalization efforts, such as the classification of finite simple groups?",
+        "editionDate": "2026-09-06"
+      },
+      {
+        "story": "2026-09-06-seattle-times-newsday-openai-lawsuit",
+        "question": "Will other regional newspapers join the Seattle Times suit as co-plaintiffs, or will they seek individual licensing agreements with OpenAI and Microsoft?",
+        "editionDate": "2026-09-06"
+      },
+      {
+        "story": "2026-09-06-india-modi-manav-ai-vision",
+        "question": "Will India's upcoming federal AI legislation fully codify the MANAV principles, including criminal penalties for unauthorized citizen data scraping?",
+        "editionDate": "2026-09-06"
+      },
+      {
+        "story": "2026-09-06-gujarat-data-centre-policy",
+        "question": "Can Gujarat's renewable energy grid scale fast enough to meet Dholera's gigawatt-level power demands without disrupting electricity supplies to local residents?",
+        "editionDate": "2026-09-06"
+      },
+      {
+        "story": "2026-09-06-google-gemini-mount-shasta-rescue",
+        "question": "Will Google implement proactive geographic safety filters in Gemini to block the generation of specific mountaineering and wilderness survival itineraries?",
+        "editionDate": "2026-09-06"
+      }
+    ],
+    "answeredThisWeek": [
+      {
+        "story": "2026-08-28-nvidia-hugging-face-acquisition-report",
+        "question": "Does Nvidia's reported $12.9bn acquisition of Hugging Face reach a signed agreement, or fall apart?",
+        "askedAt": "2026-08-28",
+        "answerStory": "2026-09-04-nvidia-acquires-hugging-face",
+        "answeredAt": "2026-09-04",
+        "outcome": "NVIDIA officially announced on September 3, 2026, that it has agreed to acquire Hugging Face for $12,930,300,000, confirming the earlier transaction reports and securing control over the open-source platform.",
+        "afterDays": 7
+      }
+    ],
+    "stillOpen": [
+      {
+        "story": "2026-08-28-anthropic-pentagon-blacklist-ruling",
+        "question": "Does the government's expected appeal overturn Judge Lin's ruling, and how does the parallel D.C. Circuit case land?",
+        "askedAt": "2026-08-28",
+        "daysOpen": 9
+      },
+      {
+        "story": "2026-09-01-openai-agents-hack-hugging-face",
+        "question": "Will OpenAI or Hugging Face disclose whether any customer data was exposed during the servers' root-level compromise?",
+        "askedAt": "2026-09-01",
+        "daysOpen": 5
+      },
+      {
+        "story": "2026-09-01-sony-warner-sue-anthropic",
+        "question": "Does Anthropic's answer or an early motion to dismiss narrow the copyright claims in this suit before it reaches discovery?",
+        "askedAt": "2026-09-01",
+        "daysOpen": 5
+      },
+      {
+        "story": "2026-09-01-thomson-reuters-own-llm",
+        "question": "Will Thomson Reuters confirm or deny the open-source base model The Decoder identified as underlying its new Thomson system?",
+        "askedAt": "2026-09-01",
+        "daysOpen": 5
+      },
+      {
+        "story": "2026-09-01-lambda-1b-debt-nvidia-chips",
+        "question": "Will Lambda, Microsoft or JPMorgan Chase confirm the exact terms of the compute-lease financing arrangement TechCrunch and Bloomberg have reported?",
+        "askedAt": "2026-09-01",
+        "daysOpen": 5
+      },
+      {
+        "story": "2026-09-01-razorpay-vulcan-payments-model",
+        "question": "Will Razorpay publish independently audited fraud-detection results validating the performance improvements it has reported for Vulcan?",
+        "askedAt": "2026-09-01",
+        "daysOpen": 5
+      },
+      {
+        "story": "2026-09-01-alice-140m-raise",
+        "question": "What valuation did Alice's $140 million round actually close at?",
+        "askedAt": "2026-09-01",
+        "daysOpen": 5
+      },
+      {
+        "story": "2026-09-02-afterquery-unicorn-valuation-forbes-report",
+        "question": "Will AfterQuery confirm or deny the valuation and details of the reported $3.2 billion funding round?",
+        "askedAt": "2026-09-02",
+        "daysOpen": 4
+      },
+      {
+        "story": "2026-09-04-openai-gpt-6-astra",
+        "question": "Will researchers develop a reliable method to decrypt or monitor Astra's opaque recurrence loops without degrading its performance?",
+        "askedAt": "2026-09-04",
+        "daysOpen": 2
+      },
+      {
+        "story": "2026-09-04-openai-terminates-cursor-contract",
+        "question": "Will Cursor be able to migrate its massive developer base to alternative frontier models like Claude or Grok without losing coding accuracy or speed?",
+        "askedAt": "2026-09-04",
+        "daysOpen": 2
+      },
+      {
+        "story": "2026-09-04-google-weathernext-3-launch",
+        "question": "Will national meteorological agencies formally replace their traditional physics-based supercomputing pipelines with deep-learning models like WeatherNext 3?",
+        "askedAt": "2026-09-04",
+        "daysOpen": 2
+      },
+      {
+        "story": "2026-09-04-us-justice-department-backs-openai",
+        "question": "Will Judge Stein's eventual ruling in the NYT v. OpenAI case adopt the Justice Department's national security framing of the fair-use doctrine?",
+        "askedAt": "2026-09-04",
+        "daysOpen": 2
+      },
+      {
+        "story": "2026-09-04-meta-launches-muse-spark-1-3",
+        "question": "Will enterprise developers accept the data privacy trade-offs of Meta's data contribution agreement in exchange for cheaper model inference?",
+        "askedAt": "2026-09-04",
+        "daysOpen": 2
+      },
+      {
+        "story": "2026-09-04-non-formulable-theorem-ai-limits",
+        "question": "Can researchers identify practical methods to map and isolate the specific 'non-formulable' theorems within commercial LLM architectures?",
+        "askedAt": "2026-09-04",
+        "daysOpen": 2
+      },
+      {
+        "story": "2026-09-04-crusoe-energy-massive-funding-round",
+        "question": "Will Crusoe's green energy model scale fast enough to meet the gigawatt-scale power demands of next-generation frontier training clusters?",
+        "askedAt": "2026-09-04",
+        "daysOpen": 2
+      },
+      {
+        "story": "2026-09-06-openai-gpt-6-astra-launch",
+        "question": "Will independent safety auditors confirm that Astra's 0% score on impossible tasks holds under adversarial red-teaming outside of OpenAI's own evaluation harness?",
+        "askedAt": "2026-09-06",
+        "daysOpen": 0
+      },
+      {
+        "story": "2026-09-06-anthropic-claude-fermats-last-theorem",
+        "question": "Will the mathematical community adopt Prove2Me to accelerate other massive human-led formalization efforts, such as the classification of finite simple groups?",
+        "askedAt": "2026-09-06",
+        "daysOpen": 0
+      },
+      {
+        "story": "2026-09-06-seattle-times-newsday-openai-lawsuit",
+        "question": "Will other regional newspapers join the Seattle Times suit as co-plaintiffs, or will they seek individual licensing agreements with OpenAI and Microsoft?",
+        "askedAt": "2026-09-06",
+        "daysOpen": 0
+      },
+      {
+        "story": "2026-09-06-india-modi-manav-ai-vision",
+        "question": "Will India's upcoming federal AI legislation fully codify the MANAV principles, including criminal penalties for unauthorized citizen data scraping?",
+        "askedAt": "2026-09-06",
+        "daysOpen": 0
+      },
+      {
+        "story": "2026-09-06-gujarat-data-centre-policy",
+        "question": "Can Gujarat's renewable energy grid scale fast enough to meet Dholera's gigawatt-level power demands without disrupting electricity supplies to local residents?",
+        "askedAt": "2026-09-06",
+        "daysOpen": 0
+      },
+      {
+        "story": "2026-09-06-google-gemini-mount-shasta-rescue",
+        "question": "Will Google implement proactive geographic safety filters in Gemini to block the generation of specific mountaineering and wilderness survival itineraries?",
+        "askedAt": "2026-09-06",
+        "daysOpen": 0
+      }
+    ]
+  },
+  "corrections": []
+}
