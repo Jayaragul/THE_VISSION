@@ -299,6 +299,26 @@ function jaccard(a, b) {
   return shared / (a.size + b.size - shared);
 }
 
+/**
+ * Finds and loads the edition immediately preceding the currentDate.
+ */
+function getPreviousEdition(currentDate) {
+  try {
+    const files = readdirSync(GENERATED)
+      .filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
+      .sort();
+    for (let i = files.length - 1; i >= 0; i--) {
+      const date = files[i].slice(0, 10);
+      if (date < currentDate) {
+        return readJSON(join(GENERATED, files[i]));
+      }
+    }
+  } catch {
+    return null;
+  }
+  return null;
+}
+
 function checkEdition(file) {
   const errors = [];
   const warnings = [];
@@ -572,12 +592,26 @@ function checkEdition(file) {
   checkEvalBinding(doc, err, warn);
 
   // --- beat coverage --------------------------------------------------------
+  const prevDoc = getPreviousEdition(doc.edition.date);
   for (const beat of beats) {
     const count = stories.filter((s) => s.beat === beat.id).length;
     if (count < beat.minQuota) {
       err(`beat "${beat.id}" has ${count} stories, floor is ${beat.minQuota}`);
     } else if (count < beat.quota) {
       advise(`beat "${beat.id}" has ${count} stories, target is ${beat.quota}`);
+    }
+
+    if (count === 0 && prevDoc) {
+      const prevStories = prevDoc.stories || [];
+      const prevCount = prevStories.filter((s) => s.beat === beat.id).length;
+      if (prevCount === 0) {
+        const msg = `beat "${beat.id}" has 0 stories for two consecutive editions (${prevDoc.edition.date} and ${doc.edition.date})`;
+        if (gated) {
+          err(msg);
+        } else {
+          warn(msg);
+        }
+      }
     }
   }
 
