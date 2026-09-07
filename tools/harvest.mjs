@@ -13,11 +13,12 @@
 // day. The run only exits non-zero if every single feed fails, which is the signal that
 // something structural broke rather than one publisher having a bad day.
 
-import { writeFileSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
+import { writeFileSync, mkdirSync, readdirSync, rmSync, existsSync } from 'node:fs';
 import { dirname, join, relative, resolve as resolvePath } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { isoDate } from './lib/util.mjs';
+import { isoDate, readJSON } from './lib/util.mjs';
 import { parseFeed } from './lib/feed.mjs';
+import { accumulateHealth } from './lib/feedhealth.mjs';
 
 const ROOT = resolvePath(dirname(fileURLToPath(import.meta.url)), '..');
 const date = process.argv[2] || isoDate();
@@ -104,9 +105,13 @@ const TOPIC_SEARCHES = [
   'AI regulation OR "AI Act" OR AI policy government',
 ];
 
+// Every one of these shares the display name "Google News", but each is a distinct query
+// against a distinct endpoint and must not share a feed-health record — see harvestFeed()
+// and the health-keying below, which key on `id`, not `source`, for exactly this reason.
 for (const q of TOPIC_SEARCHES) {
   FEEDS.push({
     source: 'Google News',
+    id: `google-news:${q}`,
     discoveryOnly: true,
     url: `https://news.google.com/rss/search?q=${encodeURIComponent(`when:2d ${q}`)}&hl=en-US&gl=US&ceid=US:en`,
   });
@@ -131,6 +136,10 @@ async function fetchWithTimeout(url, accept) {
 const PER_FEED_CAP = 40;
 
 async function harvestFeed(feed) {
+  // `id` is what feed health is keyed on and must be unique per feed; `feed` (the source
+  // name) is only ever a display label and several entries deliberately share one — see the
+  // Google News topic searches above.
+  const id = feed.id || feed.source;
   try {
     const res = await fetchWithTimeout(
       feed.url,
@@ -141,9 +150,9 @@ async function harvestFeed(feed) {
       .sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''))
       .slice(0, PER_FEED_CAP)
       .map((item) => ({ source: feed.source, discoveryOnly: !!feed.discoveryOnly, ...item }));
-    return { feed: feed.source, ok: true, count: items.length, items };
+    return { id, feed: feed.source, ok: true, count: items.length, items };
   } catch (err) {
-    return { feed: feed.source, ok: false, count: 0, error: err.message, items: [] };
+    return { id, feed: feed.source, ok: false, count: 0, error: err.message, items: [] };
   }
 }
 
@@ -166,9 +175,9 @@ async function harvestHuggingFaceTrending() {
       publishedAt: m.createdAt || null,
       summary: Array.isArray(m.tags) ? m.tags.slice(0, 6).join(', ') : null,
     }));
-    return { feed: name, ok: true, count: items.length, items };
+    return { id: name, feed: name, ok: true, count: items.length, items };
   } catch (err) {
-    return { feed: name, ok: false, count: 0, error: err.message, items: [] };
+    return { id: name, feed: name, ok: false, count: 0, error: err.message, items: [] };
   }
 }
 
@@ -221,26 +230,18 @@ writeFileSync(
 const HEALTH_PATH = join(ROOT, 'generated', 'feed-health.json');
 const DEAD_AFTER = 8; // ~2 days at the 6-hourly wire cadence
 
-let health = {};
-try {
-  health = readJSON(HEALTH_PATH).feeds || {};
-} catch {
-  health = {};
+// Deliberately not wrapped in try/catch: a missing file on the very first run is the only
+// expected failure mode here, and is checked for explicitly. Anything else — a corrupt file,
+// a bad path — should stop the run loudly rather than silently reset every feed's history to
+// zero, which is exactly the bug this replaced (readJSON was called without being imported,
+// so this always threw, was swallowed by a bare catch, and consecutive-failure counts never
+// accumulated across a single run in the archive's history).
+let prevHealth = {};
+if (existsSync(HEALTH_PATH)) {
+  prevHealth = readJSON(HEALTH_PATH).feeds || {};
 }
 
-const dead = [];
-for (const r of runs) {
-  const prev = health[r.feed] || { consecutiveFailures: 0, totalRuns: 0 };
-  const entry = {
-    consecutiveFailures: r.ok ? 0 : prev.consecutiveFailures + 1,
-    totalRuns: prev.totalRuns + 1,
-    lastOk: r.ok ? new Date().toISOString() : prev.lastOk || null,
-    lastError: r.ok ? undefined : r.error,
-    lastCount: r.count,
-  };
-  health[r.feed] = entry;
-  if (entry.consecutiveFailures >= DEAD_AFTER) dead.push({ feed: r.feed, ...entry });
-}
+const { health, dead } = accumulateHealth(prevHealth, runs, { deadAfter: DEAD_AFTER });
 
 writeFileSync(
   HEALTH_PATH,
@@ -282,7 +283,8 @@ console.log(`  wrote ${relative(ROOT, outPath)}`);
 if (dead.length) {
   console.error(`\n✗ ${dead.length} feed(s) have failed ${DEAD_AFTER}+ runs in a row and are effectively dead:`);
   for (const d of dead) {
-    console.error(`    ${d.feed}: ${d.consecutiveFailures} consecutive failures — ${d.lastError}`);
+    const label = d.id !== d.feed ? `${d.feed} [${d.id}]` : d.feed;
+    console.error(`    ${label}: ${d.consecutiveFailures} consecutive failures — ${d.lastError}`);
     console.error(`      last succeeded: ${d.lastOk || 'never'}`);
   }
   console.error('  Fix the URL in tools/harvest.mjs FEEDS, or remove the entry.');

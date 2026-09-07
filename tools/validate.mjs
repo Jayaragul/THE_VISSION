@@ -29,6 +29,20 @@ const { beats, edition: editionRules } = readJSON(join(ROOT, 'input', 'beats.jso
 const sourceBook = readJSON(join(ROOT, 'input', 'sources.json'));
 const beatIds = new Set(beats.map((b) => b.id));
 
+// verify.yml runs this file without --strict across the ENTIRE archive, deliberately (see
+// its own comment) — a new rule that fires as a hard error on an already-published story
+// would turn every future push red forever. So a rule added after the desk understood a
+// given failure mode is gated to editions from that date forward; anything before it stays
+// a warning (visible, but not fatal outside --strict) rather than an unfixable permanent
+// error. Bump this only when adding a new dated rule, never to relax an existing one.
+const POLICY_START = '2026-09-07';
+
+// A quantified performance claim — the exact shape of "cuts fixes by 50%" or "an eightfold
+// increase" — read out of a vendor's own account of itself. See the self-only-source checks
+// below: this is what turns a company press release into "Company statement" advertising
+// rather than reporting, and input/editorial.md already asks for it to be deprioritised.
+const QUANT_CLAIM = /\d+(\.\d+)?\s*%|\d+(\.\d+)?\s*[x×]\b|\bfold\b/i;
+
 // House-style linter. Every entry here traces back to a rule in input/editorial.md.
 const STYLE_TRAPS = [
   [/\bgame[- ]?chang(er|ing)\b/i, 'hype word "game-changer"'],
@@ -351,6 +365,7 @@ function checkEdition(file) {
   const seenSlugs = new Set();
   const seenSourceUrls = new Map();
   const editionMs = Date.parse(`${doc.edition.date}T23:59:59Z`);
+  const gated = doc.edition.date >= POLICY_START;
   const oldestAllowed = editionMs - editionRules.maxLookbackHours * 3600 * 1000;
 
   for (const s of stories) {
@@ -395,6 +410,14 @@ function checkEdition(file) {
     }
 
     let bestTier = 9;
+    // Separate from bestTier: the best tier among sources that are NOT the subject
+    // reporting on itself (input/sources.json's `self` flag). A company's own blog is a
+    // legitimate tier-1 primary for "what did the company announce", which bestTier alone
+    // captures — but "confidence: high" is supposed to mean a claim is independently
+    // confirmed, and a story whose only tier-1 source is the subject's own account has not
+    // cleared that bar no matter how official the account is.
+    let bestIndependentTier = 9;
+    let sourcesAreAllSelf = sources.length > 0;
     // Identity for independence-checking, not the raw host: two URLs on blogs.nvidia.com
     // and nvidianews.nvidia.com are the same publisher wearing two subdomains, and the
     // point of requiring two sources is two people who could each be wrong independently —
@@ -404,16 +427,24 @@ function checkEdition(file) {
       const host = hostOf(src.url);
       if (!host) {
         err(`${tag}: unparseable source URL "${src.url}"`);
+        sourcesAreAllSelf = false;
         continue;
       }
       const blocked = matchPublisher(host, sourceBook.blocked);
       if (blocked) {
         err(`${tag}: ${host} is blocked as a source — ${blocked.reason}`);
+        sourcesAreAllSelf = false;
         continue;
       }
       const known = matchPublisher(host, sourceBook.publishers);
       const tier = known?.tier ?? 4;
       bestTier = Math.min(bestTier, tier);
+      if (known?.self) {
+        // Stays self — bestIndependentTier untouched.
+      } else {
+        bestIndependentTier = Math.min(bestIndependentTier, tier);
+        sourcesAreAllSelf = false;
+      }
       publisherIdentities.add((known?.name || host).toLowerCase());
       if (!known) warn(`${tag}: ${host} is not in the source book (treated as tier 4)`);
       if (src.tier != null && known && src.tier !== known.tier) {
@@ -461,10 +492,43 @@ function checkEdition(file) {
     if (s.confidence === 'high' && bestTier > 1) {
       err(`${tag}: confidence "high" requires a tier-1 primary source, best available is tier ${bestTier}`);
     }
+    // The check above passes as soon as ANY tier-1 source exists, including the subject's
+    // own account of itself — that is a legitimate tier-1 primary for "what did the company
+    // say", but "high" is supposed to mean the claim is independently confirmed. A story
+    // whose only tier-1 source reports on itself has not cleared that bar.
+    if (gated && s.confidence === 'high' && bestTier <= 1 && bestIndependentTier > 1) {
+      err(
+        `${tag}: confidence "high" requires an independent tier-1 source — the only tier-1 source here is the subject's own account of itself`
+      );
+    }
     // Lead/top need two sources by count already; this checks they are not the same
     // publisher's byline and its own press release counted as two.
     if ((s.prominence === 'lead' || s.prominence === 'top') && sources.length >= 2 && publisherIdentities.size < 2) {
       err(`${tag}: ${s.prominence} story's sources are not independent — all trace to the same publisher`);
+    }
+    // input/editorial.md already says to deprioritise "any story whose only source is a
+    // vendor blog about a vendor benchmark" — this makes that checkable rather than a rule
+    // that only lives in a document nobody re-reads. A story that clears every other bar
+    // sourced solely to the subject itself is still allowed to run (confidence just can't be
+    // "high" for it, per the check above) — it becomes an error only when it also states a
+    // quantified performance number as if verified, which is precisely the vendor-benchmark-
+    // as-result shape the paper's own rules forbid.
+    // Gated like everything else new here: test/gate.test.mjs asserts the newest committed
+    // edition clears --strict on its own, and several already-published stories (vendor
+    // case-study briefs especially) are sourced this way. An ungated warning here would
+    // fail that assertion the moment this ships, for every edition until the next one is
+    // written under the new rule — exactly the permanent-red-CI failure mode this file's own
+    // constraint section warns against.
+    if (gated && sourcesAreAllSelf) {
+      warn(`${tag}: the only source is the subject's own self-reported account`);
+      if (QUANT_CLAIM.test(`${s.headline} ${s.deck}`)) {
+        err(
+          `${tag}: a quantified performance claim, sourced only to the subject's own account — attribute it as a claim, or add an independent source that reproduces it`
+        );
+      }
+    }
+    if (gated && !s.confidence) {
+      err(`${tag}: missing "confidence" — every story must carry high, medium or low`);
     }
 
     // Deck must earn its place.

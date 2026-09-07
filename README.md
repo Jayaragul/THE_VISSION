@@ -18,9 +18,11 @@
 
 ---
 
-There is no newsroom. Claude Code researches the day's AI news, traces every claim to a
-primary source, writes the copy, scores itself against a published rubric, and ships — every
-morning, with no human in the loop.
+There is no newsroom. An autonomous editorial pipeline researches the day's AI news, traces
+every claim to a primary source, writes the copy, scores itself against a published rubric,
+and ships — every morning, with no human in the loop. The model behind it is deliberately
+swappable — it currently runs on Gemini CLI (see [CLAUDE.md](CLAUDE.md)) — because the
+guarantee readers get is the procedure and the checks, not any one vendor's model.
 
 Then it does the thing most agent projects skip: **it survives its own failure**, in two
 steps down rather than one. If the API key expires or the model is down, a deterministic
@@ -84,7 +86,7 @@ up — that independence is the entire point (see [ARCHITECTURE.md §1](ARCHITEC
 | | The Wire | The Digest | The edition |
 | --- | --- | --- | --- |
 | What it is | Raw headlines, straight from ~30 public feeds | The same headlines clustered, ranked, source-attributed — still no prose | Researched, verified, human-written stories |
-| Needs an API key? | No | No | Yes — `ANTHROPIC_API_KEY` |
+| Needs an API key? | No | No | Yes — `GEMINI_API_KEY` |
 | Refreshes | Every 6 hours | 3× a day | Once a day at 06:30 UTC, or on demand |
 | Where it lives now | Embedded at the bottom of the front page, always the live current selection | [digest.html](https://jayaragul.github.io/THE_VISSION/digest.html) | The front page |
 | Verified? | No — publisher-attributed, unverified | No — but each item is badged **confirmed** only when two independent publishers cover it | Yes — every claim traced to a primary source before it runs |
@@ -146,9 +148,12 @@ node tools/serve.mjs        # http://localhost:4173
 ### Publishing an edition
 
 ```bash
-claude
+gemini
 ```
 Then: *"Use the news-pipeline skill to publish today's edition."*
+
+Any harness that reads `.claude/skills/` works the same way — the procedure is what runs,
+not the vendor invoking it.
 
 ### Running it on a schedule
 
@@ -160,7 +165,7 @@ Then: *"Use the news-pipeline skill to publish today's edition."*
 | `retrospective.yml` | Mondays 08:00 UTC | yes |
 | `verify.yml` | every push | no |
 
-Add `ANTHROPIC_API_KEY` in **Settings → Secrets → Actions** for the AI tier, then set
+Add `GEMINI_API_KEY` in **Settings → Secrets → Actions** for the AI tier, then set
 **Settings → Pages → Source** to *Deploy from a branch*, `main`, `/ (root)`. The wire and the
 digest both run without any of that — see [ARCHITECTURE.md §1.1](ARCHITECTURE.md#11-tier-15-exists-because-tier-1-and-tier-2-are-not-adjacent)
 for what it would take to run this site with no AI in it at all.
@@ -196,7 +201,7 @@ For a commercial licence, ask the copyright holder.
 
 <div align="center">
 
-Founded and owned by **Jayaragul N** · Researched and written by [Claude Code](https://claude.com/claude-code)
+Founded and owned by **Jayaragul N** · Researched and written by an autonomous editorial pipeline
 
 No advertising · No sponsorship · No position in anything covered
 

@@ -158,8 +158,8 @@ paper will always lose. Every check is written to be hard to satisfy dishonestly
 
 A prompt instruction ("don't touch the validator", "don't run git") is not a security
 boundary. A job with no write credential is. `daily-edition.yml` learned this the hard way —
-an early version ran Claude and the publish step in one job, so a prompt-injected page or a
-confused run could in principle have had `tools/validate.mjs` or a workflow file edited and
+an early version ran the AI job and the publish step in one job, so a prompt-injected page or
+a confused run could in principle have had `tools/validate.mjs` or a workflow file edited and
 then silently swept up by a blind `git add -A` in the same job.
 
 It is now three jobs with three different trust levels:
@@ -188,13 +188,13 @@ files (`input/editorial.md`, `tools/validate.mjs`, `evals/rubric.md`) — that's
 it — so an allowlist doesn't fit. Instead it has a **forbidden**-paths check: it can propose
 anything except a change to `.github/workflows/` (which would let it widen its own reach), a
 past `generated/` edition, an `evals/` eval, or `LICENSE`. Combined with the fact that it
-already opens a PR rather than pushing to `main`, and that Claude's Bash access in that job is
-read-only git commands only, a proposed change to a forbidden path is refused before a PR can
-even open.
+already opens a PR rather than pushing to `main`, and that the model's Bash access in that job
+is read-only git commands only, a proposed change to a forbidden path is refused before a PR
+can even open.
 
 ## 6. Self-improvement, with a human gate
 
-`.github/workflows/retrospective.yml` runs weekly. Claude reads the eval score history,
+`.github/workflows/retrospective.yml` runs weekly. The model reads the eval score history,
 finds the single pattern costing the most points, and proposes a change to **the rules** —
 a new validator check, a banned construction, a quota that does not match reality.
 

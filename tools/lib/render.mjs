@@ -368,18 +368,44 @@ export const CONFIDENCE_LABEL = {
   low: 'Single source, unconfirmed',
 };
 
+// A story whose only source is the subject reporting on itself (input/sources.json's `self`
+// flag) has not been independently confirmed, however official that account is —
+// tools/validate.mjs enforces this going forward for new editions, but the archive already
+// carries stories published before that check existed. This corrects only how such a story
+// displays, not the story itself: no published JSON changes, no corrections entry, because
+// nothing about what was published is being rewritten — the label was simply never checking
+// what it claimed to check.
+function sourcesAreAllSelf(ctx, sources) {
+  if (!sources?.length) return false;
+  return sources.every((s) => matchPublisher(hostOf(s.url), ctx.sourceBook.publishers)?.self === true);
+}
+
+/** The one place a story's trust badge is decided — used on cards, the lead, rows (via
+ *  metaLine, below) and the story page's own byline (tools/build.mjs's renderStoryPage).
+ *  Three separate call sites used to each carry their own copy of this logic, which is how
+ *  a self-only-sourced "high" story could get relabelled on cards but not on its own page. */
+export function confidenceBadge(ctx, story) {
+  if (!story.confidence) {
+    // Four stories shipped in the archive with no confidence label at all — the schema
+    // never required it, so this used to render nothing rather than admit the gap.
+    return { text: 'Sourcing not labelled', low: true, title: 'no confidence label was set for this story' };
+  }
+  const allSelf = story.confidence === 'high' && sourcesAreAllSelf(ctx, story.sources);
+  return {
+    text: allSelf ? 'Company statement' : CONFIDENCE_LABEL[story.confidence] || story.confidence,
+    low: story.confidence !== 'high' || allSelf,
+    title: `${story.confidence} confidence${allSelf ? ' — sole source is the subject describing itself' : ''}`,
+  };
+}
+
 function metaLine(ctx, story, depth) {
   const beat = ctx.beatMap.get(story.beat);
   const parts = [];
   if (beat) parts.push(`<a href="${rel(depth, 'index.html')}#${e(beat.id)}" style="text-decoration:none">${e(beat.label)}</a>`);
   if (story.readMinutes) parts.push(`${story.readMinutes} min read`);
   if (story.publishedAt) parts.push(`<time datetime="${e(story.publishedAt)}" data-relative>${e(formatShort(story.publishedAt))}</time>`);
-  if (story.confidence) {
-    const plain = CONFIDENCE_LABEL[story.confidence] || story.confidence;
-    parts.push(
-      `<span class="tag${story.confidence === 'high' ? '' : ' tag--low'}" title="${e(story.confidence)} confidence">${e(plain)}</span>`
-    );
-  }
+  const badge = confidenceBadge(ctx, story);
+  parts.push(`<span class="tag${badge.low ? ' tag--low' : ''}" title="${e(badge.title)}">${e(badge.text)}</span>`);
   return `<div class="meta">${parts.map((p) => `<span>${p}</span>`).join('')}</div>`;
 }
 

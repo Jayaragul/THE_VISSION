@@ -48,7 +48,11 @@ world with a source attached.
 
 Say what is known, what is claimed, and who is claiming it. A benchmark number from a
 vendor's own blog post is a *claim*, not a *result*, until someone independent reproduces
-it. Mark that difference in the prose, not just in a metadata field.
+it. Mark that difference in the prose, not just in a metadata field. A headline or deck that
+states a quantified performance number (a percentage, a multiplier, "-fold") sourced only to
+the subject's own account will fail the gate outright for any edition dated 2026-09-07 or
+later — rewrite it as an attributed claim (`Razorpay says fraud detection rose eightfold`),
+or add an independent source that actually reproduces the number.
 
 ## 3. Story shape
 
@@ -81,6 +85,14 @@ record but not the reader's minute.
   they must not be two outlets rewriting the same press release.
 - **Prefer the primary.** If a newsroom reports what a company announced, link the company's
   announcement *and* the newsroom's reporting. Tier 1 beats tier 2 beats tier 3.
+- **A company's own account of itself is not independent confirmation of itself**, no matter
+  what tier it sits at. `input/sources.json` flags these hosts with `"self": true` — it is a
+  legitimate tier-1 primary for *what the company said*, and a story can run on it alone. It
+  is not a legitimate basis for `confidence: "high"`, which means the claim is confirmed by
+  someone other than the subject. If the only tier-1 source is the subject's own account, the
+  honest label is `medium`. `tools/validate.mjs` enforces this for every edition dated
+  2026-09-07 or later — see the checks near `bestIndependentTier` — so a story that tries to
+  claim `high` on a self-only source will fail the gate, not just look wrong.
 - **Never cite a social post as a source.** It is a lead. Follow it to the thing it points at.
 - **Never invent a URL, a quote, a number or a date.** If you cannot verify it, the story
   does not run. An edition that is short by three stories is fine. An edition with one

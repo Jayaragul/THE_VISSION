@@ -389,6 +389,16 @@ ul, ol { margin: 0; padding: 0; }
   border-top: 1px solid var(--rule);
 }
 
+/* A beat whose only coverage today is the lead or a brief — already shown above — gets this
+   one-line pointer in place of an empty section or a card duplicating what's already on the
+   page. */
+.section__pointer {
+  font-family: var(--sans);
+  font-size: .82rem;
+  color: var(--muted);
+}
+.section__pointer a { color: inherit; }
+
 /* --------------------------------------------------------------- nav ------ */
 
 .beatnav {

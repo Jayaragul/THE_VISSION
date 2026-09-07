@@ -295,7 +295,16 @@ function renderEditionPage(ctx, ed, { depth, canonical, isFront, prev, next }) {
   const stories = [...ed.stories];
   const lead = stories.find((s) => s.prominence === 'lead') || stories[0];
   const briefs = stories.filter((s) => s.prominence === 'brief');
-  const inBeat = (id) =>
+
+  // Two different questions about a beat: did the paper cover it at all today (this is
+  // tools/validate.mjs's own definition of "covered" — every story in the beat, full stop),
+  // versus does the beat have anything left that still needs a card down here, once the lead
+  // and the briefs have already been shown in their own blocks above. Collapsing those into
+  // one filter used to mean a beat covered only by the lead or by briefs was reported as
+  // empty, dropped from nav, and told the reader nothing had cleared the bar — on the same
+  // page as the story that had.
+  const coversBeat = (id) => stories.filter((s) => s.beat === id);
+  const cardsFor = (id) =>
     stories
       .filter((s) => s.beat === id && s !== lead && s.prominence !== 'brief')
       .sort(byProminence);
@@ -305,14 +314,31 @@ function renderEditionPage(ctx, ed, { depth, canonical, isFront, prev, next }) {
   // roughly half the front page was dedicated to saying nothing happened. The disclosure is
   // worth keeping and the four blocks are not, so the empty ones collapse into a single line
   // printed once, below.
-  const emptyBeats = site.nav.filter((nav) => !inBeat(nav.id).length);
-  const presentBeats = new Set(site.nav.filter((nav) => inBeat(nav.id).length).map((n) => n.id));
+  const emptyBeats = site.nav.filter((nav) => !coversBeat(nav.id).length);
+  const presentBeats = new Set(site.nav.filter((nav) => coversBeat(nav.id).length).map((n) => n.id));
 
   const beatSections = site.nav
-    .filter((nav) => inBeat(nav.id).length)
+    .filter((nav) => coversBeat(nav.id).length)
     .map((nav) => {
       const beat = beatMap.get(nav.id) || nav;
-      const list = inBeat(nav.id);
+      const list = cardsFor(nav.id);
+
+      if (!list.length) {
+        // Every story this beat has today is already on the page — the lead, or a brief.
+        // Point at it instead of rendering an empty section or hiding the beat from nav.
+        const elsewhere = coversBeat(nav.id);
+        const pointer = elsewhere
+          .map(
+            (s) =>
+              `${s.prominence === 'lead' ? "today's lead story" : 'a brief'}, <a href="${R.rel(depth, R.storyPath(s))}">${e(s.headline)}</a>, above`
+          )
+          .join('; and ');
+        return `<section class="section" id="${e(nav.id)}">
+${R.sectionHead(beat.label, beat.blurb, elsewhere.length)}
+<p class="section__pointer">${pointer}.</p>
+</section>`;
+      }
+
       let inner;
       if (list.length <= 2) {
         inner = `<div class="cards">${list.map((s) => R.card(ctx, s, depth)).join('')}</div>`;
@@ -395,8 +421,8 @@ ${R.signalsBlock(ed.signals)}
 ${emptyNote}
 </section>
 
-${wire}
 ${beatSections}
+${wire}
 ${editionNav}
 </div>`;
 
@@ -477,7 +503,10 @@ ${/* This line shows the edition date ("26 August 2026"), so its machine-readabl
 <span><time datetime="${e(ed.edition.generatedAt)}">${e(formatMasthead(ed.edition.date))}</time></span>
 <span>${story.readMinutes} min read</span>
 <span>${story.sources.length} source${story.sources.length === 1 ? '' : 's'}</span>
-${story.confidence ? `<span><span class="tag${story.confidence === 'high' ? '' : ' tag--low'}" title="${e(story.confidence)} confidence">${e(R.CONFIDENCE_LABEL[story.confidence] || story.confidence)}</span></span>` : ''}
+${(() => {
+  const badge = R.confidenceBadge(ctx, story);
+  return `<span><span class="tag${badge.low ? ' tag--low' : ''}" title="${e(badge.title)}">${e(badge.text)}</span></span>`;
+})()}
 </div>
 </div>
 
