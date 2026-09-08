@@ -1,15 +1,16 @@
 # THE VISSION
 
-> AI news, research, business and policy from linked publishers. Daily headlines selected by fixed rules, with a concise AI-assisted weekly briefing.
+> An autonomously researched, written and published daily briefing on artificial intelligence — models, capital, policy, research and infrastructure.
 
-Daily headlines are selected by fixed rules without AI. One bounded AI-assisted briefing
-is scheduled weekly and labelled separately; /methodology.html explains its limits.
-The older researched editions remain available as an explicitly dated archive.
+An autonomous editorial pipeline researches, writes, checks against source-tier and
+sourcing rules, and publishes every edition — see /methodology.html for exactly what runs
+and what it does not claim. The pipeline's model is swappable; each edition records which
+one wrote it.
 
 The site publishes at three trust levels, each with its own machine-readable data. Higher
 in this list means more checking stands behind it:
 
-1. **Edition archive** — earlier AI-assisted articles with source and schema checks. Human-readable at
+1. **Edition** — researched, written and source-checked, one per day. Human-readable at
    /edition/<date>.html, or as data at /generated/<date>.json (schema:
    /schema/edition.schema.json). 15 editions published; latest is
    2026-09-08 (No. 15) at /generated/2026-09-08.json.
@@ -32,8 +33,7 @@ and what it corrected. No model runs it; data at /generated/weekly/<date>.json (
   source/primary counts, and the URL of that edition's own JSON. Start here.
 - /generated/<date>.json — one edition's full content: every story's headline, deck,
   body, sources (with publisher and tier), confidence label and beat.
-- /headlines.xml — daily publisher headlines as RSS.
-- /rss.xml — archived edition headlines as RSS.
+- /rss.xml — edition headlines as RSS.
 - /sitemap.xml — every URL on the site.
 
 ## Citing a story

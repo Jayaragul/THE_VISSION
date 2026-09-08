@@ -17,7 +17,6 @@ import {
 import { renderCover } from './lib/cover.mjs';
 import { selectWireItems, wireBlock, wireItemsHTML, stalenessBanner, wirePath, snapshotWire, loadWireHistory } from './lib/wire.mjs';
 import * as R from './lib/render.mjs';
-import { renderNewsroom, renderHeadlineRSS } from './lib/newsroom.mjs';
 import { collectThreads, collectOpenQuestions, collectCorrections, daysBetween } from './lib/continuity.mjs';
 import { collectDocs, buildSearchIndex } from './lib/searchindex.mjs';
 
@@ -1026,7 +1025,7 @@ function renderMethodology(ctx, editions) {
 <section class="editorsnote">
 <div class="editorsnote__label">Methodology</div>
 <div>
-<h1 class="editorsnote__title">How this newspaper is made.</h1>
+<h1 class="editorsnote__title">A paper that is trying to write itself.</h1>
 <p class="editorsnote__body">${e(site.description)}</p>
 </div>
 </section>
@@ -1034,24 +1033,39 @@ function renderMethodology(ctx, editions) {
 <section class="section">
 <div class="article__grid">
 <div class="prose">
-<p><strong>Daily news is selected without AI.</strong> Public publisher feeds supply headlines,
-links and timestamps. Fixed rules filter topics, group similar coverage and rank the digest.
-The homepage links to the original reporting rather than generating daily articles.</p>
-<p><strong>One small AI-assisted briefing is scheduled each week.</strong> It paraphrases up to
-three selected headlines and is labelled separately. The model does not browse, verify claims
-or choose source URLs. Its output can still be wrong; read the named publisher for context.
-A failed briefing leaves daily headlines available.</p>
-<p>To keep usage limited, each UTC week has one request allowance, recorded before calling
-the provider. There are no automatic retries or repair loops. The request has a fixed input
-size limit, a 1,400-token output cap and a 30-second deadline. A failed attempt uses that
-week's allowance. Missing credentials or no recent headlines skip the request.</p>
-<h2>About the edition archive</h2>
-<p>Earlier editions used an AI research-and-writing pipeline with schema, sourcing and style
-checks. Those checks are safeguards, not proof that every claim is true. The original dates,
-source links and generator disclosures remain on each archived edition. The former daily
-AI job and AI retrospective have been retired.</p>
-<p>Pages are built from saved data. Rebuilding the same inputs produces the same page files;
-the optional model response itself is not guaranteed to be reproducible.</p>
+<p>Every edition of ${e(site.name)} is produced by the same pipeline, the same editorial
+rules and the same validator. What changes is whether a person had to press the button.
+Each edition says which it was, on the edition itself: an <strong>autonomous edition</strong>
+ran end to end on a schedule with nobody in the loop, and a <strong>human-run edition</strong>
+means the scheduled run failed its gate and a person ran the identical procedure by hand.</p>
+
+<p>This page used to say nobody writes this paper. That was the intent, and for a stretch of
+${e(String(editions.length))} editions it was not yet true — every one of them was human-run
+after a scheduled attempt failed. Documenting that is more useful than hiding it: a paper
+whose entire claim is that you can check its work cannot be the one page on the site you
+have to take on faith. The label on each edition is generated from what actually ran, not
+set by hand, so it cannot quietly drift back into flattery.</p>
+
+<p>The repository holds three things the pipeline reads and one thing it writes. It reads
+the <strong>skills</strong>, which are the standing instructions for how to research and how
+to write; the <strong>inputs</strong>, which set the beats, the trusted source list and the
+house style; and the <strong>evaluations</strong>, which are the tests an edition must pass.
+It writes a single JSON file per day. Everything you are looking at — this page, the front
+page, every story — is rendered from those JSON files by a build script that reaches
+nowhere near the network.</p>
+
+<p>A run works through four stages. First it researches each beat against the day's
+candidate stories, following every lead to a primary source. Second it drafts, applying the
+house style and refusing to print any claim it could not verify. Third it validates: the
+edition is checked against a schema, a sourcing policy and a style linter, and a run that
+fails is not published. Fourth it commits the JSON to git and pushes, which is what puts
+the edition in front of you.</p>
+
+<p>Two rules matter more than the rest. <strong>No claim runs without a source</strong>, and
+lead stories carry at least two that are not rewrites of each other. <strong>Nothing is
+invented</strong> — not a URL, not a quotation, not a number, not a date. An edition that
+comes up short simply runs short, and the validator will say so out loud rather than let
+the pipeline fill the gap with something plausible.</p>
 
 <p>On images: this paper does not republish other people's press photography, because it has
 no licence to. The art on every story is generated from that story's identifier, which is why
@@ -1064,17 +1078,17 @@ are the source tiers, the confidence label printed on every story, and the fact 
 source is one click away. Where a story is thin, it is marked thin. Read the sources.</p>
 
 <h2 id="digest" style="font-size:1.3rem;margin:34px 0 12px">The digest: no model at all</h2>
-<p>The <a href="${R.rel(0, 'digest.html')}">daily digest</a> and homepage run without any AI in the
+<p><a href="${R.rel(0, 'digest.html')}">A second, separate page</a> runs without any AI in the
 loop whatsoever — no API key, no model, nothing generated. <code>tools/harvest.mjs</code>
 collects headlines from public feeds; <code>tools/digest.mjs</code> clusters near-duplicate
 coverage of the same event, scores each cluster on recency, source tier, how many independent
-publishers cover it, whether it repeats a previous digest, and urgency, then keeps the
+publishers confirm it, whether it repeats a previous digest, and beat priority, then keeps the
 top-ranked clusters per beat. That is genuinely all it does.</p>
 
 <p>The honest way to describe the difference: the edited paper above claims to have read,
 verified and explained something. The digest claims only to have counted and sorted. Every
 headline on it is a source's own title, never rewritten, and every item links straight to
-where it was reported rather than to a summary of it. A story is marked <strong>Multiple sources</strong>
+where it was reported rather than to a summary of it. A story is marked <strong>confirmed</strong>
 only when a primary or established-newsroom source and a second, genuinely independent
 publisher both cover the same cluster — not merely two links, which is a distinction
 <code>tools/validate.mjs</code> enforces on the edited paper too, the hard way: it once let
@@ -1085,11 +1099,11 @@ only whether more than one publisher is making it. It cannot explain why somethi
 there is no "why it matters" field in its schema, on purpose, because writing one would be
 the pipeline inventing an opinion it does not have. And its clustering works on shared words
 in a headline, not meaning, so two outlets covering the same event in very different language
-will often show up as two separate, single-source items rather than one grouped item. That is
+will often show up as two separate, unconfirmed items rather than one confirmed one. That is
 a real limitation of counting words instead of understanding them, and it is stated here
 rather than hidden.</p>
 
-<h2 id="wire" style="font-size:1.3rem;margin:34px 0 12px">The wire: recent publisher headlines</h2>
+<h2 id="wire" style="font-size:1.3rem;margin:34px 0 12px">The wire: not even sorted</h2>
 <p>Underneath the digest, on the front page, is <strong>the wire</strong> — the lowest tier and
 the one with no judgement in it at all. <code>tools/harvest.mjs</code> pulls headlines straight
 from roughly 30 public RSS feeds and a handful of topic searches, keeps whatever is plausibly
@@ -1206,7 +1220,7 @@ function digestItemRow(ctx, item, depth) {
   const primary = item.sources[0];
   const rest = item.sources.slice(1);
   return `<article class="digest-item" id="${e(item.id)}"${beat ? ` style="--beat-accent:${e(beat.accent)}"` : ''}>
-<span class="digest-item__badge digest-item__badge--${item.confidence === 'confirmed' ? 'confirmed' : 'single'}">${item.confidence === 'confirmed' ? 'Multiple sources' : 'Single source'}</span>
+<span class="digest-item__badge digest-item__badge--${item.confidence === 'confirmed' ? 'confirmed' : 'single'}">${item.confidence === 'confirmed' ? 'Confirmed' : 'Single source'}</span>
 <h3 class="digest-item__title"><a href="${e(primary.url)}" rel="noopener nofollow" target="_blank">${e(item.title)}</a></h3>
 <div class="meta">
 <span>${e(beat?.label || item.beat)}</span>
@@ -1256,11 +1270,11 @@ ${next ? `<a href="${R.rel(depth, digestPath(next))}" style="text-decoration:non
 
   const content = `<div class="wrap">
 <section class="editorsnote">
-<div class="editorsnote__label">Daily headlines<br>From the sources</div>
+<div class="editorsnote__label">Tier 1.5<br>No AI, no prose</div>
 <div>
 <h1 class="editorsnote__title">The digest for ${e(formatMasthead(digest.edition.date))}</h1>
 <p class="editorsnote__body">${digest.items.length} headlines, clustered and ranked by a deterministic program — recency,
-source quality, coverage by multiple publishers, novelty and urgency. Topic limits keep coverage balanced. No model wrote or selected
+source tier, independent confirmation, novelty and beat priority, weighted and summed. No model wrote or selected
 any of this. Every title on this page is a source's own headline; every item links straight to where it was
 reported. <a href="${R.rel(depth, 'methodology.html')}#digest">How this differs from the edited paper →</a></p>
 <p class="wire__stamp">Last refreshed <time datetime="${e(digest.edition.generatedAt)}" data-relative>${e(formatMasthead(digest.edition.date))}, ${e(digest.edition.generatedAt.slice(11, 16))} UTC</time> · runs three times a day, no model in the loop</p>
@@ -1273,7 +1287,7 @@ ${nav}
   return R.page(ctx, {
     depth,
     canonical: digestPath(isLatest ? null : digest.edition.date),
-    anchorNav: false,
+    anchorNav: isLatest,
     title: isLatest
       ? `Digest — ${site.name}`
       : `Digest, ${formatShort(digest.edition.date)} — ${site.name}`,
@@ -1401,7 +1415,7 @@ ${nav}
   return R.page(ctx, {
     depth,
     canonical: weeklyPath(isLatest ? null : week.date),
-    anchorNav: false,
+    anchorNav: isLatest,
     title: isLatest
       ? `Weekly review — ${site.name}`
       : `Weekly review, ${formatShort(week.from)}–${formatShort(week.to)} — ${site.name}`,
@@ -2210,12 +2224,17 @@ const coverCount = writeCovers(editions);
 write('assets/img/favicon.svg', favicon());
 write('assets/img/social-card.svg', socialCard());
 
-// Daily publication is deterministic; AI summaries are a separately labelled weekly feature.
-const briefingDir = OUT('generated', 'briefings');
-const briefingFile = existsSync(briefingDir) ? readdirSync(briefingDir).filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().reverse()[0] : null;
-const latestBriefing = briefingFile ? readJSON(join(briefingDir, briefingFile)) : null;
-write('index.html', renderNewsroom(ctx, digests[0], latest, latestBriefing));
-write('headlines.xml', renderHeadlineRSS(site, digests[0]));
+// Front page = latest edition.
+write(
+  'index.html',
+  renderEditionPage(ctx, latest, {
+    depth: 0,
+    canonical: '',
+    isFront: true,
+    prev: editions[1]?.edition.date,
+    next: null,
+  })
+);
 
 // One page per edition.
 editions.forEach((ed, i) => {
@@ -2347,14 +2366,15 @@ write(
 
 > ${site.description}
 
-Daily headlines are selected by fixed rules without AI. One bounded AI-assisted briefing
-is scheduled weekly and labelled separately; /methodology.html explains its limits.
-The older researched editions remain available as an explicitly dated archive.
+An autonomous editorial pipeline researches, writes, checks against source-tier and
+sourcing rules, and publishes every edition — see /methodology.html for exactly what runs
+and what it does not claim. The pipeline's model is swappable; each edition records which
+one wrote it.
 
 The site publishes at three trust levels, each with its own machine-readable data. Higher
 in this list means more checking stands behind it:
 
-1. **Edition archive** — earlier AI-assisted articles with source and schema checks. Human-readable at
+1. **Edition** — researched, written and source-checked, one per day. Human-readable at
    /edition/<date>.html, or as data at /generated/<date>.json (schema:
    /schema/edition.schema.json). ${editions.length} editions published; latest is
    ${latest.edition.date} (No. ${latest.edition.number}) at /generated/${latest.edition.date}.json.
@@ -2377,8 +2397,7 @@ and what it corrected. No model runs it; data at /generated/weekly/<date>.json (
   source/primary counts, and the URL of that edition's own JSON. Start here.
 - /generated/<date>.json — one edition's full content: every story's headline, deck,
   body, sources (with publisher and tier), confidence label and beat.
-- /headlines.xml — daily publisher headlines as RSS.
-- /rss.xml — archived edition headlines as RSS.
+- /rss.xml — edition headlines as RSS.
 - /sitemap.xml — every URL on the site.
 
 ## Citing a story
@@ -2450,5 +2469,5 @@ write('generated/latest.json', JSON.stringify(latest, null, 2) + '\n');
 
 console.log(
   `✓ built ${editions.length} edition(s) · ${storyCount} stories · ${coverCount} covers\n` +
-    `  front page → daily headlines ${digests[0]?.edition.date || ctx.latestDate}`
+    `  front page → edition ${latest.edition.date} (No. ${latest.edition.number})`
 );

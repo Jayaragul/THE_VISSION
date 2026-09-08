@@ -60,27 +60,3 @@ and [Dependabot updates](https://docs.github.com/en/code-security/how-tos/secure
 
 Local checks do not prove that GitHub permissions, secrets or deployments are configured.
 Changes must reach the default branch before their schedules and update checks activate.
-
-
-## Weekly AI allowance
-
-The previous daily editorial and retrospective jobs are retired. Daily headlines and their
-RSS feed are deterministic. The new optional weekly briefing uses at most one generation
-request per Monday-through-Sunday UTC week, no model tools, no retries, three input headlines,
-a 12,000-byte total JSON request limit, 1,400 output tokens and a 30-second timeout.
-The byte limit is not an exact input-token limit; provider tokenization determines input usage.
-
-The workflow commits and pushes a weekly reservation before calling the provider. If that
-push fails, the provider call does not run. Interruptions after reservation consume the week.
-Fresh reruns see the reservation and skip. Failed output cannot replace a prior briefing.
-The ledger stores provider-reported token usage where available; failed/network-interrupted
-requests may have unknown usage. No reservation is made when credentials or recent items
-are absent. Do not delete a reservation to retry without accepting the extra spend.
-
-The pinned model can retire or lose availability. Update it with compatibility tests when
-needed; daily news continues. Temperature zero does not make a hosted model deterministic.
-The guarantee is reproducible rendering of saved output, not identical model generations.
-Local CLI use and other applications using the same API key are outside the scheduled budget.
-
-Search metadata and a share button do not guarantee indexing or recommendation. Verify
-ownership in Search Console and submit the sitemap; this needs the site owner's account.

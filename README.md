@@ -2,7 +2,7 @@
 
 # THE VISSION
 
-### Daily AI news. Original sources. One weekly briefing.
+### A daily AI newspaper that writes itself — and keeps publishing when the AI stops.
 
 **[📰 Read today's edition →](https://jayaragul.github.io/THE_VISSION/)**
 
@@ -18,23 +18,18 @@
 
 ---
 
-The homepage is a daily news desk built from publisher headlines and fixed selection rules.
-Wire and Digest collect, group and rank coverage without AI. Original reporting stays one click
-away. The older AI-written editions remain accessible in the archive.
+There is no newsroom. An autonomous editorial pipeline researches the day's AI news, traces
+every claim to a primary source, writes the copy, scores itself against a published rubric,
+and ships — every morning, with no human in the loop. The model behind it is deliberately
+swappable — it currently runs on Gemini CLI (see [CLAUDE.md](CLAUDE.md)) — because the
+guarantee readers get is the procedure and the checks, not any one vendor's model.
 
-One short AI-assisted briefing is scheduled on Sundays. It receives at most three headlines,
-has a 12,000-byte request-body cap and a 1,400-output-token cap, and makes at most one request
-per UTC calendar week. A persisted reservation prevents scheduled/manual retries from spending
-again. No browsing, agent repair loop or AI retrospective runs. Missing credentials skip it;
-failed attempts consume the allowance. Token usage, when reported, is saved in
-`generated/ai-usage/`. This bounds requests and output, not a currency amount or account-wide usage.
-
-The homepage, RSS, search, source links and archive keep working without that briefing.
-See [RELIABILITY.md](RELIABILITY.md) for operating limits and
-[RESEARCH_PLAN.md](RESEARCH_PLAN.md) for a proposed evaluation rather than unmeasured claims.
-
-The sections below describe the original multi-tier design; the former daily AI and
-retrospective workflows are retired. The current entry point is `weekly-briefing.yml`.
+Then it does the thing most agent projects skip: **it survives its own failure**, in two
+steps down rather than one. If the API key expires or the model is down, a deterministic
+clustering-and-ranking tier with no AI in it at all — same harvested feeds, no prose, no
+model — keeps publishing a source-attributed digest. If even that fails, a third tier with
+no logic beyond "show the headline" keeps the front page current. The site degrades, says so
+on the page, and keeps going.
 
 ## Why you might care
 

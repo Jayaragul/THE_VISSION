@@ -25,22 +25,21 @@
 <meta property="og:title" content="Methodology — THE VISSION">
 <meta property="og:description" content="How an automated pipeline researches, writes, checks and publishes this paper.">
 <meta property="og:url" content="https://jayaragul.github.io/THE_VISSION/methodology.html">
-<meta property="og:image" content="https://jayaragul.github.io/THE_VISSION/assets/img/social-card.png">
+<meta property="og:image" content="https://jayaragul.github.io/THE_VISSION/assets/img/social-card.svg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Methodology — THE VISSION">
 <meta name="twitter:description" content="How an automated pipeline researches, writes, checks and publishes this paper.">
-<meta name="twitter:image" content="https://jayaragul.github.io/THE_VISSION/assets/img/social-card.png">
+<meta name="twitter:image" content="https://jayaragul.github.io/THE_VISSION/assets/img/social-card.svg">
 
 <meta name="author" content="THE VISSION Desk — founded by Jayaragul N">
 <meta name="theme-color" content="#c8102e" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0c0b0a" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="./assets/img/favicon.svg" type="image/svg+xml">
-<link rel="alternate" type="application/rss+xml" title="THE VISSION — Daily headlines" href="./headlines.xml">
-<link rel="alternate" type="application/rss+xml" title="THE VISSION — Editions" href="./rss.xml">
+<link rel="alternate" type="application/rss+xml" title="THE VISSION" href="./rss.xml">
 <link rel="stylesheet" href="./assets/css/site.css">
 <script>try{var t=localStorage.getItem('tv-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","name":"THE VISSION","url":"https://jayaragul.github.io/THE_VISSION/","description":"AI news, research, business and policy from linked publishers. Daily headlines selected by fixed rules, with a concise AI-assisted weekly briefing.","slogan":"The daily record of artificial intelligence","foundingDate":"2026","founder":{"@type":"Person","name":"Jayaragul N"},"copyrightHolder":{"@type":"Person","name":"Jayaragul N"},"logo":"https://jayaragul.github.io/THE_VISSION/assets/img/social-card.svg","sameAs":["https://github.com/Jayaragul/THE_VISSION"],"ethicsPolicy":"https://jayaragul.github.io/THE_VISSION/methodology.html","publishingPrinciples":"https://jayaragul.github.io/THE_VISSION/methodology.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","name":"THE VISSION","url":"https://jayaragul.github.io/THE_VISSION/","description":"An autonomously researched, written and published daily briefing on artificial intelligence — models, capital, policy, research and infrastructure.","slogan":"The daily record of artificial intelligence","foundingDate":"2026","founder":{"@type":"Person","name":"Jayaragul N"},"copyrightHolder":{"@type":"Person","name":"Jayaragul N"},"logo":"https://jayaragul.github.io/THE_VISSION/assets/img/social-card.svg","sameAs":["https://github.com/Jayaragul/THE_VISSION"],"ethicsPolicy":"https://jayaragul.github.io/THE_VISSION/methodology.html","publishingPrinciples":"https://jayaragul.github.io/THE_VISSION/methodology.html"}</script>
 </head>
 <body>
 
@@ -49,7 +48,6 @@
 <span class="topbar__date">Tuesday, 8 September 2026</span>
 
 <span class="topbar__spacer"></span>
-<a class="topbar__search" href="./search.html">Search the newspaper</a>
 <span class="live">Updated <time datetime="2026-09-08T12:00:00Z" data-relative>8 Sep 2026</time></span>
 <button class="themetoggle" type="button" data-theme-toggle>Dark</button>
 </div></div>
@@ -58,7 +56,7 @@
 <a class="masthead__title" href="./index.html">THE <em>VISSION</em></a>
 <div class="masthead__rule" role="presentation"></div>
 <div class="masthead__tagline">The daily record of artificial intelligence</div>
-
+<p class="masthead__note">Every story on this site is researched, written and published by an autonomous editorial pipeline. Every claim links to a source you can open, and each story says whether that source is independent of the company it describes.</p>
 </div>
 </header>
 <nav class="beatnav" aria-label="Sections"><div class="wrap beatnav__in">
@@ -72,39 +70,54 @@
 <a class="is-quiet" href="./topics.html">Topics</a>
 <a class="is-quiet" href="./archive.html">Archive</a>
 <a class="is-quiet" href="./methodology.html">Method</a>
-<a class="is-quiet" href="./headlines.xml">RSS</a>
+<a class="is-quiet" href="./rss.xml">RSS</a>
 </div></nav>
 <main id="main">
 <div class="wrap">
 <section class="editorsnote">
 <div class="editorsnote__label">Methodology</div>
 <div>
-<h1 class="editorsnote__title">How this newspaper is made.</h1>
-<p class="editorsnote__body">AI news, research, business and policy from linked publishers. Daily headlines selected by fixed rules, with a concise AI-assisted weekly briefing.</p>
+<h1 class="editorsnote__title">A paper that is trying to write itself.</h1>
+<p class="editorsnote__body">An autonomously researched, written and published daily briefing on artificial intelligence — models, capital, policy, research and infrastructure.</p>
 </div>
 </section>
 
 <section class="section">
 <div class="article__grid">
 <div class="prose">
-<p><strong>Daily news is selected without AI.</strong> Public publisher feeds supply headlines,
-links and timestamps. Fixed rules filter topics, group similar coverage and rank the digest.
-The homepage links to the original reporting rather than generating daily articles.</p>
-<p><strong>One small AI-assisted briefing is scheduled each week.</strong> It paraphrases up to
-three selected headlines and is labelled separately. The model does not browse, verify claims
-or choose source URLs. Its output can still be wrong; read the named publisher for context.
-A failed briefing leaves daily headlines available.</p>
-<p>To keep usage limited, each UTC week has one request allowance, recorded before calling
-the provider. There are no automatic retries or repair loops. The request has a fixed input
-size limit, a 1,400-token output cap and a 30-second deadline. A failed attempt uses that
-week's allowance. Missing credentials or no recent headlines skip the request.</p>
-<h2>About the edition archive</h2>
-<p>Earlier editions used an AI research-and-writing pipeline with schema, sourcing and style
-checks. Those checks are safeguards, not proof that every claim is true. The original dates,
-source links and generator disclosures remain on each archived edition. The former daily
-AI job and AI retrospective have been retired.</p>
-<p>Pages are built from saved data. Rebuilding the same inputs produces the same page files;
-the optional model response itself is not guaranteed to be reproducible.</p>
+<p>Every edition of THE VISSION is produced by the same pipeline, the same editorial
+rules and the same validator. What changes is whether a person had to press the button.
+Each edition says which it was, on the edition itself: an <strong>autonomous edition</strong>
+ran end to end on a schedule with nobody in the loop, and a <strong>human-run edition</strong>
+means the scheduled run failed its gate and a person ran the identical procedure by hand.</p>
+
+<p>This page used to say nobody writes this paper. That was the intent, and for a stretch of
+15 editions it was not yet true — every one of them was human-run
+after a scheduled attempt failed. Documenting that is more useful than hiding it: a paper
+whose entire claim is that you can check its work cannot be the one page on the site you
+have to take on faith. The label on each edition is generated from what actually ran, not
+set by hand, so it cannot quietly drift back into flattery.</p>
+
+<p>The repository holds three things the pipeline reads and one thing it writes. It reads
+the <strong>skills</strong>, which are the standing instructions for how to research and how
+to write; the <strong>inputs</strong>, which set the beats, the trusted source list and the
+house style; and the <strong>evaluations</strong>, which are the tests an edition must pass.
+It writes a single JSON file per day. Everything you are looking at — this page, the front
+page, every story — is rendered from those JSON files by a build script that reaches
+nowhere near the network.</p>
+
+<p>A run works through four stages. First it researches each beat against the day's
+candidate stories, following every lead to a primary source. Second it drafts, applying the
+house style and refusing to print any claim it could not verify. Third it validates: the
+edition is checked against a schema, a sourcing policy and a style linter, and a run that
+fails is not published. Fourth it commits the JSON to git and pushes, which is what puts
+the edition in front of you.</p>
+
+<p>Two rules matter more than the rest. <strong>No claim runs without a source</strong>, and
+lead stories carry at least two that are not rewrites of each other. <strong>Nothing is
+invented</strong> — not a URL, not a quotation, not a number, not a date. An edition that
+comes up short simply runs short, and the validator will say so out loud rather than let
+the pipeline fill the gap with something plausible.</p>
 
 <p>On images: this paper does not republish other people's press photography, because it has
 no licence to. The art on every story is generated from that story's identifier, which is why
@@ -117,17 +130,17 @@ are the source tiers, the confidence label printed on every story, and the fact 
 source is one click away. Where a story is thin, it is marked thin. Read the sources.</p>
 
 <h2 id="digest" style="font-size:1.3rem;margin:34px 0 12px">The digest: no model at all</h2>
-<p>The <a href="./digest.html">daily digest</a> and homepage run without any AI in the
+<p><a href="./digest.html">A second, separate page</a> runs without any AI in the
 loop whatsoever — no API key, no model, nothing generated. <code>tools/harvest.mjs</code>
 collects headlines from public feeds; <code>tools/digest.mjs</code> clusters near-duplicate
 coverage of the same event, scores each cluster on recency, source tier, how many independent
-publishers cover it, whether it repeats a previous digest, and urgency, then keeps the
+publishers confirm it, whether it repeats a previous digest, and beat priority, then keeps the
 top-ranked clusters per beat. That is genuinely all it does.</p>
 
 <p>The honest way to describe the difference: the edited paper above claims to have read,
 verified and explained something. The digest claims only to have counted and sorted. Every
 headline on it is a source's own title, never rewritten, and every item links straight to
-where it was reported rather than to a summary of it. A story is marked <strong>Multiple sources</strong>
+where it was reported rather than to a summary of it. A story is marked <strong>confirmed</strong>
 only when a primary or established-newsroom source and a second, genuinely independent
 publisher both cover the same cluster — not merely two links, which is a distinction
 <code>tools/validate.mjs</code> enforces on the edited paper too, the hard way: it once let
@@ -138,11 +151,11 @@ only whether more than one publisher is making it. It cannot explain why somethi
 there is no "why it matters" field in its schema, on purpose, because writing one would be
 the pipeline inventing an opinion it does not have. And its clustering works on shared words
 in a headline, not meaning, so two outlets covering the same event in very different language
-will often show up as two separate, single-source items rather than one grouped item. That is
+will often show up as two separate, unconfirmed items rather than one confirmed one. That is
 a real limitation of counting words instead of understanding them, and it is stated here
 rather than hidden.</p>
 
-<h2 id="wire" style="font-size:1.3rem;margin:34px 0 12px">The wire: recent publisher headlines</h2>
+<h2 id="wire" style="font-size:1.3rem;margin:34px 0 12px">The wire: not even sorted</h2>
 <p>Underneath the digest, on the front page, is <strong>the wire</strong> — the lowest tier and
 the one with no judgement in it at all. <code>tools/harvest.mjs</code> pulls headlines straight
 from roughly 30 public RSS feeds and a handful of topic searches, keeps whatever is plausibly
@@ -202,7 +215,7 @@ THE VISSION was founded by <strong style="color:var(--ink-2)">Jayaragul N</stron
 <div class="footer__grid">
 <div>
 <div class="footer__mark">THE <em>VISSION</em></div>
-<p></p>
+<p>Every story on this site is researched, written and published by an autonomous editorial pipeline. Every claim links to a source you can open, and each story says whether that source is independent of the company it describes.</p>
 <div class="footer__community"><span class="footer__communitymark is-raster"><img src="./assets/img/cbe-devs.png" alt="CBE Devs" width="552" height="524" decoding="async"></span><span>A CBE Devs project.</span></div>
 </div>
 <div>
@@ -224,7 +237,7 @@ THE VISSION was founded by <strong style="color:var(--ink-2)">Jayaragul N</stron
 <li><a href="./legal.html">Rights &amp; licensing</a></li>
 <li><a href="./terms.html">Terms of use</a></li>
 <li><a href="./privacy.html">Privacy</a></li>
-<li><a href="./headlines.xml">RSS feed</a></li>
+<li><a href="./rss.xml">RSS feed</a></li>
 <li><a href="./generated/index.json">Data (JSON)</a></li>
 </ul>
 </div>
