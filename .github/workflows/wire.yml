@@ -37,7 +37,16 @@ jobs:
         with:
           node-version: '22'
 
+      # continue-on-error: a dead feed makes harvest.mjs exit non-zero on purpose (see
+      # tools/lib/feedhealth.mjs) so the failure is loud somewhere — but this tier's whole
+      # reason to exist is that it keeps publishing when something else is broken, so one
+      # dead feed among 30+ must not be the thing that takes it down. It has already written
+      # generated/candidates/<date>.json from every feed that did answer by the time it exits;
+      # only the dead-feed check runs after that. The "Report dead feed" step below still
+      # surfaces it, decoupled from whether the rest of this job succeeds.
       - name: Harvest public feeds
+        id: harvest
+        continue-on-error: true
         run: node tools/harvest.mjs
 
       - name: Rebuild
@@ -61,6 +70,32 @@ jobs:
           # The editorial pipeline may have pushed while we were building.
           git pull --rebase --autostash origin main
           git push
+
+      # Fires independently of the job's overall result — continue-on-error above means a
+      # dead feed alone never fails the job, so this is the only thing that would still
+      # report it.
+      - name: Report dead feed
+        if: steps.harvest.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          EXISTING="$(gh issue list --state open --label wire-failure --json number --jq '.[0].number' || true)"
+          BODY="A feed harvest has been degraded since $(date -u '+%Y-%m-%d %H:%M UTC') — at least
+          one feed has failed 8+ consecutive runs (see generated/feed-health.json). The wire
+          itself still published normally from every feed that did answer.
+
+          Run: ${RUN_URL}
+
+          Fix the URL in tools/harvest.mjs FEEDS, or remove the entry — see the MarkTechPost
+          and VentureBeat comments there for the precedent."
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "$BODY"
+          else
+            gh label create wire-failure --color d93f0b --description "Wire tier failure" 2>/dev/null || true
+            gh issue create --title "Feed harvest degraded" --label wire-failure --body "$BODY"
+          fi
 
       # The wire is the tier that is supposed to always work. If it stops, that is the one
       # failure nobody should ever have to discover by visiting the site.

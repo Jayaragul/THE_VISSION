@@ -71,8 +71,16 @@ jobs:
 
       # Deterministic and free. Gives the research stage a few hundred pre-collected leads
       # so it spends model tokens on verifying and writing rather than on discovery.
+      #
+      # `|| true`: harvest.mjs exits non-zero on purpose once a feed has failed 8+ runs in a
+      # row (see tools/lib/feedhealth.mjs), but it has already written every other feed's
+      # leads to generated/candidates/<date>.json by then — one dead feed among 30+ should
+      # cost the edition a few leads, not the whole run. Same reasoning already applied to
+      # the wire-only fallback below; this just closes the gap for the primary path. The
+      # wire and digest workflows' own harvest steps surface a dead feed loudly on their own
+      # schedule regardless of whether this run happens at all.
       - name: Harvest candidate leads
-        run: node tools/harvest.mjs ${{ inputs.date }}
+        run: node tools/harvest.mjs ${{ inputs.date }} || true
 
       # Widens discovery past the 29 RSS feeds: a story broken by an outlet not on that list
       # is invisible to harvest.mjs however big it is. Everything this adds is marked

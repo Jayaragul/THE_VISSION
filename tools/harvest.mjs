@@ -39,7 +39,11 @@ const FEEDS = [
   { source: 'The Verge', url: 'https://www.theverge.com/rss/index.xml' },
   { source: 'Ars Technica', url: 'https://arstechnica.com/feed/' },
   { source: 'WIRED', url: 'https://www.wired.com/feed/rss' },
-  { source: 'VentureBeat', url: 'https://venturebeat.com/feed/' },
+  // VentureBeat removed 8 Sep 2026: returns 429 to every fetch, from GitHub Actions' runners
+  // and from a plain browser UA tested independently — not a URL problem or a UA-blocking
+  // problem, a standing rate-limit/block on the feed itself. Confirmed dead 8+ consecutive
+  // runs in generated/feed-health.json before removal. Re-add only after confirming the feed
+  // actually serves a 200 again.
   // MarkTechPost removed 17 Aug 2026: returns 403 to any automated fetch, every run.
   // Left here as a note so nobody re-adds it without checking.
   { source: 'MIT Technology Review', url: 'https://www.technologyreview.com/feed/' },
