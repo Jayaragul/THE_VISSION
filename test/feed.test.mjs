@@ -5,7 +5,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseFeed } from '../tools/lib/feed.mjs';
-import { accumulateHealth } from '../tools/lib/feedhealth.mjs';
+import { accumulateHealth, summarizeHealth } from '../tools/lib/feedhealth.mjs';
 
 test('parses RSS 2.0 with CDATA titles and a plain-text <link>', () => {
   const xml = `<?xml version="1.0"?>
@@ -130,6 +130,7 @@ test('a failing feed accumulates consecutiveFailures and totalRuns across two ru
   assert.deepEqual(after1.TechCrunch, {
     feed: 'TechCrunch',
     consecutiveFailures: 1,
+    consecutiveEmpty: 0,
     totalRuns: 1,
     lastOk: null,
     lastError: 'HTTP 429',
@@ -198,4 +199,90 @@ test('crossing deadAfter surfaces the feed in `dead`, and a success clears it', 
   }));
   assert.equal(dead.length, 0);
   assert.equal(health['MIT Technology Review'].consecutiveFailures, 0);
+});
+
+// --- the failure consecutiveFailures structurally cannot see ------------------
+// A feed answering 200 with an empty body is reachable and contributing nothing. Every
+// failure counter in this file resets on a 200, so this state is invisible to all of them —
+// which is why it gets its own counter. One of the nine Google News queries was sitting in
+// exactly this state, undetected, when the check was written.
+
+test('a feed returning 200 with zero items accrues consecutiveEmpty while consecutiveFailures stays 0', () => {
+  let health = {};
+  for (let i = 0; i < 3; i++) {
+    ({ health } = accumulateHealth(health, [{ id: 'google-news:stealth launch', feed: 'Google News', ok: true, count: 0 }], {
+      deadAfter: 8,
+    }));
+  }
+  assert.equal(health['google-news:stealth launch'].consecutiveEmpty, 3);
+  // The whole point: by every existing measure this feed looks perfectly healthy.
+  assert.equal(health['google-news:stealth launch'].consecutiveFailures, 0);
+  assert.equal(health['google-news:stealth launch'].totalRuns, 3);
+});
+
+test('one non-empty fetch resets consecutiveEmpty, and a failure does not count as empty', () => {
+  let { health } = accumulateHealth({}, [{ id: 'WIRED', feed: 'WIRED', ok: true, count: 0 }], { deadAfter: 8 });
+  assert.equal(health.WIRED.consecutiveEmpty, 1);
+
+  ({ health } = accumulateHealth(health, [{ id: 'WIRED', feed: 'WIRED', ok: true, count: 7 }], { deadAfter: 8 }));
+  assert.equal(health.WIRED.consecutiveEmpty, 0);
+
+  // A failed fetch is a failure, not an empty success — it must not inflate both counters.
+  ({ health } = accumulateHealth(health, [{ id: 'WIRED', feed: 'WIRED', ok: false, count: 0, error: 'HTTP 429' }], { deadAfter: 8 }));
+  assert.equal(health.WIRED.consecutiveFailures, 1);
+  assert.equal(health.WIRED.consecutiveEmpty, 0);
+});
+
+test('a feed removed from FEEDS drops out of the health file instead of lingering forever', () => {
+  let { health } = accumulateHealth(
+    {},
+    [
+      { id: 'VentureBeat', feed: 'VentureBeat', ok: false, count: 0, error: 'HTTP 429' },
+      { id: 'WIRED', feed: 'WIRED', ok: true, count: 9 },
+    ],
+    { deadAfter: 8 }
+  );
+  assert.equal(Object.keys(health).length, 2);
+
+  // Next run, VentureBeat is gone from FEEDS, so it is absent from `runs` entirely.
+  ({ health } = accumulateHealth(health, [{ id: 'WIRED', feed: 'WIRED', ok: true, count: 9 }], { deadAfter: 8 }));
+  assert.deepEqual(Object.keys(health), ['WIRED']);
+  // WIRED's own history is untouched by the pruning.
+  assert.equal(health.WIRED.totalRuns, 2);
+});
+
+// --- summarizeHealth ---------------------------------------------------------
+
+test('summarizeHealth separates dead, degrading and silent, and never double-counts a feed', () => {
+  const feeds = {
+    dead: { feed: 'dead', consecutiveFailures: 9, consecutiveEmpty: 0 },
+    degrading: { feed: 'degrading', consecutiveFailures: 4, consecutiveEmpty: 0 },
+    fine: { feed: 'fine', consecutiveFailures: 0, consecutiveEmpty: 0 },
+    quiet: { feed: 'quiet', consecutiveFailures: 0, consecutiveEmpty: 30 },
+    // One failure is noise, not a trend — a publisher having a bad afternoon.
+    blip: { feed: 'blip', consecutiveFailures: 1, consecutiveEmpty: 0 },
+  };
+  const { dead, degrading, silent } = summarizeHealth(feeds, { deadAfter: 8, degradedAfter: 3, silentAfter: 25 });
+
+  assert.deepEqual(dead.map((f) => f.id), ['dead']);
+  assert.deepEqual(degrading.map((f) => f.id), ['degrading'], 'a dead feed must not also be reported as degrading');
+  assert.deepEqual(silent.map((f) => f.id), ['quiet']);
+});
+
+test('summarizeHealth reports nothing at all when every feed is answering', () => {
+  const { dead, degrading, silent } = summarizeHealth(
+    { a: { consecutiveFailures: 0, consecutiveEmpty: 0 }, b: { consecutiveFailures: 2, consecutiveEmpty: 4 } },
+    { deadAfter: 8, degradedAfter: 3, silentAfter: 25 }
+  );
+  assert.equal(dead.length + degrading.length + silent.length, 0);
+});
+
+test('summarizeHealth tolerates a health file written before consecutiveEmpty existed', () => {
+  // Every record in the committed file predates the field; a missing counter is 0, not NaN.
+  const { silent, degrading } = summarizeHealth(
+    { legacy: { feed: 'legacy', consecutiveFailures: 3 } },
+    { deadAfter: 8, degradedAfter: 3, silentAfter: 25 }
+  );
+  assert.equal(silent.length, 0);
+  assert.deepEqual(degrading.map((f) => f.id), ['legacy']);
 });

@@ -11,6 +11,10 @@ name: Maintenance
 #   2. Storage capacity — GitHub Pages stops publishing at 1 GB with no gradual warning.
 #      The archive grows every single day and the ceiling arrives on a predictable date, so
 #      it should arrive as a scheduled decision rather than an outage.
+#   3. Feed decay — feeds die, move, get paywalled, or start answering 200 with nothing in
+#      them. Left unwatched the paper narrows to whatever few feeds still reply, and the
+#      first anyone hears of it is a workflow going red. This reports a feed on its way out
+#      while it is still only degrading, which is the whole point of doing it on a Monday.
 #
 # Weekly is deliberate. Daily would hammer other people's servers for a signal that moves
 # on the scale of months.
@@ -104,6 +108,48 @@ jobs:
           while serving human readers normally. Only \`confirmedGone\` counts."
           fi
 
+          # Feed decay. Reads only what harvest.mjs already recorded — this job never fetches
+          # a feed itself, so it cannot be the thing that trips a rate limit. Emits markdown
+          # or nothing at all; thresholds live in tools/lib/feedhealth.mjs's summarizeHealth.
+          FEEDS_MD="$(node --input-type=module -e "
+            import { readFileSync } from 'node:fs';
+            import { summarizeHealth } from './tools/lib/feedhealth.mjs';
+            let doc;
+            try { doc = JSON.parse(readFileSync('generated/feed-health.json', 'utf8')); }
+            catch { process.exit(0); }
+            const groups = summarizeHealth(doc.feeds, {
+              deadAfter: doc.deadAfter || 8,
+              degradedAfter: 3,
+              // ~3.5 days at the 7 harvests a day the wire and digest schedules add up to:
+              // long enough that a genuinely quiet Google News query is not mistaken for a
+              // broken one, short enough to surface inside a single weekly cycle.
+              silentAfter: 25,
+            });
+            const name = (f) => (f.id === f.feed ? f.feed : f.feed + ' [' + f.id + ']');
+            let out = '';
+            if (groups.dead.length) {
+              out += String.fromCharCode(10) + String.fromCharCode(10) + '## ' + groups.dead.length + ' dead feed(s)' + String.fromCharCode(10) + String.fromCharCode(10);
+              out += 'Past the ' + (doc.deadAfter || 8) + '-run threshold. Fix the URL in tools/harvest.mjs FEEDS, or remove the entry.' + String.fromCharCode(10) + String.fromCharCode(10);
+              for (const f of groups.dead) out += '- ' + name(f) + ' - ' + f.consecutiveFailures + ' consecutive failures, last error: ' + (f.lastError || 'unknown') + String.fromCharCode(10);
+            }
+            if (groups.degrading.length) {
+              out += String.fromCharCode(10) + String.fromCharCode(10) + '## ' + groups.degrading.length + ' feed(s) degrading' + String.fromCharCode(10) + String.fromCharCode(10);
+              out += 'Still short of the dead threshold, so nothing is broken yet. This is the week of notice.' + String.fromCharCode(10) + String.fromCharCode(10);
+              for (const f of groups.degrading) out += '- ' + name(f) + ' - ' + f.consecutiveFailures + ' consecutive failures, last error: ' + (f.lastError || 'unknown') + String.fromCharCode(10);
+            }
+            if (groups.silent.length) {
+              out += String.fromCharCode(10) + String.fromCharCode(10) + '## ' + groups.silent.length + ' feed(s) reachable but returning nothing' + String.fromCharCode(10) + String.fromCharCode(10);
+              out += 'These answer 200 and carry no items, run after run — invisible to the failure counter. A narrow search query matching nothing is normal; a publisher feed doing this has usually moved. Worth one look each.' + String.fromCharCode(10) + String.fromCharCode(10);
+              for (const f of groups.silent) out += '- ' + name(f) + ' - ' + f.consecutiveEmpty + ' consecutive empty fetches' + String.fromCharCode(10);
+            }
+            process.stdout.write(out);
+          ")"
+
+          if [ -n "$FEEDS_MD" ]; then
+            NEED=1
+            BODY="${BODY}${FEEDS_MD}"
+          fi
+
           if awk "BEGIN{exit !($PCT >= $WARN_AT)}"; then
             NEED=1
             BODY="${BODY}
@@ -117,7 +163,7 @@ jobs:
           fi
 
           if [ "$NEED" -eq 0 ]; then
-            echo "Archive healthy: ${ROT} dead links, ${PCT}% of ceiling."
+            echo "Archive healthy: ${ROT} dead links, ${PCT}% of ceiling, every feed answering."
             exit 0
           fi
 

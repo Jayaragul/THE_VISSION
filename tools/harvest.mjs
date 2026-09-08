@@ -252,7 +252,7 @@ writeFileSync(
   JSON.stringify(
     {
       $comment:
-        'Written by tools/harvest.mjs. consecutiveFailures resets to 0 on any successful fetch. A feed at or above the DEAD_AFTER threshold is reported loudly by the harvest and should be fixed or removed from FEEDS.',
+        'Written by tools/harvest.mjs. consecutiveFailures resets to 0 on any successful fetch; consecutiveEmpty counts fetches that returned 200 with no items, which consecutiveFailures cannot see. A feed at or above deadAfter is reported loudly by the harvest and should be fixed or removed from FEEDS; the weekly maintenance job reports the softer degrading and silent states before they get that far. Feeds removed from FEEDS drop out of this file on the next run.',
       updatedAt: new Date().toISOString(),
       deadAfter: DEAD_AFTER,
       feeds: health,
