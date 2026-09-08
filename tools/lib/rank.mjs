@@ -173,7 +173,10 @@ export function scoreCluster(cluster, { seenUrls, now, maxAgeHours = 48 }) {
   const uncorroboratedFirstParty = publishers < 2 && tier === 1 && !isInstitutional(top?.url);
   const substance = substanceScore(top?.title, { uncorroboratedFirstParty });
 
-  const diversity = publishers / cluster.items.length;
+  // An empty cluster would make this NaN, and NaN is uniquely destructive here: every
+  // comparison against it is false, so a NaN score does not sort to an end — it silently
+  // freezes the surrounding order wherever it lands. Score it 0 instead.
+  const diversity = cluster.items.length ? publishers / cluster.items.length : 0;
 
   const urgency = urgencyScore(top?.title, recency);
 

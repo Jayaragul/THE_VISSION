@@ -12,7 +12,7 @@ import { basename, dirname, join, resolve as resolvePath } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   readJSON, escapeHTML as e, escapeXML, formatMasthead, formatShort,
-  hostOf, matchPublisher, readMinutes, hash32, slugify, STOPWORDS,
+  hostOf, matchPublisher, readMinutes, hash32, slugify, STOPWORDS, cmp, cmpDesc,
 } from './lib/util.mjs';
 import { renderCover } from './lib/cover.mjs';
 import { selectWireItems, wireBlock, wireItemsHTML, stalenessBanner, wirePath, snapshotWire, loadWireHistory } from './lib/wire.mjs';
@@ -125,7 +125,7 @@ function collectEntities(editions) {
   }
   // Newest first within each entity, same convention as everywhere else on the site.
   for (const entry of bySlug.values()) {
-    entry.items.sort((a, b) => b.ed.edition.date.localeCompare(a.ed.edition.date));
+    entry.items.sort((a, b) => cmpDesc(a.ed.edition.date, b.ed.edition.date));
   }
   return bySlug;
 }
@@ -168,7 +168,7 @@ function topicOfTheWeek(editions) {
   }
 
   const ranked = [...bySlug.values()].sort(
-    (a, b) => b.dates.size - a.dates.size || b.stories.length - a.stories.length || a.slug.localeCompare(b.slug)
+    (a, b) => b.dates.size - a.dates.size || b.stories.length - a.stories.length || cmp(a.slug, b.slug)
   );
   const top = ranked[0];
   // One mention on one day is not a theme. Below this the slot says nothing useful and is
@@ -176,7 +176,7 @@ function topicOfTheWeek(editions) {
   if (!top || top.dates.size < 2) return null;
 
   top.stories.sort(
-    (a, b) => b.ed.edition.date.localeCompare(a.ed.edition.date) || byProminence(a.story, b.story)
+    (a, b) => cmpDesc(a.ed.edition.date, b.ed.edition.date) || byProminence(a.story, b.story)
   );
   return { ...top, from, to: latest, editionsCovered: top.dates.size };
 }
@@ -715,7 +715,7 @@ ${weeklies
 
 function renderTopics(ctx, entities) {
   const ranked = [...entities.values()].sort(
-    (a, b) => b.items.length - a.items.length || a.name.localeCompare(b.name)
+    (a, b) => b.items.length - a.items.length || cmp(a.name, b.name)
   );
 
   const rows = ranked
@@ -1613,7 +1613,8 @@ there is nothing to send it to.</p>
 
     var ranked = Object.keys(scores).map(function (d) { return +d; });
     ranked.sort(function (a, b) {
-      return scores[b] - scores[a] || idx.docs[b].date.localeCompare(idx.docs[a].date);
+      var db = idx.docs[b].date, da = idx.docs[a].date;
+      return scores[b] - scores[a] || (db < da ? -1 : db > da ? 1 : 0);
     });
     return {
       state: 'ok',
@@ -1697,7 +1698,7 @@ function renderHackathons(ctx, editions) {
   const today = ctx.latestDate;
   const live = all
     .filter((h) => h.deadline >= today)
-    .sort((a, b) => a.deadline.localeCompare(b.deadline));
+    .sort((a, b) => cmp(a.deadline, b.deadline));
 
   const rows = live
     .map(

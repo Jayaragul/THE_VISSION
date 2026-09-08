@@ -58,7 +58,11 @@ export function checkReferentialIntegrity(editions) {
  * this function does not re-check it, so it can be unit-tested against a deliberately
  * dangling fixture without that fixture being rejected before the interesting assertion.
  */
-export function buildWeeklyDoc(editions, asOf, { trigger, runId } = {}) {
+// `now` is injectable for the same reason digest stamps collection time rather than
+// execution time: without it, rerunning the weekly over identical inputs produces a
+// different file, which shows up as a diff nobody made and defeats any byte-identical
+// rerun check. Callers that genuinely want the wall clock simply omit it.
+export function buildWeeklyDoc(editions, asOf, { trigger, runId, now } = {}) {
   const window = computeWindow(editions, asOf);
   if (!window) return null;
   const { from, to, inWindow, editionDates } = window;
@@ -122,7 +126,7 @@ export function buildWeeklyDoc(editions, asOf, { trigger, runId } = {}) {
         storyCount: inWindow.reduce((n, ed) => n + ed.stories.length, 0),
         beatCount: new Set(inWindow.flatMap((ed) => ed.stories.map((s) => s.beat))).size,
       },
-      generatedAt: new Date().toISOString(),
+      generatedAt: now || new Date().toISOString(),
       ...(trigger || runId ? { generator: { pipeline: 'weekly-review', ...(runId ? { runId } : {}), ...(trigger ? { trigger } : {}) } } : {}),
     },
     threads,

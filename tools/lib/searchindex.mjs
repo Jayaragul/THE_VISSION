@@ -19,7 +19,7 @@
 // collapse to roughly 700 once deduplicated by source URL. Without this, a common query would
 // return the same headline repeated across every tier that happened to carry it.
 
-import { searchTokens } from './util.mjs';
+import { searchTokens, cmpDesc } from './util.mjs';
 import { storyPath } from './render.mjs';
 
 const BM25_K1 = 1.2;
@@ -259,7 +259,7 @@ export function queryIndex(index, queryString, { limit = 40 } = {}) {
   }
 
   const ranked = [...scores.entries()]
-    .sort((a, b) => b[1] - a[1] || index.docs[b[0]].date.localeCompare(index.docs[a[0]].date))
+    .sort((a, b) => b[1] - a[1] || cmpDesc(index.docs[a[0]].date, index.docs[b[0]].date))
     .slice(0, limit)
     .map(([d]) => index.docs[d]);
 

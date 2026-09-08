@@ -116,9 +116,20 @@ const clusters = clusterItems(withMeta)
   // The cluster's beat is whichever beat its member items agree on most — classifyBeat runs
   // per item before clustering, so a cluster of near-duplicate headlines usually agrees
   // already; a tie just takes the first item's call.
+  // first-seen index makes the documented tie-break ("a tie takes the first item's call")
+  // explicit rather than resting on Map insertion order plus a stable sort — two things a
+  // future refactor could change without anyone noticing the ordering moved with them.
   const counts = new Map();
-  for (const i of cluster.items) counts.set(i.beat, (counts.get(i.beat) || 0) + 1);
-  const beat = [...counts.entries()].sort((a, b) => b[1] - a[1])[0][0];
+  for (const i of cluster.items) {
+    const prev = counts.get(i.beat);
+    if (prev) prev.n += 1;
+    else counts.set(i.beat, { n: 1, first: counts.size });
+  }
+  const ranked = [...counts.entries()].sort((a, b) => b[1].n - a[1].n || a[1].first - b[1].first);
+  // A cluster always reaches here with at least one citable item, so this is defensive
+  // rather than reachable today — but the alternative to a guard is a TypeError on
+  // `[0][0]` that would take the whole digest down for one malformed cluster.
+  const beat = ranked.length ? ranked[0][0] : undefined;
   return { ...cluster, beat };
 });
 

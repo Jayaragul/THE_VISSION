@@ -144,6 +144,42 @@ export function clamp(n, lo, hi) {
   return Math.min(hi, Math.max(lo, n));
 }
 
+// --------------------------------------------------------------- ordering ----
+
+/**
+ * Total order over strings that does not depend on the host's locale.
+ *
+ * `String.prototype.localeCompare()` with no locale argument resolves against whatever
+ * ICU data the running Node was built with and whatever LANG/LC_ALL the environment
+ * happens to set. A small-icu build, a different ICU version, or a runner with a
+ * different default locale can order the same two strings differently — and because
+ * verify.yml asserts that the committed HTML is byte-identical to what the JSON builds
+ * to, a collation difference does not degrade quietly. It fails CI on a diff nobody
+ * changed, which is close to the hardest kind of failure to diagnose.
+ *
+ * Case-folding first keeps the human-facing A-Z reading order (Accel before ADP) that
+ * plain code-unit comparison would destroy; the code-unit comparison is kept as the
+ * tie-break so equal-when-folded strings ("Nvidia" / "NVIDIA") still have exactly one
+ * defined order rather than inheriting whatever order they arrived in.
+ *
+ * `toLowerCase()` is Unicode default case conversion and is not locale-sensitive, so it
+ * carries no ICU dependency of its own.
+ */
+export function cmp(a, b) {
+  const A = String(a).toLowerCase();
+  const B = String(b).toLowerCase();
+  if (A < B) return -1;
+  if (A > B) return 1;
+  const x = String(a);
+  const y = String(b);
+  return x < y ? -1 : x > y ? 1 : 0;
+}
+
+/** Descending counterpart, so callers never hand-roll `-cmp(a, b)` and lose the tie-break. */
+export function cmpDesc(a, b) {
+  return cmp(b, a);
+}
+
 // ------------------------------------------------------------------ time ----
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
@@ -275,7 +311,11 @@ export function searchTokens(str) {
 }
 
 export function monogram(name) {
-  const words = String(name).replace(/[^A-Za-z0-9 ]/g, ' ').trim().split(/\s+/);
+  // `''.split(/\s+/)` is `['']`, not `[]` — so a name of only punctuation ("!!!", or a
+  // CJK publisher whose characters the A-Za-z0-9 filter strips entirely) used to reach the
+  // single-word branch and return an empty badge instead of the '??' placeholder that was
+  // written for exactly that case. Filter the empties out so the fallback can be reached.
+  const words = String(name).replace(/[^A-Za-z0-9 ]/g, ' ').trim().split(/\s+/).filter(Boolean);
   if (words.length === 0) return '??';
   if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
   return (words[0][0] + words[1][0]).toUpperCase();

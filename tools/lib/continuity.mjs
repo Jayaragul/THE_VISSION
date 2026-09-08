@@ -11,6 +11,8 @@
 // Pure functions over loaded editions, kept out of build.mjs so they can be tested without
 // running a build.
 
+import { cmp, cmpDesc } from './util.mjs';
+
 /** Whole days from a to b. Both are ISO dates; the paper measures in days, not hours. */
 export function daysBetween(a, b) {
   return Math.round((Date.parse(b) - Date.parse(a)) / 86400000);
@@ -40,7 +42,7 @@ export function collectThreads(editions) {
     }
   }
   for (const t of threads.values()) {
-    t.items.sort((a, b) => a.ed.edition.date.localeCompare(b.ed.edition.date));
+    t.items.sort((a, b) => cmp(a.ed.edition.date, b.ed.edition.date));
     // The newest instalment names the thread, so it can be renamed as a story turns out to
     // be about something larger than it first appeared.
     t.label = t.items[t.items.length - 1].story.thread.label;
@@ -69,7 +71,7 @@ export function collectOpenQuestions(editions) {
       out.push({ ed, story, question: story.openQuestion, answer: answers.get(story.id) || null });
     }
   }
-  return out.sort((a, b) => a.ed.edition.date.localeCompare(b.ed.edition.date));
+  return out.sort((a, b) => cmp(a.ed.edition.date, b.ed.edition.date));
 }
 
 /** Every post-publication amendment, newest first. */
@@ -80,5 +82,5 @@ export function collectCorrections(editions) {
       for (const c of story.corrections || []) out.push({ ed, story, ...c });
     }
   }
-  return out.sort((a, b) => String(b.at).localeCompare(String(a.at)));
+  return out.sort((a, b) => cmpDesc(a.at, b.at));
 }

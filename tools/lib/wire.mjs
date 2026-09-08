@@ -13,7 +13,7 @@
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { escapeHTML as e, hostOf, matchPublisher, monogram, isAiRelevant } from './util.mjs';
+import { escapeHTML as e, hostOf, matchPublisher, monogram, isAiRelevant, cmpDesc } from './util.mjs';
 
 /** Aggregator redirects are leads, never display sources — drop them from the public wire. */
 // arXiv alone posts more often than any single company blog or press outlet, so a flat
@@ -44,7 +44,7 @@ export function selectWireItems(candidates, { limit = 24, sourceBook, perSourceC
       seenTitles.add(key);
       return true;
     })
-    .sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''));
+    .sort((a, b) => cmpDesc(a.publishedAt || '', b.publishedAt || ''));
 
   const perSource = new Map();
   const out = [];

@@ -18,6 +18,18 @@ This is a maintained system, not a guarantee of ten unattended years.
 - Harvest uses date and URL tie-breaks independent of locale. Digest uses collection time,
   not execution time, so rerunning identical candidates, rules and prior history produces
   identical JSON and does not advertise old leads as newly collected.
+- Ordering across the site build, continuity, search index and wire goes through `cmp` in
+  `tools/lib/util.mjs`, which case-folds and then falls back to code-unit comparison. It
+  does not call `localeCompare`, so it does not vary with the runner's ICU build or its
+  LANG. This matters because publication asserts the committed HTML is byte-identical to
+  what the JSON builds to: a collation difference would not degrade quietly, it would fail
+  that check on a diff nobody wrote. `localeCompare` orders `Nvidia` against `NVIDIA` one
+  way under `en` and the other under `tr`, and both spellings appear in the archive.
+- `cmp` is a total order. Comparators that ended in a locale comparison now end in one that
+  cannot return 0 for distinct strings, so no rendered ordering falls back to whatever order
+  the input happened to arrive in.
+- `buildWeeklyDoc` accepts an injected clock. Weekly output is reproducible when one is
+  supplied; omitting it stamps the wall clock as before.
 - Digest resolves one validated calendar date before harvesting, including when a run
   crosses UTC midnight. Impossible dates are rejected before collection.
 - Maintenance shares the publication concurrency group. Publication checks include new

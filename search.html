@@ -200,7 +200,8 @@ there is nothing to send it to.</p>
 
     var ranked = Object.keys(scores).map(function (d) { return +d; });
     ranked.sort(function (a, b) {
-      return scores[b] - scores[a] || idx.docs[b].date.localeCompare(idx.docs[a].date);
+      var db = idx.docs[b].date, da = idx.docs[a].date;
+      return scores[b] - scores[a] || (db < da ? -1 : db > da ? 1 : 0);
     });
     return {
       state: 'ok',
