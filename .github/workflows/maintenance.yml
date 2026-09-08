@@ -29,7 +29,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: maintenance
+  group: publish
   cancel-in-progress: false
 
 jobs:
@@ -64,7 +64,7 @@ jobs:
           set -euo pipefail
           git config user.name  "THE VISSION pipeline"
           git config user.email "actions@github.com"
-          if git diff --quiet; then
+          if [ -z "$(git status --porcelain)" ]; then
             echo "Nothing changed — no rot, no pruning, no rebuild drift."
             exit 0
           fi

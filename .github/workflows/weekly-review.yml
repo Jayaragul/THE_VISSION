@@ -33,6 +33,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
+    env:
+      REQUESTED_DATE: ${{ inputs.date }}
+
     steps:
       - uses: actions/checkout@v4
 
@@ -43,7 +46,7 @@ jobs:
       - name: Compute the week and write generated/weekly/<date>.json
         run: |
           set -euo pipefail
-          DATE="${{ inputs.date }}"
+          DATE="$REQUESTED_DATE"
           if [ -z "$DATE" ]; then DATE="$(date -u '+%Y-%m-%d')"; fi
           TRIGGER="${{ github.event_name == 'schedule' && 'schedule' || 'manual' }}"
           node tools/weekly.mjs "$DATE" "$TRIGGER"
@@ -54,7 +57,7 @@ jobs:
       - name: Publish
         run: |
           set -euo pipefail
-          if git diff --quiet && git diff --cached --quiet; then
+          if [ -z "$(git status --porcelain)" ]; then
             echo "No new weekly review — nothing to publish."
             exit 0
           fi

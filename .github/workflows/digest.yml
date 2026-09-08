@@ -33,12 +33,23 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
+    env:
+      REQUESTED_DATE: ${{ inputs.date }}
+
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+
+      - name: Resolve one date for the whole run
+        run: |
+          set -euo pipefail
+          DATE="$REQUESTED_DATE"
+          if [ -z "$DATE" ]; then DATE="$(date -u '+%Y-%m-%d')"; fi
+          node --input-type=module -e "import { validDate } from './tools/lib/harvest-safety.mjs'; if (!validDate(process.argv[1])) process.exit(2)" "$DATE"
+          echo "DIGEST_DATE=$DATE" >> "$GITHUB_ENV"
 
       # continue-on-error: a dead feed makes harvest.mjs exit non-zero on purpose (see
       # tools/lib/feedhealth.mjs), but this tier's whole point is publishing when something
@@ -49,14 +60,12 @@ jobs:
       - name: Harvest
         id: harvest
         continue-on-error: true
-        run: node tools/harvest.mjs ${{ inputs.date }}
+        run: node tools/harvest.mjs "$DIGEST_DATE"
 
       - name: Cluster, rank and build the digest
         run: |
           set -euo pipefail
-          DATE="${{ inputs.date }}"
-          if [ -z "$DATE" ]; then DATE="$(date -u '+%Y-%m-%d')"; fi
-          node tools/digest.mjs "$DATE"
+          node tools/digest.mjs "$DIGEST_DATE"
 
       - name: Build the site
         run: node tools/build.mjs
@@ -64,7 +73,7 @@ jobs:
       - name: Publish
         run: |
           set -euo pipefail
-          if git diff --quiet && git diff --cached --quiet; then
+          if [ -z "$(git status --porcelain)" ]; then
             echo "No new digest items — nothing to publish."
             exit 0
           fi
@@ -90,14 +99,13 @@ jobs:
         run: |
           set -euo pipefail
           EXISTING="$(gh issue list --state open --label digest-failure --json number --jq '.[0].number' || true)"
-          BODY="A feed harvest has been degraded since $(date -u '+%Y-%m-%d %H:%M UTC') — at least
-          one feed has failed 8+ consecutive runs (see generated/feed-health.json). The digest
-          itself still published normally from every feed that did answer.
+          BODY="Feed collection reported a failure on $(date -u '+%Y-%m-%d %H:%M UTC').
 
-          Run: ${RUN_URL}
+          This can mean no usable leads, a persistently failing feed, or a local processing
+          error. An empty collection preserves prior candidates and their timestamp.
+          Check the harvest logs and generated/feed-health.json before retrying.
 
-          Fix the URL in tools/harvest.mjs FEEDS, or remove the entry — see the MarkTechPost
-          and VentureBeat comments there for the precedent."
+          Run: ${RUN_URL}"
           if [ -n "$EXISTING" ]; then
             gh issue comment "$EXISTING" --body "$BODY"
           else

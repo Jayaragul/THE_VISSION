@@ -10,19 +10,20 @@
 // as trustworthy as a search snippet — the pipeline still has to open it, read it, and find
 // a real publisher before it can appear in an edition. See the story-research skill. A feed
 // going dark or timing out is not a failure of this script; it just means fewer leads that
-// day. The run only exits non-zero if every single feed fails, which is the signal that
-// something structural broke rather than one publisher having a bad day.
+// day. No usable leads or a persistently dead feed exits non-zero; previous candidates
+// survive an empty collection so an outage cannot erase the last successful harvest.
 
-import { writeFileSync, mkdirSync, readdirSync, rmSync, existsSync } from 'node:fs';
+import { mkdirSync, readdirSync, rmSync, existsSync } from 'node:fs';
 import { dirname, join, relative, resolve as resolvePath } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isoDate, readJSON } from './lib/util.mjs';
 import { parseFeed } from './lib/feed.mjs';
+import { validDate, fetchText, atomicWrite, saveCandidates } from './lib/harvest-safety.mjs';
 import { accumulateHealth } from './lib/feedhealth.mjs';
 
 const ROOT = resolvePath(dirname(fileURLToPath(import.meta.url)), '..');
 const date = process.argv[2] || isoDate();
-if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+if (!validDate(date)) {
   console.error(`✗ "${date}" is not a YYYY-MM-DD date`);
   process.exit(2);
 }
@@ -121,16 +122,8 @@ for (const q of TOPIC_SEARCHES) {
   });
 }
 
-async function fetchWithTimeout(url, accept) {
-  const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
-  try {
-    const res = await fetch(url, { signal: ctrl.signal, headers: { 'user-agent': UA, accept } });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return res;
-  } finally {
-    clearTimeout(timer);
-  }
+function fetchWithTimeout(url, accept) {
+  return fetchText(url, { timeoutMs: TIMEOUT_MS, headers: { 'user-agent': UA, accept } });
 }
 
 // Some publishers (OpenAI's is the extreme case) put their entire multi-year archive in
@@ -138,6 +131,7 @@ async function fetchWithTimeout(url, accept) {
 // candidate pool focused on actual leads and keeps the file small enough to read cheaply —
 // which is the entire point of harvesting instead of searching.
 const PER_FEED_CAP = 40;
+const compareText = (a, b) => a < b ? -1 : a > b ? 1 : 0;
 
 async function harvestFeed(feed) {
   // `id` is what feed health is keyed on and must be unique per feed; `feed` (the source
@@ -145,13 +139,13 @@ async function harvestFeed(feed) {
   // Google News topic searches above.
   const id = feed.id || feed.source;
   try {
-    const res = await fetchWithTimeout(
+    const body = await fetchWithTimeout(
       feed.url,
       'application/rss+xml, application/atom+xml, application/xml, text/xml'
     );
-    const xml = await res.text();
+    const xml = body;
     const items = parseFeed(xml)
-      .sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''))
+      .sort((a, b) => compareText(b.publishedAt || '', a.publishedAt || '') || compareText(a.url || '', b.url || ''))
       .slice(0, PER_FEED_CAP)
       .map((item) => ({ source: feed.source, discoveryOnly: !!feed.discoveryOnly, ...item }));
     return { id, feed: feed.source, ok: true, count: items.length, items };
@@ -166,11 +160,11 @@ async function harvestFeed(feed) {
 async function harvestHuggingFaceTrending() {
   const name = 'Hugging Face — trending models';
   try {
-    const res = await fetchWithTimeout(
+    const body = await fetchWithTimeout(
       'https://huggingface.co/api/models?sort=likes7d&direction=-1&limit=25',
       'application/json'
     );
-    const rows = await res.json();
+    const rows = JSON.parse(body);
     const items = rows.map((m) => ({
       source: name,
       discoveryOnly: false,
@@ -201,30 +195,23 @@ function dedupe(items) {
 const runs = await Promise.all([...FEEDS.map(harvestFeed), harvestHuggingFaceTrending()]);
 
 const allItems = dedupe(runs.flatMap((r) => r.items)).sort((a, b) =>
-  (b.publishedAt || '').localeCompare(a.publishedAt || '')
+  compareText(b.publishedAt || '', a.publishedAt || '') || compareText(a.url || '', b.url || '')
 );
 
 const outDir = join(ROOT, 'generated', 'candidates');
 mkdirSync(outDir, { recursive: true });
 const outPath = join(outDir, `${date}.json`);
 
-writeFileSync(
-  outPath,
-  JSON.stringify(
-    {
-      $comment:
-        'Leads, not sources. Every item here is exactly as trustworthy as a search snippet — open it, verify it, and cite the real publisher before it appears in an edition. Items with discoveryOnly:true come from a news-search aggregator and point at a redirect, not the publisher; never cite the aggregator itself.',
-      harvestedAt: new Date().toISOString(),
-      feedCount: runs.length,
-      okCount: runs.filter((r) => r.ok).length,
-      itemCount: allItems.length,
-      feeds: runs.map(({ feed, ok, count, error }) => ({ feed, ok, count, error: error || undefined })),
-      items: allItems,
-    },
-    null,
-    2
-  ) + '\n'
-);
+const saved = saveCandidates(outPath, {
+  $comment:
+    'Leads, not sources. Every item here is exactly as trustworthy as a search snippet — open it, verify it, and cite the real publisher before it appears in an edition. Items with discoveryOnly:true come from a news-search aggregator and point at a redirect, not the publisher; never cite the aggregator itself.',
+  harvestedAt: new Date().toISOString(),
+  feedCount: runs.length,
+  okCount: runs.filter((r) => r.ok).length,
+  itemCount: allItems.length,
+  feeds: runs.map(({ feed, ok, count, error }) => ({ feed, ok, count, error: error || undefined })),
+  items: allItems,
+});
 
 // --- feed health ------------------------------------------------------------
 // A feed that 403s does not fail the run — it just silently contributes nothing, which is
@@ -247,7 +234,7 @@ if (existsSync(HEALTH_PATH)) {
 
 const { health, dead } = accumulateHealth(prevHealth, runs, { deadAfter: DEAD_AFTER });
 
-writeFileSync(
+atomicWrite(
   HEALTH_PATH,
   JSON.stringify(
     {
@@ -282,7 +269,7 @@ if (failed.length) {
   console.log(`  ${failed.length} feed(s) unreachable this run (non-fatal):`);
   for (const f of failed) console.log(`    ${f.feed}: ${f.error}`);
 }
-console.log(`  wrote ${relative(ROOT, outPath)}`);
+console.log(saved ? `  wrote ${relative(ROOT, outPath)}` : "  no usable leads; retained the previous collection without changing its timestamp");
 
 if (dead.length) {
   console.error(`\n✗ ${dead.length} feed(s) have failed ${DEAD_AFTER}+ runs in a row and are effectively dead:`);
@@ -294,8 +281,8 @@ if (dead.length) {
   console.error('  Fix the URL in tools/harvest.mjs FEEDS, or remove the entry.');
 }
 
-if (runs.every((r) => !r.ok)) {
-  console.error('✗ every feed failed — that is a network or environment problem, not a quiet news day.');
+if (!allItems.length) {
+  console.error('✗ no usable leads returned — candidate output was not replaced.');
   process.exit(1);
 }
 

@@ -55,7 +55,7 @@ jobs:
       - name: Publish
         run: |
           set -euo pipefail
-          if git diff --quiet; then
+          if [ -z "$(git status --porcelain)" ]; then
             echo "No new headlines since the last run."
             exit 0
           fi
@@ -82,14 +82,13 @@ jobs:
         run: |
           set -euo pipefail
           EXISTING="$(gh issue list --state open --label wire-failure --json number --jq '.[0].number' || true)"
-          BODY="A feed harvest has been degraded since $(date -u '+%Y-%m-%d %H:%M UTC') — at least
-          one feed has failed 8+ consecutive runs (see generated/feed-health.json). The wire
-          itself still published normally from every feed that did answer.
+          BODY="Feed collection reported a failure on $(date -u '+%Y-%m-%d %H:%M UTC').
 
-          Run: ${RUN_URL}
+          This can mean no usable leads, a persistently failing feed, or a local processing
+          error. An empty collection preserves prior candidates and their timestamp.
+          Check the harvest logs and generated/feed-health.json before retrying.
 
-          Fix the URL in tools/harvest.mjs FEEDS, or remove the entry — see the MarkTechPost
-          and VentureBeat comments there for the precedent."
+          Run: ${RUN_URL}"
           if [ -n "$EXISTING" ]; then
             gh issue comment "$EXISTING" --body "$BODY"
           else

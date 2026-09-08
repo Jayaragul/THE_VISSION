@@ -9,10 +9,11 @@
 //
 // Run tools/harvest.mjs first — this reads its output, it does not fetch anything itself.
 
-import { writeFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs';
+import { mkdirSync, readdirSync, existsSync } from 'node:fs';
 import { join, resolve as resolvePath, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readJSON, isoDate, slugify, isAiRelevant } from './lib/util.mjs';
+import { validDate, atomicWrite } from './lib/harvest-safety.mjs';
 import { classifyBeat, tierOf } from './lib/classify.mjs';
 import { clusterItems, publisherDiversity } from './lib/cluster.mjs';
 import { scoreCluster, confidenceOf } from './lib/rank.mjs';
@@ -20,7 +21,7 @@ import { validate as validateSchema, assertSupported } from './lib/schema.mjs';
 
 const ROOT = resolvePath(dirname(fileURLToPath(import.meta.url)), '..');
 const date = process.argv[2] || isoDate();
-if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+if (!validDate(date)) {
   console.error(`✗ "${date}" is not a YYYY-MM-DD date`);
   process.exit(2);
 }
@@ -222,7 +223,8 @@ const doc = {
   $schema: '../../schema/digest.schema.json',
   edition: {
     date,
-    generatedAt: new Date().toISOString(),
+    // Input time makes retries byte-identical and does not make stale leads look fresh.
+    generatedAt: candidates.harvestedAt,
     itemCount: items.length,
   },
   items,
@@ -241,7 +243,7 @@ if (schemaErrors.length) {
 
 const outDir = join(ROOT, 'generated', 'digest');
 mkdirSync(outDir, { recursive: true });
-writeFileSync(join(outDir, `${date}.json`), JSON.stringify(doc, null, 2) + '\n');
+atomicWrite(join(outDir, `${date}.json`), JSON.stringify(doc, null, 2) + '\n');
 
 console.log(
   `✓ digest ${date}: ${items.length} items from ${clusters.length} cluster(s) ` +

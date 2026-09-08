@@ -470,7 +470,7 @@ jobs:
       - name: Publish
         run: |
           set -euo pipefail
-          if git diff --quiet && git diff --cached --quiet; then
+          if [ -z "$(git status --porcelain)" ]; then
             echo "No changes — nothing to publish."
             exit 0
           fi
@@ -534,7 +534,7 @@ jobs:
           set -euo pipefail
           node tools/harvest.mjs || true
           node tools/build.mjs
-          if git diff --quiet; then
+          if [ -z "$(git status --porcelain)" ]; then
             echo "Wire produced no change."
             exit 0
           fi
