@@ -16,7 +16,7 @@ export function page(ctx, opts) {
   const d = opts.depth || 0;
   const r = (p) => rel(d, p);
   const canonical = opts.canonical ? `${site.baseUrl}/${opts.canonical}` : `${site.baseUrl}/`;
-  const ogImage = opts.ogImage ? `${site.baseUrl}/${opts.ogImage}` : `${site.baseUrl}/assets/img/social-card.svg`;
+  const ogImage = opts.ogImage ? `${site.baseUrl}/${opts.ogImage}` : `${site.baseUrl}/assets/img/social-card.png`;
 
   // Signed in the source rather than on the page — a credit for anyone who opens view-source,
   // which on a paper for developers is a fair share of the readership.
@@ -66,7 +66,8 @@ ${opts.keywords?.length ? `<meta name="keywords" content="${e(opts.keywords.slic
 <meta name="theme-color" content="#c8102e" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0c0b0a" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="${r('assets/img/favicon.svg')}" type="image/svg+xml">
-<link rel="alternate" type="application/rss+xml" title="${e(site.name)}" href="${r('rss.xml')}">
+<link rel="alternate" type="application/rss+xml" title="${e(site.name)} — Daily headlines" href="${r('headlines.xml')}">
+<link rel="alternate" type="application/rss+xml" title="${e(site.name)} — Editions" href="${r('rss.xml')}">
 <link rel="stylesheet" href="${r('assets/css/site.css')}">
 <script>try{var t=localStorage.getItem('tv-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 ${opts.jsonLd ? `<script type="application/ld+json">${safeJsonLd(opts.jsonLd)}</script>` : ''}
@@ -109,6 +110,7 @@ function topbar(ctx, opts) {
 <span class="topbar__date">${e(stamp)}</span>
 ${opts.editionNumber ? `<span class="topbar__edition-number">No. ${opts.editionNumber}</span>` : ''}
 <span class="topbar__spacer"></span>
+<a class="topbar__search" href="${rel(d, 'search.html')}">Search the newspaper</a>
 ${ctx.generatedAt ? `<span class="live">Updated <time datetime="${e(ctx.generatedAt)}" data-relative>${e(formatShort(ctx.generatedAt))}</time></span>` : ''}
 <button class="themetoggle" type="button" data-theme-toggle>Dark</button>
 </div></div>`;
@@ -199,7 +201,7 @@ ${links}
 <a class="is-quiet" href="${rel(d, 'topics.html')}">Topics</a>
 <a class="is-quiet" href="${rel(d, 'archive.html')}">Archive</a>
 <a class="is-quiet" href="${rel(d, 'methodology.html')}">Method</a>
-<a class="is-quiet" href="${rel(d, 'rss.xml')}">RSS</a>
+<a class="is-quiet" href="${rel(d, 'headlines.xml')}">RSS</a>
 </div></nav>`;
 }
 
@@ -251,7 +253,7 @@ ${/* This used to point at legal.html, which covers rights and takedowns but has
 <li><a href="${rel(d, 'legal.html')}">Rights &amp; licensing</a></li>
 <li><a href="${rel(d, 'terms.html')}">Terms of use</a></li>
 <li><a href="${rel(d, 'privacy.html')}">Privacy</a></li>
-<li><a href="${rel(d, 'rss.xml')}">RSS feed</a></li>
+<li><a href="${rel(d, 'headlines.xml')}">RSS feed</a></li>
 <li><a href="${rel(d, 'generated/index.json')}">Data (JSON)</a></li>
 </ul>
 </div>

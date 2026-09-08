@@ -1,0 +1,62 @@
+name: Weekly AI briefing
+on:
+  schedule:
+    - cron: '40 7 * * 0'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish
+  cancel-in-progress: false
+jobs:
+  briefing:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Freeze the UTC date
+        run: echo "BRIEFING_DATE=$(date -u '+%Y-%m-%d')" >> "$GITHUB_ENV"
+      - name: Reserve this week's single request
+        id: reserve
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          set -euo pipefail
+          echo "ready=$(node tools/weekly-briefing.mjs --reserve)" >> "$GITHUB_OUTPUT"
+      - name: Persist the reservation before spending tokens
+        if: steps.reserve.outputs.ready == 'true'
+        run: |
+          set -euo pipefail
+          git config user.name "the-vission-desk[bot]"
+          git config user.email "135336604+Jayaragul@users.noreply.github.com"
+          git add generated/ai-usage/
+          git commit -m "Reserve weekly AI briefing allowance"
+          git push origin HEAD:main
+      - name: Generate one bounded briefing
+        id: generate
+        if: steps.reserve.outputs.ready == 'true'
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node tools/weekly-briefing.mjs --generate
+      - name: Rebuild and publish the result
+        if: steps.reserve.outputs.ready == 'true'
+        run: |
+          set -euo pipefail
+          node tools/build.mjs
+          node tools/validate.mjs
+          git add generated/ '*.html' '*.xml' assets/img/ story/ edition/ entity/ thread/ digest/ weekly/ wire/ llms.txt robots.txt
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Record weekly briefing result"
+          git push origin HEAD:main
+      - name: Report the optional briefing failure
+        if: steps.generate.outcome == 'failure'
+        run: |
+          echo "::error::Weekly AI briefing failed. Its allowance remains used; daily news is unaffected."
+          exit 1

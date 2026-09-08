@@ -4,6 +4,23 @@
 (function () {
   'use strict';
 
+  // Share only after a reader asks; no tracking or third-party widgets.
+  var share = document.querySelector('[data-share]');
+  var shareStatus = document.querySelector('[data-share-status]');
+  if (share) share.addEventListener('click', async function () {
+    var canonical = document.querySelector('link[rel="canonical"]');
+    var url = canonical ? canonical.href : location.href;
+    try {
+      if (navigator.share) await navigator.share({ title: document.title, url: url });
+      else if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(url);
+        if (shareStatus) shareStatus.textContent = 'Link copied';
+      } else if (shareStatus) shareStatus.textContent = 'Copy this link: ' + url;
+    } catch (error) {
+      if (error.name !== 'AbortError' && shareStatus) shareStatus.textContent = 'Copy this link: ' + url;
+    }
+  });
+
   // --- theme ---------------------------------------------------------------
   // The inline head script has already applied the stored theme to avoid a flash;
   // this only wires the button.
