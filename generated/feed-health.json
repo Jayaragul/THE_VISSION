@@ -1,262 +1,262 @@
 {
   "$comment": "Written by tools/harvest.mjs. consecutiveFailures resets to 0 on any successful fetch; consecutiveEmpty counts fetches that returned 200 with no items, which consecutiveFailures cannot see. A feed at or above deadAfter is reported loudly by the harvest and should be fixed or removed from FEEDS; the weekly maintenance job reports the softer degrading and silent states before they get that far. Feeds removed from FEEDS drop out of this file on the next run.",
-  "updatedAt": "2026-09-10T15:41:52.750Z",
+  "updatedAt": "2026-09-10T20:20:10.830Z",
   "deadAfter": 8,
   "feeds": {
     "TechCrunch": {
       "feed": "TechCrunch",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 20
     },
     "The Verge": {
       "feed": "The Verge",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 10
     },
     "Ars Technica": {
       "feed": "Ars Technica",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 20
     },
     "WIRED": {
       "feed": "WIRED",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 40
     },
     "MIT Technology Review": {
       "feed": "MIT Technology Review",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 10
     },
     "IEEE Spectrum — AI": {
       "feed": "IEEE Spectrum — AI",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 30
     },
     "SCMP — China": {
       "feed": "SCMP — China",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 40
     },
     "NVIDIA": {
       "feed": "NVIDIA",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 18
     },
     "Google AI": {
       "feed": "Google AI",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 20
     },
     "Google DeepMind": {
       "feed": "Google DeepMind",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 40
     },
     "OpenAI": {
       "feed": "OpenAI",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 40
     },
     "Hugging Face — blog": {
       "feed": "Hugging Face — blog",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 40
     },
     "Amazon Science": {
       "feed": "Amazon Science",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 25
     },
     "AWS — Machine Learning": {
       "feed": "AWS — Machine Learning",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 20
     },
     "Microsoft": {
       "feed": "Microsoft",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 10
     },
     "Meta Newsroom": {
       "feed": "Meta Newsroom",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 10
     },
     "Meta Engineering": {
       "feed": "Meta Engineering",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 9
     },
     "arXiv — cs.AI": {
       "feed": "arXiv — cs.AI",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 30
     },
     "arXiv — cs.CL": {
       "feed": "arXiv — cs.CL",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 20
     },
     "arXiv — cs.MA": {
       "feed": "arXiv — cs.MA",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 15
     },
     "arXiv — cs.RO": {
       "feed": "arXiv — cs.RO",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 20
     },
     "arXiv — cs.LG": {
       "feed": "arXiv — cs.LG",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 25
     },
     "google-news:Gemini AI model Google DeepMind": {
       "feed": "Google News",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 29,
-      "lastOk": "2026-09-10T15:41:52.750Z",
-      "lastCount": 20
+      "totalRuns": 30,
+      "lastOk": "2026-09-10T20:20:10.830Z",
+      "lastCount": 22
     },
     "google-news:(Qwen OR DeepSeek OR \"Kimi K\" OR GLM OR Zhipu OR \"Z.ai\" OR MiniMax OR Baidu Ernie) AI model China": {
       "feed": "Google News",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 29,
-      "lastOk": "2026-09-10T15:41:52.750Z",
-      "lastCount": 8
+      "totalRuns": 30,
+      "lastOk": "2026-09-10T20:20:10.830Z",
+      "lastCount": 7
     },
     "google-news:new AI model preview OR \"stealth launch\" OR anonymous model OpenRouter leaderboard": {
       "feed": "Google News",
       "consecutiveFailures": 0,
-      "consecutiveEmpty": 16,
-      "totalRuns": 29,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "consecutiveEmpty": 17,
+      "totalRuns": 30,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 0
     },
     "google-news:legal OR finance OR healthcare AI model fine-tuned enterprise launch": {
       "feed": "Google News",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 29,
-      "lastOk": "2026-09-10T15:41:52.750Z",
-      "lastCount": 24
+      "totalRuns": 30,
+      "lastOk": "2026-09-10T20:20:10.830Z",
+      "lastCount": 25
     },
     "google-news:Mistral AI model release": {
       "feed": "Google News",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 29,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 30,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 40
     },
     "google-news:Anthropic Claude announcement": {
       "feed": "Google News",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 29,
-      "lastOk": "2026-09-10T15:41:52.750Z",
-      "lastCount": 38
+      "totalRuns": 30,
+      "lastOk": "2026-09-10T20:20:10.830Z",
+      "lastCount": 32
     },
     "google-news:(Amazon OR AWS) (Nova OR Bedrock OR Trainium OR Rufus) AI": {
       "feed": "Google News",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 29,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 30,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 40
     },
     "google-news:AI startup funding round raised": {
       "feed": "Google News",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 29,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 30,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 40
     },
     "google-news:AI regulation OR \"AI Act\" OR AI policy government": {
       "feed": "Google News",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 29,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 30,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 40
     },
     "Hugging Face — trending models": {
       "feed": "Hugging Face — trending models",
       "consecutiveFailures": 0,
       "consecutiveEmpty": 0,
-      "totalRuns": 30,
-      "lastOk": "2026-09-10T15:41:52.750Z",
+      "totalRuns": 31,
+      "lastOk": "2026-09-10T20:20:10.830Z",
       "lastCount": 25
     }
   }
