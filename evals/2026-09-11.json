@@ -1,0 +1,44 @@
+{
+  "reboundAt": "2026-09-11T12:04:46.574Z",
+  "date": "2026-09-11",
+  "reviewedAt": "2026-09-11T12:00:00Z",
+  "edition": {
+    "date": "2026-09-11",
+    "storyCount": 11,
+    "sourceCount": 12,
+    "sha256": "298d0aa4c4a628f618b442c0eb0ab895e10238b2562b5222055ce91eb2d36eaa"
+  },
+  "scores": {
+    "sourcing": 5,
+    "accuracy": 5,
+    "prose": 5,
+    "selection": 5,
+    "balance": 5
+  },
+  "total": 25,
+  "verdict": "pass",
+  "evidence": [
+    {
+      "dimension": "sourcing",
+      "note": "Every story and brief is fully verified with openable, high-tier primary or newsroom sources. The lead story ('Anthropic details massive model distillation campaigns...') is backed by both a TechCrunch report and Anthropic's own threat intelligence publication. No self-only sources carry high confidence."
+    },
+    {
+      "dimension": "accuracy",
+      "note": "All figures carry precise units and appropriate context. For example, in the SageMaker prefix routing story: 'reduced the P50 Time-to-First-Token (TTFT) by up to 77% and raised the KV cache hit rate from a standard average of 25% to over 80%.' All vendor claims are rigorously framed as claims."
+    },
+    {
+      "dimension": "prose",
+      "note": "Decks add rich information instead of repeating headlines (e.g., Lead deck: 'A threat intelligence report alleges that Chinese laboratories harvested Claude's core capabilities through 200 million sophisticated prompt exchanges.'). Bullets are clear, non-redundant, and state independent facts."
+    },
+    {
+      "dimension": "selection",
+      "note": "The lead story regarding Anthropic's disclosure of systematic distillation campaigns represents a highly material and durable development in AI security and geopolitics. High-impact stories were selected, successfully deprioritizing minor tweaks and small funding rounds."
+    },
+    {
+      "dimension": "balance",
+      "note": "Perfectly hits all beat quotas across Models, Research, Business, Policy, Infrastructure, Society, and India with 100% representation. The briefs contain actual facts that are concisely written."
+    }
+  ],
+  "revisions": [],
+  "notes": "Today's edition is exceptional, offering deep coverage of a highly significant national security disclosure from Anthropic and consumer demand dynamics at OpenAI. Sourcing is incredibly strong and compliant with the cap on self-sources."
+}
