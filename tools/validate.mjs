@@ -84,6 +84,17 @@ function lintProse(label, text, warn) {
   if (/!/.test(text.replace(/"[^"]*"/g, ''))) {
     warn(`${label}: exclamation mark outside a quote`);
   }
+
+  // Sentence length check
+  const sentences = text.split(/(?<=[.!?])\s+/);
+  for (const s of sentences) {
+    const clean = s.trim();
+    if (!clean) continue;
+    const wordList = words(clean);
+    if (wordList.length > 38) {
+      warn(`${label}: sentence is too long (${wordList.length} words) — split it into shorter, declarative sentences`);
+    }
+  }
 }
 
 // --- copyright safety -------------------------------------------------------

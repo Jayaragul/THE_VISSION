@@ -27,7 +27,7 @@ world with a source attached.
 **Write like a wire service that reads like a magazine.** Plain, declarative, unhurried.
 
 - Lead with the fact, not the framing. `Anthropic released X` before `In a move that signals…`
-- Short sentences carry weight. Vary length, but never write a sentence you would not say aloud.
+- Short sentences carry weight. Vary length, but never write a sentence you would not say aloud. Keep sentences under 38 words; any sentence longer than that must be split.
 - Prefer concrete nouns and active verbs. `The model scores 74%` not `Performance is claimed to be strong`.
 - Attribute contested claims in the sentence: `according to the company's own benchmark card`.
 - Numbers get context. `$4bn` means nothing; `$4bn, roughly double last year's round` means something.
