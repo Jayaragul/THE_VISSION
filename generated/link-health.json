@@ -1,15 +1,15 @@
 {
   "$comment": "Written by tools/linkcheck.mjs. Only unhealthy links are recorded; a healthy link has no row and a recovered link drops out. \"blocked\" (403/429/451) is NOT a dead link — the publisher blocks automated fetches while serving human readers. Only confirmedGone (404/410 on 3 consecutive checks) is treated as rot by the build.",
-  "updatedAt": "2026-09-08T05:51:06.604Z",
+  "updatedAt": "2026-09-14T09:56:31.000Z",
   "goneAfter": 3,
-  "totalPublished": 196,
-  "checkedThisRun": 196,
+  "totalPublished": 259,
+  "checkedThisRun": 259,
   "summary": {
-    "ok": 164,
-    "blocked": 26,
-    "gone": 6,
+    "ok": 192,
+    "blocked": 37,
+    "gone": 30,
     "error": 0,
-    "confirmedGone": 0
+    "confirmedGone": 6
   },
   "links": {
     "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/": {
@@ -22,7 +22,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:18:06.286Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://www.bloomberg.com/news/articles/2026-08-12/ai-startup-cognition-in-new-funding-talks-at-40-billion-value": {
       "publisher": "Bloomberg",
@@ -34,7 +34,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://www.bloomberg.com/news/articles/2026-08-17/anthropic-revenue-run-rate-surpasses-65-billion-ahead-of-ipo": {
       "publisher": "Bloomberg",
@@ -46,7 +46,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://www.bloomberg.com/news/articles/2026-08-16/stripe-nears-deal-to-buy-ai-firm-openrouter-for-over-7-billion": {
       "publisher": "Bloomberg",
@@ -58,7 +58,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://www.forbes.com/sites/zacharyfolk/2026/08/13/young-americans-dont-trust-billionaire-ai-leaders-new-poll-finds/": {
       "publisher": "Forbes",
@@ -70,7 +70,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://www.bloomberg.com/news/articles/2026-08-18/anthropic-pre-ipo-credit-facility-set-to-climb-past-10-billion": {
       "publisher": "Bloomberg",
@@ -82,7 +82,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://www.investing.com/news/stock-market-news/anthropic-targets-10b-credit-facility-ahead-of-planned-public-debut--bloomberg-4865794": {
       "publisher": "Investing.com",
@@ -94,7 +94,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://openai.com/index/introducing-parental-controls/": {
       "publisher": "OpenAI",
@@ -106,7 +106,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-31T10:55:47.252Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://www.forbes.com/sites/conormurray/2026/08/18/most-young-americans-are-more-concerned-about-ai-than-excited-pew-survey-finds/": {
       "publisher": "Forbes",
@@ -118,7 +118,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://www.bloomberg.com/news/articles/2026-08-19/ai-chip-startup-fractile-in-talks-for-6-5-billion-value-after-anthropic-deal": {
       "publisher": "Bloomberg",
@@ -130,7 +130,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://www.bloomberg.com/news/articles/2026-08-19/sk-hynix-announces-28-6-billion-share-buy-back-on-ai-boom": {
       "publisher": "Bloomberg",
@@ -142,7 +142,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://openai.com/index/offering-zero-data-retention-for-frontier-models/": {
       "publisher": "OpenAI",
@@ -154,7 +154,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-09-08T05:51:06.604Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://venturebeat.com/technology/nvidia-finds-that-simple-linear-math-can-replace-costly-ai-model-handoffs": {
       "publisher": "VentureBeat",
@@ -166,7 +166,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://www.forbes.com/sites/joemckendrick/2026/08/12/real-world-experience-is-a-hedge-against-ai-displacement-study-shows/": {
       "publisher": "Forbes",
@@ -178,7 +178,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://venturebeat.com/infrastructure/perplexity-partners-with-nvidia-to-launch-portable-computer-a-fully-local-ai-agent-with-zero-token-costs": {
       "publisher": "VentureBeat",
@@ -190,7 +190,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://www.courtlistener.com/docket/72379655/anthropic-pbc-v-us-department-of-war/": {
       "publisher": "CourtListener",
@@ -202,7 +202,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-08-28T08:16:45.074Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://www.technologyreview.com/2026/09/01/ai-interstellar-journey-alpha-centauri/": {
       "publisher": "MIT Technology Review",
@@ -211,10 +211,10 @@
       ],
       "status": "gone",
       "code": 404,
-      "consecutiveGone": 2,
-      "confirmedGone": false,
+      "consecutiveGone": 3,
+      "confirmedGone": true,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://venturebeat.com/security/googles-gemini-3-8-flash-is-built-for-agents-while-its-cyber-twin-hunts-vulnerabilities": {
       "publisher": "VentureBeat",
@@ -226,7 +226,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://venturebeat.com/security/stolen-claude-session-cookies-can-reach-corporate-gmail-through-grants-no-it-admin-can-revoke": {
       "publisher": "VentureBeat",
@@ -238,7 +238,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://openai.com/index/path-to-astra": {
       "publisher": "OpenAI",
@@ -250,7 +250,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex": {
       "publisher": "OpenAI",
@@ -262,7 +262,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://openai.com/index/supporting-california-bill-advance-ai-youth-safety": {
       "publisher": "OpenAI",
@@ -274,7 +274,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://openai.com/index/hugging-face-incident-and-the-road-ahead": {
       "publisher": "OpenAI",
@@ -286,7 +286,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://openai.com/index/gpt-6-astra": {
       "publisher": "OpenAI",
@@ -298,7 +298,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://openai.com/index/safety-overview-gpt-6-astra": {
       "publisher": "OpenAI",
@@ -310,7 +310,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://arstechnica.com/ai/2026/09/anthropics-claude-autonomously-formalizes-fermats-last-theorem/": {
       "publisher": "Ars Technica",
@@ -319,10 +319,10 @@
       ],
       "status": "gone",
       "code": 404,
-      "consecutiveGone": 2,
-      "confirmedGone": false,
+      "consecutiveGone": 3,
+      "confirmedGone": true,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://economictimes.indiatimes.com/news/economy/policy/pm-modi-unveils-manav-vision-for-ethical-inclusive-ai-governance/articleshow/113110000.cms": {
       "publisher": "The Economic Times",
@@ -331,10 +331,10 @@
       ],
       "status": "gone",
       "code": 404,
-      "consecutiveGone": 2,
-      "confirmedGone": false,
+      "consecutiveGone": 3,
+      "confirmedGone": true,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://economictimes.indiatimes.com/news/economy/policy/gujarat-launches-data-centre-policy-2026-29-to-attract-investment-build-digital-infrastructure-hub/articleshow/113109000.cms": {
       "publisher": "The Economic Times",
@@ -343,10 +343,10 @@
       ],
       "status": "gone",
       "code": 404,
-      "consecutiveGone": 2,
-      "confirmedGone": false,
+      "consecutiveGone": 3,
+      "confirmedGone": true,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://amazon.com/news/aws-launches-saudi-cloud-region-investment": {
       "publisher": "Amazon",
@@ -355,10 +355,10 @@
       ],
       "status": "gone",
       "code": 404,
-      "consecutiveGone": 2,
-      "confirmedGone": false,
+      "consecutiveGone": 3,
+      "confirmedGone": true,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://openai.com/index/playco-game-prototyping-with-astra": {
       "publisher": "OpenAI",
@@ -370,7 +370,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://openai.com/index/legora-financial-statement-review-with-astra": {
       "publisher": "OpenAI",
@@ -382,7 +382,7 @@
       "consecutiveGone": 0,
       "confirmedGone": false,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://livemint.com/technology/news/maharashtra-announces-ai-policy-2026-to-boost-industry-governance-and-public-services.html": {
       "publisher": "Mint",
@@ -391,10 +391,430 @@
       ],
       "status": "gone",
       "code": 404,
-      "consecutiveGone": 2,
-      "confirmedGone": false,
+      "consecutiveGone": 3,
+      "confirmedGone": true,
       "firstSeenBad": "2026-09-07T09:25:39.506Z",
-      "lastChecked": "2026-09-08T05:51:06.604Z"
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.nytimes.com/2026/09/08/technology/mistral-funding-round-samsung.html": {
+      "publisher": "The New York Times",
+      "stories": [
+        "2026-09-08-mistral-series-d"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.ft.com/content/mistral-3bn-samsung-funding-round-2026": {
+      "publisher": "Financial Times",
+      "stories": [
+        "2026-09-08-mistral-series-d"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.cnbc.com/2026/09/08/samsung-leads-series-d-funding-for-europes-ai-champion-mistral.html": {
+      "publisher": "CNBC",
+      "stories": [
+        "2026-09-08-mistral-series-d"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://mistral.ai/news/series-d/": {
+      "publisher": "Mistral AI",
+      "stories": [
+        "2026-09-08-mistral-series-d"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.theguardian.com/technology/article/2026/sep/07/architect-of-uks-ai-policy-quits-after-anthropic-conflict-of-interest-concerns": {
+      "publisher": "The Guardian",
+      "stories": [
+        "2026-09-08-aria-chair-matt-clifford-resignation"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.gov.uk/government/news/aria-chair-resignation": {
+      "publisher": "UK Government",
+      "stories": [
+        "2026-09-08-aria-chair-matt-clifford-resignation"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.business-standard.com/companies/news/pixxel-raises-100-million-in-series-c-funding-co-led-by-temasek-and-seraphim-126090700234_1.html": {
+      "publisher": "Business Standard",
+      "stories": [
+        "2026-09-08-pixxel-record-spacetech-funding"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.livemint.com/technology/tech-news/nvidia-chief-jensen-huang-declares-arrival-of-agi-congratulates-openai-team-on-gpt-6-astra-model-1260908001.html": {
+      "publisher": "Mint",
+      "stories": [
+        "2026-09-08-openai-gpt-6-astra-rollout-turbulence"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://techcrunch.com/2026/09/08/eric-wus-newest-company-out-of-stealth-since-may-is-going-after-constructions-labor-crunch/": {
+      "publisher": "TechCrunch",
+      "stories": [
+        "2026-09-08-navigate-ai-stealth-launch"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://blog.google/intl/en-in/google-launches-india-first-agricultural-ai-models/": {
+      "publisher": "Google",
+      "stories": [
+        "2026-09-08-google-anthrokrishi-agricultural-ai-models"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://economictimes.indiatimes.com/tech/technology/ai-and-traditional-farming-can-coexist-google-executive-on-indian-agri-models/articleshow/126090800.cms": {
+      "publisher": "The Economic Times",
+      "stories": [
+        "2026-09-08-google-anthrokrishi-agricultural-ai-models"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://openai.com/index/navier-stokes-solution/": {
+      "publisher": "OpenAI",
+      "stories": [
+        "2026-09-10-openai-claims-navier-stokes-breakdown-proof"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.theguardian.com/technology/article/2026/sep/08/openai-claims-to-have-solved-navier-stokes-millennium-prize-problem": {
+      "publisher": "The Guardian",
+      "stories": [
+        "2026-09-10-openai-claims-navier-stokes-breakdown-proof"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://blog.google/technology/ai/google-deepmind-alphagenome-atlas-dna/": {
+      "publisher": "Google",
+      "stories": [
+        "2026-09-10-google-deepmind-alphagenome-atlas"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.bloomberg.com/news/articles/2026-09-09/legal-ai-startup-harvey-hits-15-billion-value-with-550-million-round": {
+      "publisher": "Bloomberg",
+      "stories": [
+        "2026-09-10-harvey-raises-550m-at-15-valuation"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://techcrunch.com/2026/09/09/legal-ai-startup-harvey-raises-550m-at-15-valuation/": {
+      "publisher": "TechCrunch",
+      "stories": [
+        "2026-09-10-harvey-raises-550m-at-15-valuation"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.anthropic.com/news/alignment-stress-test-report": {
+      "publisher": "Anthropic",
+      "stories": [
+        "2026-09-10-anthropic-discloses-claude-breakout-incident"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.bloomberg.com/news/articles/2026-09-08/bengaluru-space-tech-startup-pixxel-raises-100-million-series-c": {
+      "publisher": "Bloomberg",
+      "stories": [
+        "2026-09-10-pixxel-secures-100m-planetary-infrastructure"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://economictimes.indiatimes.com/tech/technology/pixxel-raises-record-100-million-to-expand-hyperspectral-satellite-constellation/articleshow/126090700.cms": {
+      "publisher": "The Economic Times",
+      "stories": [
+        "2026-09-10-pixxel-secures-100m-planetary-infrastructure"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://economictimes.indiatimes.com/tech/technology/samsung-partners-with-mistral-ai-to-bring-on-premises-ai-into-chip-manufacturing/articleshow/126090900.cms": {
+      "publisher": "The Economic Times",
+      "stories": [
+        "2026-09-10-samsung-mistral-partner-on-premises-fab"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.anthropic.com/news/detecting-countering-misuse-of-ai-september-2026": {
+      "publisher": "Anthropic",
+      "stories": [
+        "2026-09-11-anthropic-exposes-chinese-distillation-campaigns"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.sec.gov/Archives/edgar/data/804328/000080432826000085/qcom-20260908.htm": {
+      "publisher": "U.S. SEC",
+      "stories": [
+        "2026-09-12-qualcomm-amazon-strategic-custom-silicon-deal"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://techcrunch.com/2026/09/11/qualcomms-60b-aws-silicon-deal-is-a-strong-signal-of-intent/": {
+      "publisher": "TechCrunch",
+      "stories": [
+        "2026-09-12-qualcomm-amazon-strategic-custom-silicon-deal"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://venturebeat.com/ai/google-legend-jeff-dean-leaves-to-launch-discovery-loop-with-former-colleagues/": {
+      "publisher": "VentureBeat",
+      "stories": [
+        "2026-09-12-jeff-dean-discovery-loop-aims-for-fifty-billion-valuation"
+      ],
+      "status": "blocked",
+      "code": 429,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.investing.com/news/company-news/former-google-chief-scientist-jeff-dean-seeking-50b-valuation-for-new-ai-startup-discovery-loop": {
+      "publisher": "Investing.com",
+      "stories": [
+        "2026-09-12-jeff-dean-discovery-loop-aims-for-fifty-billion-valuation"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://siliconangle.com/2026/08/29/google-negotiating-1-5b-deal-with-ai-startup-mechanize/": {
+      "publisher": "SiliconANGLE",
+      "stories": [
+        "2026-09-12-google-completes-one-point-five-billion-mechanize-talent-deal"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.investing.com/news/company-news/google-closes-15-billion-talent-licensing-deal-with-ai-coding-startup-mechanize": {
+      "publisher": "Investing.com",
+      "stories": [
+        "2026-09-12-google-completes-one-point-five-billion-mechanize-talent-deal"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://mistral.ai/news/sovereign-open-weight-frontier/": {
+      "publisher": "Mistral AI",
+      "stories": [
+        "2026-09-12-mistral-ai-pivots-to-sovereign-open-weights"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://siliconangle.com/2026/09/10/cloudera-partners-with-mistral-ai-to-bring-sovereign-ai-to-the-enterprise/": {
+      "publisher": "SiliconANGLE",
+      "stories": [
+        "2026-09-12-mistral-ai-pivots-to-sovereign-open-weights"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.gov.uk/government/news/government-response-to-cyber-security-bill-amendment": {
+      "publisher": "UK Government",
+      "stories": [
+        "2026-09-12-uk-government-rejects-emergency-ai-kill-switch-bill"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.theguardian.com/technology/article/2026/sep/11/uk-government-rejects-ai-emergency-kill-switch-proposals": {
+      "publisher": "The Guardian",
+      "stories": [
+        "2026-09-12-uk-government-rejects-emergency-ai-kill-switch-bill"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.courtlistener.com/docket/new-mexico-supreme-court-stephen-aarons-contempt": {
+      "publisher": "CourtListener",
+      "stories": [
+        "2026-09-12-new-mexico-lawyer-fined-for-chatgpt-hallucinated-witnesses"
+      ],
+      "status": "blocked",
+      "code": 403,
+      "consecutiveGone": 0,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://aws.amazon.com/about-aws/whats-new/2026/09/twelve-labs-video-ai-models-amazon-bedrock/": {
+      "publisher": "Amazon",
+      "stories": [
+        "2026-09-12-twelve-labs-launches-marengo-three-point-zero-on-amazon-bedrock"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://siliconangle.com/2026/09/10/twelve-labs-video-ai-models-now-generally-available-on-amazon-bedrock/": {
+      "publisher": "SiliconANGLE",
+      "stories": [
+        "2026-09-12-twelve-labs-launches-marengo-three-point-zero-on-amazon-bedrock"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
+    },
+    "https://www.scmp.com/tech/startups/article/3367104/moonshot-ai-targets-2-billion-annualised-revenue": {
+      "publisher": "SCMP",
+      "stories": [
+        "2026-09-12-moonshot-ai-targets-two-billion-recurring-revenue"
+      ],
+      "status": "gone",
+      "code": 404,
+      "consecutiveGone": 1,
+      "confirmedGone": false,
+      "firstSeenBad": "2026-09-14T09:56:31.000Z",
+      "lastChecked": "2026-09-14T09:56:31.000Z"
     },
     "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-in-early-talks-to-buy-inference-chips-from-uk-startup": {
       "publisher": "Tom's Hardware",
