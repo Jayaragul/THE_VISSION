@@ -1,9 +1,9 @@
 {
   "$comment": "Leads, not sources. Every item here is exactly as trustworthy as a search snippet — open it, verify it, and cite the real publisher before it appears in an edition. Items with discoveryOnly:true come from a news-search aggregator and point at a redirect, not the publisher; never cite the aggregator itself.",
-  "harvestedAt": "2026-09-14T16:21:56.767Z",
+  "harvestedAt": "2026-09-14T17:28:20.021Z",
   "feedCount": 32,
   "okCount": 29,
-  "itemCount": 646,
+  "itemCount": 654,
   "feeds": [
     {
       "feed": "TechCrunch",
@@ -92,9 +92,8 @@
     },
     {
       "feed": "arXiv — cs.AI",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 30
     },
     {
       "feed": "arXiv — cs.CL",
@@ -105,23 +104,24 @@
       "feed": "arXiv — cs.MA",
       "ok": false,
       "count": 0,
-      "error": "HTTP 429"
+      "error": "This operation was aborted"
     },
     {
       "feed": "arXiv — cs.RO",
       "ok": false,
       "count": 0,
-      "error": "This operation was aborted"
+      "error": "HTTP 429"
     },
     {
       "feed": "arXiv — cs.LG",
-      "ok": true,
-      "count": 25
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "feed": "Google News",
       "ok": true,
-      "count": 12
+      "count": 14
     },
     {
       "feed": "Google News",
@@ -141,12 +141,12 @@
     {
       "feed": "Google News",
       "ok": true,
-      "count": 18
+      "count": 16
     },
     {
       "feed": "Google News",
       "ok": true,
-      "count": 22
+      "count": 24
     },
     {
       "feed": "Google News",
@@ -173,6 +173,254 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
+      "title": "Anthropic targets financial advisers with new Claude tool - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOako0N2w1bExjVVA0azZSLUI0QXdveUdDUWFnM0RKeVJVTEN4TlFlX0t5UHR6Z1FROWp2LVJUSjY4anRUakt0OTBUWkdFdjNKLTFDNmhPZ0RVY3BZSEZzLVFFUjZVdmtLSHk1bVZQRm1ObVJ6SGVSWGpJbXBBdS1EQ3lSMk4xNzNfVTJQT2NYaW1aUkV5c1plNDJNRXk2S3ZPMzA5Yw?oc=5",
+      "publishedAt": "2026-09-14T17:13:09.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxOako0N2w1bExjVVA0azZSLUI0QXdveUdDUWFnM0RKeVJVTEN4TlFlX0t5UHR6Z1FROWp2LVJUSjY4anRUakt0OTBUWkdFdjNKLTFDNmhPZ0RVY3BZSEZzLVFFUjZVdmtLSHk1bVZQRm1ObVJ6SGVSWGpJbXBBdS1EQ3lSMk4xNzNfVTJQT2NYaW1aUkV5c1plNDJNRXk2S3ZPMzA5Yw?oc=5\" target=\"_blank\">Anthropic targets financi"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Claudeforce signals sweeping changes ahead for enterprise software - cio.com",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPTXdVeXp1eHlEZEZ4RWExeTF4NmxIbXo5enE0LWpyX1UyckxpZnNlczN6S1RHYXZ0U05mT01naEpiNmdoM25iVHpQOUI3LVpWeE56ZmpJaUFscGNKemQxdWE0RGdVckFNUWlBMlV2bVZtMkI1Sl9DTGtiVjY5MlVzU3piWHRjYUl5dE84YTVIMjVKREhLRjZUcnhTMVRoSjU3allJMEtuMEo1bE0?oc=5",
+      "publishedAt": "2026-09-14T17:11:42.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqwFBVV95cUxPTXdVeXp1eHlEZEZ4RWExeTF4NmxIbXo5enE0LWpyX1UyckxpZnNlczN6S1RHYXZ0U05mT01naEpiNmdoM25iVHpQOUI3LVpWeE56ZmpJaUFscGNKemQxdWE0RGdVckFNUWlBMlV2bVZtMkI1Sl9DTGtiVjY5MlVzU3piWHRjYUl5dE84YTVIMjVKREhLRjZUcnhTMVRoSjU3allJMEtuMEo1bE0?oc=5\" target=\"_blank\">Claudeforce sign"
+    },
+    {
+      "source": "Ars Technica",
+      "discoveryOnly": false,
+      "title": "Prehistoric builders transported Devil's Arrows 11 miles",
+      "url": "https://arstechnica.com/science/2026/09/prehistoric-builders-transported-devils-arrows-11-miles/",
+      "publishedAt": "2026-09-14T17:10:54.000Z",
+      "summary": "Isotopic analysis revealed the most likely source to be Brimham Rocks, not the nearby Plumpton Rocks."
+    },
+    {
+      "source": "TechCrunch",
+      "discoveryOnly": false,
+      "title": "With iOS 27, I’m actually using Siri again",
+      "url": "https://techcrunch.com/2026/09/14/with-ios-27-im-actually-using-siri-again/",
+      "publishedAt": "2026-09-14T17:10:30.000Z",
+      "summary": "Apple’s long-delayed Siri overhaul is finally here with iOS 27, and it changes how useful the assistant feels day to day"
+    },
+    {
+      "source": "The Verge",
+      "discoveryOnly": false,
+      "title": "macOS 27 is available now",
+      "url": "https://www.theverge.com/tech/994818/apple-macos-27-golden-gate-available-now",
+      "publishedAt": "2026-09-14T17:10:13.000Z",
+      "summary": "Apple released macOS 27 Golden Gate on Monday, which brings the new Siri AI assistant, Liquid Glass improvements, improved performance, and more. The update is compatible with all Macs with Apple Silicon, but not Intel Macs - Apple released its final big update for Intel-based Macs last year with macOS Tahoe. Siri AI i"
+    },
+    {
+      "source": "TechCrunch",
+      "discoveryOnly": false,
+      "title": "macOS 27: new Siri takes on AI productivity apps",
+      "url": "https://techcrunch.com/2026/09/14/macos-27-new-siri-takes-on-ai-productivity-apps/",
+      "publishedAt": "2026-09-14T17:10:09.000Z",
+      "summary": "macOS 27 Goldgen Gate gets a new Spotlight Search with Siri integrated"
+    },
+    {
+      "source": "The Verge",
+      "discoveryOnly": false,
+      "title": "Apple releases iOS 27 with Siri AI overhaul",
+      "url": "https://www.theverge.com/news/994756/apple-ios-27-launch-iphone-siri-ai-update",
+      "publishedAt": "2026-09-14T17:08:49.000Z",
+      "summary": "Apple is now rolling out its iOS 27 update to compatible devices today, alongside the watchOS 27, iPadOS 27, and visionOS 27 updates. Siri AI is the headline feature across all four updates, the delayed AI-powered overhaul of the Siri assistant. Siri AI is available as a beta today for English-only devices, and Apple s"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Temporal raises $550M, hits $12.55B valuation as agentic AI wave fuels massive growth - geekwire.com",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNVTZOWV9TRklxYXZjeXVZVEx0UEhCWHVRMGQxQ3IwSG5qNEpGdmtwY3hUaVdVZzFnMURSSFdFV01pLUgzQ1Bybm91eUc5eWZGb285R3VoNVY4RE5mT0E3RGhwQ0YzZm92ZE1rbU4xU3Q0NGIwcjRodEloMDYxMGc2NXZSckJTSHlaaWpwdFczMElRSEE2VGN5VjZLekdCUi1ndFAyMjZKeFNyd2NNVlBCNWpuOA?oc=5",
+      "publishedAt": "2026-09-14T17:08:21.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxNVTZOWV9TRklxYXZjeXVZVEx0UEhCWHVRMGQxQ3IwSG5qNEpGdmtwY3hUaVdVZzFnMURSSFdFV01pLUgzQ1Bybm91eUc5eWZGb285R3VoNVY4RE5mT0E3RGhwQ0YzZm92ZE1rbU4xU3Q0NGIwcjRodEloMDYxMGc2NXZSckJTSHlaaWpwdFczMElRSEE2VGN5VjZLekdCUi1ndFAyMjZKeFNyd2NNVlBCNWpuOA?oc=5\" target=\"_blank\">Tempo"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "China pushes back on calls for an AI slowdown as Trump-Xi meeting looms - The Washington Post",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNclNyb29WSFJDNENVeGJwSXB4d055bW9TZVp3dklKQXpMMFhZYWZFMFJzQ2Mzc2djQjk0YjcyNWVjcGt6d010MWVaZjNJaE82SUtoNU1aSEVfZUp5UkV3djU2cVJRS04yOWRoMTRaTHhxaE9EMVI0Zlh0V2ZLOFRfRjdaN3kwNXljRkhhenRHNm1uUzVGYVR5MnFVclI3N2k3eGVJX2ZSdGhOWUdaSUhKY09zVUszZw?oc=5",
+      "publishedAt": "2026-09-14T17:04:13.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitgFBVV95cUxNclNyb29WSFJDNENVeGJwSXB4d055bW9TZVp3dklKQXpMMFhZYWZFMFJzQ2Mzc2djQjk0YjcyNWVjcGt6d010MWVaZjNJaE82SUtoNU1aSEVfZUp5UkV3djU2cVJRS04yOWRoMTRaTHhxaE9EMVI0Zlh0V2ZLOFRfRjdaN3kwNXljRkhhenRHNm1uUzVGYVR5MnFVclI3N2k3eGVJX2ZSdGhOWUdaSUhKY09zVUszZw?oc=5\" target=\"_blank\">C"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "British man admits drugging and raping wife over more than 2 decades",
+      "url": "https://www.scmp.com/news/world/europe/article/3367506/british-man-admits-drugging-and-raping-wife-over-more-2-decades?utm_source=rss_feed",
+      "publishedAt": "2026-09-14T17:04:01.000Z",
+      "summary": "A British man on ⁠Monday admitted ⁠repeatedly drugging and ⁠raping his wife at their home over more than two decades, just before his trial was about to begin. The man - from northern England ‌who is in his 60s but cannot be named as it would identify his wife who is entitled to lifelong anonymity – pleaded guilty at M"
+    },
+    {
+      "source": "Ars Technica",
+      "discoveryOnly": false,
+      "title": "Steam Frame: The Ars Technica review",
+      "url": "https://arstechnica.com/gaming/2026/09/steam-frame-the-ars-technica-review/",
+      "publishedAt": "2026-09-14T17:00:07.000Z",
+      "summary": "Valve's new $1,049 VR hardware tries to revive an abandoned VR \"revolution.\""
+    },
+    {
+      "source": "TechCrunch",
+      "discoveryOnly": false,
+      "title": "Fashion app Daydream uses Apple Intelligence to help you shop the outfits in your camera roll",
+      "url": "https://techcrunch.com/2026/09/14/fashion-discovery-app-daydream-uses-apple-intelligence-to-help-you-shop-the-outfits-saved-in-your-camera-roll/",
+      "publishedAt": "2026-09-14T17:00:00.000Z",
+      "summary": "Thanks to the launch of iOS 27, Daydream's app now includes features that can turn saved outfit photos into shoppable results and search for products through Siri without opening the app."
+    },
+    {
+      "source": "The Verge",
+      "discoveryOnly": false,
+      "title": "Valve’s Steam Frame costs $1,059",
+      "url": "https://www.theverge.com/games/994376/valve-steam-frame-vr-headset-price-release-date",
+      "publishedAt": "2026-09-14T17:00:00.000Z",
+      "summary": "Valve is finally releasing its Steam Frame headset, which can run both flat and VR games locally and stream both kinds of games from your PC. The Steam Frame will start at $1,059. Valve will also offer a 1TB model that starts at $1,299. Every Steam Frame will come with a copy of Half-Life: Alyx, […]"
+    },
+    {
+      "source": "The Verge",
+      "discoveryOnly": false,
+      "title": "Valve has ported Half-Life: Alyx to ARM, and it’s free with Steam Frame",
+      "url": "https://www.theverge.com/games/994454/valve-half-life-alyx-standalone-arm-port",
+      "publishedAt": "2026-09-14T17:00:00.000Z",
+      "summary": "Today, Valve is launching its first headset since 2019 - the new Steam Frame - while dodging our questions about whether it'll ever make another VR game to go with it. But buyers of the $1,059 gadget will get one flagship VR game anyhow, and it's great. Every Steam Frame comes with a copy of […]"
+    },
+    {
+      "source": "The Verge",
+      "discoveryOnly": false,
+      "title": "I reviewed Valve’s Steam Frame, ask me anything",
+      "url": "https://www.theverge.com/games/994535/steam-frame-ama-your-questions-answered",
+      "publishedAt": "2026-09-14T17:00:00.000Z",
+      "summary": "Hey! I'm Sean Hollister, you might have seen me around this place a few times, and I just spent three weeks beta-testing the Steam Frame, Valve's hotly anticipated new don't-call-it-a-VR-headset that might also be an early glimpse at the future of games that run everywhere. At 4PM ET today (that's 1PM PT for West Coast"
+    },
+    {
+      "source": "The Verge",
+      "discoveryOnly": false,
+      "title": "The Steam Frame is made for irresponsible hardware nerds like me",
+      "url": "https://www.theverge.com/tech/994267/steam-frame-review",
+      "publishedAt": "2026-09-14T17:00:00.000Z",
+      "summary": "For nearly three weeks, I've been testing the limits of Valve's Steam Frame, the company's new wearable PC. At first glance, it's easy to write it off as a pricey headset that missed the VR craze. At $1,059 with 256GB of storage or $1,299 for 1TB, it costs two to three times as much as […]"
+    },
+    {
+      "source": "The Verge",
+      "discoveryOnly": false,
+      "title": "The Dell XPS 13 is the first real competitor to the MacBook Neo",
+      "url": "https://www.theverge.com/tech/994636/dell-xps-13-2026-intel-wildcat-lake-8gb-16gb-review",
+      "publishedAt": "2026-09-14T17:00:00.000Z",
+      "summary": "Dell's last XPS 13 was meant to be a farewell before the company sunset the entire XPS brand. But it was a bitter ending, and an overpriced one as well. Earlier this year, Dell resurrected the XPS name with the excellent (and very expensive) XPS 14 and 16. And now, it's reinvented the XPS 13 […]"
+    },
+    {
+      "source": "WIRED",
+      "discoveryOnly": false,
+      "title": "New York Seizes a Dozen Celebrity Deepfake Websites",
+      "url": "https://www.wired.com/story/new-york-seizes-a-dozen-celebrity-deepfake-websites/",
+      "publishedAt": "2026-09-14T16:50:00.000Z",
+      "summary": "In the biggest-ever legal action against harmful deepfake websites, the Manhattan District Attorney’s Office has seized 12 sites that collectively targeted around 1,200 victims."
+    },
+    {
+      "source": "The Verge",
+      "discoveryOnly": false,
+      "title": "Netflix is making a Crazy Taxi movie and a Sonic show with ‘edge’",
+      "url": "https://www.theverge.com/streaming/994861/netflix-crazy-taxi-sonic-stranger-than-heaven",
+      "publishedAt": "2026-09-14T16:48:46.000Z",
+      "summary": "Netflix has announced three new adaptations of Sega games: a Crazy Taxi film, a Sonic animated series \"built for kids who want to feel a little edge,\" and a live-action movie based on the upcoming Stranger Than Heaven from Yakuza developer RGG Studio. The Crazy Taxi movie will be the first project released, though it ["
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Tandem Health Raises $100M Series B to Build AI Clinic Operating System - Unite.AI",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNMjE5V21DRkM1TnVFUlVVQTk2VTV0RGotNmppWkNyMjhYZUFYMll4b3ZVeWo0dzNmOHVfSG5CLXMxTWRZZXNpUmZOdThfOWtmQlRBdVdBVllxaFo0Y2otcEFVTElxSjR1M09nS3gtcFNGZHNaRDhVcW82VXdYaEdvT3VUUTRCUWVLSE02RUVZcG13Z0E0elo4?oc=5",
+      "publishedAt": "2026-09-14T16:47:02.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxNMjE5V21DRkM1TnVFUlVVQTk2VTV0RGotNmppWkNyMjhYZUFYMll4b3ZVeWo0dzNmOHVfSG5CLXMxTWRZZXNpUmZOdThfOWtmQlRBdVdBVllxaFo0Y2otcEFVTElxSjR1M09nS3gtcFNGZHNaRDhVcW82VXdYaEdvT3VUUTRCUWVLSE02RUVZcG13Z0E0elo4?oc=5\" target=\"_blank\">Tandem Health Raises $100M Series B to Buil"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "German intelligence report warns of rising Chinese, Russian spy threat",
+      "url": "https://www.scmp.com/news/world/europe/article/3367505/german-intelligence-report-warns-rising-chinese-russian-spy-threat?utm_source=rss_feed",
+      "publishedAt": "2026-09-14T16:41:44.000Z",
+      "summary": "Germany’s military counter-intelligence agency, known as MAD, has warned of a growing threat from hybrid attacks and the use of recruited contract agents, or low-level agents, saying Germany is a “prioritised target of Russian espionage activities”. According to the agency’s annual report released on Monday, it cited G"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "AI leaders call for slowing down. The government doesn't want to - USA Today",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPRkJGcm5pM0EyX3NpdUVGZXVZek92ODRxcUFTZXBueDJpTl9Id2RYOVRVMGdZQnFCek44REF6SHd0c3BEQTFNT21EbFRVQ3hiWDJEd2RhWjJpWXByMG05QXZzQThjanBuQXNxd2lCSHV4TEZkZ19zbm42ZTdDR0hDSkU4QmluR21DSUhfTVFmZzU?oc=5",
+      "publishedAt": "2026-09-14T16:33:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikAFBVV95cUxPRkJGcm5pM0EyX3NpdUVGZXVZek92ODRxcUFTZXBueDJpTl9Id2RYOVRVMGdZQnFCek44REF6SHd0c3BEQTFNT21EbFRVQ3hiWDJEd2RhWjJpWXByMG05QXZzQThjanBuQXNxd2lCSHV4TEZkZ19zbm42ZTdDR0hDSkU4QmluR21DSUhfTVFmZzU?oc=5\" target=\"_blank\">AI leaders call for slowing down. The government doe"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Trump wants to push tempo of AI race, countering tech leaders’ call for slowdown - The Washington Post",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbFpkVktGTDVQYlRMQjBkem9USkVXZE9ha3ZOU2l3ZlVWSnNObFJlbGU1TzhFNzRfTGRtSlZDbU14Z3FLWVJlSVFZMlk5N0l3ZG9Pa2tqOHUtSnUwSnp4Q244OVhEYVd0LVBzdjB5bkxRdVBoSGNtSS03V09qVXBTMXEyTzJvSzh5ZFozZUtUVFhyYUZ2WEUya0xhMkN6ZFhrc281Z0NfY0xUd29wb3dPcGpjZk51dw?oc=5",
+      "publishedAt": "2026-09-14T16:32:34.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitgFBVV95cUxNbFpkVktGTDVQYlRMQjBkem9USkVXZE9ha3ZOU2l3ZlVWSnNObFJlbGU1TzhFNzRfTGRtSlZDbU14Z3FLWVJlSVFZMlk5N0l3ZG9Pa2tqOHUtSnUwSnp4Q244OVhEYVd0LVBzdjB5bkxRdVBoSGNtSS03V09qVXBTMXEyTzJvSzh5ZFozZUtUVFhyYUZ2WEUya0xhMkN6ZFhrc281Z0NfY0xUd29wb3dPcGpjZk51dw?oc=5\" target=\"_blank\">T"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Chip Roy suggests federal intervention warranted on AI despite being ‘limited government guy’ - Washington Examiner",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNQ3hqSGU3aWM5RldCVlhRekZFT3lwQW9MbDhFdjk3b1RVYktLREtLZnpVMjRwbm1DRkZBbEtmZHRWcHV2X3kzc0JMTzBFVU5yV1kyR0ZiUlhRbGd3cUVTV3Ffd1lFeXpSdUFkckw5U01WS2RTQ01mb0tuM1BuY292VUE0ZnNabTg0SWJnRkRoMUtDVlpNN2xJRnd0ZEM5OGZqOVNWaFU4eV82ZDZpZEpmdjBNWXp1S2FPZnhxVEdRdVdVeUJsUFZEMFFQbmtuN0E?oc=5",
+      "publishedAt": "2026-09-14T16:32:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMizwFBVV95cUxNQ3hqSGU3aWM5RldCVlhRekZFT3lwQW9MbDhFdjk3b1RVYktLREtLZnpVMjRwbm1DRkZBbEtmZHRWcHV2X3kzc0JMTzBFVU5yV1kyR0ZiUlhRbGd3cUVTV3Ffd1lFeXpSdUFkckw5U01WS2RTQ01mb0tuM1BuY292VUE0ZnNabTg0SWJnRkRoMUtDVlpNN2xJRnd0ZEM5OGZqOVNWaFU4eV82ZDZpZEpmdjBNWXp1S2FPZnhxVEdRdVdVeUJsUFZEMF"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Anthropic Launches Claude for Financial Advisors Tool - Wealth Management",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQdjBYTXJBMkg1SG1Hb294NXJlaHBvREtWXzlVVHg0MjJ6WUtmZzJobUQ1LV9ENWc5aXNOYllkN2ZnVzJSVG5JYVI5dWYxemF0NDZYRnlYTGdEUmN3VjJramdqalRyaHhXTkx6ay1jbVk0Wjd0SnpmNXUyOTBmQ0R3cTBhU2pxZTl2YmJzZGFZUUpObDFOOHkwcm5CeGVKWUpuZDNMNXdOVTM?oc=5",
+      "publishedAt": "2026-09-14T16:31:58.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxQdjBYTXJBMkg1SG1Hb294NXJlaHBvREtWXzlVVHg0MjJ6WUtmZzJobUQ1LV9ENWc5aXNOYllkN2ZnVzJSVG5JYVI5dWYxemF0NDZYRnlYTGdEUmN3VjJramdqalRyaHhXTkx6ay1jbVk0Wjd0SnpmNXUyOTBmQ0R3cTBhU2pxZTl2YmJzZGFZUUpObDFOOHkwcm5CeGVKWUpuZDNMNXdOVTM?oc=5\" target=\"_blank\">Anthropic Launches C"
+    },
+    {
+      "source": "Ars Technica",
+      "discoveryOnly": false,
+      "title": "\"Offensively cheap\": Solar power is looking up",
+      "url": "https://arstechnica.com/gadgets/2026/09/offensively-cheap-solar-power-is-looking-up/",
+      "publishedAt": "2026-09-14T16:29:18.000Z",
+      "summary": "Chinese-made panels on rooftops across the world are changing the facts of life for big utilities."
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Microsoft’s new AI ‘code of conduct’ tells models not to hack systems or trick humans - TechCrunch",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZ0VkdmR6NXZpVENub3FWamRWSEVmQ0tydGQ3UUxVaUtVMEUzSEZfZTZMdHM5V0I0eHVMa1JzWFdkSVlPcWt4N2N5d0JNcFFvcEphSmpRRTM5cUk1VS1vRWtud3NTUUtWMElEZ19LUHlhUVF0SUVxRzBPWkdHUTVveWoxbG5rRVFZTlRQWm43NHA3S0paQnV1VFIxdFpYdVVaN0hmMm45OXdfMkR5QmhHSlRpQVlVWjJC?oc=5",
+      "publishedAt": "2026-09-14T16:27:53.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZ0VkdmR6NXZpVENub3FWamRWSEVmQ0tydGQ3UUxVaUtVMEUzSEZfZTZMdHM5V0I0eHVMa1JzWFdkSVlPcWt4N2N5d0JNcFFvcEphSmpRRTM5cUk1VS1vRWtud3NTUUtWMElEZ19LUHlhUVF0SUVxRzBPWkdHUTVveWoxbG5rRVFZTlRQWm43NHA3S0paQnV1VFIxdFpYdVVaN0hmMm45OXdfMkR5QmhHSlRpQVlVWjJC?oc=5\" target=\"_blank\""
+    },
+    {
+      "source": "TechCrunch",
+      "discoveryOnly": false,
+      "title": "Microsoft’s new AI ‘code of conduct’ tells models not to hack systems or trick humans",
+      "url": "https://techcrunch.com/2026/09/14/microsofts-new-ai-code-of-conduct-tells-models-not-to-hack-systems-or-trick-humans/",
+      "publishedAt": "2026-09-14T16:27:53.000Z",
+      "summary": "The code of conduct lays out general principles that Microsoft AI models should uphold — supporting humans rather than replacing them, for instance, and accelerating human flourishing — as well as specific safety constraints meant to implement those principles."
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Anthropic Launches Claude for Financial Advisors With Partner Connectors - Unite.AI",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPcHhOWnl2dW5aS3FlN2tadGtNSVdYcUx2NmNsRVQ1MVN5VzVNSk1EYmh1X2daclNXa2Q4T3pPTzlzZU5PTTU0a2E5VVFkbUIzdldPYnpueDYxVy1PYk1vRXBBZ0lkNUJXcmdINmZKQmkxc3JFVVY2ZmNtU0tCWnRnQzNsZEVfV053VnNjTWF2ZWtORDQ2Vno2SEZB?oc=5",
+      "publishedAt": "2026-09-14T16:23:01.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxPcHhOWnl2dW5aS3FlN2tadGtNSVdYcUx2NmNsRVQ1MVN5VzVNSk1EYmh1X2daclNXa2Q4T3pPTzlzZU5PTTU0a2E5VVFkbUIzdldPYnpueDYxVy1PYk1vRXBBZ0lkNUJXcmdINmZKQmkxc3JFVVY2ZmNtU0tCWnRnQzNsZEVfV053VnNjTWF2ZWtORDQ2Vno2SEZB?oc=5\" target=\"_blank\">Anthropic Launches Claude for Financial"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "New Startup A Vinyl Bar in Shibuya Lets Users Create Music with Generative AI Tools - SSBCrack",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOeW00Wi1lejVMYUZ0WUhveGYwZTVPZnJMNEJXZGxBRWpXbVprbjd4ZjlUZXVZbzJOaFFuV0h5TE1QRzNHMmh4WDBTalY4a0o4VUhIUHpnVW9zTnNCZGcxelVsTDdQZmhNMWJIb2tQMU85WjdkOHFMcmwxT3Mtd3llc2toM3VEdnhWNzUyczFRal9XMkJqUzF3cnh6WFQ3MFRHMVVZa1FnNkUwN00zU1VB?oc=5",
+      "publishedAt": "2026-09-14T16:18:40.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMirwFBVV95cUxOeW00Wi1lejVMYUZ0WUhveGYwZTVPZnJMNEJXZGxBRWpXbVprbjd4ZjlUZXVZbzJOaFFuV0h5TE1QRzNHMmh4WDBTalY4a0o4VUhIUHpnVW9zTnNCZGcxelVsTDdQZmhNMWJIb2tQMU85WjdkOHFMcmwxT3Mtd3llc2toM3VEdnhWNzUyczFRal9XMkJqUzF3cnh6WFQ3MFRHMVVZa1FnNkUwN00zU1VB?oc=5\" target=\"_blank\">New Startup"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Saudi Arabia’s BRKZ Raises $31 Million: How AI Is Reshaping the Construction Materials Market - entARABI",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOUTFQcGk2UmJUWDNUVHdneGFWRlVwTEVXeUN6b1YzTVdSOXVaOEFGVG1XeVBaSzlRdU85ZFZicUR5SnpISmJDRE1JWTRiWGk1eDl2MGVjcS11eGk2OFF1UFVDaEFnVXFWNFlDTjJtVGdtNEppQ2lpbEhYSlRLVTVUZk4ycE0zZ3d6a1pkc2F0bnVPV1ZpcUdKRDBiSUVfZUpENVVFQ3BQUE1jMlM0SnVOZjB5UENHaVZKUWQyN3BrdXI?oc=5",
+      "publishedAt": "2026-09-14T16:16:37.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxOUTFQcGk2UmJUWDNUVHdneGFWRlVwTEVXeUN6b1YzTVdSOXVaOEFGVG1XeVBaSzlRdU85ZFZicUR5SnpISmJDRE1JWTRiWGk1eDl2MGVjcS11eGk2OFF1UFVDaEFnVXFWNFlDTjJtVGdtNEppQ2lpbEhYSlRLVTVUZk4ycE0zZ3d6a1pkc2F0bnVPV1ZpcUdKRDBiSUVfZUpENVVFQ3BQUE1jMlM0SnVOZjB5UENHaVZKUWQyN3BrdXI?oc=5\" targ"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
       "title": "Making sovereign, open-weight AI the technology frontier - mistral.ai",
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNRzU0cTlwNHctb0FiY092UVlJZFh4UmxsQ2lPLTdkVEU2SlRzVU12VzI2RGRYWEFqS2NMcVlXdXNTUGczTjFTbjZGMXY4bHhZYXN6bVpGQ0M0cndmMmthYjhUcGhPWlZsb1ZWeHhHOUdZWE93bTdUMjBNMzZQNTR6Mw?oc=5",
       "publishedAt": "2026-09-14T16:16:25.000Z",
@@ -181,7 +429,15 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Charles Schwab and Anthropic to Bring Claude to Independent Registered Investment Advisors - Business Wire",
+      "title": "Ninth Wave and AWS Slash Bank Onboarding Times by 95% with AI-Powered Compass - FF News",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQSkI1NVJnYzlGTHlaeTRuaUNpcXNrUjBTc0RvNUZWY0R1a05vVThrRm00LW1rR1ZEZEF5N1pOUDJrTERocW5SdWxNTW1RN2dVXzhTa24waXQxa3pyNXhXQ0lBSlNLMGQyLUE2THk0QlFBMTNRUFBvVjg3eW9yeVlKdmJWMzNlSjFxbERjQldxc3FrN1B5U2RLU3FqX0RiSERpQlpvb2Ruc2RIVzVLdG96ZlN6NA?oc=5",
+      "publishedAt": "2026-09-14T16:15:36.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxQSkI1NVJnYzlGTHlaeTRuaUNpcXNrUjBTc0RvNUZWY0R1a05vVThrRm00LW1rR1ZEZEF5N1pOUDJrTERocW5SdWxNTW1RN2dVXzhTa24waXQxa3pyNXhXQ0lBSlNLMGQyLUE2THk0QlFBMTNRUFBvVjg3eW9yeVlKdmJWMzNlSjFxbERjQldxc3FrN1B5U2RLU3FqX0RiSERpQlpvb2Ruc2RIVzVLdG96ZlN6NA?oc=5\" target=\"_blank\">Ninth"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Charles Schwab and Anthropic to Bring Claude to Independent Registered Investment Advisors - businesswire.com",
       "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOYzl4LXVBaXY2UHBLNGlvRHRtTXp0U194N2I0dnB4XzJFdERXem9EX1RPc3AtbW9jSE9RcDFpdFQwNkJ0QmtXMzJOZ001Z1c2OGlCT2FQb2h5NXFma2NGSzNqRjhaZ3RZRGFMUHNWa1A2ODRnMzlFUkZMWnFWMnplWjAzeXkyLVZZS0pUZ2w3aUdLZGJpTHplcWRLUXRsaU5JNFU4LWdDekVKYzFzQ3NCa2RLcmZaMnVjYkFCcUtzVVZUcDlUaVVmc05HM3FNZjZiY3VTS0d3aWVBSkI3T1RDQQ?oc=5",
       "publishedAt": "2026-09-14T16:15:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxOYzl4LXVBaXY2UHBLNGlvRHRtTXp0U194N2I0dnB4XzJFdERXem9EX1RPc3AtbW9jSE9RcDFpdFQwNkJ0QmtXMzJOZ001Z1c2OGlCT2FQb2h5NXFma2NGSzNqRjhaZ3RZRGFMUHNWa1A2ODRnMzlFUkZMWnFWMnplWjAzeXkyLVZZS0pUZ2w3aUdLZGJpTHplcWRLUXRsaU5JNFU4LWdDekVKYzFzQ3NCa2RLcmZaMnVjYkFCcUtzVVZUcDlUaVVmc0"
@@ -189,18 +445,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Ninth Wave's AI-Powered Compass with Amazon Bedrock Cuts API Integration Time Up to 95% - 01net.it",
+      "title": "Ninth Wave's AI-Powered Compass with Amazon Bedrock Cuts API Integration Time Up to 95% - 01net",
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPTEhubHNjOUZsb0FtQ1lzaHB0QnFDLXg0Y09SMjN0V0NoRllMMEwxOE5oSnlXOFFWOW94b0hiMzh2WncxOHJMdVRidTRoUWxxTlJXdGgyV0RGZ0pJbUp3alRScExyZGZlZUZGT0xZOVJHUEYybjVYeldvTlpnMzlMX3pBWGE2R19ldUJDdXhWWFRrSkpEb09iSlhSb2FDZVZrYmUxaDhiOTZVY3M?oc=5",
       "publishedAt": "2026-09-14T16:15:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqwFBVV95cUxPTEhubHNjOUZsb0FtQ1lzaHB0QnFDLXg0Y09SMjN0V0NoRllMMEwxOE5oSnlXOFFWOW94b0hiMzh2WncxOHJMdVRidTRoUWxxTlJXdGgyV0RGZ0pJbUp3alRScExyZGZlZUZGT0xZOVJHUEYybjVYeldvTlpnMzlMX3pBWGE2R19ldUJDdXhWWFRrSkpEb09iSlhSb2FDZVZrYmUxaDhiOTZVY3M?oc=5\" target=\"_blank\">Ninth Wave's AI-"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Ninth Wave and AWS Slash Bank Onboarding Times by 95% with AI-Powered Compass - FF News",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQSkI1NVJnYzlGTHlaeTRuaUNpcXNrUjBTc0RvNUZWY0R1a05vVThrRm00LW1rR1ZEZEF5N1pOUDJrTERocW5SdWxNTW1RN2dVXzhTa24waXQxa3pyNXhXQ0lBSlNLMGQyLUE2THk0QlFBMTNRUFBvVjg3eW9yeVlKdmJWMzNlSjFxbERjQldxc3FrN1B5U2RLU3FqX0RiSERpQlpvb2Ruc2RIVzVLdG96ZlN6NA?oc=5",
-      "publishedAt": "2026-09-14T16:13:58.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxQSkI1NVJnYzlGTHlaeTRuaUNpcXNrUjBTc0RvNUZWY0R1a05vVThrRm00LW1rR1ZEZEF5N1pOUDJrTERocW5SdWxNTW1RN2dVXzhTa24waXQxa3pyNXhXQ0lBSlNLMGQyLUE2THk0QlFBMTNRUFBvVjg3eW9yeVlKdmJWMzNlSjFxbERjQldxc3FrN1B5U2RLU3FqX0RiSERpQlpvb2Ruc2RIVzVLdG96ZlN6NA?oc=5\" target=\"_blank\">Ninth"
     },
     {
       "source": "Google News",
@@ -209,6 +457,22 @@
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOck5zYm53SW5xTlB5eW9ZTXlwcVA0bTZvNDRKRkdwckZ5VTgyMzdqUWxkZUdya0ExbVBTM09UY2pVcmpKbUcwbmE5MkdEeFVsT1didm5XZlVpVVk3QjFVbXRYbHZfd1ZOLU81TG9WMHVMdF9TSnNVWDdEYXA3S2hKUXFya2Ewdw?oc=5",
       "publishedAt": "2026-09-14T16:13:24.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMihgFBVV95cUxOck5zYm53SW5xTlB5eW9ZTXlwcVA0bTZvNDRKRkdwckZ5VTgyMzdqUWxkZUdya0ExbVBTM09UY2pVcmpKbUcwbmE5MkdEeFVsT1didm5XZlVpVVk3QjFVbXRYbHZfd1ZOLU81TG9WMHVMdF9TSnNVWDdEYXA3S2hKUXFya2Ewdw?oc=5\" target=\"_blank\">Salesforce Shares Jump 3.73% as New AI Agent Blitz Builds Momentu"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Three Letters Set the AI World Buzzing: Has Google Cracked RSI? - trendingtopics.eu",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNbUE0RnlrZ1p4MGh6Y2FOdkRiUENzQ2Y3MHVIa1dvMmhBbU5xdkc2V043b1Y2bzdIWEV5Tk1SYktNVmtLdE9PbG9PaUFObDAxQ1Y3MUhnb2FueEZwLXNSbmFEelB1ZjRkTWVIUEdZM0ZIaEQ3aFRsT2E2Sl9OVFN4SUlHWk5CRG95dktFWkV5MUh4RVRORkVv?oc=5",
+      "publishedAt": "2026-09-14T16:12:37.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxNbUE0RnlrZ1p4MGh6Y2FOdkRiUENzQ2Y3MHVIa1dvMmhBbU5xdkc2V043b1Y2bzdIWEV5Tk1SYktNVmtLdE9PbG9PaUFObDAxQ1Y3MUhnb2FueEZwLXNSbmFEelB1ZjRkTWVIUEdZM0ZIaEQ3aFRsT2E2Sl9OVFN4SUlHWk5CRG95dktFWkV5MUh4RVRORkVv?oc=5\" target=\"_blank\">Three Letters Set the AI World Buzzing: Has"
+    },
+    {
+      "source": "MIT Technology Review",
+      "discoveryOnly": false,
+      "title": "Donated livers can be made biologically younger",
+      "url": "https://www.technologyreview.com/2026/09/14/1144010/donated-livers-can-be-made-biologically-younger/",
+      "publishedAt": "2026-09-14T16:11:42.000Z",
+      "summary": "Once an organ is removed from a donor’s body, the clock starts ticking. Surgeons usually flush the organ with a preservative solution, bag it, and put it on ice—where it immediately starts to degrade. The team has a matter of hours to get it into a recipient’s body. There’s another option—one that has been growing…"
     },
     {
       "source": "Google News",
@@ -261,18 +525,18 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "CBRS Expands AI Inference Reach: Can It Challenge NVDA & GOOGL? - theglobeandmail.com",
-      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPcHhaMVJSZVpGWTBsUFJpcnhIM0R0UVBhWWZySDJFd1BsQlBSQWwyUDMyR2dhYmtVd3hWbVF4cmxValQxQ2JLNVJmRmlUMFVvTU54anNOVmQtX2RhMDJ3aU1CWEdmbV9yQXJjWTkzZDNUY0dFY0JGZklLRG9qQVZEX3NrWGNUMTAtVE9Ha2dMMWllVzlDUFRWSGNVb0dla0tHbzFSRlBGRFltVUhmTWJKeEhaaEYyTHBybVlPM05XUFQzQTBQM3pJNHR5RUFqLVpJMS1JcTdaZ1hITW8y?oc=5",
-      "publishedAt": "2026-09-14T15:57:36.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi3AFBVV95cUxPcHhaMVJSZVpGWTBsUFJpcnhIM0R0UVBhWWZySDJFd1BsQlBSQWwyUDMyR2dhYmtVd3hWbVF4cmxValQxQ2JLNVJmRmlUMFVvTU54anNOVmQtX2RhMDJ3aU1CWEdmbV9yQXJjWTkzZDNUY0dFY0JGZklLRG9qQVZEX3NrWGNUMTAtVE9Ha2dMMWllVzlDUFRWSGNVb0dla0tHbzFSRlBGRFltVUhmTWJKeEhaaEYyTHBybVlPM05XUFQzQTBQM3pJNH"
+      "title": "How Ninth Wave built AI-powered open finance onboarding on Amazon Bedrock | Amazon Web Services - aws.amazon.com",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOOGJURFl6aV9uTTl5M0dWeXJXUkU4MEZZaGRwSzZKSzU4Q2FWNGdseGtySlpwUmhHU1g5eE5ESWRDNENUaENaREltcFpCRlM1T2VPZjlGNF8tQm1yaGxHVTVKQWZUNlowMXBNMm80RlZfR1pGenhYbXNzNUpsQm9pRDBsNXRMbDR5M29OSmt4cWF3SEVRenRiSkNIc1RNLUpPZkZMdFZ5UHo4SmdzUWF3RjNHd29TMC0tZVNhcg?oc=5",
+      "publishedAt": "2026-09-14T15:58:57.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxOOGJURFl6aV9uTTl5M0dWeXJXUkU4MEZZaGRwSzZKSzU4Q2FWNGdseGtySlpwUmhHU1g5eE5ESWRDNENUaENaREltcFpCRlM1T2VPZjlGNF8tQm1yaGxHVTVKQWZUNlowMXBNMm80RlZfR1pGenhYbXNzNUpsQm9pRDBsNXRMbDR5M29OSmt4cWF3SEVRenRiSkNIc1RNLUpPZkZMdFZ5UHo4SmdzUWF3RjNHd29TMC0tZVNhcg?oc=5\" target=\"_"
     },
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Trump wants to push tempo of AI race, countering tech leaders’ call for slowdown - The Washington Post",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbFpkVktGTDVQYlRMQjBkem9USkVXZE9ha3ZOU2l3ZlVWSnNObFJlbGU1TzhFNzRfTGRtSlZDbU14Z3FLWVJlSVFZMlk5N0l3ZG9Pa2tqOHUtSnUwSnp4Q244OVhEYVd0LVBzdjB5bkxRdVBoSGNtSS03V09qVXBTMXEyTzJvSzh5ZFozZUtUVFhyYUZ2WEUya0xhMkN6ZFhrc281Z0NfY0xUd29wb3dPcGpjZk51dw?oc=5",
-      "publishedAt": "2026-09-14T15:56:37.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitgFBVV95cUxNbFpkVktGTDVQYlRMQjBkem9USkVXZE9ha3ZOU2l3ZlVWSnNObFJlbGU1TzhFNzRfTGRtSlZDbU14Z3FLWVJlSVFZMlk5N0l3ZG9Pa2tqOHUtSnUwSnp4Q244OVhEYVd0LVBzdjB5bkxRdVBoSGNtSS03V09qVXBTMXEyTzJvSzh5ZFozZUtUVFhyYUZ2WEUya0xhMkN6ZFhrc281Z0NfY0xUd29wb3dPcGpjZk51dw?oc=5\" target=\"_blank\">T"
+      "title": "CBRS Expands AI Inference Reach: Can It Challenge NVDA & GOOGL? - The Globe and Mail",
+      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQNjlPMF95MUFhelFrTmVmVzlkQ0FNcWQ3bzBKOERRczRaYTRPSkIyNVc1czV6bG5CbzVja3pnWHBGUUF2V3RXcHc3Q0xMaHlGTFBEQ2JCa2FWcm9sSklfWW5NTXM1STl1VUJmREQycjRVX1BjS2JhTDFmekFWVjBYRVdOc0o3VlVISTNRaFREZWthLWs1T0x3SzVlTUNSMTRNOXBJUWRxdFppYTkzN2ZpUVRnUGRFcFRKSE12QU56UzFiNVVXblNhRGZ3WEhQODhyQU44QVVhVGF4dnMyWnc?oc=5",
+      "publishedAt": "2026-09-14T15:55:47.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi3gFBVV95cUxQNjlPMF95MUFhelFrTmVmVzlkQ0FNcWQ3bzBKOERRczRaYTRPSkIyNVc1czV6bG5CbzVja3pnWHBGUUF2V3RXcHc3Q0xMaHlGTFBEQ2JCa2FWcm9sSklfWW5NTXM1STl1VUJmREQycjRVX1BjS2JhTDFmekFWVjBYRVdOc0o3VlVISTNRaFREZWthLWs1T0x3SzVlTUNSMTRNOXBJUWRxdFppYTkzN2ZpUVRnUGRFcFRKSE12QU56UzFiNVVXblNhRG"
     },
     {
       "source": "AWS — Machine Learning",
@@ -281,6 +545,14 @@
       "url": "https://aws.amazon.com/blogs/machine-learning/the-generative-ai-customization-spectrum-from-prompt-engineering-to-custom-models-on-aws/",
       "publishedAt": "2026-09-14T15:47:12.000Z",
       "summary": "Pick the right generative AI customization approach on AWS with an 8-step decision framework, from prompt engineering and RAG to fine-tuning, continued pre-training, and Amazon Nova Forge. Start simple and escalate only when you must."
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "The generative AI customization spectrum: From prompt engineering to custom models on AWS - aws.amazon.com",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQeWRlcWZhakUtTXRpMnY0MDlaSWFWREZ3eHE2cWJMdE1FbFV6d1VwbzZPWDRhMF9DdjhkWTR3dFpYSF9aM0Q1V0xJM2tXMmxONXJSR3VSdnhIRGpvd1VMYlFocG1NbmQ2bksyQzNzRWdSU05EV1ltdmpncHAwM1J4dGJHUUFOY041RDRQSmlzLXM5S2ZoZXlpQUoweXVmY1J2NDFCNUZSVzE2LXFaWWJYcXhSWHpLajNwbTg1YmE5R3BMZTdDMGJtbHpmN3laeGQz?oc=5",
+      "publishedAt": "2026-09-14T15:47:12.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi0AFBVV95cUxQeWRlcWZhakUtTXRpMnY0MDlaSWFWREZ3eHE2cWJMdE1FbFV6d1VwbzZPWDRhMF9DdjhkWTR3dFpYSF9aM0Q1V0xJM2tXMmxONXJSR3VSdnhIRGpvd1VMYlFocG1NbmQ2bksyQzNzRWdSU05EV1ltdmpncHAwM1J4dGJHUUFOY041RDRQSmlzLXM5S2ZoZXlpQUoweXVmY1J2NDFCNUZSVzE2LXFaWWJYcXhSWHpLajNwbTg1YmE5R3BMZTdDMGJtbH"
     },
     {
       "source": "Ars Technica",
@@ -307,6 +579,22 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiAFBVV95cUxOOXoxOEgxekkyeGppUjVoYmxNdnhZV3F4RW9qTm56cUQ1dThZbU9Xb1lQN2FIMnF5TkpfTHE2aXFPU2FNWGZFbGYxZW0tNHpKWHlpTUlEUXpsbzF2SkRxNTIzRXR4Q0ZjVFQ0ZExROXJ3YWVIcjdDRHd3UHlPaFI2bjVnNnhDaHVy?oc=5\" target=\"_blank\">Z.AI Launches 35x Revenue Funding Round</a>&nbsp;&nbsp;<font co"
     },
     {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Ron DeSantis accuses AI companies of angling for federal bailouts if they go belly up - Florida Politics",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE4xYTc4WmJEcnBMckpqbkVLeFFvT3l2U01kVUpKVkRxbE1uQ2ZFRTlRM1VoMXNkYnlhTE9PWWRtdVEyNFY3ZkNxTzd4THoxMUdiNWRoeWRKeGg3VkQxdG1yOTY0bFZRR3c0VTdhYXJ3Q3dFbExKWThjNQ?oc=5",
+      "publishedAt": "2026-09-14T15:37:11.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMieEFVX3lxTE4xYTc4WmJEcnBMckpqbkVLeFFvT3l2U01kVUpKVkRxbE1uQ2ZFRTlRM1VoMXNkYnlhTE9PWWRtdVEyNFY3ZkNxTzd4THoxMUdiNWRoeWRKeGg3VkQxdG1yOTY0bFZRR3c0VTdhYXJ3Q3dFbExKWThjNQ?oc=5\" target=\"_blank\">Ron DeSantis accuses AI companies of angling for federal bailouts if they go belly up"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "AI-Backed Investment Platform Pave Finance Raises $15 million - Wealth Management",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNY2JJUzBZNElsUHhpemtiMFRsUmVLTnFud0NjQW5hZDFUUXJhaFUwMEgyV054OEs2SWZMZU9DTEdwcDMtdEhzOF9UNWJDOGhlUWNtVk5JNm9IdlN4alVmenpnNHcyOEpQM3BVRFR0NG42UUgwYU1lcTBTbVg5dUZvNi1EZVhKczdKcG9mOS1UaVF6UV83S1FKbzdxR0YyRFo4UHVfUVZmbllVemt3V2ZuYTBiYXN4ZlgwM3lndHdHRjhHYkNkbUZn?oc=5",
+      "publishedAt": "2026-09-14T15:36:28.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMixwFBVV95cUxNY2JJUzBZNElsUHhpemtiMFRsUmVLTnFud0NjQW5hZDFUUXJhaFUwMEgyV054OEs2SWZMZU9DTEdwcDMtdEhzOF9UNWJDOGhlUWNtVk5JNm9IdlN4alVmenpnNHcyOEpQM3BVRFR0NG42UUgwYU1lcTBTbVg5dUZvNi1EZVhKczdKcG9mOS1UaVF6UV83S1FKbzdxR0YyRFo4UHVfUVZmbllVemt3V2ZuYTBiYXN4ZlgwM3lndHdHRjhHYkNkbUZn?o"
+    },
+    {
       "source": "TechCrunch",
       "discoveryOnly": false,
       "title": "Sources say Automattic’s board is out after failed attempt to oust CEO Matt Mullenweg",
@@ -317,7 +605,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "How AI Shopping Assistants Help Users Compare Products - analyticsinsight.net",
+      "title": "How AI Shopping Assistants Help Users Compare Products - Analytics Insight",
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNZU1tRzNfdWxBNnFMamhZTTd0N1hqQmNYQmhuNVVhLU93dDhEOVVWOVZfNEFzUDhaNDZkaWxFSEwxTzIyTHBxWXo2Ti1FREpGZnE2WXFkYWlxRWF2TkpVajVDaWhfLVhCdGJHZXVwYXNESXhHeWFZaEJNOUp4TUlTb2daNk9KS1J0MTBDMmR2YVRGdFR0ckRKMUh3U1k2c1HSAawBQVVfeXFMT2xUWEZ5SUc5YkFXSk9CNldHQm5IN1dPdk10WVhNY3B1cnh0UzhtdEZRLTRQLTRQbVlZc05mZnBzNkQ0R3JUdmItSWpGYlFOSnhoQUFpS1U3T1ZxU1VlNjFXeVc4bjhQUmcyelo4UHVXalJlVjlNS3dyZTJudFg5d3kwQ1VYbzlpcFdVTnVOTEFFaFNnaFU2Z0pPaWpQRmZ1MWJGQVp6UmxybnVzVg?oc=5",
       "publishedAt": "2026-09-14T15:30:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMinwFBVV95cUxNZU1tRzNfdWxBNnFMamhZTTd0N1hqQmNYQmhuNVVhLU93dDhEOVVWOVZfNEFzUDhaNDZkaWxFSEwxTzIyTHBxWXo2Ti1FREpGZnE2WXFkYWlxRWF2TkpVajVDaWhfLVhCdGJHZXVwYXNESXhHeWFZaEJNOUp4TUlTb2daNk9KS1J0MTBDMmR2YVRGdFR0ckRKMUh3U1k2c1HSAawBQVVfeXFMT2xUWEZ5SUc5YkFXSk9CNldHQm5IN1dPdk10WVhNY3"
@@ -329,6 +617,14 @@
       "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNMHRkWVpaZ3g2VXdIXzNieUQwbTV0TWVjS2FQVVhVbFFRSE1jSjliYTZ3NHRuNUx0OEd4ZGtBemxSQ3RuUjk2Y0NydFpUOXN5ZGZOR3h2QkJXTXFjeUFCOERSWFhrUkhpUkF0MFU2ZXMwZWVoRmRzcTlVUUtuWVJFNHBR?oc=5",
       "publishedAt": "2026-09-14T15:26:09.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiggFBVV95cUxNMHRkWVpaZ3g2VXdIXzNieUQwbTV0TWVjS2FQVVhVbFFRSE1jSjliYTZ3NHRuNUx0OEd4ZGtBemxSQ3RuUjk2Y0NydFpUOXN5ZGZOR3h2QkJXTXFjeUFCOERSWFhrUkhpUkF0MFU2ZXMwZWVoRmRzcTlVUUtuWVJFNHBR?oc=5\" target=\"_blank\">Vitalik Buterin Links Mechanism Design to AI Safety</a>&nbsp;&nbsp;<fon"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Trump pushes back on AI rules: ‘STRONG AND SMART’ president is enough - Mathrubhumi English",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNWjNtX1VZRU1mY2czVjQwQ0dyVXhaXzkzX2NPOTN4NzQyd2Z4ckt3YWFIN1BSbHhPOEplajg4ZnlJNDJqdnlsWGpiVnk4SU9ESV8yUHpBWE8xbjg0b24yRHdNRlhNZDNGVlVfRlRTcjNVOHpxalRWbG8tTDJWR3h5YzRqTm1DX3NRb2o5X3RUeGFsdWZqem5sdWh1dlJFRVdIYk90S19xNmYxa0E2d1FCZDdLNDlqZERwaUHSAb8BQVVfeXFMUEhEZ1NuZnZCVHFjV3RQbnFwV2ZHWWltdExCYUY0UElNam1sSW0xTFVBZDc4Ylg3U1dfeDB1ZXVoamVIRFprQmowVUpFb1hfV29YZ1NKdkd4Rm16YVlVTHl6ZzNlOHZhRzFkeGlha1o2UmwxNVBvZVdnTEg4Qld6VllMLWJlSklSR3dqYU1ySDM2SkNJeHF4NHhXaHlqSWt3U0NoSTJTaEROLXpSQzZFYS1NUjRJYi1tblpveXVGQjQ?oc=5",
+      "publishedAt": "2026-09-14T15:13:22.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiugFBVV95cUxNWjNtX1VZRU1mY2czVjQwQ0dyVXhaXzkzX2NPOTN4NzQyd2Z4ckt3YWFIN1BSbHhPOEplajg4ZnlJNDJqdnlsWGpiVnk4SU9ESV8yUHpBWE8xbjg0b24yRHdNRlhNZDNGVlVfRlRTcjNVOHpxalRWbG8tTDJWR3h5YzRqTm1DX3NRb2o5X3RUeGFsdWZqem5sdWh1dlJFRVdIYk90S19xNmYxa0E2d1FCZDdLNDlqZERwaUHSAb8BQVVfeXFMUEhEZ1"
     },
     {
       "source": "The Verge",
@@ -387,17 +683,9 @@
       "summary": "If you're building an AI company, the question isn't whether foundation models will continue to evolve. It's whether your company will continue creating value as they do. Don't miss this interactive session on the Builders Stage at TechCrunch Disrupt 2026."
     },
     {
-      "source": "The Verge",
-      "discoveryOnly": false,
-      "title": "Adam Conover explains how YouTube ruined everything",
-      "url": "https://www.theverge.com/podcast/991471/adam-conover-youtube-tv-media-union-labor-ai",
-      "publishedAt": "2026-09-14T15:00:00.000Z",
-      "summary": "Today, I’m joined by comedian, podcast host, and YouTuber Adam Conover. Adam is a familiar face to anyone who’s spent time on the internet. He got his start, like so many successful comedy writers, at CollegeHumor back in the day. That was before transitioning into cable TV with Adam Ruins Everything, then onto Netflix"
-    },
-    {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Canadian government proposes global body for AI safety oversight - cryptobriefing.com",
+      "title": "Canadian government proposes global body for AI safety oversight - Crypto Briefing",
       "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE00dkNXSHB4UWwwaTVoWlpRdHpIQlQtVUpVekhjcDV4a2prOXNhUUdwcHBmbnRGMDJYbXNuX3ctbmNaa2wxZHhWZF9yTHVha1hsVFpMT3pFY21zRGI0cjBma3dmU05HNlZmakJUX3RlVl9vR0U?oc=5",
       "publishedAt": "2026-09-14T14:59:11.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMic0FVX3lxTE00dkNXSHB4UWwwaTVoWlpRdHpIQlQtVUpVekhjcDV4a2prOXNhUUdwcHBmbnRGMDJYbXNuX3ctbmNaa2wxZHhWZF9yTHVha1hsVFpMT3pFY21zRGI0cjBma3dmU05HNlZmakJUX3RlVl9vR0U?oc=5\" target=\"_blank\">Canadian government proposes global body for AI safety oversight</a>&nbsp;&nbsp;<font color="
@@ -405,10 +693,18 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "GPT-6 Astra: The next generation in intelligence for work - openai.com",
+      "title": "AI regulation in healthcare need to be safe, proportionate and trusted - Open Access Government",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPYXIwcjlBbGYxeDFheC1peWNMNzdTMXNOSjVlTS0xcW1ad2lBQzJGLW90TXJ2RFZnNjloWDNJQU5MckZwZEJxWGQ0b1NuU0k3WWtlaU83UUhxU1pXYW5SdVktbEF2c0Yxc2JhRFdENDBvU01pdHZPT2RURkx3Q2R3QUF0cHFtazkwMnBZVmF2Tk5CTnpzYTBIYmJlUWY3anJETmNPLWxoVkdoRmVKcWxOR1hBZkU?oc=5",
+      "publishedAt": "2026-09-14T14:48:09.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxPYXIwcjlBbGYxeDFheC1peWNMNzdTMXNOSjVlTS0xcW1ad2lBQzJGLW90TXJ2RFZnNjloWDNJQU5MckZwZEJxWGQ0b1NuU0k3WWtlaU83UUhxU1pXYW5SdVktbEF2c0Yxc2JhRFdENDBvU01pdHZPT2RURkx3Q2R3QUF0cHFtazkwMnBZVmF2Tk5CTnpzYTBIYmJlUWY3anJETmNPLWxoVkdoRmVKcWxOR1hBZkU?oc=5\" target=\"_blank\">AI r"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "GPT-6 Astra: The next generation in intelligence for work - OpenAI",
       "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5CMVNUYU5VZ0ZwQm56OGo4bVhKSmtEU1dLT01wR0hmbzE2ektwRS1LNnVqRkVha3ZzLXJyVE9GdHpMREM5dnRXS1Q2MHJoNGV3RFVLZ3VvZ3dwcGphbnI2RWx4dnFBMWM0Zmc?oc=5",
       "publishedAt": "2026-09-14T14:45:54.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiakFVX3lxTE5CMVNUYU5VZ0ZwQm56OGo4bVhKSmtEU1dLT01wR0hmbzE2ektwRS1LNnVqRkVha3ZzLXJyVE9GdHpMREM5dnRXS1Q2MHJoNGV3RFVLZ3VvZ3dwcGphbnI2RWx4dnFBMWM0Zmc?oc=5\" target=\"_blank\">GPT-6 Astra: The next generation in intelligence for work</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">openai.co"
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiakFVX3lxTE5CMVNUYU5VZ0ZwQm56OGo4bVhKSmtEU1dLT01wR0hmbzE2ektwRS1LNnVqRkVha3ZzLXJyVE9GdHpMREM5dnRXS1Q2MHJoNGV3RFVLZ3VvZ3dwcGphbnI2RWx4dnFBMWM0Zmc?oc=5\" target=\"_blank\">GPT-6 Astra: The next generation in intelligence for work</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">OpenAI</f"
     },
     {
       "source": "TechCrunch",
@@ -440,7 +736,7 @@
       "title": "Hear how AI can engineer nature’s comeback at TechCrunch Disrupt 2026",
       "url": "https://techcrunch.com/2026/09/14/hear-how-ai-can-engineer-natures-comeback-at-techcrunch-disrupt-2026/",
       "publishedAt": "2026-09-14T14:30:00.000Z",
-      "summary": "Not long ago, bringing an extinct species back to life belonged to science fiction. Today, it’s the mission of a billion-dollar startup. Advances in artificial intelligence, genetics, and computational biology are changing what’s possible in conservation research, raising questions that extend far beyond the laboratory"
+      "summary": "Not long ago, bringing an extinct species back to life belonged to science fiction. Today, it's the mission of a billion-dollar startup. Join the conversation with one of tech's most unconventional founders. Secure your Disrupt pass today."
     },
     {
       "source": "SCMP — China",
@@ -453,10 +749,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Synapse Analytics has secured $13 million in Series A funding - thecondia.com",
+      "title": "Synapse Analytics has secured $13 million in Series A funding - Condia",
       "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5KTWJ0dTFFSWxOVjUyNkNyNEk0dUVtTENFR2Zlb0pYTDZLckJ2RzhnWDhYU3hhaWItQjBxUWhyUU92SnJNNWZqOWRZSDk5akhHR3BueVU0Nm1JLU1nT1g0LU1wQXRqMi1w?oc=5",
       "publishedAt": "2026-09-14T14:23:31.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiaEFVX3lxTE5KTWJ0dTFFSWxOVjUyNkNyNEk0dUVtTENFR2Zlb0pYTDZLckJ2RzhnWDhYU3hhaWItQjBxUWhyUU92SnJNNWZqOWRZSDk5akhHR3BueVU0Nm1JLU1nT1g0LU1wQXRqMi1w?oc=5\" target=\"_blank\">Synapse Analytics has secured $13 million in Series A funding</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">thecondi"
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiaEFVX3lxTE5KTWJ0dTFFSWxOVjUyNkNyNEk0dUVtTENFR2Zlb0pYTDZLckJ2RzhnWDhYU3hhaWItQjBxUWhyUU92SnJNNWZqOWRZSDk5akhHR3BueVU0Nm1JLU1nT1g0LU1wQXRqMi1w?oc=5\" target=\"_blank\">Synapse Analytics has secured $13 million in Series A funding</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Condia</"
     },
     {
       "source": "IEEE Spectrum — AI",
@@ -531,12 +827,12 @@
       "summary": "Former Spotify exec's company releases experimental \"singles\" that involves users in music making."
     },
     {
-      "source": "The Verge",
-      "discoveryOnly": false,
-      "title": "The four-hour-long Elon Musk documentary might be preaching to the choir",
-      "url": "https://www.theverge.com/entertainment/994596/musk-documentary-review-tiff-2026",
-      "publishedAt": "2026-09-14T13:50:00.000Z",
-      "summary": "It makes sense that Musk is a long film. The latest from Alex Gibney, who has previously directed documentaries about Theranos and Steve Jobs, is an impressively thorough retelling of the story of Elon Musk, from his early days as a dot-com millionaire to \"taking a wood chipper\" to vital US government departments. In o"
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "India needs to collaborate with other governments on cyber threats: C-DEP President - Times of Oman",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQVGVzalBmMkl4azVEWnloN1dDN1J5SXFqcGY5R2gtQTg1NUQ4U0xVdXhKc2x2VU5MdXU5OHl5Ty1HdVhZd0plcDU5V3V0YzZ3REVHdXRyR2JIeXRHVFUtUmpQRV9PSFZWM2hkR0dTbUlRazF4RUhFMkwtUVdzUm1MRkdPc29QUWEtY21JN285dUtBUk45SHJVZF9vc0hEODZqSFBhRjdHNkJhbFozZTZEaWpIZkZiSjFIWGxvenhn?oc=5",
+      "publishedAt": "2026-09-14T13:37:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivgFBVV95cUxQVGVzalBmMkl4azVEWnloN1dDN1J5SXFqcGY5R2gtQTg1NUQ4U0xVdXhKc2x2VU5MdXU5OHl5Ty1HdVhZd0plcDU5V3V0YzZ3REVHdXRyR2JIeXRHVFUtUmpQRV9PSFZWM2hkR0dTbUlRazF4RUhFMkwtUVdzUm1MRkdPc29QUWEtY21JN285dUtBUk45SHJVZF9vc0hEODZqSFBhRjdHNkJhbFozZTZEaWpIZkZiSjFIWGxvenhn?oc=5\" target="
     },
     {
       "source": "SCMP — China",
@@ -553,6 +849,14 @@
       "url": "https://www.scmp.com/tech/tech-trends/article/3367486/chinese-researchers-chart-five-stage-path-toward-last-ai-built-humans?utm_source=rss_feed",
       "publishedAt": "2026-09-14T13:30:06.000Z",
       "summary": "Researchers from China’s leading universities and tech giants are setting their sights on a crucial new front in the AI race with the US: developing systems capable of building better versions of themselves without human intervention. In a joint paper published on Thursday, researchers from ByteDance, Tsinghua Universi"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "AI's biggest rivals agree: slow down - The Neuron",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5CLUtEVy05Q040ZUV6N09FazVhck9pR3R2dUFIY2stVy1hZU56YVVaUzhrenhZWVZkRnB1emR2Q0YycEFXcGpyekFwMHctcWNfTWdCNENRS3JBUFpQNzNuMnl1WHg0eGpScy1DOXZsb1Y5R2RXYUJz?oc=5",
+      "publishedAt": "2026-09-14T13:29:43.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMid0FVX3lxTE5CLUtEVy05Q040ZUV6N09FazVhck9pR3R2dUFIY2stVy1hZU56YVVaUzhrenhZWVZkRnB1emR2Q0YycEFXcGpyekFwMHctcWNfTWdCNENRS3JBUFpQNzNuMnl1WHg0eGpScy1DOXZsb1Y5R2RXYUJz?oc=5\" target=\"_blank\">AI's biggest rivals agree: slow down</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Neuron</f"
     },
     {
       "source": "SCMP — China",
@@ -589,18 +893,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "A Senate bill would let Washington block AI models, Reuters reports - thenextweb.com",
+      "title": "A Senate bill would let Washington block AI models, Reuters reports - The Next Web",
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZEJQYlY0ZE00M29Yb1ZHYUhEQW5MdG1VTHBkX0xpcVBub0R3eUF1VTVqdVFIMk8zUkswNjlxZ1E2OXRLTUhpMmYyVXh6MjF1UHZ2ZGRMVlNGRVdFMW1zd2dzalJ0Yk1FdEhNYkw1T2ZEUGtsMGR3cUFqc1I1UjJRREpLTDgzR1Fwa2hlTkNkSTM3bFc5QkszMA?oc=5",
       "publishedAt": "2026-09-14T13:08:09.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxNZEJQYlY0ZE00M29Yb1ZHYUhEQW5MdG1VTHBkX0xpcVBub0R3eUF1VTVqdVFIMk8zUkswNjlxZ1E2OXRLTUhpMmYyVXh6MjF1UHZ2ZGRMVlNGRVdFMW1zd2dzalJ0Yk1FdEhNYkw1T2ZEUGtsMGR3cUFqc1I1UjJRREpLTDgzR1Fwa2hlTkNkSTM3bFc5QkszMA?oc=5\" target=\"_blank\">A Senate bill would let Washington block "
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "India needs to collaborate with other governments on cyber threats: C-DEP President - ANI News",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQSzVNZkVLd2lNbFpCYy1JaExsMl94eDZndVNLd1MzM3luV3RnZHNzTU13M2U2SDN5bWEwVGpUZEo0Ry1OTEY1eVE4QVRfZjZCOHdralgySlhxZGppQ0FEb1FGNmlLUXpsVkQ5S2JsQ3AzVVpHSlhyYi1ya0lCYVNoN2xaaEU0Y01NMFZBdERTY2NtWGlqTTl2SVRPV2trYlhuMVdTR29JUzVOcm1PMEF4U0RSMDVnOGIwYmVLNG5SNE1QZFBpWW40Z3Y4TDBndw?oc=5",
-      "publishedAt": "2026-09-14T13:05:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMizgFBVV95cUxQSzVNZkVLd2lNbFpCYy1JaExsMl94eDZndVNLd1MzM3luV3RnZHNzTU13M2U2SDN5bWEwVGpUZEo0Ry1OTEY1eVE4QVRfZjZCOHdralgySlhxZGppQ0FEb1FGNmlLUXpsVkQ5S2JsQ3AzVVpHSlhyYi1ya0lCYVNoN2xaaEU0Y01NMFZBdERTY2NtWGlqTTl2SVRPV2trYlhuMVdTR29JUzVOcm1PMEF4U0RSMDVnOGIwYmVLNG5SNE1QZFBpWW40Z3"
     },
     {
       "source": "SCMP — China",
@@ -621,7 +917,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "HighByte Achieves AWS AI Competency - Business Wire",
+      "title": "HighByte Achieves AWS AI Competency - businesswire.com",
       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNUlpzWmJwTEh5TTJCTjhnNUZxc1FGRmxYUHJwVHVNYzdTc2JuUlRLQUFVdU1EMFpqV2FzWll1QzA2clRlTnFDb0w5UTRIRUpXa1JSZ1JmS3VoZ2M1RWMzTVpYX0x0U3E3U2swMWtUZEFlZHVYMDlmckZaVHdhN2prWkdQNzZxRXFGaWc4N0ZxTUZNQTUwazQ0?oc=5",
       "publishedAt": "2026-09-14T13:00:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxNUlpzWmJwTEh5TTJCTjhnNUZxc1FGRmxYUHJwVHVNYzdTc2JuUlRLQUFVdU1EMFpqV2FzWll1QzA2clRlTnFDb0w5UTRIRUpXa1JSZ1JmS3VoZ2M1RWMzTVpYX0x0U3E3U2swMWtUZEFlZHVYMDlmckZaVHdhN2prWkdQNzZxRXFGaWc4N0ZxTUZNQTUwazQ0?oc=5\" target=\"_blank\">HighByte Achieves AWS AI Competency</a>&nbs"
@@ -629,18 +925,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Flam Raises $40 Million Series B to Scale AI Interactive Content - Business Wire",
+      "title": "Flam Raises $40 Million Series B to Scale AI Interactive Content - businesswire.com",
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPUmZPLTE4dXF4dTFwbXFMMldiS1lheHNVblg5S1ZTb191TVJZOURQQzRTdGZZZjFETHJ0c0JyUHEwMDVnZGtPMjdwaDdyenFqSDZTZTFjM2xxV21vY3NmQ1NCSm5pZklRZmtkOW1SRGNLbGVsdTZFSG1odTgydE13bldPTjVTOWVmT3JaYVltNkF5dExtTnJpaUVpU05KQzN1OUZkQ2lta1BpeS12a2h2NzZINGVoZjQzQ1Bpc3U3dUw?oc=5",
       "publishedAt": "2026-09-14T13:00:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxPUmZPLTE4dXF4dTFwbXFMMldiS1lheHNVblg5S1ZTb191TVJZOURQQzRTdGZZZjFETHJ0c0JyUHEwMDVnZGtPMjdwaDdyenFqSDZTZTFjM2xxV21vY3NmQ1NCSm5pZklRZmtkOW1SRGNLbGVsdTZFSG1odTgydE13bldPTjVTOWVmT3JaYVltNkF5dExtTnJpaUVpU05KQzN1OUZkQ2lta1BpeS12a2h2NzZINGVoZjQzQ1Bpc3U3dUw?oc=5\" targ"
-    },
-    {
-      "source": "The Verge",
-      "discoveryOnly": false,
-      "title": "Microsoft says ‘people matter more than AI’ following safety concerns",
-      "url": "https://www.theverge.com/news/994566/microsoft-humanist-ai-code-of-conduct",
-      "publishedAt": "2026-09-14T13:00:00.000Z",
-      "summary": "Microsoft is publishing a 37-page \"humanist AI code of conduct\" today, amid growing safety concerns over AI model progress. Anthropic CEO Dario Amodei called for a coordinated slow down of AI development over the weekend, after researchers warned recently that AI model progress could outpace our ability to safely deplo"
     },
     {
       "source": "SCMP — China",
@@ -717,6 +1005,14 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
+      "title": "Gemini 4 Could Autonomously Refine Code via Leaked RSI - Geeky Gadgets",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFAzQmZzRElUR0JrX3hDeVR2emNjQXZiMGp3ajVOTEU1aks5TE1CSFRiSjBRYTc1T0h1N0Q5clg5VHYwYnA3MDhJd0Jlckl2aUhwRVFJMGtMWG9DUnc0QkJRa3c0RExJQl9FWkNjWEdR?oc=5",
+      "publishedAt": "2026-09-14T12:02:04.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMibkFVX3lxTFAzQmZzRElUR0JrX3hDeVR2emNjQXZiMGp3ajVOTEU1aks5TE1CSFRiSjBRYTc1T0h1N0Q5clg5VHYwYnA3MDhJd0Jlckl2aUhwRVFJMGtMWG9DUnc0QkJRa3c0RExJQl9FWkNjWEdR?oc=5\" target=\"_blank\">Gemini 4 Could Autonomously Refine Code via Leaked RSI</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Geeky G"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
       "title": "Beeline Kazakhstan starts Amazon Bedrock pilot - Telecompaper",
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNeEg2ajJkZ0xYRUN1YS1RMVBSZGVGR3BBVFJjay01SmdBRFdlSnB6SXRobnZVdVp2RWdTNkRzMHM5TFA4dHI3UnBZZzFFMHRjc3BBNVFZdnVOaHdrTm5yWC1GSUpLdVhnVk13dzNySnZyRVlFcHhNaTE5cmNfQUJLVUs4OGlkR3BGbHY2dHI5T2pYOEE?oc=5",
       "publishedAt": "2026-09-14T12:02:00.000Z",
@@ -763,6 +1059,14 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxPamVyM1JnMlp4d29QbW9neXVTUU1FeDJJQUVjQlM0N2JlYmc0NFVMVVhiRnpLSmpvZkxVN3p0OHNsNkhlWU9CNjNoczhjcjNqUHk2QldnMXl3NWt1T3J1eDdRVTV1S3k1dS1HSFZtaFM2T19GTGJJVEhpSDB0ZjZTdDVqQ1NZX1VFYU05ZXRqdzRrb25mRzkxVFBrNTNXZFZad1FTcVRUYTk4QjBYWTQ0emV2LXg?oc=5\" target=\"_blank\">MPs "
     },
     {
+      "source": "OpenAI",
+      "discoveryOnly": false,
+      "title": "How Fyxer built an AI executive assistant people trust",
+      "url": "https://openai.com/index/fyxer",
+      "publishedAt": "2026-09-14T12:00:00.000Z",
+      "summary": "Fyxer uses OpenAI models, fine-tuning, memory, and real user feedback to organize inboxes and draft emails in each user’s voice."
+    },
+    {
       "source": "SCMP — China",
       "discoveryOnly": false,
       "title": "US blocks Iran’s nuclear chief from Vienna meeting",
@@ -781,7 +1085,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "PSG Equity raises €4.4B for new European tech fund - cryptobriefing.com",
+      "title": "PSG Equity raises €4.4B for new European tech fund - Crypto Briefing",
       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE0wN0RkS3lyNUZXdGdwbjV1OUNTc29EaDhpd1NlbWRDQTRyQ3JETVBVOWJNU3RuRGlYYTk3dlBzOTBiT0p1RGttWElTUzdZMlFyYzhtczBDdzJfWTc4dkJrdTJkWWZMSjZ1OTM2MnBFcHpQekd4UldUaUN3?oc=5",
       "publishedAt": "2026-09-14T11:50:53.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiekFVX3lxTE0wN0RkS3lyNUZXdGdwbjV1OUNTc29EaDhpd1NlbWRDQTRyQ3JETVBVOWJNU3RuRGlYYTk3dlBzOTBiT0p1RGttWElTUzdZMlFyYzhtczBDdzJfWTc4dkJrdTJkWWZMSjZ1OTM2MnBFcHpQekd4UldUaUN3?oc=5\" target=\"_blank\">PSG Equity raises €4.4B for new European tech fund</a>&nbsp;&nbsp;<font color=\"#6f6"
@@ -789,23 +1093,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Germany Rejects AI Development Pause, Pushes for Global Rules - Whalesbook",
-      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPX3BuOE5iUEYxaEtDcG85Y1Znd1B5ZjlYN2FlbjlKZ1p3MEdlLXJIUGpNZC04dTd3akRoSXVHbGQxekM2SHJtQ0R2SVA0YTEyeDkxdklfTnFYSk42MktfUEVKOFpSdXQ2SEh0Q1gyVnVZTDZoX3JNcmhWRmVkekh6ZFBpTUR1RVQwY1I4X25hNGtyWTZZSTU2OHA0TjhZUWhGSHoxdTZoUmRsUUxla3NQbTlVMFllRm9YUE4tUm5HRGw1Y3FmYTN6cmlpN0hmZVNEOEE?oc=5",
-      "publishedAt": "2026-09-14T11:47:22.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi0gFBVV95cUxPX3BuOE5iUEYxaEtDcG85Y1Znd1B5ZjlYN2FlbjlKZ1p3MEdlLXJIUGpNZC04dTd3akRoSXVHbGQxekM2SHJtQ0R2SVA0YTEyeDkxdklfTnFYSk42MktfUEVKOFpSdXQ2SEh0Q1gyVnVZTDZoX3JNcmhWRmVkekh6ZFBpTUR1RVQwY1I4X25hNGtyWTZZSTU2OHA0TjhZUWhGSHoxdTZoUmRsUUxla3NQbTlVMFllRm9YUE4tUm5HRGw1Y3FmYTN6cm"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Gemini 4 Could Autonomously Refine Code via Leaked RSI - Geeky Gadgets",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFAzQmZzRElUR0JrX3hDeVR2emNjQXZiMGp3ajVOTEU1aks5TE1CSFRiSjBRYTc1T0h1N0Q5clg5VHYwYnA3MDhJd0Jlckl2aUhwRVFJMGtMWG9DUnc0QkJRa3c0RExJQl9FWkNjWEdR?oc=5",
-      "publishedAt": "2026-09-14T11:47:15.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMibkFVX3lxTFAzQmZzRElUR0JrX3hDeVR2emNjQXZiMGp3ajVOTEU1aks5TE1CSFRiSjBRYTc1T0h1N0Q5clg5VHYwYnA3MDhJd0Jlckl2aUhwRVFJMGtMWG9DUnc0QkJRa3c0RExJQl9FWkNjWEdR?oc=5\" target=\"_blank\">Gemini 4 Could Autonomously Refine Code via Leaked RSI</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Geeky G"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "UK government bets on evidence over mandates for AI risk - cryptobriefing.com",
+      "title": "UK government bets on evidence over mandates for AI risk - Crypto Briefing",
       "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE50SUJ1U3p0S0RMejh0ektTOUlsRk9QSFNCa3VwbXdUbUtBV1B5alFzbGVpeEYwdEdRalFyQVBndEYxVk5pd0h2UWlTamhIRXR4M1p1cTg3RzRTOWJwOUZrMno0SS1vVEZGWG9samx5YWt5V3d5aGIySTFUaUh3dw?oc=5",
       "publishedAt": "2026-09-14T11:42:44.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMifkFVX3lxTE50SUJ1U3p0S0RMejh0ektTOUlsRk9QSFNCa3VwbXdUbUtBV1B5alFzbGVpeEYwdEdRalFyQVBndEYxVk5pd0h2UWlTamhIRXR4M1p1cTg3RzRTOWJwOUZrMno0SS1vVEZGWG9samx5YWt5V3d5aGIySTFUaUh3dw?oc=5\" target=\"_blank\">UK government bets on evidence over mandates for AI risk</a>&nbsp;&nbsp;<font"
@@ -813,7 +1101,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Buildots raises $166M in cumulative funding to bring AI to construction sites - cryptobriefing.com",
+      "title": "Buildots raises $166M in cumulative funding to bring AI to construction sites - Crypto Briefing",
       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1wY1NzQWJBd21BU1I0dUZuV0dlUGZjT0psMExfVnAyVE5HMXVzWjhXUjRCQXNEamo2OUx0OVU2aEFIMm9BanM4V0o4YktjbmJGODhqZllqMnpUZ19BbTYtb1RfbE5lNGxERUxRWnV3MUxQcy1GZDBBcGZR?oc=5",
       "publishedAt": "2026-09-14T11:42:25.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiekFVX3lxTE1wY1NzQWJBd21BU1I0dUZuV0dlUGZjT0psMExfVnAyVE5HMXVzWjhXUjRCQXNEamo2OUx0OVU2aEFIMm9BanM4V0o4YktjbmJGODhqZllqMnpUZ19BbTYtb1RfbE5lNGxERUxRWnV3MUxQcy1GZDBBcGZR?oc=5\" target=\"_blank\">Buildots raises $166M in cumulative funding to bring AI to construction sites</a>&n"
@@ -837,7 +1125,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "'Adolescence' writer alleges some colleagues are 'using AI to cheat' - newsbytesapp.com",
+      "title": "'Adolescence' writer alleges some colleagues are 'using AI to cheat' - NewsBytes",
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNTlRJSUpfU3FqUS1aOHRBZlpneHZ3bmlKUFdyNnFQVHFOYmRoM0pEb3R5NV9VUVNsc05JN0ljYmlqRldNa2Z0VDNzYXhKMm9ONE5oX0U4MDBxN2xZS3BqUnRoY2dZdE5VaXQ5bGl0eFJxZnBiMjBxZmhYYkU0cDlXZEZNOE1DMVN5cFpiWmJxN1BaT3ZJc1hiX19nYXF5d2I4TkE?oc=5",
       "publishedAt": "2026-09-14T11:25:56.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiogFBVV95cUxNTlRJSUpfU3FqUS1aOHRBZlpneHZ3bmlKUFdyNnFQVHFOYmRoM0pEb3R5NV9VUVNsc05JN0ljYmlqRldNa2Z0VDNzYXhKMm9ONE5oX0U4MDBxN2xZS3BqUnRoY2dZdE5VaXQ5bGl0eFJxZnBiMjBxZmhYYkU0cDlXZEZNOE1DMVN5cFpiWmJxN1BaT3ZJc1hiX19nYXF5d2I4TkE?oc=5\" target=\"_blank\">'Adolescence' writer alleges"
@@ -845,7 +1133,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Synapse Analytics Secures US $13m led by Partech to Drive AI-Powered Decisioning for Financial Institutions - followict",
+      "title": "Synapse Analytics Secures US $13m led by Partech to Drive AI-Powered Decisioning for Financial Institutions - followict.news",
       "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOYlhKQlUyTWFCYmdWYmZaeERUeVdoZkNTV3NZTEFCbDNDMXR3RjJtdUc4cUpuYW9nMEZPbGUwb3NlNWg2d3VGUUVJZHg1LUhTRHVhUjNlMHJrLXZTb0QzcnhLTEpNdDRKckRQQk9NSHk4dWEyZ1dIUkRpdUlaOEh1YXZrbWV2ejBSTTQzVE1FSUJ4UTlGa0lwMjZkczI3UU00eUxWeVktQ2dMNnlIMnY4Tm01ZUpoZGstLUU5anI2c3JTZ0s3bk9YYm9UZHdrQQ?oc=5",
       "publishedAt": "2026-09-14T11:18:18.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMizgFBVV95cUxOYlhKQlUyTWFCYmdWYmZaeERUeVdoZkNTV3NZTEFCbDNDMXR3RjJtdUc4cUpuYW9nMEZPbGUwb3NlNWg2d3VGUUVJZHg1LUhTRHVhUjNlMHJrLXZTb0QzcnhLTEpNdDRKckRQQk9NSHk4dWEyZ1dIUkRpdUlaOEh1YXZrbWV2ejBSTTQzVE1FSUJ4UTlGa0lwMjZkczI3UU00eUxWeVktQ2dMNnlIMnY4Tm01ZUpoZGstLUU5anI2c3JTZ0s3bk9YYm"
@@ -885,18 +1173,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Young, Mid-Career Members in Japan’s LDP Make Mark in New Policy Areas, Including AI - japannews.yomiuri.co.jp",
+      "title": "Young, Mid-Career Members in Japan’s LDP Make Mark in New Policy Areas, Including AI - The Japan News",
       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPYWx0cG1vdXBGZWVabUlIY2NheC14Q25HTHlJLTVGTkhER2ZwZTFJLW5EMERhZEY2QVRoaDZ4WWpyeHlxN3NoUlRHYlVVanVZb2JQWElvaDJZcWpxY0pwMzdVY3VLOTNiODVCUzJCcHlsSFRBbVdBQTRObHBNeEVXS2NDYw?oc=5",
       "publishedAt": "2026-09-14T11:00:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMigwFBVV95cUxPYWx0cG1vdXBGZWVabUlIY2NheC14Q25HTHlJLTVGTkhER2ZwZTFJLW5EMERhZEY2QVRoaDZ4WWpyeHlxN3NoUlRHYlVVanVZb2JQWElvaDJZcWpxY0pwMzdVY3VLOTNiODVCUzJCcHlsSFRBbVdBQTRObHBNeEVXS2NDYw?oc=5\" target=\"_blank\">Young, Mid-Career Members in Japan’s LDP Make Mark in New Policy Area"
-    },
-    {
-      "source": "The Verge",
-      "discoveryOnly": false,
-      "title": "What happens after a town de-Flocks",
-      "url": "https://www.theverge.com/policy/994414/cities-ditching-flock-cameras-controversy",
-      "publishedAt": "2026-09-14T11:00:00.000Z",
-      "summary": "From Florida to Washington state, local governments across the country are canceling their contracts with Flock, the company behind the controversial AI-enabled license plate readers, in response to public outcry. But ending the contracts doesn't necessarily mean the cameras will come down immediately - or that the inf"
     },
     {
       "source": "WIRED",
@@ -933,7 +1213,15 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Government sets out vision for AI-enabled clean energy system as landmark review is published - Wired-Gov",
+      "title": "Mecka AI Nears $500M Valuation in Push for Human Motion Data: TechCrunch - citybiz",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPdjd5MDJtenJXYlVBbVVTSFlJdTFLMDdFTGhXWXBvWlVDdlIwV1A3dndQUkhqWjBDdnVpNmhxT2xwZXNxVEtwRlBEdVdYeFVlSWxKMXlHWFV6Q2hhYWNaaGpkeXljOVRMZjlzVlRrYUJjX1VuUWpZTGRzYlpHMEtpUkFPOE5nSnpkU3VhR3RfSHFoWWVPSmE5c25jcVZPSUkwdWRCM0JjQVVBTmN1dnc?oc=5",
+      "publishedAt": "2026-09-14T10:55:42.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxPdjd5MDJtenJXYlVBbVVTSFlJdTFLMDdFTGhXWXBvWlVDdlIwV1A3dndQUkhqWjBDdnVpNmhxT2xwZXNxVEtwRlBEdVdYeFVlSWxKMXlHWFV6Q2hhYWNaaGpkeXljOVRMZjlzVlRrYUJjX1VuUWpZTGRzYlpHMEtpUkFPOE5nSnpkU3VhR3RfSHFoWWVPSmE5c25jcVZPSUkwdWRCM0JjQVVBTmN1dnc?oc=5\" target=\"_blank\">Mecka AI Nea"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Government sets out vision for AI-enabled clean energy system as landmark review is published - wired-gov.net",
       "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOOVpDWEdZUFMtSkNXa3lwNFBfMkt2WVhrb000ZEF5UDJDQllGS05TUGYzSnVzUi1PYi1tQ0xycS1yZFQ5QTM5M05xSF9iZVQ5MktqTzRLaDlraFVVcG9KOWU4RGNaX3Y1WGhNNnRkdDBaV1NzUFdMS0xkU3lXZEZ6OHN5ZUx5X1VsQ25xaDFpLU94ZzAtVEZBdlBjSXhvRnctSHNGRjdVTGNINHBsWmZfa3ZRRTBwT3VJVHQxWkw1ekF5ZE5KT0UtVml2NS1PcG9mZG5NZy1tQnVOeU5OQm1VS2d2QTNQTDV2MzlhZC1hYTU?oc=5",
       "publishedAt": "2026-09-14T10:50:12.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi8AFBVV95cUxOOVpDWEdZUFMtSkNXa3lwNFBfMkt2WVhrb000ZEF5UDJDQllGS05TUGYzSnVzUi1PYi1tQ0xycS1yZFQ5QTM5M05xSF9iZVQ5MktqTzRLaDlraFVVcG9KOWU4RGNaX3Y1WGhNNnRkdDBaV1NzUFdMS0xkU3lXZEZ6OHN5ZUx5X1VsQ25xaDFpLU94ZzAtVEZBdlBjSXhvRnctSHNGRjdVTGNINHBsWmZfa3ZRRTBwT3VJVHQxWkw1ekF5ZE5KT0UtVm"
@@ -949,7 +1237,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Amazon's AI leaks Great Indian Festival dates and discounts - newsbytesapp.com",
+      "title": "Amazon's AI leaks Great Indian Festival dates and discounts - NewsBytes",
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQc3FYWHo1ZE5veFVTNVNXd3R1QkdTQWdEaFZZQksxU0QwbkJGb2Zvci12RjZha09KZ0NidlFiQVdKMW1vUldCcmxsMmoyS1Y3U3VhelVCSkFzOXFFeDdON21MS0dFTm03WUx3cEZGajhXSXdKZmtURktaNlZ4R0laSWN2LV9kZ2hfYTFEaDZPQng0Z0hFcy1ib0hnbE1OYWpEbTdFU2lMOU5OMW8?oc=5",
       "publishedAt": "2026-09-14T10:35:53.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqwFBVV95cUxQc3FYWHo1ZE5veFVTNVNXd3R1QkdTQWdEaFZZQksxU0QwbkJGb2Zvci12RjZha09KZ0NidlFiQVdKMW1vUldCcmxsMmoyS1Y3U3VhelVCSkFzOXFFeDdON21MS0dFTm03WUx3cEZGajhXSXdKZmtURktaNlZ4R0laSWN2LV9kZ2hfYTFEaDZPQng0Z0hFcy1ib0hnbE1OYWpEbTdFU2lMOU5OMW8?oc=5\" target=\"_blank\">Amazon's AI leak"
@@ -993,14 +1281,6 @@
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNMktoRnRxNkVxUEhEWkNEVW9ESjlLRFRfM2xjMDhCeWFJM1hRNnpja19LSFZBX0NvN1F4OElKU081dzJtRmFGcUpsbDQtRFIwUlFkd0x2Zm1rdnNjbVlITFBOdURGSjNPWmZVTDVSOHd6Q0IyVWdZY00wMkVWU3dhSDZQNy15ajFCS01xYTg3QkdicjJMb3A5bnpaWHRnNVZaQ1RKMXF3Rm1UZVdYbjBQLdIBsAFBVV95cUxNMktoRnRxNkVxUEhEWkNEVW9ESjlLRFRfM2xjMDhCeWFJM1hRNnpja19LSFZBX0NvN1F4OElKU081dzJtRmFGcUpsbDQtRFIwUlFkd0x2Zm1rdnNjbVlITFBOdURGSjNPWmZVTDVSOHd6Q0IyVWdZY00wMkVWU3dhSDZQNy15ajFCS01xYTg3QkdicjJMb3A5bnpaWHRnNVZaQ1RKMXF3Rm1UZVdYbjBQLQ?oc=5",
       "publishedAt": "2026-09-14T10:23:37.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxNMktoRnRxNkVxUEhEWkNEVW9ESjlLRFRfM2xjMDhCeWFJM1hRNnpja19LSFZBX0NvN1F4OElKU081dzJtRmFGcUpsbDQtRFIwUlFkd0x2Zm1rdnNjbVlITFBOdURGSjNPWmZVTDVSOHd6Q0IyVWdZY00wMkVWU3dhSDZQNy15ajFCS01xYTg3QkdicjJMb3A5bnpaWHRnNVZaQ1RKMXF3Rm1UZVdYbjBQLdIBsAFBVV95cUxNMktoRnRxNkVxUEhEWk"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Mecka AI Nears $500M Valuation in Push for Human Motion Data: TechCrunch - citybiz",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPdjd5MDJtenJXYlVBbVVTSFlJdTFLMDdFTGhXWXBvWlVDdlIwV1A3dndQUkhqWjBDdnVpNmhxT2xwZXNxVEtwRlBEdVdYeFVlSWxKMXlHWFV6Q2hhYWNaaGpkeXljOVRMZjlzVlRrYUJjX1VuUWpZTGRzYlpHMEtpUkFPOE5nSnpkU3VhR3RfSHFoWWVPSmE5c25jcVZPSUkwdWRCM0JjQVVBTmN1dnc?oc=5",
-      "publishedAt": "2026-09-14T10:23:30.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxPdjd5MDJtenJXYlVBbVVTSFlJdTFLMDdFTGhXWXBvWlVDdlIwV1A3dndQUkhqWjBDdnVpNmhxT2xwZXNxVEtwRlBEdVdYeFVlSWxKMXlHWFV6Q2hhYWNaaGpkeXljOVRMZjlzVlRrYUJjX1VuUWpZTGRzYlpHMEtpUkFPOE5nSnpkU3VhR3RfSHFoWWVPSmE5c25jcVZPSUkwdWRCM0JjQVVBTmN1dnc?oc=5\" target=\"_blank\">Mecka AI Nea"
     },
     {
       "source": "Google News",
@@ -1117,14 +1397,6 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Cloudera partners frontier AI lab Mistral to bolster AI readiness - ITWeb",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPd3RUV05NQk0tcy1GcXdCc3FBb3FDSzRzckwwOTdZTWxfbjN3bmd6SWhubW5BcWZSOHlJV1JoRHNIbmp0S0IzUFVkWXlXTC1oOU9veTNMMXlUU3hicGtPX3dsQnM2OE1JWjhUeGF1eHVGV1Y5aU4zTVZUQUtMdFh1a01Ba1BOdWhHY3dBSDFHV0FqaF94d3VZRzREeEFUOGZSSkZ3UU1KMGNSQ29LSWJXbGMydTE?oc=5",
-      "publishedAt": "2026-09-14T09:43:39.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxPd3RUV05NQk0tcy1GcXdCc3FBb3FDSzRzckwwOTdZTWxfbjN3bmd6SWhubW5BcWZSOHlJV1JoRHNIbmp0S0IzUFVkWXlXTC1oOU9veTNMMXlUU3hicGtPX3dsQnM2OE1JWjhUeGF1eHVGV1Y5aU4zTVZUQUtMdFh1a01Ba1BOdWhHY3dBSDFHV0FqaF94d3VZRzREeEFUOGZSSkZ3UU1KMGNSQ29LSWJXbGMydTE?oc=5\" target=\"_blank\">Clou"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
       "title": "Arcustin Games has raised half a million dollars for the development of mobile AI games - WN Hub",
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1nbkJsZXB5cHkzOHAzY0M3UjUtNHQ1dW95SWpqcU5pYTdoSWwwZjZGZXJsV1kya2loLWljOUNkc2FaUWNzNkZpdW1sLVRTYjcxaURkaVJfcF9qQQ?oc=5",
       "publishedAt": "2026-09-14T09:41:38.000Z",
@@ -1165,7 +1437,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "China Mobile Cloud Debuts GPU–Neuromorphic Heterogeneous LLM Inference Stack - pandaily.com",
+      "title": "China Mobile Cloud Debuts GPU–Neuromorphic Heterogeneous LLM Inference Stack - Pandaily",
       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOUmZMejQ3Q0g0by1kTTVFSkhNWHQ4dUpQOFdqU1pic1ZwU2xtOENJSlVlUVZYZFZNUV84bGE5NTIxY2RJZXlYSkVqQjdjUGlKYlNpS1Y1S0Z3c0JYVExKX0Z4aHVwVkpqMVRqa1JkRFdsVnVMbnUtM2tiY2hwUDd1WExOSQ?oc=5",
       "publishedAt": "2026-09-14T09:12:57.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMigwFBVV95cUxOUmZMejQ3Q0g0by1kTTVFSkhNWHQ4dUpQOFdqU1pic1ZwU2xtOENJSlVlUVZYZFZNUV84bGE5NTIxY2RJZXlYSkVqQjdjUGlKYlNpS1Y1S0Z3c0JYVExKX0Z4aHVwVkpqMVRqa1JkRFdsVnVMbnUtM2tiY2hwUDd1WExOSQ?oc=5\" target=\"_blank\">China Mobile Cloud Debuts GPU–Neuromorphic Heterogeneous LLM Inferenc"
@@ -1277,7 +1549,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Frontier labs pledge shared evaluators · M&A 🤖 - buttondown.com",
+      "title": "Frontier labs pledge shared evaluators · M&A 🤖 - Buttondown",
       "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPM1NUblQ0ZXlJXzJHNDRKbTF6ZVJHMVpQTk9mWDlUcXkzYkh4ajJiVzFhTGtKNmY0ZzBpbXhRTEFjdVZlckExU2VzUGx0WWFsWFdfeGw1YWV3bkYzQTA4X2RXeHd2NjZ0bldUaThrd01XXzZUZXhwZmpDd3RhS084WDhn?oc=5",
       "publishedAt": "2026-09-14T08:29:51.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiggFBVV95cUxPM1NUblQ0ZXlJXzJHNDRKbTF6ZVJHMVpQTk9mWDlUcXkzYkh4ajJiVzFhTGtKNmY0ZzBpbXhRTEFjdVZlckExU2VzUGx0WWFsWFdfeGw1YWV3bkYzQTA4X2RXeHd2NjZ0bldUaThrd01XXzZUZXhwZmpDd3RhS084WDhn?oc=5\" target=\"_blank\">Frontier labs pledge shared evaluators · M&A 🤖</a>&nbsp;&nbsp;<font co"
@@ -1285,10 +1557,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "In the era of artificial intelligence (AI), improving basic mathematics and source algorithms can ov.. - 매일경제",
+      "title": "In the era of artificial intelligence (AI), improving basic mathematics and source algorithms can ov.. - mk.co.kr",
       "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1rQkxPa2N6V2pFbTdJODdSQzFKRHZnWEhPSmpocFFFZ1BMZXRUbUIxczZ1d3ZLM3JNa2pFSWluTnIyWl9Sek0yRW01cw?oc=5",
       "publishedAt": "2026-09-14T08:28:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiS0FVX3lxTE1rQkxPa2N6V2pFbTdJODdSQzFKRHZnWEhPSmpocFFFZ1BMZXRUbUIxczZ1d3ZLM3JNa2pFSWluTnIyWl9Sek0yRW01cw?oc=5\" target=\"_blank\">In the era of artificial intelligence (AI), improving basic mathematics and source algorithms can ov..</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">매일경제<"
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiS0FVX3lxTE1rQkxPa2N6V2pFbTdJODdSQzFKRHZnWEhPSmpocFFFZ1BMZXRUbUIxczZ1d3ZLM3JNa2pFSWluTnIyWl9Sek0yRW01cw?oc=5\" target=\"_blank\">In the era of artificial intelligence (AI), improving basic mathematics and source algorithms can ov..</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">mk.co"
     },
     {
       "source": "Google News",
@@ -1333,15 +1605,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Dutch company Fortaegis raises $50 million for chip security - Techzine Global",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQUDlLa2ZOOFpST0Y2NG9McXZodkMtN2ZGR0JBTnVjNWFtRllSeFBjbGlXNDloVnZWX0VYTDFyTlZ2QlpRcTRyam4zbWZBOXFwd3pwS1dLN0dVSktPcXhOT3FmajNLMXVvbUNxd1BBZ1dFQ2FFajA5SVpKTmVwd2pnVVdRYzV3LWE3V1FWemEtRDZZRTFBZHRRVG96cWdEcF9fRGJIQ3RRdmRjOHFTZHFpNQ?oc=5",
-      "publishedAt": "2026-09-14T08:06:44.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxQUDlLa2ZOOFpST0Y2NG9McXZodkMtN2ZGR0JBTnVjNWFtRllSeFBjbGlXNDloVnZWX0VYTDFyTlZ2QlpRcTRyam4zbWZBOXFwd3pwS1dLN0dVSktPcXhOT3FmajNLMXVvbUNxd1BBZ1dFQ2FFajA5SVpKTmVwd2pnVVdRYzV3LWE3V1FWemEtRDZZRTFBZHRRVG96cWdEcF9fRGJIQ3RRdmRjOHFTZHFpNQ?oc=5\" target=\"_blank\">Dutch com"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "OpenAI exec says governments too slow to regulate dangerous AI - AFR",
+      "title": "OpenAI exec says governments too slow to regulate dangerous AI - afr.com",
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQbXJoR3ptMmpyT0VHQVNIWUI5VkQ3d3NmQ1FmY0FaaW1YTGZwQlQtV1lsQ2hyOUZTR0VJYzEteFZlbERZZ1dXeF90SllVbHgtektQWkVYUF94bHJ4SFhLQ1l5TlVOQW9OTFhSbldCcFJJWVZKclJ5LTZ5dU9XeFIzRk5LeDMtTVZBNFhTbUNKRUZFX0ZmNF9KRm4waVJSc21qaEo3SjhIdHdHLTRHWmZkWVUzdXpVUQ?oc=5",
       "publishedAt": "2026-09-14T08:06:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMitgFBVV95cUxQbXJoR3ptMmpyT0VHQVNIWUI5VkQ3d3NmQ1FmY0FaaW1YTGZwQlQtV1lsQ2hyOUZTR0VJYzEteFZlbERZZ1dXeF90SllVbHgtektQWkVYUF94bHJ4SFhLQ1l5TlVOQW9OTFhSbldCcFJJWVZKclJ5LTZ5dU9XeFIzRk5LeDMtTVZBNFhTbUNKRUZFX0ZmNF9KRm4waVJSc21qaEo3SjhIdHdHLTRHWmZkWVUzdXpVUQ?oc=5\" target=\"_blank\">O"
@@ -1361,14 +1625,6 @@
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQX0tRbkd3TnB2N2tvQm9fVTZxTkIxSFA5dTFPWTJpRlNQbmNMc052Mnh0RG95Qi1PTFJxOGJFRzZHWnVBeFZMdElQMkZKN1kyR0xHZlhZZFBjODZCRW9ZQnljMlZOSHRSQXhxSnFZUGxrNW5nd3U1QnFBbFo3X2NDYVBvWVkxTlJEdE1vckxmT0dwSGg5TFV4bTRXRE1hcExPOEUw?oc=5",
       "publishedAt": "2026-09-14T08:00:39.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiowFBVV95cUxQX0tRbkd3TnB2N2tvQm9fVTZxTkIxSFA5dTFPWTJpRlNQbmNMc052Mnh0RG95Qi1PTFJxOGJFRzZHWnVBeFZMdElQMkZKN1kyR0xHZlhZZFBjODZCRW9ZQnljMlZOSHRSQXhxSnFZUGxrNW5nd3U1QnFBbFo3X2NDYVBvWVkxTlJEdE1vckxmT0dwSGg5TFV4bTRXRE1hcExPOEUw?oc=5\" target=\"_blank\">Samsung partners with Mistr"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Fortaegis Raises $50 Million to Commercialize Chip-Based Security Technology - The Quantum Insider",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZUgzLVRJdWVNSDMyejcycnIyazFTajRJb08wcDdEQ1hxaG10b1g4MzB0czJ4c0xDd0xqVG5ub1lGaG1CaTR6RzVza0ZRZEQxdmhtU3poNnUyam9iaEIwZG11RFJVY2ViOE1KS3h1c0lxOHdYcEZZN2REdVdZU3FkUVY4aWNkam1obTJ6ajFGLUlBNGV1SHRxY3dXOTFhRzBEcDc1OUR6N0w4S21OZVhpZlFaWEU0eTBW?oc=5",
-      "publishedAt": "2026-09-14T08:00:16.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZUgzLVRJdWVNSDMyejcycnIyazFTajRJb08wcDdEQ1hxaG10b1g4MzB0czJ4c0xDd0xqVG5ub1lGaG1CaTR6RzVza0ZRZEQxdmhtU3poNnUyam9iaEIwZG11RFJVY2ViOE1KS3h1c0lxOHdYcEZZN2REdVdZU3FkUVY4aWNkam1obTJ6ajFGLUlBNGV1SHRxY3dXOTFhRzBEcDc1OUR6N0w4S21OZVhpZlFaWEU0eTBW?oc=5\" target=\"_blank\""
     },
     {
       "source": "SCMP — China",
@@ -1421,14 +1677,6 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Danica Pension Livsforsikringsaktieselskab Acquires New Shares in Amazon.com, Inc. $AMZN - MarketBeat",
-      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQeGphTW9kMUF0eGc1NjFhRlJYV0VsMFl5bE9LQ1NLZzR6Qmw0d2U5NmxvcFpGaU44UnRrZFgtN3BNTFpFblFTVVkxbzBGREJpWDRhY2tSb3dPZFhNdmVQTDliTFlvcl9HSU1aYWhaNUV4N0IzZndVcU1PN3BOQjNScjZ1a0NDZkVEdGlRVlVtQW5BWERGMHRvNXlvQU12eE01bGFNeDlPeWFWOXVCUUVjc28wdWFCWUpVZmdDMFQzOTB1eEdnRDlRRXVYbnkzNWVBLU44Tlo2UGJpNkt5emc?oc=5",
-      "publishedAt": "2026-09-14T07:42:54.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi3gFBVV95cUxQeGphTW9kMUF0eGc1NjFhRlJYV0VsMFl5bE9LQ1NLZzR6Qmw0d2U5NmxvcFpGaU44UnRrZFgtN3BNTFpFblFTVVkxbzBGREJpWDRhY2tSb3dPZFhNdmVQTDliTFlvcl9HSU1aYWhaNUV4N0IzZndVcU1PN3BOQjNScjZ1a0NDZkVEdGlRVlVtQW5BWERGMHRvNXlvQU12eE01bGFNeDlPeWFWOXVCUUVjc28wdWFCWUpVZmdDMFQzOTB1eEdnRDlRRX"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
       "title": "Global Strategic Investment Solutions LLC Makes New $1.36 Million Investment in Amazon.com, Inc. $AMZN - MarketBeat",
       "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPMndKbkptTDJZWjg0d1hoaG5HbXhYQnUtVTRMOUxfVlhSM3kyazE4NGgzS1J2OUZDQ0RaNTNrZFNWVkN0WWROdXhUOFNtcWdGZTJhR29LNHZnZktiRzRVT1NLYmNjRWlnVTRMaGRRMkxOak5XZDhyM0ZzRVRIVUVZMmEzNGZLdEpOWHJkMnZSOVZud0E2TUJXckRCSmRfWTdVZzRKa0MyZ09JMFpKakQtQ0RUWW5Ta3dkN0VEX25UbXBkbXJZUUNNNnVRcG5YSXV6eF8xMGc1eGZfczhRVlUzdVBqRFdMX3g3bDdxdmp3?oc=5",
       "publishedAt": "2026-09-14T07:42:54.000Z",
@@ -1469,14 +1717,6 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Foster & Motley Inc. Buys Shares of 4,915 Amazon.com, Inc. $AMZN - MarketBeat",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOMnZkVzJsbEpNbXgzbVdDUlM5YnlSZksxTHktSEdsVW1JbnNSTlNyVnBSTEZINmloNVlNN2F2U0g2RzVfU3czdlpZN1NEMGQ5VUxGeDFnamt2NE5zd2hnOUJNU0tGYVJQMGFBenFxaHpuUF9qTkprWVdtaVlHWkRZNnZtenRZOXdULVZGR0ZleXVkaDFaaHlwR2RHbVJwNVpzMVFiMVYxeVBoR0NyZjdfNzhvenVpRlYz?oc=5",
-      "publishedAt": "2026-09-14T07:34:48.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxOMnZkVzJsbEpNbXgzbVdDUlM5YnlSZksxTHktSEdsVW1JbnNSTlNyVnBSTEZINmloNVlNN2F2U0g2RzVfU3czdlpZN1NEMGQ5VUxGeDFnamt2NE5zd2hnOUJNU0tGYVJQMGFBenFxaHpuUF9qTkprWVdtaVlHWkRZNnZtenRZOXdULVZGR0ZleXVkaDFaaHlwR2RHbVJwNVpzMVFiMVYxeVBoR0NyZjdfNzhvenVpRlYz?oc=5\" target=\"_blank\""
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
       "title": "Brussels-based Chift raises €10.5 million Series A to become Europe's financial connectivity layer - EU-Startups",
       "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQclptdEhwazNHRFVkVDZSN2dEVEFPWW5CUW5WNmN1N2c4ZHRtQWZDQ1RQdkNlUU9sazNpVnpnbmlHY3FiX0tqdTF3MW9rMExSd0V1UkpCTlNHMUJtdkFmUDQzcFNaaFJpSk4xNEhHQWJLZGJtNUVMbG14ZVlZSkI4U05HRG11QnQ2YXJoTzlZV3R5SVIzRWsxTlNza1ZkN1cwVXo5QnNvVGNNTDFnbEtpWGYxZ25od2FLT3FJVElNVGsweGQwUjN4MS1Db1FvLTQ?oc=5",
       "publishedAt": "2026-09-14T07:26:26.000Z",
@@ -1505,22 +1745,6 @@
       "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPOTEwZ2hjMHlnd3lybVpYMnJ1Q1N5UEJVOEtWaEgxSWZsTThHVHZLSXpkQVdBRmNxenBTc0lDTlotNFVkLTJhZnVCWXN5bXliSTFCSXQ4TnBIeGxPVXhiTXdGaWxXd28xVUR0SHVEVnNKb2VYNTdLSk9uQkIxUzhjY2lHYlpnSUQzd0h0NnZWUGpvS2Q5VDJBNkN5QkhFcGk2dkNDSkNkV2s3SXNEbDZTaEQtUXJnYUxDWHdfWFZQbXRLVndXQ2tTalNmZVd3aDdBUkFFT0JQYVBaN1dCNE15MFVqSUh4ajFjRHNfUNIB7AFBVV95cUxPOTEwZ2hjMHlnd3lybVpYMnJ1Q1N5UEJVOEtWaEgxSWZsTThHVHZLSXpkQVdBRmNxenBTc0lDTlotNFVkLTJhZnVCWXN5bXliSTFCSXQ4TnBIeGxPVXhiTXdGaWxXd28xVUR0SHVEVnNKb2VYNTdLSk9uQkIxUzhjY2lHYlpnSUQzd0h0NnZWUGpvS2Q5VDJBNkN5QkhFcGk2dkNDSkNkV2s3SXNEbDZTaEQtUXJnYUxDWHdfWFZQbXRLVndXQ2tTalNmZVd3aDdBUkFFT0JQYVBaN1dCNE15MFVqSUh4ajFjRHNfUA?oc=5",
       "publishedAt": "2026-09-14T07:23:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi7AFBVV95cUxPOTEwZ2hjMHlnd3lybVpYMnJ1Q1N5UEJVOEtWaEgxSWZsTThHVHZLSXpkQVdBRmNxenBTc0lDTlotNFVkLTJhZnVCWXN5bXliSTFCSXQ4TnBIeGxPVXhiTXdGaWxXd28xVUR0SHVEVnNKb2VYNTdLSk9uQkIxUzhjY2lHYlpnSUQzd0h0NnZWUGpvS2Q5VDJBNkN5QkhFcGk2dkNDSkNkV2s3SXNEbDZTaEQtUXJnYUxDWHdfWFZQbXRLVndXQ2tTal"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Himalayan ‘glacier bankruptcy’ threatens water security for 2 billion in Asia",
-      "url": "https://www.scmp.com/news/asia/south-asia/article/3367426/himalayan-glacier-bankruptcy-threatens-water-security-2-billion-asia?utm_source=rss_feed",
-      "publishedAt": "2026-09-14T07:20:20.000Z",
-      "summary": "The Himalayas are approaching a tipping point as glaciers melt faster than a decade ago, threatening water security as the region approaches “peak water” by mid-century, according to a study released this month. The findings come after the collapse of a Himalayan glacier in late August along the ‌Nepal-Tibet border, wh"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Hong Kong consumer watchdog questions supermarkets’ buy one, get one free deals",
-      "url": "https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3367425/hong-kong-consumer-watchdog-questions-value-supermarket-promotional-deals?utm_source=rss_feed",
-      "publishedAt": "2026-09-14T07:20:03.000Z",
-      "summary": "Hong Kong shoppers may be saving less than expected – or nothing at all – with supermarkets’ buy one, get one free and bulk-buy promotions, a watchdog has warned, urging residents to compare unit prices rather than rely on promotional labels. The Consumer Council on Monday released the findings of a survey covering 222"
     },
     {
       "source": "Google News",
@@ -1597,10 +1821,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Korea's industrial complexes mark 62 years, investing W114.3b in AI manufacturing push - mbiz.heraldcorp.com",
+      "title": "Korea's industrial complexes mark 62 years, investing W114.3b in AI manufacturing push - 헤럴드경제",
       "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5RN3ZRTndwdTR0MTR1ZF9wb2JvV3l0b2M5WWlBTGZGbXJwZjRNOEFHZTZRTjlMT3N4Z2VuUE9VUGF2ZTJkSVByM2pwUk5meWxLTFRMVFNsWQ?oc=5",
       "publishedAt": "2026-09-14T05:57:14.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiV0FVX3lxTE5RN3ZRTndwdTR0MTR1ZF9wb2JvV3l0b2M5WWlBTGZGbXJwZjRNOEFHZTZRTjlMT3N4Z2VuUE9VUGF2ZTJkSVByM2pwUk5meWxLTFRMVFNsWQ?oc=5\" target=\"_blank\">Korea's industrial complexes mark 62 years, investing W114.3b in AI manufacturing push</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">mbiz."
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiV0FVX3lxTE5RN3ZRTndwdTR0MTR1ZF9wb2JvV3l0b2M5WWlBTGZGbXJwZjRNOEFHZTZRTjlMT3N4Z2VuUE9VUGF2ZTJkSVByM2pwUk5meWxLTFRMVFNsWQ?oc=5\" target=\"_blank\">Korea's industrial complexes mark 62 years, investing W114.3b in AI manufacturing push</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">헤럴드경제"
     },
     {
       "source": "Google News",
@@ -1621,7 +1845,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Egypt’s Synapse Analytics Raises $13M to Expand AI Decisioning for Regulated Lenders - Launch Base Africa",
+      "title": "Egypt’s Synapse Analytics Raises $13M to Expand AI Decisioning for Regulated Lenders - launchbaseafrica.com",
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPZ3Jqd2xIUGxyWm5MalhqV3VxSEQwbXgxQnBWMDNEajVGQnp4NWwzYzFZd1lDZU1jNE90WWVDSHp5NGRhWHBKWXF3RjdKOHhkd1B2Yk9ua1BxajROeEc1c0xucHE3TWxmRXNSNHhVT3prQUdybzJmR0o1NUV5d1Y2ckRucVJTbzlJNVNwZ2FhWDZjODFmSXFNaTBiZWNHelRZTk5Zb0pnZkl2MmFyd2dPc2hWMU4xeTQ0cXNSOFhWVm4?oc=5",
       "publishedAt": "2026-09-14T05:20:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxPZ3Jqd2xIUGxyWm5MalhqV3VxSEQwbXgxQnBWMDNEajVGQnp4NWwzYzFZd1lDZU1jNE90WWVDSHp5NGRhWHBKWXF3RjdKOHhkd1B2Yk9ua1BxajROeEc1c0xucHE3TWxmRXNSNHhVT3prQUdybzJmR0o1NUV5d1Y2ckRucVJTbzlJNVNwZ2FhWDZjODFmSXFNaTBiZWNHelRZTk5Zb0pnZkl2MmFyd2dPc2hWMU4xeTQ0cXNSOFhWVm4?oc=5\" targ"
@@ -1661,15 +1885,15 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Dirisha la Sera ya AI Limefunguliwa. Lazima Tuchukue Hatua. - openai.com",
+      "title": "Dirisha la Sera ya AI Limefunguliwa. Lazima Tuchukue Hatua. - OpenAI",
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1ldFE1TVdNYm1xNno3a2NOYkR2NmZ0ZWl4RnlqVlM3d0ktTVdPVUFTRXRZSVpHN3BzdUg2YVdwSEVyZlZQLTExZDloTlE1NkxDdXI0VmJnRHJLOUVx?oc=5",
       "publishedAt": "2026-09-14T03:45:01.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE1ldFE1TVdNYm1xNno3a2NOYkR2NmZ0ZWl4RnlqVlM3d0ktTVdPVUFTRXRZSVpHN3BzdUg2YVdwSEVyZlZQLTExZDloTlE1NkxDdXI0VmJnRHJLOUVx?oc=5\" target=\"_blank\">Dirisha la Sera ya AI Limefunguliwa. Lazima Tuchukue Hatua.</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">openai.com</font>"
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE1ldFE1TVdNYm1xNno3a2NOYkR2NmZ0ZWl4RnlqVlM3d0ktTVdPVUFTRXRZSVpHN3BzdUg2YVdwSEVyZlZQLTExZDloTlE1NkxDdXI0VmJnRHJLOUVx?oc=5\" target=\"_blank\">Dirisha la Sera ya AI Limefunguliwa. Lazima Tuchukue Hatua.</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">OpenAI</font>"
     },
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Chinese government warns AI advancements threaten political stability - cryptobriefing.com",
+      "title": "Chinese government warns AI advancements threaten political stability - Crypto Briefing",
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5KQkdFc01vbDdSSVNyLVA3R1lRWF9kVXF2Wk9CS1BDSkowOEQ0bzBmQ0ppSGQtbWtDUm0xSm5KN0dyZTdTLXBQSTRycEpYeEZyVVBhWTJnVmxuNXA4dThIVDd2SFh2VE5QVXZqQXZmZ3JiMnRaeE1aTDdLbDg?oc=5",
       "publishedAt": "2026-09-14T03:39:38.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMifEFVX3lxTE5KQkdFc01vbDdSSVNyLVA3R1lRWF9kVXF2Wk9CS1BDSkowOEQ0bzBmQ0ppSGQtbWtDUm0xSm5KN0dyZTdTLXBQSTRycEpYeEZyVVBhWTJnVmxuNXA4dThIVDd2SFh2VE5QVXZqQXZmZ3JiMnRaeE1aTDdLbDg?oc=5\" target=\"_blank\">Chinese government warns AI advancements threaten political stability</a>&nbsp;&"
@@ -1689,14 +1913,6 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE52LWJuYl93dEsyVjQ4V01WTHNvNm1kcUN1UHF4TjhxaUhkZHZ0SU9qVVRDWEwwb09HeWVIVThGTXEydkF3eE9xNmZUX0Vpb1lHdlVkbkkwb0ZsY2hEbVVBZHRsbWZZb0pMU1FJbzF1QWN2cU9Jb3F3b2N1aGVmZHc?oc=5",
       "publishedAt": "2026-09-14T03:22:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE52LWJuYl93dEsyVjQ4V01WTHNvNm1kcUN1UHF4TjhxaUhkZHZ0SU9qVVRDWEwwb09HeWVIVThGTXEydkF3eE9xNmZUX0Vpb1lHdlVkbkkwb0ZsY2hEbVVBZHRsbWZZb0pMU1FJbzF1QWN2cU9Jb3F3b2N1aGVmZHc?oc=5\" target=\"_blank\">Funding Weekly | Nasdaq Invests $100 Million in Kraken Parent Payward; Mistr"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Graph AI Secures $13.3 Mn Series A To Scale AI Drug Safety Platform - BW Disrupt",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZ2M1UEFoS1FsQnFzSlpfaGU5MksxMGN5cjhmNzlycE5sbnE4Vmp1X0k4VmVSRjFrOFNWOUZuT2ZWbnRKSHBrdnpqRDNwQ1BxQmNSWVA4MlpWSXRiUHc2aFh6Ym9QUlZLdGxPRVhmY1B1enY4VXhrZEJTYm5UR2VfbDRvamZxVndRcVFsNkNoZzZTV2RBdnpRVmdtbmFrTFlWalFvZ1dVRTZJUXc?oc=5",
-      "publishedAt": "2026-09-14T02:51:26.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZ2M1UEFoS1FsQnFzSlpfaGU5MksxMGN5cjhmNzlycE5sbnE4Vmp1X0k4VmVSRjFrOFNWOUZuT2ZWbnRKSHBrdnpqRDNwQ1BxQmNSWVA4MlpWSXRiUHc2aFh6Ym9QUlZLdGxPRVhmY1B1enY4VXhrZEJTYm5UR2VfbDRvamZxVndRcVFsNkNoZzZTV2RBdnpRVmdtbmFrTFlWalFvZ1dVRTZJUXc?oc=5\" target=\"_blank\">Graph AI Secures"
     },
     {
       "source": "Google News",
@@ -1733,10 +1949,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Donghae launches AI committee to build industrial ecosystem around GS data center - mbiz.heraldcorp.com",
+      "title": "Donghae launches AI committee to build industrial ecosystem around GS data center - 헤럴드경제",
       "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBBWVNsSk5CLVRFbHBydlRrN1JsRVJCU2drMWwwSWVjc1pCVmlXS3dEZ2FuNDR4QTY2b2RrNHgxWU1zRllUbUU3LURCamRISktIX3VySmJ1bw?oc=5",
       "publishedAt": "2026-09-14T01:01:43.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiV0FVX3lxTFBBWVNsSk5CLVRFbHBydlRrN1JsRVJCU2drMWwwSWVjc1pCVmlXS3dEZ2FuNDR4QTY2b2RrNHgxWU1zRllUbUU3LURCamRISktIX3VySmJ1bw?oc=5\" target=\"_blank\">Donghae launches AI committee to build industrial ecosystem around GS data center</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">mbiz.heral"
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiV0FVX3lxTFBBWVNsSk5CLVRFbHBydlRrN1JsRVJCU2drMWwwSWVjc1pCVmlXS3dEZ2FuNDR4QTY2b2RrNHgxWU1zRllUbUU3LURCamRISktIX3VySmJ1bw?oc=5\" target=\"_blank\">Donghae launches AI committee to build industrial ecosystem around GS data center</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">헤럴드경제</fon"
     },
     {
       "source": "Google News",
@@ -1757,7 +1973,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "What we can learn from Northern Ireland’s draft AI strategy - govinsider.asia",
+      "title": "What we can learn from Northern Ireland’s draft AI strategy - GovInsider",
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNTjZDdzVPMDA3MUhKMWg0UEZXVVhmN29MLUlPUlhBY0hWSEtpbmw1UVNHZ0sxUVpjMUpZVHdMMHlXaDRtN1dTVFdwM0tNanh0RGduQ1IzelpOSGxNc0ItV0ZTVXhaaUJXYVFNOU9JVi1ZSU9LM3d0V1o3ZXVRdTJMSWE5UXI4b2V1WEZVcE45azBKZHFiVHhCbUxuOGw1bk0?oc=5",
       "publishedAt": "2026-09-14T00:33:17.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMinwFBVV95cUxNTjZDdzVPMDA3MUhKMWg0UEZXVVhmN29MLUlPUlhBY0hWSEtpbmw1UVNHZ0sxUVpjMUpZVHdMMHlXaDRtN1dTVFdwM0tNanh0RGduQ1IzelpOSGxNc0ItV0ZTVXhaaUJXYVFNOU9JVi1ZSU9LM3d0V1o3ZXVRdTJMSWE5UXI4b2V1WEZVcE45azBKZHFiVHhCbUxuOGw1bk0?oc=5\" target=\"_blank\">What we can learn from Northern "
@@ -1785,22 +2001,6 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1aWUY2LThZWnVzMjNYNHFWa3p4UGVuTUNrd0c2Tm9QV1RPeGw2b3ZlNUhybG1WY0NVQlRvX3NibkNpTzlRWkg1TWtQVVJYclg1UlFv?oc=5",
       "publishedAt": "2026-09-13T23:41:41.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiU0FVX3lxTE1aWUY2LThZWnVzMjNYNHFWa3p4UGVuTUNrd0c2Tm9QV1RPeGw2b3ZlNUhybG1WY0NVQlRvX3NibkNpTzlRWkg1TWtQVVJYclg1UlFv?oc=5\" target=\"_blank\">Has Google DeepMind Successfully Cracked RSI? Latest AI Research Breakthrough & Key Insights</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">36 Kr"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "The Weekly Notable Startup Funding Report: 9/14/26 - alleywatch.com",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQZlJ6QnhGRm1RWEFtVy1VclRkV2p0eG1JY2hSdzNxVzl3aF9jUzlPTEFLVmRoOHZSWmxMOXNXdmpDWlcybWUtdnZreFNFcUN2dVJiNV9MNG9KeW9SdC1zUktFNXQtQXZzVFlyYV9xTG9IWDRHTDdwZllhZjFucHc5VnVHZ3JKX2xp?oc=5",
-      "publishedAt": "2026-09-13T23:32:30.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiAFBVV95cUxQZlJ6QnhGRm1RWEFtVy1VclRkV2p0eG1JY2hSdzNxVzl3aF9jUzlPTEFLVmRoOHZSWmxMOXNXdmpDWlcybWUtdnZreFNFcUN2dVJiNV9MNG9KeW9SdC1zUktFNXQtQXZzVFlyYV9xTG9IWDRHTDdwZllhZjFucHc5VnVHZ3JKX2xp?oc=5\" target=\"_blank\">The Weekly Notable Startup Funding Report: 9/14/26</a>&nbsp;&nb"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "UK and US fusion strike partnership to accelerate clean energy - GOV.UK",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNUnVCLW1Da0VEVFgtU0hlUHF1T3I3RlQzdTE1Mk4yNlRRZGJLeEp2Tk05TnVfWmdPUFJQXzNDYnlUeUtTMWd6ZDJoN3gxSFY5WXkxa3oyeHQ5N0cxSDJORWEzS0dPSmVCb1ZZdmhhVmtYUHozV01WdUpqU3B4Z2xjdEVLT2hKS0N0ZFBFRXY4NG5mZkNhSDM0QVNkazYxdw?oc=5",
-      "publishedAt": "2026-09-13T23:01:04.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMingFBVV95cUxNUnVCLW1Da0VEVFgtU0hlUHF1T3I3RlQzdTE1Mk4yNlRRZGJLeEp2Tk05TnVfWmdPUFJQXzNDYnlUeUtTMWd6ZDJoN3gxSFY5WXkxa3oyeHQ5N0cxSDJORWEzS0dPSmVCb1ZZdmhhVmtYUHozV01WdUpqU3B4Z2xjdEVLT2hKS0N0ZFBFRXY4NG5mZkNhSDM0QVNkazYxdw?oc=5\" target=\"_blank\">UK and US fusion strike partnersh"
     },
     {
       "source": "Google News",
@@ -1859,30 +2059,6 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMingFBVV95cUxNa28tTl93WVB4VlNSanNWbTJpaFFyVzFqV1poNkFtRkc2cG93ZDVmaTZkdDhNSTcxdzNTZml3NW9NLXNuc3ViZlZPTkZTc0tGZmFCRGkwOXpYb0g0aG1zVzRuRVJFYTFDWmROQm5LSmlfd0Zrd19kblFBczMySkJ3RFNNekRicWlDcXNZc1NvcVZvOFZ1Tk93clhBYVF4dw?oc=5\" target=\"_blank\">What you Need to Know AboutClaude"
     },
     {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Criminals freed from jail could have restrictions decided by AI under new rules - thesun.co.uk",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOXzg5aEtMYXgybDNvU21TSFJJX3F3eFpvTndNX0RWWktVQ0Zkdkx5WWFFYUtOTkJpNXpLQmJQUW5ncmxNTHVzQzZiUXRNWGtlVXg0bWtoNWFDaUlvM2ZLbi1NdmFVWEZVUUZGbUlKcTg4SmNIenc3ODR1WnZVQnF1Q2lHN1FLLS1N?oc=5",
-      "publishedAt": "2026-09-13T20:01:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiAFBVV95cUxOXzg5aEtMYXgybDNvU21TSFJJX3F3eFpvTndNX0RWWktVQ0Zkdkx5WWFFYUtOTkJpNXpLQmJQUW5ncmxNTHVzQzZiUXRNWGtlVXg0bWtoNWFDaUlvM2ZLbi1NdmFVWEZVUUZGbUlKcTg4SmNIenc3ODR1WnZVQnF1Q2lHN1FLLS1N?oc=5\" target=\"_blank\">Criminals freed from jail could have restrictions decided by AI"
-    },
-    {
-      "source": "The Verge",
-      "discoveryOnly": false,
-      "title": "Trump and Mike Johnson think the AI industry is overreacting",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/994441/trump-mike-johnson-ai-industry-overreacting",
-      "publishedAt": "2026-09-13T19:41:48.000Z",
-      "summary": "Yesterday, Anthropic CEO Dario Amodei published a lengthy open letter saying it was time to \"pace the frontier\" and slow down AI development. OpenAI's Sam Altman and Elon Musk both agreed, publicly voicing their support on X. Even Alphabet's Demis Hassabis offered tentative support for Amodei's proposal. Donald Trump a"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "What’s behind the AI industry’s latest warnings of doom? - TechCrunch",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNcGhlTzc5NDNLaEJwYk1GMmh0OF9UeTRLN2RQaGRaU0lSdWhqalREb0FHRFcyenFYclcweGE0ZXZBc2t3NEF1UzhldnpVZ3BwdjFuV3U4bURZWUh3ME9Ma1dMQm5NX2Y4MGZWdUZzcWV3LWpYOXNZZW5UWDJwbHdtR20wTTlMRThkZUVWTzZfak5jZw?oc=5",
-      "publishedAt": "2026-09-13T19:40:15.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxNcGhlTzc5NDNLaEJwYk1GMmh0OF9UeTRLN2RQaGRaU0lSdWhqalREb0FHRFcyenFYclcweGE0ZXZBc2t3NEF1UzhldnpVZ3BwdjFuV3U4bURZWUh3ME9Ma1dMQm5NX2Y4MGZWdUZzcWV3LWpYOXNZZW5UWDJwbHdtR20wTTlMRThkZUVWTzZfak5jZw?oc=5\" target=\"_blank\">What’s behind the AI industry’s latest warnings o"
-    },
-    {
       "source": "TechCrunch",
       "discoveryOnly": false,
       "title": "What’s behind the AI industry’s latest warnings of doom?",
@@ -1893,42 +2069,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Democratic Party Slashes Youth AI Budget, Revives Disability Jobs Project - 조선일보",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOZGR6c1dEc1M4V1lmSTJqOXd6TE16azlxS0F3cGQzdUQzY25wYVdxdjI5ZE5QQ1J4MjQtOEVtSUNBR0gtMGp5QVg2QU5NcVdoMUM4a3F1RWgtdjhGLVo2T3BBMDlBdDlMQncxdGNUY2F2Slo2VkV6em5xVXJORU5Ga1NQcUd2MEx0?oc=5",
-      "publishedAt": "2026-09-13T19:13:34.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiAFBVV95cUxOZGR6c1dEc1M4V1lmSTJqOXd6TE16azlxS0F3cGQzdUQzY25wYVdxdjI5ZE5QQ1J4MjQtOEVtSUNBR0gtMGp5QVg2QU5NcVdoMUM4a3F1RWgtdjhGLVo2T3BBMDlBdDlMQncxdGNUY2F2Slo2VkV6em5xVXJORU5Ga1NQcUd2MEx0?oc=5\" target=\"_blank\">Democratic Party Slashes Youth AI Budget, Revives Disability Jo"
-    },
-    {
-      "source": "The Verge",
-      "discoveryOnly": false,
-      "title": "Apple is reportedly working on iPhone game controllers",
-      "url": "https://www.theverge.com/tech/994426/apple-iphone-game-controllers",
-      "publishedAt": "2026-09-13T18:30:16.000Z",
-      "summary": "Bloomberg's Mark Gurman says Apple is developing two game controllers for the iPhone and will likely sell them under the Beats brand. Rumors that Apple might enter the game controller business have circulated for some time. But last week, MacRumors reported finding two references in macOS 26.7's code to two game contro"
-    },
-    {
-      "source": "The Verge",
-      "discoveryOnly": false,
-      "title": "The Units’ Digital Stimulation is synthpunk perfection",
-      "url": "https://www.theverge.com/entertainment/994415/the-units-digital-stimulation-synthpunk-review",
-      "publishedAt": "2026-09-13T17:36:10.000Z",
-      "summary": "The Units are a band I discovered in part thanks to No Dogs in Space. During their miniseries on The Screamers (another incredible band worth checking out), they mention synthpunk.org as one of their sources. And there's no better way to get my attention than to combine two of my favorite things - punk rock […]"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
       "title": "French AI startup Mistral reaches $24 billion valuation in latest funding round - The Daily Star",
       "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQM01FOVBCeTNxLWpYRHpNeTg1Yl9PaEotNVlEN3I1YkhhbHpwNy1HNnFTSUVBRzhYRUhXVTdEU3FaYTR2dkVGc3FVeE0xSnViWGlXZ2t4SU5ndFprVDJ2UmxmRklxOGpmLUZ5REctdjBTN2VxcXFuMkVzclRXZG1XU3JQVF9JZm1RRm1sNzU1OFJ3VTRPczdYRE1oTDBIeG1VRUdwZndpQ09iOVg5MWRuNXhUN0tSNFlwYmNYTUhtWi1kY0djNDRhS1RxTk5adw?oc=5",
       "publishedAt": "2026-09-13T17:32:38.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMizgFBVV95cUxQM01FOVBCeTNxLWpYRHpNeTg1Yl9PaEotNVlEN3I1YkhhbHpwNy1HNnFTSUVBRzhYRUhXVTdEU3FaYTR2dkVGc3FVeE0xSnViWGlXZ2t4SU5ndFprVDJ2UmxmRklxOGpmLUZ5REctdjBTN2VxcXFuMkVzclRXZG1XU3JQVF9JZm1RRm1sNzU1OFJ3VTRPczdYRE1oTDBIeG1VRUdwZndpQ09iOVg5MWRuNXhUN0tSNFlwYmNYTUhtWi1kY0djNDRhS1"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "India's government adopts agentic AI; cyber risks, accountability questions emerge - TechGig",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPYmE3Skk2MFZFZFdBMTBPb1huclBvRTBkTW5nYVZpMEFzUHF5ZDNDZmNGTTVNbkl1MDFJVkQxWWJTXzR0NzhaeTVycDRocVZyUlZNTmpSbXVaWFh4RVJ4LThGcVJ5YXloNDBtSVlhcVNJc0hseVZIM2tTUmxJSXc5MVJyakc2RllsWlRwZ1lEWHJqY0ktNHJkSTBnWmJhYjdqNG1sM3B6ZFNPQmsxTGktX1R1LTM4RTBF0gG-AUFVX3lxTE9UUnZpcVlhUjVQTGFuNzJJb2xzLV9XWGxqR3lIRzYyLTNqMHpJSVp6YXk1aW9NZURTcDZveGdpdS1jdjhKcTRMdVNBQjdmTElpdmxwZHpWSmZYU2RkWjNMZVViUjdLMUlhSlRHVWhLZ3JvVFFtRXlPOHJSdG9IU21nVDNMSUgyN2dwZGozTHU5Y0lsWnVKbjVkN3J6WEZXa1B3TlIyZTZCcy0tR0FlUlcyRnVQeUh0OV9WLUFxQWc?oc=5",
-      "publishedAt": "2026-09-13T17:15:32.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxPYmE3Skk2MFZFZFdBMTBPb1huclBvRTBkTW5nYVZpMEFzUHF5ZDNDZmNGTTVNbkl1MDFJVkQxWWJTXzR0NzhaeTVycDRocVZyUlZNTmpSbXVaWFh4RVJ4LThGcVJ5YXloNDBtSVlhcVNJc0hseVZIM2tTUmxJSXc5MVJyakc2RllsWlRwZ1lEWHJqY0ktNHJkSTBnWmJhYjdqNG1sM3B6ZFNPQmsxTGktX1R1LTM4RTBF0gG-AUFVX3lxTE9UUnZpcV"
     },
     {
       "source": "Google News",
@@ -1971,17 +2115,9 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxOZnlvNVZOdkU2SXpNZTFNSzRuS21xbzM4X1F5ZGlTVEVQNDB3VGNETWJnVl94dXhGZXRkYjk1TU0tNDlIMkxqVEROSFJKNFN3Wk9fc0ZDTHllTVQzVGxJMlZ2c3FXekFOYkpZcVR0OVlGYmdLb1ZwbmcxdHJqdUZZRVZfc2FzMThOYUpWV19VcUJDWlAwWFVVOWlTQWVsdW11N0lJa21mTklBcGM1bkFpbGFmMkJzN2FMMDhMNA?oc=5\" target=\"_"
     },
     {
-      "source": "The Verge",
-      "discoveryOnly": false,
-      "title": "Waymo pulls over, calls cops on riders with a ghost gun",
-      "url": "https://www.theverge.com/transportation/994405/waymo-pulls-over-calls-cops-on-riders-with-a-ghost-gun",
-      "publishedAt": "2026-09-13T14:28:12.000Z",
-      "summary": "Two people were arrested in San Fransico while riding around in a Waymo robotaxi after the cab pulled over and called the cops on them. The riders were juveniles in possession of a loaded AR-style ghost gun and were taken to a juvenile hall. While the police report did not specify who was operating the […]"
-    },
-    {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "AI Mathematics: Claims, Proofs and Human Cost - neoteo.com",
+      "title": "AI Mathematics: Claims, Proofs and Human Cost - NeoTeo",
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOSjdzbzhESVQ4SVo2NjJsUVdBNDJ1c3Vwb19ZSFhSMWxsX2ZocVlBUERxd2dyV0plckNzeW5aUmVsczF3SjU0eFNhcjUzbkRjeGJqMzV2U3lWUV9SNl9fVkVRZUMzYXB4aWszMlZWOGtCX2hrZ2t1eHVQSmpSRm13Sm5mTFRoaTZnVFdnQ3g0elZ3SEFyaHc?oc=5",
       "publishedAt": "2026-09-13T13:44:27.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMilgFBVV95cUxOSjdzbzhESVQ4SVo2NjJsUVdBNDJ1c3Vwb19ZSFhSMWxsX2ZocVlBUERxd2dyV0plckNzeW5aUmVsczF3SjU0eFNhcjUzbkRjeGJqMzV2U3lWUV9SNl9fVkVRZUMzYXB4aWszMlZWOGtCX2hrZ2t1eHVQSmpSRm13Sm5mTFRoaTZnVFdnQ3g0elZ3SEFyaHc?oc=5\" target=\"_blank\">AI Mathematics: Claims, Proofs and Human Cos"
@@ -2141,7 +2277,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Google moves 90-person DeepMind AI responsibility team to global affairs - newsbytesapp.com",
+      "title": "Google moves 90-person DeepMind AI responsibility team to global affairs - NewsBytes",
       "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNRzRpZ2FqelNPUnc5SkltWU9BTGFfa0pDX2VvdFZfZzlvVlJZbjNpWDNyM09aWEd3OWFKbDBZRFpoOHlqUlNkdEs4NXNfNk1YQnVUN2JKejdpd0xIenI1NUNHSUNsMUh3NWw4TGI2YlNoaklQd3RlcG5BSjE4UUxaU2tTQVlKUHhjS25jSW9FZF9oa1VzUDJfTUx1RTlNejZoeEVGX2JyQm91M1R3emoyZXZzU1FEa1psb0Rz?oc=5",
       "publishedAt": "2026-09-13T07:23:05.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiuwFBVV95cUxNRzRpZ2FqelNPUnc5SkltWU9BTGFfa0pDX2VvdFZfZzlvVlJZbjNpWDNyM09aWEd3OWFKbDBZRFpoOHlqUlNkdEs4NXNfNk1YQnVUN2JKejdpd0xIenI1NUNHSUNsMUh3NWw4TGI2YlNoaklQd3RlcG5BSjE4UUxaU2tTQVlKUHhjS25jSW9FZF9oa1VzUDJfTUx1RTlNejZoeEVGX2JyQm91M1R3emoyZXZzU1FEa1psb0Rz?oc=5\" target=\"_bl"
@@ -2197,7 +2333,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Top News Audio Briefing - 13 Sep 2026, 11 AM - timesofindia.indiatimes.com",
+      "title": "Top News Audio Briefing - 13 Sep 2026, 11 AM - The Times of India",
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPZG1sZlV3NkpIZlZJMUdVTjV4ZFlrVjdJcW9jYjIzUEdoSC0zR3BzX3dINFdZWlY5Uy14ZmM3SmRUYzZ5S2phVkprMUZvNXJxbDZWdFc5bW5tRThVd3A3ZExhWXBSN3JpcFFRVW1wY2JuR1VLc080c2RPTl9VRExJZFhwRFRjUVNERGxnQzlRbGhlLTRsUUpnbGJCb3k5emthUnFRejJVOXA5YVVTaXBsRENnU1J6WFRVQmfSAboBQVVfeXFMT2RtbGZVdzZKSGZWSTFHVU41eGRZa1Y3SXFvY2IyM1BHaEgtM0dwc193SDRXWVpWOVMteGZjN0pkVGM2eUtqYVZKazFGbzVycWw2VnRXOW1ubUU4VXdwN2RMYVlwUjdyaXBRUVVtcGNibkdVS3NPNHNkT05fVURMSWRYcERUY1FTRERsZ0M5UWxoZS00bFFKZ2xiQm95OXprYVJxUXoyVTlwOWFVU2lwbERDZ1NSelhUVUJn?oc=5",
       "publishedAt": "2026-09-13T05:32:53.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiugFBVV95cUxPZG1sZlV3NkpIZlZJMUdVTjV4ZFlrVjdJcW9jYjIzUEdoSC0zR3BzX3dINFdZWlY5Uy14ZmM3SmRUYzZ5S2phVkprMUZvNXJxbDZWdFc5bW5tRThVd3A3ZExhWXBSN3JpcFFRVW1wY2JuR1VLc080c2RPTl9VRExJZFhwRFRjUVNERGxnQzlRbGhlLTRsUUpnbGJCb3k5emthUnFRejJVOXA5YVVTaXBsRENnU1J6WFRVQmfSAboBQVVfeXFMT2RtbG"
@@ -2205,7 +2341,7 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Starting September, Google is moving 'AI responsibility' team out of Google DeepMind; here's what VP Hele - timesofindia.indiatimes.com",
+      "title": "Starting September, Google is moving 'AI responsibility' team out of Google DeepMind; here's what VP Hele - The Times of India",
       "url": "https://news.google.com/rss/articles/CBMivAJBVV95cUxNNThwc2diWlpST1FabXhaLUJubi13YnJOZVNDbkowZ05CcGM1Sk83V2dBNU5Ubl8zdXpoV1dlQXkxdWpLU2g4cjZOOU5LZ185SWdmNXU4bHFfc29MUjdmb0VweEg2OTluT3cyblJYczllOG9UMHFiWmljUExYNmFMb2NNVHdfdDNJT0hnYW9LX3p6eW9HQW1pazNVTWRNLUE2UThDSDlSaE00ZlNHNzYwRndCZFBSdUY3SmhGcVBxYXVyd3FjZ2d1U3pnLWVrOHMteE9IZnA1SnJJUGJwY1p3M2lfa3dpZEI2S1l2Z3djc1JLSXBqVTdEMFc2ZHRUam1PWjlIVFg2dDhncmZ0b3R3NlJxdkFycmwzVi1mVXRHNFFiZXFSMFlMd3VQbGs2eFZVQ2czZ2NtR2tINGlj0gHCAkFVX3lxTE1lZWNZZkNmczNKVEt2N1p1QnhxWGV0U29DcWVWYnE3dFdlM2xDZ3BpcENQNlVRY0Itd2JwTk1kU3NiVnlIQXBZaXlLVktvRE83cm9scm1pT3JZdFhwMTdUYXQyQ0ppYURxUnBpS29sb0diMjItNnFRczJ6SWFLOHRtVnJXS0ZnUVlDcUw3SU81QVlSWTdmdXpXT0JwQk0tV05OQXBLRWROUWxUT1VFbFIzM1BiRURfZFBfWWwzcDVmNlllWU5qdEF2eHdUT1dTSFB4bmtaVkZieUVYMDBMNHVWN0ZOR3pfUm5sT0RjM2JpV3l1T3gyYXN0RC1SUnZIczZuS2QxWERIRzFUWFh5QmlUcEM3YjBBeEVPX2hoUGhjOHc5Q3JTLWhoS2dQbUczYTMxVVhaamJNbXo2OWpnQnNsWEE?oc=5",
       "publishedAt": "2026-09-13T03:53:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMivAJBVV95cUxNNThwc2diWlpST1FabXhaLUJubi13YnJOZVNDbkowZ05CcGM1Sk83V2dBNU5Ubl8zdXpoV1dlQXkxdWpLU2g4cjZOOU5LZ185SWdmNXU4bHFfc29MUjdmb0VweEg2OTluT3cyblJYczllOG9UMHFiWmljUExYNmFMb2NNVHdfdDNJT0hnYW9LX3p6eW9HQW1pazNVTWRNLUE2UThDSDlSaE00ZlNHNzYwRndCZFBSdUY3SmhGcVBxYXVyd3FjZ2d1U3"
@@ -2301,26 +2437,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "AI Chatbots Get Nearly 1 in 3 Voting Questions Wrong — And the Errors Climb Higher in Spanish - Latin Times",
+      "title": "AI Chatbots Get Nearly 1 in 3 Voting Questions Wrong — And the Errors Climb Higher in Spanish - latintimes.com",
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNdUM5OFNrZV8yNFlPb0l2eGNweGRjM3hYa3VUUDk0T1k1XzdXU3J1QkFQdjBsOXYzbEtfbURkWGRXbmo2aWtXNngtR3FGYl9XYld4c3hpS2tlOEliQm1zMklHOE9QY19CTTY0S25GZlFoUkkyQlRUYlU0UFRpOEJ5cDBrYlI1amFJUmhGQVQyV2o3bUJZcmRuSC1xbG82X0d0cW5na2ZocVNkRFVjY2Rmcg?oc=5",
       "publishedAt": "2026-09-12T19:58:56.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxNdUM5OFNrZV8yNFlPb0l2eGNweGRjM3hYa3VUUDk0T1k1XzdXU3J1QkFQdjBsOXYzbEtfbURkWGRXbmo2aWtXNngtR3FGYl9XYld4c3hpS2tlOEliQm1zMklHOE9QY19CTTY0S25GZlFoUkkyQlRUYlU0UFRpOEJ5cDBrYlI1amFJUmhGQVQyV2o3bUJZcmRuSC1xbG82X0d0cW5na2ZocVNkRFVjY2Rmcg?oc=5\" target=\"_blank\">AI Chatbo"
-    },
-    {
-      "source": "TechCrunch",
-      "discoveryOnly": false,
-      "title": "Anthropic CEO outlines plan to slow AI development",
-      "url": "https://techcrunch.com/2026/09/12/anthropic-ceo-outlines-plan-to-pace-the-frontier/",
-      "publishedAt": "2026-09-12T19:34:44.000Z",
-      "summary": "Anthropic's Dario Amodei and OpenAI's Sam Altman seem to agree that it's time to \"pace the frontier.\" What would that actually look like?"
-    },
-    {
-      "source": "TechCrunch",
-      "discoveryOnly": false,
-      "title": "Tesla says it will finally unveil the second-generation Roadster on October 1",
-      "url": "https://techcrunch.com/2026/09/12/tesla-says-it-will-finally-unveil-the-second-generation-roadster-on-october-1/",
-      "publishedAt": "2026-09-12T19:21:19.000Z",
-      "summary": "Tesla’s halo sports car was first announced in November 2017."
     },
     {
       "source": "Google News",
@@ -2345,38 +2465,6 @@
       "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNb3RIMG5HZEpaQnY1WktPWkU3cERndjg2Y091ZUZrTm0yQzhtR1RMRjNnV0Yyb3ZvQUxURnU1VnVVdFQ4Sy1LNWFtbC02ODItUkZONWR5Mnlwa0RhanZnckNzeGVfZVNKcHZyZWkyUVBPcTY1enF0LVBxMFMyVjd5TXNIRE4xTXY5MlJPX0xpNGhFU0syM1Jla0trOU1vbnJ0b29Nal83bm5qTmRvNURnZTdoblpEZDBocVMyb9IBwgFBVV95cUxPck5VeTFCMmNZakxGZU5HQmlFdE9FSHlUSWtadEljbGo0c0xJeVRkMy0tbkhiWTFlUi1iUnlHNmhoM0RiZkR2aFFzc0R0Zi1GUVJkdFVUdWxLOWJ1bkdDY185a2duTHM0UV9xdEFMLUFyNDVkUkxGc0JXamFVOG9NUFVudkNjUFk1aE9GSXFwbEs4YVY3dmpJS0pOYW9tZVN1STlxbDZwRmo0bE1IY08xQko5TjF4SkNIVVhoWTZLSmtHZw?oc=5",
       "publishedAt": "2026-09-12T17:36:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxNb3RIMG5HZEpaQnY1WktPWkU3cERndjg2Y091ZUZrTm0yQzhtR1RMRjNnV0Yyb3ZvQUxURnU1VnVVdFQ4Sy1LNWFtbC02ODItUkZONWR5Mnlwa0RhanZnckNzeGVfZVNKcHZyZWkyUVBPcTY1enF0LVBxMFMyVjd5TXNIRE4xTXY5MlJPX0xpNGhFU0syM1Jla0trOU1vbnJ0b29Nal83bm5qTmRvNURnZTdoblpEZDBocVMyb9IBwgFBVV95cUxPck"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Altman Says OpenAI Will Match Anthropic’s Embedded Evaluator Pledge - Unite.AI",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPdk5ONmVPNFBFZkNIRW5lZnJ6SlluMWRHVjhwZ3F2a0ptUjJXa1dZLXNqbXdPN0FQeWQ5eHFDaDBaYTBjbjE2MU43SnJkamF5RGFOeXpORzFheVdSLW40NGpZVkxOOWxvcXQ4MlUyVE9tNFJuQlRpbnVBS25uWHlZbzY3U25jOUpDVTh6Z2RBa3RPQQ?oc=5",
-      "publishedAt": "2026-09-12T17:23:02.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxPdk5ONmVPNFBFZkNIRW5lZnJ6SlluMWRHVjhwZ3F2a0ptUjJXa1dZLXNqbXdPN0FQeWQ5eHFDaDBaYTBjbjE2MU43SnJkamF5RGFOeXpORzFheVdSLW40NGpZVkxOOWxvcXQ4MlUyVE9tNFJuQlRpbnVBS25uWHlZbzY3U25jOUpDVTh6Z2RBa3RPQQ?oc=5\" target=\"_blank\">Altman Says OpenAI Will Match Anthropic’s Embedde"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Microsoft Copilot adds Grok models to enhance AI options - cryptobriefing.com",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5MMVZpNGE0Y0J4RE4ySTVVR1B6Skc5ZDZnU0QySGI2SWlESDBuRTJ2LVc3WURESDYtalVFTlc2ZUVzUmdOeTZjUWtPZFI3OE52eHE1M0JJVVAzb1RRelE3RS1rNmk1Q2NHOFE4RWh1UQ?oc=5",
-      "publishedAt": "2026-09-12T16:29:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMib0FVX3lxTE5MMVZpNGE0Y0J4RE4ySTVVR1B6Skc5ZDZnU0QySGI2SWlESDBuRTJ2LVc3WURESDYtalVFTlc2ZUVzUmdOeTZjUWtPZFI3OE52eHE1M0JJVVAzb1RRelE3RS1rNmk1Q2NHOFE4RWh1UQ?oc=5\" target=\"_blank\">Microsoft Copilot adds Grok models to enhance AI options</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">cry"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "AI Week in Review 26.09.12 - Substack",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1NV296ZVJ3OGpXYUdrZXRVeVNxdDJNXzhuckZJMTlUM1BUQ2owN0g3Q3I1Y1gyNV9lV2RFRnhMVTNxZldVM0syYlNNUWZGRjZYcndFVFNES2tfaDZZdmltV0Z6bHNoSnpCX2p3ZG53?oc=5",
-      "publishedAt": "2026-09-12T16:21:50.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMibkFVX3lxTE1NV296ZVJ3OGpXYUdrZXRVeVNxdDJNXzhuckZJMTlUM1BUQ2owN0g3Q3I1Y1gyNV9lV2RFRnhMVTNxZldVM0syYlNNUWZGRjZYcndFVFNES2tfaDZZdmltV0Z6bHNoSnpCX2p3ZG53?oc=5\" target=\"_blank\">AI Week in Review 26.09.12</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Substack</font>"
-    },
-    {
-      "source": "TechCrunch",
-      "discoveryOnly": false,
-      "title": "Revolut confirms customer data breach through fake government requests",
-      "url": "https://techcrunch.com/2026/09/12/revolut-confirms-customer-data-breach-through-fake-government-requests/",
-      "publishedAt": "2026-09-12T14:40:00.000Z",
-      "summary": "Revolut said it notified affected customers and alerted the relevant government agency, law enforcement, and financial regulators."
     },
     {
       "source": "WIRED",
@@ -2449,14 +2537,6 @@
       "url": "https://arstechnica.com/space/2026/09/some-satellite-companies-still-have-an-appetite-for-boutique-launch-services/",
       "publishedAt": "2026-09-11T23:34:45.000Z",
       "summary": "\"Dedicated launch is pretty essential for us for most of our missions.\""
-    },
-    {
-      "source": "TechCrunch",
-      "discoveryOnly": false,
-      "title": "Mecka AI nears $500M valuation in Sequoia-led deal amid rush for robot training data",
-      "url": "https://techcrunch.com/2026/09/11/mecka-ai-nears-500m-valuation-in-sequoia-led-deal-amid-rush-for-robot-training-data/",
-      "publishedAt": "2026-09-11T22:58:17.000Z",
-      "summary": "The round for the two-year-old startup is coming together months after Mecka announced its Series A."
     },
     {
       "source": "Ars Technica",
@@ -2571,6 +2651,30 @@
       "summary": "Post-training attention sparsification reduces the quadratic cumulative attention cost of pretrained Transformers by selecting a small set of context units (tokens or blocks) for each query. Existing trainable methods usually use a lightweight selector to score context units, followed by hard Top-K selection that block"
     },
     {
+      "source": "arXiv — cs.AI",
+      "discoveryOnly": false,
+      "title": "Rethinking Heterogeneous System Disaggregation for Subquadratic Attention",
+      "url": "https://arxiv.org/abs/2609.13134v1",
+      "publishedAt": "2026-09-11T17:55:45.000Z",
+      "summary": "Frontier language models are more aggressively using subquadratic attention to reduce the memory footprint and compute requirements during inference while still delivering frontier accuracy. While existing systems make dense attention-centric disaggregated serving decisions, we show that disaggregating inference around"
+    },
+    {
+      "source": "arXiv — cs.AI",
+      "discoveryOnly": false,
+      "title": "A Hybrid LSTM-XGBoost Framework for Multi-Horizon Stock Return Prediction Across Diversified Equity Portfolios",
+      "url": "https://arxiv.org/abs/2609.13125v1",
+      "publishedAt": "2026-09-11T17:51:47.000Z",
+      "summary": "Accurate prediction of equity returns remains a major challenge in computational finance due to the non-stationary, nonlinear, and low signal-to-noise ratio nature of financial time series. This paper proposes a hybrid two-stage architecture that combines a long short-term memory (LSTM) network with an XGBoost gradient"
+    },
+    {
+      "source": "arXiv — cs.AI",
+      "discoveryOnly": false,
+      "title": "CMA-OT: Hierarchical Expert Supervision for Dance-to-Music Generation",
+      "url": "https://arxiv.org/abs/2609.13118v1",
+      "publishedAt": "2026-09-11T17:46:15.000Z",
+      "summary": "Dance-to-music (D2M) generation aims to synthesize music that is rhythmically and stylistically aligned with dance videos. A key challenge arises from the semantic mismatch between sparse dance cues, such as rhythm and style, and the dense information required for music composition, including structure, instrumentation"
+    },
+    {
       "source": "arXiv — cs.CL",
       "discoveryOnly": false,
       "title": "Continue, Adapt, or Yield: In-Turn Adaptation to Overlapping Speech in Full-Duplex Agents",
@@ -2579,15 +2683,23 @@
       "summary": "Full-duplex evaluation often emphasizes whether an agent keeps speaking or stops. That binary cannot express a third response humans use routinely: continuing to speak while incorporating what the listener just contributed. The contribution may be a missing word, a correction or a clarification. We introduce Duplex Cue"
     },
     {
-      "source": "arXiv — cs.LG",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
-      "title": "A Ranking Approach for Measuring Calibration",
-      "url": "https://arxiv.org/abs/2609.13100v1",
-      "publishedAt": "2026-09-11T17:34:25.000Z",
-      "summary": "When providing forecasted probabilities with a predictive model, the ideal model offers perfect calibration: the true probability of the outcome (i.e., the probability that $Y=1$) exactly matches the forecasted probability $f(X)$. In practice, models inevitably exhibit calibration error, and it is therefore important t"
+      "title": "ASTRIL-MPC: Autonomous Traversal Framework of Articulated Tracked Robots with Language-Guided Neural-Kinematic MPC",
+      "url": "https://arxiv.org/abs/2609.13083v1",
+      "publishedAt": "2026-09-11T17:17:52.000Z",
+      "summary": "In urban search and rescue, articulated tracked robots (ATRs) must traverse structured but contact-rich environments such as stairwells and cluttered building interiors. Reliable autonomy remains challenging because robot-terrain interaction (RTI) is hybrid and discontinuous, and effective flipper-track coordination is"
     },
     {
-      "source": "arXiv — cs.CL",
+      "source": "arXiv — cs.AI",
+      "discoveryOnly": false,
+      "title": "Embodied-BenchForge: A Closed-Loop Agentic Workflow for Embodied Benchmark Construction",
+      "url": "https://arxiv.org/abs/2609.13082v1",
+      "publishedAt": "2026-09-11T17:16:01.000Z",
+      "summary": "Agentic systems offer a promising way to automate embodied benchmark construction, but existing approaches typically cover isolated stages or remain specialized to predefined environments and task families. More importantly, multi-step construction produces dependent intermediate artifacts that are often passed downstr"
+    },
+    {
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
       "title": "MP-Bench: Evaluating Voice Agents as a Multiparty Conversation Participant",
       "url": "https://arxiv.org/abs/2609.13076v1",
@@ -2595,7 +2707,7 @@
       "summary": "Conversational voice agents have advanced significantly, offering increasingly natural human-machine interactions through both cascaded and end-to-end architectures. However, while recent benchmarks extensively evaluate dyadic interactions and passive audio comprehension, they largely overlook a prevalent real-world sc"
     },
     {
-      "source": "arXiv — cs.LG",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
       "title": "Autonomous Research for Open-Ended Problems: A Case Study on Telecom Ticket Retrieval",
       "url": "https://arxiv.org/abs/2609.13073v1",
@@ -2603,7 +2715,7 @@
       "summary": "Recent breakthroughs in LLM-based systems and their abilities in problem solving and coding have allowed progress in the AI for Science paradigm, potentially replacing human roles in machine learning (ML) research. However, while several frameworks of fully autonomous end-to-end ML research have been proposed, successf"
     },
     {
-      "source": "arXiv — cs.CL",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
       "title": "MAxBench: A Multinomial Concept Recovery Benchmark",
       "url": "https://arxiv.org/abs/2609.13072v1",
@@ -2611,12 +2723,20 @@
       "summary": "Fine-grained control of language model behaviors (e.g., steering) is among the more actionable outcomes of interpretability research. For binary concepts such as refusal, a single direction in activation space often suffices for steering. However, many concepts are not binary: Animals and Countries contain many subcate"
     },
     {
-      "source": "arXiv — cs.LG",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
-      "title": "CanvasAnneal: Curriculum Reinforcement Learning for Diffusion Language Models",
-      "url": "https://arxiv.org/abs/2609.13060v1",
-      "publishedAt": "2026-09-11T16:59:52.000Z",
-      "summary": "Diffusion Language Models (DLMs) offer promising parallel generation capabilities but lag behind autoregressive models in complex reasoning and tool-use tasks. While Reinforcement Learning (RL) has recently been applied to enhance DLMs, standard RL approaches suffer from an exploration bottleneck. To address this, we i"
+      "title": "Involving before Evolving: A Vision for Trustworthy Enterprise Digital Twin Engineering",
+      "url": "https://arxiv.org/abs/2609.13071v1",
+      "publishedAt": "2026-09-11T17:06:48.000Z",
+      "summary": "Enterprise Digital Twins (EDTs) promise data-driven decision support at organizational scale, but realizing them requires navigating siloed departments, tacit knowledge, and high-stakes decisions with long-horizon consequences. Existing approaches involve domain experts during model development but focus less on early "
+    },
+    {
+      "source": "arXiv — cs.AI",
+      "discoveryOnly": false,
+      "title": "Anchoring Clinical Events in Time: UID-Preserving Multimodal Reconstruction and Source-Grounded Adjudication",
+      "url": "https://arxiv.org/abs/2609.13062v1",
+      "publishedAt": "2026-09-11T17:01:10.000Z",
+      "summary": "Clinical timelines support treatment-window analysis and leakage-free modeling, but discharge summaries often obscure chronology and structured EHR tables describe only part of the patient course. We present a UID-preserving framework that links each narrative event occurrence to its source span and retains that identi"
     },
     {
       "source": "arXiv — cs.CL",
@@ -2627,15 +2747,7 @@
       "summary": "Reinforcement learning (RL) has become central to post-training of large language models. Recent advances in RL for Mixture-of-Experts (MoE) models have primarily focused on improving optimization stability and training efficiency, while treating the expert selection as a fixed component. Since routing determines the s"
     },
     {
-      "source": "arXiv — cs.LG",
-      "discoveryOnly": false,
-      "title": "Benign Loss Landscapes Can Coexist with Worst-Case Hardness",
-      "url": "https://arxiv.org/abs/2609.13057v1",
-      "publishedAt": "2026-09-11T16:57:02.000Z",
-      "summary": "Deep neural networks are expressive enough to contain worst-case targets that can be evaluated in polynomial time but cannot be learned in polynomial time by gradient descent. For practical tasks they nonetheless learn well, raising the question of what non-generic structure of real-world targets enables this. Existing"
-    },
-    {
-      "source": "arXiv — cs.LG",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
       "title": "Dynin-Robotics: Omnimodal Unified Diffusion Vision-Language-Action Model",
       "url": "https://arxiv.org/abs/2609.13053v1",
@@ -2643,23 +2755,7 @@
       "summary": "Visual goal and dynamics prediction can provide language-conditioned robot policies with both a target outcome and a representation of action-dependent scene changes. We bring these predictions into action generation and selection through a shared trajectory model. Dynin-Robotics implements this formulation on Dynin-Om"
     },
     {
-      "source": "arXiv — cs.LG",
-      "discoveryOnly": false,
-      "title": "A Unified and Constrained View of Regularization-Based Robust Reinforcement Learning",
-      "url": "https://arxiv.org/abs/2609.13050v1",
-      "publishedAt": "2026-09-11T16:45:36.000Z",
-      "summary": "Regularization-based methods have become a standard approach for training Deep Reinforcement Learning policies against adversarial input perturbations. In this paper, we unify these methods by deriving new upper bounds on the performance gap between the nominal and worst-case policies. Each upper bound is expressed as "
-    },
-    {
-      "source": "arXiv — cs.LG",
-      "discoveryOnly": false,
-      "title": "MCRL2: Multi-resource Cross-attention-based Representation Learning-augmented Reinforcement Learning for Cloud Microservice Scheduling",
-      "url": "https://arxiv.org/abs/2609.13048v1",
-      "publishedAt": "2026-09-11T16:44:19.000Z",
-      "summary": "Efficient microservice scheduling is crucial for maintaining load balance across nodes in data centers and ensuring high quality of service. However, achieving this in practice remains challenging due to dynamic resource imbalance under fluctuating workloads, nonlinear coupling across multiple resource dimensions, and "
-    },
-    {
-      "source": "arXiv — cs.LG",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
       "title": "Diffusion Models and Concept Formation",
       "url": "https://arxiv.org/abs/2609.13047v1",
@@ -2675,15 +2771,15 @@
       "summary": "Speech-to-speech translation (S2ST) has advanced significantly with speech LLMs, offering the potential for joint optimization and preserving non-linguistic information. However, these models struggle with predicting high-bitrate speech tokens in LLMs, and face the challenge of relying on S2ST training data with ideall"
     },
     {
-      "source": "arXiv — cs.LG",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
-      "title": "Robust Policy Optimization via Adversarial Importance Sampling",
-      "url": "https://arxiv.org/abs/2609.13044v1",
-      "publishedAt": "2026-09-11T16:40:45.000Z",
-      "summary": "Significant progress has been made in safeguarding deep reinforcement learning (DRL) policies against input perturbations. Developing robust DRL involves three main stages: algorithm design, implementation, and evaluation. In this work, we identify and address a key limitation at each stage. First, we introduce Adversa"
+      "title": "Unified CT and MRI Pancreas Segmentation for Label-Efficient Cross-Modality Subregion Transfer",
+      "url": "https://arxiv.org/abs/2609.13043v1",
+      "publishedAt": "2026-09-11T16:40:25.000Z",
+      "summary": "Robust medical image segmentation across imaging modalities is challenging because of large differences in appearance and intensity distributions. Models trained on a single modality often show substantial performance drops when applied to unseen domains. In this work, we develop a unified 3D pancreas segmentation fram"
     },
     {
-      "source": "arXiv — cs.LG",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
       "title": "DynSHAP: Towards Explainable Dynamic Survival Analysis",
       "url": "https://arxiv.org/abs/2609.13042v1",
@@ -2691,23 +2787,7 @@
       "summary": "Deep learning models for dynamic survival analysis (DSA) achieve strong predictive performance by incorporating longitudinal patient data, but their black box nature limits clinical trust and adoption. Existing explainability methods cannot handle longitudinal, irregular inputs and functional survival outputs simultane"
     },
     {
-      "source": "arXiv — cs.LG",
-      "discoveryOnly": false,
-      "title": "Quantile-based Loss Filtering for Outlier-Robust Stochastic Gradient Descent",
-      "url": "https://arxiv.org/abs/2609.13040v1",
-      "publishedAt": "2026-09-11T16:38:21.000Z",
-      "summary": "We study loss-based filtering for finite-sum optimization with a subset of corrupted component functions whose gradients may be highly unreliable. Motivated by minimum-loss-based SGD (min-$k$-loss) and quantile-based methods for corrupted linear systems, we propose and analyze a general loss-filtering framework -- Quan"
-    },
-    {
-      "source": "arXiv — cs.LG",
-      "discoveryOnly": false,
-      "title": "Transfer Learning for Evolving Domains",
-      "url": "https://arxiv.org/abs/2609.13039v1",
-      "publishedAt": "2026-09-11T16:37:37.000Z",
-      "summary": "Transfer learning explores how to leverage knowledge from various tasks or domains (sources) to enhance predictive performance in related tasks or domains (targets). Typically, transfer learning research is segmented into several isolated sub-areas (such as domain generalisation, domain adaptation, or multi-domain lear"
-    },
-    {
-      "source": "arXiv — cs.LG",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
       "title": "Groupoid-Based Internal State Representations for Reinforcement Learning with Local Symmetries",
       "url": "https://arxiv.org/abs/2609.13035v1",
@@ -2715,12 +2795,20 @@
       "summary": "Symmetries play a central role in reducing the complexity of reinforcement learning problems, yet most existing approaches rely on fixed group actions or predefined state abstractions. Classical reinforcement learning algorithms typically assume a globally structured Markov decision process with uniformly applicable ac"
     },
     {
-      "source": "arXiv — cs.LG",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
       "title": "Attention Quantization for Tabular Foundation Models",
       "url": "https://arxiv.org/abs/2609.13031v1",
       "publishedAt": "2026-09-11T16:31:29.000Z",
       "summary": "With the recent rise and adoption of tabular foundation models, optimizing their inference performance becomes an emerging field for efficiency research. While the models are architecturally similar to transformer-based large language models (LLMs), the size and serving patterns differ significantly. We show that the f"
+    },
+    {
+      "source": "arXiv — cs.AI",
+      "discoveryOnly": false,
+      "title": "Label-Guided Knowledge Distillation for 3D-CNNs in Action Recognition",
+      "url": "https://arxiv.org/abs/2609.13024v1",
+      "publishedAt": "2026-09-11T16:21:21.000Z",
+      "summary": "As a key model compression technique, knowledge distillation aims to transfer knowledge from a high-capacity teacher model to a lightweight student model for enhancing the latter's performance. In this work, we reviewed the feature knowledge distillation for 3D-CNNs and observed that most feature distillation methods i"
     },
     {
       "source": "Ars Technica",
@@ -2739,15 +2827,31 @@
       "summary": "Save on Petlibro essentials, including automatic feeders, water fountains, and accessories to keep cats and dogs fed, hydrated, and comfortable every day."
     },
     {
-      "source": "arXiv — cs.LG",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
-      "title": "Dual-guided Hierarchical Edge Localization for Large-scale Optimal Transport Across Dimensions",
-      "url": "https://arxiv.org/abs/2609.13010v1",
-      "publishedAt": "2026-09-11T16:07:51.000Z",
-      "summary": "Optimal transport (OT) compares distributions and aligns datasets in machine learning, yet unregularized discrete OT requires a linear program with quadratically many transport variables. We propose HELLO, a hierarchical solver that casts large-scale discrete OT as edge localization and uses dual potentials to guide bo"
+      "title": "TileNet: Tile-Based CNN-SVM Architecture for Autonomous Unmanned Aerial Systems Inspection of Flat Roofs",
+      "url": "https://arxiv.org/abs/2609.13013v1",
+      "publishedAt": "2026-09-11T16:11:35.000Z",
+      "summary": "Flat roofs are among the most influential components of the building envelope, governing both structural performance and thermal efficiency, and thereby contributing directly to household energy consumption, carbon emissions, and long-term environmental sustainability. Timely detection of roof defects is essential for "
     },
     {
-      "source": "arXiv — cs.CL",
+      "source": "arXiv — cs.AI",
+      "discoveryOnly": false,
+      "title": "Comfort by Construction: Adaptive, Comfort-Bounded Action Spaces for Learned Driving Policies",
+      "url": "https://arxiv.org/abs/2609.13011v1",
+      "publishedAt": "2026-09-11T16:08:56.000Z",
+      "summary": "Data-driven driving simulators command accelerations and steering rates from a fixed grid without constraining the realized accelerations and jerks. As a result, reinforcement-learning policies inflate safety metrics through abrupt, last-second maneuvers that lie far outside the range of human driving and would be unac"
+    },
+    {
+      "source": "arXiv — cs.AI",
+      "discoveryOnly": false,
+      "title": "How Good Are Frontier Models at Physics? Expert Re-Grading Reveals Broken Evaluations and Near-Saturation of Leading Benchmarks",
+      "url": "https://arxiv.org/abs/2609.13009v1",
+      "publishedAt": "2026-09-11T16:06:50.000Z",
+      "summary": "Low reported scores on leading physics benchmarks, including those featured in the Artificial Analysis Intelligence Index (2026), suggest that frontier language models still struggle with advanced physics, a demanding test of their scientific reasoning and quantitative problem-solving abilities. Yet this impression doe"
+    },
+    {
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
       "title": "Tasks over Application Manuals: Revealing Gaps in Long-Horizon Procedural Reasoning for Language Models",
       "url": "https://arxiv.org/abs/2609.13005v1",
@@ -2779,6 +2883,22 @@
       "summary": "We investigate the effect of pretrained T5 model scale and explicit motion features on pose-to-text Indian Sign Language Translation (SLT) for the WSLP 2026 Shared Task. Pose sequences are projected into the embedding space of T5 through a lightweight pose encoder, with the complete model fine-tuned to generate English"
     },
     {
+      "source": "arXiv — cs.AI",
+      "discoveryOnly": false,
+      "title": "SeqMoE: Toward Full-Load Performance via Predictive and Graph-Compatible MoE Offloading",
+      "url": "https://arxiv.org/abs/2609.12978v1",
+      "publishedAt": "2026-09-11T15:43:52.000Z",
+      "summary": "Mixture-of-Experts (MoE) creates a structural advantage for offloading: only a small fraction of activated experts need to reside in device memory, and if they can be loaded in time for computation, offloading can in principle approach full-load performance, where all model weights reside in device memory. Yet translat"
+    },
+    {
+      "source": "arXiv — cs.AI",
+      "discoveryOnly": false,
+      "title": "Generative Retrieval for Unsupervised Text-Based Person Search",
+      "url": "https://arxiv.org/abs/2609.12965v1",
+      "publishedAt": "2026-09-11T15:25:00.000Z",
+      "summary": "Text-based person search (TBPS) aims to retrieve images of a target person from a large image gallery based on a given natural language description. Most existing methods rely on supervised learning with manually annotated image-text pairs. In this paper, we explore unsupervised TBPS, with only unlabeled images. We pro"
+    },
+    {
       "source": "arXiv — cs.CL",
       "discoveryOnly": false,
       "title": "Fewer Words, Not Fewer Tokens: Measuring the Sanskrit Tokenization Penalty per Proposition",
@@ -2787,12 +2907,12 @@
       "summary": "Sanskrit fuses case, number, person and tense into word endings and chains clauses into compounds, so it is information-dense per word. Whether that density survives subword tokenization is a separate question, to be asked per unit of meaning rather than per word. On identical FLORES-200 devtest content, Sanskrit costs"
     },
     {
-      "source": "arXiv — cs.LG",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
-      "title": "A Large-Scale AIS Dataset from Finnish Water",
-      "url": "https://arxiv.org/abs/2609.12938v1",
-      "publishedAt": "2026-09-11T15:02:07.000Z",
-      "summary": "This research paper contributes to the maritime research community by introducing a comprehensive AIS dataset from Finnish waters, specifically the Baltic Sea region. AIS data, initially designed for collision prevention, have evolved into a versatile tool with applications across diverse maritime domains. Our paper no"
+      "title": "EduFair-Bench: Evaluating Pedagogical Fairness of LLM Tutors Across Student Demographics",
+      "url": "https://arxiv.org/abs/2609.12949v1",
+      "publishedAt": "2026-09-11T15:10:07.000Z",
+      "summary": "Large language models (LLMs) are increasingly deployed as tutors, but it is unclear whether they support all students equally well. We introduce \\textbf{EduFair-Bench}, a benchmark for auditing the pedagogical fairness of LLM tutors---whether tutoring quality varies systematically with student demographics. EduFair-Ben"
     },
     {
       "source": "WIRED",
@@ -2803,12 +2923,12 @@
       "summary": "Timnit Gebru argues that AI companies are stoking fears of extinction to avoid discussing actual harms, like autonomous weapons."
     },
     {
-      "source": "arXiv — cs.LG",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
-      "title": "Dissecting GPU Utilization for LLM Inference on Nvidia Hopper",
-      "url": "https://arxiv.org/abs/2609.12923v1",
-      "publishedAt": "2026-09-11T14:49:05.000Z",
-      "summary": "A single SM utilization percentage can make an LLM inference workload look compute-saturated while hiding how much useful work is being done. The problem is not that the counter is wrong, but that it collapses several different mechanisms into one number. This is most severe during decode, where each request contribute"
+      "title": "ARC: Autonomous Robotics Compliance A Three-Layer Governance Architecture for Deployed Autonomous Systems",
+      "url": "https://arxiv.org/abs/2609.12932v1",
+      "publishedAt": "2026-09-11T14:55:50.000Z",
+      "summary": "Proposed governance framework for autonomous robotic systems, introducing a three-layer compliance architecture (ARC) instantiated through model safety validation, cognitive certification benchmarks, and operational authorization standards."
     },
     {
       "source": "arXiv — cs.CL",
@@ -2819,7 +2939,7 @@
       "summary": "Handwritten mathematical expression recognition (HMER) is conventionally scored by exact-match rates and string-similarity metrics that are blind to where an error occurs: two predictions with identical token-error counts receive identical scores whether they misplace a subscript or swap the operands of a fraction. Ren"
     },
     {
-      "source": "arXiv — cs.CL",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
       "title": "LLM-Enhanced Dual-Branch Learning for Large-Scale Multi-Label Text Classification",
       "url": "https://arxiv.org/abs/2609.12915v1",
@@ -2835,44 +2955,36 @@
       "summary": "Dense retrieval systems increasingly rely on multi-billion-parameter language models, whose memory and computational requirements make large-scale indexing, frequent corpus updates, and low-latency serving costly. We present a three-stage training pipeline for developing compact and efficient retrievers that remain com"
     },
     {
-      "source": "arXiv — cs.LG",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
-      "title": "Offline Reinforcement Learning for Wind Farm Control: A Wind Tunnel Study under Dynamic Wind Directions",
-      "url": "https://arxiv.org/abs/2609.12905v1",
-      "publishedAt": "2026-09-11T14:31:08.000Z",
-      "summary": "This paper addresses the wind farm power maximization problem in the presence of wind direction changes. Specifically, a model-free Modified Twin Delayed Deep Deterministic Policy Gradient with Behavior Cloning (MTD3-BC) algorithm is proposed to tackle this task through yaw control under varying wind direction conditio"
+      "title": "UniPart: Towards Zero-shot Language-Grounded 3D Part Segmentation for Embodied Interaction",
+      "url": "https://arxiv.org/abs/2609.12898v1",
+      "publishedAt": "2026-09-11T14:25:17.000Z",
+      "summary": "Fine-grained robotic manipulation depends on understanding parts, not only whole objects. Existing 3D foundation models tend to be either generalized but object-aware, or part-aware but limited to closed-set taxonomies, which weakens zero-shot transfer. We study text-conditioned 3D part segmentation, where a free-form "
     },
     {
-      "source": "arXiv — cs.LG",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
-      "title": "Hidden in Rounds: Predicting the Time Cost of 802.11 Contention in Federated Learning",
-      "url": "https://arxiv.org/abs/2609.12903v1",
-      "publishedAt": "2026-09-11T14:30:26.000Z",
-      "summary": "Federated learning over IEEE~802.11 shares the wireless channel among clients that send model updates. We use ns-3 to measure the frame-delivery ratio and saturation throughput for different client densities and offered loads. A separate FedAvg trainer uses the frame-delivery ratio as a first-order proxy for the update"
+      "title": "Tracing and Coordinating Cross-Layer Influence for Multimodal Model Merging",
+      "url": "https://arxiv.org/abs/2609.12897v1",
+      "publishedAt": "2026-09-11T14:24:07.000Z",
+      "summary": "Multimodal model merging aims to consolidate task experts into a single model that retains their complementary capabilities. Most unimodal model merging methods combine expert updates within individual layers, and multimodal approaches largely follow this design. However, an expert update changes the representations pa"
     },
     {
-      "source": "arXiv — cs.LG",
-      "discoveryOnly": false,
-      "title": "Physics-enriched neural solvers for transient ice-flow simulation",
-      "url": "https://arxiv.org/abs/2609.12900v1",
-      "publishedAt": "2026-09-11T14:26:12.000Z",
-      "summary": "Transient glacier simulations with higher-order ice flow require the repeated solution of a nonlinear problem as the geometry evolves. In the online mode of the Instructed Glacier Model, the velocity field is represented by a neural network whose weights are warm-started from the previous time step and updated with a f"
-    },
-    {
-      "source": "arXiv — cs.LG",
-      "discoveryOnly": false,
-      "title": "Physical-State-Guided Diffusion Sampling for Full-Waveform Inversion",
-      "url": "https://arxiv.org/abs/2609.12899v1",
-      "publishedAt": "2026-09-11T14:25:42.000Z",
-      "summary": "Full waveform inversion (FWI) estimates subsurface velocity from seismic recordings, but its ill-posedness and nonlinearity make accurate reconstruction strongly dependent on initialization and prior information. Diffusion posterior sampling provides a learned geological prior, yet directly coupling its denoiser to the"
-    },
-    {
-      "source": "arXiv — cs.LG",
+      "source": "arXiv — cs.AI",
       "discoveryOnly": false,
       "title": "Behavior Quotient Learning for Low-Rank Adaptation of LLM Agents",
       "url": "https://arxiv.org/abs/2609.12896v1",
       "publishedAt": "2026-09-11T14:23:43.000Z",
       "summary": "LLM-based agents rely on heterogeneous interaction capabilities to accomplish complex tasks. Existing approaches often distribute these capabilities across multiple LoRA adapters, which increases adapter storage requirements and introduces routing overhead during inference. A single LoRA avoids this overhead, but learn"
+    },
+    {
+      "source": "arXiv — cs.AI",
+      "discoveryOnly": false,
+      "title": "Large Distant Gradients Need Not Be Reliable: reliability-weighted credit assignment for long-horizon autoregressive forecasting",
+      "url": "https://arxiv.org/abs/2609.12890v1",
+      "publishedAt": "2026-09-11T14:18:59.000Z",
+      "summary": "In autoregressive forecasting, long prediction rollouts provide distant supervision, but backpropagation through time (BPTT) carries gradients from those losses through many autoregressive steps. Repeated Jacobian products can make distant gradients dominate the update while amplifying predictable signal and unpredicta"
     },
     {
       "source": "arXiv — cs.CL",
@@ -2945,14 +3057,6 @@
       "url": "https://arstechnica.com/space/2026/09/could-united-launch-alliances-money-problems-finally-force-its-owners-to-sell/",
       "publishedAt": "2026-09-11T11:00:44.000Z",
       "summary": "ULA is preparing to resume launching the Vulcan rocket in the coming weeks."
-    },
-    {
-      "source": "Ars Technica",
-      "discoveryOnly": false,
-      "title": "Rocket Report: Europe joins the commercial launch club; a Ravn X sighting?",
-      "url": "https://arstechnica.com/space/2026/09/rocket-report-europe-joins-the-commercial-launch-club-a-ravn-x-sighting/",
-      "publishedAt": "2026-09-11T11:00:30.000Z",
-      "summary": "\"We felt like now is the time to pour gas on that fire.\""
     },
     {
       "source": "WIRED",
@@ -3091,22 +3195,6 @@
       "summary": "Explore Chewy coupon codes for $30 off, $20 off your first order $49, 50% off pet food, and more September 2026 discounts."
     },
     {
-      "source": "WIRED",
-      "discoveryOnly": false,
-      "title": "Corsair Discount Code: Up to 50% Off for September 2026",
-      "url": "https://www.wired.com/story/corsair-coupon/",
-      "publishedAt": "2026-09-11T05:00:00.000Z",
-      "summary": "Upgrade your gaming setup or PC build for less with these verified Corsair coupon codes, student discounts, and refurbished deals."
-    },
-    {
-      "source": "Ars Technica",
-      "discoveryOnly": false,
-      "title": "Boy developed \"toasted skin\" condition from using a laptop every day",
-      "url": "https://arstechnica.com/health/2026/09/boy-developed-toasted-skin-condition-from-using-a-laptop-every-day/",
-      "publishedAt": "2026-09-10T22:16:05.000Z",
-      "summary": "Laptops don't usually get hot enough to burn—but they can still be harmful."
-    },
-    {
       "source": "AWS — Machine Learning",
       "discoveryOnly": false,
       "title": "Reduce LLM latency with prefix-aware routing on Amazon SageMaker Inference",
@@ -3129,14 +3217,6 @@
       "url": "https://aws.amazon.com/blogs/machine-learning/video-and-image-search-in-amazon-bedrock-knowledge-base-using-marengo-3-0/",
       "publishedAt": "2026-09-10T21:15:39.000Z",
       "summary": "TwelveLabs Marengo Embed 3.0 is now generally available as an embedding model in Amazon Bedrock Knowledge Bases, bringing fully managed natural language search to video, image, and audio content. This walkthrough shows how to build a knowledge base powered by Marengo 3.0 and run semantic queries against your media."
-    },
-    {
-      "source": "Ars Technica",
-      "discoveryOnly": false,
-      "title": "LinkedIn beats \"BrowserGate\" lawsuits over scanning users' Chrome extensions",
-      "url": "https://arstechnica.com/tech-policy/2026/09/linkedin-beats-browsergate-lawsuits-over-scanning-users-chrome-extensions/",
-      "publishedAt": "2026-09-10T20:55:29.000Z",
-      "summary": "Judge tosses lawsuits, says plaintiffs didn't allege any real privacy violation."
     },
     {
       "source": "AWS — Machine Learning",
@@ -3281,14 +3361,6 @@
       "url": "https://www.technologyreview.com/2026/09/10/1143588/indxcoin-god-regalados-sell-crypto-investors-lost-everything/",
       "publishedAt": "2026-09-10T09:00:00.000Z",
       "summary": "This article was produced in partnership with Type Investigations and with support from the Fund for Investigative Journalism. When Eli Regalado first heard God speak to him, he wondered whether he was hallucinating. Now he likens the experience to having “a thought that is not my thought.” Divine words echo in his min"
-    },
-    {
-      "source": "MIT Technology Review",
-      "discoveryOnly": false,
-      "title": "Healthcare AI’s next test is integration",
-      "url": "https://www.technologyreview.com/2026/09/10/1141421/healthcare-ais-next-test-is-integration/",
-      "publishedAt": "2026-09-10T08:58:01.000Z",
-      "summary": "The entrance of major AI companies into healthcare is a meaningful and welcome development, accelerating the technical foundation available to the industry. Their models are increasingly capable of processing long clinical records, interpreting complex terminology, comparing documentation against evidence and generatin"
     },
     {
       "source": "OpenAI",
@@ -4113,14 +4185,6 @@
       "url": "https://spectrum.ieee.org/silico-ai-interpretability",
       "publishedAt": "2026-08-26T12:00:01.000Z",
       "summary": "Prompt Claude, ChatGPT, Gemini, or any other popular large language model with a question like “What is the best film ever made?” and the response will vary. And you (and most worryingly, the people who built the LLM) have little idea exactly how it came up with that specific answer. This mysterious behavior can be use"
-    },
-    {
-      "source": "OpenAI",
-      "discoveryOnly": false,
-      "title": "Bringing ChatGPT for Teachers to more U.S. school districts",
-      "url": "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts",
-      "publishedAt": "2026-08-26T10:00:00.000Z",
-      "summary": "ChatGPT for Teachers is expanding to 55 U.S. school systems, bringing secure AI tools, training, and support to over 100,000 more educators and staff."
     },
     {
       "source": "Hugging Face — blog",
