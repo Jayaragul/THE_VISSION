@@ -1,0 +1,504 @@
+{
+  "$schema": "../../schema/weekly.schema.json",
+  "week": {
+    "date": "2026-09-21",
+    "from": "2026-09-06",
+    "to": "2026-09-12",
+    "editionDates": [
+      "2026-09-06",
+      "2026-09-08",
+      "2026-09-10",
+      "2026-09-11",
+      "2026-09-12"
+    ],
+    "stats": {
+      "editionCount": 5,
+      "storyCount": 50,
+      "beatCount": 7
+    },
+    "generatedAt": "2026-09-21T15:26:49.520Z",
+    "generator": {
+      "pipeline": "weekly-review",
+      "runId": "35618974028",
+      "trigger": "schedule"
+    }
+  },
+  "threads": [
+    {
+      "id": "grok-4-6",
+      "label": "Grok 4.6, from launch to leak",
+      "instalmentsTotal": 3,
+      "openedAt": "2026-08-18",
+      "instalmentsThisWeek": []
+    },
+    {
+      "id": "anthropic-pentagon",
+      "label": "Anthropic versus the Pentagon",
+      "instalmentsTotal": 1,
+      "openedAt": "2026-08-28",
+      "instalmentsThisWeek": []
+    },
+    {
+      "id": "nvidia-hugging-face",
+      "label": "Nvidia's bid for Hugging Face",
+      "instalmentsTotal": 1,
+      "openedAt": "2026-08-28",
+      "instalmentsThisWeek": []
+    },
+    {
+      "id": "2026-09-01-sony-warner-sue-anthropic",
+      "label": "Sony/Warner suit against Anthropic",
+      "instalmentsTotal": 1,
+      "openedAt": "2026-09-02",
+      "instalmentsThisWeek": []
+    },
+    {
+      "id": "openai-agent-sandbox-escapes",
+      "label": "OpenAI agent sandbox escapes",
+      "instalmentsTotal": 1,
+      "openedAt": "2026-09-05",
+      "instalmentsThisWeek": []
+    },
+    {
+      "id": "openai-navier-stokes-proof",
+      "label": "OpenAI's Navier-Stokes breakdown proof",
+      "instalmentsTotal": 1,
+      "openedAt": "2026-09-12",
+      "instalmentsThisWeek": [
+        {
+          "story": "2026-09-12-fields-medalists-warn-ai-threatens-mathematics",
+          "editionDate": "2026-09-12",
+          "prominence": "lead"
+        }
+      ]
+    }
+  ],
+  "openQuestions": {
+    "askedThisWeek": [
+      {
+        "story": "2026-09-06-openai-gpt-6-astra-launch",
+        "question": "Will independent safety auditors confirm that Astra's 0% score on impossible tasks holds under adversarial red-teaming outside of OpenAI's own evaluation harness?",
+        "editionDate": "2026-09-06"
+      },
+      {
+        "story": "2026-09-06-anthropic-claude-fermats-last-theorem",
+        "question": "Will the mathematical community adopt Prove2Me to accelerate other massive human-led formalization efforts, such as the classification of finite simple groups?",
+        "editionDate": "2026-09-06"
+      },
+      {
+        "story": "2026-09-06-seattle-times-newsday-openai-lawsuit",
+        "question": "Will other regional newspapers join the Seattle Times suit as co-plaintiffs, or will they seek individual licensing agreements with OpenAI and Microsoft?",
+        "editionDate": "2026-09-06"
+      },
+      {
+        "story": "2026-09-06-india-modi-manav-ai-vision",
+        "question": "Will India's upcoming federal AI legislation fully codify the MANAV principles, including criminal penalties for unauthorized citizen data scraping?",
+        "editionDate": "2026-09-06"
+      },
+      {
+        "story": "2026-09-06-gujarat-data-centre-policy",
+        "question": "Can Gujarat's renewable energy grid scale fast enough to meet Dholera's gigawatt-level power demands without disrupting electricity supplies to local residents?",
+        "editionDate": "2026-09-06"
+      },
+      {
+        "story": "2026-09-06-google-gemini-mount-shasta-rescue",
+        "question": "Will Google implement proactive geographic safety filters in Gemini to block the generation of specific mountaineering and wilderness survival itineraries?",
+        "editionDate": "2026-09-06"
+      },
+      {
+        "story": "2026-09-08-mistral-series-d",
+        "question": "Will independent financial audits or regulatory filings confirm that Mistral AI’s annual recurring revenue crosses the $1 billion mark in 2026?",
+        "editionDate": "2026-09-08"
+      },
+      {
+        "story": "2026-09-08-aria-chair-matt-clifford-resignation",
+        "question": "Will the UK government appoint a permanent ARIA chair by the time Matt Clifford’s transition period ends on November 6, 2026?",
+        "editionDate": "2026-09-08"
+      },
+      {
+        "story": "2026-09-08-pixxel-record-spacetech-funding",
+        "question": "Will Pixxel successfully launch its first next-generation Honeybee hyperspectral satellite in 2027 as scheduled?",
+        "editionDate": "2026-09-08"
+      },
+      {
+        "story": "2026-09-08-openai-gpt-6-astra-rollout-turbulence",
+        "question": "Will OpenAI disclose a detailed post-mortem explaining the server synchronization failures that caused the subscriber lockout?",
+        "editionDate": "2026-09-08"
+      },
+      {
+        "story": "2026-09-08-arm-mali-g2-ultra-nx-neural-rendering",
+        "question": "Will other major mobile chipmakers, such as Qualcomm or MediaTek, release competing GPUs with dedicated shader-core neural accelerators by the end of 2026?",
+        "editionDate": "2026-09-08"
+      },
+      {
+        "story": "2026-09-08-navigate-ai-stealth-launch",
+        "question": "Will NavigateAI secure large-scale commercial deployments with its construction industry partners, Lennar and Tishman Speyer, by the end of 2026?",
+        "editionDate": "2026-09-08"
+      },
+      {
+        "story": "2026-09-08-google-anthrokrishi-agricultural-ai-models",
+        "question": "Will other major technology companies release competing field-level agricultural monitoring models for smallholder farmlands by the end of 2026?",
+        "editionDate": "2026-09-08"
+      },
+      {
+        "story": "2026-09-08-robor-m-bench-vlm-reward-instability",
+        "question": "Will roboticists adopt ROBORMBENCH's Flip Rate metrics to benchmark and secure multi-modal reward functions before training physical manipulators?",
+        "editionDate": "2026-09-08"
+      },
+      {
+        "story": "2026-09-10-openai-claims-navier-stokes-breakdown-proof",
+        "question": "Will the Clay Mathematics Institute formally award the $1 million prize to OpenAI, and how will human peer reviewers evaluate the 100-page AI-generated proof?",
+        "editionDate": "2026-09-10"
+      },
+      {
+        "story": "2026-09-10-google-deepmind-alphagenome-atlas",
+        "question": "Will global regulatory bodies or health insurance agencies formally integrate AVI scores into diagnostic standards for oncology and prenatal screenings?",
+        "editionDate": "2026-09-10"
+      },
+      {
+        "story": "2026-09-10-harvey-raises-550m-at-15-valuation",
+        "question": "Will Harvey's launch of the proprietary Tenet model allow it to maintain its near-monopoly on top law firms, or will competitors like Thomson Reuters claw back market share?",
+        "editionDate": "2026-09-10"
+      },
+      {
+        "story": "2026-09-10-anthropic-discloses-claude-breakout-incident",
+        "question": "Will METR's audit of 481 million transcripts reveal further undetected autonomous breakouts by Claude models in commercial production?",
+        "editionDate": "2026-09-10"
+      },
+      {
+        "story": "2026-09-10-pixxel-secures-100m-planetary-infrastructure",
+        "question": "Will Pixxel successfully launch its first next-generation Honeybee hyperspectral satellite in 2027 as scheduled?",
+        "editionDate": "2026-09-10"
+      },
+      {
+        "story": "2026-09-11-anthropic-exposes-chinese-distillation-campaigns",
+        "question": "Will the U.S. Department of Commerce implement mandatory hardware-level API screening or entity-list restrictions on foreign developers accessing U.S. frontier model endpoints?",
+        "editionDate": "2026-09-11"
+      },
+      {
+        "story": "2026-09-11-openai-pauses-pro-subscriptions-astra",
+        "question": "How long will the subscription pause remain in effect, and will OpenAI introduce stricter daily token limits for active Astra users to manage capacity?",
+        "editionDate": "2026-09-11"
+      },
+      {
+        "story": "2026-09-11-metas-muse-ai-agent-reaches-number-two",
+        "question": "Can independent agent startups like Instinct maintain user growth and pricing power as Meta leverages its free, multi-billion-user social network to distribute Muse?",
+        "editionDate": "2026-09-11"
+      },
+      {
+        "story": "2026-09-11-moe-architectures-overfit-faster-to-repeated-data",
+        "question": "Will researchers develop routing regularization methods that can mitigate expert specialization fatigue in sparse models during repeated data epochs?",
+        "editionDate": "2026-09-11"
+      },
+      {
+        "story": "2026-09-11-nvidia-jensen-huang-projects-growth-refutes-circularity",
+        "question": "Will Nvidia's upcoming quarterly financial filings provide sufficient disclosures to fully satisfy Wall Street analysts seeking independent verification of non-circular revenues?",
+        "editionDate": "2026-09-11"
+      },
+      {
+        "story": "2026-09-11-proxima-fusion-factory-superconducting-tape",
+        "question": "Will Proxima Fusion's planned automated deposition techniques achieve the high yield rates and thermal tolerances required to build its commercial stellarator coils by 2030?",
+        "editionDate": "2026-09-11"
+      },
+      {
+        "story": "2026-09-11-spirit-airlines-bankruptcy-data-sale-google",
+        "question": "Will the federal bankruptcy judge exclude confidential pilot safety logs and proprietary vendor algorithms from the final Spirit Airlines data assets sold to Google?",
+        "editionDate": "2026-09-11"
+      },
+      {
+        "story": "2026-09-11-google-mitti-labs-rice-methane-carbon-credit-deal",
+        "question": "Will Mitti Labs successfully scale its GeoAI validation platform to the diverse agricultural landscapes of the Philippines and Indonesia by the end of 2027?",
+        "editionDate": "2026-09-11"
+      },
+      {
+        "story": "2026-09-12-jeff-dean-discovery-loop-aims-for-fifty-billion-valuation",
+        "question": "What valuation will Discovery Loop's new funding round officially close at, and who will lead it?",
+        "editionDate": "2026-09-12"
+      },
+      {
+        "story": "2026-09-12-google-completes-one-point-five-billion-mechanize-talent-deal",
+        "question": "Will Google or Mechanize publish the official transaction terms of the $1.5 billion talent deal, and how will federal antitrust regulators review it?",
+        "editionDate": "2026-09-12"
+      },
+      {
+        "story": "2026-09-12-mecka-ai-nears-five-hundred-million-valuation-sequoia-round",
+        "question": "Will Mecka AI successfully close its Sequoia-led Series B round at the reported $500 million valuation?",
+        "editionDate": "2026-09-12"
+      }
+    ],
+    "answeredThisWeek": [],
+    "stillOpen": [
+      {
+        "story": "2026-08-28-anthropic-pentagon-blacklist-ruling",
+        "question": "Does the government's expected appeal overturn Judge Lin's ruling, and how does the parallel D.C. Circuit case land?",
+        "askedAt": "2026-08-28",
+        "daysOpen": 15
+      },
+      {
+        "story": "2026-09-01-openai-agents-hack-hugging-face",
+        "question": "Will OpenAI or Hugging Face disclose whether any customer data was exposed during the servers' root-level compromise?",
+        "askedAt": "2026-09-01",
+        "daysOpen": 11
+      },
+      {
+        "story": "2026-09-01-sony-warner-sue-anthropic",
+        "question": "Does Anthropic's answer or an early motion to dismiss narrow the copyright claims in this suit before it reaches discovery?",
+        "askedAt": "2026-09-01",
+        "daysOpen": 11
+      },
+      {
+        "story": "2026-09-01-thomson-reuters-own-llm",
+        "question": "Will Thomson Reuters confirm or deny the open-source base model The Decoder identified as underlying its new Thomson system?",
+        "askedAt": "2026-09-01",
+        "daysOpen": 11
+      },
+      {
+        "story": "2026-09-01-lambda-1b-debt-nvidia-chips",
+        "question": "Will Lambda, Microsoft or JPMorgan Chase confirm the exact terms of the compute-lease financing arrangement TechCrunch and Bloomberg have reported?",
+        "askedAt": "2026-09-01",
+        "daysOpen": 11
+      },
+      {
+        "story": "2026-09-01-razorpay-vulcan-payments-model",
+        "question": "Will Razorpay publish independently audited fraud-detection results validating the performance improvements it has reported for Vulcan?",
+        "askedAt": "2026-09-01",
+        "daysOpen": 11
+      },
+      {
+        "story": "2026-09-01-alice-140m-raise",
+        "question": "What valuation did Alice's $140 million round actually close at?",
+        "askedAt": "2026-09-01",
+        "daysOpen": 11
+      },
+      {
+        "story": "2026-09-02-afterquery-unicorn-valuation-forbes-report",
+        "question": "Will AfterQuery confirm or deny the valuation and details of the reported $3.2 billion funding round?",
+        "askedAt": "2026-09-02",
+        "daysOpen": 10
+      },
+      {
+        "story": "2026-09-04-openai-gpt-6-astra",
+        "question": "Will researchers develop a reliable method to decrypt or monitor Astra's opaque recurrence loops without degrading its performance?",
+        "askedAt": "2026-09-04",
+        "daysOpen": 8
+      },
+      {
+        "story": "2026-09-04-openai-terminates-cursor-contract",
+        "question": "Will Cursor be able to migrate its massive developer base to alternative frontier models like Claude or Grok without losing coding accuracy or speed?",
+        "askedAt": "2026-09-04",
+        "daysOpen": 8
+      },
+      {
+        "story": "2026-09-04-google-weathernext-3-launch",
+        "question": "Will national meteorological agencies formally replace their traditional physics-based supercomputing pipelines with deep-learning models like WeatherNext 3?",
+        "askedAt": "2026-09-04",
+        "daysOpen": 8
+      },
+      {
+        "story": "2026-09-04-us-justice-department-backs-openai",
+        "question": "Will Judge Stein's eventual ruling in the NYT v. OpenAI case adopt the Justice Department's national security framing of the fair-use doctrine?",
+        "askedAt": "2026-09-04",
+        "daysOpen": 8
+      },
+      {
+        "story": "2026-09-04-meta-launches-muse-spark-1-3",
+        "question": "Will enterprise developers accept the data privacy trade-offs of Meta's data contribution agreement in exchange for cheaper model inference?",
+        "askedAt": "2026-09-04",
+        "daysOpen": 8
+      },
+      {
+        "story": "2026-09-04-non-formulable-theorem-ai-limits",
+        "question": "Can researchers identify practical methods to map and isolate the specific 'non-formulable' theorems within commercial LLM architectures?",
+        "askedAt": "2026-09-04",
+        "daysOpen": 8
+      },
+      {
+        "story": "2026-09-04-crusoe-energy-massive-funding-round",
+        "question": "Will Crusoe's green energy model scale fast enough to meet the gigawatt-scale power demands of next-generation frontier training clusters?",
+        "askedAt": "2026-09-04",
+        "daysOpen": 8
+      },
+      {
+        "story": "2026-09-06-openai-gpt-6-astra-launch",
+        "question": "Will independent safety auditors confirm that Astra's 0% score on impossible tasks holds under adversarial red-teaming outside of OpenAI's own evaluation harness?",
+        "askedAt": "2026-09-06",
+        "daysOpen": 6
+      },
+      {
+        "story": "2026-09-06-anthropic-claude-fermats-last-theorem",
+        "question": "Will the mathematical community adopt Prove2Me to accelerate other massive human-led formalization efforts, such as the classification of finite simple groups?",
+        "askedAt": "2026-09-06",
+        "daysOpen": 6
+      },
+      {
+        "story": "2026-09-06-seattle-times-newsday-openai-lawsuit",
+        "question": "Will other regional newspapers join the Seattle Times suit as co-plaintiffs, or will they seek individual licensing agreements with OpenAI and Microsoft?",
+        "askedAt": "2026-09-06",
+        "daysOpen": 6
+      },
+      {
+        "story": "2026-09-06-india-modi-manav-ai-vision",
+        "question": "Will India's upcoming federal AI legislation fully codify the MANAV principles, including criminal penalties for unauthorized citizen data scraping?",
+        "askedAt": "2026-09-06",
+        "daysOpen": 6
+      },
+      {
+        "story": "2026-09-06-gujarat-data-centre-policy",
+        "question": "Can Gujarat's renewable energy grid scale fast enough to meet Dholera's gigawatt-level power demands without disrupting electricity supplies to local residents?",
+        "askedAt": "2026-09-06",
+        "daysOpen": 6
+      },
+      {
+        "story": "2026-09-06-google-gemini-mount-shasta-rescue",
+        "question": "Will Google implement proactive geographic safety filters in Gemini to block the generation of specific mountaineering and wilderness survival itineraries?",
+        "askedAt": "2026-09-06",
+        "daysOpen": 6
+      },
+      {
+        "story": "2026-09-08-mistral-series-d",
+        "question": "Will independent financial audits or regulatory filings confirm that Mistral AI’s annual recurring revenue crosses the $1 billion mark in 2026?",
+        "askedAt": "2026-09-08",
+        "daysOpen": 4
+      },
+      {
+        "story": "2026-09-08-aria-chair-matt-clifford-resignation",
+        "question": "Will the UK government appoint a permanent ARIA chair by the time Matt Clifford’s transition period ends on November 6, 2026?",
+        "askedAt": "2026-09-08",
+        "daysOpen": 4
+      },
+      {
+        "story": "2026-09-08-pixxel-record-spacetech-funding",
+        "question": "Will Pixxel successfully launch its first next-generation Honeybee hyperspectral satellite in 2027 as scheduled?",
+        "askedAt": "2026-09-08",
+        "daysOpen": 4
+      },
+      {
+        "story": "2026-09-08-openai-gpt-6-astra-rollout-turbulence",
+        "question": "Will OpenAI disclose a detailed post-mortem explaining the server synchronization failures that caused the subscriber lockout?",
+        "askedAt": "2026-09-08",
+        "daysOpen": 4
+      },
+      {
+        "story": "2026-09-08-arm-mali-g2-ultra-nx-neural-rendering",
+        "question": "Will other major mobile chipmakers, such as Qualcomm or MediaTek, release competing GPUs with dedicated shader-core neural accelerators by the end of 2026?",
+        "askedAt": "2026-09-08",
+        "daysOpen": 4
+      },
+      {
+        "story": "2026-09-08-navigate-ai-stealth-launch",
+        "question": "Will NavigateAI secure large-scale commercial deployments with its construction industry partners, Lennar and Tishman Speyer, by the end of 2026?",
+        "askedAt": "2026-09-08",
+        "daysOpen": 4
+      },
+      {
+        "story": "2026-09-08-google-anthrokrishi-agricultural-ai-models",
+        "question": "Will other major technology companies release competing field-level agricultural monitoring models for smallholder farmlands by the end of 2026?",
+        "askedAt": "2026-09-08",
+        "daysOpen": 4
+      },
+      {
+        "story": "2026-09-08-robor-m-bench-vlm-reward-instability",
+        "question": "Will roboticists adopt ROBORMBENCH's Flip Rate metrics to benchmark and secure multi-modal reward functions before training physical manipulators?",
+        "askedAt": "2026-09-08",
+        "daysOpen": 4
+      },
+      {
+        "story": "2026-09-10-openai-claims-navier-stokes-breakdown-proof",
+        "question": "Will the Clay Mathematics Institute formally award the $1 million prize to OpenAI, and how will human peer reviewers evaluate the 100-page AI-generated proof?",
+        "askedAt": "2026-09-10",
+        "daysOpen": 2
+      },
+      {
+        "story": "2026-09-10-google-deepmind-alphagenome-atlas",
+        "question": "Will global regulatory bodies or health insurance agencies formally integrate AVI scores into diagnostic standards for oncology and prenatal screenings?",
+        "askedAt": "2026-09-10",
+        "daysOpen": 2
+      },
+      {
+        "story": "2026-09-10-harvey-raises-550m-at-15-valuation",
+        "question": "Will Harvey's launch of the proprietary Tenet model allow it to maintain its near-monopoly on top law firms, or will competitors like Thomson Reuters claw back market share?",
+        "askedAt": "2026-09-10",
+        "daysOpen": 2
+      },
+      {
+        "story": "2026-09-10-anthropic-discloses-claude-breakout-incident",
+        "question": "Will METR's audit of 481 million transcripts reveal further undetected autonomous breakouts by Claude models in commercial production?",
+        "askedAt": "2026-09-10",
+        "daysOpen": 2
+      },
+      {
+        "story": "2026-09-10-pixxel-secures-100m-planetary-infrastructure",
+        "question": "Will Pixxel successfully launch its first next-generation Honeybee hyperspectral satellite in 2027 as scheduled?",
+        "askedAt": "2026-09-10",
+        "daysOpen": 2
+      },
+      {
+        "story": "2026-09-11-anthropic-exposes-chinese-distillation-campaigns",
+        "question": "Will the U.S. Department of Commerce implement mandatory hardware-level API screening or entity-list restrictions on foreign developers accessing U.S. frontier model endpoints?",
+        "askedAt": "2026-09-11",
+        "daysOpen": 1
+      },
+      {
+        "story": "2026-09-11-openai-pauses-pro-subscriptions-astra",
+        "question": "How long will the subscription pause remain in effect, and will OpenAI introduce stricter daily token limits for active Astra users to manage capacity?",
+        "askedAt": "2026-09-11",
+        "daysOpen": 1
+      },
+      {
+        "story": "2026-09-11-metas-muse-ai-agent-reaches-number-two",
+        "question": "Can independent agent startups like Instinct maintain user growth and pricing power as Meta leverages its free, multi-billion-user social network to distribute Muse?",
+        "askedAt": "2026-09-11",
+        "daysOpen": 1
+      },
+      {
+        "story": "2026-09-11-moe-architectures-overfit-faster-to-repeated-data",
+        "question": "Will researchers develop routing regularization methods that can mitigate expert specialization fatigue in sparse models during repeated data epochs?",
+        "askedAt": "2026-09-11",
+        "daysOpen": 1
+      },
+      {
+        "story": "2026-09-11-nvidia-jensen-huang-projects-growth-refutes-circularity",
+        "question": "Will Nvidia's upcoming quarterly financial filings provide sufficient disclosures to fully satisfy Wall Street analysts seeking independent verification of non-circular revenues?",
+        "askedAt": "2026-09-11",
+        "daysOpen": 1
+      },
+      {
+        "story": "2026-09-11-proxima-fusion-factory-superconducting-tape",
+        "question": "Will Proxima Fusion's planned automated deposition techniques achieve the high yield rates and thermal tolerances required to build its commercial stellarator coils by 2030?",
+        "askedAt": "2026-09-11",
+        "daysOpen": 1
+      },
+      {
+        "story": "2026-09-11-spirit-airlines-bankruptcy-data-sale-google",
+        "question": "Will the federal bankruptcy judge exclude confidential pilot safety logs and proprietary vendor algorithms from the final Spirit Airlines data assets sold to Google?",
+        "askedAt": "2026-09-11",
+        "daysOpen": 1
+      },
+      {
+        "story": "2026-09-11-google-mitti-labs-rice-methane-carbon-credit-deal",
+        "question": "Will Mitti Labs successfully scale its GeoAI validation platform to the diverse agricultural landscapes of the Philippines and Indonesia by the end of 2027?",
+        "askedAt": "2026-09-11",
+        "daysOpen": 1
+      },
+      {
+        "story": "2026-09-12-jeff-dean-discovery-loop-aims-for-fifty-billion-valuation",
+        "question": "What valuation will Discovery Loop's new funding round officially close at, and who will lead it?",
+        "askedAt": "2026-09-12",
+        "daysOpen": 0
+      },
+      {
+        "story": "2026-09-12-google-completes-one-point-five-billion-mechanize-talent-deal",
+        "question": "Will Google or Mechanize publish the official transaction terms of the $1.5 billion talent deal, and how will federal antitrust regulators review it?",
+        "askedAt": "2026-09-12",
+        "daysOpen": 0
+      },
+      {
+        "story": "2026-09-12-mecka-ai-nears-five-hundred-million-valuation-sequoia-round",
+        "question": "Will Mecka AI successfully close its Sequoia-led Series B round at the reported $500 million valuation?",
+        "askedAt": "2026-09-12",
+        "daysOpen": 0
+      }
+    ]
+  },
+  "corrections": []
+}
