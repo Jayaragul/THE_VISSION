@@ -137,15 +137,21 @@ ${ctx.site.editorNote ? `<p class="masthead__note">${e(ctx.site.editorNote)}</p>
 export function tierStrip(ctx, opts = {}) {
   const d = opts.depth || 0;
   const n = (v) => (typeof v === 'number' && v > 0 ? v : null);
+  // `here` picks which row is the reader's current page (unlinked, "you are here") versus a
+  // link to it — 'edition' is the historical default, since this strip only ever rendered on
+  // the AI edition's own front page. The digest-driven front page passes 'digest' instead.
+  const here = opts.here || 'edition';
   const rows = [
     {
+      id: 'edition',
       name: 'The Edition',
       count: n(opts.editionCount),
       unit: 'stories',
-      blurb: 'Researched, written and checked against the paper’s own rules before it publishes.',
-      href: null,
+      blurb: 'Researched, written and checked against the paper’s own rules before it published — the archive of every edition this paper ever ran.',
+      href: rel(d, 'archive.html'),
     },
     {
+      id: 'digest',
       name: 'The Digest',
       count: n(opts.digestCount),
       unit: 'items',
@@ -153,6 +159,7 @@ export function tierStrip(ctx, opts = {}) {
       href: rel(d, 'digest.html'),
     },
     {
+      id: 'wire',
       name: 'The Wire',
       count: n(opts.wireCount),
       unit: 'headlines',
@@ -166,9 +173,10 @@ export function tierStrip(ctx, opts = {}) {
 ${rows
   .map((r) => {
     const meta = r.count ? `<span class="tiers__count">${r.count} ${e(r.unit)}</span>` : '';
-    const head = r.href
-      ? `<a class="tiers__name" href="${r.href}">${e(r.name)}</a>`
-      : `<span class="tiers__name is-here">${e(r.name)} <span class="tiers__you">you are here</span></span>`;
+    const head =
+      r.id === here
+        ? `<span class="tiers__name is-here">${e(r.name)} <span class="tiers__you">you are here</span></span>`
+        : `<a class="tiers__name" href="${r.href}">${e(r.name)}</a>`;
     return `<div class="tiers__item">${head}${meta}<p class="tiers__blurb">${e(r.blurb)}</p></div>`;
   })
   .join('')}

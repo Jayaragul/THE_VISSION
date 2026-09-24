@@ -162,10 +162,10 @@ export function buildSearchIndex(docs) {
   const N = docs.length;
   const avgdl = N ? docLengths.reduce((a, b) => a + b, 0) / N : 0;
 
-  // Vocabulary sorted with an explicit comparator, never left to Map insertion order — five
-  // workflows rebuild this file and compare it byte-for-byte against what is committed
-  // (verify.yml, daily-edition.yml, wire.yml, digest.yml, maintenance.yml), and insertion
-  // order is not guaranteed stable across a changed input order or a Node version bump.
+  // Vocabulary sorted with an explicit comparator, never left to Map insertion order — every
+  // workflow on this branch rebuilds this file and compares it byte-for-byte against what is
+  // committed (verify.yml, wire.yml, digest.yml, maintenance.yml), and insertion order is not
+  // guaranteed stable across a changed input order or a Node version bump.
   const terms = [...postings.keys()].sort();
 
   const dict = terms; // sorted term list, doubles as the dictionary for prefix matching

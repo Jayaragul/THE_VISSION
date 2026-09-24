@@ -95,8 +95,8 @@ export function wireBlock(items, { depth = 0, sourceBook, harvestedAt } = {}) {
 </div>
 <p class="wire__warning">
 These are raw feed headlines, collected automatically and <strong>not verified, written or
-endorsed</strong> by THE VISSION. They are leads, not reporting. Edited stories are everything
-above this line.
+endorsed</strong> by THE VISSION. They are leads, not reporting. Everything above this line has
+been clustered, ranked or checked before publishing — these have not.
 </p>
 ${/* Forty headlines is a reasonable desktop column and a very long scroll on a phone, where
       it sits between the reader and the rest of the paper. On narrow screens CSS shows the

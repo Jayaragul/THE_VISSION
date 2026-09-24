@@ -20,7 +20,7 @@ on:
         type: string
 
 concurrency:
-  # Shared with wire.yml and daily-edition.yml — all three push to main.
+  # Shared with wire.yml and maintenance.yml — all push to main.
   group: publish
   cancel-in-progress: false
 

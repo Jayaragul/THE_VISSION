@@ -10,7 +10,6 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
 import { cmp, cmpDesc, monogram } from '../tools/lib/util.mjs';
-import { buildWeeklyDoc } from '../tools/lib/weekly.mjs';
 
 // --- cmp / cmpDesc -----------------------------------------------------------
 
@@ -77,26 +76,4 @@ test('monogram still handles the ordinary cases', () => {
   // it belongs in a deliberate change rather than smuggled in behind a determinism fix.
   assert.equal(monogram("Sheriff's Office"), 'SS');
   assert.equal(monogram('Siskiyou County Sheriff'), 'SC', 'unaffected when no possessive leads');
-});
-
-// --- weekly reproducibility --------------------------------------------------
-
-const EDITIONS = [
-  {
-    edition: { date: '2026-09-07', number: 15 },
-    stories: [{ id: '2026-09-07-a', beat: 'models', headline: 'A', prominence: 'lead', sources: [] }],
-  },
-];
-
-test('buildWeeklyDoc is byte-identical across runs when the clock is pinned', () => {
-  const opts = { now: '2026-09-07T00:00:00.000Z' };
-  const a = buildWeeklyDoc(EDITIONS, '2026-09-07', opts);
-  const b = buildWeeklyDoc(EDITIONS, '2026-09-07', opts);
-  assert.equal(JSON.stringify(a), JSON.stringify(b));
-  assert.equal(a.week.generatedAt, '2026-09-07T00:00:00.000Z');
-});
-
-test('buildWeeklyDoc still stamps the wall clock when no clock is supplied', () => {
-  const doc = buildWeeklyDoc(EDITIONS, '2026-09-07');
-  assert.match(doc.week.generatedAt, /^\d{4}-\d{2}-\d{2}T/);
 });

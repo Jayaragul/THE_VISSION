@@ -1,49 +1,65 @@
 # THE VISSION
 
-An autonomously produced daily paper about artificial intelligence. There is no newsroom.
-An automated pipeline researches, writes, checks and publishes every edition.
+**You are on `main`. This branch is deterministic — no model, no API key, permanently.**
+There is no `daily-edition.yml` here, no `.claude/skills/news-pipeline`, no `GEMINI.md`. If
+you are looking for those, or for anything that "researches and writes an edition," you
+want the **`editorial-ai`** branch instead — `git fetch origin editorial-ai` and check it out
+there. Do not try to recreate them here; that is precisely the coupling this branch removed.
+See `RELIABILITY.md` for why.
 
-The model behind that pipeline is deliberately swappable, and as of 26 Aug 2026 it is Gemini
-CLI rather than Claude Code — see `.github/workflows/daily-edition.yml`. Nothing in the design
-assumes a vendor: the editorial procedure lives as plain markdown in `.claude/skills/`, each
-harness is told to read it (`CLAUDE.md` for Claude Code, `GEMINI.md` for Gemini CLI), and every
-edition records the model that actually wrote it in `edition.generator.model`. The site's byline
-is the desk, so a model change never makes a published page untrue.
+What runs on `main`: `tools/harvest.mjs` collects headlines from ~30 public feeds,
+`tools/digest.mjs` clusters and ranks them, and `tools/build.mjs` renders the site. The
+front page is the digest. No prose is generated anywhere in this branch's pipeline.
+
+This branch also still serves 18 AI-written editions, published 17 Aug – 12 Sep 2026 before
+the split, unchanged, at `archive.html` and `edition/*.html` — a published story never
+changes (rule 3), so they stay even though nothing here can produce a 19th.
 
 ## The one thing to understand
 
 **`generated/*.json` is the source of truth. Every HTML file in this repo is build output.**
+On this branch that source is the digest and the wire, not an authored edition:
 
 ```
-input/ + skills + evals   →   research & writing   →   generated/YYYY-MM-DD.json
-                                                              │
-                                                     node tools/build.mjs
-                                                              ↓
-                                        index.html · story/*.html · edition/*.html
-                                             rss.xml · sitemap.xml · covers
-                                                              ↓
-                                                    git commit && git push
-                                                              ↓
-                                                       GitHub Pages
+input/beats.json + input/sources.json  →  tools/harvest.mjs  →  tools/digest.mjs
+                                                                        │
+                                                          generated/digest/<date>.json
+                                                                        │
+                                                              node tools/build.mjs
+                                                                        ↓
+                                          index.html (= today's digest) · digest/*.html
+                                          wire/*.html · rss.xml · sitemap.xml
+                                                                        ↓
+                                                        git commit && git push
+                                                                        ↓
+                                                               GitHub Pages
 ```
+
+The 18 archived editions have their own, separate flow — `generated/YYYY-MM-DD.json` →
+`tools/build.mjs` → `edition/*.html` — which still runs on every build to keep those pages
+current, but nothing on this branch writes a new `generated/YYYY-MM-DD.json` file. That flow
+is `editorial-ai`'s, documented in its own `CLAUDE.md`.
 
 Never hand-edit `index.html`, `archive.html`, `methodology.html`, `404.html`, or anything
-under `story/`, `edition/`, or `assets/img/covers/`. The next build overwrites them. If a
-page is wrong, the fix belongs in `tools/build.mjs`, `tools/lib/render.mjs`, or
-`assets/css/site.css` — those three are hand-written and the build never touches them.
+under `story/`, `edition/`, `digest/`, `wire/`, or `assets/img/covers/`. The next build
+overwrites them. If a page is wrong, the fix belongs in `tools/build.mjs`,
+`tools/lib/render.mjs`, or `assets/css/site.css` — those three are hand-written and the
+build never touches them.
 
 ## Layout
 
 | Path | Role | Edited by |
 | --- | --- | --- |
-| `input/` | Beats, source tiers, editorial standards, site config | Human |
-| `.claude/skills/` | The pipeline's standing instructions | Human |
-| `evals/` | Rubric and the last run's scores | Human writes the rubric; the pipeline writes the scores |
-| `schema/` | The contract every edition must satisfy | Human |
-| `tools/` | Validator, builder, cover art, local server | Human |
+| `input/beats.json`, `input/sources.json` | Beats and source tiers — read by both the digest and the archived editions | Human |
+| `input/site.json`, `input/editorial.md`, `input/hackathons.json` | Site config; the archive's former house style; hackathon listings | Human |
+| `.claude/skills/` | Empty on this branch — the AI editorial procedure lives on `editorial-ai` | — |
+| `evals/` | The 18 archived editions' review scores. Nothing writes new ones here. | Human wrote the rubric; frozen |
+| `schema/` | The contract the 18 archived editions satisfy — still enforced by `validate.mjs` | Human |
+| `tools/` | Harvester, digest ranker, validator, builder, cover art, local server | Human |
 | `assets/css`, `assets/js` | Hand-written stylesheet and progressive enhancement | Human |
-| `generated/` | One JSON file per edition — **the archive** | Pipeline |
-| `story/`, `edition/`, `assets/img/covers/`, `*.html`, `*.xml` | Build output | Nobody |
+| `generated/digest/`, `generated/wire/` | One JSON file per run — **the live archive** | Pipeline (no model) |
+| `generated/*.json` (dated editions) | The 18 AI-written editions — **frozen** | Nobody, ever again on this branch |
+| `story/`, `edition/`, `digest/`, `wire/`, `assets/img/covers/`, `*.html`, `*.xml` | Build output | Nobody |
 
 ## Commands
 
@@ -103,13 +119,31 @@ already have it. The archive is the product. Everything else is negotiable.
 
 ## Publishing an edition
 
-Use the `news-pipeline` skill. It is the procedure, and it is not optional reading —
-`input/editorial.md` and `input/sources.json` change over time.
+There is no `news-pipeline` skill on this branch, and nothing here writes a new
+`generated/YYYY-MM-DD.json`. If asked to "publish today's edition" or "run the pipeline"
+while working on `main`, that request is almost certainly about `editorial-ai` — say so and
+check it out there rather than improvising a replacement here.
 
-The gate runs before the build, and the build runs before the commit. An edition that fails
-validation does not publish; the previous edition stays up. That ordering is deliberate.
+What does run on `main`, and can be run by hand at any time:
+
+```bash
+node tools/harvest.mjs   # collect leads — writes generated/candidates/<date>.json
+node tools/digest.mjs    # cluster + rank — writes generated/digest/<date>.json
+node tools/build.mjs     # render the site, including the new front page
+```
+
+The gate (`tools/validate.mjs --strict`) still exists and still matters — it is what keeps
+the 18 archived editions honest, and `verify.yml` runs it (without `--strict`) on every push
+across the whole archive. It has nothing to gate on this branch's own output, because the
+digest and wire were never validated against `schema/edition.schema.json` to begin with —
+their honesty comes from having no prose to fabricate, not from a gate.
 
 ## Rules that are not negotiable
+
+These governed every one of the 18 archived editions and still govern how this branch treats
+them — rules 3 and 6 especially, if you are ever asked to touch a past story (add a
+correction, fix a typo). Rules 1, 2, 4 and 5 describe how those editions were written; they
+have no new subject on this branch, but they explain why the archive reads the way it does.
 
 1. **Nothing is invented.** Not a URL, a quotation, a number, a date, or a publisher name.
    If a source cannot be opened, the story does not run.

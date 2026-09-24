@@ -1,17 +1,19 @@
 #!/usr/bin/env node
 // Deterministic, zero-token news harvest. Pulls headlines from public RSS/Atom feeds and
-// keyless JSON APIs into one candidate pool, so the research stage can start from a list of
-// leads instead of paying WebSearch calls across every beat.
+// keyless JSON APIs into one candidate pool. tools/digest.mjs clusters and ranks this pool
+// directly, with no model in the loop — the only consumer on this branch. The editorial-ai
+// branch's research stage also reads this same pool as a starting list of leads instead of
+// paying WebSearch calls across every beat, but a lead there still has to be opened, read
+// and traced to a real publisher before it can appear in an edition.
 //
 //   node tools/harvest.mjs             # writes generated/candidates/<today>.json
 //   node tools/harvest.mjs 2026-08-15  # label the output for a backfill date
 //
 // This script decides nothing and asserts nothing. Every item it writes is a lead, exactly
-// as trustworthy as a search snippet — the pipeline still has to open it, read it, and find
-// a real publisher before it can appear in an edition. See the story-research skill. A feed
-// going dark or timing out is not a failure of this script; it just means fewer leads that
-// day. No usable leads or a persistently dead feed exits non-zero; previous candidates
-// survive an empty collection so an outage cannot erase the last successful harvest.
+// as trustworthy as a search snippet. A feed going dark or timing out is not a failure of
+// this script; it just means fewer leads that day. No usable leads or a persistently dead
+// feed exits non-zero; previous candidates survive an empty collection so an outage cannot
+// erase the last successful harvest.
 
 import { mkdirSync, readdirSync, rmSync, existsSync } from 'node:fs';
 import { dirname, join, relative, resolve as resolvePath } from 'node:path';

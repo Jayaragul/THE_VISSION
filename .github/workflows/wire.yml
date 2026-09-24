@@ -17,7 +17,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  # Never race the editorial pipeline: both push to main.
+  # Shared with digest.yml and maintenance.yml — all push to main.
   group: publish
   cancel-in-progress: false
 

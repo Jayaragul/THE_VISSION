@@ -14,25 +14,22 @@ Most autonomous-agent projects have one path. The model runs, or nothing happens
 fine for a demo and useless for a publication, because the failure mode is a dead site and
 nobody notices for a week.
 
-This has **four tiers**. Each is strictly more capable and strictly less reliable than the
-one below it. Each keeps working when the tier above it stops.
+This branch has **three tiers**. Each is strictly more capable and strictly less reliable
+than the one below it. Each keeps working when the tier above it stops — which is not
+theoretical here; it is what actually happened.
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│ TIER 2 — EDITORIAL          needs: API key, model, network           │
-│ Researches, verifies, writes, self-scores. Produces the actual paper.│
-│ Fails on: expired key, spend cap, outage, an edition below standard. │
-├──────────────────────────────────────────────────────────────────────┤
 │ TIER 1.5 — DIGEST            needs: network only                     │
 │ Clusters, ranks and attributes harvested headlines — no model, no    │
 │ prose. A source's own headline, verbatim, never rewritten. Labelled  │
 │ confirmed only when a primary/newsroom source and a genuinely        │
 │ independent second publisher both cover the same event.              │
-│ Fails on: total network loss.                                        │
+│ This is the front page. Fails on: total network loss.                │
 ├──────────────────────────────────────────────────────────────────────┤
 │ TIER 1 — WIRE               needs: network only                      │
-│ Harvests ~550 leads/run from 24 publisher feeds. Renders headlines,  │
-│ labelled unverified. No key, no model, no cost.                      │
+│ Harvests hundreds of leads/run from ~30 publisher feeds. Renders     │
+│ headlines, labelled unverified. No key, no model, no cost.           │
 │ Fails on: total network loss.                                        │
 ├──────────────────────────────────────────────────────────────────────┤
 │ TIER 0 — ARCHIVE            needs: nothing                           │
@@ -41,38 +38,54 @@ one below it. Each keeps working when the tier above it stops.
 └──────────────────────────────────────────────────────────────────────┘
 ```
 
-**What a reader sees when tier 2 dies:** the last edition stays on the front page, a banner
-appears saying no new edition has published, and The Wire below it keeps updating every six
-hours. The site is degraded and *says so*. It does not look abandoned, and it does not lie.
+A fourth tier — EDITORIAL, an AI-written edition needing an API key, a model, and network —
+ran on this repository from 17 August to 12 September 2026, on `main`, on a schedule. It
+still exists; it moved to the `editorial-ai` branch. What moved it there is worth stating
+plainly, because it is the reason this document no longer describes four tiers as
+coexisting: its `GEMINI_API_KEY` expired on 16 September and stayed expired for **nine
+days**, silently, because the one alert meant to catch that was wired to a job that only
+runs when the pipeline succeeds. See `RELIABILITY.md` for the full postmortem. This branch
+does not carry that failure mode, because it does not carry that tier.
+
+**What a reader sees now:** the front page is the Digest, always, and it is never more than
+a few hours old. The Wire sits beneath it. The 18 editions that tier 2 already wrote are
+still on the site, unchanged, at `archive.html` — a published story does not stop existing
+just because the thing that wrote it stopped running (rule 3).
 
 This is the single most important property of the system. Everything else is detail.
 
-### 1.1 Tier 1.5 exists because Tier 1 and Tier 2 are not adjacent
+### 1.1 What Tier 1.5 turned out to require
 
-The wire (Tier 1) is raw and admits it. The AI edition (Tier 2) claims to have read,
-verified and explained something — because it has. There is a wide, useful middle: a
+The wire (Tier 1) is raw and admits it. An AI edition claims to have read, verified and
+explained something — because it has. Tier 1.5 was built as the honest middle: a
 deterministic program cannot verify a claim or explain why it matters, but it *can* honestly
 cluster near-duplicate coverage of the same event, rank by recency and source tier, and
 label a story `confirmed` only when a primary or newsroom source and a genuinely independent
 second publisher both cover it — the same independence rule section 4's validator enforces
-on the edited paper, applied one tier down.
+on the archived edited editions, applied one tier down.
 
 `tools/digest.mjs` runs `classify.mjs` → `cluster.mjs` → `rank.mjs` against the same harvest
-`tools/harvest.mjs` already produces for Tier 2, so Tier 1.5 costs nothing beyond what the
-wire already costs. It publishes to `digest.html`, a page that is deliberately plainer than
-the edited front page and explains its own limits at `methodology.html#digest` — see that
-section for what it cannot do, which matters as much as what it can.
+`tools/harvest.mjs` already produces, so Tier 1.5 costs nothing beyond what the wire already
+costs. It still publishes to `digest.html`; the front page now renders the same data through
+its own template instead.
 
-**This tier is additive, not a replacement**, on purpose. The honest way to validate a
-deterministic ranking system is to run it alongside the edited paper and see whether its
-picks agree with an editor's for a few weeks, not to promote it to the front page on day one
-and hope. If it earns that trust, promoting `digest.mjs`'s output to the front page and
-retiring `daily-edition.yml` — dropping the API key, the model, the per-run cost, and the
-prompt-injection surface WebFetch necessarily creates — is a config change, not a rewrite.
-That is the whole reason Tier 1.5 was built as a parallel pipeline sharing the harvest layer
-rather than as a fallback mode bolted onto the AI edition's code.
+This document used to claim that promoting `digest.mjs`'s output to the front page was "a
+config change, not a rewrite." **It was not.** `digest.mjs`'s schema has no deck, no body, no
+`whyItMatters`, no cover art — it was never structurally compatible with the story-card
+template an AI edition's front page used. Doing it for real meant a dedicated front-page
+renderer (`renderFrontPage()` in `tools/build.mjs`) that reuses the digest's own row markup
+rather than forcing thin data into a template built for prose it does not have. That is a
+real, if small, piece of work, not a flag flip — the lesson being that "a config change" is
+an easy thing to write in an architecture doc and an easy thing to be wrong about until
+someone actually does it.
 
 ## 2. Data flows one way
+
+This is the archived Edition tier's flow — `.claude/skills/` and `evals/` are both dormant on
+this branch (no new editions, no new reviews), kept only because the 18 existing editions
+still need `tools/validate.mjs` and `schema/edition.schema.json` to serve correctly. The
+digest's own flow is simpler and has no authored middle step at all: `harvest.mjs` →
+`digest.mjs` → `generated/digest/<date>.json` → the same `build.mjs` below.
 
 ```
 input/ + .claude/skills/ + evals/     ← the system (human-authored)
@@ -156,6 +169,10 @@ paper will always lose. Every check is written to be hard to satisfy dishonestly
 
 ## 5. The AI job cannot reach git
 
+*This section describes `editorial-ai`, the branch where the AI edition runs — this branch
+has no such job at all. Kept here because the design is worth understanding regardless of
+which branch you are reading this on.*
+
 A prompt instruction ("don't touch the validator", "don't run git") is not a security
 boundary. A job with no write credential is. `daily-edition.yml` learned this the hard way —
 an early version ran the AI job and the publish step in one job, so a prompt-injected page or
@@ -193,6 +210,9 @@ is read-only git commands only, a proposed change to a forbidden path is refused
 can even open.
 
 ## 6. Self-improvement, with a human gate
+
+*Also `editorial-ai` only — this workflow reads eval history that only accumulates while the
+AI edition is being generated, which does not happen on this branch.*
 
 `.github/workflows/retrospective.yml` runs weekly. The model reads the eval score history,
 finds the single pattern costing the most points, and proposes a change to **the rules** —
@@ -232,6 +252,9 @@ about tends to surface — which is the actual argument for having them, more th
 percentage.
 
 ## 8. Cost control
+
+*`editorial-ai` only — this branch spends no tokens at all; Discovery, Verification and
+Writing below don't happen here.*
 
 Tokens are spent only where judgement is required.
 
@@ -319,6 +342,7 @@ Stated plainly, because a system's failure modes belong in its architecture doc.
 | Page structure | `tools/lib/render.mjs`, `tools/build.mjs` | any `.html` |
 | Cover art | `tools/lib/cover.mjs` | `assets/img/covers/` |
 | Where leads come from | `tools/harvest.mjs` | `generated/candidates/` |
-| How the pipeline works | `.claude/skills/*/SKILL.md` | — |
+| How the digest ranks | `tools/lib/rank.mjs`, `tools/lib/cluster.mjs` | — |
+| How the AI edition worked | `editorial-ai` branch's `.claude/skills/*/SKILL.md` | not on this branch |
 
 Anything in the right-hand column is build output. The next run overwrites it.

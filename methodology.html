@@ -45,10 +45,10 @@
 
 <a class="skip" href="#main">Skip to content</a>
 <div class="topbar"><div class="wrap topbar__in">
-<span class="topbar__date">Saturday, 12 September 2026</span>
+<span class="topbar__date">Thursday, 24 September 2026</span>
 
 <span class="topbar__spacer"></span>
-<span class="live">Updated <time datetime="2026-09-12T12:00:00Z" data-relative>12 Sep 2026</time></span>
+<span class="live">Updated <time datetime="2026-09-24T15:03:44.004Z" data-relative>24 Sep 2026</time></span>
 <button class="themetoggle" type="button" data-theme-toggle>Dark</button>
 </div></div>
 <header class="masthead">
@@ -77,7 +77,7 @@
 <section class="editorsnote">
 <div class="editorsnote__label">Methodology</div>
 <div>
-<h1 class="editorsnote__title">A paper that is trying to write itself.</h1>
+<h1 class="editorsnote__title">A front page with no model in the loop.</h1>
 <p class="editorsnote__body">An autonomously researched, written and published daily briefing on artificial intelligence — models, capital, policy, research and infrastructure.</p>
 </div>
 </section>
@@ -85,75 +85,71 @@
 <section class="section">
 <div class="article__grid">
 <div class="prose">
-<p>Every edition of THE VISSION is produced by the same pipeline, the same editorial
-rules and the same validator. What changes is whether a person had to press the button.
-Each edition says which it was, on the edition itself: an <strong>autonomous edition</strong>
-ran end to end on a schedule with nobody in the loop, and a <strong>human-run edition</strong>
-means the scheduled run failed its gate and a person ran the identical procedure by hand.</p>
+<p>The front page you are reading is built entirely by <code>tools/digest.mjs</code> and
+<code>tools/harvest.mjs</code> — no API key, no model, nothing generated. That is not a
+fallback state; it is the whole design going forward. This branch of the repository runs
+the digest and the wire and nothing else, permanently, which is what makes it something a
+reader can rely on rather than something that happens to be working today.</p>
 
-<p>This page used to say nobody writes this paper. That was the intent, and for a stretch of
-18 editions it was not yet true — every one of them was human-run
-after a scheduled attempt failed. Documenting that is more useful than hiding it: a paper
-whose entire claim is that you can check its work cannot be the one page on the site you
-have to take on faith. The label on each edition is generated from what actually ran, not
-set by hand, so it cannot quietly drift back into flattery.</p>
+<p>That was not always true. From 17 August through 12 September 2026 this paper also ran an
+AI-written <strong>Edition</strong> tier — 18 of them, archived and
+unchanged at <a href="./archive.html">archive.html</a>. Every one of those
+18 pages still exists exactly as published: same URL, same prose,
+same sources, same rule this whole paper is built on — a published story never changes
+(rule 3). What stopped is new ones. The editorial pipeline's own credential expired for nine
+days before anyone noticed, because the workflow's failure alert was wired to a job that only
+runs when the pipeline succeeds — see <code>RELIABILITY.md</code>. Generating new AI editions
+now lives on the <code>editorial-ai</code> branch, for anyone who wants to run it with their
+own key. This branch does not depend on it existing at all.</p>
 
-<p>The repository holds three things the pipeline reads and one thing it writes. It reads
-the <strong>skills</strong>, which are the standing instructions for how to research and how
-to write; the <strong>inputs</strong>, which set the beats, the trusted source list and the
-house style; and the <strong>evaluations</strong>, which are the tests an edition must pass.
-It writes a single JSON file per day. Everything you are looking at — this page, the front
-page, every story — is rendered from those JSON files by a build script that reaches
-nowhere near the network.</p>
+<p>The archived editions were each produced by the same pipeline, the same editorial rules
+and the same validator. A run worked through four stages. First it researched each beat
+against the day's candidate stories, following every lead to a primary source. Second it
+drafted, applying the house style and refusing to print any claim it could not verify. Third
+it validated: the edition was checked against a schema, a sourcing policy and a style linter,
+and a run that failed was not published. Fourth it committed the JSON to git and pushed.</p>
 
-<p>A run works through four stages. First it researches each beat against the day's
-candidate stories, following every lead to a primary source. Second it drafts, applying the
-house style and refusing to print any claim it could not verify. Third it validates: the
-edition is checked against a schema, a sourcing policy and a style linter, and a run that
-fails is not published. Fourth it commits the JSON to git and pushes, which is what puts
-the edition in front of you.</p>
+<p>Two rules mattered more than the rest, and still govern how those pages read today.
+<strong>No claim ran without a source</strong>, and lead stories carried at least two that
+were not rewrites of each other. <strong>Nothing was invented</strong> — not a URL, not a
+quotation, not a number, not a date.</p>
 
-<p>Two rules matter more than the rest. <strong>No claim runs without a source</strong>, and
-lead stories carry at least two that are not rewrites of each other. <strong>Nothing is
-invented</strong> — not a URL, not a quotation, not a number, not a date. An edition that
-comes up short simply runs short, and the validator will say so out loud rather than let
-the pipeline fill the gap with something plausible.</p>
+<p>On images: this paper never republished other people's press photography, because it had
+no licence to. The art on every archived story is generated from that story's identifier,
+which is why it is abstract and why it never changes.</p>
 
-<p>On images: this paper does not republish other people's press photography, because it has
-no licence to. The art on every story is generated from that story's identifier, which is why
-it is abstract and why it never changes once published.</p>
-
-<p>The obvious limitation is that an automated pipeline can be confidently wrong. It can
-misread a benchmark, miss the context that makes a funding round unremarkable, or pick up a
-claim that a human editor would have recognised as a press release in a wig. The mitigations
-are the source tiers, the confidence label printed on every story, and the fact that every
-source is one click away. Where a story is thin, it is marked thin. Read the sources.</p>
+<p>The obvious limitation, for the archived tier: an automated pipeline can be confidently
+wrong. It can misread a benchmark, miss the context that makes a funding round unremarkable,
+or pick up a claim that a human editor would have recognised as a press release in a wig. Its
+mitigations were the source tiers, the confidence label printed on every story, and the fact
+that every source was one click away. That limitation does not apply to what runs now — the
+digest and the wire below make no claim to have understood anything, only to have counted it.</p>
 
 <h2 id="digest" style="font-size:1.3rem;margin:34px 0 12px">The digest: no model at all</h2>
-<p><a href="./digest.html">A second, separate page</a> runs without any AI in the
-loop whatsoever — no API key, no model, nothing generated. <code>tools/harvest.mjs</code>
-collects headlines from public feeds; <code>tools/digest.mjs</code> clusters near-duplicate
-coverage of the same event, scores each cluster on recency, source tier, how many independent
-publishers confirm it, whether it repeats a previous digest, and beat priority, then keeps the
-top-ranked clusters per beat. That is genuinely all it does.</p>
+<p>The front page runs without any AI in the loop whatsoever — no API key, no model, nothing
+generated. <code>tools/harvest.mjs</code> collects headlines from public feeds;
+<code>tools/digest.mjs</code> clusters near-duplicate coverage of the same event, scores each
+cluster on recency, source tier, how many independent publishers confirm it, whether it
+repeats a previous digest, and beat priority, then keeps the top-ranked clusters per beat.
+That is genuinely all it does — the "top story" above is simply the single highest-scoring
+cluster across every beat, not an editor's judgement call.</p>
 
-<p>The honest way to describe the difference: the edited paper above claims to have read,
-verified and explained something. The digest claims only to have counted and sorted. Every
-headline on it is a source's own title, never rewritten, and every item links straight to
-where it was reported rather than to a summary of it. A story is marked <strong>confirmed</strong>
-only when a primary or established-newsroom source and a second, genuinely independent
-publisher both cover the same cluster — not merely two links, which is a distinction
-<code>tools/validate.mjs</code> enforces on the edited paper too, the hard way: it once let
-two European Commission pages count as two sources for the same story.</p>
+<p>The honest way to describe the limits: the digest claims only to have counted and sorted,
+never to have read, verified or explained anything. Every headline is a source's own title,
+never rewritten, and every item links straight to where it was reported rather than to a
+summary of it. A story is marked <strong>confirmed</strong> only when a primary or
+established-newsroom source and a second, genuinely independent publisher both cover the
+same cluster — not merely two links, which <code>tools/validate.mjs</code> enforced the hard
+way on the archived editions too: it once let two European Commission pages count as two
+sources for the same story.</p>
 
 <p>What it cannot do matters as much as what it can. It cannot tell whether a claim is true,
-only whether more than one publisher is making it. It cannot explain why something matters —
-there is no "why it matters" field in its schema, on purpose, because writing one would be
-the pipeline inventing an opinion it does not have. And its clustering works on shared words
-in a headline, not meaning, so two outlets covering the same event in very different language
-will often show up as two separate, unconfirmed items rather than one confirmed one. That is
-a real limitation of counting words instead of understanding them, and it is stated here
-rather than hidden.</p>
+only whether more than one publisher is making it. It has no "why it matters" field, on
+purpose — writing one would be the pipeline inventing an opinion it does not have. And its
+clustering works on shared words in a headline, not meaning, so two outlets covering the same
+event in very different language will often show up as two separate, unconfirmed items
+rather than one confirmed one. That is a real limitation of counting words instead of
+understanding them, and it is stated here rather than hidden.</p>
 
 <h2 id="wire" style="font-size:1.3rem;margin:34px 0 12px">The wire: not even sorted</h2>
 <p>Underneath the digest, on the front page, is <strong>the wire</strong> — the lowest tier and
@@ -165,24 +161,21 @@ single busy feed cannot fill the whole page — one publisher can only ever hold
 the visible slots — but beyond that, this is a raw feed of the newest items and nothing more.</p>
 
 <p>This is deliberate: the wire is what keeps the site from going dark. It needs no API key
-and no model, so if the edited pipeline or the digest both stop — an expired key, an outage, a
-run that failed its own checks — the wire keeps refreshing on its own schedule and the front
-page still shows what happened today. It is labelled as unverified everywhere it appears, and
-every headline links straight to the publisher that wrote it. Treat it exactly like a stack of
-newspapers on a desk, not like reporting.</p>
+and no model, so if the digest itself stops — an outage, a run that failed its own checks —
+the wire keeps refreshing on its own schedule and the front page still shows what happened
+today. It is labelled as unverified everywhere it appears, and every headline links straight
+to the publisher that wrote it. Treat it exactly like a stack of newspapers on a desk, not
+like reporting.</p>
 
-<h2 id="weekly" style="font-size:1.3rem;margin:34px 0 12px">The weekly review: no model, no new research</h2>
-<p><strong>The weekly review</strong> is not a fourth tier alongside the three above — it introduces
-nothing new. Once a week, <code>tools/weekly.mjs</code> reads what the paper already published over
-the trailing 7 days and reports on itself: which of its own declared threads moved, which questions
-it asked and has not yet answered, and which stories it corrected. Every sentence is either copied
-verbatim from a field an edition already carried, or a plain count.</p>
-
-<p>There is nothing here for a model to write off-script because nothing calls one: <code>tools/weekly.mjs</code>
-makes no API call and touches no network, the same as the digest. A thread is never inferred from
-shared entities — CLAUDE.md's own rule 7 exists because that produces false connections on this
-archive — so the review only ever reports a connection the desk declared by hand, never one it
-guessed from two stories running the same week.</p>
+<h2 id="weekly" style="font-size:1.3rem;margin:34px 0 12px">The weekly review: archived, not running</h2>
+<p><strong>The weekly review</strong> read what the paper had already published over the
+trailing 7 days and reported on itself: which of its own declared threads moved, which
+questions it asked and had not yet answered, and which stories it corrected. Every sentence
+was either copied verbatim from a field an edition already carried, or a plain count — it
+made no API call and touched no network, same as the digest. But everything it had to say
+came from Edition continuity fields, so it moved to <code>editorial-ai</code> along with the
+tier that produces them. The reviews it already wrote are unchanged at
+<a href="./weekly.html">weekly.html</a>.</p>
 </div>
 
 <aside class="rail">

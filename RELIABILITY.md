@@ -1,7 +1,34 @@
 # Reliability and ongoing maintenance
 
-The editorial AI is optional; Wire and Digest can continue without a model or API key.
-This is a maintained system, not a guarantee of ten unattended years.
+This branch runs Wire and Digest only — no model, no API key, permanently. That is not a
+fallback: it is the answer to what actually happened here.
+
+## Postmortem: the nine-day silent failure
+
+From 17 August through 12 September 2026 this repository also ran an AI-written Edition
+tier via `daily-edition.yml`, on `main`, on a schedule. On 16 September its `GEMINI_API_KEY`
+secret started failing every single run with `API key not valid. Please pass a valid API
+key.` — not a rate limit, not a quota cap, not a transient outage. A dead credential. It
+failed that way every day for **nine consecutive days**, and nobody was told, because:
+
+- `publish` (the job whose one remaining step was supposed to open a GitHub issue on
+  failure) had `needs: research` with no `if: always()`. GitHub Actions skips a job
+  entirely when what it needs fails — so the alert step never ran, not once, in nine days.
+- `wire-fallback` — the job that *did* run correctly every single day — had no alerting of
+  its own. It quietly kept the front page current with a wire-only refresh, which was the
+  right behavior for readers and the wrong one for maintainers: it made the failure
+  invisible instead of loud.
+- The front page (`index.html`) was hard-wired to the latest AI-written edition. The moment
+  generation stopped, it would have stayed frozen on 12 September forever — not degraded,
+  just silently wrong, the same failure mode as the missing alert, one layer up.
+
+The fix that matters here is not "rotate the key" — that only helps whoever runs the AI
+tier, now on the `editorial-ai` branch, and does nothing for a repository built to assume a
+model will eventually go quiet again. The fix is this branch: the front page now builds
+from `tools/digest.mjs`'s latest snapshot, which needs no key and cannot expire, and this
+branch carries no workflow whose failure depends on a job succeeding to be reported. See
+`archive.html` for the 18 editions that postmortem does not touch — they are still exactly
+as published, per rule 3.
 
 ## Failure behavior
 
@@ -28,8 +55,6 @@ This is a maintained system, not a guarantee of ten unattended years.
 - `cmp` is a total order. Comparators that ended in a locale comparison now end in one that
   cannot return 0 for distinct strings, so no rendered ordering falls back to whatever order
   the input happened to arrive in.
-- `buildWeeklyDoc` accepts an injected clock. Weekly output is reproducible when one is
-  supplied; omitting it stamps the wall clock as before.
 - Digest resolves one validated calendar date before harvesting, including when a run
   crosses UTC midnight. Impossible dates are rejected before collection.
 - Maintenance shares the publication concurrency group. Publication checks include new

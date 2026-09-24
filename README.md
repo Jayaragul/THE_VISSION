@@ -2,12 +2,11 @@
 
 # THE VISSION
 
-### A daily AI newspaper that writes itself — and keeps publishing when the AI stops.
+### A daily AI newspaper with no model in the loop.
 
-**[📰 Read today's edition →](https://jayaragul.github.io/THE_VISSION/)**
+**[📰 Read today's digest →](https://jayaragul.github.io/THE_VISSION/)**
 
 [![Verify](https://github.com/Jayaragul/THE_VISSION/actions/workflows/verify.yml/badge.svg)](https://github.com/Jayaragul/THE_VISSION/actions/workflows/verify.yml)
-[![Daily edition](https://github.com/Jayaragul/THE_VISSION/actions/workflows/daily-edition.yml/badge.svg)](https://github.com/Jayaragul/THE_VISSION/actions/workflows/daily-edition.yml)
 [![Digest](https://github.com/Jayaragul/THE_VISSION/actions/workflows/digest.yml/badge.svg)](https://github.com/Jayaragul/THE_VISSION/actions/workflows/digest.yml)
 [![Wire](https://github.com/Jayaragul/THE_VISSION/actions/workflows/wire.yml/badge.svg)](https://github.com/Jayaragul/THE_VISSION/actions/workflows/wire.yml)
 [![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](ARCHITECTURE.md#3-zero-dependencies-on-purpose)
@@ -18,51 +17,51 @@
 
 ---
 
-There is no newsroom. An autonomous editorial pipeline researches the day's AI news, traces
-every claim to a primary source, writes the copy, scores itself against a published rubric,
-and ships — every morning, with no human in the loop. The model behind it is deliberately
-swappable — it currently runs on Gemini CLI (see [CLAUDE.md](CLAUDE.md)) — because the
-guarantee readers get is the procedure and the checks, not any one vendor's model.
+The front page is built entirely by two deterministic tools — `tools/harvest.mjs` and
+`tools/digest.mjs` — clustering and ranking headlines from ~30 public feeds. No API key, no
+model, nothing generated. That used to be the fallback state for when an AI-written tier
+went down. It is now the whole design: this branch runs the digest and the wire,
+permanently, and depends on no vendor's model existing or staying online.
 
-Then it does the thing most agent projects skip: **it survives its own failure**, in two
-steps down rather than one. If the API key expires or the model is down, a deterministic
-clustering-and-ranking tier with no AI in it at all — same harvested feeds, no prose, no
-model — keeps publishing a source-attributed digest. If even that fails, a third tier with
-no logic beyond "show the headline" keeps the front page current. The site degrades, says so
-on the page, and keeps going.
+It was not always this way. From 17 August through 12 September 2026 this paper also ran an
+AI-written **Edition** tier — 18 of them, researched and drafted by a model, gated by a
+validator, and still archived unchanged at
+[archive.html](https://jayaragul.github.io/THE_VISSION/archive.html). What ended that was
+not a design decision — a `GEMINI_API_KEY` secret expired and stayed expired for **nine
+days** before anyone noticed, because the workflow's own failure alert was wired to a job
+that only ran when the pipeline *succeeded*. See the postmortem in
+[RELIABILITY.md](RELIABILITY.md). Generating new AI editions now lives on the
+[`editorial-ai`](https://github.com/Jayaragul/THE_VISSION/tree/editorial-ai) branch, for
+anyone who wants to run it with their own key, on their own schedule. This branch does not
+depend on it existing at all.
 
 ## Why you might care
 
-- **Read it** — a daily AI briefing, free, with every claim one click from its source.
-- **Fork it** — the whole pipeline is dependency-free Node. Point it at any beat and you have
-  a self-publishing paper on your own subject.
-- **Study it** — a worked example of an autonomous agent with real guardrails: the AI research
-  job runs with `contents: read` and no credential able to reach the repository, a separate
-  job re-validates its output from a clean checkout before anything is committed, a publish
-  gate blocks bad output, a deterministic build CI can verify, and a self-improvement loop
-  that cannot merge its own rule changes — or touch the workflow file that would let it.
+- **Read it** — a daily AI briefing, free, every headline one click from where it was
+  actually reported.
+- **Fork it** — the whole pipeline is dependency-free Node, and this branch needs no API key
+  at all to run forever. Point the feed list at any beat and you have a self-publishing
+  digest on your own subject.
+- **Study the AI tier** — a worked example of an autonomous agent with real guardrails lives
+  on the [`editorial-ai`](https://github.com/Jayaragul/THE_VISSION/tree/editorial-ai) branch:
+  the research job runs with `contents: read` and no credential able to reach the repository,
+  a separate job re-validates its output from a clean checkout before anything is committed,
+  a publish gate blocks bad output, and a self-improvement loop cannot merge its own rule
+  changes or touch the workflow file that would let it. It also ran, undetected, on a dead
+  API key for nine days — see [RELIABILITY.md](RELIABILITY.md) for what that taught this
+  branch about not depending on it.
 
 ## How it works
 
 ```
-  ┌── TIER 2 · EDITORIAL ─── needs API key ───────────────┐
-  │  research (contents: read — no write credential exists│
-  │  in this job at all) → 3 files → build artifact        │
-  │            ↓                                            │
-  │  publish (clean checkout, contents: write): re-validate,│
-  │  build, assert diff only touches publishable paths      │
-  │            ↓                                            │
-  │  generated/YYYY-MM-DD.json                              │
-  └────────────────────────┬───────────────────────────────┘
-                           │  validate --strict  ← fails? nothing publishes
-  ┌── TIER 1.5 · DIGEST ─── no AI, no key ──┐   │
-  │  cluster + rank harvested headlines,     │   │
-  │  no prose — a source's own title, always │   │
-  └──────────────────┬────────────────────┘   │
-  ┌── TIER 1 · WIRE ──────── no AI, no key ──┐   │
-  │  24 RSS feeds → ~550 leads/run           │   │
-  └──────────────────┬───────────────────────┘   │
-                     └──────────┬────────────────┘
+  ┌── TIER 1.5 · DIGEST ─── no AI, no key ──┐
+  │  cluster + rank harvested headlines,     │
+  │  no prose — a source's own title, always │  ← the front page, permanently
+  └──────────────────┬────────────────────┘
+  ┌── TIER 1 · WIRE ──────── no AI, no key ──┐
+  │  ~30 RSS feeds → hundreds of leads/run   │
+  └──────────────────┬───────────────────────┘
+                     └──────────┬────────────────
                                 ↓
                        node tools/build.mjs   ← pure function, no network
                                 ↓
@@ -71,6 +70,11 @@ on the page, and keeps going.
                           GitHub Pages
 ```
 
+The AI-written Edition tier that used to sit above this — research job, gated publish,
+`generated/YYYY-MM-DD.json` — moved to the [`editorial-ai`](https://github.com/Jayaragul/THE_VISSION/tree/editorial-ai)
+branch. This branch still renders and serves the 18 editions it already published (rule 3:
+a published story never changes), but nothing here generates a 19th.
+
 **`generated/*.json` is the source of truth. Every HTML file is build output.** Delete them
 all, rebuild, and you get byte-identical files back — CI asserts it on every push, which is
 what makes it impossible for a page to drift from its data.
@@ -78,26 +82,26 @@ what makes it impossible for a page to drift from its data.
 📐 **[Read ARCHITECTURE.md](ARCHITECTURE.md)** for the design reasoning, the trade-offs, and
 the honest list of what does not work.
 
-## The three tiers, plainly
+## The tiers, plainly
 
-Three independent processes publish to this site. None of them depends on the others being
-up — that independence is the entire point (see [ARCHITECTURE.md §1](ARCHITECTURE.md)).
+Two independent processes publish to this site, and a third, archived one is still on it.
+None depends on the others being up — that independence is the entire point (see
+[ARCHITECTURE.md §1](ARCHITECTURE.md)).
 
-| | The Wire | The Digest | The edition |
+| | The Wire | The Digest | The archived Edition |
 | --- | --- | --- | --- |
-| What it is | Raw headlines, straight from ~30 public feeds | The same headlines clustered, ranked, source-attributed — still no prose | Researched, verified, human-written stories |
-| Needs an API key? | No | No | Yes — `GEMINI_API_KEY` |
-| Refreshes | Every 6 hours | 3× a day | Once a day at 06:30 UTC, or on demand |
-| Where it lives now | Embedded at the bottom of the front page, always the live current selection | [digest.html](https://jayaragul.github.io/THE_VISSION/digest.html) | The front page |
-| Verified? | No — publisher-attributed, unverified | No — but each item is badged **confirmed** only when two independent publishers cover it | Yes — every claim traced to a primary source before it runs |
+| What it is | Raw headlines, straight from ~30 public feeds | The same headlines clustered, ranked, source-attributed — still no prose | Researched, verified, model-written stories — 18 of them, 17 Aug – 12 Sep 2026 |
+| Needs an API key? | No | No | Yes — and only on `editorial-ai`, not this branch |
+| Refreshes | Every 6 hours | 3× a day | Never again, on this branch |
+| Where it lives now | Embedded at the bottom of the front page | **The front page itself**, and [digest.html](https://jayaragul.github.io/THE_VISSION/digest.html) | [archive.html](https://jayaragul.github.io/THE_VISSION/archive.html), unchanged |
+| Verified? | No — publisher-attributed, unverified | No — but each item is badged **confirmed** only when two independent publishers cover it | Yes — every claim was traced to a primary source before it ran |
 | Its history | `generated/wire/<date>.json` → [wire/&lt;date&gt;.html](https://jayaragul.github.io/THE_VISSION/) | `generated/digest/<date>.json` → [digest/&lt;date&gt;.html](https://jayaragul.github.io/THE_VISSION/digest.html) | `generated/<date>.json` → [edition/&lt;date&gt;.html](https://jayaragul.github.io/THE_VISSION/) |
 
 **[archive.html](https://jayaragul.github.io/THE_VISSION/archive.html)** is the one place all
-three show up together, one row per date. A date with only a Digest and a Wire entry means the
-edited edition simply didn't run that day (no key, or an edition that failed the gate) — the
-row says so instead of leaving a silent gap. Every page also states exactly when *that specific
-tier* last updated ("Collected 3 hours ago" on the wire, "Last refreshed" on the digest,
-"Published" on the edition) — a shared date isn't enough when three processes run on three
+three show up together, one row per date. Every date after 12 September has only a Digest and
+a Wire entry, by design, not because a run failed that day — the row says so. Every page also
+states exactly when *that specific tier* last updated ("Collected 3 hours ago" on the wire,
+"Last refreshed" on the digest) — a shared date isn't enough when two processes run on two
 different schedules.
 
 ## The rules the pipeline cannot break
@@ -145,15 +149,11 @@ node tools/serve.mjs        # http://localhost:4173
 | `node tools/build.mjs` | Render the whole site from `generated/` |
 | `node tools/serve.mjs` | Local preview |
 
-### Publishing an edition
+### Publishing an AI edition
 
-```bash
-gemini
-```
-Then: *"Use the news-pipeline skill to publish today's edition."*
-
-Any harness that reads `.claude/skills/` works the same way — the procedure is what runs,
-not the vendor invoking it.
+Not on this branch — the pipeline that does this lives on
+[`editorial-ai`](https://github.com/Jayaragul/THE_VISSION/tree/editorial-ai). Check it out,
+follow its own README, and bring your own `GEMINI_API_KEY`.
 
 ### Running it on a schedule
 
@@ -161,14 +161,11 @@ not the vendor invoking it.
 | --- | --- | --- |
 | `wire.yml` | every 6h | **no** |
 | `digest.yml` | 3×/day | **no** |
-| `daily-edition.yml` | 06:30 UTC | yes |
-| `retrospective.yml` | Mondays 08:00 UTC | yes |
 | `verify.yml` | every push | no |
 
-Add `GEMINI_API_KEY` in **Settings → Secrets → Actions** for the AI tier, then set
-**Settings → Pages → Source** to *Deploy from a branch*, `main`, `/ (root)`. The wire and the
-digest both run without any of that — see [ARCHITECTURE.md §1.1](ARCHITECTURE.md#11-tier-15-exists-because-tier-1-and-tier-2-are-not-adjacent)
-for what it would take to run this site with no AI in it at all.
+Just set **Settings → Pages → Source** to *Deploy from a branch*, `main`, `/ (root)` — no
+secret to add, this branch needs none. The `editorial-ai` branch has its own additional
+workflows and its own `GEMINI_API_KEY` requirement, documented there.
 
 ## Contributing
 

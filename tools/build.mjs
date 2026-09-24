@@ -1025,7 +1025,7 @@ function renderMethodology(ctx, editions) {
 <section class="editorsnote">
 <div class="editorsnote__label">Methodology</div>
 <div>
-<h1 class="editorsnote__title">A paper that is trying to write itself.</h1>
+<h1 class="editorsnote__title">A front page with no model in the loop.</h1>
 <p class="editorsnote__body">${e(site.description)}</p>
 </div>
 </section>
@@ -1033,75 +1033,71 @@ function renderMethodology(ctx, editions) {
 <section class="section">
 <div class="article__grid">
 <div class="prose">
-<p>Every edition of ${e(site.name)} is produced by the same pipeline, the same editorial
-rules and the same validator. What changes is whether a person had to press the button.
-Each edition says which it was, on the edition itself: an <strong>autonomous edition</strong>
-ran end to end on a schedule with nobody in the loop, and a <strong>human-run edition</strong>
-means the scheduled run failed its gate and a person ran the identical procedure by hand.</p>
+<p>The front page you are reading is built entirely by <code>tools/digest.mjs</code> and
+<code>tools/harvest.mjs</code> — no API key, no model, nothing generated. That is not a
+fallback state; it is the whole design going forward. This branch of the repository runs
+the digest and the wire and nothing else, permanently, which is what makes it something a
+reader can rely on rather than something that happens to be working today.</p>
 
-<p>This page used to say nobody writes this paper. That was the intent, and for a stretch of
-${e(String(editions.length))} editions it was not yet true — every one of them was human-run
-after a scheduled attempt failed. Documenting that is more useful than hiding it: a paper
-whose entire claim is that you can check its work cannot be the one page on the site you
-have to take on faith. The label on each edition is generated from what actually ran, not
-set by hand, so it cannot quietly drift back into flattery.</p>
+<p>That was not always true. From 17 August through 12 September 2026 this paper also ran an
+AI-written <strong>Edition</strong> tier — ${e(String(editions.length))} of them, archived and
+unchanged at <a href="${R.rel(0, 'archive.html')}">archive.html</a>. Every one of those
+${e(String(editions.length))} pages still exists exactly as published: same URL, same prose,
+same sources, same rule this whole paper is built on — a published story never changes
+(rule 3). What stopped is new ones. The editorial pipeline's own credential expired for nine
+days before anyone noticed, because the workflow's failure alert was wired to a job that only
+runs when the pipeline succeeds — see <code>RELIABILITY.md</code>. Generating new AI editions
+now lives on the <code>editorial-ai</code> branch, for anyone who wants to run it with their
+own key. This branch does not depend on it existing at all.</p>
 
-<p>The repository holds three things the pipeline reads and one thing it writes. It reads
-the <strong>skills</strong>, which are the standing instructions for how to research and how
-to write; the <strong>inputs</strong>, which set the beats, the trusted source list and the
-house style; and the <strong>evaluations</strong>, which are the tests an edition must pass.
-It writes a single JSON file per day. Everything you are looking at — this page, the front
-page, every story — is rendered from those JSON files by a build script that reaches
-nowhere near the network.</p>
+<p>The archived editions were each produced by the same pipeline, the same editorial rules
+and the same validator. A run worked through four stages. First it researched each beat
+against the day's candidate stories, following every lead to a primary source. Second it
+drafted, applying the house style and refusing to print any claim it could not verify. Third
+it validated: the edition was checked against a schema, a sourcing policy and a style linter,
+and a run that failed was not published. Fourth it committed the JSON to git and pushed.</p>
 
-<p>A run works through four stages. First it researches each beat against the day's
-candidate stories, following every lead to a primary source. Second it drafts, applying the
-house style and refusing to print any claim it could not verify. Third it validates: the
-edition is checked against a schema, a sourcing policy and a style linter, and a run that
-fails is not published. Fourth it commits the JSON to git and pushes, which is what puts
-the edition in front of you.</p>
+<p>Two rules mattered more than the rest, and still govern how those pages read today.
+<strong>No claim ran without a source</strong>, and lead stories carried at least two that
+were not rewrites of each other. <strong>Nothing was invented</strong> — not a URL, not a
+quotation, not a number, not a date.</p>
 
-<p>Two rules matter more than the rest. <strong>No claim runs without a source</strong>, and
-lead stories carry at least two that are not rewrites of each other. <strong>Nothing is
-invented</strong> — not a URL, not a quotation, not a number, not a date. An edition that
-comes up short simply runs short, and the validator will say so out loud rather than let
-the pipeline fill the gap with something plausible.</p>
+<p>On images: this paper never republished other people's press photography, because it had
+no licence to. The art on every archived story is generated from that story's identifier,
+which is why it is abstract and why it never changes.</p>
 
-<p>On images: this paper does not republish other people's press photography, because it has
-no licence to. The art on every story is generated from that story's identifier, which is why
-it is abstract and why it never changes once published.</p>
-
-<p>The obvious limitation is that an automated pipeline can be confidently wrong. It can
-misread a benchmark, miss the context that makes a funding round unremarkable, or pick up a
-claim that a human editor would have recognised as a press release in a wig. The mitigations
-are the source tiers, the confidence label printed on every story, and the fact that every
-source is one click away. Where a story is thin, it is marked thin. Read the sources.</p>
+<p>The obvious limitation, for the archived tier: an automated pipeline can be confidently
+wrong. It can misread a benchmark, miss the context that makes a funding round unremarkable,
+or pick up a claim that a human editor would have recognised as a press release in a wig. Its
+mitigations were the source tiers, the confidence label printed on every story, and the fact
+that every source was one click away. That limitation does not apply to what runs now — the
+digest and the wire below make no claim to have understood anything, only to have counted it.</p>
 
 <h2 id="digest" style="font-size:1.3rem;margin:34px 0 12px">The digest: no model at all</h2>
-<p><a href="${R.rel(0, 'digest.html')}">A second, separate page</a> runs without any AI in the
-loop whatsoever — no API key, no model, nothing generated. <code>tools/harvest.mjs</code>
-collects headlines from public feeds; <code>tools/digest.mjs</code> clusters near-duplicate
-coverage of the same event, scores each cluster on recency, source tier, how many independent
-publishers confirm it, whether it repeats a previous digest, and beat priority, then keeps the
-top-ranked clusters per beat. That is genuinely all it does.</p>
+<p>The front page runs without any AI in the loop whatsoever — no API key, no model, nothing
+generated. <code>tools/harvest.mjs</code> collects headlines from public feeds;
+<code>tools/digest.mjs</code> clusters near-duplicate coverage of the same event, scores each
+cluster on recency, source tier, how many independent publishers confirm it, whether it
+repeats a previous digest, and beat priority, then keeps the top-ranked clusters per beat.
+That is genuinely all it does — the "top story" above is simply the single highest-scoring
+cluster across every beat, not an editor's judgement call.</p>
 
-<p>The honest way to describe the difference: the edited paper above claims to have read,
-verified and explained something. The digest claims only to have counted and sorted. Every
-headline on it is a source's own title, never rewritten, and every item links straight to
-where it was reported rather than to a summary of it. A story is marked <strong>confirmed</strong>
-only when a primary or established-newsroom source and a second, genuinely independent
-publisher both cover the same cluster — not merely two links, which is a distinction
-<code>tools/validate.mjs</code> enforces on the edited paper too, the hard way: it once let
-two European Commission pages count as two sources for the same story.</p>
+<p>The honest way to describe the limits: the digest claims only to have counted and sorted,
+never to have read, verified or explained anything. Every headline is a source's own title,
+never rewritten, and every item links straight to where it was reported rather than to a
+summary of it. A story is marked <strong>confirmed</strong> only when a primary or
+established-newsroom source and a second, genuinely independent publisher both cover the
+same cluster — not merely two links, which <code>tools/validate.mjs</code> enforced the hard
+way on the archived editions too: it once let two European Commission pages count as two
+sources for the same story.</p>
 
 <p>What it cannot do matters as much as what it can. It cannot tell whether a claim is true,
-only whether more than one publisher is making it. It cannot explain why something matters —
-there is no "why it matters" field in its schema, on purpose, because writing one would be
-the pipeline inventing an opinion it does not have. And its clustering works on shared words
-in a headline, not meaning, so two outlets covering the same event in very different language
-will often show up as two separate, unconfirmed items rather than one confirmed one. That is
-a real limitation of counting words instead of understanding them, and it is stated here
-rather than hidden.</p>
+only whether more than one publisher is making it. It has no "why it matters" field, on
+purpose — writing one would be the pipeline inventing an opinion it does not have. And its
+clustering works on shared words in a headline, not meaning, so two outlets covering the same
+event in very different language will often show up as two separate, unconfirmed items
+rather than one confirmed one. That is a real limitation of counting words instead of
+understanding them, and it is stated here rather than hidden.</p>
 
 <h2 id="wire" style="font-size:1.3rem;margin:34px 0 12px">The wire: not even sorted</h2>
 <p>Underneath the digest, on the front page, is <strong>the wire</strong> — the lowest tier and
@@ -1113,24 +1109,21 @@ single busy feed cannot fill the whole page — one publisher can only ever hold
 the visible slots — but beyond that, this is a raw feed of the newest items and nothing more.</p>
 
 <p>This is deliberate: the wire is what keeps the site from going dark. It needs no API key
-and no model, so if the edited pipeline or the digest both stop — an expired key, an outage, a
-run that failed its own checks — the wire keeps refreshing on its own schedule and the front
-page still shows what happened today. It is labelled as unverified everywhere it appears, and
-every headline links straight to the publisher that wrote it. Treat it exactly like a stack of
-newspapers on a desk, not like reporting.</p>
+and no model, so if the digest itself stops — an outage, a run that failed its own checks —
+the wire keeps refreshing on its own schedule and the front page still shows what happened
+today. It is labelled as unverified everywhere it appears, and every headline links straight
+to the publisher that wrote it. Treat it exactly like a stack of newspapers on a desk, not
+like reporting.</p>
 
-<h2 id="weekly" style="font-size:1.3rem;margin:34px 0 12px">The weekly review: no model, no new research</h2>
-<p><strong>The weekly review</strong> is not a fourth tier alongside the three above — it introduces
-nothing new. Once a week, <code>tools/weekly.mjs</code> reads what the paper already published over
-the trailing 7 days and reports on itself: which of its own declared threads moved, which questions
-it asked and has not yet answered, and which stories it corrected. Every sentence is either copied
-verbatim from a field an edition already carried, or a plain count.</p>
-
-<p>There is nothing here for a model to write off-script because nothing calls one: <code>tools/weekly.mjs</code>
-makes no API call and touches no network, the same as the digest. A thread is never inferred from
-shared entities — CLAUDE.md's own rule 7 exists because that produces false connections on this
-archive — so the review only ever reports a connection the desk declared by hand, never one it
-guessed from two stories running the same week.</p>
+<h2 id="weekly" style="font-size:1.3rem;margin:34px 0 12px">The weekly review: archived, not running</h2>
+<p><strong>The weekly review</strong> read what the paper had already published over the
+trailing 7 days and reported on itself: which of its own declared threads moved, which
+questions it asked and had not yet answered, and which stories it corrected. Every sentence
+was either copied verbatim from a field an edition already carried, or a plain count — it
+made no API call and touched no network, same as the digest. But everything it had to say
+came from Edition continuity fields, so it moved to <code>editorial-ai</code> along with the
+tier that produces them. The reviews it already wrote are unchanged at
+<a href="${R.rel(0, 'weekly.html')}">weekly.html</a>.</p>
 </div>
 
 <aside class="rail">
@@ -1297,15 +1290,125 @@ ${nav}
 }
 
 /**
- * The weekly review: a fully deterministic scoreboard over generated/weekly/<date>.json — see
- * tools/weekly.mjs. Every string here is either a fixed template with a computed count, or
- * resolved by storyId back to a story this build already has fully loaded — the weekly file
- * itself carries no headline or url of its own, only pointers, so there is nothing to render
- * that this build cannot verify against the archive it is building from.
+ * The front page. Built from the latest Digest snapshot, not from an AI-written edition —
+ * see ARCHITECTURE.md and RELIABILITY.md for why: the editorial AI tier lives on its own
+ * branch now, and a front page that depends on it stays frozen the moment that tier's key
+ * expires, exactly the failure this replaces. No model, no API key; refreshes every time
+ * digest.mjs runs.
+ *
+ * Reuses digestItemRow() verbatim, the same markup digest.html already renders and already
+ * has real CSS for — the "top story" treatment below is that same row in its own section,
+ * not new markup, so there is nothing here that has not already been rendering correctly on
+ * digest.html for weeks.
+ */
+function renderFrontPage(ctx, digest) {
+  const depth = 0;
+  const items = digest.items;
+  const hero = items.length ? [...items].sort((a, b) => b.score - a.score)[0] : null;
+
+  const byBeat = new Map();
+  for (const item of items) {
+    if (item === hero) continue; // shown once, in its own section below
+    if (!byBeat.has(item.beat)) byBeat.set(item.beat, []);
+    byBeat.get(item.beat).push(item);
+  }
+
+  // The hero's own beat still counts as covered even though its one item was pulled out of
+  // the list above — otherwise the beat holding today's single most important story would be
+  // exactly the one beat nav hides.
+  const presentBeats = new Set(site.nav.filter((nav) => (byBeat.get(nav.id) || []).length).map((n) => n.id));
+  if (hero) presentBeats.add(hero.beat);
+
+  const sections = site.nav
+    .map((nav) => {
+      const list = byBeat.get(nav.id) || [];
+      if (!list.length) return '';
+      const beat = beatMap.get(nav.id) || nav;
+      return `<section class="section" id="${e(nav.id)}">
+${R.sectionHead(beat.label, beat.blurb, list.length)}
+<div class="digest-list">${list.map((i) => digestItemRow(ctx, i, depth)).join('')}</div>
+</section>`;
+    })
+    .join('');
+
+  const heroBlock = hero
+    ? `<section class="lead">
+${R.sectionHead('Top story', null, null)}
+<div class="digest-list">${digestItemRow(ctx, hero, depth)}</div>
+</section>`
+    : '';
+
+  const wire = wireBlock(ctx.wireItems, { depth, sourceBook, harvestedAt: ctx.harvestedAt });
+
+  const content = `<div class="wrap">
+<section class="editorsnote">
+<div class="editorsnote__label">Today’s digest<br>${e(formatMasthead(digest.edition.date))}</div>
+<div>
+<h1 class="editorsnote__title">${e(site.name)}</h1>
+<p class="editorsnote__body">${items.length} headlines, clustered and ranked by a deterministic program —
+recency, source tier, independent confirmation, novelty and beat priority, weighted and summed.
+No model wrote or selected any of this; every title is a source's own headline, and every item
+links straight to where it was reported.
+<a href="${R.rel(depth, 'methodology.html')}#digest">How this works →</a></p>
+<p class="wire__stamp">Last refreshed <time datetime="${e(digest.edition.generatedAt)}" data-relative>${e(formatMasthead(digest.edition.date))}, ${e(digest.edition.generatedAt.slice(11, 16))} UTC</time> · runs three times a day, no model in the loop</p>
+</div>
+</section>
+
+${heroBlock}
+
+${R.tierStrip(ctx, {
+    depth,
+    anchorNav: true,
+    here: 'digest',
+    editionCount: ctx.editionArchiveStoryCount,
+    digestCount: items.length,
+    wireCount: ctx.wireItems?.length,
+  })}
+
+${sections || '<p class="empty">No items cleared the classifier for this run.</p>'}
+${wire}
+</div>`;
+
+  return R.page(ctx, {
+    depth,
+    canonical: '',
+    anchorNav: true,
+    presentBeats,
+    title: `${site.name} — ${site.tagline}`,
+    description: `${items.length} AI headlines for ${digest.edition.date}, clustered and ranked without a model — no generated prose, every title is a source's own.`,
+    keywords: [
+      ...new Set([...items.map((i) => beatMap.get(i.beat)?.label).filter(Boolean), 'artificial intelligence']),
+    ],
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: `${site.name} — ${formatMasthead(digest.edition.date)}`,
+      description: site.description,
+      datePublished: digest.edition.generatedAt,
+      isPartOf: { '@type': 'Periodical', name: site.name, url: site.baseUrl },
+      hasPart: items.slice(0, 20).map((i) => ({
+        '@type': 'NewsArticle',
+        headline: i.title,
+        url: i.sources[0]?.url,
+      })),
+    },
+    content,
+  });
+}
+
+/**
+ * The weekly review: a fully deterministic scoreboard over generated/weekly/<date>.json. This
+ * renders the reviews already written while the editorial AI tier ran on main — the tool that
+ * generated them, tools/weekly.mjs, moved to the editorial-ai branch along with that tier,
+ * since everything a weekly review has to say comes from Edition continuity fields. Every
+ * string here is either a fixed template with a computed count, or resolved by storyId back to
+ * a story this build already has fully loaded — the weekly file itself carries no headline or
+ * url of its own, only pointers, so there is nothing to render that this build cannot verify
+ * against the archive it is building from.
  *
  * Reuses .archive__row throughout rather than inventing new markup: this page reads as a
- * scoreboard, not a magazine spread, which is the deliberate trade the zero-model design
- * makes (voice for verifiability) — see the design note in tools/weekly.mjs.
+ * scoreboard, not a magazine spread, which was the deliberate trade the zero-model design made
+ * (voice for verifiability).
  */
 function renderWeeklyPage(ctx, weeklies, storiesById, { index, isLatest }) {
   const weekly = weeklies[index];
@@ -1314,7 +1417,7 @@ function renderWeeklyPage(ctx, weeklies, storiesById, { index, isLatest }) {
   const next = weeklies[index - 1]?.week.date;
   const { week, threads, openQuestions, corrections } = weekly;
 
-  // A storyId this build cannot resolve is a data problem tools/weekly.mjs's own
+  // A storyId this build cannot resolve is a data problem the generating tool's own
   // referential check should have already caught before writing the file — this is a last,
   // defensive line, not the primary guard, so it renders a plain label rather than crashing
   // the whole build over one bad reference in an otherwise-fine week.
@@ -2158,9 +2261,17 @@ ${Array.from({ length: 12 }, (_, i) => `<line x1="${i * 100}" y1="0" x2="${i * 1
 
 const editions = loadEditions();
 
+// The front page no longer requires an edition — it renders from the latest Digest snapshot
+// (see renderFrontPage). This guard exists only because story pages, archive.html and the
+// historical edition/*.html pages all read from `editions`, and the 18 already-published
+// editions are meant to stay on this branch permanently (rule 3) — so in ordinary operation
+// this can never actually be empty. It stays a hard failure rather than a soft degrade
+// because a clone missing the committed archive is a checkout problem to fix, not a state
+// the build should quietly paper over.
 if (!editions.length) {
   console.error('✗ generated/ contains no editions — nothing to build.');
-  console.error('  Run the news-pipeline skill first, or add a generated/YYYY-MM-DD.json file.');
+  console.error('  Expected the 18 already-published editions to exist as generated/YYYY-MM-DD.json.');
+  console.error('  New AI-generated editions are produced on the editorial-ai branch, not here.');
   process.exit(1);
 }
 
@@ -2186,26 +2297,32 @@ const digests = loadDigests();
 
 // Deliberately not added to ctx or the front page — the design this follows keeps the
 // weekly review as a page a reader opts into, not a strip competing with today's actual
-// news. See renderWeeklyPage() and tools/weekly.mjs.
+// news. See renderWeeklyPage(). These are the reviews already written while the editorial
+// AI tier ran on main; nothing generates new ones here anymore (moved to editorial-ai).
 const weeklies = loadWeeklies();
 
+// The site-wide masthead date and "Updated" stamp (topbar(), tools/lib/render.mjs) used to
+// track the latest edition — meaning every page, not just the front page, would have frozen
+// on 2026-09-12 forever the moment the editorial tier stopped, silently reintroducing the
+// exact staleness this branch exists to remove. They now track the latest Digest snapshot,
+// which is real and refreshes three times a day. Falls back to the latest edition only if
+// generated/digest/ is ever completely empty, which does not happen in ordinary operation —
+// wire.yml and digest.yml both commit to it on every scheduled run.
+const latestDigest = digests[0];
 const ctx = {
   site,
   communityMark,
-  latestDigestCount: digests[0]?.items?.length || null,
-  topicOfWeek: topicOfTheWeek(editions),
+  latestDigestCount: latestDigest?.items?.length || null,
   beats,
   beatMap,
   sourceBook,
-  latestDate: latest.edition.date,
-  generatedAt: latest.edition.generatedAt,
+  latestDate: latestDigest?.edition.date || latest.edition.date,
+  generatedAt: latestDigest?.edition.generatedAt || latest.edition.generatedAt,
+  // Total stories across every archived edition — shown in tierStrip's "Edition" row, which
+  // now links to archive.html rather than to a nonexistent "today's edition".
+  editionArchiveStoryCount: editions.reduce((n, ed) => n + ed.stories.length, 0),
   wireItems,
   harvestedAt: candidates?.harvestedAt || null,
-  // Measured against the harvest rather than the wall clock, so the build stays a pure
-  // function of its inputs and CI's determinism check keeps passing.
-  hoursSinceEdition: candidates?.harvestedAt
-    ? Math.max(0, (Date.parse(candidates.harvestedAt) - Date.parse(latest.edition.generatedAt)) / 3600000)
-    : 0,
 };
 
 // Record what the wire showed today, keyed to the harvest's own date so this stays a pure
@@ -2225,19 +2342,18 @@ const coverCount = writeCovers(editions);
 write('assets/img/favicon.svg', favicon());
 write('assets/img/social-card.svg', socialCard());
 
-// Front page = latest edition.
+// Front page = latest digest. Not the latest edition — see renderFrontPage() and
+// RELIABILITY.md for why the front page no longer depends on the editorial AI tier at all.
+// Falls back to rendering the latest archived edition only if generated/digest/ is ever
+// completely empty, so a fresh checkout still produces a front page rather than an error.
 write(
   'index.html',
-  renderEditionPage(ctx, latest, {
-    depth: 0,
-    canonical: '',
-    isFront: true,
-    prev: editions[1]?.edition.date,
-    next: null,
-  })
+  latestDigest
+    ? renderFrontPage(ctx, latestDigest)
+    : renderEditionPage(ctx, latest, { depth: 0, canonical: '', isFront: false, prev: editions[1]?.edition.date, next: null })
 );
 
-// One page per edition.
+// One page per edition — the archive, unchanged, never a front page again.
 editions.forEach((ed, i) => {
   write(
     R.editionPath(ed.edition.date),
@@ -2470,5 +2586,7 @@ write('generated/latest.json', JSON.stringify(latest, null, 2) + '\n');
 
 console.log(
   `✓ built ${editions.length} edition(s) · ${storyCount} stories · ${coverCount} covers\n` +
-    `  front page → edition ${latest.edition.date} (No. ${latest.edition.number})`
+    (latestDigest
+      ? `  front page → digest ${latestDigest.edition.date} (${latestDigest.items.length} items) · archive frozen at edition No. ${latest.edition.number}`
+      : `  front page → edition ${latest.edition.date} (No. ${latest.edition.number}) [no digest found — fallback path]`)
 );

@@ -46,8 +46,9 @@ const argv = process.argv.slice(2);
 const CHANGED = argv.includes('--changed');
 const explicit = argv.find((a) => !a.startsWith('--'));
 
-/** Editions this run created or modified — the same git-based detection tools/gate.mjs uses,
- *  so a backfill of a past date re-binds that date rather than whatever file sorts last. */
+/** Editions this run created or modified — the same git-based detection the editorial repair
+ *  loop uses (editorial-ai branch), so a backfill of a past date re-binds that date rather
+ *  than whatever file sorts last. */
 function changedDates() {
   let out = '';
   try {
@@ -177,7 +178,8 @@ if (result === 'no-edition') {
 }
 if (result === 'no-eval') {
   console.error(
-    `✗ No eval at evals/${date}.json. Write the review first — see .claude/skills/editorial-review/SKILL.md.\n` +
+    `✗ No eval at evals/${date}.json. Write the review first — see the editorial-review skill\n` +
+      `  on the editorial-ai branch.\n` +
       `  This tool re-binds an existing review; it does not invent one.`
   );
   process.exit(1);
