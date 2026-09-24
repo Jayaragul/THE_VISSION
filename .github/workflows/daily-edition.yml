@@ -485,33 +485,6 @@ jobs:
           git commit -m "Edition No. ${NUM} — ${DATE}" -m "Published by the scheduled pipeline."
           git push
 
-      # Without this, a 6am failure is invisible until someone happens to look at the site.
-      # One open issue at a time — re-runs comment on the existing one rather than filing a
-      # new issue every morning, which is how alerting becomes noise and gets muted.
-      - name: Report failure
-        if: failure()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: |
-          set -euo pipefail
-          TITLE="Daily edition failed"
-          EXISTING="$(gh issue list --state open --label pipeline-failure --json number --jq '.[0].number' || true)"
-          BODY="The scheduled edition did not publish on $(date -u '+%Y-%m-%d %H:%M UTC').
-
-          Run: ${RUN_URL}
-
-          The previous edition is still on the front page, and The Wire keeps updating on its
-          own schedule — the site is degraded, not down. Common causes: a missing or expired
-          GEMINI_API_KEY, a spend cap, an edition that failed \`validate.mjs --strict\`, or
-          the publish job's allowed-paths check rejecting an out-of-scope change."
-          if [ -n "$EXISTING" ]; then
-            gh issue comment "$EXISTING" --body "$BODY"
-          else
-            gh label create pipeline-failure --color b60205 --description "Automated pipeline failure" 2>/dev/null || true
-            gh issue create --title "$TITLE" --label pipeline-failure --body "$BODY"
-          fi
-
   wire-fallback:
     needs: [research, publish]
     if: always() && (needs.research.result == 'failure' || needs.publish.result == 'failure')
@@ -519,6 +492,7 @@ jobs:
     timeout-minutes: 10
     permissions:
       contents: write
+      issues: write
 
     steps:
       - uses: actions/checkout@v4
@@ -548,3 +522,38 @@ jobs:
           git commit -m "Wire refresh — editorial pipeline unavailable $(date -u '+%Y-%m-%d')"
           git pull --rebase --autostash origin main
           git push
+
+      # This step used to live in `publish`, gated on `if: failure()` — but `publish` has
+      # `needs: research` with no `if: always()`, so GitHub Actions skips the whole `publish`
+      # job, this step included, whenever `research` fails. That is exactly the failure mode
+      # it exists to catch, and the result was 12 consecutive daily failures with zero issues
+      # ever filed. This job's own `if:` (above) already fires correctly on both
+      # `research` failing and `publish` failing — proven, since the wire-only refresh above
+      # ran successfully every one of those 12 days — so the alert moves here instead of
+      # being re-gated in place.
+      #
+      # One open issue at a time — re-runs comment on the existing one rather than filing a
+      # new issue every morning, which is how alerting becomes noise and gets muted.
+      - name: Report failure
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          TITLE="Daily edition failed"
+          EXISTING="$(gh issue list --state open --label pipeline-failure --json number --jq '.[0].number' || true)"
+          BODY="The scheduled edition did not publish on $(date -u '+%Y-%m-%d %H:%M UTC').
+
+          Run: ${RUN_URL}
+
+          The previous edition is still on the front page, and The Wire keeps updating on its
+          own schedule — the site is degraded, not down. Common causes: a missing or expired
+          GEMINI_API_KEY, a spend cap, an edition that failed \`validate.mjs --strict\`, or
+          the publish job's allowed-paths check rejecting an out-of-scope change."
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "$BODY"
+          else
+            gh label create pipeline-failure --color b60205 --description "Automated pipeline failure" 2>/dev/null || true
+            gh issue create --title "$TITLE" --label pipeline-failure --body "$BODY"
+          fi
