@@ -2,30 +2,24 @@
   "$schema": "../../schema/digest.schema.json",
   "edition": {
     "date": "2026-09-29",
-    "generatedAt": "2026-09-29T16:30:10.330Z",
+    "generatedAt": "2026-09-29T22:13:19.321Z",
     "itemCount": 62
   },
   "items": [
     {
-      "id": "2026-09-29-openai-delays-release-of-latest-model-over-safety-concerns",
-      "slug": "openai-delays-release-of-latest-model-over-safety-concerns",
+      "id": "2026-09-29-introducing-gpt-6-1-sol",
+      "slug": "introducing-gpt-6-1-sol",
       "beat": "models",
-      "title": "OpenAI Delays Release of Latest Model Over Safety Concerns",
-      "publishedAt": "2026-09-29T10:36:22.000Z",
-      "confidence": "confirmed",
-      "score": 0.685,
+      "title": "Introducing GPT-6.1 Sol",
+      "publishedAt": "2026-09-29T10:00:00.000Z",
+      "confidence": "single-source",
+      "score": 0.618,
       "sources": [
         {
-          "title": "OpenAI Delays Release of Latest Model Over Safety Concerns",
-          "publisher": "WIRED",
-          "url": "https://www.wired.com/story/openai-delays-release-of-latest-model-over-safety-concerns/",
-          "tier": 2
-        },
-        {
-          "title": "OpenAI reportedly ditches model over safety concerns",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/09/28/openai-reportedly-ditches-model-over-safety-concerns/",
-          "tier": 2
+          "title": "Introducing GPT-6.1 Sol",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/introducing-gpt-6-1-sol",
+          "tier": 1
         }
       ]
     },
@@ -43,6 +37,23 @@
           "publisher": "arXiv",
           "url": "https://arxiv.org/abs/2609.35685v1",
           "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-openai-delays-release-of-latest-model-over-safety-concerns",
+      "slug": "openai-delays-release-of-latest-model-over-safety-concerns",
+      "beat": "models",
+      "title": "OpenAI Delays Release of Latest Model Over Safety Concerns",
+      "publishedAt": "2026-09-29T10:36:22.000Z",
+      "confidence": "single-source",
+      "score": 0.598,
+      "sources": [
+        {
+          "title": "OpenAI Delays Release of Latest Model Over Safety Concerns",
+          "publisher": "WIRED",
+          "url": "https://www.wired.com/story/openai-delays-release-of-latest-model-over-safety-concerns/",
+          "tier": 2
         }
       ]
     },
@@ -404,23 +415,6 @@
       ]
     },
     {
-      "id": "2026-09-29-meqmuon-matrix-equilibrating-muon-for-llm-pretraining",
-      "slug": "meqmuon-matrix-equilibrating-muon-for-llm-pretraining",
-      "beat": "models",
-      "title": "MeqMuon: Matrix-Equilibrating Muon for LLM Pretraining",
-      "publishedAt": "2026-09-28T17:41:34.000Z",
-      "confidence": "single-source",
-      "score": 0.538,
-      "sources": [
-        {
-          "title": "MeqMuon: Matrix-Equilibrating Muon for LLM Pretraining",
-          "publisher": "arXiv",
-          "url": "https://arxiv.org/abs/2609.35701v1",
-          "tier": 1
-        }
-      ]
-    },
-    {
       "id": "2026-09-29-rethinking-personalized-generation-test-time-alignment-via-f",
       "slug": "rethinking-personalized-generation-test-time-alignment-via-f",
       "beat": "research",
@@ -489,23 +483,6 @@
       ]
     },
     {
-      "id": "2026-09-29-anthropic-s-prospectus-details-losses-growth-and-yes-a-warni",
-      "slug": "anthropic-s-prospectus-details-losses-growth-and-yes-a-warni",
-      "beat": "business",
-      "title": "Anthropic’s prospectus details losses, growth, and, yes, a warning that its AI could end humanity",
-      "publishedAt": "2026-09-29T05:13:43.000Z",
-      "confidence": "single-source",
-      "score": 0.528,
-      "sources": [
-        {
-          "title": "Anthropic’s prospectus details losses, growth, and, yes, a warning that its AI could end humanity",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/09/28/anthropics-prospectus-details-losses-growth-and-yes-a-warning-that-its-ai-could-end-humanity/",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-09-29-from-migration-to-calibration-preserving-agent-capabilities",
       "slug": "from-migration-to-calibration-preserving-agent-capabilities",
       "beat": "business",
@@ -540,18 +517,24 @@
       ]
     },
     {
-      "id": "2026-09-29-source-inference-provider-modal-labs-closing-in-on-750m-roun",
-      "slug": "source-inference-provider-modal-labs-closing-in-on-750m-roun",
-      "beat": "business",
-      "title": "Source: Inference provider Modal Labs closing in on $750M round at $15.75B valuation",
-      "publishedAt": "2026-09-28T21:29:18.000Z",
-      "confidence": "single-source",
-      "score": 0.489,
+      "id": "2026-09-29-openai-launches-dots-its-bubbly-agentic-avatar",
+      "slug": "openai-launches-dots-its-bubbly-agentic-avatar",
+      "beat": "infrastructure",
+      "title": "OpenAI launches Dots, its bubbly agentic avatar",
+      "publishedAt": "2026-09-29T17:17:15.000Z",
+      "confidence": "confirmed",
+      "score": 0.51,
       "sources": [
         {
-          "title": "Source: Inference provider Modal Labs closing in on $750M round at $15.75B valuation",
+          "title": "OpenAI launches Dots, its bubbly agentic avatar",
           "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/09/28/source-inference-provider-modal-labs-closing-in-on-750m-round-at-15-75b-valuation/",
+          "url": "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/",
+          "tier": 2
+        },
+        {
+          "title": "OpenAI launches Dots, its Muse competitor",
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1002033/openai-dots-launch-muse-competitor",
           "tier": 2
         }
       ]
@@ -574,18 +557,18 @@
       ]
     },
     {
-      "id": "2026-09-29-reco-raises-55m-as-ai-agent-security-startups-crowd-the-mark",
-      "slug": "reco-raises-55m-as-ai-agent-security-startups-crowd-the-mark",
+      "id": "2026-09-29-openai-repotedly-in-talks-to-raise-30b-round-at-1-4t-valuati",
+      "slug": "openai-repotedly-in-talks-to-raise-30b-round-at-1-4t-valuati",
       "beat": "business",
-      "title": "Reco raises $55M as AI agent security startups crowd the market",
-      "publishedAt": "2026-09-29T12:30:00.000Z",
+      "title": "OpenAI repotedly in talks to raise $30B round at $1.4T valuation",
+      "publishedAt": "2026-09-29T19:52:37.000Z",
       "confidence": "single-source",
       "score": 0.473,
       "sources": [
         {
-          "title": "Reco raises $55M as AI agent security startups crowd the market",
+          "title": "OpenAI repotedly in talks to raise $30B round at $1.4T valuation",
           "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/09/29/reco-raises-55m-as-ai-agent-security-startups-crowd-the-market/",
+          "url": "https://techcrunch.com/2026/09/29/openai-repotedly-in-talks-to-raise-30b-round-at-1-4t-valuation/",
           "tier": 2
         }
       ]
@@ -637,6 +620,40 @@
           "title": "Experts worry about Nvidia's AI chip sales in China and influence over Trump",
           "publisher": "Ars Technica",
           "url": "https://arstechnica.com/tech-policy/2026/09/nvidia-may-sell-more-chips-in-china-as-jensen-huangs-influence-over-trump-grows/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-amd-acquires-world-labs-ai-startup-upping-the-ante-against-n",
+      "slug": "amd-acquires-world-labs-ai-startup-upping-the-ante-against-n",
+      "beat": "business",
+      "title": "AMD acquires World Labs AI startup, upping the ante against Nvidia",
+      "publishedAt": "2026-09-29T21:14:49.000Z",
+      "confidence": "single-source",
+      "score": 0.423,
+      "sources": [
+        {
+          "title": "AMD acquires World Labs AI startup, upping the ante against Nvidia",
+          "publisher": "Ars Technica",
+          "url": "https://arstechnica.com/ai/2026/09/amd-acquires-world-labs-ai-pioneer-fei-fei-lis-world-models-startup/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-openai-gets-sued-over-the-hugging-face-hack",
+      "slug": "openai-gets-sued-over-the-hugging-face-hack",
+      "beat": "policy",
+      "title": "OpenAI Gets Sued Over the Hugging Face Hack",
+      "publishedAt": "2026-09-29T19:05:00.000Z",
+      "confidence": "single-source",
+      "score": 0.423,
+      "sources": [
+        {
+          "title": "OpenAI Gets Sued Over the Hugging Face Hack",
+          "publisher": "WIRED",
+          "url": "https://www.wired.com/story/openai-sued-over-the-hugging-face-hack/",
           "tier": 2
         }
       ]
@@ -727,6 +744,23 @@
       ]
     },
     {
+      "id": "2026-09-29-protesters-gather-at-openai-s-devday",
+      "slug": "protesters-gather-at-openai-s-devday",
+      "beat": "business",
+      "title": "Protesters gather at OpenAI’s DevDay",
+      "publishedAt": "2026-09-29T17:12:27.000Z",
+      "confidence": "single-source",
+      "score": 0.373,
+      "sources": [
+        {
+          "title": "Protesters gather at OpenAI’s DevDay",
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1002201/openai-sam-altman-openai-devday-protests-ice-data-centers",
+          "tier": 2
+        }
+      ]
+    },
+    {
       "id": "2026-09-29-anthropic-s-ipo-pitch-includes-a-warning-about-human-extinct",
       "slug": "anthropic-s-ipo-pitch-includes-a-warning-about-human-extinct",
       "beat": "business",
@@ -761,35 +795,52 @@
       ]
     },
     {
-      "id": "2026-09-29-nvidia-and-amd-chiefs-join-tsinghua-advisory-board-as-us-chi",
-      "slug": "nvidia-and-amd-chiefs-join-tsinghua-advisory-board-as-us-chi",
+      "id": "2026-09-29-here-s-why-openai-is-absent-from-nvidia-s-industry-wide-effo",
+      "slug": "here-s-why-openai-is-absent-from-nvidia-s-industry-wide-effo",
       "beat": "infrastructure",
-      "title": "Nvidia and AMD chiefs join Tsinghua advisory board as US-China chip tensions persist",
-      "publishedAt": "2026-09-29T13:35:01.000Z",
+      "title": "Here’s why OpenAI is absent from Nvidia’s industry-wide effort to end rogue AI agents",
+      "publishedAt": "2026-09-29T18:35:00.000Z",
       "confidence": "single-source",
       "score": 0.373,
       "sources": [
         {
-          "title": "Nvidia and AMD chiefs join Tsinghua advisory board as US-China chip tensions persist",
-          "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/tech/big-tech/article/3369237/nvidia-and-amd-chiefs-join-tsinghua-advisory-board-us-china-chip-tensions-persist?utm_source=rss_feed",
+          "title": "Here’s why OpenAI is absent from Nvidia’s industry-wide effort to end rogue AI agents",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/09/29/heres-why-openai-is-absent-from-nvidias-industry-wide-effort-to-end-rogue-ai-agents/",
           "tier": 2
         }
       ]
     },
     {
-      "id": "2026-09-29-meta-s-muse-ai-sent-a-youtuber-s-address-to-a-stranger",
-      "slug": "meta-s-muse-ai-sent-a-youtuber-s-address-to-a-stranger",
-      "beat": "society",
-      "title": "Meta’s Muse AI sent a YouTuber’s address to a stranger",
-      "publishedAt": "2026-09-29T14:08:21.000Z",
+      "id": "2026-09-29-here-s-what-actually-happened-in-openai-s-australian-gov-t-s",
+      "slug": "here-s-what-actually-happened-in-openai-s-australian-gov-t-s",
+      "beat": "infrastructure",
+      "title": "Here's what actually happened in OpenAI's Australian gov't server hack",
+      "publishedAt": "2026-09-29T18:11:09.000Z",
       "confidence": "single-source",
       "score": 0.373,
       "sources": [
         {
-          "title": "Meta’s Muse AI sent a YouTuber’s address to a stranger",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1001886/meta-muse-ai-facebook-marketplace-security-concerns",
+          "title": "Here's what actually happened in OpenAI's Australian gov't server hack",
+          "publisher": "Ars Technica",
+          "url": "https://arstechnica.com/ai/2026/09/heres-what-actually-happened-in-openais-australian-govt-server-hack/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-openai-gives-codex-reusable-cloud-environments-that-work-acr",
+      "slug": "openai-gives-codex-reusable-cloud-environments-that-work-acr",
+      "beat": "infrastructure",
+      "title": "OpenAI gives Codex reusable cloud environments that work across devices",
+      "publishedAt": "2026-09-29T17:15:00.000Z",
+      "confidence": "single-source",
+      "score": 0.373,
+      "sources": [
+        {
+          "title": "OpenAI gives Codex reusable cloud environments that work across devices",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
           "tier": 2
         }
       ]
@@ -829,23 +880,6 @@
       ]
     },
     {
-      "id": "2026-09-29-openai-apologizes-to-australia-after-its-ai-agents-breached",
-      "slug": "openai-apologizes-to-australia-after-its-ai-agents-breached",
-      "beat": "india",
-      "title": "OpenAI apologizes to Australia after its AI agents breached government sites",
-      "publishedAt": "2026-09-29T12:45:05.000Z",
-      "confidence": "single-source",
-      "score": 0.373,
-      "sources": [
-        {
-          "title": "OpenAI apologizes to Australia after its AI agents breached government sites",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/09/29/openai-apologizes-to-australia-after-its-ai-agents-breached-government-sites/",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-09-29-higgsfield-ai-ships-new-video-features-in-a-day-with-gpt-6-a",
       "slug": "higgsfield-ai-ships-new-video-features-in-a-day-with-gpt-6-a",
       "beat": "business",
@@ -875,57 +909,6 @@
           "title": "Introducing Ray-Ban Meta Audio and More AI Glasses Styles",
           "publisher": "Meta",
           "url": "https://about.fb.com/news/2026/09/introducing-ray-ban-meta-audio-glasses-new-styles-plus-muse/",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-09-29-ringg-s-ai-agents-resolve-up-to-65-of-customer-calls-with-op",
-      "slug": "ringg-s-ai-agents-resolve-up-to-65-of-customer-calls-with-op",
-      "beat": "infrastructure",
-      "title": "Ringg’s AI agents resolve up to 65% of customer calls with OpenAI",
-      "publishedAt": "2026-09-23T12:00:00.000Z",
-      "confidence": "single-source",
-      "score": 0.367,
-      "sources": [
-        {
-          "title": "Ringg’s AI agents resolve up to 65% of customer calls with OpenAI",
-          "publisher": "OpenAI",
-          "url": "https://openai.com/index/ringg",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-09-29-nvidia-isaac-ros-5-0-advances-agentic-open-source-robotics-d",
-      "slug": "nvidia-isaac-ros-5-0-advances-agentic-open-source-robotics-d",
-      "beat": "infrastructure",
-      "title": "NVIDIA Isaac ROS 5.0 Advances Agentic, Open Source Robotics Development",
-      "publishedAt": "2026-09-22T12:00:41.000Z",
-      "confidence": "single-source",
-      "score": 0.367,
-      "sources": [
-        {
-          "title": "NVIDIA Isaac ROS 5.0 Advances Agentic, Open Source Robotics Development",
-          "publisher": "NVIDIA",
-          "url": "https://blogs.nvidia.com/blog/isaac-ros-5-0-agentic-open-source-robotics/",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-09-29-nvidia-launches-dsx-ready-to-qualify-power-and-cooling-produ",
-      "slug": "nvidia-launches-dsx-ready-to-qualify-power-and-cooling-produ",
-      "beat": "infrastructure",
-      "title": "NVIDIA Launches DSX Ready to Qualify Power and Cooling Products for AI Factories",
-      "publishedAt": "2026-09-21T18:00:07.000Z",
-      "confidence": "single-source",
-      "score": 0.367,
-      "sources": [
-        {
-          "title": "NVIDIA Launches DSX Ready to Qualify Power and Cooling Products for AI Factories",
-          "publisher": "NVIDIA",
-          "url": "https://blogs.nvidia.com/blog/dsx-ready-ai-factories-power-cooling/",
           "tier": 1
         }
       ]
@@ -977,6 +960,23 @@
           "title": "Microsoft’s commitment for AI in education: Protecting students, strengthening learning",
           "publisher": "Microsoft",
           "url": "https://blogs.microsoft.com/blog/2026/09/16/microsofts-commitment-for-ai-in-education/",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-ai-for-societal-impact",
+      "slug": "ai-for-societal-impact",
+      "beat": "society",
+      "title": "AI for Societal Impact",
+      "publishedAt": "2026-09-15T16:00:00.000Z",
+      "confidence": "single-source",
+      "score": 0.317,
+      "sources": [
+        {
+          "title": "AI for Societal Impact",
+          "publisher": "Google",
+          "url": "https://blog.google/innovation-and-ai/technology/ai/ai-for-societal-impact/",
           "tier": 1
         }
       ]
