@@ -2,23 +2,29 @@
   "$schema": "../../schema/digest.schema.json",
   "edition": {
     "date": "2026-09-29",
-    "generatedAt": "2026-09-29T08:27:03.222Z",
-    "itemCount": 61
+    "generatedAt": "2026-09-29T16:30:10.330Z",
+    "itemCount": 62
   },
   "items": [
     {
-      "id": "2026-09-29-australian-firm-drops-us-842-million-sydney-data-centre-plan",
-      "slug": "australian-firm-drops-us-842-million-sydney-data-centre-plan",
-      "beat": "infrastructure",
-      "title": "Australian firm drops US$842 million Sydney data centre plan after public fury",
-      "publishedAt": "2026-09-29T01:28:20.000Z",
-      "confidence": "single-source",
-      "score": 0.614,
+      "id": "2026-09-29-openai-delays-release-of-latest-model-over-safety-concerns",
+      "slug": "openai-delays-release-of-latest-model-over-safety-concerns",
+      "beat": "models",
+      "title": "OpenAI Delays Release of Latest Model Over Safety Concerns",
+      "publishedAt": "2026-09-29T10:36:22.000Z",
+      "confidence": "confirmed",
+      "score": 0.685,
       "sources": [
         {
-          "title": "Australian firm drops US$842 million Sydney data centre plan after public fury",
-          "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/news/asia/australasia/article/3369125/australian-firm-drops-us842-million-sydney-data-centre-plan-after-public-fury?utm_source=rss_feed",
+          "title": "OpenAI Delays Release of Latest Model Over Safety Concerns",
+          "publisher": "WIRED",
+          "url": "https://www.wired.com/story/openai-delays-release-of-latest-model-over-safety-concerns/",
+          "tier": 2
+        },
+        {
+          "title": "OpenAI reportedly ditches model over safety concerns",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/09/28/openai-reportedly-ditches-model-over-safety-concerns/",
           "tier": 2
         }
       ]
@@ -41,23 +47,6 @@
       ]
     },
     {
-      "id": "2026-09-29-anthropic-releases-sonnet-5-5-which-it-calls-a-significantly",
-      "slug": "anthropic-releases-sonnet-5-5-which-it-calls-a-significantly",
-      "beat": "models",
-      "title": "Anthropic releases Sonnet 5.5, which it calls a significantly cheaper, faster work partner",
-      "publishedAt": "2026-09-28T18:00:00.000Z",
-      "confidence": "single-source",
-      "score": 0.581,
-      "sources": [
-        {
-          "title": "Anthropic releases Sonnet 5.5, which it calls a significantly cheaper, faster work partner",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/09/28/anthropic-releases-sonnet-5-5-which-it-calls-a-significantly-cheaper-faster-work-partner/",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-09-29-persistent-partners-raise-prices-among-learning-agents",
       "slug": "persistent-partners-raise-prices-among-learning-agents",
       "beat": "research",
@@ -75,23 +64,6 @@
       ]
     },
     {
-      "id": "2026-09-29-amd-acquires-godmother-of-ai-li-fei-fei-s-start-up-as-battle",
-      "slug": "amd-acquires-godmother-of-ai-li-fei-fei-s-start-up-as-battle",
-      "beat": "business",
-      "title": "AMD acquires ‘godmother of AI’ Li Fei-Fei’s start-up as battle with Nvidia intensifies",
-      "publishedAt": "2026-09-29T04:30:18.000Z",
-      "confidence": "single-source",
-      "score": 0.575,
-      "sources": [
-        {
-          "title": "AMD acquires ‘godmother of AI’ Li Fei-Fei’s start-up as battle with Nvidia intensifies",
-          "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/tech/big-tech/article/3369141/amd-acquires-godmother-ai-li-fei-feis-start-battle-nvidia-intensifies?utm_source=rss_feed",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-09-29-grok-4-7-is-now-available-on-amazon-bedrock",
       "slug": "grok-4-7-is-now-available-on-amazon-bedrock",
       "beat": "models",
@@ -105,6 +77,57 @@
           "publisher": "Amazon",
           "url": "https://aws.amazon.com/blogs/machine-learning/grok-4-7-is-now-available-on-amazon-bedrock/",
           "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-ai-robotic-arms-power-hong-kong-public-hospital-laundry-and",
+      "slug": "ai-robotic-arms-power-hong-kong-public-hospital-laundry-and",
+      "beat": "infrastructure",
+      "title": "AI, robotic arms power Hong Kong public hospital laundry and meal centre",
+      "publishedAt": "2026-09-29T11:11:13.000Z",
+      "confidence": "single-source",
+      "score": 0.55,
+      "sources": [
+        {
+          "title": "AI, robotic arms power Hong Kong public hospital laundry and meal centre",
+          "publisher": "South China Morning Post",
+          "url": "https://www.scmp.com/news/hong-kong/article/3369221/ai-robotic-arms-power-hong-kong-public-hospital-laundry-and-meal-centre?utm_source=rss_feed",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-making-ai-an-asset-not-an-expense",
+      "slug": "making-ai-an-asset-not-an-expense",
+      "beat": "models",
+      "title": "Making AI an asset, not an expense",
+      "publishedAt": "2026-09-29T10:43:45.000Z",
+      "confidence": "single-source",
+      "score": 0.549,
+      "sources": [
+        {
+          "title": "Making AI an asset, not an expense",
+          "publisher": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/09/29/1145186/making-ai-an-asset-not-an-expense/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-7-best-smartwatch-models-apple-google-garmin-2026",
+      "slug": "7-best-smartwatch-models-apple-google-garmin-2026",
+      "beat": "models",
+      "title": "7 Best Smartwatch Models: Apple, Google, Garmin (2026)",
+      "publishedAt": "2026-09-29T10:39:00.000Z",
+      "confidence": "single-source",
+      "score": 0.548,
+      "sources": [
+        {
+          "title": "7 Best Smartwatch Models: Apple, Google, Garmin (2026)",
+          "publisher": "WIRED",
+          "url": "https://www.wired.com/story/best-smartwatch/",
+          "tier": 2
         }
       ]
     },
@@ -415,40 +438,6 @@
       ]
     },
     {
-      "id": "2026-09-29-report-progressive-disclosure-of-agent-skills",
-      "slug": "report-progressive-disclosure-of-agent-skills",
-      "beat": "models",
-      "title": "Report: Progressive Disclosure of Agent Skills",
-      "publishedAt": "2026-09-28T17:38:37.000Z",
-      "confidence": "single-source",
-      "score": 0.538,
-      "sources": [
-        {
-          "title": "Report: Progressive Disclosure of Agent Skills",
-          "publisher": "arXiv",
-          "url": "https://arxiv.org/abs/2609.35692v1",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-09-29-phonecli-from-app-interfaces-to-callable-commands-for-mobile",
-      "slug": "phonecli-from-app-interfaces-to-callable-commands-for-mobile",
-      "beat": "models",
-      "title": "PhoneCLI: From App Interfaces to Callable Commands for Mobile Agents",
-      "publishedAt": "2026-09-28T17:26:56.000Z",
-      "confidence": "single-source",
-      "score": 0.537,
-      "sources": [
-        {
-          "title": "PhoneCLI: From App Interfaces to Callable Commands for Mobile Agents",
-          "publisher": "arXiv",
-          "url": "https://arxiv.org/abs/2609.35671v1",
-          "tier": 1
-        }
-      ]
-    },
-    {
       "id": "2026-09-29-gpuphysbench-benchmarking-coding-agents-for-correct-and-effi",
       "slug": "gpuphysbench-benchmarking-coding-agents-for-correct-and-effi",
       "beat": "infrastructure",
@@ -517,23 +506,6 @@
       ]
     },
     {
-      "id": "2026-09-29-nvidia-launches-new-platform-for-reining-in-rogue-ai-agents",
-      "slug": "nvidia-launches-new-platform-for-reining-in-rogue-ai-agents",
-      "beat": "infrastructure",
-      "title": "Nvidia launches new platform for reining in rogue AI agents",
-      "publishedAt": "2026-09-28T18:31:23.000Z",
-      "confidence": "single-source",
-      "score": 0.524,
-      "sources": [
-        {
-          "title": "Nvidia launches new platform for reining in rogue AI agents",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/09/28/nvidia-launches-new-platform-for-reining-in-rogue-ai-agents/",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-09-29-from-migration-to-calibration-preserving-agent-capabilities",
       "slug": "from-migration-to-calibration-preserving-agent-capabilities",
       "beat": "business",
@@ -551,23 +523,6 @@
       ]
     },
     {
-      "id": "2026-09-29-meta-launches-enterprise-ai-platform-hires-mongodb-ceo-to-le",
-      "slug": "meta-launches-enterprise-ai-platform-hires-mongodb-ceo-to-le",
-      "beat": "business",
-      "title": "Meta launches enterprise AI platform, hires MongoDB CEO to lead new initiative",
-      "publishedAt": "2026-09-28T16:52:38.000Z",
-      "confidence": "single-source",
-      "score": 0.515,
-      "sources": [
-        {
-          "title": "Meta launches enterprise AI platform, hires MongoDB CEO to lead new initiative",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/09/28/meta-launches-enterprise-ai-platform-hires-mongodb-ceo-to-lead-new-initiative/",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-09-29-ceo-arena-evaluating-long-horizon-multi-agent-decision-makin",
       "slug": "ceo-arena-evaluating-long-horizon-multi-agent-decision-makin",
       "beat": "business",
@@ -581,23 +536,6 @@
           "publisher": "arXiv",
           "url": "https://arxiv.org/abs/2609.34821v1",
           "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-09-29-amd-is-acquiring-ai-company-world-labs-in-a-deal-worth-more",
-      "slug": "amd-is-acquiring-ai-company-world-labs-in-a-deal-worth-more",
-      "beat": "business",
-      "title": "AMD is acquiring AI company World Labs in a deal worth more than $8 billion",
-      "publishedAt": "2026-09-28T21:31:35.000Z",
-      "confidence": "single-source",
-      "score": 0.489,
-      "sources": [
-        {
-          "title": "AMD is acquiring AI company World Labs in a deal worth more than $8 billion",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/tech/1001749/amd-world-labs-ai-acquisition-deal",
-          "tier": 2
         }
       ]
     },
@@ -636,18 +574,18 @@
       ]
     },
     {
-      "id": "2026-09-29-physical-ai-chip-developer-sima-ai-hits-1-45b-valuation",
-      "slug": "physical-ai-chip-developer-sima-ai-hits-1-45b-valuation",
+      "id": "2026-09-29-reco-raises-55m-as-ai-agent-security-startups-crowd-the-mark",
+      "slug": "reco-raises-55m-as-ai-agent-security-startups-crowd-the-mark",
       "beat": "business",
-      "title": "Physical AI chip developer SiMa AI hits $1.45B valuation",
-      "publishedAt": "2026-09-28T15:29:21.000Z",
+      "title": "Reco raises $55M as AI agent security startups crowd the market",
+      "publishedAt": "2026-09-29T12:30:00.000Z",
       "confidence": "single-source",
-      "score": 0.466,
+      "score": 0.473,
       "sources": [
         {
-          "title": "Physical AI chip developer SiMa AI hits $1.45B valuation",
+          "title": "Reco raises $55M as AI agent security startups crowd the market",
           "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/09/28/physical-ai-chip-developer-sima-ai-hits-1-45b-valuation/",
+          "url": "https://techcrunch.com/2026/09/29/reco-raises-55m-as-ai-agent-security-startups-crowd-the-market/",
           "tier": 2
         }
       ]
@@ -704,52 +642,18 @@
       ]
     },
     {
-      "id": "2026-09-29-in-the-us-china-ai-race-the-real-fight-is-keeping-humans-in",
-      "slug": "in-the-us-china-ai-race-the-real-fight-is-keeping-humans-in",
-      "beat": "infrastructure",
-      "title": "In the US-China AI race, the real fight is keeping humans in control",
-      "publishedAt": "2026-09-28T21:30:12.000Z",
+      "id": "2026-09-29-china-s-generative-ai-user-base-crosses-700-million-covering",
+      "slug": "china-s-generative-ai-user-base-crosses-700-million-covering",
+      "beat": "society",
+      "title": "China’s generative AI user base crosses 700 million, covering over half the population",
+      "publishedAt": "2026-09-29T13:00:11.000Z",
       "confidence": "single-source",
-      "score": 0.439,
+      "score": 0.423,
       "sources": [
         {
-          "title": "In the US-China AI race, the real fight is keeping humans in control",
+          "title": "China’s generative AI user base crosses 700 million, covering over half the population",
           "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/opinion/china-opinion/article/3368932/us-china-ai-race-real-fight-keeping-humans-control?utm_source=rss_feed",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-09-29-anthropic-gamma-and-clay-share-what-happens-when-enterprises",
-      "slug": "anthropic-gamma-and-clay-share-what-happens-when-enterprises",
-      "beat": "business",
-      "title": "Anthropic, Gamma, and Clay share what happens when enterprises actually deploy AI at TechCrunch Disrupt 2026",
-      "publishedAt": "2026-09-28T15:30:00.000Z",
-      "confidence": "single-source",
-      "score": 0.416,
-      "sources": [
-        {
-          "title": "Anthropic, Gamma, and Clay share what happens when enterprises actually deploy AI at TechCrunch Disrupt 2026",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/09/28/anthropic-gamma-and-clay-share-what-happens-when-enterprises-actually-deploy-ai-at-techcrunch-disrupt-2026/",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-09-29-mavi-bets-on-the-ai-boom-creating-demand-for-a-new-kind-of-a",
-      "slug": "mavi-bets-on-the-ai-boom-creating-demand-for-a-new-kind-of-a",
-      "beat": "business",
-      "title": "MAVI bets on the AI boom creating demand for a new kind of accountant",
-      "publishedAt": "2026-09-28T15:26:46.000Z",
-      "confidence": "single-source",
-      "score": 0.416,
-      "sources": [
-        {
-          "title": "MAVI bets on the AI boom creating demand for a new kind of accountant",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/09/28/mavi-bets-on-the-ai-boom-creating-demand-for-a-new-kind-of-accountant/",
+          "url": "https://www.scmp.com/tech/tech-trends/article/3369231/chinas-generative-ai-user-base-crosses-700-million-covering-over-half-population?utm_source=rss_feed",
           "tier": 2
         }
       ]
@@ -768,6 +672,193 @@
           "publisher": "MIT Technology Review",
           "url": "https://www.technologyreview.com/2026/09/28/1145202/the-download-rogue-agent-liability-and-the-ai-hype-index/",
           "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-who-s-liable-when-ai-agents-go-rogue",
+      "slug": "who-s-liable-when-ai-agents-go-rogue",
+      "beat": "business",
+      "title": "Who’s liable when AI agents go rogue?",
+      "publishedAt": "2026-09-28T08:06:22.000Z",
+      "confidence": "single-source",
+      "score": 0.389,
+      "sources": [
+        {
+          "title": "Who’s liable when AI agents go rogue?",
+          "publisher": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/09/28/1145197/whos-liable-when-ai-agents-go-rogue/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-the-lenfest-institute-grows-landmark-program-with-expanded-o",
+      "slug": "the-lenfest-institute-grows-landmark-program-with-expanded-o",
+      "beat": "business",
+      "title": "The Lenfest Institute grows landmark program with expanded OpenAI support",
+      "publishedAt": "2026-09-28T07:00:00.000Z",
+      "confidence": "single-source",
+      "score": 0.388,
+      "sources": [
+        {
+          "title": "The Lenfest Institute grows landmark program with expanded OpenAI support",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/lenfest-ai-collaborative-expansion",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-nvidia-kumo-tabular-sets-a-new-accuracy-efficiency-frontier",
+      "slug": "nvidia-kumo-tabular-sets-a-new-accuracy-efficiency-frontier",
+      "beat": "infrastructure",
+      "title": "NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction",
+      "publishedAt": "2026-09-29T15:30:38.000Z",
+      "confidence": "single-source",
+      "score": 0.377,
+      "sources": [
+        {
+          "title": "NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction",
+          "publisher": "Hugging Face",
+          "url": "https://huggingface.co/blog/nvidia/kumo-tabular",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-anthropic-s-ipo-pitch-includes-a-warning-about-human-extinct",
+      "slug": "anthropic-s-ipo-pitch-includes-a-warning-about-human-extinct",
+      "beat": "business",
+      "title": "Anthropic’s IPO pitch includes a warning about human extinction",
+      "publishedAt": "2026-09-29T14:10:00.000Z",
+      "confidence": "single-source",
+      "score": 0.373,
+      "sources": [
+        {
+          "title": "Anthropic’s IPO pitch includes a warning about human extinction",
+          "publisher": "Ars Technica",
+          "url": "https://arstechnica.com/ai/2026/09/anthropics-ipo-pitch-includes-a-warning-about-human-extinction/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-meta-is-expanding-its-ai-agent-muse-to-small-businesses",
+      "slug": "meta-is-expanding-its-ai-agent-muse-to-small-businesses",
+      "beat": "business",
+      "title": "Meta is expanding its AI agent Muse to small businesses",
+      "publishedAt": "2026-09-29T13:47:30.000Z",
+      "confidence": "single-source",
+      "score": 0.373,
+      "sources": [
+        {
+          "title": "Meta is expanding its AI agent Muse to small businesses",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/09/29/meta-is-expanding-its-ai-agent-muse-to-small-businesses/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-nvidia-and-amd-chiefs-join-tsinghua-advisory-board-as-us-chi",
+      "slug": "nvidia-and-amd-chiefs-join-tsinghua-advisory-board-as-us-chi",
+      "beat": "infrastructure",
+      "title": "Nvidia and AMD chiefs join Tsinghua advisory board as US-China chip tensions persist",
+      "publishedAt": "2026-09-29T13:35:01.000Z",
+      "confidence": "single-source",
+      "score": 0.373,
+      "sources": [
+        {
+          "title": "Nvidia and AMD chiefs join Tsinghua advisory board as US-China chip tensions persist",
+          "publisher": "South China Morning Post",
+          "url": "https://www.scmp.com/tech/big-tech/article/3369237/nvidia-and-amd-chiefs-join-tsinghua-advisory-board-us-china-chip-tensions-persist?utm_source=rss_feed",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-meta-s-muse-ai-sent-a-youtuber-s-address-to-a-stranger",
+      "slug": "meta-s-muse-ai-sent-a-youtuber-s-address-to-a-stranger",
+      "beat": "society",
+      "title": "Meta’s Muse AI sent a YouTuber’s address to a stranger",
+      "publishedAt": "2026-09-29T14:08:21.000Z",
+      "confidence": "single-source",
+      "score": 0.373,
+      "sources": [
+        {
+          "title": "Meta’s Muse AI sent a YouTuber’s address to a stranger",
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1001886/meta-muse-ai-facebook-marketplace-security-concerns",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-hong-kong-firms-lag-mainland-china-on-ai-adoption-amid-legac",
+      "slug": "hong-kong-firms-lag-mainland-china-on-ai-adoption-amid-legac",
+      "beat": "society",
+      "title": "Hong Kong firms lag mainland China on AI adoption amid legacy-system burden: Accenture",
+      "publishedAt": "2026-09-29T12:00:10.000Z",
+      "confidence": "single-source",
+      "score": 0.373,
+      "sources": [
+        {
+          "title": "Hong Kong firms lag mainland China on AI adoption amid legacy-system burden: Accenture",
+          "publisher": "South China Morning Post",
+          "url": "https://www.scmp.com/tech/policy/article/3369205/hong-kong-firms-lag-mainland-china-ai-adoption-amid-legacy-system-burden-accenture?utm_source=rss_feed",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-us-and-china-need-shared-risk-vocabulary-to-manage-ai-threat",
+      "slug": "us-and-china-need-shared-risk-vocabulary-to-manage-ai-threat",
+      "beat": "society",
+      "title": "US and China need shared risk vocabulary to manage AI threats: Beijing-linked think tank",
+      "publishedAt": "2026-09-29T12:00:06.000Z",
+      "confidence": "single-source",
+      "score": 0.373,
+      "sources": [
+        {
+          "title": "US and China need shared risk vocabulary to manage AI threats: Beijing-linked think tank",
+          "publisher": "South China Morning Post",
+          "url": "https://www.scmp.com/news/china/diplomacy/article/3369172/us-and-china-need-shared-risk-vocabulary-manage-ai-threats-beijing-linked-think-tank?utm_source=rss_feed",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-openai-apologizes-to-australia-after-its-ai-agents-breached",
+      "slug": "openai-apologizes-to-australia-after-its-ai-agents-breached",
+      "beat": "india",
+      "title": "OpenAI apologizes to Australia after its AI agents breached government sites",
+      "publishedAt": "2026-09-29T12:45:05.000Z",
+      "confidence": "single-source",
+      "score": 0.373,
+      "sources": [
+        {
+          "title": "OpenAI apologizes to Australia after its AI agents breached government sites",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/09/29/openai-apologizes-to-australia-after-its-ai-agents-breached-government-sites/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-09-29-higgsfield-ai-ships-new-video-features-in-a-day-with-gpt-6-a",
+      "slug": "higgsfield-ai-ships-new-video-features-in-a-day-with-gpt-6-a",
+      "beat": "business",
+      "title": "Higgsfield AI ships new video features in a day with GPT-6 Astra",
+      "publishedAt": "2026-09-21T12:00:00.000Z",
+      "confidence": "single-source",
+      "score": 0.367,
+      "sources": [
+        {
+          "title": "Higgsfield AI ships new video features in a day with GPT-6 Astra",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/higgsfield-from-prompt-to-production-with-astra",
+          "tier": 1
         }
       ]
     },
@@ -891,23 +982,6 @@
       ]
     },
     {
-      "id": "2026-09-29-ai-for-societal-impact",
-      "slug": "ai-for-societal-impact",
-      "beat": "society",
-      "title": "AI for Societal Impact",
-      "publishedAt": "2026-09-15T16:00:00.000Z",
-      "confidence": "single-source",
-      "score": 0.317,
-      "sources": [
-        {
-          "title": "AI for Societal Impact",
-          "publisher": "Google",
-          "url": "https://blog.google/innovation-and-ai/technology/ai/ai-for-societal-impact/",
-          "tier": 1
-        }
-      ]
-    },
-    {
       "id": "2026-09-29-openai-extends-cyber-access-to-ukraine-for-civilian-defense",
       "slug": "openai-extends-cyber-access-to-ukraine-for-civilian-defense",
       "beat": "india",
@@ -978,57 +1052,6 @@
           "publisher": "Google DeepMind",
           "url": "https://deepmind.google/blog/unlocking-uk-house-building-with-ai-accelerated-planning/",
           "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-09-29-responsible-ai-for-higher-education",
-      "slug": "responsible-ai-for-higher-education",
-      "beat": "society",
-      "title": "Responsible AI for Higher Education",
-      "publishedAt": "2026-09-14T14:18:11.000Z",
-      "confidence": "single-source",
-      "score": 0.207,
-      "sources": [
-        {
-          "title": "Responsible AI for Higher Education",
-          "publisher": "webinars.on24.com",
-          "url": "https://webinars.on24.com/wileyevents/ResponsibleAI",
-          "tier": 4
-        }
-      ]
-    },
-    {
-      "id": "2026-09-29-china-s-regulators-take-aim-at-ai-boyfriends",
-      "slug": "china-s-regulators-take-aim-at-ai-boyfriends",
-      "beat": "society",
-      "title": "China’s Regulators Take Aim at “AI Boyfriends”",
-      "publishedAt": "2026-09-09T10:00:07.000Z",
-      "confidence": "single-source",
-      "score": 0.207,
-      "sources": [
-        {
-          "title": "China’s Regulators Take Aim at “AI Boyfriends”",
-          "publisher": "spectrum.ieee.org",
-          "url": "https://spectrum.ieee.org/china-ai-chatbot-regulation",
-          "tier": 4
-        }
-      ]
-    },
-    {
-      "id": "2026-09-29-from-ai-copilots-to-agent-swarms",
-      "slug": "from-ai-copilots-to-agent-swarms",
-      "beat": "society",
-      "title": "From AI Copilots to Agent Swarms",
-      "publishedAt": "2026-08-17T14:00:01.000Z",
-      "confidence": "single-source",
-      "score": 0.207,
-      "sources": [
-        {
-          "title": "From AI Copilots to Agent Swarms",
-          "publisher": "spectrum.ieee.org",
-          "url": "https://spectrum.ieee.org/amd-agent-swarms",
-          "tier": 4
         }
       ]
     },
