@@ -2,33 +2,10 @@
   "$schema": "../../schema/digest.schema.json",
   "edition": {
     "date": "2026-10-01",
-    "generatedAt": "2026-10-01T17:01:11.325Z",
-    "itemCount": 60
+    "generatedAt": "2026-10-01T22:39:28.841Z",
+    "itemCount": 61
   },
   "items": [
-    {
-      "id": "2026-10-01-google-releases-gemini-4-argon-called-its-most-powerful-mode",
-      "slug": "google-releases-gemini-4-argon-called-its-most-powerful-mode",
-      "beat": "models",
-      "title": "Google releases Gemini 4 Argon, called its most powerful model yet",
-      "publishedAt": "2026-09-30T23:43:07.000Z",
-      "confidence": "confirmed",
-      "score": 0.698,
-      "sources": [
-        {
-          "title": "Google releases Gemini 4 Argon, called its most powerful model yet",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/09/30/google-releases-gemini-4-argon-called-its-most-powerful-model-yet/",
-          "tier": 2
-        },
-        {
-          "title": "Google announces Gemini 4 Argon AI model, but you can't use it yet",
-          "publisher": "Ars Technica",
-          "url": "https://arstechnica.com/google/2026/09/google-announces-gemini-4-argon-ai-model-but-you-cant-use-it-yet/",
-          "tier": 2
-        }
-      ]
-    },
     {
       "id": "2026-10-01-comparison-of-techniques-for-fine-tuning-open-weight-models",
       "slug": "comparison-of-techniques-for-fine-tuning-open-weight-models",
@@ -506,6 +483,23 @@
       ]
     },
     {
+      "id": "2026-10-01-aims-an-agentic-ai-framework-for-sim-to-real-multi-modal-isa",
+      "slug": "aims-an-agentic-ai-framework-for-sim-to-real-multi-modal-isa",
+      "beat": "models",
+      "title": "AIMS: An Agentic AI Framework for Sim-to-Real Multi-Modal ISAC",
+      "publishedAt": "2026-09-30T15:31:29.000Z",
+      "confidence": "single-source",
+      "score": 0.53,
+      "sources": [
+        {
+          "title": "AIMS: An Agentic AI Framework for Sim-to-Real Multi-Modal ISAC",
+          "publisher": "arXiv",
+          "url": "https://arxiv.org/abs/2609.39964v1",
+          "tier": 1
+        }
+      ]
+    },
+    {
       "id": "2026-10-01-solving-multi-agent-sokoban-via-lacam",
       "slug": "solving-multi-agent-sokoban-via-lacam",
       "beat": "infrastructure",
@@ -523,18 +517,41 @@
       ]
     },
     {
-      "id": "2026-10-01-valor-atreides-and-sequoia-back-ai-startup-flow-engineering",
-      "slug": "valor-atreides-and-sequoia-back-ai-startup-flow-engineering",
+      "id": "2026-10-01-kevin-mandia-s-new-agent-swarm-security-startup-armadin-rais",
+      "slug": "kevin-mandia-s-new-agent-swarm-security-startup-armadin-rais",
       "beat": "business",
-      "title": "Valor, Atreides, and Sequoia back AI startup Flow Engineering at $750M valuation",
-      "publishedAt": "2026-09-30T21:07:40.000Z",
+      "title": "Kevin Mandia’s new ‘agent swarm’ security startup Armadin raises $255.5M at $2.5B valuation",
+      "publishedAt": "2026-10-01T21:55:22.000Z",
       "confidence": "single-source",
-      "score": 0.488,
+      "score": 0.473,
       "sources": [
         {
-          "title": "Valor, Atreides, and Sequoia back AI startup Flow Engineering at $750M valuation",
+          "title": "Kevin Mandia’s new ‘agent swarm’ security startup Armadin raises $255.5M at $2.5B valuation",
           "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/09/30/valor-atreides-and-sequoia-back-ai-startup-flow-engineering-at-750m-valuation/",
+          "url": "https://techcrunch.com/2026/10/01/kevin-mandias-new-agent-swarm-security-startup-armadin-raises-255-5m-at-2-5b-valuation/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-01-judge-dismisses-chegg-and-penske-antitrust-lawsuits-targetin",
+      "slug": "judge-dismisses-chegg-and-penske-antitrust-lawsuits-targetin",
+      "beat": "policy",
+      "title": "Judge dismisses Chegg and Penske antitrust lawsuits targeting Google AI search",
+      "publishedAt": "2026-10-01T20:11:55.000Z",
+      "confidence": "confirmed",
+      "score": 0.46,
+      "sources": [
+        {
+          "title": "Judge dismisses Chegg and Penske antitrust lawsuits targeting Google AI search",
+          "publisher": "Ars Technica",
+          "url": "https://arstechnica.com/google/2026/10/antitrust-lawsuits-targeting-google-ai-search-dismissed-by-federal-judge/",
+          "tier": 2
+        },
+        {
+          "title": "Judge dismisses antitrust lawsuits over Google’s AI Overviews",
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/tech/1003589/google-ai-overviews-chegg-penske-lawsuits-dismissed",
           "tier": 2
         }
       ]
@@ -552,23 +569,6 @@
           "title": "RFK Jr. thinks AI will free us from the \"tyranny\" of medical facts, expertise",
           "publisher": "Ars Technica",
           "url": "https://arstechnica.com/health/2026/09/rfk-jr-says-ai-backs-his-anti-vaccine-views-we-checked-it-doesnt/",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-10-01-an-ai-did-it-is-no-defense-says-nonprofit-suing-openai-over",
-      "slug": "an-ai-did-it-is-no-defense-says-nonprofit-suing-openai-over",
-      "beat": "society",
-      "title": "\"An AI did it\" is no defense, says nonprofit suing OpenAI over Hugging Face hack",
-      "publishedAt": "2026-09-30T18:25:04.000Z",
-      "confidence": "single-source",
-      "score": 0.427,
-      "sources": [
-        {
-          "title": "\"An AI did it\" is no defense, says nonprofit suing OpenAI over Hugging Face hack",
-          "publisher": "Ars Technica",
-          "url": "https://arstechnica.com/tech-policy/2026/09/lawsuit-demands-openai-halt-unsafe-development-that-caused-hugging-face-hack/",
           "tier": 2
         }
       ]
@@ -625,6 +625,23 @@
       ]
     },
     {
+      "id": "2026-10-01-google-thinks-spacex-s-starship-has-to-launch-1-800-times-be",
+      "slug": "google-thinks-spacex-s-starship-has-to-launch-1-800-times-be",
+      "beat": "infrastructure",
+      "title": "Google thinks SpaceX’s Starship has to launch 1,800 times before space data centers get off the ground",
+      "publishedAt": "2026-10-01T19:18:03.000Z",
+      "confidence": "single-source",
+      "score": 0.423,
+      "sources": [
+        {
+          "title": "Google thinks SpaceX’s Starship has to launch 1,800 times before space data centers get off the ground",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/10/01/google-thinks-spacexs-starship-has-to-launch-1600-times-before-space-data-centers-get-off-the-ground/",
+          "tier": 2
+        }
+      ]
+    },
+    {
       "id": "2026-10-01-hong-kong-invests-billions-to-accelerate-innovation-of-impac",
       "slug": "hong-kong-invests-billions-to-accelerate-innovation-of-impac",
       "beat": "india",
@@ -642,23 +659,6 @@
       ]
     },
     {
-      "id": "2026-10-01-google-s-early-attempt-to-pay-websites-for-ai-answers-is-str",
-      "slug": "google-s-early-attempt-to-pay-websites-for-ai-answers-is-str",
-      "beat": "business",
-      "title": "Google's early attempt to pay websites for AI answers is struggling",
-      "publishedAt": "2026-09-30T16:03:48.000Z",
-      "confidence": "single-source",
-      "score": 0.419,
-      "sources": [
-        {
-          "title": "Google's early attempt to pay websites for AI answers is struggling",
-          "publisher": "Ars Technica",
-          "url": "https://arstechnica.com/google/2026/09/google-is-paying-100-websites-for-contributions-to-ai-overviews-but-the-amounts-are-tiny/",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-10-01-from-training-to-production-nvidia-and-coreweave-close-the-l",
       "slug": "from-training-to-production-nvidia-and-coreweave-close-the-l",
       "beat": "infrastructure",
@@ -671,6 +671,23 @@
           "title": "From Training to Production, NVIDIA and CoreWeave Close the Loop on Agentic AI",
           "publisher": "NVIDIA",
           "url": "https://blogs.nvidia.com/blog/coreweave-agentic-ai-vera-rubin/",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-01-build-agent-memory-with-nvidia-nemo-agent-toolkit-and-amazon",
+      "slug": "build-agent-memory-with-nvidia-nemo-agent-toolkit-and-amazon",
+      "beat": "infrastructure",
+      "title": "Build agent memory with NVIDIA NeMo Agent Toolkit and Amazon S3 Vectors",
+      "publishedAt": "2026-10-01T17:34:56.000Z",
+      "confidence": "single-source",
+      "score": 0.377,
+      "sources": [
+        {
+          "title": "Build agent memory with NVIDIA NeMo Agent Toolkit and Amazon S3 Vectors",
+          "publisher": "Amazon",
+          "url": "https://aws.amazon.com/blogs/machine-learning/build-agent-memory-with-nvidia-nemo-agent-toolkit-and-amazon-s3-vectors/",
           "tier": 1
         }
       ]
@@ -739,23 +756,6 @@
           "title": "OpenAI’s new agent is a shot at Meta — but can it compete with free?",
           "publisher": "The Verge",
           "url": "https://www.theverge.com/ai-artificial-intelligence/1003399/meta-openai-ai-agents-muse-dots-battle",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-10-01-inside-our-months-long-investigation-into-kevin-o-leary-s-ut",
-      "slug": "inside-our-months-long-investigation-into-kevin-o-leary-s-ut",
-      "beat": "infrastructure",
-      "title": "Inside our months-long investigation into Kevin O’Leary’s Utah data center debacle",
-      "publishedAt": "2026-10-01T14:00:00.000Z",
-      "confidence": "single-source",
-      "score": 0.373,
-      "sources": [
-        {
-          "title": "Inside our months-long investigation into Kevin O’Leary’s Utah data center debacle",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/podcast/1002851/utah-ai-data-center-stratos-kevin-oleary-investigation-backlash",
           "tier": 2
         }
       ]
@@ -863,23 +863,6 @@
       ]
     },
     {
-      "id": "2026-10-01-emerald-ai-google-and-nvidia-launch-alliance-to-advance-flex",
-      "slug": "emerald-ai-google-and-nvidia-launch-alliance-to-advance-flex",
-      "beat": "infrastructure",
-      "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
-      "publishedAt": "2026-09-16T13:00:33.000Z",
-      "confidence": "single-source",
-      "score": 0.367,
-      "sources": [
-        {
-          "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
-          "publisher": "NVIDIA",
-          "url": "https://blogs.nvidia.com/blog/ai-energy-management-alliance/",
-          "tier": 1
-        }
-      ]
-    },
-    {
       "id": "2026-10-01-the-lenfest-institute-grows-landmark-program-with-expanded-o",
       "slug": "the-lenfest-institute-grows-landmark-program-with-expanded-o",
       "beat": "business",
@@ -909,6 +892,23 @@
           "title": "From Enablement to Execution, Egypt’s AI Ecosystem Reaches Production Scale",
           "publisher": "NVIDIA",
           "url": "https://blogs.nvidia.com/blog/egypt-africa-ai-ecosystem/",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-01-looking-back-on-microsoft-s-fy26-from-ai-experimentation-to",
+      "slug": "looking-back-on-microsoft-s-fy26-from-ai-experimentation-to",
+      "beat": "business",
+      "title": "Looking back on Microsoft’s FY26: From AI experimentation to Frontier Transformation",
+      "publishedAt": "2026-07-28T16:00:10.000Z",
+      "confidence": "single-source",
+      "score": 0.317,
+      "sources": [
+        {
+          "title": "Looking back on Microsoft’s FY26: From AI experimentation to Frontier Transformation",
+          "publisher": "Microsoft",
+          "url": "https://blogs.microsoft.com/blog/2026/07/28/looking-back-on-microsofts-fy26-from-ai-experimentation-to-frontier-transformation/",
           "tier": 1
         }
       ]
@@ -960,6 +960,23 @@
           "title": "Microsoft’s commitment for AI in education: Protecting students, strengthening learning",
           "publisher": "Microsoft",
           "url": "https://blogs.microsoft.com/blog/2026/09/16/microsofts-commitment-for-ai-in-education/",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-01-ai-for-societal-impact",
+      "slug": "ai-for-societal-impact",
+      "beat": "society",
+      "title": "AI for Societal Impact",
+      "publishedAt": "2026-09-15T16:00:00.000Z",
+      "confidence": "single-source",
+      "score": 0.317,
+      "sources": [
+        {
+          "title": "AI for Societal Impact",
+          "publisher": "Google",
+          "url": "https://blog.google/innovation-and-ai/technology/ai/ai-for-societal-impact/",
           "tier": 1
         }
       ]
