@@ -1356,8 +1356,12 @@ ${R.sectionHead(beat.label, beat.blurb, list.length)}
     })
     .join('');
 
+  // .section, not .lead — .lead is a two-column grid built for leadBlock()+briefingBlock()
+  // (cover image beside a sidebar list). Reused here for just a heading plus one row, it
+  // split those two into separate grid columns instead of stacking them: "Top story" sat
+  // alone on the left with the hero card squeezed into a narrow column on the right.
   const heroBlock = hero
-    ? `<section class="lead">
+    ? `<section class="section">
 ${R.sectionHead('Top story', null, null)}
 <div class="digest-list">${digestItemRow(ctx, hero, depth)}</div>
 </section>`
@@ -1379,6 +1383,8 @@ links straight to where it was reported.
 </div>
 </section>
 
+${wire}
+
 ${heroBlock}
 
 ${R.tierStrip(ctx, {
@@ -1391,7 +1397,6 @@ ${R.tierStrip(ctx, {
   })}
 
 ${sections || '<p class="empty">No items cleared the classifier for this run.</p>'}
-${wire}
 </div>`;
 
   return R.page(ctx, {
