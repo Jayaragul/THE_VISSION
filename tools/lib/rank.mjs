@@ -215,4 +215,55 @@ export function confidenceOf(cluster) {
   return diversity >= 2 && hasStrongSource ? 'confirmed' : 'single-source';
 }
 
+// On 30 Sep 2026, the single highest-scored item across the whole digest was an arXiv
+// preprint, "Neural topology optimization of ship structures under propulsion machinery
+// vibrations" (score 0.588) — a real, legitimate result, and an indefensible choice for the
+// one story a general AI briefing leads with. scoreCluster() isn't wrong for what it ranks
+// the whole digest on; it was never asked the narrower question a front-page hero needs
+// answered.
+//
+// This is a gate on top of the existing score, not a second score. Building a parallel
+// "FrontPageScore" formula risks drifting out of sync with the DigestScore it would have to
+// duplicate; this instead asks one additional, narrower question using functions already
+// exported above.
+//
+// The gate keys on "sole tier-1 source", not isInstitutional() — tested against that same
+// digest and nearly caught the same gap from the other direction. Tier 1 in this system
+// means "primary for its own story", which in practice is always one of two shapes: an
+// institutional primary (a paper, a filing — isInstitutional()'s whole list) or a company's
+// own account of itself. isInstitutional() exists in scoreCluster() to stop the SCORE
+// unfairly punishing the first shape for being single-source, which is normal for a paper.
+// But a front-page hero has no reason to treat those two shapes differently — "a company
+// marketing article with no wider significance" leading the page is exactly as indefensible
+// as a solo paper, and isInstitutional() is defined to never match a company's own domain,
+// so gating on it alone leaves every sole company post structurally exempt. Confirmed live:
+// the actual runner-up for 30 Sep's hero was a sole AWS blog post ("Introducing Anthropic
+// models on Amazon Bedrock...", score 0.572) that the narrower, institutional-only version
+// of this gate would have waved through unconditionally. It happens to still clear the
+// escape hatch below on its own merits (its title matches RELEASE), so today's actual hero
+// doesn't change — but the next one with a neutral announcement title would have slipped
+// through on a technicality, not a judgement.
+/**
+ * Is this item allowed to be the front page's one "Top story"?
+ *
+ * A confirmed item is always eligible — two independent publishers already did the
+ * generality check scoreCluster() itself cannot do alone. A single-source item whose one
+ * source is NOT tier 1 stays eligible too — a tier-2/3 scoop is independent reporting, not
+ * a primary speaking for itself, the same distinction uncorroboratedFirstParty draws in
+ * scoreCluster(). The gate only fires on the specific combination this was built for: sole
+ * tier-1 source, and nothing in the title reads as urgent or substantial — the ship-
+ * structures case (and the Bedrock near-miss), not "FTC bans X" or "a lab discloses a
+ * breach", both of which clear the escape hatch below via their own EVENT_VERB/BREAKING
+ * matches.
+ */
+export function heroEligible(item) {
+  if (item.confidence === 'confirmed') return true;
+  const sources = item.sources || [];
+  const soleFirstParty = sources.length === 1 && (sources[0]?.tier ?? 4) === 1;
+  if (!soleFirstParty) return true;
+  const urgency = urgencyScore(item.title, 1);
+  const substance = substanceScore(item.title, { uncorroboratedFirstParty: true });
+  return urgency > 0 || substance > 0.5;
+}
+
 export { tierOf };

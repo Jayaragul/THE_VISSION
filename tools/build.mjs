@@ -19,6 +19,7 @@ import { selectWireItems, wireBlock, wireItemsHTML, stalenessBanner, wirePath, s
 import * as R from './lib/render.mjs';
 import { collectThreads, collectOpenQuestions, collectCorrections, daysBetween } from './lib/continuity.mjs';
 import { collectDocs, buildSearchIndex } from './lib/searchindex.mjs';
+import { heroEligible } from './lib/rank.mjs';
 
 const ROOT = resolvePath(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -1208,25 +1209,38 @@ function loadWeeklies() {
 
 const weeklyPath = (date) => (date ? `weekly/${date}.html` : 'weekly.html');
 
+// One confidence badge, one meta row and a full "Reported by" listing of every source with
+// its own tier badge, repeated identically for every item on a page that can carry 60+ of
+// them, was the exact "technically useful, visually exhausting" complaint this replaced. The
+// full source list is still here, unchanged — it just opens on demand now, behind a native
+// <details>/<summary> disclosure rather than sitting open on every row. No JS: this is the
+// same progressive-enhancement idea as the Wire's own "Show all N headlines" toggle, just
+// the more idiomatic native element for a single reveal rather than a checkbox+label pair.
 function digestItemRow(ctx, item, depth) {
   const beat = ctx.beatMap.get(item.beat);
-  const primary = item.sources[0];
-  const rest = item.sources.slice(1);
+  const sources = item.sources;
+  const primary = sources[0];
+  const extra = sources.length - 1;
+  const confirmed = item.confidence === 'confirmed';
+  const summaryLine = `${e(primary.publisher)}${extra ? ` +${extra} more` : ''} · ${confirmed ? 'Confirmed' : 'Single source'}`;
   return `<article class="digest-item" id="${e(item.id)}"${beat ? ` style="--beat-accent:${e(beat.accent)}"` : ''}>
-<span class="digest-item__badge digest-item__badge--${item.confidence === 'confirmed' ? 'confirmed' : 'single'}">${item.confidence === 'confirmed' ? 'Confirmed' : 'Single source'}</span>
-<h3 class="digest-item__title"><a href="${e(primary.url)}" rel="noopener nofollow" target="_blank">${e(item.title)}</a></h3>
 <div class="meta">
 <span>${e(beat?.label || item.beat)}</span>
-${item.publishedAt ? `<span><time datetime="${e(item.publishedAt)}" data-relative>${e(formatShort(item.publishedAt))}</time></span>` : ''}
+${item.publishedAt ? `<time datetime="${e(item.publishedAt)}" data-relative>${e(formatShort(item.publishedAt))}</time>` : ''}
 </div>
+<h3 class="digest-item__title"><a href="${e(primary.url)}" rel="noopener nofollow" target="_blank">${e(item.title)}</a></h3>
+<p class="digest-item__summary-line digest-item__summary-line--${confirmed ? 'confirmed' : 'single'}">${summaryLine}</p>
+<details class="digest-item__details">
+<summary>Source details →</summary>
 <div class="digest-item__sources">
 <span class="digest-item__reportedby">Reported by</span>
-${item.sources.map((s) => `<a class="source" href="${e(s.url)}" rel="noopener nofollow" target="_blank">
+${sources.map((s) => `<a class="source" href="${e(s.url)}" rel="noopener nofollow" target="_blank">
 <span class="source__mark" aria-hidden="true">${e((s.publisher || '??').slice(0, 2).toUpperCase())}</span>
 <span>${e(s.publisher)}</span>
 <span class="source__tier">T${s.tier ?? 4}</span>
 </a>`).join('')}
 </div>
+</details>
 </article>`;
 }
 
@@ -1304,7 +1318,18 @@ ${nav}
 function renderFrontPage(ctx, digest) {
   const depth = 0;
   const items = digest.items;
-  const hero = items.length ? [...items].sort((a, b) => b.score - a.score)[0] : null;
+  // heroEligible() filters out the specific failure this replaced: the plain highest score
+  // can be a solo, uncorroborated arXiv/institutional item that is correctly ranked for the
+  // digest but indefensible as the one story a general AI briefing leads with — see
+  // tools/lib/rank.mjs. Never leave the hero blank over it: an all-ineligible digest (every
+  // item a lone paper) is rare and still needs a front page, so fall back to the plain top
+  // score rather than show nothing.
+  const eligible = items.filter(heroEligible);
+  if (items.length && !eligible.length) {
+    console.log('  ⚠ every digest item today failed the hero-eligibility gate — falling back to the plain top score.');
+  }
+  const pool = eligible.length ? eligible : items;
+  const hero = pool.length ? [...pool].sort((a, b) => b.score - a.score)[0] : null;
 
   const byBeat = new Map();
   for (const item of items) {

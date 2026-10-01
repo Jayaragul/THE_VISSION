@@ -328,7 +328,13 @@ ul, ol { margin: 0; padding: 0; }
 .tiers { margin: 34px 0 8px; }
 .tiers__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  /* Always exactly 3 items (Edition, Digest, Wire) — a fixed count, never a variable list —
+     so this is 3 explicit columns, not an auto-fit track count. auto-fit computed 2 columns
+     at some in-between widths, leaving the third item alone in row 2 with an empty sibling
+     cell next to it: the grid's own background (the divider colour) filled that empty
+     track and read as a stray blank box next to "The Wire". Two states only, below, at the
+     same 700px breakpoint the rest of this component already uses. */
+  grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--rule);
   border: 1px solid var(--rule);
@@ -377,6 +383,10 @@ ul, ol { margin: 0; padding: 0; }
      reader. Padding, not font size, so the type scale is unchanged. */
   .tiers__name { display: inline-block; padding: 10px 0; }
   .tiers__item { padding: 14px 18px 18px; gap: 4px; }
+  /* One column below 700px: 3 columns at this width leaves each item too narrow for its own
+     blurb to read comfortably, and — the fixed 3-item count means there's never a wrapping
+     remainder to worry about here, unlike the auto-fit track count this replaced. */
+  .tiers__grid { grid-template-columns: 1fr; }
 }
 
 /* Replaces the block-per-empty-beat the front page used to print. */
@@ -1054,22 +1064,36 @@ ul, ol { margin: 0; padding: 0; }
   border-left: 3px solid var(--beat-accent, var(--rule-strong));
 }
 .digest-item:last-child { border-bottom: 0; }
-.digest-item__badge {
-  display: inline-block;
-  font-family: var(--sans); font-size: .62rem; font-weight: 700;
-  letter-spacing: .1em; text-transform: uppercase;
-  padding: 3px 9px; border-radius: 3px;
-  margin-bottom: 9px;
-  font-variant-numeric: normal;
-}
-.digest-item__badge--confirmed { background: var(--accent-soft); color: var(--accent); }
-.digest-item__badge--single { background: var(--surface-3); color: var(--muted); }
-.digest-item__title { font-size: 1.08rem; line-height: 1.32; margin-bottom: 6px; }
+.digest-item__title { font-size: 1.08rem; line-height: 1.32; margin: 6px 0 4px; }
 .digest-item__title a { text-decoration: none; }
 .digest-item__title a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+/* Replaces the standalone confidence pill: the same distinction (confirmed vs single-source)
+   now lives in this one line's colour rather than a separate badge element above the
+   headline — one fewer thing competing for attention on a page that can carry 60+ of these. */
+.digest-item__summary-line {
+  font-family: var(--sans); font-size: .78rem;
+  font-variant-numeric: normal;
+  margin: 0;
+}
+.digest-item__summary-line--confirmed { color: var(--accent); }
+.digest-item__summary-line--single { color: var(--muted); }
+/* The full source list is unchanged from before — it just opens on demand now. Marker
+   removed so "Source details →" reads as the only affordance, not marker-plus-arrow. */
+.digest-item__details { margin-top: 8px; }
+.digest-item__details summary {
+  display: inline-block;
+  font-family: var(--sans); font-size: .72rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--faint);
+  cursor: pointer;
+  list-style: none;
+}
+.digest-item__details summary::-webkit-details-marker { display: none; }
+.digest-item__details summary:hover { color: var(--accent); }
+.digest-item__details summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.digest-item__details[open] summary { margin-bottom: 10px; }
 .digest-item__sources {
   display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
-  margin-top: 10px;
 }
 .digest-item__reportedby {
   font-family: var(--sans); font-size: .68rem; font-weight: 600;

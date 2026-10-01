@@ -8,7 +8,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { classifyBeat, tierOf, recencyScore } from '../tools/lib/classify.mjs';
 import { clusterItems, publisherDiversity, bestTier } from '../tools/lib/cluster.mjs';
-import { scoreCluster, confidenceOf, isInstitutional, substanceScore, urgencyScore } from '../tools/lib/rank.mjs';
+import { scoreCluster, confidenceOf, isInstitutional, substanceScore, urgencyScore, heroEligible } from '../tools/lib/rank.mjs';
 import { isAiRelevant } from '../tools/lib/util.mjs';
 
 const beats = [
@@ -322,4 +322,90 @@ test('urgencyScore ignores the past-event noun sense of launch and release', () 
   // The verb senses still count, including the infinitive.
   assert.equal(urgencyScore('OpenAI launches GPT-5.7'), 0.6);
   assert.equal(urgencyScore('Meta to launch its next open-weights model'), 0.6);
+});
+
+// --- heroEligible ----------------------------------------------------------------------
+// On 30 Sep 2026, the single highest-scored item in the whole digest was a real arXiv
+// preprint — "Neural topology optimization of ship structures under propulsion machinery
+// vibrations" (score 0.588) — chosen by the plain top-score sort as the front page's one
+// "Top story". A fair score for ranking the digest is not the same question as "is this a
+// defensible lead for a general AI briefing"; these pin the gate added for the second
+// question, operating on the shape tools/digest.mjs actually writes to generated/digest/
+// (an item with `confidence` and a `sources` array), not the cluster shape scoreCluster()
+// takes above.
+
+test('a solo tier-1 source with a neutral title is not hero-eligible — the ship-structures case', () => {
+  const item = {
+    confidence: 'single-source',
+    title: 'Neural topology optimization of ship structures under propulsion machinery vibrations',
+    sources: [{ title: 'same', publisher: 'arXiv', url: 'https://arxiv.org/abs/2609.38089v1', tier: 1 }],
+  };
+  assert.equal(heroEligible(item), false);
+});
+
+// The gate keys on tier, not isInstitutional() — an earlier version of this gate checked
+// isInstitutional() directly and nearly let this exact item through, because a company's
+// own blog about itself is, by definition, never on that list. "Introducing Anthropic
+// models on Amazon Bedrock for in-region inference in Seoul and Singapore" (score 0.572)
+// was the real runner-up for 30 Sep's hero under that narrower version — it happens to
+// clear the escape hatch anyway (its title matches RELEASE: "Introducing"), so this fixture
+// uses a neutral title that wouldn't, to pin the gap that version actually had.
+test('a solo tier-1 COMPANY source with a neutral title is not hero-eligible either — not just institutional ones', () => {
+  const item = {
+    confidence: 'single-source',
+    title: 'Our latest thinking on responsible scaling',
+    sources: [{ title: 'same', publisher: 'Amazon', url: 'https://aws.amazon.com/blogs/machine-learning/x', tier: 1 }],
+  };
+  assert.equal(heroEligible(item), false);
+});
+
+test('the same solo tier-1 source becomes eligible once the title itself reads as a release', () => {
+  const item = {
+    confidence: 'single-source',
+    title: 'DeepMind releases a new diffusion model for protein folding',
+    sources: [{ title: 'same', publisher: 'arXiv', url: 'https://arxiv.org/abs/1', tier: 1 }],
+  };
+  assert.equal(heroEligible(item), true);
+});
+
+test('the same solo tier-1 source becomes eligible once the title clears the substance bar', () => {
+  const item = {
+    confidence: 'single-source',
+    title: 'A $2 billion compute cluster cuts inference cost by 40%',
+    sources: [{ title: 'same', publisher: 'arXiv', url: 'https://arxiv.org/abs/2', tier: 1 }],
+  };
+  assert.equal(heroEligible(item), true);
+});
+
+test('a lone tier-2+ single source stays eligible regardless of title — a scoop, not a primary', () => {
+  const item = {
+    confidence: 'single-source',
+    title: 'Sources say the deal fell apart over data residency terms',
+    sources: [{ title: 'same', publisher: 'WIRED', url: 'https://www.wired.com/story/x', tier: 2 }],
+  };
+  assert.equal(heroEligible(item), true);
+});
+
+test('a confirmed item is always eligible, even with a neutral title and a tier-1 primary', () => {
+  const item = {
+    confidence: 'confirmed',
+    title: 'Neural topology optimization of ship structures under propulsion machinery vibrations',
+    sources: [
+      { title: 'same', publisher: 'arXiv', url: 'https://arxiv.org/abs/3', tier: 1 },
+      { title: 'same', publisher: 'TechCrunch', url: 'https://techcrunch.com/x', tier: 2 },
+    ],
+  };
+  assert.equal(heroEligible(item), true);
+});
+
+test('a tier-1 source alongside a second source is not "sole" — the gate only fires on solo coverage', () => {
+  const item = {
+    confidence: 'single-source', // confidenceOf() still requires 2 *distinct* publishers to say "confirmed"
+    title: 'Neural topology optimization of ship structures under propulsion machinery vibrations',
+    sources: [
+      { title: 'same', publisher: 'arXiv', url: 'https://arxiv.org/abs/4', tier: 1 },
+      { title: 'a reprint', publisher: 'SSRN', url: 'https://ssrn.com/x', tier: 3 },
+    ],
+  };
+  assert.equal(heroEligible(item), true);
 });
