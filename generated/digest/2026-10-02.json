@@ -2,10 +2,27 @@
   "$schema": "../../schema/digest.schema.json",
   "edition": {
     "date": "2026-10-02",
-    "generatedAt": "2026-10-02T08:29:42.114Z",
-    "itemCount": 60
+    "generatedAt": "2026-10-02T16:15:51.864Z",
+    "itemCount": 59
   },
   "items": [
+    {
+      "id": "2026-10-02-amazon-writes-scary-blog-warning-communities-not-to-block-da",
+      "slug": "amazon-writes-scary-blog-warning-communities-not-to-block-da",
+      "beat": "society",
+      "title": "Amazon writes scary blog warning communities not to block data centers",
+      "publishedAt": "2026-10-02T11:52:20.000Z",
+      "confidence": "single-source",
+      "score": 0.603,
+      "sources": [
+        {
+          "title": "Amazon writes scary blog warning communities not to block data centers",
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/tech/1003929/amazon-ai-data-center-blog-warning",
+          "tier": 2
+        }
+      ]
+    },
     {
       "id": "2026-10-02-kalibench-a-fine-grained-benchmark-for-cybersecurity-tool-us",
       "slug": "kalibench-a-fine-grained-benchmark-for-cybersecurity-tool-us",
@@ -109,35 +126,18 @@
       ]
     },
     {
-      "id": "2026-10-02-amazon-releases-its-own-jev-clone-as-decision-models-flood-t",
-      "slug": "amazon-releases-its-own-jev-clone-as-decision-models-flood-t",
-      "beat": "models",
-      "title": "Amazon releases its own Jev clone as decision models flood the web",
-      "publishedAt": "2026-10-01T16:49:22.000Z",
+      "id": "2026-10-02-ai-hallucinations-are-making-entitled-customers-even-worse",
+      "slug": "ai-hallucinations-are-making-entitled-customers-even-worse",
+      "beat": "infrastructure",
+      "title": "AI hallucinations are making entitled customers even worse",
+      "publishedAt": "2026-10-02T12:00:00.000Z",
       "confidence": "single-source",
-      "score": 0.575,
+      "score": 0.553,
       "sources": [
         {
-          "title": "Amazon releases its own Jev clone as decision models flood the web",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/01/amazon-releases-its-own-jev-clone-as-decision-models-flood-the-web/",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-10-02-family-of-renee-good-us-woman-killed-by-ice-agent-sues-trump",
-      "slug": "family-of-renee-good-us-woman-killed-by-ice-agent-sues-trump",
-      "beat": "policy",
-      "title": "Family of Renee Good, US woman killed by ICE agent, sues Trump administration",
-      "publishedAt": "2026-10-01T23:34:13.000Z",
-      "confidence": "single-source",
-      "score": 0.557,
-      "sources": [
-        {
-          "title": "Family of Renee Good, US woman killed by ICE agent, sues Trump administration",
-          "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/news/world/united-states-canada/article/3369491/family-renee-good-us-woman-killed-ice-agent-sues-trump-administration?utm_source=rss_feed",
+          "title": "AI hallucinations are making entitled customers even worse",
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/report/1002963/ai-hallucinations-customer-service-jobs-agents",
           "tier": 2
         }
       ]
@@ -381,23 +381,6 @@
       ]
     },
     {
-      "id": "2026-10-02-openai-cuts-ties-with-3-safety-researchers-wsj-reports",
-      "slug": "openai-cuts-ties-with-3-safety-researchers-wsj-reports",
-      "beat": "research",
-      "title": "OpenAI cuts ties with 3 safety researchers, WSJ reports",
-      "publishedAt": "2026-10-01T18:14:42.000Z",
-      "confidence": "single-source",
-      "score": 0.537,
-      "sources": [
-        {
-          "title": "OpenAI cuts ties with 3 safety researchers, WSJ reports",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/01/openai-cuts-ties-with-three-safety-researchers-wsj-reports/",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-10-02-pypottery-an-ai-powered-end-to-end-suite-for-pottery-process",
       "slug": "pypottery-an-ai-powered-end-to-end-suite-for-pottery-process",
       "beat": "research",
@@ -449,6 +432,23 @@
       ]
     },
     {
+      "id": "2026-10-02-typological-alignment-of-stack-based-language-models-on-mild",
+      "slug": "typological-alignment-of-stack-based-language-models-on-mild",
+      "beat": "research",
+      "title": "Typological Alignment of Stack-Based Language Models on Mildly Context-Sensitive Artificial Languages",
+      "publishedAt": "2026-10-01T16:52:08.000Z",
+      "confidence": "single-source",
+      "score": 0.535,
+      "sources": [
+        {
+          "title": "Typological Alignment of Stack-Based Language Models on Mildly Context-Sensitive Artificial Languages",
+          "publisher": "arXiv",
+          "url": "https://arxiv.org/abs/2610.02040v1",
+          "tier": 1
+        }
+      ]
+    },
+    {
       "id": "2026-10-02-china-s-ai-compute-ambitions-demand-innovation",
       "slug": "china-s-ai-compute-ambitions-demand-innovation",
       "beat": "infrastructure",
@@ -462,6 +462,23 @@
           "publisher": "South China Morning Post",
           "url": "https://www.scmp.com/plus/tech/policy/article/3369537/chinas-ai-compute-ambitions-demand-innovation?utm_source=rss_feed",
           "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-02-mem-non-destructive-memory-for-long-term-organizational-llm",
+      "slug": "mem-non-destructive-memory-for-long-term-organizational-llm",
+      "beat": "models",
+      "title": "Mem++: Non-Destructive Memory for Long-Term Organizational LLM Agents",
+      "publishedAt": "2026-10-01T16:32:38.000Z",
+      "confidence": "single-source",
+      "score": 0.534,
+      "sources": [
+        {
+          "title": "Mem++: Non-Destructive Memory for Long-Term Organizational LLM Agents",
+          "publisher": "arXiv",
+          "url": "https://arxiv.org/abs/2610.02002v1",
+          "tier": 1
         }
       ]
     },
@@ -500,63 +517,6 @@
       ]
     },
     {
-      "id": "2026-10-02-judge-dismisses-chegg-and-penske-antitrust-lawsuits-targetin",
-      "slug": "judge-dismisses-chegg-and-penske-antitrust-lawsuits-targetin",
-      "beat": "policy",
-      "title": "Judge dismisses Chegg and Penske antitrust lawsuits targeting Google AI search",
-      "publishedAt": "2026-10-01T20:11:55.000Z",
-      "confidence": "confirmed",
-      "score": 0.521,
-      "sources": [
-        {
-          "title": "Judge dismisses Chegg and Penske antitrust lawsuits targeting Google AI search",
-          "publisher": "Ars Technica",
-          "url": "https://arstechnica.com/google/2026/10/antitrust-lawsuits-targeting-google-ai-search-dismissed-by-federal-judge/",
-          "tier": 2
-        },
-        {
-          "title": "Judge dismisses antitrust lawsuits over Google’s AI Overviews",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/tech/1003589/google-ai-overviews-chegg-penske-lawsuits-dismissed",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-10-02-deepseek-effect-how-china-s-quant-funds-thrive-amid-tight-re",
-      "slug": "deepseek-effect-how-china-s-quant-funds-thrive-amid-tight-re",
-      "beat": "business",
-      "title": "DeepSeek effect? How China’s quant funds thrive amid tight regulatory scrutiny",
-      "publishedAt": "2026-10-02T02:00:18.000Z",
-      "confidence": "single-source",
-      "score": 0.516,
-      "sources": [
-        {
-          "title": "DeepSeek effect? How China’s quant funds thrive amid tight regulatory scrutiny",
-          "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/business/banking-finance/article/3369376/deepseek-effect-how-chinas-quant-funds-thrive-amid-tight-regulatory-scrutiny?utm_source=rss_feed",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-10-02-hearing-tech-startup-legato-launches-its-ai-hearing-glasses",
-      "slug": "hearing-tech-startup-legato-launches-its-ai-hearing-glasses",
-      "beat": "business",
-      "title": "Hearing tech startup Legato launches its AI hearing glasses",
-      "publishedAt": "2026-10-01T13:00:00.000Z",
-      "confidence": "single-source",
-      "score": 0.495,
-      "sources": [
-        {
-          "title": "Hearing tech startup Legato launches its AI hearing glasses",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/01/hearing-tech-startup-legato-launches-its-ai-hearing-glasses/",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-10-02-announcing-ranveer-singh-as-brand-ambassador-for-ray-ban-and",
       "slug": "announcing-ranveer-singh-as-brand-ambassador-for-ray-ban-and",
       "beat": "india",
@@ -574,23 +534,6 @@
       ]
     },
     {
-      "id": "2026-10-02-photon-held-a-funeral-for-mobile-apps-now-it-has-4-5m-to-hel",
-      "slug": "photon-held-a-funeral-for-mobile-apps-now-it-has-4-5m-to-hel",
-      "beat": "business",
-      "title": "Photon held a funeral for mobile apps. Now it has $4.5M to help replace them with agents.",
-      "publishedAt": "2026-10-01T14:00:00.000Z",
-      "confidence": "single-source",
-      "score": 0.461,
-      "sources": [
-        {
-          "title": "Photon held a funeral for mobile apps. Now it has $4.5M to help replace them with agents.",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/01/photon-held-a-funeral-for-mobile-apps-now-it-has-4-5m-to-help-replace-them-with-agents/",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-10-02-scaling-cloud-migrations-with-agentic-ai-on-amazon-bedrock-a",
       "slug": "scaling-cloud-migrations-with-agentic-ai-on-amazon-bedrock-a",
       "beat": "infrastructure",
@@ -604,6 +547,23 @@
           "publisher": "Amazon",
           "url": "https://aws.amazon.com/blogs/machine-learning/scaling-cloud-migrations-with-agentic-ai-on-amazon-bedrock-agentcore/",
           "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-02-judge-dismisses-chegg-and-penske-antitrust-lawsuits-targetin",
+      "slug": "judge-dismisses-chegg-and-penske-antitrust-lawsuits-targetin",
+      "beat": "policy",
+      "title": "Judge dismisses Chegg and Penske antitrust lawsuits targeting Google AI search",
+      "publishedAt": "2026-10-01T20:11:55.000Z",
+      "confidence": "single-source",
+      "score": 0.434,
+      "sources": [
+        {
+          "title": "Judge dismisses Chegg and Penske antitrust lawsuits targeting Google AI search",
+          "publisher": "Ars Technica",
+          "url": "https://arstechnica.com/google/2026/10/antitrust-lawsuits-targeting-google-ai-search-dismissed-by-federal-judge/",
+          "tier": 2
         }
       ]
     },
@@ -642,35 +602,18 @@
       ]
     },
     {
-      "id": "2026-10-02-inside-microsoft-s-big-copilot-rethink",
-      "slug": "inside-microsoft-s-big-copilot-rethink",
-      "beat": "business",
-      "title": "Inside Microsoft’s big Copilot rethink",
-      "publishedAt": "2026-10-01T16:00:00.000Z",
+      "id": "2026-10-02-the-7-year-old-nvidia-shield-tv-is-now-100-more-expensive-du",
+      "slug": "the-7-year-old-nvidia-shield-tv-is-now-100-more-expensive-du",
+      "beat": "infrastructure",
+      "title": "The 7-year-old Nvidia Shield TV is now $100 more expensive due to AI",
+      "publishedAt": "2026-10-02T14:52:16.000Z",
       "confidence": "single-source",
-      "score": 0.418,
+      "score": 0.423,
       "sources": [
         {
-          "title": "Inside Microsoft’s big Copilot rethink",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/tech/1003365/microsoft-copilot-os-for-work-notepad",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-10-02-brian-chesky-interview-ai-agents-need-their-own-operating-sy",
-      "slug": "brian-chesky-interview-ai-agents-need-their-own-operating-sy",
-      "beat": "society",
-      "title": "Brian Chesky interview: AI agents need their own operating system",
-      "publishedAt": "2026-10-01T15:12:00.000Z",
-      "confidence": "single-source",
-      "score": 0.415,
-      "sources": [
-        {
-          "title": "Brian Chesky interview: AI agents need their own operating system",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/01/brian-chesky-interview-ai-agents-need-their-own-operating-system/",
+          "title": "The 7-year-old Nvidia Shield TV is now $100 more expensive due to AI",
+          "publisher": "Ars Technica",
+          "url": "https://arstechnica.com/gadgets/2026/10/the-7-year-old-nvidia-shield-tv-is-now-100-more-expensive-thanks-to-ai/",
           "tier": 2
         }
       ]
@@ -689,6 +632,74 @@
           "publisher": "NVIDIA",
           "url": "https://blogs.nvidia.com/blog/productive-durable-fungible-ai-factories/",
           "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-02-redefining-enterprise-intelligence-with-autonomous-ai",
+      "slug": "redefining-enterprise-intelligence-with-autonomous-ai",
+      "beat": "business",
+      "title": "Redefining enterprise intelligence with autonomous AI",
+      "publishedAt": "2026-10-02T15:49:04.000Z",
+      "confidence": "single-source",
+      "score": 0.373,
+      "sources": [
+        {
+          "title": "Redefining enterprise intelligence with autonomous AI",
+          "publisher": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/10/02/1143774/redefining-enterprise-intelligence-with-autonomous-ai/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-02-pope-leo-xiv-is-not-a-fan-of-ai-generated-art",
+      "slug": "pope-leo-xiv-is-not-a-fan-of-ai-generated-art",
+      "beat": "business",
+      "title": "Pope Leo XIV is not a fan of AI-generated art",
+      "publishedAt": "2026-10-02T15:39:41.000Z",
+      "confidence": "single-source",
+      "score": 0.373,
+      "sources": [
+        {
+          "title": "Pope Leo XIV is not a fan of AI-generated art",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/10/02/pope-leo-xiv-is-not-a-fan-of-ai-generated-art/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-02-america-is-back-ai-conspiracy-china-s-laos-deal-7-global-rel",
+      "slug": "america-is-back-ai-conspiracy-china-s-laos-deal-7-global-rel",
+      "beat": "business",
+      "title": "‘America is back’, AI ‘conspiracy’, China’s Laos deal: 7 global relations reads",
+      "publishedAt": "2026-10-02T14:00:15.000Z",
+      "confidence": "single-source",
+      "score": 0.373,
+      "sources": [
+        {
+          "title": "‘America is back’, AI ‘conspiracy’, China’s Laos deal: 7 global relations reads",
+          "publisher": "South China Morning Post",
+          "url": "https://www.scmp.com/news/china/diplomacy/article/3369257/america-back-ai-conspiracy-chinas-laos-deal-7-global-relations-reads?utm_source=rss_feed",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-02-china-s-pla-sets-up-new-military-academy-colleges-for-ai-dro",
+      "slug": "china-s-pla-sets-up-new-military-academy-colleges-for-ai-dro",
+      "beat": "society",
+      "title": "China’s PLA sets up new military academy colleges for AI, drones and discipline",
+      "publishedAt": "2026-10-02T12:00:16.000Z",
+      "confidence": "single-source",
+      "score": 0.373,
+      "sources": [
+        {
+          "title": "China’s PLA sets up new military academy colleges for AI, drones and discipline",
+          "publisher": "South China Morning Post",
+          "url": "https://www.scmp.com/news/china/military/article/3369575/chinas-pla-sets-new-military-academy-colleges-ai-drones-and-discipline?utm_source=rss_feed",
+          "tier": 2
         }
       ]
     },
@@ -740,57 +751,6 @@
           "publisher": "NVIDIA",
           "url": "https://blogs.nvidia.com/blog/isaac-ros-5-0-agentic-open-source-robotics/",
           "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-10-02-nvidia-launches-dsx-ready-to-qualify-power-and-cooling-produ",
-      "slug": "nvidia-launches-dsx-ready-to-qualify-power-and-cooling-produ",
-      "beat": "infrastructure",
-      "title": "NVIDIA Launches DSX Ready to Qualify Power and Cooling Products for AI Factories",
-      "publishedAt": "2026-09-21T18:00:07.000Z",
-      "confidence": "single-source",
-      "score": 0.367,
-      "sources": [
-        {
-          "title": "NVIDIA Launches DSX Ready to Qualify Power and Cooling Products for AI Factories",
-          "publisher": "NVIDIA",
-          "url": "https://blogs.nvidia.com/blog/dsx-ready-ai-factories-power-cooling/",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-10-02-emerald-ai-google-and-nvidia-launch-alliance-to-advance-flex",
-      "slug": "emerald-ai-google-and-nvidia-launch-alliance-to-advance-flex",
-      "beat": "infrastructure",
-      "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
-      "publishedAt": "2026-09-16T13:00:33.000Z",
-      "confidence": "single-source",
-      "score": 0.367,
-      "sources": [
-        {
-          "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
-          "publisher": "NVIDIA",
-          "url": "https://blogs.nvidia.com/blog/ai-energy-management-alliance/",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-10-02-rfk-jr-thinks-ai-will-free-us-from-the-tyranny-of-medical-fa",
-      "slug": "rfk-jr-thinks-ai-will-free-us-from-the-tyranny-of-medical-fa",
-      "beat": "society",
-      "title": "RFK Jr. thinks AI will free us from the \"tyranny\" of medical facts, expertise",
-      "publishedAt": "2026-09-30T19:31:25.000Z",
-      "confidence": "single-source",
-      "score": 0.342,
-      "sources": [
-        {
-          "title": "RFK Jr. thinks AI will free us from the \"tyranny\" of medical facts, expertise",
-          "publisher": "Ars Technica",
-          "url": "https://arstechnica.com/health/2026/09/rfk-jr-says-ai-backs-his-anti-vaccine-views-we-checked-it-doesnt/",
-          "tier": 2
         }
       ]
     },
@@ -977,6 +937,23 @@
           "title": "Google DeepMind Maps 9 Billion Possible DNA Variants",
           "publisher": "spectrum.ieee.org",
           "url": "https://spectrum.ieee.org/alphagenome-atlas",
+          "tier": 4
+        }
+      ]
+    },
+    {
+      "id": "2026-10-02-rethinking-robot-safety-in-the-age-of-ai",
+      "slug": "rethinking-robot-safety-in-the-age-of-ai",
+      "beat": "business",
+      "title": "Rethinking Robot Safety in the Age of AI",
+      "publishedAt": "2026-09-16T16:51:02.000Z",
+      "confidence": "single-source",
+      "score": 0.207,
+      "sources": [
+        {
+          "title": "Rethinking Robot Safety in the Age of AI",
+          "publisher": "spectrum.ieee.org",
+          "url": "https://spectrum.ieee.org/physical-ai-robot-cybersecurity-vicone",
           "tier": 4
         }
       ]
