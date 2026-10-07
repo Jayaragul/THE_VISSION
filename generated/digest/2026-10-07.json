@@ -2,10 +2,27 @@
   "$schema": "../../schema/digest.schema.json",
   "edition": {
     "date": "2026-10-07",
-    "generatedAt": "2026-10-07T08:36:59.592Z",
-    "itemCount": 60
+    "generatedAt": "2026-10-07T17:24:55.160Z",
+    "itemCount": 62
   },
   "items": [
+    {
+      "id": "2026-10-07-a-mysterious-nonprofit-run-by-spacexai-s-top-lawyer-is-payin",
+      "slug": "a-mysterious-nonprofit-run-by-spacexai-s-top-lawyer-is-payin",
+      "beat": "policy",
+      "title": "A Mysterious Nonprofit Run by SpaceXAI’s Top Lawyer Is Paying the Salaries of Government Workers",
+      "publishedAt": "2026-10-07T10:30:00.000Z",
+      "confidence": "single-source",
+      "score": 0.598,
+      "sources": [
+        {
+          "title": "A Mysterious Nonprofit Run by SpaceXAI’s Top Lawyer Is Paying the Salaries of Government Workers",
+          "publisher": "WIRED",
+          "url": "https://www.wired.com/story/mysterious-nonprofit-spacexai-national-design-studio-elon-musk-doge/",
+          "tier": 2
+        }
+      ]
+    },
     {
       "id": "2026-10-07-silicon-valley-s-ai-wunderkind-launches-underdog-the-most-pr",
       "slug": "silicon-valley-s-ai-wunderkind-launches-underdog-the-most-pr",
@@ -41,36 +58,19 @@
       ]
     },
     {
-      "id": "2026-10-07-hark-releases-an-ai-personal-assistant-with-a-focus-on-priva",
-      "slug": "hark-releases-an-ai-personal-assistant-with-a-focus-on-priva",
-      "beat": "models",
-      "title": "Hark releases an AI personal assistant with a focus on privacy",
-      "publishedAt": "2026-10-06T18:22:45.000Z",
+      "id": "2026-10-07-helping-teens-learn-plan-and-shape-the-future-of-ai",
+      "slug": "helping-teens-learn-plan-and-shape-the-future-of-ai",
+      "beat": "society",
+      "title": "Helping teens learn, plan, and shape the future of AI",
+      "publishedAt": "2026-10-07T12:00:00.000Z",
       "confidence": "single-source",
-      "score": 0.583,
+      "score": 0.557,
       "sources": [
         {
-          "title": "Hark releases an AI personal assistant with a focus on privacy",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/06/hark-releases-an-ai-personal-assistant-with-a-focus-on-privacy/",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-10-07-openai-drops-another-batch-of-mathematical-breakthroughs",
-      "slug": "openai-drops-another-batch-of-mathematical-breakthroughs",
-      "beat": "models",
-      "title": "OpenAI drops another batch of mathematical breakthroughs",
-      "publishedAt": "2026-10-06T23:26:38.000Z",
-      "confidence": "single-source",
-      "score": 0.556,
-      "sources": [
-        {
-          "title": "OpenAI drops another batch of mathematical breakthroughs",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1005004/openai-math-release-github",
-          "tier": 2
+          "title": "Helping teens learn, plan, and shape the future of AI",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/teens-learn-and-plan",
+          "tier": 1
         }
       ]
     },
@@ -330,23 +330,6 @@
       ]
     },
     {
-      "id": "2026-10-07-china-s-missile-lidar-model-world-s-most-accurate-atomic-clo",
-      "slug": "china-s-missile-lidar-model-world-s-most-accurate-atomic-clo",
-      "beat": "research",
-      "title": "China’s missile lidar model; world’s most accurate atomic clock: 7 science highlights",
-      "publishedAt": "2026-10-07T07:30:06.000Z",
-      "confidence": "single-source",
-      "score": 0.536,
-      "sources": [
-        {
-          "title": "China’s missile lidar model; world’s most accurate atomic clock: 7 science highlights",
-          "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/news/china/science/article/3369995/chinas-missile-lidar-model-worlds-most-accurate-atomic-clock-7-science-highlights?utm_source=rss_feed",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-10-07-agreement-is-not-validity-cross-model-llm-consensus-in-diagn",
       "slug": "agreement-is-not-validity-cross-model-llm-consensus-in-diagn",
       "beat": "research",
@@ -415,6 +398,23 @@
       ]
     },
     {
+      "id": "2026-10-07-coupled-but-late-turn-taking-between-full-duplex-speech-mode",
+      "slug": "coupled-but-late-turn-taking-between-full-duplex-speech-mode",
+      "beat": "research",
+      "title": "Coupled but Late: Turn-Taking Between Full-Duplex Speech Models in Unscripted Dialogue",
+      "publishedAt": "2026-10-06T17:03:54.000Z",
+      "confidence": "single-source",
+      "score": 0.536,
+      "sources": [
+        {
+          "title": "Coupled but Late: Turn-Taking Between Full-Duplex Speech Models in Unscripted Dialogue",
+          "publisher": "arXiv",
+          "url": "https://arxiv.org/abs/2610.08683v1",
+          "tier": 1
+        }
+      ]
+    },
+    {
       "id": "2026-10-07-a-systematic-study-of-small-language-models-on-abstract-reas",
       "slug": "a-systematic-study-of-small-language-models-on-abstract-reas",
       "beat": "models",
@@ -478,6 +478,40 @@
           "title": "ParanoiaEval: Benchmarking Unnecessary Defensive Work in Agentic Coding",
           "publisher": "arXiv",
           "url": "https://arxiv.org/abs/2610.08662v1",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-07-steering-diffusion-models-to-rare-events-with-sequential-mon",
+      "slug": "steering-diffusion-models-to-rare-events-with-sequential-mon",
+      "beat": "models",
+      "title": "Steering Diffusion Models to Rare Events with Sequential Monte Carlo",
+      "publishedAt": "2026-10-06T16:38:03.000Z",
+      "confidence": "single-source",
+      "score": 0.534,
+      "sources": [
+        {
+          "title": "Steering Diffusion Models to Rare Events with Sequential Monte Carlo",
+          "publisher": "arXiv",
+          "url": "https://arxiv.org/abs/2610.08652v1",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-07-hygienerobobench-benchmarking-hygiene-aware-planning-for-hou",
+      "slug": "hygienerobobench-benchmarking-hygiene-aware-planning-for-hou",
+      "beat": "models",
+      "title": "HygieneRoboBench: Benchmarking Hygiene-Aware Planning for Household Robots",
+      "publishedAt": "2026-10-06T16:33:44.000Z",
+      "confidence": "single-source",
+      "score": 0.534,
+      "sources": [
+        {
+          "title": "HygieneRoboBench: Benchmarking Hygiene-Aware Planning for Household Robots",
+          "publisher": "arXiv",
+          "url": "https://arxiv.org/abs/2610.08642v1",
           "tier": 1
         }
       ]
@@ -568,35 +602,35 @@
       ]
     },
     {
-      "id": "2026-10-07-furientis-lands-25m-from-benchmark-to-mass-produce-low-cost",
-      "slug": "furientis-lands-25m-from-benchmark-to-mass-produce-low-cost",
+      "id": "2026-10-07-healthleap-raises-38m-for-its-ai-that-flags-hospital-patient",
+      "slug": "healthleap-raises-38m-for-its-ai-that-flags-hospital-patient",
       "beat": "business",
-      "title": "Furientis lands $25M from Benchmark to mass-produce low-cost missile interceptors",
-      "publishedAt": "2026-10-06T16:29:12.000Z",
+      "title": "Healthleap raises $38M for its AI that flags hospital patients who may need a closer look",
+      "publishedAt": "2026-10-07T15:07:08.000Z",
       "confidence": "single-source",
-      "score": 0.47,
+      "score": 0.473,
       "sources": [
         {
-          "title": "Furientis lands $25M from Benchmark to mass-produce low-cost missile interceptors",
+          "title": "Healthleap raises $38M for its AI that flags hospital patients who may need a closer look",
           "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/06/furientis-lands-25m-from-benchmark-to-mass-produce-low-cost-missile-interceptors/",
+          "url": "https://techcrunch.com/2026/10/07/healthleap-raises-38m-for-its-ai-that-flags-hospital-patients-who-may-need-a-closer-look/",
           "tier": 2
         }
       ]
     },
     {
-      "id": "2026-10-07-vinod-khosla-believes-ex-deepmind-engineer-s-wajo-will-win-a",
-      "slug": "vinod-khosla-believes-ex-deepmind-engineer-s-wajo-will-win-a",
+      "id": "2026-10-07-another-personal-ai-assistant-has-launched-meet-tab-which-em",
+      "slug": "another-personal-ai-assistant-has-launched-meet-tab-which-em",
       "beat": "business",
-      "title": "Vinod Khosla believes ex-DeepMind engineer’s Wajo will win agent market on trust",
-      "publishedAt": "2026-10-06T15:15:00.000Z",
+      "title": "Another personal AI assistant has launched — Meet Tab, which emerged from stealth with a $300M valuation",
+      "publishedAt": "2026-10-07T13:45:00.000Z",
       "confidence": "single-source",
-      "score": 0.466,
+      "score": 0.473,
       "sources": [
         {
-          "title": "Vinod Khosla believes ex-DeepMind engineer’s Wajo will win agent market on trust",
+          "title": "Another personal AI assistant has launched — Meet Tab, which emerged from stealth with a $300M valuation",
           "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/06/vinod-khosla-believes-ex-deepmind-engineers-wajo-will-win-agent-market-on-trust/",
+          "url": "https://techcrunch.com/2026/10/07/another-personal-ai-assistant-has-launched-meet-tab-which-emerged-from-stealth-with-a-300m-valuation/",
           "tier": 2
         }
       ]
@@ -619,52 +653,18 @@
       ]
     },
     {
-      "id": "2026-10-07-tesla-s-model-3-and-model-y-can-be-a-backup-battery-for-your",
-      "slug": "tesla-s-model-3-and-model-y-can-be-a-backup-battery-for-your",
-      "beat": "infrastructure",
-      "title": "Tesla’s Model 3 and Model Y can be a backup battery for your house",
-      "publishedAt": "2026-10-06T20:37:54.000Z",
+      "id": "2026-10-07-the-pentagon-hopes-to-speed-up-kill-chain-ai-buys-with-5-min",
+      "slug": "the-pentagon-hopes-to-speed-up-kill-chain-ai-buys-with-5-min",
+      "beat": "india",
+      "title": "The Pentagon Hopes to Speed Up ‘Kill Chain’ AI Buys With 5-Minute Videos",
+      "publishedAt": "2026-10-07T15:34:33.000Z",
       "confidence": "single-source",
-      "score": 0.436,
+      "score": 0.423,
       "sources": [
         {
-          "title": "Tesla’s Model 3 and Model Y can be a backup battery for your house",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/transportation/1006193/tesla-model-3-model-y-powershare-home-backup",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-10-07-google-s-power-hungry-data-centers-crave-nuclear-energy",
-      "slug": "google-s-power-hungry-data-centers-crave-nuclear-energy",
-      "beat": "infrastructure",
-      "title": "Google’s power-hungry data centers crave nuclear energy",
-      "publishedAt": "2026-10-06T20:32:10.000Z",
-      "confidence": "single-source",
-      "score": 0.435,
-      "sources": [
-        {
-          "title": "Google’s power-hungry data centers crave nuclear energy",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/science/1006082/google-nuclear-energy-power-purchase-agreement-constellation",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-10-07-the-next-hurdle-for-ai-agents-getting-websites-to-let-them-i",
-      "slug": "the-next-hurdle-for-ai-agents-getting-websites-to-let-them-i",
-      "beat": "society",
-      "title": "The next hurdle for AI agents: getting websites to let them in",
-      "publishedAt": "2026-10-06T19:56:50.000Z",
-      "confidence": "single-source",
-      "score": 0.433,
-      "sources": [
-        {
-          "title": "The next hurdle for AI agents: getting websites to let them in",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/06/the-next-hurdle-for-ai-agents-getting-websites-to-let-them-in/",
+          "title": "The Pentagon Hopes to Speed Up ‘Kill Chain’ AI Buys With 5-Minute Videos",
+          "publisher": "WIRED",
+          "url": "https://www.wired.com/story/the-pentagon-hopes-to-speed-up-kill-chain-ai-buys-with-5-minute-videos/",
           "tier": 2
         }
       ]
@@ -704,18 +704,86 @@
       ]
     },
     {
-      "id": "2026-10-07-libreoffice-says-no-ai-is-now-a-software-feature",
-      "slug": "libreoffice-says-no-ai-is-now-a-software-feature",
-      "beat": "society",
-      "title": "LibreOffice says ‘no AI’ is now a software feature",
-      "publishedAt": "2026-10-06T15:25:00.000Z",
+      "id": "2026-10-07-how-qlik-built-grounded-enterprise-scale-ai-with-amazon-bedr",
+      "slug": "how-qlik-built-grounded-enterprise-scale-ai-with-amazon-bedr",
+      "beat": "business",
+      "title": "How Qlik built grounded, enterprise-scale AI with Amazon Bedrock",
+      "publishedAt": "2026-10-07T15:48:46.000Z",
       "confidence": "single-source",
-      "score": 0.416,
+      "score": 0.377,
       "sources": [
         {
-          "title": "LibreOffice says ‘no AI’ is now a software feature",
+          "title": "How Qlik built grounded, enterprise-scale AI with Amazon Bedrock",
+          "publisher": "Amazon",
+          "url": "https://aws.amazon.com/blogs/machine-learning/how-qlik-built-grounded-enterprise-scale-ai-with-amazon-bedrock/",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-07-building-ai-builders-playbook-for-closing-the-ai-knowledge-c",
+      "slug": "building-ai-builders-playbook-for-closing-the-ai-knowledge-c",
+      "beat": "business",
+      "title": "Building AI builders: Playbook for closing the AI knowledge-capability gap",
+      "publishedAt": "2026-10-07T15:44:27.000Z",
+      "confidence": "single-source",
+      "score": 0.377,
+      "sources": [
+        {
+          "title": "Building AI builders: Playbook for closing the AI knowledge-capability gap",
+          "publisher": "Amazon",
+          "url": "https://aws.amazon.com/blogs/machine-learning/building-ai-builders-playbook-for-closing-the-ai-knowledge-capability-gap/",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-07-automate-remediation-post-aws-devops-agent-investigation",
+      "slug": "automate-remediation-post-aws-devops-agent-investigation",
+      "beat": "policy",
+      "title": "Automate remediation post AWS DevOps Agent investigation",
+      "publishedAt": "2026-10-07T15:46:49.000Z",
+      "confidence": "single-source",
+      "score": 0.377,
+      "sources": [
+        {
+          "title": "Automate remediation post AWS DevOps Agent investigation",
+          "publisher": "Amazon",
+          "url": "https://aws.amazon.com/blogs/machine-learning/automate-remediation-post-aws-devops-agent-investigation/",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-07-meta-rolls-out-new-ai-tools-to-detect-ads-that-secretly-lead",
+      "slug": "meta-rolls-out-new-ai-tools-to-detect-ads-that-secretly-lead",
+      "beat": "society",
+      "title": "Meta rolls out new AI tools to detect ads that secretly lead to child sexual abuse material",
+      "publishedAt": "2026-10-07T16:53:46.000Z",
+      "confidence": "single-source",
+      "score": 0.373,
+      "sources": [
+        {
+          "title": "Meta rolls out new AI tools to detect ads that secretly lead to child sexual abuse material",
           "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/06/libreoffice-says-no-ai-is-now-a-software-feature/",
+          "url": "https://techcrunch.com/2026/10/07/meta-rolls-out-new-ai-tools-to-detect-ads-that-secretly-lead-to-child-sexual-abuse-material/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-07-tony-fadell-on-why-the-first-wave-of-ai-gadgets-failed-and-w",
+      "slug": "tony-fadell-on-why-the-first-wave-of-ai-gadgets-failed-and-w",
+      "beat": "society",
+      "title": "Tony Fadell on why the first wave of AI gadgets failed — and what comes next",
+      "publishedAt": "2026-10-07T14:41:38.000Z",
+      "confidence": "single-source",
+      "score": 0.373,
+      "sources": [
+        {
+          "title": "Tony Fadell on why the first wave of AI gadgets failed — and what comes next",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/10/07/tony-fadell-on-why-the-first-wave-of-ai-gadgets-failed-and-what-comes-next/",
           "tier": 2
         }
       ]
@@ -823,19 +891,19 @@
       ]
     },
     {
-      "id": "2026-10-07-mcp-for-agent-to-agent-comms-may-be-the-riskiest-protocol-yo",
-      "slug": "mcp-for-agent-to-agent-comms-may-be-the-riskiest-protocol-yo",
-      "beat": "society",
-      "title": "MCP for agent-to-agent comms may be the riskiest protocol you've never heard of",
-      "publishedAt": "2026-10-05T22:26:35.000Z",
+      "id": "2026-10-07-evaluating-multi-agent-systems-for-explainability-and-helpfu",
+      "slug": "evaluating-multi-agent-systems-for-explainability-and-helpfu",
+      "beat": "infrastructure",
+      "title": "Evaluating multi-agent systems for explainability and helpfulness with Amazon Bedrock AgentCore",
+      "publishedAt": "2026-10-05T15:50:01.000Z",
       "confidence": "single-source",
-      "score": 0.352,
+      "score": 0.331,
       "sources": [
         {
-          "title": "MCP for agent-to-agent comms may be the riskiest protocol you've never heard of",
-          "publisher": "Ars Technica",
-          "url": "https://arstechnica.com/security/2026/10/vulnerability-in-agents-from-google-and-others-exposes-structural-flaw-in-mcp/",
-          "tier": 2
+          "title": "Evaluating multi-agent systems for explainability and helpfulness with Amazon Bedrock AgentCore",
+          "publisher": "Amazon",
+          "url": "https://aws.amazon.com/blogs/machine-learning/evaluating-multi-agent-systems-for-explainability-and-helpfulness-with-amazon-bedrock-agentcore/",
+          "tier": 1
         }
       ]
     },
@@ -857,69 +925,18 @@
       ]
     },
     {
-      "id": "2026-10-07-chatham-scales-its-capital-markets-expertise-with-openai",
-      "slug": "chatham-scales-its-capital-markets-expertise-with-openai",
-      "beat": "business",
-      "title": "Chatham scales its capital markets expertise with OpenAI",
-      "publishedAt": "2026-10-02T00:00:00.000Z",
+      "id": "2026-10-07-productive-durable-fungible-how-nvidia-ai-factories-maximize",
+      "slug": "productive-durable-fungible-how-nvidia-ai-factories-maximize",
+      "beat": "infrastructure",
+      "title": "Productive, Durable, Fungible: How NVIDIA AI Factories Maximize Return on Investment",
+      "publishedAt": "2026-10-01T13:00:49.000Z",
       "confidence": "single-source",
       "score": 0.317,
       "sources": [
         {
-          "title": "Chatham scales its capital markets expertise with OpenAI",
-          "publisher": "OpenAI",
-          "url": "https://openai.com/index/chatham-financial",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-10-07-the-lenfest-institute-grows-landmark-program-with-expanded-o",
-      "slug": "the-lenfest-institute-grows-landmark-program-with-expanded-o",
-      "beat": "business",
-      "title": "The Lenfest Institute grows landmark program with expanded OpenAI support",
-      "publishedAt": "2026-09-28T07:00:00.000Z",
-      "confidence": "single-source",
-      "score": 0.317,
-      "sources": [
-        {
-          "title": "The Lenfest Institute grows landmark program with expanded OpenAI support",
-          "publisher": "OpenAI",
-          "url": "https://openai.com/index/lenfest-ai-collaborative-expansion",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-10-07-building-standards-for-the-next-phase-of-ai",
-      "slug": "building-standards-for-the-next-phase-of-ai",
-      "beat": "policy",
-      "title": "Building standards for the next phase of AI",
-      "publishedAt": "2026-09-21T10:00:00.000Z",
-      "confidence": "single-source",
-      "score": 0.317,
-      "sources": [
-        {
-          "title": "Building standards for the next phase of AI",
-          "publisher": "OpenAI",
-          "url": "https://openai.com/index/building-standards-next-phase-ai",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-10-07-building-ambient-agents-with-amazon-bedrock-agentcore-from-e",
-      "slug": "building-ambient-agents-with-amazon-bedrock-agentcore-from-e",
-      "beat": "society",
-      "title": "Building ambient agents with Amazon Bedrock AgentCore: From event-driven signals to human-in-the-loop workflows",
-      "publishedAt": "2026-10-01T16:40:24.000Z",
-      "confidence": "single-source",
-      "score": 0.317,
-      "sources": [
-        {
-          "title": "Building ambient agents with Amazon Bedrock AgentCore: From event-driven signals to human-in-the-loop workflows",
-          "publisher": "Amazon",
-          "url": "https://aws.amazon.com/blogs/machine-learning/building-ambient-agents-with-amazon-bedrock-agentcore-from-event-driven-signals-to-human-in-the-loop-workflows/",
+          "title": "Productive, Durable, Fungible: How NVIDIA AI Factories Maximize Return on Investment",
+          "publisher": "NVIDIA",
+          "url": "https://blogs.nvidia.com/blog/productive-durable-fungible-ai-factories/",
           "tier": 1
         }
       ]
@@ -954,6 +971,23 @@
           "title": "Microsoft’s commitment for AI in education: Protecting students, strengthening learning",
           "publisher": "Microsoft",
           "url": "https://blogs.microsoft.com/blog/2026/09/16/microsofts-commitment-for-ai-in-education/",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-07-ai-for-societal-impact",
+      "slug": "ai-for-societal-impact",
+      "beat": "society",
+      "title": "AI for Societal Impact",
+      "publishedAt": "2026-09-15T16:00:00.000Z",
+      "confidence": "single-source",
+      "score": 0.317,
+      "sources": [
+        {
+          "title": "AI for Societal Impact",
+          "publisher": "Google",
+          "url": "https://blog.google/innovation-and-ai/technology/ai/ai-for-societal-impact/",
           "tier": 1
         }
       ]
