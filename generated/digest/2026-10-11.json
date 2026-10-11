@@ -2,33 +2,10 @@
   "$schema": "../../schema/digest.schema.json",
   "edition": {
     "date": "2026-10-11",
-    "generatedAt": "2026-10-11T16:18:41.391Z",
+    "generatedAt": "2026-10-11T21:55:52.255Z",
     "itemCount": 64
   },
   "items": [
-    {
-      "id": "2026-10-11-satya-nadella-says-we-should-assume-all-ai-models-are-compro",
-      "slug": "satya-nadella-says-we-should-assume-all-ai-models-are-compro",
-      "beat": "models",
-      "title": "Satya Nadella says we should assume all AI models are ‘compromised’",
-      "publishedAt": "2026-10-10T22:10:17.000Z",
-      "confidence": "confirmed",
-      "score": 0.674,
-      "sources": [
-        {
-          "title": "Satya Nadella says we should assume all AI models are ‘compromised’",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1009337/satya-nadella-says-we-should-assume-all-ai-models-are-compromised",
-          "tier": 2
-        },
-        {
-          "title": "Microsoft’s Satya Nadella says AI models need an ‘emergency brake’",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/10/microsofts-satya-nadella-says-ai-models-need-an-emergency-brake/",
-          "tier": 2
-        }
-      ]
-    },
     {
       "id": "2026-10-11-learning-to-use-local-ai-is-exciting-overwhelming-and-frustr",
       "slug": "learning-to-use-local-ai-is-exciting-overwhelming-and-frustr",
@@ -76,6 +53,23 @@
           "title": "Japan’s Sumitomo Bakelite expands China chip packaging materials output amid AI boom",
           "publisher": "South China Morning Post",
           "url": "https://www.scmp.com/tech/tech-trends/article/3370468/japans-sumitomo-bakelite-expands-china-chip-packaging-materials-output-amid-ai-boom?utm_source=rss_feed",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-11-microsoft-s-satya-nadella-says-ai-models-need-an-emergency-b",
+      "slug": "microsoft-s-satya-nadella-says-ai-models-need-an-emergency-b",
+      "beat": "research",
+      "title": "Microsoft’s Satya Nadella says AI models need an ‘emergency brake’",
+      "publishedAt": "2026-10-10T21:47:51.000Z",
+      "confidence": "single-source",
+      "score": 0.5,
+      "sources": [
+        {
+          "title": "Microsoft’s Satya Nadella says AI models need an ‘emergency brake’",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/10/10/microsofts-satya-nadella-says-ai-models-need-an-emergency-brake/",
           "tier": 2
         }
       ]
@@ -387,6 +381,23 @@
       ]
     },
     {
+      "id": "2026-10-11-sharing-ai-progress-in-mathematics",
+      "slug": "sharing-ai-progress-in-mathematics",
+      "beat": "models",
+      "title": "Sharing AI progress in mathematics",
+      "publishedAt": "2026-10-06T12:00:00.000Z",
+      "confidence": "single-source",
+      "score": 0.377,
+      "sources": [
+        {
+          "title": "Sharing AI progress in mathematics",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/sharing-ai-progress-in-mathematics",
+          "tier": 1
+        }
+      ]
+    },
+    {
       "id": "2026-10-11-leading-chinese-mathematicians-unite-behind-use-of-ai-in-res",
       "slug": "leading-chinese-mathematicians-unite-behind-use-of-ai-in-res",
       "beat": "research",
@@ -501,23 +512,6 @@
           "title": "GLIO2: A GPU-Parallelized Tightly-Coupled LiDAR-Inertial-GNSS System for Robust and Real-Time Global Localization and Mapping",
           "publisher": "arXiv",
           "url": "https://arxiv.org/abs/2610.12411v1",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-10-11-marformer-a-transformer-for-predicting-missing-data-distribu",
-      "slug": "marformer-a-transformer-for-predicting-missing-data-distribu",
-      "beat": "research",
-      "title": "Marformer: A Transformer for Predicting Missing Data Distributions",
-      "publishedAt": "2026-10-08T17:33:16.000Z",
-      "confidence": "single-source",
-      "score": 0.367,
-      "sources": [
-        {
-          "title": "Marformer: A Transformer for Predicting Missing Data Distributions",
-          "publisher": "arXiv",
-          "url": "https://arxiv.org/abs/2610.12379v1",
           "tier": 1
         }
       ]
@@ -710,23 +704,6 @@
       ]
     },
     {
-      "id": "2026-10-11-amazon-and-others-are-done-keeping-data-center-deals-secret",
-      "slug": "amazon-and-others-are-done-keeping-data-center-deals-secret",
-      "beat": "infrastructure",
-      "title": "Amazon and others are done keeping data center deals secret. Is it enough to build trust?",
-      "publishedAt": "2026-10-09T16:56:42.000Z",
-      "confidence": "single-source",
-      "score": 0.332,
-      "sources": [
-        {
-          "title": "Amazon and others are done keeping data center deals secret. Is it enough to build trust?",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/video/amazon-and-others-are-done-keeping-data-center-deals-secret-is-it-enough-to-build-trust/",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-10-11-impactful-scheduling-for-gpu-clusters",
       "slug": "impactful-scheduling-for-gpu-clusters",
       "beat": "infrastructure",
@@ -892,6 +869,23 @@
           "title": "Automate remediation post AWS DevOps Agent investigation",
           "publisher": "Amazon",
           "url": "https://aws.amazon.com/blogs/machine-learning/automate-remediation-post-aws-devops-agent-investigation/",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-11-share-gpu-clusters-across-teams-with-isolation-and-fairness",
+      "slug": "share-gpu-clusters-across-teams-with-isolation-and-fairness",
+      "beat": "infrastructure",
+      "title": "Share GPU clusters across teams with isolation and fairness using Amazon SageMaker HyperPod",
+      "publishedAt": "2026-10-08T16:20:04.000Z",
+      "confidence": "single-source",
+      "score": 0.317,
+      "sources": [
+        {
+          "title": "Share GPU clusters across teams with isolation and fairness using Amazon SageMaker HyperPod",
+          "publisher": "Amazon",
+          "url": "https://aws.amazon.com/blogs/machine-learning/share-gpu-clusters-across-teams-with-isolation-and-fairness-using-amazon-sagemaker-hyperpod/",
           "tier": 1
         }
       ]
