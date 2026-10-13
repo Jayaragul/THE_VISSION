@@ -2,33 +2,10 @@
   "$schema": "../../schema/digest.schema.json",
   "edition": {
     "date": "2026-10-13",
-    "generatedAt": "2026-10-13T17:35:06.409Z",
+    "generatedAt": "2026-10-13T22:42:25.686Z",
     "itemCount": 63
   },
   "items": [
-    {
-      "id": "2026-10-13-meta-releases-its-first-frontier-model-muse-wonder",
-      "slug": "meta-releases-its-first-frontier-model-muse-wonder",
-      "beat": "models",
-      "title": "Meta releases its first frontier model, Muse Wonder",
-      "publishedAt": "2026-10-12T17:56:56.000Z",
-      "confidence": "confirmed",
-      "score": 0.607,
-      "sources": [
-        {
-          "title": "Meta releases its first frontier model, Muse Wonder",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/",
-          "tier": 2
-        },
-        {
-          "title": "Muse Wonder Puts Meta Back at the AI Frontier",
-          "publisher": "WIRED",
-          "url": "https://www.wired.com/story/muse-wonder-puts-meta-back-at-the-ai-frontier/",
-          "tier": 2
-        }
-      ]
-    },
     {
       "id": "2026-10-13-the-download-open-model-trade-offs-and-geothermal-power-s-pr",
       "slug": "the-download-open-model-trade-offs-and-geothermal-power-s-pr",
@@ -60,6 +37,23 @@
           "publisher": "MIT Technology Review",
           "url": "https://www.technologyreview.com/2026/10/13/1146366/open-models-have-real-benefits-do-they-outweigh-the-risks/",
           "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-13-higgsfield-takes-ai-video-from-1-minute-to-over-10",
+      "slug": "higgsfield-takes-ai-video-from-1-minute-to-over-10",
+      "beat": "models",
+      "title": "Higgsfield takes AI video from 1 minute to over 10",
+      "publishedAt": "2026-10-13T12:00:00.000Z",
+      "confidence": "single-source",
+      "score": 0.557,
+      "sources": [
+        {
+          "title": "Higgsfield takes AI video from 1 minute to over 10",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/higgsfield-longer-videos-voice",
+          "tier": 1
         }
       ]
     },
@@ -162,29 +156,6 @@
           "publisher": "Meta",
           "url": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
           "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-10-13-gemini-4-argon-for-robotics",
-      "slug": "gemini-4-argon-for-robotics",
-      "beat": "models",
-      "title": "Gemini 4 Argon for Robotics",
-      "publishedAt": "2026-10-13T16:01:58.000Z",
-      "confidence": "confirmed",
-      "score": 0.513,
-      "sources": [
-        {
-          "title": "Gemini 4 Argon for Robotics",
-          "publisher": "Google DeepMind",
-          "url": "https://deepmind.google/blog/gemini-4-argon-for-robotics/",
-          "tier": 1
-        },
-        {
-          "title": "Google finally releases Gemini 4 Argon",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1009862/google-releases-gemini-4-argon",
-          "tier": 2
         }
       ]
     },
@@ -586,18 +557,52 @@
       ]
     },
     {
-      "id": "2026-10-13-just-5-years-in-interactive-chatbot-platform-character-ai-fi",
-      "slug": "just-5-years-in-interactive-chatbot-platform-character-ai-fi",
+      "id": "2026-10-13-shopify-opens-its-catalog-up-to-more-ai-agents",
+      "slug": "shopify-opens-its-catalog-up-to-more-ai-agents",
       "beat": "business",
-      "title": "Just 5 years in, interactive chatbot platform Character.AI files for bankruptcy",
-      "publishedAt": "2026-10-13T12:23:42.000Z",
+      "title": "Shopify opens its catalog up to more AI agents",
+      "publishedAt": "2026-10-13T19:42:42.000Z",
       "confidence": "single-source",
       "score": 0.423,
       "sources": [
         {
-          "title": "Just 5 years in, interactive chatbot platform Character.AI files for bankruptcy",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/13/just-5-years-in-interactive-chatbot-platform-character-ai-files-for-bankruptcy/",
+          "title": "Shopify opens its catalog up to more AI agents",
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/news/1010365/shopify-opens-its-catalog-up-to-more-ai-agents",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-13-disney-offers-20m-for-character-ai-s-scandal-plagued-chatbot",
+      "slug": "disney-offers-20m-for-character-ai-s-scandal-plagued-chatbot",
+      "beat": "business",
+      "title": "Disney offers $20M for Character.AI’s scandal-plagued chatbot tech",
+      "publishedAt": "2026-10-13T18:23:33.000Z",
+      "confidence": "single-source",
+      "score": 0.423,
+      "sources": [
+        {
+          "title": "Disney offers $20M for Character.AI’s scandal-plagued chatbot tech",
+          "publisher": "Ars Technica",
+          "url": "https://arstechnica.com/tech-policy/2026/10/disney-offers-20m-for-character-ais-scandal-plagued-chatbot-tech/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-13-muse-wonder-puts-meta-back-at-the-ai-frontier",
+      "slug": "muse-wonder-puts-meta-back-at-the-ai-frontier",
+      "beat": "models",
+      "title": "Muse Wonder Puts Meta Back at the AI Frontier",
+      "publishedAt": "2026-10-12T17:00:27.000Z",
+      "confidence": "single-source",
+      "score": 0.422,
+      "sources": [
+        {
+          "title": "Muse Wonder Puts Meta Back at the AI Frontier",
+          "publisher": "WIRED",
+          "url": "https://www.wired.com/story/muse-wonder-puts-meta-back-at-the-ai-frontier/",
           "tier": 2
         }
       ]
@@ -688,18 +693,18 @@
       ]
     },
     {
-      "id": "2026-10-13-spacexsi-bundles-x-premium-grok-and-cursor-into-one-subscrip",
-      "slug": "spacexsi-bundles-x-premium-grok-and-cursor-into-one-subscrip",
+      "id": "2026-10-13-judge-orders-openai-to-turn-over-hiring-records-in-apple-tra",
+      "slug": "judge-orders-openai-to-turn-over-hiring-records-in-apple-tra",
       "beat": "business",
-      "title": "SpaceXSI bundles X Premium, Grok, and Cursor into one subscription",
-      "publishedAt": "2026-10-13T13:50:19.000Z",
+      "title": "Judge orders OpenAI to turn over hiring records in Apple trade secrets case",
+      "publishedAt": "2026-10-13T20:36:44.000Z",
       "confidence": "single-source",
       "score": 0.373,
       "sources": [
         {
-          "title": "SpaceXSI bundles X Premium, Grok, and Cursor into one subscription",
+          "title": "Judge orders OpenAI to turn over hiring records in Apple trade secrets case",
           "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/13/spacexsi-bundles-x-premium-grok-and-cursor-into-one-subscription/",
+          "url": "https://techcrunch.com/2026/10/13/judge-orders-openai-to-turn-over-hiring-records-in-apple-trade-secrets-case/",
           "tier": 2
         }
       ]
@@ -722,18 +727,35 @@
       ]
     },
     {
-      "id": "2026-10-13-amex-introduces-a-framework-to-prevent-ai-agents-from-making",
-      "slug": "amex-introduces-a-framework-to-prevent-ai-agents-from-making",
-      "beat": "society",
-      "title": "Amex introduces a framework to prevent AI agents from making unauthorized purchases",
-      "publishedAt": "2026-10-13T13:00:00.000Z",
+      "id": "2026-10-13-flox-intelligence-is-building-ai-to-keep-wildlife-away-from",
+      "slug": "flox-intelligence-is-building-ai-to-keep-wildlife-away-from",
+      "beat": "infrastructure",
+      "title": "Flox Intelligence is building AI to keep wildlife away from trains, airports, and roads",
+      "publishedAt": "2026-10-13T18:30:00.000Z",
       "confidence": "single-source",
       "score": 0.373,
       "sources": [
         {
-          "title": "Amex introduces a framework to prevent AI agents from making unauthorized purchases",
+          "title": "Flox Intelligence is building AI to keep wildlife away from trains, airports, and roads",
           "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/13/amex-introduces-a-framework-to-prevent-ai-agents-from-making-unauthorized-purchases/",
+          "url": "https://techcrunch.com/2026/10/13/flox-intelligence-is-building-ai-to-keep-wildlife-away-from-trains-airports-and-roads/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-13-openai-and-anthropic-tell-british-lawmakers-regulate-us",
+      "slug": "openai-and-anthropic-tell-british-lawmakers-regulate-us",
+      "beat": "society",
+      "title": "OpenAI and Anthropic Tell British Lawmakers: Regulate Us",
+      "publishedAt": "2026-10-13T19:35:29.000Z",
+      "confidence": "single-source",
+      "score": 0.373,
+      "sources": [
+        {
+          "title": "OpenAI and Anthropic Tell British Lawmakers: Regulate Us",
+          "publisher": "WIRED",
+          "url": "https://www.wired.com/story/openai-and-anthropic-tell-british-lawmakers-regulate-us/",
           "tier": 2
         }
       ]
@@ -892,23 +914,6 @@
       ]
     },
     {
-      "id": "2026-10-13-atlassian-and-openai-expand-partnership-to-turn-enterprise-k",
-      "slug": "atlassian-and-openai-expand-partnership-to-turn-enterprise-k",
-      "beat": "business",
-      "title": "Atlassian and OpenAI expand partnership to turn enterprise knowledge into action",
-      "publishedAt": "2026-10-06T16:00:00.000Z",
-      "confidence": "single-source",
-      "score": 0.317,
-      "sources": [
-        {
-          "title": "Atlassian and OpenAI expand partnership to turn enterprise knowledge into action",
-          "publisher": "OpenAI",
-          "url": "https://openai.com/index/atlassian-partnership",
-          "tier": 1
-        }
-      ]
-    },
-    {
       "id": "2026-10-13-meta-donates-1-000-ai-glasses-to-singapore-s-disability-comm",
       "slug": "meta-donates-1-000-ai-glasses-to-singapore-s-disability-comm",
       "beat": "policy",
@@ -955,23 +960,6 @@
           "title": "Impactful scheduling for GPU clusters",
           "publisher": "Hugging Face",
           "url": "https://huggingface.co/blog/allenai/impactful-scheduling",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-10-13-share-gpu-clusters-across-teams-with-isolation-and-fairness",
-      "slug": "share-gpu-clusters-across-teams-with-isolation-and-fairness",
-      "beat": "infrastructure",
-      "title": "Share GPU clusters across teams with isolation and fairness using Amazon SageMaker HyperPod",
-      "publishedAt": "2026-10-08T16:20:04.000Z",
-      "confidence": "single-source",
-      "score": 0.317,
-      "sources": [
-        {
-          "title": "Share GPU clusters across teams with isolation and fairness using Amazon SageMaker HyperPod",
-          "publisher": "Amazon",
-          "url": "https://aws.amazon.com/blogs/machine-learning/share-gpu-clusters-across-teams-with-isolation-and-fairness-using-amazon-sagemaker-hyperpod/",
           "tier": 1
         }
       ]
