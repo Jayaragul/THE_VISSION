@@ -1078,20 +1078,17 @@ digest and the wire below make no claim to have understood anything, only to hav
 <p>Current selection uses a hard 48-hour publication window relative to collection time, rejects undated and future leads, excludes recognizable buying guides and sponsored URLs, and limits each publisher group to five items. A separately maintained source-review list can surface important announcements with explicit context; reading a source does not independently reproduce its claims. Date-only newsroom dates are normalized to midnight UTC for ordering, not presented as exact publication times.</p>
 
 <h2 id="digest" style="font-size:1.3rem;margin:34px 0 12px">The digest: no model at all</h2>
-<p>The front page runs without any AI in the loop whatsoever — no API key, no model, nothing
-generated. <code>tools/harvest.mjs</code> collects headlines from public feeds;
+<p>The front page runs without a model or API key. <code>tools/harvest.mjs</code> collects headlines and descriptions from public feeds;
 <code>tools/digest.mjs</code> clusters near-duplicate coverage of the same event, scores each
 cluster on recency, source attribution, publisher coverage overlap, whether it
 repeats a previous digest, then keeps fresh clusters within topic and publisher limits.
-That is genuinely all it does — the "top story" above is simply the single highest-scoring
-cluster across every beat, not an editor's judgement call.</p>
+The front page prefers the highest-ranked multi-publisher item for its lead when one exists; otherwise it uses the highest-ranked eligible item. It is still an automatic choice, not a human judgement of importance.</p>
 
 <p>The honest way to describe the limits: the digest claims only to have counted and sorted,
-never to have read, verified or explained anything. Every headline is a source's own title,
-never rewritten, and every item links straight to where it was reported rather than to a
-summary of it. A digest item says <strong>multiple-publisher coverage</strong> when its cluster has at least two publisher groups and a primary or established-newsroom source. Shared headlines do not prove independent reporting or factual accuracy. Corporate publications with the same parent count as one group. Single-source vendor announcements and research preprints are labeled explicitly. The legacy data field named <code>confirmed</code> means coverage overlap only; it is never presented as fact-check certification.</p>
+never to have read or verified the full articles. Every headline is a source's own title,
+never rewritten, and every item links straight to where it was reported. When a publisher feed provides a complete, relevant sentence, a deterministic text selector prints that sentence as a short, attributed excerpt. It rejects cut-off feed text; no model fills the gap or writes a new claim. A digest item says <strong>multiple-publisher coverage</strong> when its cluster has at least two publisher groups and a primary or established-newsroom source. Shared headlines do not prove independent reporting or factual accuracy. Corporate publications with the same parent count as one group. Single-source vendor announcements and research preprints are labeled explicitly. The legacy data field named <code>confirmed</code> means coverage overlap only; it is never presented as fact-check certification.</p>
 
-<p>What it cannot do matters as much as what it can. It cannot tell whether a claim is true,
+<p>The illustrated front page uses original, deterministic artwork from this repository. The pictures are thematic illustrations, not photographs of the reported events. What the digest cannot do matters as much as what it can. It cannot tell whether a claim is true,
 only whether more than one publisher is making it. It has no "why it matters" field, on
 purpose — writing one would be the pipeline inventing an opinion it does not have. And its
 clustering works on shared words in a headline, not meaning, so two outlets covering the same
@@ -1099,14 +1096,16 @@ event in very different language will often show up as two separate, single-sour
 rather than one multi-publisher cluster. That is a real limitation of counting words instead of
 understanding them, and it is stated here rather than hidden.</p>
 
-<h2 id="wire" style="font-size:1.3rem;margin:34px 0 12px">The wire: not even sorted</h2>
+<h2 id="wire" style="font-size:1.3rem;margin:34px 0 12px">The wire: newest headlines</h2>
 <p>Underneath the digest, on the front page, is <strong>the wire</strong> — the lowest tier and
 the one with no judgement in it at all. <code>tools/harvest.mjs</code> pulls headlines straight
 from roughly 30 public RSS feeds and a handful of topic searches, keeps whatever is plausibly
 about AI, and shows the most recent ones, exactly as their publisher wrote them. Nothing is
 clustered, nothing is ranked by importance, nothing is confirmed against a second source. A
-single busy feed cannot fill the whole page — one publisher can only ever hold a handful of
-the visible slots — but beyond that, this is a raw feed of the newest items and nothing more.</p>
+single busy feed cannot fill the whole page — all arXiv categories share one publisher cap —
+and publisher-marked sponsored content is excluded. Each row labels its source type, including
+self-reported company posts and research preprints. Beyond that, this is a raw feed of the newest
+items and nothing more. Checking the destination and headline does not verify the claims.</p>
 
 <p>This is deliberate: the wire is what keeps the site from going dark. It needs no API key
 and no model, so if the digest itself stops — an outage, a run that failed its own checks —
@@ -1235,20 +1234,21 @@ ${R.sectionHead('Worth your attention', 'Source announcements read and checked f
 </section>`;
 }
 
-function digestItemRow(ctx, item, depth) {
+function digestItemRow(ctx, item, depth, { compact = false } = {}) {
   const beat = ctx.beatMap.get(item.beat);
   const sources = item.sources;
   const primary = sources[0];
   const extra = sources.length - 1;
   const confirmed = item.confidence === 'confirmed';
   const summaryLine = `${e(primary.publisher)}${extra ? ` +${extra} more` : ''} · ${confirmed ? 'Multiple-publisher coverage · not fact-checked' : 'Single source · not fact-checked'}`;
-  return `<article class="digest-item" id="${e(item.id)}"${beat ? ` style="--beat-accent:${e(beat.accent)}"` : ''}>
+  return `<article class="digest-item${compact ? ' digest-item--compact' : ''}" id="${e(item.id)}"${beat ? ` style="--beat-accent:${e(beat.accent)}"` : ''}>
 <div class="meta">
 <span>${e(beat?.label || item.beat)}</span>
 ${item.publishedAt ? `<time datetime="${e(item.publishedAt)}" data-relative>${e(formatShort(item.publishedAt))}</time>` : ''}
 <span class="source-context">${e(sourceContext(primary))}</span>
 </div>
-<h3 class="digest-item__title"><a href="${e(primary.url)}" rel="noopener nofollow" target="_blank">${e(item.title)}</a></h3>
+<h3 class="digest-item__title"><a href="${e(primary.url)}" rel="noopener nofollow" target="_blank">${e(item.title)}</a></h3>${!compact && item.excerpt ? `
+<p class="digest-item__excerpt">${e(item.excerpt)} <span>— from ${e(primary.publisher)}’s feed</span></p>` : ''}
 <p class="digest-item__summary-line digest-item__summary-line--${confirmed ? 'confirmed' : 'single'}">${summaryLine}</p>
 <details class="digest-item__details">
 <summary>Read the sources →</summary>
@@ -1262,6 +1262,26 @@ ${sources.map((s) => `<a class="source" href="${e(s.url)}" rel="noopener nofollo
 </div>
 </details>
 </article>`;
+}
+
+function frontPageSelection(items) {
+  const eligible = items.filter(heroEligible);
+  const multiPublisher = eligible.filter(item => item.confidence === 'confirmed');
+  const hero = (multiPublisher.length ? multiPublisher : eligible.length ? eligible : items)[0] || null;
+  const rail = items.filter(item => item !== hero && !/arxiv\.org/.test(item.sources[0]?.url || '')).slice(0, 3);
+  return { hero, rail };
+}
+
+const digestCoverPath = (item) => `assets/img/digest/${item.id}.svg`;
+
+function writeFrontPageCovers(digest) {
+  const { hero, rail } = frontPageSelection(digest.items);
+  const pictured = [hero, ...rail].filter(Boolean);
+  for (const item of pictured) {
+    const beat = beatMap.get(item.beat);
+    write(digestCoverPath(item), renderCover({ seed: item.id, beat: item.beat, accent: beat?.accent || '#c8102e' }));
+  }
+  prune('assets/img/digest', '.svg', new Set(pictured.map(item => `${item.id}.svg`)));
 }
 
 function renderDigestPage(ctx, digests, { index, isLatest }) {
@@ -1329,82 +1349,70 @@ ${nav}
  * expires, exactly the failure this replaces. No model, no API key; refreshes every time
  * digest.mjs runs.
  *
- * Reuses digestItemRow() verbatim, the same markup digest.html already renders and already
- * has real CSS for — the "top story" treatment below is that same row in its own section,
- * not new markup, so there is nothing here that has not already been rendering correctly on
- * digest.html for weeks.
+ * The lead and short rail are presentation-only selections from this same digest snapshot.
+ * Topic desks use digestItemRow(), so every item and source remains in the full digest too.
  */
 function renderFrontPage(ctx, digest) {
   const depth = 0;
   const items = digest.items;
-  // heroEligible() filters out the specific failure this replaced: the plain highest score
-  // can be a solo, uncorroborated arXiv/institutional item that is correctly ranked for the
-  // digest but indefensible as the one story a general AI briefing leads with — see
-  // tools/lib/rank.mjs. Never leave the hero blank over it: an all-ineligible digest (every
-  // item a lone paper) is rare and still needs a front page, so fall back to the plain top
-  // score rather than show nothing.
-  const eligible = items.filter(heroEligible);
-  if (items.length && !eligible.length) {
-    console.log('  ⚠ every digest item today failed the hero-eligibility gate — falling back to the plain top score.');
-  }
-  const pool = eligible.length ? eligible : items;
-  const hero = pool.length ? [...pool].sort((a, b) => b.score - a.score)[0] : null;
-
+  const { hero, rail } = frontPageSelection(items);
+  const featured = new Set([hero, ...rail]);
   const byBeat = new Map();
   for (const item of items) {
-    if (item === hero) continue; // shown once, in its own section below
+    if (featured.has(item)) continue;
     if (!byBeat.has(item.beat)) byBeat.set(item.beat, []);
     byBeat.get(item.beat).push(item);
   }
-
-  // The hero's own beat still counts as covered even though its one item was pulled out of
-  // the list above — otherwise the beat holding today's single most important story would be
-  // exactly the one beat nav hides.
   const presentBeats = new Set(site.nav.filter((nav) => (byBeat.get(nav.id) || []).length).map((n) => n.id));
-  if (hero) presentBeats.add(hero.beat);
-
   const sections = site.nav
     .map((nav) => {
       const list = byBeat.get(nav.id) || [];
       if (!list.length) return '';
       const beat = beatMap.get(nav.id) || nav;
-      return `<section class="section" id="${e(nav.id)}">
+      const leading = list.slice(0, 2);
+      const rest = list.slice(2);
+      return `<section class="section news-section" id="${e(nav.id)}">
 ${R.sectionHead(beat.label, beat.blurb, list.length)}
-<div class="digest-list">${list.map((i) => digestItemRow(ctx, i, depth)).join('')}</div>
+<div class="news-section__grid">${leading.map(i => digestItemRow(ctx, i, depth)).join('')}</div>
+${rest.length ? `<details class="news-section__more"><summary>More ${e(beat.label.toLowerCase())} stories <span>${rest.length}</span></summary><div class="news-section__rest">${rest.map(i => digestItemRow(ctx, i, depth, { compact: true })).join('')}</div></details>` : ''}
 </section>`;
     })
     .join('');
+  const heroSource = hero?.sources?.[0];
+  const heroBeat = hero ? beatMap.get(hero.beat) : null;
+  const leadBlock = hero && heroSource ? `<section class="news-front" id="top-stories" aria-labelledby="news-front-title">
+<div class="news-front__heading"><div><p class="eyebrow">The front page</p><h2 id="news-front-title">Top stories</h2></div><a href="${R.rel(depth, 'digest.html')}">See the full digest <span aria-hidden="true">↗</span></a></div>
+<div class="news-front__grid">
+<article class="news-front__lead" style="--beat-accent:${e(heroBeat?.accent || '#c8102e')}">
+<a class="news-front__image" href="${e(heroSource.url)}" target="_blank" rel="noopener nofollow"><img src="${R.rel(depth, digestCoverPath(hero))}" alt="" width="1200" height="675" fetchpriority="high"></a><p class="news-front__artnote">Original illustration · not a photograph of the event</p>
+<div class="news-front__copy"><p class="eyebrow">${e(heroBeat?.label || hero.beat)} · ${hero.confidence === 'confirmed' ? 'Multiple-publisher coverage' : 'Single-source report'}</p>
+<h3><a href="${e(heroSource.url)}" target="_blank" rel="noopener nofollow">${e(hero.title)}</a></h3>
+${hero.excerpt ? `<p class="news-front__excerpt">${e(hero.excerpt)}</p>` : ''}
+<p class="news-front__source">${e(heroSource.publisher)}${hero.sources.length > 1 ? ` + ${hero.sources.length - 1} more` : ''} · ${e(sourceContext(heroSource))} · not fact-checked</p>
+<a class="news-front__read" href="${e(heroSource.url)}" target="_blank" rel="noopener nofollow">Read original report <span aria-hidden="true">↗</span></a></div>
+</article>
+<aside class="news-front__rail" aria-label="More top stories"><p class="news-front__rail-label">The latest</p>
+${rail.map(i => { const source = i.sources[0]; const beat = beatMap.get(i.beat); return `<article class="news-front__small" style="--beat-accent:${e(beat?.accent || '#c8102e')}">
+<a href="${e(source.url)}" target="_blank" rel="noopener nofollow"><img src="${R.rel(depth, digestCoverPath(i))}" alt="" width="1200" height="675" loading="lazy"></a>
+<div><p class="eyebrow">${e(beat?.label || i.beat)}</p><h3><a href="${e(source.url)}" target="_blank" rel="noopener nofollow">${e(i.title)}</a></h3><p class="news-front__source">${e(source.publisher)} · ${e(formatShort(i.publishedAt || digest.edition.date))}</p></div></article>`; }).join('')}
+</aside></div></section>` : '';
 
-  // .section, not .lead — .lead is a two-column grid built for leadBlock()+briefingBlock()
-  // (cover image beside a sidebar list). Reused here for just a heading plus one row, it
-  // split those two into separate grid columns instead of stacking them: "Top story" sat
-  // alone on the left with the hero card squeezed into a narrow column on the right.
-  const heroBlock = hero
-    ? `<section class="section">
-${R.sectionHead('Top story', null, null)}
-<div class="digest-list">${digestItemRow(ctx, hero, depth)}</div>
-</section>`
-    : '';
-
+  const archiveStories = editions[0]?.stories.slice(0, 3) || [];
+  const archiveBlock = archiveStories.length ? `<section class="section news-archive" id="from-the-archive">
+${R.sectionHead('From the archive', `Illustrated, AI-written editions · ${formatShort(editions[0].edition.date)}`, archiveStories.length)}
+<div class="news-archive__grid">${archiveStories.map(story => `<article><a href="${R.rel(depth, R.storyPath(story))}"><img src="${R.rel(depth, R.coverPath(story))}" alt="" width="1200" height="675" loading="lazy"></a><p class="eyebrow">${e(beatMap.get(story.beat)?.label || story.beat)} · ${e(formatShort(story.publishedAt))}</p><h3><a href="${R.rel(depth, R.storyPath(story))}">${e(story.headline)}</a></h3></article>`).join('')}</div>
+<p class="news-archive__foot"><a href="${R.rel(depth, 'archive.html')}">Browse all 18 archived editions →</a></p>
+</section>` : '';
   const wire = wireBlock(ctx.wireItems, { depth, sourceBook, harvestedAt: ctx.harvestedAt });
-
-  const content = `<div class="wrap">
-<section class="editorsnote">
-<div class="editorsnote__label">Today’s digest<br>${e(formatMasthead(digest.edition.date))}</div>
-<div>
-<h1 class="editorsnote__title">Your AI briefing.</h1>
-<p class="editorsnote__body">${items.length} source-linked headlines. Start with the announcements reviewed below, then explore the latest reporting, research and releases by topic. Publisher claims are attributed, not independently fact-checked.
-<a href="${R.rel(depth, 'methodology.html')}#digest">How this works →</a></p>
-<p class="wire__stamp">Last refreshed <time datetime="${e(digest.edition.generatedAt)}" data-relative>${e(formatMasthead(digest.edition.date))}, ${e(digest.edition.generatedAt.slice(11, 16))} UTC</time> · runs three times a day, no model in the loop</p>
-</div>
-</section>
-
+  const content = `<div class="wrap news-home">
+<section class="news-intro"><div><p class="eyebrow">The daily AI report · ${e(formatMasthead(digest.edition.date))}</p><h1>Today in artificial intelligence<span>.</span></h1></div>
+<div class="news-intro__aside"><p>Reporting, research and releases — organized for a better read. Today’s headlines link to their original publishers.</p>
+<p class="news-intro__stamp">${items.length} stories · Refreshed <time datetime="${e(digest.edition.generatedAt)}" data-relative>${e(formatMasthead(digest.edition.date))}</time></p></div></section>
+${leadBlock}
 ${reviewedBriefing(digest)}
-
-${heroBlock}
-
-${wire}
-
+<div class="news-home__section-title"><p class="eyebrow">Across the beat</p><h2>More to read</h2><p>Short excerpts come from publisher feeds; headlines and claims remain attributed to their sources.</p></div>
+${sections || '<p class="empty">No items cleared the classifier for this run.</p>'}
+${archiveBlock}
 ${R.tierStrip(ctx, {
     depth,
     anchorNav: true,
@@ -1413,8 +1421,7 @@ ${R.tierStrip(ctx, {
     digestCount: items.length,
     wireCount: ctx.wireItems?.length,
   })}
-
-${sections || '<p class="empty">No items cleared the classifier for this run.</p>'}
+${wire}
 </div>`;
 
   return R.page(ctx, {
@@ -2387,6 +2394,7 @@ const wireHistory = loadWireHistory(OUT('generated', 'wire'));
 
 // Covers first — pages reference them.
 const coverCount = writeCovers(editions);
+if (latestDigest) writeFrontPageCovers(latestDigest);
 write('assets/img/favicon.svg', favicon());
 write('assets/img/social-card.svg', socialCard());
 
@@ -2531,23 +2539,24 @@ write(
 
 > ${site.description}
 
-An autonomous editorial pipeline researches, writes, checks against source-tier and
-sourcing rules, and publishes every edition — see /methodology.html for exactly what runs
-and what it does not claim. The pipeline's model is swappable; each edition records which
-one wrote it.
+The current front page is assembled from publisher feeds by deterministic tools, without
+a model or API key. Headlines are publisher-written; some items include a short, attributed
+feed excerpt selected without rewriting. These are not independent fact checks. The 18
+archived AI-written editions were published before 12 September 2026; this branch does not
+write new ones. See /methodology.html for the precise limits of each tier.
 
 The site publishes at three trust levels, each with its own machine-readable data. Higher
 in this list means more checking stands behind it:
 
-1. **Edition** — researched, written and source-checked, one per day. Human-readable at
+1. **Edition** — the historical AI-written archive. Human-readable at
    /edition/<date>.html, or as data at /generated/<date>.json (schema:
    /schema/edition.schema.json). ${editions.length} editions published; latest is
    ${latest.edition.date} (No. ${latest.edition.number}) at /generated/${latest.edition.date}.json.
-2. **Digest** — the same day's headlines clustered and ranked by a deterministic program,
-   no model involved. /digest.html, or as data at /generated/digest/<date>.json (schema:
+2. **Digest** — fresh headlines clustered and ranked by a deterministic program,
+   with occasional short publisher-feed excerpts and no model involved. /digest.html, or as data at /generated/digest/<date>.json (schema:
    /schema/digest.schema.json).
 3. **Wire** — unedited headlines straight from publisher RSS feeds, refreshed independently
-   of the other two tiers and the one that keeps running if the model-driven tiers fail.
+   of the digest and historical edition archive.
    Embedded on the front page; snapshots at /generated/wire/<date>.json.
 
 A fourth page, the **Weekly review** (/weekly.html), is not a peer of the three tiers above

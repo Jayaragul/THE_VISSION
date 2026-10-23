@@ -2,23 +2,24 @@
 
 > A source-linked AI news briefing: publisher headlines, transparent source labels and a searchable archive. Automatically collected and ranked; not independently fact-checked.
 
-An autonomous editorial pipeline researches, writes, checks against source-tier and
-sourcing rules, and publishes every edition — see /methodology.html for exactly what runs
-and what it does not claim. The pipeline's model is swappable; each edition records which
-one wrote it.
+The current front page is assembled from publisher feeds by deterministic tools, without
+a model or API key. Headlines are publisher-written; some items include a short, attributed
+feed excerpt selected without rewriting. These are not independent fact checks. The 18
+archived AI-written editions were published before 12 September 2026; this branch does not
+write new ones. See /methodology.html for the precise limits of each tier.
 
 The site publishes at three trust levels, each with its own machine-readable data. Higher
 in this list means more checking stands behind it:
 
-1. **Edition** — researched, written and source-checked, one per day. Human-readable at
+1. **Edition** — the historical AI-written archive. Human-readable at
    /edition/<date>.html, or as data at /generated/<date>.json (schema:
    /schema/edition.schema.json). 18 editions published; latest is
    2026-09-12 (No. 18) at /generated/2026-09-12.json.
-2. **Digest** — the same day's headlines clustered and ranked by a deterministic program,
-   no model involved. /digest.html, or as data at /generated/digest/<date>.json (schema:
+2. **Digest** — fresh headlines clustered and ranked by a deterministic program,
+   with occasional short publisher-feed excerpts and no model involved. /digest.html, or as data at /generated/digest/<date>.json (schema:
    /schema/digest.schema.json).
 3. **Wire** — unedited headlines straight from publisher RSS feeds, refreshed independently
-   of the other two tiers and the one that keeps running if the model-driven tiers fail.
+   of the digest and historical edition archive.
    Embedded on the front page; snapshots at /generated/wire/<date>.json.
 
 A fourth page, the **Weekly review** (/weekly.html), is not a peer of the three tiers above

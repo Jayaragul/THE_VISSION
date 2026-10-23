@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { selectWireItems } from '../tools/lib/wire.mjs';
+import { selectWireItems, wireItemsHTML } from '../tools/lib/wire.mjs';
 
 const sourceBook = {
   blocked: [{ host: 'x.com', reason: 'social posts are leads, not sources' }],
@@ -89,6 +89,25 @@ test('a prolific source cannot fill the whole wire — perSourceCap leaves room 
   assert.equal(out.length, 6);
   assert.equal(out.filter((i) => i.source === 'arXiv — cs.AI').length, 5);
   assert.ok(out.some((i) => i.source === 'TechCrunch'), 'the single-item source should still appear');
+});
+test('the source cap applies across arXiv category feeds', () => {
+  const items = Array.from({ length: 8 }, (_, i) => ({
+    source: i % 2 ? 'arXiv — cs.LG' : 'arXiv — cs.AI',
+    title: `AI model research number ${i}`,
+    url: `https://arxiv.org/abs/2608.${String(i).padStart(5, '0')}`,
+    publishedAt: `2026-08-17T${String(10 + i).padStart(2, '0')}:00:00Z`,
+  }));
+  assert.equal(selectWireItems(candidates(items), { sourceBook, perSourceCap: 5 }).length, 5);
+});
+
+test('wire labels research and hosted company posts by source type', () => {
+  const html = wireItemsHTML([
+    { title: 'AI research paper', url: 'https://arxiv.org/abs/2608.00001' },
+    { title: 'AI training blog', url: 'https://huggingface.co/blog/microsoft/thinkingbox-training' },
+  ]);
+  assert.match(html, /Research preprint · not peer-reviewed/);
+  assert.match(html, /Microsoft \/ Hugging Face/);
+  assert.match(html, /Joint company blog · self-reported/);
 });
 
 test('empty or missing candidates produces an empty list, not a throw', () => {

@@ -21,7 +21,8 @@ The front page is built entirely by two deterministic tools — `tools/harvest.m
 `tools/digest.mjs` — clustering and ranking headlines from ~30 public feeds. No API key, no
 model, nothing generated. That used to be the fallback state for when an AI-written tier
 went down. It is now the whole design: this branch runs the digest and the wire,
-permanently, and depends on no vendor's model existing or staying online.
+permanently, and depends on no vendor's model existing or staying online. The front page
+also shows short publisher-feed excerpts where a complete sentence is available.
 
 It was not always this way. From 17 August through 12 September 2026 this paper also ran an
 AI-written **Edition** tier — 18 of them, researched and drafted by a model, gated by a
@@ -38,6 +39,8 @@ depend on it existing at all.
 ## News quality update — 23 October 2026
 
 The digest now enforces a 48-hour news window, caps publisher groups, labels preprints and company claims, and collects directly from Anthropic and METR. A separate, expiring source-review briefing highlights important additions without claiming independent fact-check certification. See [NEWS-QUALITY.md](NEWS-QUALITY.md) for the controls and their limits.
+
+The front-page layout presents the digest as an illustrated newspaper: a lead, a short latest-news rail, topic desks and a dated visual archive. A deterministic text selector can show a short, attributed sentence from a publisher's feed; it never writes new prose. Story illustrations use the repository's original SVG motif system. The build still needs no model or API key.
 
 ## Why you might care
 
@@ -60,7 +63,7 @@ The digest now enforces a 48-hour news window, caps publisher groups, labels pre
 ```
   ┌── TIER 1.5 · DIGEST ─── no AI, no key ──┐
   │  cluster + rank harvested headlines,     │
-  │  no prose — a source's own title, always │  ← the front page, permanently
+  │  source titles + attributed feed excerpts│  ← the front page, permanently
   └──────────────────┬────────────────────┘
   ┌── TIER 1 · WIRE ──────── no AI, no key ──┐
   │  ~30 RSS feeds → hundreds of leads/run   │
@@ -94,7 +97,7 @@ None depends on the others being up — that independence is the entire point (s
 
 | | The Wire | The Digest | The archived Edition |
 | --- | --- | --- | --- |
-| What it is | Raw headlines, straight from ~30 public feeds | The same headlines clustered, ranked, source-attributed — still no prose | Researched, verified, model-written stories — 18 of them, 17 Aug – 12 Sep 2026 |
+| What it is | Raw headlines, straight from ~30 public feeds | Publisher headlines clustered and ranked, with occasional short feed excerpts — no model-written prose | Researched, model-written stories — 18 of them, 17 Aug – 12 Sep 2026 |
 | Needs an API key? | No | No | Yes — and only on `editorial-ai`, not this branch |
 | Refreshes | Every 6 hours | 3× a day | Never again, on this branch |
 | Where it lives now | Embedded at the bottom of the front page | **The front page itself**, and [digest.html](https://jayaragul.github.io/THE_VISSION/digest.html) | [archive.html](https://jayaragul.github.io/THE_VISSION/archive.html), unchanged |
@@ -202,7 +205,7 @@ For a commercial licence, ask the copyright holder.
 
 <div align="center">
 
-Founded and owned by **Jayaragul N** · Researched and written by an autonomous editorial pipeline
+Founded and owned by **Jayaragul N** · Current digest assembled from publisher feeds · Historical editions AI-written
 
 No advertising · No sponsorship · No position in anything covered
 

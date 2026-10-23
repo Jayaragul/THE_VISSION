@@ -11,6 +11,10 @@ export function newsworthy(item) {
   if (!item.url || !/^https:\/\//i.test(item.url)) return false;
   if (item.source === 'Hugging Face — trending models') return false;
   if (/\/(presented|sponsored|advertorial)\//i.test(item.url)) return false;
+  if ((item.categories || []).some(category => /^(sponsored|advertorial|paid content|partner content)$/i.test(category.trim()))) return false;
+  // This saved harvest predates category parsing. These four publisher pages disclose
+  // EXL, Vanguard, Celonis or Western Digital sponsorship, so reject their exact URLs.
+  if (/^https:\/\/(?:www\.)?technologyreview\.com\/2026\/10\/22\/(?:1146109|1146103|1146812|1146948)\//i.test(item.url)) return false;
   if (/\b(buying guide|which models to buy|best .{0,50}(laptops?|phones?|deals)|deals of the week)\b/i.test(item.title || '')) return false;
   // Only a separately reviewed, versioned input may supply this explicit override.
   return item.reviewed === true || isAiRelevant(item.title);
@@ -18,6 +22,7 @@ export function newsworthy(item) {
 
 export function publisherGroup(item) {
   const host = hostOf(item.url) || '';
+  if (host === 'arxiv.org') return 'arXiv';
   if (/(^|\.)(google\.com|blog\.google|deepmind\.google|google\.dev|youtube\.com)$/.test(host)) return 'Alphabet';
   if (/(^|\.)(amazon\.com|amazon\.science)$/.test(host)) return 'Amazon';
   if (/(^|\.)(fb\.com|meta\.com)$/.test(host)) return 'Meta';

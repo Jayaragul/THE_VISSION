@@ -13,6 +13,14 @@ test('shopping, advertorials and model repository names cannot become top news',
   assert.equal(newsworthy({title:'mistralai/Timestral-209M',url:'https://huggingface.co/model',source:'Hugging Face — trending models'}),false);
   assert.equal(newsworthy({title:'AI agent monitoring research released',url:'https://metr.org/research'}),true);
 });
+test('publisher-labeled sponsorship is excluded even with an ordinary story URL', () => {
+  const lead = { title: 'Designing an AI serving harness built to last', url: 'https://technologyreview.com/story', categories: ['sponsored'] };
+  assert.equal(newsworthy(lead), false);
+  assert.equal(newsworthy({ ...lead, categories: ['advertorial'] }), false);
+  assert.equal(newsworthy({ ...lead, categories: ['AI'] }), true);
+  assert.equal(newsworthy({ ...lead, url: 'https://www.technologyreview.com/2026/10/22/1146109/designing-an-ai-serving-harness-built-to-last/', categories: undefined }), false);
+  assert.equal(newsworthy({ ...lead, url: 'https://www.technologyreview.com/2026/10/22/1146948/ais-hidden-storage-bill-what-inference-leaves-behind/', categories: undefined }), false);
+});
 test('a reviewed announcement may use its exact AI-free title but expires', () => {
   const item={title:'Build more responsive apps with the Decisions API',url:'https://openai.com/index/decisions-api/',publishedAt:'2026-10-22T00:00:00Z',reviewedAt:'2026-10-23T05:00:00Z',note:'Source announcement read.',beat:'models'};
   assert.equal(reviewedLeads({items:[item]},now).length,1);
@@ -25,6 +33,9 @@ test('same-parent publishers are not independent corroboration', () => {
   assert.equal(publisherGroup(items[0]),publisherGroup(items[1]));
   assert.equal(publisherDiversity({items}),1);
   assert.equal(publisherDiversity({items:[...items,{url:'https://reuters.com/story',publisher:'Reuters'}]}),2);
+});
+test('arXiv category feeds count as one publisher', () => {
+  assert.equal(publisherGroup({ url: 'https://arxiv.org/abs/2609.00001', source: 'arXiv — cs.AI' }), publisherGroup({ url: 'https://arxiv.org/abs/2609.00002', source: 'arXiv — cs.LG' }));
 });
 test('newsroom parser accepts dated rows, deduplicates and never invents a date', () => {
   const row='<div class="Table__details-meta"><div>Oct 22, 2026</div><div>Product</div></div><a class="Table__details-title" href="/news/agent-skills"><h3>Donating Agent Skills</h3></a>';

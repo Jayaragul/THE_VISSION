@@ -48,7 +48,7 @@
 <span class="topbar__date">Friday, 23 October 2026</span>
 
 <span class="topbar__spacer"></span>
-<span class="live">Updated <time datetime="2026-10-23T07:28:43.937Z" data-relative>23 Oct 2026</time></span>
+<span class="live">Updated <time datetime="2026-10-23T10:53:34.865Z" data-relative>23 Oct 2026</time></span>
 <button class="themetoggle" type="button" data-theme-toggle>Dark</button>
 </div></div>
 <header class="masthead">
@@ -128,20 +128,17 @@ digest and the wire below make no claim to have understood anything, only to hav
 <p>Current selection uses a hard 48-hour publication window relative to collection time, rejects undated and future leads, excludes recognizable buying guides and sponsored URLs, and limits each publisher group to five items. A separately maintained source-review list can surface important announcements with explicit context; reading a source does not independently reproduce its claims. Date-only newsroom dates are normalized to midnight UTC for ordering, not presented as exact publication times.</p>
 
 <h2 id="digest" style="font-size:1.3rem;margin:34px 0 12px">The digest: no model at all</h2>
-<p>The front page runs without any AI in the loop whatsoever — no API key, no model, nothing
-generated. <code>tools/harvest.mjs</code> collects headlines from public feeds;
+<p>The front page runs without a model or API key. <code>tools/harvest.mjs</code> collects headlines and descriptions from public feeds;
 <code>tools/digest.mjs</code> clusters near-duplicate coverage of the same event, scores each
 cluster on recency, source attribution, publisher coverage overlap, whether it
 repeats a previous digest, then keeps fresh clusters within topic and publisher limits.
-That is genuinely all it does — the "top story" above is simply the single highest-scoring
-cluster across every beat, not an editor's judgement call.</p>
+The front page prefers the highest-ranked multi-publisher item for its lead when one exists; otherwise it uses the highest-ranked eligible item. It is still an automatic choice, not a human judgement of importance.</p>
 
 <p>The honest way to describe the limits: the digest claims only to have counted and sorted,
-never to have read, verified or explained anything. Every headline is a source's own title,
-never rewritten, and every item links straight to where it was reported rather than to a
-summary of it. A digest item says <strong>multiple-publisher coverage</strong> when its cluster has at least two publisher groups and a primary or established-newsroom source. Shared headlines do not prove independent reporting or factual accuracy. Corporate publications with the same parent count as one group. Single-source vendor announcements and research preprints are labeled explicitly. The legacy data field named <code>confirmed</code> means coverage overlap only; it is never presented as fact-check certification.</p>
+never to have read or verified the full articles. Every headline is a source's own title,
+never rewritten, and every item links straight to where it was reported. When a publisher feed provides a complete, relevant sentence, a deterministic text selector prints that sentence as a short, attributed excerpt. It rejects cut-off feed text; no model fills the gap or writes a new claim. A digest item says <strong>multiple-publisher coverage</strong> when its cluster has at least two publisher groups and a primary or established-newsroom source. Shared headlines do not prove independent reporting or factual accuracy. Corporate publications with the same parent count as one group. Single-source vendor announcements and research preprints are labeled explicitly. The legacy data field named <code>confirmed</code> means coverage overlap only; it is never presented as fact-check certification.</p>
 
-<p>What it cannot do matters as much as what it can. It cannot tell whether a claim is true,
+<p>The illustrated front page uses original, deterministic artwork from this repository. The pictures are thematic illustrations, not photographs of the reported events. What the digest cannot do matters as much as what it can. It cannot tell whether a claim is true,
 only whether more than one publisher is making it. It has no "why it matters" field, on
 purpose — writing one would be the pipeline inventing an opinion it does not have. And its
 clustering works on shared words in a headline, not meaning, so two outlets covering the same
@@ -149,14 +146,16 @@ event in very different language will often show up as two separate, single-sour
 rather than one multi-publisher cluster. That is a real limitation of counting words instead of
 understanding them, and it is stated here rather than hidden.</p>
 
-<h2 id="wire" style="font-size:1.3rem;margin:34px 0 12px">The wire: not even sorted</h2>
+<h2 id="wire" style="font-size:1.3rem;margin:34px 0 12px">The wire: newest headlines</h2>
 <p>Underneath the digest, on the front page, is <strong>the wire</strong> — the lowest tier and
 the one with no judgement in it at all. <code>tools/harvest.mjs</code> pulls headlines straight
 from roughly 30 public RSS feeds and a handful of topic searches, keeps whatever is plausibly
 about AI, and shows the most recent ones, exactly as their publisher wrote them. Nothing is
 clustered, nothing is ranked by importance, nothing is confirmed against a second source. A
-single busy feed cannot fill the whole page — one publisher can only ever hold a handful of
-the visible slots — but beyond that, this is a raw feed of the newest items and nothing more.</p>
+single busy feed cannot fill the whole page — all arXiv categories share one publisher cap —
+and publisher-marked sponsored content is excluded. Each row labels its source type, including
+self-reported company posts and research preprints. Beyond that, this is a raw feed of the newest
+items and nothing more. Checking the destination and headline does not verify the claims.</p>
 
 <p>This is deliberate: the wire is what keeps the site from going dark. It needs no API key
 and no model, so if the digest itself stops — an outage, a run that failed its own checks —

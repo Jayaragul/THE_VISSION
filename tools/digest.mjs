@@ -18,6 +18,7 @@ import { classifyBeat, tierOf } from './lib/classify.mjs';
 import { isFresh, newsworthy, reviewedLeads, publisherGroup } from './lib/news-quality.mjs';
 import { clusterItems, publisherDiversity } from './lib/cluster.mjs';
 import { scoreCluster, confidenceOf } from './lib/rank.mjs';
+import { publisherExcerpt } from './lib/excerpt.mjs';
 import { validate as validateSchema, assertSupported } from './lib/schema.mjs';
 
 const ROOT = resolvePath(dirname(fileURLToPath(import.meta.url)), '..');
@@ -180,6 +181,7 @@ const items = selected.map(({ cluster, score, confidence }) => {
     (a, b) => a.tier - b.tier || Date.parse(b.publishedAt || 0) - Date.parse(a.publishedAt || 0)
   );
   const best = bySourceQuality[0];
+  const excerpt = publisherExcerpt(best.summary, best.title);
   // Truncating slugify()'s output can land mid-word right after a hyphen and leave a
   // trailing one — strip it again rather than ship an id that fails the schema pattern.
   const slug = slugify(best.title).slice(0, 60).replace(/-+$/, '') || `item-${Math.abs(best.url.length)}`;
@@ -220,6 +222,7 @@ const items = selected.map(({ cluster, score, confidence }) => {
     slug,
     beat: cluster.beat,
     title: best.title,
+    ...(excerpt ? { excerpt } : {}),
     publishedAt: best.publishedAt || undefined,
     confidence,
     score: Math.round(score * 1000) / 1000,

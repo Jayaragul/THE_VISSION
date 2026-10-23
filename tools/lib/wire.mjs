@@ -14,13 +14,14 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { escapeHTML as e, hostOf, matchPublisher, monogram, isAiRelevant, cmpDesc } from './util.mjs';
-import { isFresh, newsworthy } from './news-quality.mjs';
+import { isFresh, newsworthy, publisherGroup } from './news-quality.mjs';
 
 /** Aggregator redirects are leads, never display sources — drop them from the public wire. */
 // arXiv alone posts more often than any single company blog or press outlet, so a flat
 // most-recent-N cut let three arXiv categories fill nearly half of every wire refresh and
 // crowd out lower-frequency-but-important sources (Amazon, Microsoft, Meta among them —
-// see the 18 Aug 2026 coverage review). perSourceCap keeps one prolific feed from dominating
+// see the 18 Aug 2026 coverage review). Count all categories from the same publisher together:
+// "arXiv — cs.AI" and "arXiv — cs.LG" are not independent publishers. perSourceCap keeps one prolific publisher from dominating
 // the page without hiding it: it still appears, just not to the exclusion of everything else.
 export function selectWireItems(candidates, { limit = 24, sourceBook, perSourceCap = 5 } = {}) {
   if (!candidates?.items?.length) return [];
@@ -53,7 +54,7 @@ export function selectWireItems(candidates, { limit = 24, sourceBook, perSourceC
   const out = [];
   for (const item of filtered) {
     if (out.length >= limit) break;
-    const key = item.source || '';
+    const key = publisherGroup(item);
     const count = perSource.get(key) || 0;
     if (count >= perSourceCap) continue;
     perSource.set(key, count + 1);
@@ -73,13 +74,21 @@ export function wireItemsHTML(items, { sourceBook } = {}) {
     .map((item, i) => {
       const host = hostOf(item.url);
       const known = sourceBook ? matchPublisher(host, sourceBook.publishers) : null;
-      const publisher = known?.name || item.source || host;
+      let publisher = known?.name || item.source || host;
+      let sourceType = known?.self ? 'Company post · self-reported' : known?.tier === 2 ? 'Newsroom report' : 'Source feed · unverified';
+      if (host === 'arxiv.org') sourceType = 'Research preprint · not peer-reviewed';
+      if (host === 'huggingface.co') {
+        const jointMicrosoftBlog = /^https:\/\/huggingface\.co\/blog\/microsoft\//i.test(item.url);
+        publisher = jointMicrosoftBlog ? 'Microsoft / Hugging Face' : 'Hugging Face hosted blog';
+        sourceType = jointMicrosoftBlog ? 'Joint company blog · self-reported' : 'Hosted post · author claims';
+      }
       return `<li class="wire__item" id="w-${i}">
 <a class="wire__link" href="${e(item.url)}" rel="noopener nofollow" target="_blank">
 <span class="wire__mark" aria-hidden="true">${e(monogram(publisher))}</span>
 <span class="wire__body">
 <span class="wire__title">${e(item.title)}</span>
 <span class="wire__meta">${e(publisher)}${item.publishedAt ? ` · <time datetime="${e(item.publishedAt)}" data-relative>${e(item.publishedAt.slice(0, 10))}</time>` : ''}</span>
+<span class="wire__type">${e(sourceType)}</span>
 </span>
 </a>
 </li>`;
@@ -100,6 +109,7 @@ export function wireBlock(items, { depth = 0, sourceBook, harvestedAt } = {}) {
 These are raw feed headlines, collected automatically and <strong>not verified, written or
 endorsed</strong> by THE VISSION. They are leads, not reporting. The digest adds ranking
 and source context; neither a feed link nor repeated coverage certifies a claim as true.
+<a href="${depth ? '../'.repeat(depth) : ''}methodology.html#wire">How Wire sources are selected</a>.
 </p>
 ${/* Forty headlines is a reasonable desktop column and a very long scroll on a phone, where
       it sits between the reader and the rest of the paper. On narrow screens CSS shows the

@@ -7,6 +7,13 @@ import assert from 'node:assert/strict';
 import { parseFeed } from '../tools/lib/feed.mjs';
 import { accumulateHealth, summarizeHealth } from '../tools/lib/feedhealth.mjs';
 
+test('preserves publisher sponsorship categories in RSS and Atom leads', () => {
+  const rss = `<rss><channel><item><title>Designing an AI serving harness built to last</title><link>https://www.technologyreview.com/story</link><category><![CDATA[sponsored]]></category></item></channel></rss>`;
+  const atom = `<feed><entry><title>AI agent release</title><link href="https://example.com/agent"/><category term="partner content"/></entry></feed>`;
+  assert.deepEqual(parseFeed(rss)[0].categories, ['sponsored']);
+  assert.deepEqual(parseFeed(atom)[0].categories, ['partner content']);
+});
+
 test('parses RSS 2.0 with CDATA titles and a plain-text <link>', () => {
   const xml = `<?xml version="1.0"?>
 <rss version="2.0"><channel>

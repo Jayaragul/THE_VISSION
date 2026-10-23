@@ -86,7 +86,12 @@ export function parseFeed(xml) {
       const summary = rawSummary
         ? decodeEntities(stripTags(unwrapCDATA(rawSummary))).slice(0, 320) || null
         : null;
-      return { title, url, publishedAt, summary };
+      // RSS categories can disclose sponsored content even when the URL and headline do not.
+      // Keep that publisher-supplied label attached to the lead through harvest and selection.
+      const categories = [...block.matchAll(/<category\b([^>]*?)(?:\/>|>([\s\S]*?)<\/category>)/gi)]
+        .map(([, attrs, body]) => decodeEntities(stripTags(unwrapCDATA(body || /\bterm=["']([^"']+)["']/i.exec(attrs)?.[1] || ''))))
+        .filter(Boolean);
+      return { title, url, publishedAt, summary, ...(categories.length ? { categories } : {}) };
     })
     .filter((item) => item.title && item.url);
 }
