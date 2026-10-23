@@ -7,6 +7,9 @@
     "4": { "label": "Unvetted", "note": "Requires a tier 1 or 2 source for the same claim." }
   },
   "publishers": [
+    { "host": "metr.org", "name": "METR", "tier": 1 },
+    { "host": "1password.com", "name": "1Password", "tier": 1, "self": true },
+    { "host": "canva.com", "name": "Canva", "tier": 1, "self": true },
     { "host": "openai.com", "name": "OpenAI", "tier": 1, "self": true },
     { "host": "anthropic.com", "name": "Anthropic", "tier": 1, "self": true },
     { "host": "deepmind.google", "name": "Google DeepMind", "tier": 1, "self": true },

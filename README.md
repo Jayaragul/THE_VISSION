@@ -35,6 +35,10 @@ that only ran when the pipeline *succeeded*. See the postmortem in
 anyone who wants to run it with their own key, on their own schedule. This branch does not
 depend on it existing at all.
 
+## News quality update — 23 October 2026
+
+The digest now enforces a 48-hour news window, caps publisher groups, labels preprints and company claims, and collects directly from Anthropic and METR. A separate, expiring source-review briefing highlights important additions without claiming independent fact-check certification. See [NEWS-QUALITY.md](NEWS-QUALITY.md) for the controls and their limits.
+
 ## Why you might care
 
 - **Read it** — a daily AI briefing, free, every headline one click from where it was
@@ -94,7 +98,7 @@ None depends on the others being up — that independence is the entire point (s
 | Needs an API key? | No | No | Yes — and only on `editorial-ai`, not this branch |
 | Refreshes | Every 6 hours | 3× a day | Never again, on this branch |
 | Where it lives now | Embedded at the bottom of the front page | **The front page itself**, and [digest.html](https://jayaragul.github.io/THE_VISSION/digest.html) | [archive.html](https://jayaragul.github.io/THE_VISSION/archive.html), unchanged |
-| Verified? | No — publisher-attributed, unverified | No — but each item is badged **confirmed** only when two independent publishers cover it | Yes — every claim was traced to a primary source before it ran |
+| Verified? | No — publisher-attributed, unverified | No — multiple-publisher coverage is labeled as coverage, never fact-check certification | Yes — every claim was traced to a primary source before it ran |
 | Its history | `generated/wire/<date>.json` → [wire/&lt;date&gt;.html](https://jayaragul.github.io/THE_VISSION/) | `generated/digest/<date>.json` → [digest/&lt;date&gt;.html](https://jayaragul.github.io/THE_VISSION/digest.html) | `generated/<date>.json` → [edition/&lt;date&gt;.html](https://jayaragul.github.io/THE_VISSION/) |
 
 **[archive.html](https://jayaragul.github.io/THE_VISSION/archive.html)** is the one place all

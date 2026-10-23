@@ -15,6 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { readJSON, isoDate, slugify, isAiRelevant } from './lib/util.mjs';
 import { validDate, atomicWrite } from './lib/harvest-safety.mjs';
 import { classifyBeat, tierOf } from './lib/classify.mjs';
+import { isFresh, newsworthy, reviewedLeads, publisherGroup } from './lib/news-quality.mjs';
 import { clusterItems, publisherDiversity } from './lib/cluster.mjs';
 import { scoreCluster, confidenceOf } from './lib/rank.mjs';
 import { validate as validateSchema, assertSupported } from './lib/schema.mjs';
@@ -35,6 +36,11 @@ if (!existsSync(candidatesPath)) {
 const { beats, edition: editionRules } = readJSON(join(ROOT, 'input', 'beats.json'));
 const sourceBook = readJSON(join(ROOT, 'input', 'sources.json'));
 const candidates = readJSON(candidatesPath);
+const now = Date.parse(candidates.harvestedAt);
+if (!Number.isFinite(now)) throw new Error('Harvest timestamp must be valid');
+const reviewedPath = join(ROOT, 'input', 'reviewed-leads.json');
+const additions = existsSync(reviewedPath) ? reviewedLeads(readJSON(reviewedPath), now, editionRules.lookbackHours) : [];
+const pool = [...new Map([...candidates.items, ...additions].map(i => [i.url, i])).values()];
 
 // How many headlines each beat may list. The digest is a headline aggregator, not a written
 // paper, so it gets `digestQuota`. It previously reused `quota` — the editorial target for a
@@ -77,11 +83,7 @@ function priorDigestUrls(beforeDate) {
 // list, it gets forced into a beat by classifyBeat's keyword overlap — which is exactly how
 // "Open Mike Eagle and Kenny Segal crafted a hip-hop breakup masterpiece" ended up filed
 // under Models on the first run of this pipeline, via the single shared token "open".
-const usable = candidates.items.filter((item) => {
-  if (!item.url || !/^https:\/\//i.test(item.url)) return false;
-  if (!isAiRelevant(item.title)) return false;
-  return true;
-});
+const usable = pool.filter(item => newsworthy(item) && isFresh(item, now, editionRules.lookbackHours));
 
 // An aggregator headline ends in its real publisher: "AWS brings … to India - CNBC TV18".
 // That name is the only part of the entry worth anything here, and it is what makes an
@@ -95,7 +97,7 @@ const withMeta = [];
 for (const item of usable) {
   const { tier, blocked, name } = tierOf(item, sourceBook);
   if (blocked) continue;
-  const beat = classifyBeat(item, beats);
+  const beat = item.reviewed && beats.some(b => b.id === item.beat) ? item.beat : classifyBeat(item, beats);
   if (!beat) continue;
   // Aggregator redirects stay in the pool as evidence but can never be cited: the URL is an
   // opaque redirect, not the publisher's own page, and this tier has no model to follow it.
@@ -134,7 +136,7 @@ const clusters = clusterItems(withMeta)
 });
 
 const seenUrls = priorDigestUrls(date);
-const now = Date.parse(`${date}T12:00:00Z`);
+
 
 const scored = clusters.map((cluster) => {
   const { score, bestTier: tier } = scoreCluster(cluster, {
@@ -154,9 +156,15 @@ const scored = clusters.map((cluster) => {
 // clusters first, capped at each beat's quota so one very active beat cannot crowd out
 // everything else.
 const byBeat = new Map(beats.map((b) => [b.id, []]));
+const publisherSlots = new Map();
 for (const entry of scored.sort((a, b) => b.score - a.score)) {
   const bucket = byBeat.get(entry.cluster.beat);
-  if (bucket && bucket.length < selectionCap.get(entry.cluster.beat)) bucket.push(entry);
+  const representative = entry.cluster.items.find(i => i.citable !== false);
+  const group = publisherGroup(representative);
+  const used = publisherSlots.get(group) || 0;
+  if (bucket && bucket.length < selectionCap.get(entry.cluster.beat) && used < 5) {
+    bucket.push(entry); publisherSlots.set(group, used + 1);
+  }
 }
 
 const selected = [...byBeat.values()].flat().sort((a, b) => b.score - a.score);
@@ -176,7 +184,10 @@ const items = selected.map(({ cluster, score, confidence }) => {
   // trailing one — strip it again rather than ship an id that fails the schema pattern.
   const slug = slugify(best.title).slice(0, 60).replace(/-+$/, '') || `item-${Math.abs(best.url.length)}`;
 
-  const sources = bySourceQuality.slice(0, 4).map((i) => ({
+  const groups = new Set();
+  const distinct = bySourceQuality.filter(i => { const group = publisherGroup(i); if (groups.has(group)) return false; groups.add(group); return true; });
+  const sourceOrder = [...distinct, ...bySourceQuality.filter(i => !distinct.includes(i))];
+  const sources = sourceOrder.slice(0, 4).map((i) => ({
     title: i.title,
     publisher: i.publisher,
     url: i.url,
@@ -261,4 +272,4 @@ console.log(
     `(${withMeta.length} classified candidates, ${usable.length} usable of ${candidates.items.length} harvested)`
 );
 const confirmed = items.filter((i) => i.confidence === 'confirmed').length;
-console.log(`  ${confirmed} confirmed (2+ independent publishers), ${items.length - confirmed} single-source`);
+console.log(`  ${confirmed} multi-publisher clusters (not fact-checked), ${items.length - confirmed} single-source`);

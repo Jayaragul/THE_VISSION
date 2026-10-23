@@ -19,6 +19,7 @@ import { selectWireItems, wireBlock, wireItemsHTML, stalenessBanner, wirePath, s
 import * as R from './lib/render.mjs';
 import { collectThreads, collectOpenQuestions, collectCorrections, daysBetween } from './lib/continuity.mjs';
 import { collectDocs, buildSearchIndex } from './lib/searchindex.mjs';
+import { reviewedLeads } from './lib/news-quality.mjs';
 import { heroEligible } from './lib/rank.mjs';
 
 const ROOT = resolvePath(dirname(fileURLToPath(import.meta.url)), '..');
@@ -1074,30 +1075,28 @@ mitigations were the source tiers, the confidence label printed on every story, 
 that every source was one click away. That limitation does not apply to what runs now — the
 digest and the wire below make no claim to have understood anything, only to have counted it.</p>
 
+<p>Current selection uses a hard 48-hour publication window relative to collection time, rejects undated and future leads, excludes recognizable buying guides and sponsored URLs, and limits each publisher group to five items. A separately maintained source-review list can surface important announcements with explicit context; reading a source does not independently reproduce its claims. Date-only newsroom dates are normalized to midnight UTC for ordering, not presented as exact publication times.</p>
+
 <h2 id="digest" style="font-size:1.3rem;margin:34px 0 12px">The digest: no model at all</h2>
 <p>The front page runs without any AI in the loop whatsoever — no API key, no model, nothing
 generated. <code>tools/harvest.mjs</code> collects headlines from public feeds;
 <code>tools/digest.mjs</code> clusters near-duplicate coverage of the same event, scores each
-cluster on recency, source tier, how many independent publishers confirm it, whether it
-repeats a previous digest, and beat priority, then keeps the top-ranked clusters per beat.
+cluster on recency, source attribution, publisher coverage overlap, whether it
+repeats a previous digest, then keeps fresh clusters within topic and publisher limits.
 That is genuinely all it does — the "top story" above is simply the single highest-scoring
 cluster across every beat, not an editor's judgement call.</p>
 
 <p>The honest way to describe the limits: the digest claims only to have counted and sorted,
 never to have read, verified or explained anything. Every headline is a source's own title,
 never rewritten, and every item links straight to where it was reported rather than to a
-summary of it. A story is marked <strong>confirmed</strong> only when a primary or
-established-newsroom source and a second, genuinely independent publisher both cover the
-same cluster — not merely two links, which <code>tools/validate.mjs</code> enforced the hard
-way on the archived editions too: it once let two European Commission pages count as two
-sources for the same story.</p>
+summary of it. A digest item says <strong>multiple-publisher coverage</strong> when its cluster has at least two publisher groups and a primary or established-newsroom source. Shared headlines do not prove independent reporting or factual accuracy. Corporate publications with the same parent count as one group. Single-source vendor announcements and research preprints are labeled explicitly. The legacy data field named <code>confirmed</code> means coverage overlap only; it is never presented as fact-check certification.</p>
 
 <p>What it cannot do matters as much as what it can. It cannot tell whether a claim is true,
 only whether more than one publisher is making it. It has no "why it matters" field, on
 purpose — writing one would be the pipeline inventing an opinion it does not have. And its
 clustering works on shared words in a headline, not meaning, so two outlets covering the same
-event in very different language will often show up as two separate, unconfirmed items
-rather than one confirmed one. That is a real limitation of counting words instead of
+event in very different language will often show up as two separate, single-source items
+rather than one multi-publisher cluster. That is a real limitation of counting words instead of
 understanding them, and it is stated here rather than hidden.</p>
 
 <h2 id="wire" style="font-size:1.3rem;margin:34px 0 12px">The wire: not even sorted</h2>
@@ -1216,22 +1215,43 @@ const weeklyPath = (date) => (date ? `weekly/${date}.html` : 'weekly.html');
 // <details>/<summary> disclosure rather than sitting open on every row. No JS: this is the
 // same progressive-enhancement idea as the Wire's own "Show all N headlines" toggle, just
 // the more idiomatic native element for a single reveal rather than a checkbox+label pair.
+function sourceContext(source) {
+  const host = hostOf(source.url);
+  if (host === 'arxiv.org') return 'Research preprint · not peer-reviewed';
+  if (host === 'huggingface.co') return 'Hosted post · author claims';
+  const publisher = matchPublisher(host, sourceBook.publishers);
+  if (publisher?.self) return 'Company announcement · self-reported';
+  return (source.tier ?? 4) <= 2 ? 'Publisher report' : 'Secondary or unvetted report';
+}
+
+function reviewedBriefing(digest) {
+  const path = OUT('input', 'reviewed-leads.json');
+  if (!existsSync(path)) return '';
+  const leads = reviewedLeads(readJSON(path), Date.parse(digest.edition.generatedAt));
+  if (!leads.length) return '';
+  return `<section class="section source-review" id="source-review">
+${R.sectionHead('Worth your attention', 'Source announcements read and checked for context — not independent fact-check certification', leads.length)}
+<div class="source-review__grid">${leads.map(i => `<article><p class="meta">${e(i.source)} · ${e(formatShort(i.publishedAt))}</p><h2><a href="${e(i.url)}" target="_blank" rel="noopener">${e(i.title)}</a></h2><p>${e(i.note)}</p><small>Source review: ${e(formatShort(i.reviewedAt))}</small></article>`).join('')}</div>
+</section>`;
+}
+
 function digestItemRow(ctx, item, depth) {
   const beat = ctx.beatMap.get(item.beat);
   const sources = item.sources;
   const primary = sources[0];
   const extra = sources.length - 1;
   const confirmed = item.confidence === 'confirmed';
-  const summaryLine = `${e(primary.publisher)}${extra ? ` +${extra} more` : ''} · ${confirmed ? 'Confirmed' : 'Single source'}`;
+  const summaryLine = `${e(primary.publisher)}${extra ? ` +${extra} more` : ''} · ${confirmed ? 'Multiple-publisher coverage · not fact-checked' : 'Single source · not fact-checked'}`;
   return `<article class="digest-item" id="${e(item.id)}"${beat ? ` style="--beat-accent:${e(beat.accent)}"` : ''}>
 <div class="meta">
 <span>${e(beat?.label || item.beat)}</span>
 ${item.publishedAt ? `<time datetime="${e(item.publishedAt)}" data-relative>${e(formatShort(item.publishedAt))}</time>` : ''}
+<span class="source-context">${e(sourceContext(primary))}</span>
 </div>
 <h3 class="digest-item__title"><a href="${e(primary.url)}" rel="noopener nofollow" target="_blank">${e(item.title)}</a></h3>
 <p class="digest-item__summary-line digest-item__summary-line--${confirmed ? 'confirmed' : 'single'}">${summaryLine}</p>
 <details class="digest-item__details">
-<summary>Source details →</summary>
+<summary>Read the sources →</summary>
 <div class="digest-item__sources">
 <span class="digest-item__reportedby">Reported by</span>
 ${sources.map((s) => `<a class="source" href="${e(s.url)}" rel="noopener nofollow" target="_blank">
@@ -1281,8 +1301,7 @@ ${next ? `<a href="${R.rel(depth, digestPath(next))}" style="text-decoration:non
 <div>
 <h1 class="editorsnote__title">The digest for ${e(formatMasthead(digest.edition.date))}</h1>
 <p class="editorsnote__body">${digest.items.length} headlines, clustered and ranked by a deterministic program — recency,
-source tier, independent confirmation, novelty and beat priority, weighted and summed. No model wrote or selected
-any of this. Every title on this page is a source's own headline; every item links straight to where it was
+source attribution, coverage overlap and freshness, with topic and publisher caps. The digest ranks publisher headlines automatically. Every title on this page is a source's own headline; every item links straight to where it was
 reported. <a href="${R.rel(depth, 'methodology.html')}#digest">How this differs from the edited paper →</a></p>
 <p class="wire__stamp">Last refreshed <time datetime="${e(digest.edition.generatedAt)}" data-relative>${e(formatMasthead(digest.edition.date))}, ${e(digest.edition.generatedAt.slice(11, 16))} UTC</time> · runs three times a day, no model in the loop</p>
 </div>
@@ -1373,19 +1392,18 @@ ${R.sectionHead('Top story', null, null)}
 <section class="editorsnote">
 <div class="editorsnote__label">Today’s digest<br>${e(formatMasthead(digest.edition.date))}</div>
 <div>
-<h1 class="editorsnote__title">${e(site.name)}</h1>
-<p class="editorsnote__body">${items.length} headlines, clustered and ranked by a deterministic program —
-recency, source tier, independent confirmation, novelty and beat priority, weighted and summed.
-No model wrote or selected any of this; every title is a source's own headline, and every item
-links straight to where it was reported.
+<h1 class="editorsnote__title">Your AI briefing.</h1>
+<p class="editorsnote__body">${items.length} source-linked headlines. Start with the announcements reviewed below, then explore the latest reporting, research and releases by topic. Publisher claims are attributed, not independently fact-checked.
 <a href="${R.rel(depth, 'methodology.html')}#digest">How this works →</a></p>
 <p class="wire__stamp">Last refreshed <time datetime="${e(digest.edition.generatedAt)}" data-relative>${e(formatMasthead(digest.edition.date))}, ${e(digest.edition.generatedAt.slice(11, 16))} UTC</time> · runs three times a day, no model in the loop</p>
 </div>
 </section>
 
-${wire}
+${reviewedBriefing(digest)}
 
 ${heroBlock}
+
+${wire}
 
 ${R.tierStrip(ctx, {
     depth,

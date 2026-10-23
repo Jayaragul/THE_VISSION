@@ -1,3 +1,4 @@
+import { publisherGroup } from './news-quality.mjs';
 import { STOPWORDS } from './util.mjs';
 
 // Groups harvested items that are plausibly reporting on the same event, using title
@@ -84,7 +85,7 @@ export function clusterItems(items, { similarity = DEFAULT_SIMILARITY, windowHou
 /** Distinct publisher identities in a cluster, by the same canonical-name rule
  *  tools/validate.mjs uses for source independence — not raw hosts. */
 export function publisherDiversity(cluster) {
-  return new Set(cluster.items.map((i) => (i.publisher || i.host || '').toLowerCase())).size;
+  return new Set(cluster.items.map(publisherGroup)).size;
 }
 
 export function bestTier(cluster) {

@@ -19,6 +19,7 @@ import { mkdirSync, readdirSync, rmSync, existsSync } from 'node:fs';
 import { dirname, join, relative, resolve as resolvePath } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isoDate, readJSON } from './lib/util.mjs';
+import { parseAnthropicNews } from './lib/news-quality.mjs';
 import { parseFeed } from './lib/feed.mjs';
 import { validDate, fetchText, atomicWrite, saveCandidates } from './lib/harvest-safety.mjs';
 import { accumulateHealth } from './lib/feedhealth.mjs';
@@ -38,6 +39,8 @@ const UA = 'Mozilla/5.0 (compatible; THE-VISSION-harvest/1.0; +https://github.co
 // A URL going stale over time degrades this list gracefully (that feed just returns nothing)
 // rather than breaking the run, so there is no urgency to keep this perfectly current.
 const FEEDS = [
+  { source: 'Anthropic', url: 'https://www.anthropic.com/news', format: 'anthropic-newsroom' },
+  { source: 'METR', url: 'https://metr.org/feed.xml' },
   { source: 'TechCrunch', url: 'https://techcrunch.com/feed/' },
   { source: 'The Verge', url: 'https://www.theverge.com/rss/index.xml' },
   { source: 'Ars Technica', url: 'https://arstechnica.com/feed/' },
@@ -146,7 +149,9 @@ async function harvestFeed(feed) {
       'application/rss+xml, application/atom+xml, application/xml, text/xml'
     );
     const xml = body;
-    const items = parseFeed(xml)
+    const parsed = feed.format === 'anthropic-newsroom' ? parseAnthropicNews(xml) : parseFeed(xml);
+    if (feed.format === 'anthropic-newsroom' && !parsed.length) throw new Error('Newsroom format changed: no dated articles parsed');
+    const items = parsed
       .sort((a, b) => compareText(b.publishedAt || '', a.publishedAt || '') || compareText(a.url || '', b.url || ''))
       .slice(0, PER_FEED_CAP)
       .map((item) => ({ source: feed.source, discoveryOnly: !!feed.discoveryOnly, ...item }));

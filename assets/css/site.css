@@ -1436,3 +1436,6 @@ a.thread__title:hover { color: var(--accent); }
   /* A correction is part of the record; it must survive being printed. */
   .correction, .openq { border-left-width: 2px; background: none; }
 }
+
+/* Source context and a compact, readable briefing before the raw headline stream. */
+.source-context{font-size:.68rem;color:var(--muted);text-transform:none;letter-spacing:0}.source-review__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}.source-review__grid article{padding:24px;background:var(--surface)}.source-review__grid h2{font-size:1.25rem;line-height:1.35;margin:12px 0}.source-review__grid h2 a{text-decoration:none}.source-review__grid h2 a:hover{text-decoration:underline}.source-review__grid article>p:not(.meta){font-size:.9rem;line-height:1.7}.source-review__grid small{color:var(--muted);font-size:.7rem}@media(max-width:640px){.source-review__grid{grid-template-columns:1fr}.source-review__grid article{padding:20px}}

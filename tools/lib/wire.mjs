@@ -14,6 +14,7 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { escapeHTML as e, hostOf, matchPublisher, monogram, isAiRelevant, cmpDesc } from './util.mjs';
+import { isFresh, newsworthy } from './news-quality.mjs';
 
 /** Aggregator redirects are leads, never display sources — drop them from the public wire. */
 // arXiv alone posts more often than any single company blog or press outlet, so a flat
@@ -28,6 +29,8 @@ export function selectWireItems(candidates, { limit = 24, sourceBook, perSourceC
   const filtered = candidates.items
     .filter((item) => {
       if (item.discoveryOnly) return false;
+      if (!newsworthy(item)) return false;
+      if (candidates.harvestedAt && !isFresh(item, Date.parse(candidates.harvestedAt))) return false;
       if (!item.url || !/^https:\/\//i.test(item.url)) return false;
       // Model-repo names are strong research leads but terrible headlines, and the
       // trending list is full of community re-uploads and quantisations.
@@ -95,8 +98,8 @@ export function wireBlock(items, { depth = 0, sourceBook, harvestedAt } = {}) {
 </div>
 <p class="wire__warning">
 These are raw feed headlines, collected automatically and <strong>not verified, written or
-endorsed</strong> by THE VISSION. They are leads, not reporting. Everything further down this
-page has been clustered, ranked or checked before publishing — these have not.
+endorsed</strong> by THE VISSION. They are leads, not reporting. The digest adds ranking
+and source context; neither a feed link nor repeated coverage certifies a claim as true.
 </p>
 ${/* Forty headlines is a reasonable desktop column and a very long scroll on a phone, where
       it sits between the reader and the rest of the paper. On narrow screens CSS shows the

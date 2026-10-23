@@ -39,16 +39,16 @@
 <link rel="stylesheet" href="./assets/css/site.css">
 <script>try{var t=localStorage.getItem('tv-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","name":"THE VISSION","url":"https://jayaragul.github.io/THE_VISSION/","description":"An autonomously researched, written and published daily briefing on artificial intelligence — models, capital, policy, research and infrastructure.","slogan":"The daily record of artificial intelligence","foundingDate":"2026","founder":{"@type":"Person","name":"Jayaragul N"},"copyrightHolder":{"@type":"Person","name":"Jayaragul N"},"logo":"https://jayaragul.github.io/THE_VISSION/assets/img/social-card.svg","sameAs":["https://github.com/Jayaragul/THE_VISSION"],"ethicsPolicy":"https://jayaragul.github.io/THE_VISSION/methodology.html","publishingPrinciples":"https://jayaragul.github.io/THE_VISSION/methodology.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","name":"THE VISSION","url":"https://jayaragul.github.io/THE_VISSION/","description":"A source-linked AI news briefing: publisher headlines, transparent source labels and a searchable archive. Automatically collected and ranked; not independently fact-checked.","slogan":"The daily record of artificial intelligence","foundingDate":"2026","founder":{"@type":"Person","name":"Jayaragul N"},"copyrightHolder":{"@type":"Person","name":"Jayaragul N"},"logo":"https://jayaragul.github.io/THE_VISSION/assets/img/social-card.svg","sameAs":["https://github.com/Jayaragul/THE_VISSION"],"ethicsPolicy":"https://jayaragul.github.io/THE_VISSION/methodology.html","publishingPrinciples":"https://jayaragul.github.io/THE_VISSION/methodology.html"}</script>
 </head>
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
 <div class="topbar"><div class="wrap topbar__in">
-<span class="topbar__date">Thursday, 22 October 2026</span>
+<span class="topbar__date">Friday, 23 October 2026</span>
 
 <span class="topbar__spacer"></span>
-<span class="live">Updated <time datetime="2026-10-22T21:33:06.243Z" data-relative>22 Oct 2026</time></span>
+<span class="live">Updated <time datetime="2026-10-23T07:12:06.024Z" data-relative>23 Oct 2026</time></span>
 <button class="themetoggle" type="button" data-theme-toggle>Dark</button>
 </div></div>
 <header class="masthead">
@@ -56,7 +56,7 @@
 <a class="masthead__title" href="./index.html">THE <em>VISSION</em></a>
 <div class="masthead__rule" role="presentation"></div>
 <div class="masthead__tagline">The daily record of artificial intelligence</div>
-<p class="masthead__note">Every story on this site is researched, written and published by an autonomous editorial pipeline. Every claim links to a source you can open, and each story says whether that source is independent of the company it describes.</p>
+<p class="masthead__note">AI news, research and releases — with sources and context.</p>
 </div>
 </header>
 <nav class="beatnav" aria-label="Sections"><div class="wrap beatnav__in">
@@ -78,7 +78,7 @@
 <div class="editorsnote__label">Methodology</div>
 <div>
 <h1 class="editorsnote__title">A front page with no model in the loop.</h1>
-<p class="editorsnote__body">An autonomously researched, written and published daily briefing on artificial intelligence — models, capital, policy, research and infrastructure.</p>
+<p class="editorsnote__body">A source-linked AI news briefing: publisher headlines, transparent source labels and a searchable archive. Automatically collected and ranked; not independently fact-checked.</p>
 </div>
 </section>
 
@@ -125,30 +125,28 @@ mitigations were the source tiers, the confidence label printed on every story, 
 that every source was one click away. That limitation does not apply to what runs now — the
 digest and the wire below make no claim to have understood anything, only to have counted it.</p>
 
+<p>Current selection uses a hard 48-hour publication window relative to collection time, rejects undated and future leads, excludes recognizable buying guides and sponsored URLs, and limits each publisher group to five items. A separately maintained source-review list can surface important announcements with explicit context; reading a source does not independently reproduce its claims. Date-only newsroom dates are normalized to midnight UTC for ordering, not presented as exact publication times.</p>
+
 <h2 id="digest" style="font-size:1.3rem;margin:34px 0 12px">The digest: no model at all</h2>
 <p>The front page runs without any AI in the loop whatsoever — no API key, no model, nothing
 generated. <code>tools/harvest.mjs</code> collects headlines from public feeds;
 <code>tools/digest.mjs</code> clusters near-duplicate coverage of the same event, scores each
-cluster on recency, source tier, how many independent publishers confirm it, whether it
-repeats a previous digest, and beat priority, then keeps the top-ranked clusters per beat.
+cluster on recency, source attribution, publisher coverage overlap, whether it
+repeats a previous digest, then keeps fresh clusters within topic and publisher limits.
 That is genuinely all it does — the "top story" above is simply the single highest-scoring
 cluster across every beat, not an editor's judgement call.</p>
 
 <p>The honest way to describe the limits: the digest claims only to have counted and sorted,
 never to have read, verified or explained anything. Every headline is a source's own title,
 never rewritten, and every item links straight to where it was reported rather than to a
-summary of it. A story is marked <strong>confirmed</strong> only when a primary or
-established-newsroom source and a second, genuinely independent publisher both cover the
-same cluster — not merely two links, which <code>tools/validate.mjs</code> enforced the hard
-way on the archived editions too: it once let two European Commission pages count as two
-sources for the same story.</p>
+summary of it. A digest item says <strong>multiple-publisher coverage</strong> when its cluster has at least two publisher groups and a primary or established-newsroom source. Shared headlines do not prove independent reporting or factual accuracy. Corporate publications with the same parent count as one group. Single-source vendor announcements and research preprints are labeled explicitly. The legacy data field named <code>confirmed</code> means coverage overlap only; it is never presented as fact-check certification.</p>
 
 <p>What it cannot do matters as much as what it can. It cannot tell whether a claim is true,
 only whether more than one publisher is making it. It has no "why it matters" field, on
 purpose — writing one would be the pipeline inventing an opinion it does not have. And its
 clustering works on shared words in a headline, not meaning, so two outlets covering the same
-event in very different language will often show up as two separate, unconfirmed items
-rather than one confirmed one. That is a real limitation of counting words instead of
+event in very different language will often show up as two separate, single-source items
+rather than one multi-publisher cluster. That is a real limitation of counting words instead of
 understanding them, and it is stated here rather than hidden.</p>
 
 <h2 id="wire" style="font-size:1.3rem;margin:34px 0 12px">The wire: not even sorted</h2>
@@ -208,7 +206,7 @@ THE VISSION was founded by <strong style="color:var(--ink-2)">Jayaragul N</stron
 <div class="footer__grid">
 <div>
 <div class="footer__mark">THE <em>VISSION</em></div>
-<p>Every story on this site is researched, written and published by an autonomous editorial pipeline. Every claim links to a source you can open, and each story says whether that source is independent of the company it describes.</p>
+<p>AI news, research and releases — with sources and context.</p>
 <div class="footer__community"><span class="footer__communitymark is-raster"><img src="./assets/img/cbe-devs.png" alt="CBE Devs" width="552" height="524" decoding="async"></span><span>A CBE Devs project.</span></div>
 </div>
 <div>
