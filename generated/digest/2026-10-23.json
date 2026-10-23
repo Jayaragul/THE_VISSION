@@ -2,8 +2,8 @@
   "$schema": "../../schema/digest.schema.json",
   "edition": {
     "date": "2026-10-23",
-    "generatedAt": "2026-10-23T15:02:35.662Z",
-    "itemCount": 37
+    "generatedAt": "2026-10-23T21:22:32.257Z",
+    "itemCount": 35
   },
   "items": [
     {
@@ -13,7 +13,7 @@
       "title": "Cambricon’s third quarter profit surges 148% to US$210m amid push to replace Nvidia chips",
       "publishedAt": "2026-10-23T12:03:10.000Z",
       "confidence": "single-source",
-      "score": 0.642,
+      "score": 0.618,
       "sources": [
         {
           "title": "Cambricon’s third quarter profit surges 148% to US$210m amid push to replace Nvidia chips",
@@ -24,18 +24,37 @@
       ]
     },
     {
-      "id": "2026-10-23-meta-delays-new-business-terms-after-publisher-pushback-on-a",
-      "slug": "meta-delays-new-business-terms-after-publisher-pushback-on-a",
-      "beat": "business",
-      "title": "Meta delays new business terms after publisher pushback on AI scraping",
-      "publishedAt": "2026-10-23T14:47:41.000Z",
+      "id": "2026-10-23-jack-dorsey-s-block-made-an-ai-model-that-talks-to-you-like",
+      "slug": "jack-dorsey-s-block-made-an-ai-model-that-talks-to-you-like",
+      "beat": "models",
+      "title": "Jack Dorsey’s Block made an AI model that talks to you like an awkward new friend",
+      "excerpt": "Take this one, for example, shared by Dessa lead Ragavan Thurairatnam.",
+      "publishedAt": "2026-10-23T19:32:39.000Z",
       "confidence": "single-source",
-      "score": 0.602,
+      "score": 0.596,
       "sources": [
         {
-          "title": "Meta delays new business terms after publisher pushback on AI scraping",
+          "title": "Jack Dorsey’s Block made an AI model that talks to you like an awkward new friend",
           "publisher": "The Verge",
-          "url": "https://www.theverge.com/tech/1017450/meta-business-terms-delayed-ai-scraping",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1017906/jack-dorsey-block-dessa-ai-voice-speech",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-23-agent-cloud-startup-daytona-hits-1b-valuation-backed-by-firs",
+      "slug": "agent-cloud-startup-daytona-hits-1b-valuation-backed-by-firs",
+      "beat": "business",
+      "title": "Agent cloud startup Daytona hits $1B valuation backed by FirstMark and a who’s who of angels",
+      "excerpt": "Daytona is building a cloud for agents that's like giving every agent its own computer.",
+      "publishedAt": "2026-10-23T16:26:29.000Z",
+      "confidence": "single-source",
+      "score": 0.585,
+      "sources": [
+        {
+          "title": "Agent cloud startup Daytona hits $1B valuation backed by FirstMark and a who’s who of angels",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/10/23/agent-cloud-startup-daytona-hits-1b-valuation-backed-by-firstmark-and-a-whos-who-of-angels/",
           "tier": 2
         }
       ]
@@ -48,12 +67,30 @@
       "excerpt": "Should OpenAI command an over $1 trillion valuation with this round, it would break records as the most highly valued private company ever.",
       "publishedAt": "2026-10-22T22:08:24.000Z",
       "confidence": "single-source",
-      "score": 0.59,
+      "score": 0.566,
       "sources": [
         {
           "title": "OpenAI working on new $30B raise at $1.25T valuation ahead of IPO",
           "publisher": "TechCrunch",
           "url": "https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-23-openai-now-trains-its-frontier-ai-models-with-no-internet-ac",
+      "slug": "openai-now-trains-its-frontier-ai-models-with-no-internet-ac",
+      "beat": "models",
+      "title": "OpenAI now trains its frontier AI models with no internet access",
+      "excerpt": "OpenAI is now training its most advanced AI models without internet access following a string of rogue hacking incidents.",
+      "publishedAt": "2026-10-23T21:11:07.000Z",
+      "confidence": "single-source",
+      "score": 0.553,
+      "sources": [
+        {
+          "title": "OpenAI now trains its frontier AI models with no internet access",
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet",
           "tier": 2
         }
       ]
@@ -65,12 +102,65 @@
       "title": "Would an LLM Match into a Residency? Uncertainty, Reasoning and Image Use of Open Language Models on the Spanish MIR Examination",
       "publishedAt": "2026-10-22T17:23:11.000Z",
       "confidence": "single-source",
-      "score": 0.575,
+      "score": 0.552,
       "sources": [
         {
           "title": "Would an LLM Match into a Residency? Uncertainty, Reasoning and Image Use of Open Language Models on the Spanish MIR Examination",
           "publisher": "arXiv",
           "url": "https://arxiv.org/abs/2610.31586v1",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-23-multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-h",
+      "slug": "multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-h",
+      "beat": "research",
+      "title": "Multi-Turn Reinforcement Learning on Amazon SageMaker AI: A hands-on guide",
+      "excerpt": "Multi-Turn Reinforcement Learning (MTRL) on Amazon SageMaker AI trains models on the outcome of a whole multi-step task rather than labeled steps.",
+      "publishedAt": "2026-10-23T17:48:54.000Z",
+      "confidence": "single-source",
+      "score": 0.543,
+      "sources": [
+        {
+          "title": "Multi-Turn Reinforcement Learning on Amazon SageMaker AI: A hands-on guide",
+          "publisher": "Amazon Web Services",
+          "url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-23-orchestrating-sagemaker-ai-endpoint-auto-scaling-with-aws-cd",
+      "slug": "orchestrating-sagemaker-ai-endpoint-auto-scaling-with-aws-cd",
+      "beat": "research",
+      "title": "Orchestrating SageMaker AI endpoint auto scaling with AWS CDK",
+      "excerpt": "Updating a SageMaker AI endpoint that has Application Auto Scaling registered makes AWS CloudFormation and AWS CDK deployments fail.",
+      "publishedAt": "2026-10-23T16:30:10.000Z",
+      "confidence": "single-source",
+      "score": 0.538,
+      "sources": [
+        {
+          "title": "Orchestrating SageMaker AI endpoint auto scaling with AWS CDK",
+          "publisher": "Amazon Web Services",
+          "url": "https://aws.amazon.com/blogs/machine-learning/orchestrating-sagemaker-ai-endpoint-auto-scaling-with-aws-cdk/",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-23-how-bayer-crop-science-built-an-agentic-decision-engine-on-a",
+      "slug": "how-bayer-crop-science-built-an-agentic-decision-engine-on-a",
+      "beat": "research",
+      "title": "How Bayer Crop Science built an agentic decision engine on Amazon Bedrock AgentCore with AWS Unified Operations",
+      "publishedAt": "2026-10-23T16:21:36.000Z",
+      "confidence": "single-source",
+      "score": 0.538,
+      "sources": [
+        {
+          "title": "How Bayer Crop Science built an agentic decision engine on Amazon Bedrock AgentCore with AWS Unified Operations",
+          "publisher": "Amazon Web Services",
+          "url": "https://aws.amazon.com/blogs/machine-learning/how-bayer-crop-science-built-an-agentic-decision-engine-on-amazon-bedrock-agentcore-with-aws-unified-operations/",
           "tier": 1
         }
       ]
@@ -83,7 +173,7 @@
       "excerpt": "Canva is making its new image model available to all users, promising better, more customizable performance at lower costs.",
       "publishedAt": "2026-10-22T19:00:00.000Z",
       "confidence": "single-source",
-      "score": 0.57,
+      "score": 0.537,
       "sources": [
         {
           "title": "Canva releases its first image generation model",
@@ -94,19 +184,38 @@
       ]
     },
     {
-      "id": "2026-10-23-deepseek-minimax-secure-open-source-licences-days-after-new",
-      "slug": "deepseek-minimax-secure-open-source-licences-days-after-new",
-      "beat": "models",
-      "title": "DeepSeek, MiniMax secure open-source licences days after new China export rules: state media",
-      "publishedAt": "2026-10-23T06:00:25.000Z",
+      "id": "2026-10-23-what-some-of-anthropic-s-backers-are-reportedly-worth-before",
+      "slug": "what-some-of-anthropic-s-backers-are-reportedly-worth-before",
+      "beat": "business",
+      "title": "What some of Anthropic’s backers are reportedly worth before its IPO",
+      "excerpt": "Early-stage and follow-on investors in the AI lab are already sitting on major paper returns.",
+      "publishedAt": "2026-10-23T16:02:43.000Z",
       "confidence": "single-source",
-      "score": 0.569,
+      "score": 0.533,
       "sources": [
         {
-          "title": "DeepSeek, MiniMax secure open-source licences days after new China export rules: state media",
-          "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/tech/policy/article/3371880/deepseek-minimax-secure-open-source-licenses-days-after-new-china-export-rules-state-media",
+          "title": "What some of Anthropic’s backers are reportedly worth before its IPO",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/10/23/what-some-of-anthropics-backers-are-reportedly-worth-before-its-ipo/",
           "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-23-securing-our-frontier-model-training-environment",
+      "slug": "securing-our-frontier-model-training-environment",
+      "beat": "research",
+      "title": "Securing our frontier model training environment",
+      "excerpt": "OpenAI explains how we strengthened containment for frontier model training and evaluation, including offline environments and high-compute red-teaming.",
+      "publishedAt": "2026-10-23T10:00:00.000Z",
+      "confidence": "single-source",
+      "score": 0.514,
+      "sources": [
+        {
+          "title": "Securing our frontier model training environment",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
+          "tier": 1
         }
       ]
     },
@@ -118,7 +227,7 @@
       "excerpt": "At each round, the system outputs a proposed decision together with a confidence score estimating the trustworthiness of the decision.",
       "publishedAt": "2026-10-22T17:59:22.000Z",
       "confidence": "single-source",
-      "score": 0.528,
+      "score": 0.504,
       "sources": [
         {
           "title": "Reliable AI-Assisted Decisions via Selective Auditing",
@@ -136,7 +245,7 @@
       "excerpt": "Wrong automatic routing of an IT support ticket can cost more than human triage.",
       "publishedAt": "2026-10-22T17:58:52.000Z",
       "confidence": "single-source",
-      "score": 0.528,
+      "score": 0.504,
       "sources": [
         {
           "title": "Cost-Aware Abstention for LLM-Based IT Ticket Classification",
@@ -154,7 +263,7 @@
       "excerpt": "Tool-using language model agents rely on environmental facts to decide whether an action is permitted.",
       "publishedAt": "2026-10-22T17:57:04.000Z",
       "confidence": "single-source",
-      "score": 0.528,
+      "score": 0.504,
       "sources": [
         {
           "title": "EpiSEM-Bench: Evaluating Safety and Evidence Recovery in LLM Agents under Missing Evidence",
@@ -172,7 +281,7 @@
       "excerpt": "Many recent open-weight language models use n-gram embedding tables to improve performance.",
       "publishedAt": "2026-10-22T17:56:13.000Z",
       "confidence": "single-source",
-      "score": 0.528,
+      "score": 0.504,
       "sources": [
         {
           "title": "Low-Bit N-Gram Embeddings for Language Models",
@@ -190,7 +299,7 @@
       "excerpt": "This article was first published by The Korea Times in a partnership with the South China Morning Post.",
       "publishedAt": "2026-10-23T08:00:33.000Z",
       "confidence": "single-source",
-      "score": 0.527,
+      "score": 0.503,
       "sources": [
         {
           "title": "China’s humanoid robots hunt for work in South Korea as Seoul bets on physical AI",
@@ -204,33 +313,15 @@
       "id": "2026-10-23-uber-rival-indrive-eyes-2027-robotaxi-tests-in-central-asia",
       "slug": "uber-rival-indrive-eyes-2027-robotaxi-tests-in-central-asia",
       "beat": "infrastructure",
-      "title": "Uber rival inDrive eyes 2027 robotaxi tests in Central Asia with Pony.ai and Nvidia",
+      "title": "Uber rival inDrive eyes 2027 robotaxi tests in Central Asia with Pony AI and Nvidia",
       "publishedAt": "2026-10-23T04:00:00.000Z",
       "confidence": "single-source",
-      "score": 0.512,
+      "score": 0.488,
       "sources": [
         {
-          "title": "Uber rival inDrive eyes 2027 robotaxi tests in Central Asia with Pony.ai and Nvidia",
+          "title": "Uber rival inDrive eyes 2027 robotaxi tests in Central Asia with Pony AI and Nvidia",
           "publisher": "TechCrunch",
           "url": "https://techcrunch.com/2026/10/22/uber-rival-indrive-eyes-2027-robotaxi-tests-in-central-asia-with-pony-ai-and-nvidia/",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-10-23-1password-launches-a-way-for-ai-agents-to-log-in-on-your-beh",
-      "slug": "1password-launches-a-way-for-ai-agents-to-log-in-on-your-beh",
-      "beat": "business",
-      "title": "1Password launches a way for AI agents to log in on your behalf without seeing your password",
-      "excerpt": "The new feature allows agents to log into a customer's personal accounts while still protecting the private credentials that secure those accounts.",
-      "publishedAt": "2026-10-22T19:07:09.000Z",
-      "confidence": "single-source",
-      "score": 0.511,
-      "sources": [
-        {
-          "title": "1Password launches a way for AI agents to log in on your behalf without seeing your password",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/",
           "tier": 2
         }
       ]
@@ -243,30 +334,12 @@
       "excerpt": "The shift is visible across the full AI stack — from infrastructure to models to applications.",
       "publishedAt": "2026-10-23T02:00:13.000Z",
       "confidence": "single-source",
-      "score": 0.508,
+      "score": 0.484,
       "sources": [
         {
           "title": "Kazakhstan Expands Compute for Its AI Future",
           "publisher": "NVIDIA",
           "url": "https://blogs.nvidia.com/blog/kazakhstan-ai-compute-ecosystem/",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-10-23-nvidia-unveils-minerva-to-bring-end-to-end-observability-for",
-      "slug": "nvidia-unveils-minerva-to-bring-end-to-end-observability-for",
-      "beat": "infrastructure",
-      "title": "NVIDIA Unveils Minerva to Bring End-to-End Observability for AI Factories",
-      "excerpt": "Launched today, NVIDIA Minerva is an AIOps platform built to help teams find problems earlier and keep AI factories productive.",
-      "publishedAt": "2026-10-22T15:00:02.000Z",
-      "confidence": "single-source",
-      "score": 0.502,
-      "sources": [
-        {
-          "title": "NVIDIA Unveils Minerva to Bring End-to-End Observability for AI Factories",
-          "publisher": "NVIDIA",
-          "url": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/",
           "tier": 1
         }
       ]
@@ -278,7 +351,7 @@
       "title": "Does Your Model Run on AWS Trainium? Look It Up",
       "publishedAt": "2026-10-23T00:00:00.000Z",
       "confidence": "single-source",
-      "score": 0.5,
+      "score": 0.477,
       "sources": [
         {
           "title": "Does Your Model Run on AWS Trainium? Look It Up",
@@ -296,7 +369,7 @@
       "excerpt": "OpenAI and Poland’s NASK are partnering on AI safety, security, and technical research to strengthen safeguards and support a more resilient digital ecosystem.",
       "publishedAt": "2026-10-23T00:00:00.000Z",
       "confidence": "single-source",
-      "score": 0.5,
+      "score": 0.477,
       "sources": [
         {
           "title": "OpenAI and Poland’s NASK partner to advance AI safety and security",
@@ -307,35 +380,36 @@
       ]
     },
     {
-      "id": "2026-10-23-left-alone-with-nothing-to-do-ai-agents-started-playing",
-      "slug": "left-alone-with-nothing-to-do-ai-agents-started-playing",
-      "beat": "research",
-      "title": "Left alone with nothing to do, AI agents started playing",
-      "publishedAt": "2026-10-23T00:45:37.000Z",
-      "confidence": "single-source",
-      "score": 0.5,
-      "sources": [
-        {
-          "title": "Left alone with nothing to do, AI agents started playing",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/22/left-alone-with-nothing-to-do-ai-agents-started-playing/",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-10-23-turning-database-grading-into-rl-rewards-post-training-agent",
       "slug": "turning-database-grading-into-rl-rewards-post-training-agent",
       "beat": "research",
       "title": "Turning Database Grading into RL Rewards: Post-Training Agents with ThinkingBox",
       "publishedAt": "2026-10-22T22:24:34.000Z",
       "confidence": "single-source",
-      "score": 0.494,
+      "score": 0.471,
       "sources": [
         {
           "title": "Turning Database Grading into RL Rewards: Post-Training Agents with ThinkingBox",
           "publisher": "Hugging Face",
           "url": "https://huggingface.co/blog/microsoft/thinkingbox-training",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-23-nvidia-unveils-minerva-to-bring-end-to-end-observability-for",
+      "slug": "nvidia-unveils-minerva-to-bring-end-to-end-observability-for",
+      "beat": "infrastructure",
+      "title": "NVIDIA Unveils Minerva to Bring End-to-End Observability for AI Factories",
+      "excerpt": "Launched today, NVIDIA Minerva is an AIOps platform built to help teams find problems earlier and keep AI factories productive.",
+      "publishedAt": "2026-10-22T15:00:02.000Z",
+      "confidence": "single-source",
+      "score": 0.469,
+      "sources": [
+        {
+          "title": "NVIDIA Unveils Minerva to Bring End-to-End Observability for AI Factories",
+          "publisher": "NVIDIA",
+          "url": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/",
           "tier": 1
         }
       ]
@@ -347,7 +421,7 @@
       "title": "Write your own training loop — without managing GPUs — with Amazon SageMaker training session APIs",
       "publishedAt": "2026-10-22T18:00:01.000Z",
       "confidence": "single-source",
-      "score": 0.478,
+      "score": 0.454,
       "sources": [
         {
           "title": "Write your own training loop — without managing GPUs — with Amazon SageMaker training session APIs",
@@ -365,30 +439,12 @@
       "excerpt": "Voice agents often wait for an agent's full response before starting speech synthesis, adding latency users feel directly.",
       "publishedAt": "2026-10-22T17:45:58.000Z",
       "confidence": "single-source",
-      "score": 0.477,
+      "score": 0.453,
       "sources": [
         {
           "title": "Stream low-latency speech from AI agents using Kokoro TTS on Amazon SageMaker AI",
           "publisher": "Amazon Web Services",
           "url": "https://aws.amazon.com/blogs/machine-learning/stream-low-latency-speech-from-ai-agents-using-kokoro-tts-on-amazon-sagemaker-ai/",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-10-23-how-rescale-built-an-ai-triage-agent-with-strands-agents-and",
-      "slug": "how-rescale-built-an-ai-triage-agent-with-strands-agents-and",
-      "beat": "research",
-      "title": "How Rescale built an AI triage agent with Strands Agents and AI-DLC",
-      "excerpt": "Learn how AI-DLC structures AI-assisted development and how Rescale is scaling the practice across its engineering organization.",
-      "publishedAt": "2026-10-22T16:25:57.000Z",
-      "confidence": "single-source",
-      "score": 0.472,
-      "sources": [
-        {
-          "title": "How Rescale built an AI triage agent with Strands Agents and AI-DLC",
-          "publisher": "Amazon Web Services",
-          "url": "https://aws.amazon.com/blogs/machine-learning/how-rescale-built-an-ai-triage-agent-with-strands-agents-and-ai-dlc/",
           "tier": 1
         }
       ]
@@ -400,64 +456,12 @@
       "title": "NVIDIA Transforms European Retail, From Digital Discovery to Physical Operations",
       "publishedAt": "2026-10-22T05:00:23.000Z",
       "confidence": "single-source",
-      "score": 0.429,
+      "score": 0.405,
       "sources": [
         {
           "title": "NVIDIA Transforms European Retail, From Digital Discovery to Physical Operations",
           "publisher": "NVIDIA",
           "url": "https://blogs.nvidia.com/blog/european-retail-open-models-robotics/",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-10-23-announcing-new-ways-to-customize-models-with-sagemaker-ai-wi",
-      "slug": "announcing-new-ways-to-customize-models-with-sagemaker-ai-wi",
-      "beat": "research",
-      "title": "Announcing new ways to customize models with SageMaker AI, without managing GPUs",
-      "excerpt": "Amazon SageMaker AI serverless model customization now includes training sessions, generally available today.",
-      "publishedAt": "2026-10-22T18:00:04.000Z",
-      "confidence": "single-source",
-      "score": 0.428,
-      "sources": [
-        {
-          "title": "Announcing new ways to customize models with SageMaker AI, without managing GPUs",
-          "publisher": "Amazon Web Services",
-          "url": "https://aws.amazon.com/blogs/machine-learning/announcing-new-ways-to-customize-models-with-sagemaker-ai-without-managing-gpus/",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-10-23-how-specializing-the-vocabulary-of-slms-can-cut-inference-co",
-      "slug": "how-specializing-the-vocabulary-of-slms-can-cut-inference-co",
-      "beat": "models",
-      "title": "How Specializing the Vocabulary of SLMs Can Cut Inference Cost by 77% in Real Applications",
-      "publishedAt": "2026-10-21T17:35:36.000Z",
-      "confidence": "single-source",
-      "score": 0.426,
-      "sources": [
-        {
-          "title": "How Specializing the Vocabulary of SLMs Can Cut Inference Cost by 77% in Real Applications",
-          "publisher": "Hugging Face",
-          "url": "https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-10-23-introducing-1password-for-agents",
-      "slug": "introducing-1password-for-agents",
-      "beat": "infrastructure",
-      "title": "Introducing 1Password for Agents",
-      "publishedAt": "2026-10-22T00:00:00Z",
-      "confidence": "single-source",
-      "score": 0.424,
-      "sources": [
-        {
-          "title": "Introducing 1Password for Agents",
-          "publisher": "1Password",
-          "url": "https://1password.com/blog/1password-for-ai-agents",
           "tier": 1
         }
       ]
@@ -469,7 +473,7 @@
       "title": "Leading European Financial Services Organizations Embrace Open Models to Build Proprietary Intelligence",
       "publishedAt": "2026-10-22T05:00:56.000Z",
       "confidence": "single-source",
-      "score": 0.419,
+      "score": 0.395,
       "sources": [
         {
           "title": "Leading European Financial Services Organizations Embrace Open Models to Build Proprietary Intelligence",
@@ -486,7 +490,7 @@
       "title": "NVIDIA Cosmos Opens New Tools to Train, Evaluate and Deploy World Models",
       "publishedAt": "2026-10-22T05:00:27.000Z",
       "confidence": "single-source",
-      "score": 0.419,
+      "score": 0.395,
       "sources": [
         {
           "title": "NVIDIA Cosmos Opens New Tools to Train, Evaluate and Deploy World Models",
@@ -497,19 +501,18 @@
       ]
     },
     {
-      "id": "2026-10-23-deploy-ai-in-a-hipaa-eligible-environment-with-amazon-quick",
-      "slug": "deploy-ai-in-a-hipaa-eligible-environment-with-amazon-quick",
-      "beat": "society",
-      "title": "Deploy AI in a HIPAA-eligible environment with Amazon Quick",
-      "excerpt": "Amazon Quick is a HIPAA-eligible service, but eligibility is not the same as compliance.",
-      "publishedAt": "2026-10-22T17:48:22.000Z",
+      "id": "2026-10-23-introducing-1password-for-agents",
+      "slug": "introducing-1password-for-agents",
+      "beat": "infrastructure",
+      "title": "Introducing 1Password for Agents",
+      "publishedAt": "2026-10-22T00:00:00Z",
       "confidence": "single-source",
-      "score": 0.417,
+      "score": 0.39,
       "sources": [
         {
-          "title": "Deploy AI in a HIPAA-eligible environment with Amazon Quick",
-          "publisher": "Amazon Web Services",
-          "url": "https://aws.amazon.com/blogs/machine-learning/deploy-ai-in-a-hipaa-eligible-environment-with-amazon-quick/",
+          "title": "Introducing 1Password for Agents",
+          "publisher": "1Password",
+          "url": "https://1password.com/blog/1password-for-ai-agents",
           "tier": 1
         }
       ]
@@ -521,7 +524,7 @@
       "title": "Donating Agent Skills to the Agentic AI Foundation",
       "publishedAt": "2026-10-22T00:00:00Z",
       "confidence": "single-source",
-      "score": 0.41,
+      "score": 0.387,
       "sources": [
         {
           "title": "Donating Agent Skills to the Agentic AI Foundation",
@@ -538,7 +541,7 @@
       "title": "Build more responsive apps with the Decisions API",
       "publishedAt": "2026-10-22T00:00:00Z",
       "confidence": "single-source",
-      "score": 0.41,
+      "score": 0.387,
       "sources": [
         {
           "title": "Build more responsive apps with the Decisions API",
@@ -555,7 +558,7 @@
       "title": "Red-Teaming OpenAI's Internal Agent Monitoring Systems",
       "publishedAt": "2026-10-22T00:00:00Z",
       "confidence": "single-source",
-      "score": 0.41,
+      "score": 0.387,
       "sources": [
         {
           "title": "Red-Teaming OpenAI's Internal Agent Monitoring Systems",
@@ -573,29 +576,12 @@
       "excerpt": "Uber is rolling out ChatGPT Work to more than 30,000 employees, helping teams research, analyze data, create presentations, and complete complex workflows.",
       "publishedAt": "2026-10-22T00:00:00.000Z",
       "confidence": "single-source",
-      "score": 0.41,
+      "score": 0.387,
       "sources": [
         {
           "title": "Uber brings ChatGPT Work to all employees with OpenAI",
           "publisher": "OpenAI",
           "url": "https://openai.com/index/uber-chatgpt-work-rollout",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-10-23-nvidia-kumo-relational-outperforms-supervised-machine-learni",
-      "slug": "nvidia-kumo-relational-outperforms-supervised-machine-learni",
-      "beat": "research",
-      "title": "NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
-      "publishedAt": "2026-10-21T18:26:30.000Z",
-      "confidence": "single-source",
-      "score": 0.389,
-      "sources": [
-        {
-          "title": "NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
-          "publisher": "Hugging Face",
-          "url": "https://huggingface.co/blog/nvidia/kumo-relational",
           "tier": 1
         }
       ]
@@ -608,7 +594,7 @@
       "excerpt": "The new open-source model speaks the language of DNA and can help researchers understand the effects of any changes on gene activity and health.",
       "publishedAt": "2026-10-22T10:00:00.000Z",
       "confidence": "single-source",
-      "score": 0.384,
+      "score": 0.361,
       "sources": [
         {
           "title": "Hugging Face’s New AI Biology Model Lets You Chat With DNA",
@@ -625,31 +611,13 @@
       "title": "Ensemble forecasting with IBM Granite time-series models",
       "publishedAt": "2026-10-22T07:51:31.000Z",
       "confidence": "single-source",
-      "score": 0.38,
+      "score": 0.356,
       "sources": [
         {
           "title": "Ensemble forecasting with IBM Granite time-series models",
           "publisher": "Hugging Face",
           "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
           "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-10-23-this-startup-is-all-in-on-recursive-self-improvement-its-lat",
-      "slug": "this-startup-is-all-in-on-recursive-self-improvement-its-lat",
-      "beat": "business",
-      "title": "This Startup Is All In on Recursive Self-Improvement. Its Latest Model Is Scary Good",
-      "excerpt": "Recursive makes the case that the benefits of using AI to build AI outweigh the risks.",
-      "publishedAt": "2026-10-21T16:00:00.000Z",
-      "confidence": "single-source",
-      "score": 0.317,
-      "sources": [
-        {
-          "title": "This Startup Is All In on Recursive Self-Improvement. Its Latest Model Is Scary Good",
-          "publisher": "WIRED",
-          "url": "https://www.wired.com/story/recursive-self-improvement-flint-latest-model-scary-good/",
-          "tier": 2
         }
       ]
     }
