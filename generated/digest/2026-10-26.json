@@ -2,8 +2,8 @@
   "$schema": "../../schema/digest.schema.json",
   "edition": {
     "date": "2026-10-26",
-    "generatedAt": "2026-10-26T16:46:54.159Z",
-    "itemCount": 17
+    "generatedAt": "2026-10-26T22:37:57.294Z",
+    "itemCount": 26
   },
   "items": [
     {
@@ -13,7 +13,7 @@
       "title": "Anthropic files S-1 with the SEC for proposed initial public offering",
       "publishedAt": "2026-10-26T00:00:00.000Z",
       "confidence": "confirmed",
-      "score": 0.735,
+      "score": 0.713,
       "sources": [
         {
           "title": "Anthropic files S-1 with the SEC for proposed initial public offering",
@@ -30,13 +30,49 @@
       ]
     },
     {
+      "id": "2026-10-26-apple-releases-ios-and-macos-27-2-with-new-siri-ai-features",
+      "slug": "apple-releases-ios-and-macos-27-2-with-new-siri-ai-features",
+      "beat": "models",
+      "title": "Apple releases iOS and macOS 27.2 with new Siri AI features, new Music logo",
+      "excerpt": "Included is the ability to limit which applications Siri can directly access.",
+      "publishedAt": "2026-10-26T20:04:16.000Z",
+      "confidence": "single-source",
+      "score": 0.662,
+      "sources": [
+        {
+          "title": "Apple releases iOS and macOS 27.2 with new Siri AI features, new Music logo",
+          "publisher": "Ars Technica",
+          "url": "https://arstechnica.com/apple/2026/10/apple-releases-ios-and-macos-27-2-with-new-siri-ai-features-new-music-logo/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-26-the-realreal-won-t-let-ai-agents-hog-designer-clothing",
+      "slug": "the-realreal-won-t-let-ai-agents-hog-designer-clothing",
+      "beat": "society",
+      "title": "The RealReal won’t let AI agents hog designer clothing",
+      "excerpt": "The change comes days after The Verge reported that an AI agent could be used to take advantage of The RealReal's item reserve system.",
+      "publishedAt": "2026-10-26T17:30:55.000Z",
+      "confidence": "single-source",
+      "score": 0.584,
+      "sources": [
+        {
+          "title": "The RealReal won’t let AI agents hog designer clothing",
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/news/1018713/meta-muse-agentic-shopping-ai-the-realreal",
+          "tier": 2
+        }
+      ]
+    },
+    {
       "id": "2026-10-26-meta-networking-at-the-2026-ocp-global-summit-open-innovatio",
       "slug": "meta-networking-at-the-2026-ocp-global-summit-open-innovatio",
       "beat": "infrastructure",
       "title": "Meta Networking at the 2026 OCP Global Summit: Open Innovation for Scale-Up, Scale-Out, and Scale-Across AI Networks",
       "publishedAt": "2026-10-26T16:00:07.000Z",
       "confidence": "single-source",
-      "score": 0.604,
+      "score": 0.582,
       "sources": [
         {
           "title": "Meta Networking at the 2026 OCP Global Summit: Open Innovation for Scale-Up, Scale-Out, and Scale-Across AI Networks",
@@ -49,18 +85,107 @@
     {
       "id": "2026-10-26-spacex-locks-in-40b-gpu-financing-deal-with-apollo",
       "slug": "spacex-locks-in-40b-gpu-financing-deal-with-apollo",
-      "beat": "infrastructure",
+      "beat": "business",
       "title": "SpaceX locks in $40B GPU financing deal with Apollo",
-      "excerpt": "In a statement, SpaceX called it the “largest committed GPU financing” ever.",
+      "excerpt": "The financing gives SpaceX another way to fund its rapidly expanding AI ambitions without relying solely on traditional debt markets.",
       "publishedAt": "2026-10-26T16:46:36.000Z",
       "confidence": "single-source",
-      "score": 0.603,
+      "score": 0.581,
       "sources": [
         {
           "title": "SpaceX locks in $40B GPU financing deal with Apollo",
           "publisher": "TechCrunch",
           "url": "https://techcrunch.com/2026/10/26/spacex-locks-in-40b-gpu-financing-deal-with-apollo/",
           "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-26-greptile-takes-bug-detection-beyond-code-review-with-gpt-6-a",
+      "slug": "greptile-takes-bug-detection-beyond-code-review-with-gpt-6-a",
+      "beat": "society",
+      "title": "Greptile takes bug detection beyond code review with GPT-6 Astra",
+      "excerpt": "How Greptile uses GPT-6 Astra to test user workflows, Daybreak to strengthen security, and Codex to reduce rework.",
+      "publishedAt": "2026-10-26T22:00:00.000Z",
+      "confidence": "single-source",
+      "score": 0.554,
+      "sources": [
+        {
+          "title": "Greptile takes bug detection beyond code review with GPT-6 Astra",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/greptile-code-review-codex-astra",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-26-ai-chip-surge-lifts-south-korea-to-record-surplus-behind-onl",
+      "slug": "ai-chip-surge-lifts-south-korea-to-record-surplus-behind-onl",
+      "beat": "infrastructure",
+      "title": "AI chip surge lifts South Korea to record surplus, behind only China",
+      "publishedAt": "2026-10-26T08:39:38.000Z",
+      "confidence": "single-source",
+      "score": 0.551,
+      "sources": [
+        {
+          "title": "AI chip surge lifts South Korea to record surplus, behind only China",
+          "publisher": "South China Morning Post",
+          "url": "https://www.scmp.com/week-asia/economics/article/3372150/ai-chip-surge-lifts-south-korea-record-surplus-behind-only-china",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-26-anthropic-is-burning-gas-to-feed-the-ai-boom",
+      "slug": "anthropic-is-burning-gas-to-feed-the-ai-boom",
+      "beat": "infrastructure",
+      "title": "Anthropic is burning gas to feed the AI boom",
+      "excerpt": "As it prepares to go public, Anthropic's S-1 filing makes generative AI's methane dependency glaringly obvious.",
+      "publishedAt": "2026-10-26T21:45:31.000Z",
+      "confidence": "single-source",
+      "score": 0.55,
+      "sources": [
+        {
+          "title": "Anthropic is burning gas to feed the AI boom",
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1018994/anthropic-ipo-ai-data-center-energy-climate-risk",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-26-why-anthropic-s-ipo-prospectus-is-missing-so-many-key-figure",
+      "slug": "why-anthropic-s-ipo-prospectus-is-missing-so-many-key-figure",
+      "beat": "business",
+      "title": "Why Anthropic’s IPO Prospectus Is Missing So Many Key Figures",
+      "excerpt": "Anthropic’s S-1 filing is hundreds of pages long—and it leaves out quite a few financial details.",
+      "publishedAt": "2026-10-26T21:27:15.000Z",
+      "confidence": "single-source",
+      "score": 0.549,
+      "sources": [
+        {
+          "title": "Why Anthropic’s IPO Prospectus Is Missing So Many Key Figures",
+          "publisher": "WIRED",
+          "url": "https://www.wired.com/story/anthropic-prospectus-leaves-out-some-numbers/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-26-how-ultrafast-cut-incident-investigation-from-hours-to-minut",
+      "slug": "how-ultrafast-cut-incident-investigation-from-hours-to-minut",
+      "beat": "research",
+      "title": "How Ultrafast cut incident investigation from hours to minutes at OpenAI",
+      "excerpt": "See how OpenAI engineers use Codex Ultrafast to investigate incidents in minutes.",
+      "publishedAt": "2026-10-26T07:00:00.000Z",
+      "confidence": "single-source",
+      "score": 0.548,
+      "sources": [
+        {
+          "title": "How Ultrafast cut incident investigation from hours to minutes at OpenAI",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/openai-cut-incident-investigation",
+          "tier": 1
         }
       ]
     },
@@ -72,7 +197,7 @@
       "excerpt": "The footage looks okay, as long as you're not seeking artistry, inspiration, or human interest.",
       "publishedAt": "2026-10-25T21:31:16.000Z",
       "confidence": "single-source",
-      "score": 0.574,
+      "score": 0.543,
       "sources": [
         {
           "title": "Grok releases the first seven minutes of its AI-generated ‘Odyssey’",
@@ -83,34 +208,103 @@
       ]
     },
     {
-      "id": "2026-10-26-ai-chip-surge-lifts-south-korea-to-record-surplus-behind-onl",
-      "slug": "ai-chip-surge-lifts-south-korea-to-record-surplus-behind-onl",
-      "beat": "infrastructure",
-      "title": "AI chip surge lifts South Korea to record surplus, behind only China",
-      "publishedAt": "2026-10-26T08:39:38.000Z",
+      "id": "2026-10-26-groundhog-day-for-ai-agents-prompt-caching-patterns-for-usin",
+      "slug": "groundhog-day-for-ai-agents-prompt-caching-patterns-for-usin",
+      "beat": "models",
+      "title": "Groundhog Day for AI agents: Prompt caching patterns for using OpenAI models on Amazon Bedrock",
+      "excerpt": "Every time an agent takes a step, it re-reads its entire context before acting.",
+      "publishedAt": "2026-10-26T17:27:20.000Z",
       "confidence": "single-source",
-      "score": 0.573,
+      "score": 0.537,
       "sources": [
         {
-          "title": "AI chip surge lifts South Korea to record surplus, behind only China",
-          "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/week-asia/economics/article/3372150/ai-chip-surge-lifts-south-korea-record-surplus-behind-only-china",
+          "title": "Groundhog Day for AI agents: Prompt caching patterns for using OpenAI models on Amazon Bedrock",
+          "publisher": "Amazon Web Services",
+          "url": "https://aws.amazon.com/blogs/machine-learning/groundhog-day-for-ai-agents-prompt-caching-patterns-for-using-openai-models-on-amazon-bedrock/",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-26-build-agentic-retrieval-on-a-managed-amazon-bedrock-knowledg",
+      "slug": "build-agentic-retrieval-on-a-managed-amazon-bedrock-knowledg",
+      "beat": "research",
+      "title": "Build agentic retrieval on a Managed Amazon Bedrock Knowledge Base with CDK",
+      "publishedAt": "2026-10-26T17:15:14.000Z",
+      "confidence": "single-source",
+      "score": 0.536,
+      "sources": [
+        {
+          "title": "Build agentic retrieval on a Managed Amazon Bedrock Knowledge Base with CDK",
+          "publisher": "Amazon Web Services",
+          "url": "https://aws.amazon.com/blogs/machine-learning/build-agentic-retrieval-on-a-managed-amazon-bedrock-knowledge-base-with-cdk/",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-10-26-will-the-real-anthropic-please-stand-up",
+      "slug": "will-the-real-anthropic-please-stand-up",
+      "beat": "business",
+      "title": "Will the real Anthropic please stand up",
+      "publishedAt": "2026-10-26T17:45:43.000Z",
+      "confidence": "single-source",
+      "score": 0.535,
+      "sources": [
+        {
+          "title": "Will the real Anthropic please stand up",
+          "publisher": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/10/26/1147672/will-the-real-anthropic-please-stand-up/",
           "tier": 2
         }
       ]
     },
     {
-      "id": "2026-10-26-the-anthropic-ipo-is-also-a-doomsday-primer",
-      "slug": "the-anthropic-ipo-is-also-a-doomsday-primer",
+      "id": "2026-10-26-five-weird-details-from-anthropic-s-ipo-filing",
+      "slug": "five-weird-details-from-anthropic-s-ipo-filing",
       "beat": "business",
-      "title": "The Anthropic IPO Is Also a Doomsday Primer",
+      "title": "Five weird details from Anthropic’s IPO filing",
+      "publishedAt": "2026-10-26T17:10:23.000Z",
+      "confidence": "single-source",
+      "score": 0.533,
+      "sources": [
+        {
+          "title": "Five weird details from Anthropic’s IPO filing",
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1018738/anthropic-ipo-s1-filing-weird-details",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-26-anthropic-s-ipo-filing-reveals-its-strategy-for-keeping-ente",
+      "slug": "anthropic-s-ipo-filing-reveals-its-strategy-for-keeping-ente",
+      "beat": "business",
+      "title": "Anthropic’s IPO filing reveals its strategy for keeping enterprise customers hooked",
+      "publishedAt": "2026-10-26T16:49:42.000Z",
+      "confidence": "single-source",
+      "score": 0.532,
+      "sources": [
+        {
+          "title": "Anthropic’s IPO filing reveals its strategy for keeping enterprise customers hooked",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/10/26/anthropics-ipo-filing-reveals-its-strategy-for-keeping-enterprise-customers-hooked/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-26-the-anthropic-s-1-filing-is-also-an-ai-doomsday-primer",
+      "slug": "the-anthropic-s-1-filing-is-also-an-ai-doomsday-primer",
+      "beat": "policy",
+      "title": "The Anthropic S-1 Filing Is Also an AI Doomsday Primer",
       "excerpt": "Anthropic thinks “closing the loop” is the best path to AI triumph—and a recipe for “existential” threats to humanity.",
       "publishedAt": "2026-10-26T16:01:55.000Z",
       "confidence": "single-source",
-      "score": 0.551,
+      "score": 0.529,
       "sources": [
         {
-          "title": "The Anthropic IPO Is Also a Doomsday Primer",
+          "title": "The Anthropic S-1 Filing Is Also an AI Doomsday Primer",
           "publisher": "WIRED",
           "url": "https://www.wired.com/story/the-anthropic-ipo-is-also-a-doomsday-primer/",
           "tier": 2
@@ -124,7 +318,7 @@
       "title": "Anthropic’s IPO Prospectus Reveals What’s Under the Hood",
       "publishedAt": "2026-10-26T14:50:47.000Z",
       "confidence": "single-source",
-      "score": 0.546,
+      "score": 0.524,
       "sources": [
         {
           "title": "Anthropic’s IPO Prospectus Reveals What’s Under the Hood",
@@ -135,13 +329,31 @@
       ]
     },
     {
+      "id": "2026-10-26-gpt-6-1-sol-helps-coderabbit-strengthen-security-across-comp",
+      "slug": "gpt-6-1-sol-helps-coderabbit-strengthen-security-across-comp",
+      "beat": "models",
+      "title": "GPT-6.1 Sol helps CodeRabbit strengthen security across complex codebases",
+      "excerpt": "Its security agent helps developers review findings and proposed fixes.",
+      "publishedAt": "2026-10-26T13:45:00.000Z",
+      "confidence": "single-source",
+      "score": 0.523,
+      "sources": [
+        {
+          "title": "GPT-6.1 Sol helps CodeRabbit strengthen security across complex codebases",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security",
+          "tier": 1
+        }
+      ]
+    },
+    {
       "id": "2026-10-26-anthropic-s-ipo-filing-shows-explosive-growth-risks-and-stag",
       "slug": "anthropic-s-ipo-filing-shows-explosive-growth-risks-and-stag",
       "beat": "business",
       "title": "Anthropic’s IPO filing shows explosive growth, risks and staggering costs",
       "publishedAt": "2026-10-26T13:53:04.000Z",
       "confidence": "single-source",
-      "score": 0.542,
+      "score": 0.521,
       "sources": [
         {
           "title": "Anthropic’s IPO filing shows explosive growth, risks and staggering costs",
@@ -152,49 +364,14 @@
       ]
     },
     {
-      "id": "2026-10-26-anthropic-s-ipo-filing-lays-out-a-plan-to-revolutionize-ever",
-      "slug": "anthropic-s-ipo-filing-lays-out-a-plan-to-revolutionize-ever",
-      "beat": "policy",
-      "title": "Anthropic’s IPO filing lays out a plan to ‘revolutionize every area of human endeavor’ with AI",
-      "publishedAt": "2026-10-26T13:32:49.000Z",
-      "confidence": "single-source",
-      "score": 0.541,
-      "sources": [
-        {
-          "title": "Anthropic’s IPO filing lays out a plan to ‘revolutionize every area of human endeavor’ with AI",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1018476/anthropic-ipo-details-s1-filed-sec",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-10-26-can-ai-help-solve-the-cobol-code-crisis",
-      "slug": "can-ai-help-solve-the-cobol-code-crisis",
-      "beat": "india",
-      "title": "Can AI help solve the COBOL code crisis?",
-      "excerpt": "They're all running on systems propped up by antique computer code that nobody dares touch, lest everything come crashing down.",
-      "publishedAt": "2026-10-26T13:15:00.000Z",
-      "confidence": "single-source",
-      "score": 0.54,
-      "sources": [
-        {
-          "title": "Can AI help solve the COBOL code crisis?",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1018434/cobol-migration-legacy-code-openai-anthropic",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-10-26-some-iphone-duo-models-are-breaking-ifixit-s-teardown-might",
       "slug": "some-iphone-duo-models-are-breaking-ifixit-s-teardown-might",
       "beat": "models",
       "title": "Some iPhone Duo Models Are Breaking. iFixit’s Teardown Might Explain Why",
-      "excerpt": "The repair company iFixit released its repairability rating for Apple’s very first foldable iPhone.",
+      "excerpt": "Apple confirmed a “small number” of iPhone Duo units have an issue impacting the inner display.",
       "publishedAt": "2026-10-26T13:00:00.000Z",
       "confidence": "single-source",
-      "score": 0.539,
+      "score": 0.517,
       "sources": [
         {
           "title": "Some iPhone Duo Models Are Breaking. iFixit’s Teardown Might Explain Why",
@@ -211,7 +388,7 @@
       "title": "The Download: everyday AI harms and the race to nuclear spaceflight",
       "publishedAt": "2026-10-26T12:40:00.000Z",
       "confidence": "single-source",
-      "score": 0.538,
+      "score": 0.516,
       "sources": [
         {
           "title": "The Download: everyday AI harms and the race to nuclear spaceflight",
@@ -229,13 +406,30 @@
       "excerpt": "In October, two technology executives offered Europe similar advice.",
       "publishedAt": "2026-10-26T12:30:06.000Z",
       "confidence": "single-source",
-      "score": 0.537,
+      "score": 0.515,
       "sources": [
         {
           "title": "Europe can still shape the rules of AI",
           "publisher": "South China Morning Post",
           "url": "https://www.scmp.com/opinion/world-opinion/article/3372104/europe-can-still-shape-rules-ai",
           "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-10-26-introducing-gpt-6-1-terra",
+      "slug": "introducing-gpt-6-1-terra",
+      "beat": "models",
+      "title": "Introducing GPT-6.1 Terra",
+      "publishedAt": "2026-10-26T00:00:00.000Z",
+      "confidence": "single-source",
+      "score": 0.51,
+      "sources": [
+        {
+          "title": "Introducing GPT-6.1 Terra",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/introducing-gpt-6-1-terra",
+          "tier": 1
         }
       ]
     },
@@ -247,7 +441,7 @@
       "excerpt": "A social media platform makes it more difficult for children to buy fentanyl.",
       "publishedAt": "2026-10-26T09:01:00.000Z",
       "confidence": "single-source",
-      "score": 0.524,
+      "score": 0.502,
       "sources": [
         {
           "title": "The focus on AI safety disasters ignores everyday harms",
@@ -258,54 +452,20 @@
       ]
     },
     {
-      "id": "2026-10-26-chinese-video-ai-models-beat-us-rivals-in-visual-quality-but",
-      "slug": "chinese-video-ai-models-beat-us-rivals-in-visual-quality-but",
+      "id": "2026-10-26-ieee-xplore-digital-library-adds-ai-assistant",
+      "slug": "ieee-xplore-digital-library-adds-ai-assistant",
       "beat": "research",
-      "title": "Chinese video AI models beat US rivals in visual quality, but lag on safeguards: HKU study",
-      "excerpt": "0 Pro took top spot in a ranking of 12 leading artificial intelligence video-generation models, scoring 3.",
-      "publishedAt": "2026-10-26T08:00:07.000Z",
+      "title": "IEEE Xplore Digital Library Adds AI Assistant",
+      "excerpt": "The library offers full-text access to IEEE standards , journals, magazines, conference proceedings, and more.",
+      "publishedAt": "2026-10-26T18:00:03.000Z",
       "confidence": "single-source",
-      "score": 0.52,
+      "score": 0.429,
       "sources": [
         {
-          "title": "Chinese video AI models beat US rivals in visual quality, but lag on safeguards: HKU study",
-          "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/tech/tech-trends/article/3372107/chinese-video-ai-models-beat-us-rivals-visual-quality-lag-safeguards-hku-study",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-10-26-will-ai-expose-the-rickety-infrastructure-of-the-internet",
-      "slug": "will-ai-expose-the-rickety-infrastructure-of-the-internet",
-      "beat": "infrastructure",
-      "title": "Will AI expose the rickety infrastructure of the internet?",
-      "publishedAt": "2026-10-24T20:15:33.000Z",
-      "confidence": "single-source",
-      "score": 0.326,
-      "sources": [
-        {
-          "title": "Will AI expose the rickety infrastructure of the internet?",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/24/will-ai-expose-the-rickety-infrastructure-of-the-internet/",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-10-26-the-ai-graveyard-a-running-list-of-projects-and-startups-tha",
-      "slug": "the-ai-graveyard-a-running-list-of-projects-and-startups-tha",
-      "beat": "business",
-      "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
-      "publishedAt": "2026-10-24T19:00:00.000Z",
-      "confidence": "single-source",
-      "score": 0.322,
-      "sources": [
-        {
-          "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
-          "tier": 2
+          "title": "IEEE Xplore Digital Library Adds AI Assistant",
+          "publisher": "spectrum.ieee.org",
+          "url": "https://spectrum.ieee.org/ieee-xplore-digital-library-ai",
+          "tier": 4
         }
       ]
     }
