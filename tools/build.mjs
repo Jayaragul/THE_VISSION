@@ -20,7 +20,7 @@ import * as R from './lib/render.mjs';
 import { collectThreads, collectOpenQuestions, collectCorrections, daysBetween } from './lib/continuity.mjs';
 import { collectDocs, buildSearchIndex } from './lib/searchindex.mjs';
 import { reviewedLeads } from './lib/news-quality.mjs';
-import { heroEligible } from './lib/rank.mjs';
+import { selectFrontPage } from './lib/frontpage.mjs';
 
 const ROOT = resolvePath(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -1264,18 +1264,10 @@ ${sources.map((s) => `<a class="source" href="${e(s.url)}" rel="noopener nofollo
 </article>`;
 }
 
-function frontPageSelection(items) {
-  const eligible = items.filter(heroEligible);
-  const multiPublisher = eligible.filter(item => item.confidence === 'confirmed');
-  const hero = (multiPublisher.length ? multiPublisher : eligible.length ? eligible : items)[0] || null;
-  const rail = items.filter(item => item !== hero && !/arxiv\.org/.test(item.sources[0]?.url || '')).slice(0, 3);
-  return { hero, rail };
-}
-
 const digestCoverPath = (item) => `assets/img/digest/${item.id}.svg`;
 
 function writeFrontPageCovers(digest) {
-  const { hero, rail } = frontPageSelection(digest.items);
+  const { hero, rail } = selectFrontPage(digest.items);
   const pictured = [hero, ...rail].filter(Boolean);
   for (const item of pictured) {
     const beat = beatMap.get(item.beat);
@@ -1355,7 +1347,7 @@ ${nav}
 function renderFrontPage(ctx, digest) {
   const depth = 0;
   const items = digest.items;
-  const { hero, rail } = frontPageSelection(items);
+  const { hero, rail } = selectFrontPage(items);
   const featured = new Set([hero, ...rail]);
   const byBeat = new Map();
   for (const item of items) {
@@ -1405,9 +1397,9 @@ ${R.sectionHead('From the archive', `Illustrated, AI-written editions · ${forma
 </section>` : '';
   const wire = wireBlock(ctx.wireItems, { depth, sourceBook, harvestedAt: ctx.harvestedAt });
   const content = `<div class="wrap news-home">
-<section class="news-intro"><div><p class="eyebrow">The daily AI report · ${e(formatMasthead(digest.edition.date))}</p><h1>Today in artificial intelligence<span>.</span></h1></div>
-<div class="news-intro__aside"><p>Reporting, research and releases — organized for a better read. Today’s headlines link to their original publishers.</p>
-<p class="news-intro__stamp">${items.length} stories · Refreshed <time datetime="${e(digest.edition.generatedAt)}" data-relative>${e(formatMasthead(digest.edition.date))}</time></p></div></section>
+<section class="news-intro"><div><p class="eyebrow">The daily AI report · ${e(formatMasthead(digest.edition.date))}</p><h1>Today’s AI news<span>.</span></h1></div>
+<div class="news-intro__aside"><p>${items.length} current stories across research, products, policy and business. Open the original reporting behind every headline.</p>
+<p class="news-intro__stamp">Refreshed <time datetime="${e(digest.edition.generatedAt)}" data-relative>${e(formatMasthead(digest.edition.date))}</time></p><p class="news-intro__links"><a href="${R.rel(depth, 'search.html')}">Search stories →</a><a href="${R.rel(depth, 'digest.html')}">Read the full digest →</a></p></div></section>
 ${leadBlock}
 ${reviewedBriefing(digest)}
 <div class="news-home__section-title"><p class="eyebrow">Across the beat</p><h2>More to read</h2><p>Short excerpts come from publisher feeds; headlines and claims remain attributed to their sources.</p></div>
