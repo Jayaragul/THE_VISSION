@@ -2,10 +2,28 @@
   "$schema": "../../schema/digest.schema.json",
   "edition": {
     "date": "2026-11-03",
-    "generatedAt": "2026-11-03T09:29:56.691Z",
-    "itemCount": 31
+    "generatedAt": "2026-11-03T17:49:39.869Z",
+    "itemCount": 40
   },
   "items": [
+    {
+      "id": "2026-11-03-introducing-india-based-inference-for-kimi-k3-on-amazon-bedr",
+      "slug": "introducing-india-based-inference-for-kimi-k3-on-amazon-bedr",
+      "beat": "india",
+      "title": "Introducing India-based inference for Kimi K3 on Amazon Bedrock",
+      "excerpt": "Amazon Bedrock now offers in-country inference in India for Kimi K3, keeping processing within the Mumbai and Hyderabad Regions.",
+      "publishedAt": "2026-11-03T16:32:54.000Z",
+      "confidence": "single-source",
+      "score": 0.622,
+      "sources": [
+        {
+          "title": "Introducing India-based inference for Kimi K3 on Amazon Bedrock",
+          "publisher": "Amazon Web Services",
+          "url": "https://aws.amazon.com/blogs/machine-learning/introducing-india-based-inference-for-kimi-k3-on-amazon-bedrock/",
+          "tier": 1
+        }
+      ]
+    },
     {
       "id": "2026-11-03-trajectory-raises-45m-to-make-ai-model-training-accessible-t",
       "slug": "trajectory-raises-45m-to-make-ai-model-training-accessible-t",
@@ -13,7 +31,7 @@
       "title": "Trajectory raises $45M to make AI model training accessible to nontechnical experts",
       "publishedAt": "2026-11-02T23:13:53.000Z",
       "confidence": "single-source",
-      "score": 0.615,
+      "score": 0.584,
       "sources": [
         {
           "title": "Trajectory raises $45M to make AI model training accessible to nontechnical experts",
@@ -31,7 +49,7 @@
       "excerpt": "Muon has recently emerged as a promising optimizer for pretraining large language models, offering a speedup over AdamW in minimizing pretraining loss.",
       "publishedAt": "2026-11-02T18:56:43.000Z",
       "confidence": "single-source",
-      "score": 0.602,
+      "score": 0.571,
       "sources": [
         {
           "title": "Pretraining Data Scale Reverses the Muon-AdamW Fine-Tuning Gap",
@@ -48,12 +66,81 @@
       "title": "An Axiomatic Framework for Reinforcement Learning in Open Multi-Agent Systems",
       "publishedAt": "2026-11-02T15:36:22.000Z",
       "confidence": "single-source",
-      "score": 0.59,
+      "score": 0.558,
       "sources": [
         {
           "title": "An Axiomatic Framework for Reinforcement Learning in Open Multi-Agent Systems",
           "publisher": "arXiv",
           "url": "https://arxiv.org/abs/2611.03301v1",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03-statebench-testing-how-language-models-track-state-changes-o",
+      "slug": "statebench-testing-how-language-models-track-state-changes-o",
+      "beat": "models",
+      "title": "StateBench: Testing how language models track state changes over long documents",
+      "publishedAt": "2026-11-03T17:15:21.000Z",
+      "confidence": "single-source",
+      "score": 0.555,
+      "sources": [
+        {
+          "title": "StateBench: Testing how language models track state changes over long documents",
+          "publisher": "Hugging Face",
+          "url": "https://huggingface.co/blog/allenai/statebench",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03-agentic-cheminformatics-with-google-antigravity",
+      "slug": "agentic-cheminformatics-with-google-antigravity",
+      "beat": "models",
+      "title": "Agentic cheminformatics with Google Antigravity",
+      "excerpt": "Learn how Google Antigravity and our Cheminformatics Skills accelerate drug discovery workflows, search compounds, and propose novel rigidified macrocycles.",
+      "publishedAt": "2026-11-03T17:01:49.000Z",
+      "confidence": "single-source",
+      "score": 0.554,
+      "sources": [
+        {
+          "title": "Agentic cheminformatics with Google Antigravity",
+          "publisher": "Google DeepMind",
+          "url": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03-building-ultra-low-latency-voice-ai-applications-on-aws",
+      "slug": "building-ultra-low-latency-voice-ai-applications-on-aws",
+      "beat": "infrastructure",
+      "title": "Building ultra-low-latency voice AI applications on AWS",
+      "publishedAt": "2026-11-03T16:40:54.000Z",
+      "confidence": "single-source",
+      "score": 0.552,
+      "sources": [
+        {
+          "title": "Building ultra-low-latency voice AI applications on AWS",
+          "publisher": "Amazon Web Services",
+          "url": "https://aws.amazon.com/blogs/machine-learning/building-ultra-low-latency-voice-ai-applications-on-aws/",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03-palette-teaching-a-small-model-to-build-decks-in-your-design",
+      "slug": "palette-teaching-a-small-model-to-build-decks-in-your-design",
+      "beat": "models",
+      "title": "Palette: teaching a small model to build decks in your design language",
+      "publishedAt": "2026-11-03T16:35:36.000Z",
+      "confidence": "single-source",
+      "score": 0.552,
+      "sources": [
+        {
+          "title": "Palette: teaching a small model to build decks in your design language",
+          "publisher": "Hugging Face",
+          "url": "https://huggingface.co/blog/ibm-research/palette-deck-building",
           "tier": 1
         }
       ]
@@ -66,13 +153,155 @@
       "excerpt": "Progress in robot learning, particularly physical multi-agent reinforcement learning (MARL), is currently challenged by a limited availability of accessible, standardized benchmarks.",
       "publishedAt": "2026-11-02T13:49:53.000Z",
       "confidence": "single-source",
-      "score": 0.583,
+      "score": 0.552,
       "sources": [
         {
           "title": "KlaskTron: An Open-Source Platform for Physical Adversarial Multi-Agent RL",
           "publisher": "arXiv",
           "url": "https://arxiv.org/abs/2611.03138v1",
           "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03-anthropic-is-still-grappling-with-the-economics-of-compute",
+      "slug": "anthropic-is-still-grappling-with-the-economics-of-compute",
+      "beat": "infrastructure",
+      "title": "Anthropic is still grappling with the economics of compute",
+      "excerpt": "At a moment when Anthropic's compute margins should be getting better, they’re getting worse.",
+      "publishedAt": "2026-11-03T17:07:01.000Z",
+      "confidence": "single-source",
+      "score": 0.551,
+      "sources": [
+        {
+          "title": "Anthropic is still grappling with the economics of compute",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/03/anthropic-is-still-grappling-with-the-economics-of-compute/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03-google-is-entirely-disabling-search-in-schools-that-don-t-wa",
+      "slug": "google-is-entirely-disabling-search-in-schools-that-don-t-wa",
+      "beat": "society",
+      "title": "Google is entirely disabling Search in schools that don’t want AI",
+      "excerpt": "Google is completely turning off Search in schools that reject its AI features, the company told The New York Times.",
+      "publishedAt": "2026-11-03T17:00:04.000Z",
+      "confidence": "single-source",
+      "score": 0.55,
+      "sources": [
+        {
+          "title": "Google is entirely disabling Search in schools that don’t want AI",
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/tech/1025411/google-turn-off-search-ai-features",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03-ai-is-changing-how-semiconductor-fabs-work-and-engineers-are",
+      "slug": "ai-is-changing-how-semiconductor-fabs-work-and-engineers-are",
+      "beat": "infrastructure",
+      "title": "AI Is Changing How Semiconductor Fabs Work — and Engineers Are Moving Faster Because of It",
+      "publishedAt": "2026-11-03T16:00:45.000Z",
+      "confidence": "single-source",
+      "score": 0.55,
+      "sources": [
+        {
+          "title": "AI Is Changing How Semiconductor Fabs Work — and Engineers Are Moving Faster Because of It",
+          "publisher": "NVIDIA",
+          "url": "https://blogs.nvidia.com/blog/ai-semiconductor-fabs/",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03-google-will-let-schools-disable-its-ai-tools-but-not-without",
+      "slug": "google-will-let-schools-disable-its-ai-tools-but-not-without",
+      "beat": "society",
+      "title": "Google will let schools disable its AI tools, but not without sacrificing Search",
+      "excerpt": "Schools choosing to restrict AI altogether will no longer be able to access Google Search, as AI features are now integrated into the search engine.",
+      "publishedAt": "2026-11-03T16:30:34.000Z",
+      "confidence": "single-source",
+      "score": 0.548,
+      "sources": [
+        {
+          "title": "Google will let schools disable its AI tools, but not without sacrificing Search",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/03/google-will-let-schools-disable-its-ai-tools-but-not-without-sacrificing-search/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03-apple-restricts-dating-apps-and-ai-companions-to-users-18-an",
+      "slug": "apple-restricts-dating-apps-and-ai-companions-to-users-18-an",
+      "beat": "society",
+      "title": "Apple restricts dating apps and AI companions to users 18 and up",
+      "excerpt": "Apple's new App Store rules will require 18+ ratings for dating apps and AI companions that offer sexual or romantic content.",
+      "publishedAt": "2026-11-03T15:38:27.000Z",
+      "confidence": "single-source",
+      "score": 0.545,
+      "sources": [
+        {
+          "title": "Apple restricts dating apps and AI companions to users 18 and up",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/03/apple-restricts-dating-apps-and-ai-companions-to-users-18-and-up/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03-apple-is-all-in-on-ai-its-own-and-everyone-else-s",
+      "slug": "apple-is-all-in-on-ai-its-own-and-everyone-else-s",
+      "beat": "business",
+      "title": "Apple is all in on AI — its own and everyone else’s",
+      "excerpt": "Overall, Apple posted its best-ever fiscal year for revenue and earnings per share.",
+      "publishedAt": "2026-11-03T15:24:51.000Z",
+      "confidence": "single-source",
+      "score": 0.544,
+      "sources": [
+        {
+          "title": "Apple is all in on AI — its own and everyone else’s",
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1025245/apple-earnings-q4-ai",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03-openai-is-quietly-renaming-data-centers-compute-campuses",
+      "slug": "openai-is-quietly-renaming-data-centers-compute-campuses",
+      "beat": "infrastructure",
+      "title": "OpenAI is quietly renaming data centers ‘compute campuses’",
+      "publishedAt": "2026-11-03T15:00:44.000Z",
+      "confidence": "single-source",
+      "score": 0.543,
+      "sources": [
+        {
+          "title": "OpenAI is quietly renaming data centers ‘compute campuses’",
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1025242/openai-quietly-renames-data-centers-as-compute-campuses",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03-here-s-why-you-shouldn-t-use-ai-to-vote",
+      "slug": "here-s-why-you-shouldn-t-use-ai-to-vote",
+      "beat": "models",
+      "title": "Here’s Why You Shouldn’t Use AI to Vote",
+      "excerpt": "From hallucinations to partisan bias, artificial intelligence chatbots like ChatGPT and Claude are not helpful when it comes to Election Day.",
+      "publishedAt": "2026-11-03T14:45:08.000Z",
+      "confidence": "single-source",
+      "score": 0.542,
+      "sources": [
+        {
+          "title": "Here’s Why You Shouldn’t Use AI to Vote",
+          "publisher": "WIRED",
+          "url": "https://www.wired.com/story/heres-why-you-shouldnt-use-ai-to-vote/",
+          "tier": 2
         }
       ]
     },
@@ -84,12 +313,81 @@
       "excerpt": "On a new episode of Walter Isaacson’s podcast, The Builders, Tan put a price tag on his passion.",
       "publishedAt": "2026-11-03T00:35:52.000Z",
       "confidence": "single-source",
-      "score": 0.57,
+      "score": 0.539,
       "sources": [
         {
           "title": "Y Combinator’s Garry Tan uses AI agents so much, he spends up to $200K a year on tokens",
           "publisher": "TechCrunch",
           "url": "https://techcrunch.com/2026/11/02/y-combinators-garry-tan-uses-ai-agents-so-much-he-spends-up-to-200k-a-year-on-tokens/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03-the-download-controlling-ai-agents-and-super-intelligence-lo",
+      "slug": "the-download-controlling-ai-agents-and-super-intelligence-lo",
+      "beat": "research",
+      "title": "The Download: controlling AI agents and “Super Intelligence” loyalty tests",
+      "publishedAt": "2026-11-03T13:10:00.000Z",
+      "confidence": "single-source",
+      "score": 0.536,
+      "sources": [
+        {
+          "title": "The Download: controlling AI agents and “Super Intelligence” loyalty tests",
+          "publisher": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/11/03/1147940/the-download-controlling-ai-agents-trump-super-intelligence/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03-china-us-ai-investment-gap-narrower-than-figures-suggest-rep",
+      "slug": "china-us-ai-investment-gap-narrower-than-figures-suggest-rep",
+      "beat": "business",
+      "title": "China-US AI investment gap narrower than figures suggest: report",
+      "publishedAt": "2026-11-03T11:00:09.000Z",
+      "confidence": "single-source",
+      "score": 0.528,
+      "sources": [
+        {
+          "title": "China-US AI investment gap narrower than figures suggest: report",
+          "publisher": "South China Morning Post",
+          "url": "https://www.scmp.com/economy/china-economy/article/3373128/china-us-ai-investment-gap-narrower-figures-suggest-report",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03-how-reverse-game-theory-could-keep-ai-agents-in-check",
+      "slug": "how-reverse-game-theory-could-keep-ai-agents-in-check",
+      "beat": "research",
+      "title": "How “reverse game theory” could keep AI agents in check",
+      "excerpt": "A new approach known as “reverse game theory” aims to control powerful AI models by designing systems that incentivize them to stick to the rules.",
+      "publishedAt": "2026-11-03T10:43:41.000Z",
+      "confidence": "single-source",
+      "score": 0.527,
+      "sources": [
+        {
+          "title": "How “reverse game theory” could keep AI agents in check",
+          "publisher": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/11/03/1147934/reverse-game-theory-mechanism-design-ai-alignment/",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03-chinese-university-of-hong-kong-to-offer-free-ai-dementia-sc",
+      "slug": "chinese-university-of-hong-kong-to-offer-free-ai-dementia-sc",
+      "beat": "models",
+      "title": "Chinese University of Hong Kong to offer free AI dementia screening to 2,700 seniors",
+      "publishedAt": "2026-11-03T10:37:52.000Z",
+      "confidence": "single-source",
+      "score": 0.526,
+      "sources": [
+        {
+          "title": "Chinese University of Hong Kong to offer free AI dementia screening to 2,700 seniors",
+          "publisher": "South China Morning Post",
+          "url": "https://www.scmp.com/news/hong-kong/article/3373151/chinese-university-hong-kong-offer-free-ai-dementia-screening-2700-seniors",
           "tier": 2
         }
       ]
@@ -102,7 +400,7 @@
       "excerpt": "GUI web agents require realistic and interactive environments that remain stable during both evaluation and training.",
       "publishedAt": "2026-11-02T18:57:36.000Z",
       "confidence": "single-source",
-      "score": 0.552,
+      "score": 0.521,
       "sources": [
         {
           "title": "WebHarbor: Docking Real Websites for Evolving GUI Agent Environments",
@@ -119,7 +417,7 @@
       "title": "D&A: Decoupling Description and Assessment Enables VLMs as Zero-Shot Robotic Reward Models",
       "publishedAt": "2026-11-02T18:52:11.000Z",
       "confidence": "single-source",
-      "score": 0.552,
+      "score": 0.521,
       "sources": [
         {
           "title": "D&A: Decoupling Description and Assessment Enables VLMs as Zero-Shot Robotic Reward Models",
@@ -136,7 +434,7 @@
       "title": "‘At some point it’s going to be too much’: global financiers grapple with AI risks",
       "publishedAt": "2026-11-03T09:00:07.000Z",
       "confidence": "single-source",
-      "score": 0.551,
+      "score": 0.52,
       "sources": [
         {
           "title": "‘At some point it’s going to be too much’: global financiers grapple with AI risks",
@@ -147,13 +445,31 @@
       ]
     },
     {
+      "id": "2026-11-03-heimstaden-is-changing-residential-real-estate-management-wi",
+      "slug": "heimstaden-is-changing-residential-real-estate-management-wi",
+      "beat": "business",
+      "title": "Heimstaden is changing residential real estate management with AI",
+      "excerpt": "Discover how Heimstaden uses OpenAI’s ChatGPT Enterprise and Codex to transform property management, cut costs, and empower employees across Europe.",
+      "publishedAt": "2026-11-03T08:00:00.000Z",
+      "confidence": "single-source",
+      "score": 0.52,
+      "sources": [
+        {
+          "title": "Heimstaden is changing residential real estate management with AI",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/heimstaden",
+          "tier": 1
+        }
+      ]
+    },
+    {
       "id": "2026-11-03-cities-worldwide-build-and-scale-ai-services-with-nvidia-phy",
       "slug": "cities-worldwide-build-and-scale-ai-services-with-nvidia-phy",
       "beat": "infrastructure",
       "title": "Cities Worldwide Build and Scale AI Services With NVIDIA Physical and Agentic AI",
       "publishedAt": "2026-11-03T07:00:12.000Z",
       "confidence": "single-source",
-      "score": 0.547,
+      "score": 0.516,
       "sources": [
         {
           "title": "Cities Worldwide Build and Scale AI Services With NVIDIA Physical and Agentic AI",
@@ -164,108 +480,19 @@
       ]
     },
     {
-      "id": "2026-11-03-china-s-lipstick-king-hawks-tokens-as-ai-gets-mass-market-si",
-      "slug": "china-s-lipstick-king-hawks-tokens-as-ai-gets-mass-market-si",
-      "beat": "business",
-      "title": "China’s ‘Lipstick King’ hawks tokens as AI gets mass-market Singles’ Day push",
-      "excerpt": "China’s “Lipstick King” has traded make-up swatches for artificial intelligence.",
-      "publishedAt": "2026-11-03T06:30:09.000Z",
-      "confidence": "single-source",
-      "score": 0.542,
-      "sources": [
-        {
-          "title": "China’s ‘Lipstick King’ hawks tokens as AI gets mass-market Singles’ Day push",
-          "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/tech/big-tech/article/3373090/chinas-lipstick-king-hawks-tokens-ai-gets-mass-market-singles-day-push",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-11-03-google-takes-dreambeans-to-india-in-bid-to-bring-ai-generate",
-      "slug": "google-takes-dreambeans-to-india-in-bid-to-bring-ai-generate",
-      "beat": "india",
-      "title": "Google takes Dreambeans to India in bid to bring AI-generated personal stories to the masses",
-      "excerpt": "Google's Dreambeans, its latest AI experiment, now supports 13 Indian languages.",
-      "publishedAt": "2026-11-03T03:30:00.000Z",
-      "confidence": "single-source",
-      "score": 0.531,
-      "sources": [
-        {
-          "title": "Google takes Dreambeans to India in bid to bring AI-generated personal stories to the masses",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/11/02/google-takes-dreambeans-to-india-in-bid-to-bring-ai-generated-personal-stories-to-the-masses/",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-11-03-apple-may-try-to-increase-revenue-by-doing-something-with-th",
-      "slug": "apple-may-try-to-increase-revenue-by-doing-something-with-th",
-      "beat": "business",
-      "title": "Apple may try to increase revenue by doing…something with third-party AI apps",
-      "excerpt": "Apple hinted at ways that it could spur revenue through third-party \"opportunities\" during its Monday night earnings call.",
-      "publishedAt": "2026-11-03T01:49:52.000Z",
-      "confidence": "single-source",
-      "score": 0.525,
-      "sources": [
-        {
-          "title": "Apple may try to increase revenue by doing…something with third-party AI apps",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/11/02/apple-may-try-to-increase-revenue-by-doing-something-with-third-party-ai-apps/",
-          "tier": 2
-        }
-      ]
-    },
-    {
       "id": "2026-11-03-transformers-model-integration-contracts",
       "slug": "transformers-model-integration-contracts",
       "beat": "research",
       "title": "Transformers Model Integration Contracts",
       "publishedAt": "2026-11-03T00:00:00.000Z",
       "confidence": "single-source",
-      "score": 0.521,
+      "score": 0.49,
       "sources": [
         {
           "title": "Transformers Model Integration Contracts",
           "publisher": "Hugging Face",
           "url": "https://huggingface.co/blog/transformers-mic",
           "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-11-03-openai-executive-urges-caution-in-china-us-ai-talks-warns-of",
-      "slug": "openai-executive-urges-caution-in-china-us-ai-talks-warns-of",
-      "beat": "models",
-      "title": "OpenAI executive urges caution in China-US AI talks, warns of distillation threats",
-      "publishedAt": "2026-11-03T00:03:51.000Z",
-      "confidence": "single-source",
-      "score": 0.518,
-      "sources": [
-        {
-          "title": "OpenAI executive urges caution in China-US AI talks, warns of distillation threats",
-          "publisher": "South China Morning Post",
-          "url": "https://www.scmp.com/news/us/article/3373052/openai-executive-urges-caution-china-us-ai-talks-warns-distillation-threats",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-11-03-anthropic-warns-that-it-s-very-close-to-rsi-capability-aka-s",
-      "slug": "anthropic-warns-that-it-s-very-close-to-rsi-capability-aka-s",
-      "beat": "research",
-      "title": "Anthropic warns that it’s very close to RSI capability, aka self-building AI",
-      "excerpt": "RSI is the point at which AI grows so good at training itself that it spawns a dramatic acceleration of AI capabilities.",
-      "publishedAt": "2026-11-02T22:14:50.000Z",
-      "confidence": "single-source",
-      "score": 0.511,
-      "sources": [
-        {
-          "title": "Anthropic warns that it’s very close to RSI capability, aka self-building AI",
-          "publisher": "TechCrunch",
-          "url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/",
-          "tier": 2
         }
       ]
     },
@@ -277,7 +504,7 @@
       "excerpt": "OpenAI is preparing its next internal security sprint with Cathedral Systems to test and strengthen its defenses using AI.",
       "publishedAt": "2026-11-02T18:00:00.000Z",
       "confidence": "single-source",
-      "score": 0.499,
+      "score": 0.467,
       "sources": [
         {
           "title": "Preparing our next security sprint to harden OpenAI",
@@ -295,7 +522,7 @@
       "excerpt": "How OpenAI built Pando, a Git-compatible backend designed for the scale of development that Codex makes possible.",
       "publishedAt": "2026-11-02T15:30:00.000Z",
       "confidence": "single-source",
-      "score": 0.489,
+      "score": 0.458,
       "sources": [
         {
           "title": "Scaling Git at OpenAI",
@@ -313,7 +540,7 @@
       "excerpt": "The tsunami of imitators is way bigger than any one model maker can stem.",
       "publishedAt": "2026-11-02T18:05:31.000Z",
       "confidence": "single-source",
-      "score": 0.486,
+      "score": 0.454,
       "sources": [
         {
           "title": "Claude’s new rules against game cloning won’t stop the AI copying boom",
@@ -324,36 +551,20 @@
       ]
     },
     {
-      "id": "2026-11-03-anthropic-clamps-down-on-claude-s-ai-video-game-clones",
-      "slug": "anthropic-clamps-down-on-claude-s-ai-video-game-clones",
-      "beat": "infrastructure",
-      "title": "Anthropic clamps down on Claude’s AI video game clones",
-      "publishedAt": "2026-11-02T18:56:02.000Z",
+      "id": "2026-11-03-how-a-kenyan-startup-is-rethinking-ai-for-small-businesses",
+      "slug": "how-a-kenyan-startup-is-rethinking-ai-for-small-businesses",
+      "beat": "business",
+      "title": "How a Kenyan Startup Is Rethinking AI for Small Businesses",
+      "excerpt": "The first time Mutembei Kariuki thought about how AI models could work in Kenya, his home country, was in 2019.",
+      "publishedAt": "2026-11-03T14:30:02.000Z",
       "confidence": "single-source",
-      "score": 0.439,
+      "score": 0.434,
       "sources": [
         {
-          "title": "Anthropic clamps down on Claude’s AI video game clones",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1024632/anthropic-claude-ai-video-game-clones",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-11-03-openai-pitches-data-center-power-plants-as-a-way-to-protect",
-      "slug": "openai-pitches-data-center-power-plants-as-a-way-to-protect",
-      "beat": "infrastructure",
-      "title": "OpenAI pitches data center power plants as a way to protect nearby areas",
-      "publishedAt": "2026-11-02T18:01:30.000Z",
-      "confidence": "single-source",
-      "score": 0.435,
-      "sources": [
-        {
-          "title": "OpenAI pitches data center power plants as a way to protect nearby areas",
-          "publisher": "The Verge",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1024604/openai-data-center-grid-protection-program",
-          "tier": 2
+          "title": "How a Kenyan Startup Is Rethinking AI for Small Businesses",
+          "publisher": "spectrum.ieee.org",
+          "url": "https://spectrum.ieee.org/ai-small-business-mobile-money-startup",
+          "tier": 4
         }
       ]
     },
@@ -364,7 +575,7 @@
       "title": "Build efficient agents with knowledge distillation on Amazon SageMaker AI",
       "publishedAt": "2026-11-02T17:01:31.000Z",
       "confidence": "single-source",
-      "score": 0.435,
+      "score": 0.404,
       "sources": [
         {
           "title": "Build efficient agents with knowledge distillation on Amazon SageMaker AI",
@@ -381,7 +592,7 @@
       "title": "Agentic engineering intelligence with Amazon Nova Multimodal Embeddings and Amazon Bedrock AgentCore",
       "publishedAt": "2026-11-02T17:01:16.000Z",
       "confidence": "single-source",
-      "score": 0.435,
+      "score": 0.404,
       "sources": [
         {
           "title": "Agentic engineering intelligence with Amazon Nova Multimodal Embeddings and Amazon Bedrock AgentCore",
@@ -398,7 +609,7 @@
       "title": "OpenAI appoints Dan Driscoll as Senior Counselor for National Security Modernization",
       "publishedAt": "2026-11-02T00:00:00.000Z",
       "confidence": "single-source",
-      "score": 0.431,
+      "score": 0.4,
       "sources": [
         {
           "title": "OpenAI appoints Dan Driscoll as Senior Counselor for National Security Modernization",
@@ -415,7 +626,7 @@
       "title": "The Download: the agentic web arrives and the drive for safer roads",
       "publishedAt": "2026-11-02T13:10:00.000Z",
       "confidence": "single-source",
-      "score": 0.417,
+      "score": 0.386,
       "sources": [
         {
           "title": "The Download: the agentic web arrives and the drive for safer roads",
@@ -433,7 +644,7 @@
       "excerpt": "But sometimes you’ll get better results by typing your query into a good old search engine.",
       "publishedAt": "2026-11-02T12:00:00.000Z",
       "confidence": "single-source",
-      "score": 0.413,
+      "score": 0.381,
       "sources": [
         {
           "title": "When You Should—and Shouldn’t—Use AI to Search the Web",
@@ -451,7 +662,7 @@
       "excerpt": "Even as studios incorporate generative tech into film and TV production, comedy content creators have broken through by roasting chatbots.",
       "publishedAt": "2026-11-02T11:30:00.000Z",
       "confidence": "single-source",
-      "score": 0.411,
+      "score": 0.38,
       "sources": [
         {
           "title": "Want to Sign With a Hollywood Agent? Start Making Fun of AI",
@@ -468,7 +679,7 @@
       "title": "Hundreds of Mundane AI Apps Are Hiding Sexually Abusive Deepfake Features",
       "publishedAt": "2026-11-02T10:00:00.000Z",
       "confidence": "single-source",
-      "score": 0.405,
+      "score": 0.374,
       "sources": [
         {
           "title": "Hundreds of Mundane AI Apps Are Hiding Sexually Abusive Deepfake Features",
@@ -486,65 +697,12 @@
       "excerpt": "In 2001, a decade after he invented the World Wide Web, Tim Berners-Lee articulated a new vision.",
       "publishedAt": "2026-11-02T09:35:19.000Z",
       "confidence": "single-source",
-      "score": 0.404,
+      "score": 0.372,
       "sources": [
         {
           "title": "The agentic web is here",
           "publisher": "MIT Technology Review",
           "url": "https://www.technologyreview.com/2026/11/02/1147846/the-agentic-web-is-here/",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-11-03-qodo-builds-context-into-ai-code-review-with-codex",
-      "slug": "qodo-builds-context-into-ai-code-review-with-codex",
-      "beat": "models",
-      "title": "Qodo builds context into AI code review with Codex",
-      "excerpt": "Qodo brings company knowledge and coding standards into Codex, helping developers catch P0 issues across repositories before opening a pull request.",
-      "publishedAt": "2026-11-02T00:00:00.000Z",
-      "confidence": "single-source",
-      "score": 0.371,
-      "sources": [
-        {
-          "title": "Qodo builds context into AI code review with Codex",
-          "publisher": "OpenAI",
-          "url": "https://openai.com/index/qodo-codex-plugin",
-          "tier": 1
-        }
-      ]
-    },
-    {
-      "id": "2026-11-03-what-democrats-can-learn-from-new-york-s-data-center-morator",
-      "slug": "what-democrats-can-learn-from-new-york-s-data-center-morator",
-      "beat": "infrastructure",
-      "title": "What Democrats Can Learn From New York’s Data Center Moratorium",
-      "publishedAt": "2026-11-01T11:00:00.000Z",
-      "confidence": "single-source",
-      "score": 0.319,
-      "sources": [
-        {
-          "title": "What Democrats Can Learn From New York’s Data Center Moratorium",
-          "publisher": "WIRED",
-          "url": "https://www.wired.com/story/what-democrats-can-learn-new-york-data-center-moratorium/",
-          "tier": 2
-        }
-      ]
-    },
-    {
-      "id": "2026-11-03-chatbots-are-leading-hikers-astray-with-dangerous-consequenc",
-      "slug": "chatbots-are-leading-hikers-astray-with-dangerous-consequenc",
-      "beat": "models",
-      "title": "Chatbots Are Leading Hikers Astray, With Dangerous Consequences",
-      "excerpt": "Outsourcing planning to AI can lead people to surrender their own critical thinking, which can have potentially deadly results in places like the backcountry.",
-      "publishedAt": "2026-11-01T10:30:00.000Z",
-      "confidence": "single-source",
-      "score": 0.317,
-      "sources": [
-        {
-          "title": "Chatbots Are Leading Hikers Astray, With Dangerous Consequences",
-          "publisher": "WIRED",
-          "url": "https://www.wired.com/story/chatbots-are-leading-hikers-astray-with-dangerous-consequences/",
           "tier": 2
         }
       ]
