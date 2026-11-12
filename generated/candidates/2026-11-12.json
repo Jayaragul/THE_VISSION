@@ -1,9 +1,9 @@
 {
   "$comment": "Leads, not sources. Every item here is exactly as trustworthy as a search snippet — open it, verify it, and cite the real publisher before it appears in an edition. Items with discoveryOnly:true come from a news-search aggregator and point at a redirect, not the publisher; never cite the aggregator itself.",
-  "harvestedAt": "2026-11-12T00:38:59.426Z",
+  "harvestedAt": "2026-11-12T06:01:48.830Z",
   "feedCount": 34,
-  "okCount": 34,
-  "itemCount": 784,
+  "okCount": 33,
+  "itemCount": 765,
   "feeds": [
     {
       "feed": "Anthropic",
@@ -117,8 +117,9 @@
     },
     {
       "feed": "arXiv — cs.RO",
-      "ok": true,
-      "count": 20
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "feed": "arXiv — cs.LG",
@@ -128,12 +129,12 @@
     {
       "feed": "Google News",
       "ok": true,
-      "count": 39
+      "count": 40
     },
     {
       "feed": "Google News",
       "ok": true,
-      "count": 6
+      "count": 8
     },
     {
       "feed": "Google News",
@@ -148,7 +149,7 @@
     {
       "feed": "Google News",
       "ok": true,
-      "count": 23
+      "count": 24
     },
     {
       "feed": "Google News",
@@ -163,12 +164,12 @@
     {
       "feed": "Google News",
       "ok": true,
-      "count": 33
+      "count": 31
     },
     {
       "feed": "Google News",
       "ok": true,
-      "count": 38
+      "count": 37
     },
     {
       "feed": "Hugging Face — trending models",
@@ -178,11 +179,250 @@
   ],
   "items": [
     {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Silk Road in orbit: China to build 20-satellite ‘space AI’ system for Oman",
+      "url": "https://www.scmp.com/news/china/science/article/3374157/silk-road-orbit-china-build-20-satellite-space-ai-system-oman",
+      "publishedAt": "2026-11-12T06:00:06.000Z",
+      "summary": "Hangzhou-based Star Vision will build Oman a network of 20 satellites that use AI to process images in orbit and spot ships and floods in real time, in what the company called China’s most valuable commercial space contract ever. The deal – worth over US$200 million according to the start-up – was signed in Beijing las"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Hong Kong’s ICAC charges team leader of Kai Tak Hospital subcontractor over extortion",
+      "url": "https://www.scmp.com/news/hong-kong/law-and-crime/article/3374166/hong-kongs-icac-charges-team-leader-kai-tak-hospital-subcontractor-over-extortion",
+      "publishedAt": "2026-11-12T05:32:51.000Z",
+      "summary": "Hong Kong’s anti-corruption watchdog has charged a subcontractor’s team leader for allegedly extorting more than HK$75,000 (US$9,600) from five electrical workers at the Kai Tak Hospital site, vowing to work with the government to strengthen protections for imported labour. According to an Independent Commission Agains"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Gibran officially resigns as Indonesia’s vice-president after degree scandal",
+      "url": "https://www.scmp.com/news/asia/southeast-asia/article/3374164/gibran-officially-resigns-indonesias-vice-president-after-degree-scandal",
+      "publishedAt": "2026-11-12T05:26:19.000Z",
+      "summary": "Indonesia’s ⁠Vice-President Gibran ⁠Rakabuming Raka handed in ⁠his resignation to the upper house of parliament on Thursday in the midst of a scandal over his high school diploma. Ahmad Muzani, speaker of the upper house, ‌said Gibran had also submitted a resignation letter to President Prabowo Subianto, and parliament"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "China signals focus shift to policy delivery as PBOC drops stimulus language: analysts",
+      "url": "https://www.scmp.com/economy/china-economy/article/3374160/china-signals-focus-shift-policy-delivery-pboc-drops-stimulus-language",
+      "publishedAt": "2026-11-12T05:04:45.000Z",
+      "summary": "China’s central bank’s decision to drop a reference to additional policy measures from its latest quarterly report suggests Beijing’s focus is shifting towards implementing existing support measures, analysts said, pointing to December’s annual policy-setting meeting as the next window for fresh stimulus. In its third-"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "UK eases BN(O) visa barriers for Hong Kong protesters convicted over 2019 unrest",
+      "url": "https://www.scmp.com/news/hong-kong/society/article/3374161/uk-eases-bno-visa-barriers-hong-kong-protesters-convicted-over-2019-unrest",
+      "publishedAt": "2026-11-12T05:00:49.000Z",
+      "summary": "The UK government has confirmed that convictions linked to Hong Kong’s 2019 protests should generally not prevent otherwise eligible applicants from using the British National (Overseas) visa scheme, following reports that several convicted protesters had their applications rejected. In a letter on Wednesday to Alex So"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "As Beijing pushes for cash return, Chinese firms can unlock 15% valuation boost: report",
+      "url": "https://www.scmp.com/business/china-business/article/3374146/beijing-pushes-cash-return-chinese-firms-can-unlock-15-valuation-boost-report",
+      "publishedAt": "2026-11-12T05:00:10.000Z",
+      "summary": "Chinese companies could unlock a further 15 per cent in equity valuation upside by stepping up share buy-backs and dividend payouts, as Beijing seeks to encourage listed firms to return more cash to investors, according to Goldman Sachs. The US investment bank said in a report on Wednesday that an increase in corporate"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Commvault adds agent recovery for Bedrock & Foundry - SecurityBrief Australia",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNM20wU0tLcldSSWJIVHhtZ2JITkVLeDV5YkRpc05lWmY1S3FMd3VTYTZ4QUV0cW5GN2YtYTVHWlUzbVppdUNyMnEtV1JkckxGTDRnbXJfeUVqeTlxVlBaYVZhdDI1LWVKb3VnbS1WUkhUMnlIUFUtbDB0SEdPeDR4Qlp0Rk51Vm05UEFWWg?oc=5",
+      "publishedAt": "2026-11-12T04:59:01.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijAFBVV95cUxNM20wU0tLcldSSWJIVHhtZ2JITkVLeDV5YkRpc05lWmY1S3FMd3VTYTZ4QUV0cW5GN2YtYTVHWlUzbVppdUNyMnEtV1JkckxGTDRnbXJfeUVqeTlxVlBaYVZhdDI1LWVKb3VnbS1WUkhUMnlIUFUtbDB0SEdPeDR4Qlp0Rk51Vm05UEFWWg?oc=5\" target=\"_blank\">Commvault adds agent recovery for Bedrock & Foundry</a>&n"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Autistic teen missing in Australian bushland for 6 days rescued alive",
+      "url": "https://www.scmp.com/news/asia/australasia/article/3374155/autistic-teen-missing-australian-bushland-6-days-rescued-alive",
+      "publishedAt": "2026-11-12T04:51:16.000Z",
+      "summary": "A 17-year-old boy with autism was found alive on Thursday after six days lost in eastern Australian woodlands. The boy, whom police identified only as William, had begun camping with a teenage friend when he disappeared last Friday near Walhalla, a former gold-mining town 185km east of Melbourne, police said. A police "
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Baidu Unveils Ernie Lightning and Ernie Yijing Models at Baidu World 2026 as Robin Li Reaffirms \"Model-App Parallel\" Strategy - BigGo Finance",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBPUzd6ZHdqTm43LXhCc04teTJ0ZzFTc05XTVVKZHpjdmpwSHMxUDYtRkd4WU1rOWlhbkNNTDVranRMcnowX2Q1c190cEhNeFdaMjVUWlMwLXJDaXV4ak1kQlRrUWpYY3dxZlMxVl84WDV5dzJlVlE?oc=5",
+      "publishedAt": "2026-11-12T04:35:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMidkFVX3lxTFBPUzd6ZHdqTm43LXhCc04teTJ0ZzFTc05XTVVKZHpjdmpwSHMxUDYtRkd4WU1rOWlhbkNNTDVranRMcnowX2Q1c190cEhNeFdaMjVUWlMwLXJDaXV4ak1kQlRrUWpYY3dxZlMxVl84WDV5dzJlVlE?oc=5\" target=\"_blank\">Baidu Unveils Ernie Lightning and Ernie Yijing Models at Baidu World 2026 as Robin Li Re"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Gulf allies’ Trump ties hand a hostile US Congress subpoena targets",
+      "url": "https://www.scmp.com/week-asia/politics/article/3374150/gulf-allies-trump-ties-hand-hostile-congress-subpoena-targets",
+      "publishedAt": "2026-11-12T04:10:34.000Z",
+      "summary": "Washington’s key Gulf allies are expected to come under fire as Democrats use their new congressional majorities to investigate US President Donald Trump’s final two years in office. Saudi Arabia, the United Arab Emirates and Qatar could all be dragged into congressional investigations over allegations that Trump, his "
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Chinese Generative AI Evaluation Reveals Sharp Splits in Early Childhood Teaching Performance - Bioengineer.org",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNMUlvOU9pYnZseVZaNWd6T21lY3o0UXdJU2hTQ2VDU3IwTjBKMnBKb3g1RE9kdW5CTVdQZHljSUY1QUQyQVFkaXJ4MkhrWEQ3R0NFSWxhUHM0SlJ6WTF5Vk9nbjBuaE1aNWtrTUh3cFFtOUFmTENfSlh3UXI3UUJqa2pPSno0NC1tM3dld2RLakxoUFN5bDF5bE1mamdxa3NNazFKdVpULXNfYjZVVlh5UTlFQkV0TVZpTHc?oc=5",
+      "publishedAt": "2026-11-12T04:02:58.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiugFBVV95cUxNMUlvOU9pYnZseVZaNWd6T21lY3o0UXdJU2hTQ2VDU3IwTjBKMnBKb3g1RE9kdW5CTVdQZHljSUY1QUQyQVFkaXJ4MkhrWEQ3R0NFSWxhUHM0SlJ6WTF5Vk9nbjBuaE1aNWtrTUh3cFFtOUFmTENfSlh3UXI3UUJqa2pPSno0NC1tM3dld2RLakxoUFN5bDF5bE1mamdxa3NNazFKdVpULXNfYjZVVlh5UTlFQkV0TVZpTHc?oc=5\" target=\"_bla"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Famed ocean liner sunk to become world’s biggest artificial reef",
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3374147/famed-ocean-liner-sunk-become-worlds-biggest-artificial-reef",
+      "publishedAt": "2026-11-12T03:55:51.000Z",
+      "summary": "Famed ocean liner SS United States, the largest passenger ship ever built in America and the world’s fastest, headed for the sea floor near Florida on Wednesday in a deliberate sinking designed to transform the vessel into the world’s biggest artificial reef. The finale to a year-long process preparing the ship to meet"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "AI Hackers Steal Over 2,000 Secret Government Documents - The 420.in",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1nQTZjVENiaHJlN3puT0RpendOdlVhbGQtUGE2RGhRRjVBa05pR1dwZXd6WHZORE85djZGS2ExcHJCWG9sOFBqSi1aRWNhU2YtelFTWlYwTk4td1JxcGU1cUpoc0pBTlJvbElnbDg5ZGdiVFZIa1pN?oc=5",
+      "publishedAt": "2026-11-12T03:23:53.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMid0FVX3lxTE1nQTZjVENiaHJlN3puT0RpendOdlVhbGQtUGE2RGhRRjVBa05pR1dwZXd6WHZORE85djZGS2ExcHJCWG9sOFBqSi1aRWNhU2YtelFTWlYwTk4td1JxcGU1cUpoc0pBTlJvbElnbDg5ZGdiVFZIa1pN?oc=5\" target=\"_blank\">AI Hackers Steal Over 2,000 Secret Government Documents</a>&nbsp;&nbsp;<font color=\"#6f"
+    },
+    {
+      "source": "TechCrunch",
+      "discoveryOnly": false,
+      "title": "Who could replace Jensen Huang? A highly unscientific list of possible successors",
+      "url": "https://techcrunch.com/2026/11/11/who-could-replace-jensen-huang-a-highly-unscientific-list-of-possible-successors/",
+      "publishedAt": "2026-11-12T03:13:10.000Z",
+      "summary": "Nvidia has no succession plan and a CEO in hot water, so we’ve drafted a shortlist.",
+      "categories": [
+        "AI",
+        "TC"
+      ]
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "What Southeast Asian newsrooms struggling to attract Gen Z can learn from creators",
+      "url": "https://www.scmp.com/week-asia/lifestyle-culture/article/3374091/what-southeast-asian-newsrooms-struggling-attract-gen-z-can-learn-creators",
+      "publishedAt": "2026-11-12T03:00:08.000Z",
+      "summary": "For Malaysian content creator Iqbal Fatkhi, making news content credible to younger audiences sometimes means making it less like traditional journalism. Instead of polished broadcasts using formal language, the 33-year-old editor-in-chief of news portal CiliSos Media prefers conversational videos that speak to audienc"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Taiwan to send Acer founder Stan Shih to Shenzhen Apec, calls for ‘equal footing’",
+      "url": "https://www.scmp.com/news/china/politics/article/3374140/taiwan-send-acer-founder-stan-shih-shenzhen-apec-calls-equal-footing",
+      "publishedAt": "2026-11-12T02:53:34.000Z",
+      "summary": "Taiwan will send Stan Shih, founder of computer giant Acer, to the Apec leaders’ summit in Shenzhen next week and has urged Beijing to ensure its delegation is treated with “dignity”. Taiwan has been a member economy of the Asia-Pacific Economic Cooperation forum under the name “Chinese Taipei” since 1991. But the self"
+    },
+    {
+      "source": "WIRED",
+      "discoveryOnly": false,
+      "title": "The Best Early Black Friday MacBook Air Deal: $200 Off",
+      "url": "https://www.wired.com/story/early-black-friday-macbook-air-deal/",
+      "publishedAt": "2026-11-12T02:33:02.000Z",
+      "summary": "The holiday is still two weeks out, but this MacBook Air discount may be the must-buy laptop deal of the season.",
+      "categories": [
+        "Gear",
+        "Gear / Products",
+        "Gear / Deals",
+        "Gear / Products / Computers"
+      ]
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Malaysian police shoot dead machete-wielding man who severed officer’s hand",
+      "url": "https://www.scmp.com/news/asia/southeast-asia/article/3374135/malaysian-police-shoot-dead-machete-wielding-man-who-severed-officers-hand",
+      "publishedAt": "2026-11-12T02:27:48.000Z",
+      "summary": "A foreign man who allegedly hacked off a Malaysian policeman’s right hand during an attack at an apartment in Desa Amanpuri, Kepong, was shot dead. Armed with two machetes, the suspect charged out of a residential unit and attacked police officers, firefighters and health ministry staff at about 7pm on Wednesday. Selan"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Chinese women believe they are long-lost twins after chance sighting in short video",
+      "url": "https://www.scmp.com/news/people-culture/trending-china/article/3374134/chinese-twin-sisters-reunite-after-20-years-thanks-chance-sighting-short-video",
+      "publishedAt": "2026-11-12T02:18:48.000Z",
+      "summary": "A chance discovery on a short-video-sharing platform reunited two Chinese women who believe they are twins separated at birth 20 years ago. Recently, 20-year-old Shenzhen resident Luo posted a video documenting her reunion with a woman she believed to be her identical twin sister, a sibling she never knew she had. Whil"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Hong Kong charity helps neurodivergent people build confidence through nutrition, dance",
+      "url": "https://www.scmp.com/news/hong-kong/society/article/3374130/hong-kong-charity-helps-neurodivergent-people-build-confidence-through-nutrition-dance",
+      "publishedAt": "2026-11-12T02:15:05.000Z",
+      "summary": "For 33-year-old Coco Choi Pak-yin and 24-year-old Crystal Lee Wing-wai, few things bring more joy than dancing at the Hong Kong charity Love 21 Foundation. As neurodivergent individuals, they take part in a variety of tailored nutrition and sports programmes offered by the organisation, including dance classes. Through"
+    },
+    {
+      "source": "WIRED",
+      "discoveryOnly": false,
+      "title": "Walking Pad Deals to Shop Ahead of Black Friday (2026)",
+      "url": "https://www.wired.com/story/best-black-friday-walking-pad-treadmill-deals-11-11-26/",
+      "publishedAt": "2026-11-12T01:53:24.000Z",
+      "summary": "Don’t let cold weather stop you from getting your steps in. These under-desk treadmills are already marked down.",
+      "categories": [
+        "Gear",
+        "Gear / Deals",
+        "Gear / Products / Home Office",
+        "Gear / Products / Home",
+        "Gear / Products / Health and Fitness",
+        "Gear / Products / Lifestyle"
+      ]
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "When AI agents go rogue, who can Hong Kong hold accountable?",
+      "url": "https://www.scmp.com/news/hong-kong/article/3374119/when-ai-agents-go-rogue-who-can-hong-kong-hold-accountable",
+      "publishedAt": "2026-11-12T01:30:13.000Z",
+      "summary": "When OpenAI’s AI agents launched an autonomous attack on Australia’s Medicare portal in June, it took the company 84 days to report what had happened – a delay that exposed gaps in regulatory oversight that Hong Kong industry experts say the city must also address. The incident followed breaches involving Google’s Gemi"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Japan’s military build-up hit by US missile delays and domestic parts shortages",
+      "url": "https://www.scmp.com/week-asia/politics/article/3374100/japans-military-build-hit-us-missile-delays-and-domestic-parts-shortages",
+      "publishedAt": "2026-11-12T01:30:10.000Z",
+      "summary": "Japan’s push to strengthen its armed forces is running into headwinds that money alone cannot resolve, analysts warn, pointing to prolonged delays in US weapon shipments and domestic manufacturing bottlenecks that undermine operational readiness. The issues have cast doubt on Tokyo’s ability to meet ambitious force exp"
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "Don’t subject Hong Kong’s private sports clubs to dubious lease changes",
+      "url": "https://www.scmp.com/opinion/hong-kong-opinion/article/3373843/dont-subject-hong-kongs-private-sports-clubs-dubious-lease-changes",
+      "publishedAt": "2026-11-12T01:30:07.000Z",
+      "summary": "The Hong Kong government has set forth on a course of action which seems destined to upset large swathes of the middle class, including senior personnel from finance, business, technology and academia. These are the very people whose presence here underpins our professed economic development strategy. I am referring, o"
+    },
+    {
+      "source": "AWS — Machine Learning",
+      "discoveryOnly": false,
+      "title": "Build autonomous AI agents with Amazon Bedrock and Spring AI",
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-autonomous-ai-agents-with-amazon-bedrock-and-spring-ai/",
+      "publishedAt": "2026-11-12T01:18:23.000Z",
+      "summary": "Learn how Java developers can build production-ready autonomous AI agents using Amazon Bedrock and Spring AI. This post walks through tool calling, conversation memory, resilience patterns, and multi-agent orchestration, then deploys the agent to AWS with Amazon Bedrock AgentCore.",
+      "categories": [
+        "Amazon Bedrock",
+        "Expert (400)",
+        "Technical How-to"
+      ]
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "China has more than 20 small nuclear reactor start-ups. Should the US worry?",
+      "url": "https://www.scmp.com/news/china/science/article/3374063/china-has-more-20-small-nuclear-reactor-start-ups-should-us-worry",
+      "publishedAt": "2026-11-12T01:00:05.000Z",
+      "summary": "More than 20 Chinese start-ups are developing small modular reactors (SMRs) with ambitions to reshape the global energy landscape, according to the founder of one of the sector’s front runners. Hu Po, founder of Weilan NuEnergy, a Shanghai-based start-up betting on the technology, noted that in 2024, as the artificial "
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Google DeepMind launches Gemini Robotics 2.5 - 디지털투데이",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOaHZGc3JnT2FfbU9CYllXVE9KTl9xT2RpSVNZTEdOcC1FeHRROTBsWnZUZmEzX25HQWNETWlHSlJ0S2VGRXdWYnQ4YTZ3cWdHSURtT2NRSFFPSUFkOXZNdU9ZX3Y0WjlaTVEtcVRGbnQ5VzlaVUdXVTVhWTM0Z3lFRUFYbHFCbXhYZndJQU9RRE9JdlAz?oc=5",
+      "publishedAt": "2026-11-12T00:44:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilAFBVV95cUxOaHZGc3JnT2FfbU9CYllXVE9KTl9xT2RpSVNZTEdOcC1FeHRROTBsWnZUZmEzX25HQWNETWlHSlJ0S2VGRXdWYnQ4YTZ3cWdHSURtT2NRSFFPSUFkOXZNdU9ZX3Y0WjlaTVEtcVRGbnQ5VzlaVUdXVTVhWTM0Z3lFRUFYbHFCbXhYZndJQU9RRE9JdlAz?oc=5\" target=\"_blank\">Google DeepMind launches Gemini Robotics 2.5</a"
+    },
+    {
       "source": "Google News",
       "discoveryOnly": true,
       "title": "Elevenlabs launches 13 new products and upgrades - Mumbrella",
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPRy1rUjNyU21BWHQ2OHdkWERmWVctZk1OTGNYUVNuZmZOcVU5RlBhcmtsM1hERkRraC1QaEtJTXVQdnlVeDBKUGg2c2JTWEZ0SU1hVjNHNXdiZmNaeW1tTFdReHpNZkE0Ql9QR1hTVEFoYkpGZGg1dFU4RUozeGsyOTVvQjhmSkU?oc=5",
-      "publishedAt": "2026-11-12T00:28:36.000Z",
+      "publishedAt": "2026-11-12T00:27:55.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxPRy1rUjNyU21BWHQ2OHdkWERmWVctZk1OTGNYUVNuZmZOcVU5RlBhcmtsM1hERkRraC1QaEtJTXVQdnlVeDBKUGg2c2JTWEZ0SU1hVjNHNXdiZmNaeW1tTFdReHpNZkE0Ql9QR1hTVEFoYkpGZGg1dFU4RUozeGsyOTVvQjhmSkU?oc=5\" target=\"_blank\">Elevenlabs launches 13 new products and upgrades</a>&nbsp;&nbsp;"
     },
     {
@@ -196,10 +436,18 @@
     {
       "source": "SCMP — China",
       "discoveryOnly": false,
-      "title": "US midterms: Democrat Colom defeats Hyde-Smith in Mississippi to win historic Senate seat",
+      "title": "Democrat pulls off upset to become Mississippi’s first black US senator since 1874",
       "url": "https://www.scmp.com/news/world/united-states-canada/article/3374129/democrat-colom-defeats-hyde-smith-mississippi-win-historic-senate-seat",
       "publishedAt": "2026-11-12T00:02:23.000Z",
-      "summary": "Democratic challenger Scott Colom defeated incumbent Republican Cindy Hyde-Smith in the Mississippi election for the US Senate, media projected on Wednesday, making him the Southern state’s first black senator since the Reconstruction era that followed the US Civil War. The result was a stunning upset in the ‌heavily R"
+      "summary": "Democratic challenger Scott Colom defeated incumbent Republican Cindy Hyde-Smith in the Mississippi election for the US Senate, media projected on Wednesday, making him the Southern state’s first black senator since the Reconstruction era that followed the US Civil War. The result was a stunning upset in the heavily Re"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Japan Pushes Emergency Funding for Cybersecurity as AI-Assisted Breaches Rise - Dark Reading",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOWWdvRm5zTlIwUnRsVDBpdGRRVm1MQmt3aVpNWkZ0bHYyaDJwWFFad2pjNUpGRDBscUthVGRTeG5rbGVUSjRWRWVLRHlTVGg0dDhBNElCR05abU9yN1JUMjNzNU1fdjN1czdqV216Mzc5VDAybUJnanNtNU90Y1B3eW5iTkxEXzRPV3ZwbWdVbXByeDVYUVhROV9zdFY2cnR1WmY3TFJsUzIwMjhiMlF3NQ?oc=5",
+      "publishedAt": "2026-11-12T00:00:26.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxOWWdvRm5zTlIwUnRsVDBpdGRRVm1MQmt3aVpNWkZ0bHYyaDJwWFFad2pjNUpGRDBscUthVGRTeG5rbGVUSjRWRWVLRHlTVGg0dDhBNElCR05abU9yN1JUMjNzNU1fdjN1czdqV216Mzc5VDAybUJnanNtNU90Y1B3eW5iTkxEXzRPV3ZwbWdVbXByeDVYUVhROV9zdFY2cnR1WmY3TFJsUzIwMjhiMlF3NQ?oc=5\" target=\"_blank\">Japan Pus"
     },
     {
       "source": "SCMP — China",
@@ -244,6 +492,14 @@
         "Amazon Bedrock",
         "Technical How-to"
       ]
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "OpenAI Codex on Amazon Bedrock - Amazon Web Services (AWS)",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNaTMtak5LN2ZUam9haGF5ekhPR1hvdFNyU2lybEN0YU0xdWtnNFBEZ2o4clJNT050OXZXWXJtRm9iOFZLVHI5SEc1aWdmb3NHM1Y4UE5MdUc5MlNPaGE2SEJ6cjhyeUlEaGFNeUxUeVRYTGQzeUZNdDB4YmZfNENOVDVsZw?oc=5",
+      "publishedAt": "2026-11-11T23:35:47.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMigwFBVV95cUxNaTMtak5LN2ZUam9haGF5ekhPR1hvdFNyU2lybEN0YU0xdWtnNFBEZ2o4clJNT050OXZXWXJtRm9iOFZLVHI5SEc1aWdmb3NHM1Y4UE5MdUc5MlNPaGE2SEJ6cjhyeUlEaGFNeUxUeVRYTGQzeUZNdDB4YmZfNENOVDVsZw?oc=5\" target=\"_blank\">OpenAI Codex on Amazon Bedrock</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">A"
     },
     {
       "source": "AWS — Machine Learning",
@@ -375,10 +631,10 @@
     {
       "source": "SCMP — China",
       "discoveryOnly": false,
-      "title": "Hegseth and staff scolded by guard after laughter heard at Tomb of the Unknown Soldier",
+      "title": "Hegseth and aides reprimanded by guard at Tomb of the Unknown Soldier",
       "url": "https://www.scmp.com/news/world/united-states-canada/article/3374128/hegseth-and-staff-scolded-guard-after-laughter-heard-tomb-unknown-soldier",
       "publishedAt": "2026-11-11T22:40:30.000Z",
-      "summary": "A soldier guarding the Tomb of the Unknown Soldier issued a verbal reprimand to a group of advisers and staff with Defence Secretary Pete Hegseth following a Veterans Day ceremony at Arlington National Cemetery. Video shows Hegseth taking photos on the empty steps in front of the tomb with his wife, Jennifer, chief of "
+      "summary": "A soldier guarding the Tomb of the Unknown Soldier issued a verbal reprimand to a group of advisers and staffers with US Defence Secretary Pete Hegseth following a Veterans Day ceremony at Arlington National Cemetery. Video shows Hegseth taking photos on the empty steps in front of the tomb with his wife, Jennifer, chi"
     },
     {
       "source": "SCMP — China",
@@ -514,7 +770,7 @@
     {
       "source": "SCMP — China",
       "discoveryOnly": false,
-      "title": "Biden says he wouldn’t have run for second term if he’d known he had cancer",
+      "title": "Biden says he would not have run again had he known of cancer",
       "url": "https://www.scmp.com/news/world/united-states-canada/article/3374126/biden-says-he-wouldnt-have-run-second-term-if-hed-known-he-had-cancer",
       "publishedAt": "2026-11-11T20:55:07.000Z",
       "summary": "Joe Biden says he did not know he had cancer while he was US president and would not have sought a second term if he already had been diagnosed. The former Democratic president’s comments came in an interview with People magazine before the release of his White House memoir on Tuesday. “If I had known that I was feelin"
@@ -585,10 +841,10 @@
     {
       "source": "SCMP — China",
       "discoveryOnly": false,
-      "title": "Trump defends Iran war in Veterans Day speech",
+      "title": "Trump defends war against Iran in US Veterans Day address",
       "url": "https://www.scmp.com/news/world/united-states-canada/article/3374123/trump-defends-iran-war-veterans-day-speech",
       "publishedAt": "2026-11-11T20:30:57.000Z",
-      "summary": "US President Donald Trump used a Veterans Day commemoration on Wednesday to defend the war against Iran – an increasingly unpopular conflict that helped trigger a Democratic takeover of Congress in last week’s midterm elections. “The bravery and skill of our amazing American warriors has absolutely been incredible,” Tr"
+      "summary": "US President Donald Trump defended the war against Iran Wednesday at a US Veterans Day commemoration that saw his defence secretary publicly admonished for a lack of decorum. “The bravery and skill of our amazing American warriors has absolutely been incredible,” Trump said in an address at Arlington National Cemetery "
     },
     {
       "source": "Ars Technica",
@@ -657,14 +913,6 @@
       ]
     },
     {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Thinking Machines Lab Introduces Inkling 2 Small for Coding and Knowledge Work - HPCwire",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPZDMwREMyZDNldXJCd2VsaW1MeWNuODAxSjdrVUJ2bWJQSW9pZXhTN0VneEU4al9jTnljQmh6ZjZRMWFyU3ZiT3AwWVJJVS1wcEJZZGdhZ2RubWlySlUxOVFsLVpJQmpFMWlhZVgxbzBYWUsyeXBXaWVqcWxSSzRVUHlJUWdXRjM4RG82YVRkcE5pMG5GQUtPbGlIUGFLQkN5U2NjZXUtWi1rVXRCNTEtWFhyWXBrNkRPOWJqVlJB?oc=5",
-      "publishedAt": "2026-11-11T20:03:19.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivgFBVV95cUxPZDMwREMyZDNldXJCd2VsaW1MeWNuODAxSjdrVUJ2bWJQSW9pZXhTN0VneEU4al9jTnljQmh6ZjZRMWFyU3ZiT3AwWVJJVS1wcEJZZGdhZ2RubWlySlUxOVFsLVpJQmpFMWlhZVgxbzBYWUsyeXBXaWVqcWxSSzRVUHlJUWdXRjM4RG82YVRkcE5pMG5GQUtPbGlIUGFLQkN5U2NjZXUtWi1rVXRCNTEtWFhyWXBrNkRPOWJqVlJB?oc=5\" target="
-    },
-    {
       "source": "WIRED",
       "discoveryOnly": false,
       "title": "I Saw the Future of Robotics in a Virtual Duck That Chases My Cat",
@@ -682,7 +930,7 @@
       "title": "CoreWeave turns to customer prepayments, shorter contracts to fund AI growth",
       "url": "https://techcrunch.com/2026/11/11/coreweave-turns-to-customer-prepayments-shorter-contracts-to-fund-ai-growth/",
       "publishedAt": "2026-11-11T19:54:00.000Z",
-      "summary": "CoreWeave is increasingly asking customers to pay upfront, borrowing against specific contracts, and even looking to short-term deals that could lead to higher prices, according to the company’s third-quarter earnings.",
+      "summary": "CoreWeave is increasingly asking customers to pay up front, borrowing against specific contracts, and even looking to short-term deals that could lead to higher prices, according to the company’s third-quarter earnings.",
       "categories": [
         "AI",
         "ai infrastructure",
@@ -719,6 +967,14 @@
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNMWlleThMNkxsdHJYd3dPY3JaU2FsQVVDaTNSNzhIVFotLTM1ZVpHaXBfcnJkMTA4N3gxdVFwSUM3d2lRTjgtdU9MMWc4NnJQUTZNWHYzbTExdjFOSGw0Ujc1aUNrcXE0eG9SeHNEbXNhUmVjWXpBZXYzQndsYnJCOHd1cmwwb3ZNbHZ1eW52aWw0am1yOHRrS2t2bFFmWnFl?oc=5",
       "publishedAt": "2026-11-11T19:30:13.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMioAFBVV95cUxNMWlleThMNkxsdHJYd3dPY3JaU2FsQVVDaTNSNzhIVFotLTM1ZVpHaXBfcnJkMTA4N3gxdVFwSUM3d2lRTjgtdU9MMWc4NnJQUTZNWHYzbTExdjFOSGw0Ujc1aUNrcXE0eG9SeHNEbXNhUmVjWXpBZXYzQndsYnJCOHd1cmwwb3ZNbHZ1eW52aWw0am1yOHRrS2t2bFFmWnFl?oc=5\" target=\"_blank\">Gemini 4 Carbon: 6.5M Lean Proo"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Do the maths: AI is no longer a specialist policy area - Civil Service World",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQc0taNkZWOEk4UHNtcDR6Qy1mQ0F3cHB5eXU1Sy05Zk9uSk9HekstQUduLWhiS05Cb1BfR0xQRmpNbWJucmE1bzAxZGY0MVFlMmQ5WmlvbUM1Y1UwaFlSOXNoS2NiYTRHQzUxWjZ0SjFsVTV0NktXX2JKbEJqdE9vcWN1STFNd3QzT1JwRS1LTG1LWW5DQkg4aGpmSEtJeGtyU0RLM2tsZENCUlg4YlpQSFRPcFJtN2Fsck9peldrYjhoQ0NscHJPQ25Kdl9kRzVmajVaNm5PTQ?oc=5",
+      "publishedAt": "2026-11-11T19:26:57.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi1wFBVV95cUxQc0taNkZWOEk4UHNtcDR6Qy1mQ0F3cHB5eXU1Sy05Zk9uSk9HekstQUduLWhiS05Cb1BfR0xQRmpNbWJucmE1bzAxZGY0MVFlMmQ5WmlvbUM1Y1UwaFlSOXNoS2NiYTRHQzUxWjZ0SjFsVTV0NktXX2JKbEJqdE9vcWN1STFNd3QzT1JwRS1LTG1LWW5DQkg4aGpmSEtJeGtyU0RLM2tsZENCUlg4YlpQSFRPcFJtN2Fsck9peldrYjhoQ0NscHJPQ2"
     },
     {
       "source": "TechCrunch",
@@ -760,10 +1016,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Do the maths: AI is no longer a specialist policy area - Civil Service World",
-      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQc0taNkZWOEk4UHNtcDR6Qy1mQ0F3cHB5eXU1Sy05Zk9uSk9HekstQUduLWhiS05Cb1BfR0xQRmpNbWJucmE1bzAxZGY0MVFlMmQ5WmlvbUM1Y1UwaFlSOXNoS2NiYTRHQzUxWjZ0SjFsVTV0NktXX2JKbEJqdE9vcWN1STFNd3QzT1JwRS1LTG1LWW5DQkg4aGpmSEtJeGtyU0RLM2tsZENCUlg4YlpQSFRPcFJtN2Fsck9peldrYjhoQ0NscHJPQ25Kdl9kRzVmajVaNm5PTQ?oc=5",
-      "publishedAt": "2026-11-11T19:18:45.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi1wFBVV95cUxQc0taNkZWOEk4UHNtcDR6Qy1mQ0F3cHB5eXU1Sy05Zk9uSk9HekstQUduLWhiS05Cb1BfR0xQRmpNbWJucmE1bzAxZGY0MVFlMmQ5WmlvbUM1Y1UwaFlSOXNoS2NiYTRHQzUxWjZ0SjFsVTV0NktXX2JKbEJqdE9vcWN1STFNd3QzT1JwRS1LTG1LWW5DQkg4aGpmSEtJeGtyU0RLM2tsZENCUlg4YlpQSFRPcFJtN2Fsck9peldrYjhoQ0NscHJPQ2"
+      "title": "Gilbert + Tobin Transforms Legal Operations with AI Integration - Blockchain News",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5fNFRWNkVTU2laYmZNbVJiSWg2d1BPVFI3S0Zaa3pLYmY4QlVSV0tVY2txbE1uUkJESEI3U2ZobHNYNzdRVmV3akRRRW9OZGpiR0FFbnl2MEZwZlN1ejUxbDFaWklWMkxaeHF0aGl4cw?oc=5",
+      "publishedAt": "2026-11-11T19:05:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMib0FVX3lxTE5fNFRWNkVTU2laYmZNbVJiSWg2d1BPVFI3S0Zaa3pLYmY4QlVSV0tVY2txbE1uUkJESEI3U2ZobHNYNzdRVmV3akRRRW9OZGpiR0FFbnl2MEZwZlN1ejUxbDFaWklWMkxaeHF0aGl4cw?oc=5\" target=\"_blank\">Gilbert + Tobin Transforms Legal Operations with AI Integration</a>&nbsp;&nbsp;<font color=\"#6f6f"
     },
     {
       "source": "Google News",
@@ -927,7 +1183,7 @@
     {
       "source": "SCMP — China",
       "discoveryOnly": false,
-      "title": "Russia’s ambassador to the US dies ‘suddenly’, foreign ministry says",
+      "title": "Russia’s ambassador to US dies ‘suddenly’ in Moscow",
       "url": "https://www.scmp.com/news/world/russia-central-asia/article/3374121/russias-ambassador-us-dies-suddenly-foreign-ministry-says",
       "publishedAt": "2026-11-11T17:27:41.000Z",
       "summary": "Russia’s ambassador to the United States, Alexander Darchiev, has died “suddenly” at the age of 66 after just one and a half years in the job, Moscow’s foreign ministry announced on Wednesday. The ministry called Darchiev an “outstanding diplomat, an experienced leader and a kind colleague”. He was appointed in March 2"
@@ -977,10 +1233,10 @@
     {
       "source": "SCMP — China",
       "discoveryOnly": false,
-      "title": "Rubio, Wang hold phone call before Xi-Trump meeting next week",
+      "title": "Rubio raises US-China-Russia trilateral in phone call with Wang",
       "url": "https://www.scmp.com/news/china/diplomacy/article/3374120/rubio-wang-hold-phone-call-trump-xi-meeting-next-week",
       "publishedAt": "2026-11-11T17:07:10.000Z",
-      "summary": "US Secretary of State Marco Rubio held a phone call with Chinese Foreign Minister Wang Yi on Wednesday to finalise preparations for next week’s meeting between US President Donald Trump and Chinese leader Xi Jinping in Shenzhen, China. “The two heads of state agreed to enrich the connotation of a new vision of China-US"
+      "summary": "US Secretary of State Marco Rubio discussed the possibility of a trilateral summit with Beijing and Moscow next week during a phone call with Chinese Foreign Minister Wang Yi on Wednesday. “They agreed on the importance of meaningful leader-level conversations to advance goals such as peace and denuclearisation, includ"
     },
     {
       "source": "Ars Technica",
@@ -1054,6 +1310,14 @@
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNU3Y3WnVfZkhJRWRsRnp5N1BWaEpBVHFkVUc4REFKQ0xtSEVHelBnS254QmZfbkJ1bV9lTmtqWGxROVc3aU9KbHIyVmVBczlmY2txMXlCN0g1MnZrb0JrNXIySV9sLVdkUEVYbWZuUmlGZy1WZDZ6S25fVEV4cHQ1T1B1bHRmNmNRRXpZ?oc=5",
       "publishedAt": "2026-11-11T16:51:53.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiwFBVV95cUxNU3Y3WnVfZkhJRWRsRnp5N1BWaEpBVHFkVUc4REFKQ0xtSEVHelBnS254QmZfbkJ1bV9lTmtqWGxROVc3aU9KbHIyVmVBczlmY2txMXlCN0g1MnZrb0JrNXIySV9sLVdkUEVYbWZuUmlGZy1WZDZ6S25fVEV4cHQ1T1B1bHRmNmNRRXpZ?oc=5\" target=\"_blank\">AWS’s UAEF Scores AI Agents on 36 Metrics, 24 via Bedrock</"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "The Secret to Better AI Training? Knowing When to Stop - Workday Blog",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOVVVSakFZa1RoMGpyLWV4Z3RmSXY4bmJEWXBjdEIyMEJQYWhhSGdxdFdtR1FsVThfc1FaX2trODZwMFlWMnVIczNWdzhaYTVZTDgwN0JrYl9qQW5Ic1lHVFltdmY0MENUVEZTVGlET3VaN1UtcHFsMnEwZmZzeDVVNjZGSGpJN2dyVkY2dUpPYjJGalk?oc=5",
+      "publishedAt": "2026-11-11T16:45:42.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikwFBVV95cUxOVVVSakFZa1RoMGpyLWV4Z3RmSXY4bmJEWXBjdEIyMEJQYWhhSGdxdFdtR1FsVThfc1FaX2trODZwMFlWMnVIczNWdzhaYTVZTDgwN0JrYl9qQW5Ic1lHVFltdmY0MENUVEZTVGlET3VaN1UtcHFsMnEwZmZzeDVVNjZGSGpJN2dyVkY2dUpPYjJGalk?oc=5\" target=\"_blank\">The Secret to Better AI Training? Knowing When t"
     },
     {
       "source": "Ars Technica",
@@ -1394,6 +1658,14 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
+      "title": "Ultimate Gemini Model Comparison 2026: 2.5 to Gemini 4 - Fello AI",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE4zcWFFUUNFRmY3ZmJmTXVzMzJLRi1TVlY3LVhNekpjcXdmNWttbGtjOXVOV3VrNnlkWVo0MkhWNU9UeXlySEpKUXNRLV9UYkc5cU1zbVVsRTY4dG5IRUhENHgwTQ?oc=5",
+      "publishedAt": "2026-11-11T14:51:26.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiY0FVX3lxTE4zcWFFUUNFRmY3ZmJmTXVzMzJLRi1TVlY3LVhNekpjcXdmNWttbGtjOXVOV3VrNnlkWVo0MkhWNU9UeXlySEpKUXNRLV9UYkc5cU1zbVVsRTY4dG5IRUhENHgwTQ?oc=5\" target=\"_blank\">Ultimate Gemini Model Comparison 2026: 2.5 to Gemini 4</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Fello AI</font>"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
       "title": "AI sales startup Rox raises $100 million at a $1.3 billion valuation to take on Salesforce - MLQ.ai",
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOdmVyNzJCUFpxYTJMZ1RrLXh6M1ZWNW5rZlN3bUxYTmVOOXotZmRLVnc1cFd2SHJFNkhxaS01TFJNMmxyTHp1ZmwzQXd3VU9aY2trQTF5djg5YnVPcGk4YUZtTkFDd0JJY1RGWlZ2bVM4R0VFM2dqYzdMZzJLWVRRWG9OSVNQcTRIVlhlT0Uzcm9iazRKcENzYlZNNzAyX2hQYkNPZ1F6RzEwUGg5?oc=5",
       "publishedAt": "2026-11-11T14:50:07.000Z",
@@ -1460,7 +1732,7 @@
       "title": "When Does It Actually Make Sense to Put AI Into Products?",
       "url": "https://spectrum.ieee.org/human-centered-ai-product-design",
       "publishedAt": "2026-11-11T14:00:02.000Z",
-      "summary": "Over the past few years, the tech industry has rushed to plug a new microchip into every device on the assumption that if you can add AI, you should. Smart vision toothbrushes , mood-reading household robots , and a host of physical products are invading consumers’ daily lives, reliant on artificial intelligence to lea",
+      "summary": "Over the past few years, the tech industry has rushed to plug a new microchip into every device on the assumption that if you can add AI, you should. Smart-vision toothbrushes , mood-reading household robots , and a host of physical products are invading consumers’ daily lives, reliant on artificial intelligence to lea",
       "categories": [
         "Product-design",
         "Product-development",
@@ -1571,7 +1843,7 @@
       "title": "30 Japanese porn stars denied entry into Hong Kong, forcing adult expo’s cancellation",
       "url": "https://www.scmp.com/news/hong-kong/law-and-crime/article/3374106/30-japanese-porn-stars-denied-entry-hong-kong-forcing-adult-expos-cancellation",
       "publishedAt": "2026-11-11T12:49:50.000Z",
-      "summary": "A large-scale adult entertainment expo billed as Hong Kong’s first has abruptly been cancelled after nearly 30 Japanese adult-video (AV) performers were refused entry upon arrival at Hong Kong International Airport. Organisers of the “Mega Fans Expo 2026” (MFE) released a statement on Wednesday announcing with regret t"
+      "summary": "A large-scale adult entertainment expo billed as Hong Kong’s first has been abruptly cancelled, with organisers saying nearly 30 Japanese adult-video (AV) performers were refused entry on arrival at Hong Kong International Airport, while immigration authorities said they chose to leave after learning the event had been"
     },
     {
       "source": "Google News",
@@ -1606,20 +1878,12 @@
       "summary": "Former Bangladeshi prime minister Sheikh Hasina’s plan to return from exile in India could fuel renewed unrest and test Dhaka’s ability to maintain stability and pursue national reconciliation, analysts have warned. The prospect of her return has raised questions about how Prime Minister Tarique Rahman would handle a p"
     },
     {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "China-linked critical minerals price swings delay 1 in 4 energy-storage projects: report",
-      "url": "https://www.scmp.com/economy/global-economy/article/3374064/china-linked-critical-minerals-price-swings-delay-1-4-energy-storage-projects-report",
-      "publishedAt": "2026-11-11T12:30:10.000Z",
-      "summary": "Price volatility in critical minerals, largely shaped by China’s market, is delaying or derailing nearly one in four energy-storage investments worldwide, according to a new report, highlighting the extent to which strategic materials have become a growing geopolitical flashpoint. Some 23 per cent of investors, lenders"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "In US or China, firms need AI they can independently verify and trust",
-      "url": "https://www.scmp.com/opinion/world-opinion/article/3373829/us-or-china-firms-need-ai-they-can-independently-verify-and-trust",
-      "publishedAt": "2026-11-11T12:30:07.000Z",
-      "summary": "When the Magnificent Seven, America’s top tech companies, shed more than US$1 trillion in a single trading session, the usual question returned: is artificial intelligence (AI) a bubble? Yet as global headlines are transfixed by the personal and governance crises shaking Silicon Valley’s titan icons, that debate is alr"
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Apple's Harbor app surfaces, turning the Mac into a private AI server - Pasquale Pillitteri",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNZ2NVaGx3WmhodGpPVW16N3gwa1dacFFtMU90dEp3aGN0Q084T2ZUU1RtRVM1aTIwdWdkMnpHY0xJTW53bGE2UEQwTlM1dllkSEx4RGRYX2s1LWNOSjV2UnJ2b3ZURndxRlVHenRzcWRfWGRnRTJIUkZFdlRRRXM4VDN4b2NEMnQ0TGc?oc=5",
+      "publishedAt": "2026-11-11T12:30:50.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiigFBVV95cUxNZ2NVaGx3WmhodGpPVW16N3gwa1dacFFtMU90dEp3aGN0Q084T2ZUU1RtRVM1aTIwdWdkMnpHY0xJTW53bGE2UEQwTlM1dllkSEx4RGRYX2s1LWNOSjV2UnJ2b3ZURndxRlVHenRzcWRfWGRnRTJIUkZFdlRRRXM4VDN4b2NEMnQ0TGc?oc=5\" target=\"_blank\">Apple's Harbor app surfaces, turning the Mac into a private "
     },
     {
       "source": "WIRED",
@@ -1637,18 +1901,18 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
+      "title": "Meta, TikTok join Google to push back on Indonesia's planned AI copyright law revisions - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOeDZLSGp0MHRPWUgzVTNmZEhMLWR6Z2lvdmZiQzRzblJobjdGdlRMUmhHV1dzM3lUUHdocXNoMnp4bFZHOEZtUU41T3BGT0d0blpyYnViSDZ3bklQNG50bnRyVmtYTE0xZTdWc0dDODhrd1hIRXVKTXVWMWVqWVY1aEFLN040QzJRMW40QzJzTHVYMjNEVTRuZ0NEdFI3eS1EV05WWDdjZ3g4TldaRnBrd01GY0lKckRvOTFCRUc5QVBXb0d2WHFaMXdPWno?oc=5",
+      "publishedAt": "2026-11-11T12:18:33.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMizAFBVV95cUxOeDZLSGp0MHRPWUgzVTNmZEhMLWR6Z2lvdmZiQzRzblJobjdGdlRMUmhHV1dzM3lUUHdocXNoMnp4bFZHOEZtUU41T3BGT0d0blpyYnViSDZ3bklQNG50bnRyVmtYTE0xZTdWc0dDODhrd1hIRXVKTXVWMWVqWVY1aEFLN040QzJRMW40QzJzTHVYMjNEVTRuZ0NEdFI3eS1EV05WWDdjZ3g4TldaRnBrd01GY0lKckRvOTFCRUc5QVBXb0d2WHFaMX"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
       "title": "Claude rolls out apps inside the chat, from Asana and Canva to Vercel - Pasquale Pillitteri",
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQaXJ4S0J1b0V6WE9XSGpFcnJFVEo0SFFKS0RmTUlRNGtkNmhpVDJxcmF2SVpReXFVeFRzbUpuLXhFQVE0RmJvVFJzcFZSSGZBdkFtU3NFelNIYmNhTmwzNmt0V3hoRW9jaTJkM2N5SFhZZ2RvMkYyZkNyWUQ5WW1WZE5wLXZyb0ttZEY0cVBELW9FUGV0MFlSM2luVUk?oc=5",
       "publishedAt": "2026-11-11T12:00:46.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxQaXJ4S0J1b0V6WE9XSGpFcnJFVEo0SFFKS0RmTUlRNGtkNmhpVDJxcmF2SVpReXFVeFRzbUpuLXhFQVE0RmJvVFJzcFZSSGZBdkFtU3NFelNIYmNhTmwzNmt0V3hoRW9jaTJkM2N5SFhZZ2RvMkYyZkNyWUQ5WW1WZE5wLXZyb0ttZEY0cVBELW9FUGV0MFlSM2luVUk?oc=5\" target=\"_blank\">Claude rolls out apps inside the cha"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "US citizen, ‘Chinese blood’: top biologist Yuan Junying caught in debate over returnees",
-      "url": "https://www.scmp.com/news/china/science/article/3374058/us-citizen-chinese-blood-top-biologist-yuan-junying-caught-debate-over-returnees",
-      "publishedAt": "2026-11-11T12:00:05.000Z",
-      "summary": "A top Chinese-American biologist who left Harvard University to take up a position in China is facing an online backlash amid a growing debate over whether senior returnees are squeezing out the country’s young scientists. Yuan Junying, a pioneer in the study of how cells die, drew attention in China late last month wh"
     },
     {
       "source": "Google News",
@@ -1657,6 +1921,14 @@
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPLTBldVVlemdHbmFZSG95YWRHOVE5MUhZQnhoN291TnJnMjM0c3p4bkY0VzJLVWJpUkttWnB0WHprNWNaZmxvWEhwQUk1VFg2aC1Oclo4OXQ5N1phSW9CRGhOTHhHOHZLWVpmVHpfaW9pOUpqb2tFTGtGRkF3MGE5ajF1WUZoYzQwVWNNSlZCZw?oc=5",
       "publishedAt": "2026-11-11T12:00:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMijwFBVV95cUxPLTBldVVlemdHbmFZSG95YWRHOVE5MUhZQnhoN291TnJnMjM0c3p4bkY0VzJLVWJpUkttWnB0WHprNWNaZmxvWEhwQUk1VFg2aC1Oclo4OXQ5N1phSW9CRGhOTHhHOHZLWVpmVHpfaW9pOUpqb2tFTGtGRkF3MGE5ajF1WUZoYzQwVWNNSlZCZw?oc=5\" target=\"_blank\">School of Government and Policy creates new model of "
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Utah-Based Startup Raises $500 Million for Modular AI Data Center - Bloomberg.com",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNMnkyLURTQXlOa1U5cWh1TU9aNE9DUlM4MGxCaDhEcEZ3dXBxUm1hS1RiVlAxTVdKU2VxX2pKREk1WVo0bEpzOHRuNUVKYUhXQzkwclRTNEF4amJoNy14d2tHMlRpbHNnNFlRSHl1REM2QTdkUDJ3VTN3N3YyTzNaX2dDXzFmS1NFQ1BjYzUtaWJsRVBaV0lxZnFDdFpLTnVxWW01MUVNYTA3Rkl3TGRIQzJFYXVMZw?oc=5",
+      "publishedAt": "2026-11-11T12:00:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitgFBVV95cUxNMnkyLURTQXlOa1U5cWh1TU9aNE9DUlM4MGxCaDhEcEZ3dXBxUm1hS1RiVlAxTVdKU2VxX2pKREk1WVo0bEpzOHRuNUVKYUhXQzkwclRTNEF4amJoNy14d2tHMlRpbHNnNFlRSHl1REM2QTdkUDJ3VTN3N3YyTzNaX2dDXzFmS1NFQ1BjYzUtaWJsRVBaV0lxZnFDdFpLTnVxWW01MUVNYTA3Rkl3TGRIQzJFYXVMZw?oc=5\" target=\"_blank\">U"
     },
     {
       "source": "WIRED",
@@ -1685,30 +1957,6 @@
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOeHNCZFZJeldvbjBON0Y0dGNwWWJDMDZaLW1ob1JuOUJkdW5mMEJ2bndCSXJiZmNQVlhjZnl1UER3YTJsc2RPWjFwYXpua3NFZ1pMV2xRWEhVaVNnMHl0VHozd3dkc1RaV2xRTEg2ZFZ2SzdGeTUxaHlhcDVEc3FSUXlnLXJpSWNkQkw0bTdEMDkwWV95WUxWaA?oc=5",
       "publishedAt": "2026-11-11T11:51:04.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxOeHNCZFZJeldvbjBON0Y0dGNwWWJDMDZaLW1ob1JuOUJkdW5mMEJ2bndCSXJiZmNQVlhjZnl1UER3YTJsc2RPWjFwYXpua3NFZ1pMV2xRWEhVaVNnMHl0VHozd3dkc1RaV2xRTEg2ZFZ2SzdGeTUxaHlhcDVEc3FSUXlnLXJpSWNkQkw0bTdEMDkwWV95WUxWaA?oc=5\" target=\"_blank\">Many countries are tightening regulations"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Hoax bomb alerts sent to schools in Italy, UK and Ireland",
-      "url": "https://www.scmp.com/news/world/europe/article/3374103/over-300-italian-schools-evacuated-after-receiving-same-emailed-bomb-alert",
-      "publishedAt": "2026-11-11T11:47:16.000Z",
-      "summary": "Schools across Italy were evacuated on Wednesday after around 6,300 of them received bomb warnings, the latest in a series of threats and cyberattacks around Europe against supermarkets, blood banks, air ‌traffic and broadcasters. Scotland, Northern Ireland and the Republic of Ireland said many of their schools also re"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "BYD apologises for wheel-rim error as China cracks down on car quality issues",
-      "url": "https://www.scmp.com/business/china-evs/article/3374098/byd-apologises-wheel-rim-error-china-cracks-down-car-quality-issues",
-      "publishedAt": "2026-11-11T11:32:05.000Z",
-      "summary": "BYD has apologised for an assembly error that caused some of its electric cars in China to be fitted with incorrect wheel rims, as Beijing ramps up scrutiny of quality issues in the country’s car industry. The world’s largest electric vehicle (EV) maker confirmed in a statement on Wednesday that a supplier had installe"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "India forms specialist police commando units to patrol disputed border with China",
-      "url": "https://www.scmp.com/news/china/diplomacy/article/3374097/india-forms-specialist-police-commando-units-patrol-disputed-border-china",
-      "publishedAt": "2026-11-11T11:31:31.000Z",
-      "summary": "India has reportedly formed specialised commando units to patrol its disputed border with China in a bid to claw back its lost tactical edge. The move is expected to spur Beijing to step up its efforts to improve its infrastructure and force projection in the region. The units, known as Shaurya platoons, will form part"
     },
     {
       "source": "Google News",
@@ -1740,14 +1988,6 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiigFBVV95cUxPbnNpcTI2bDl3c1FPSVg4akRnVUNabUx6SnVXMXB4VTljM19peVpNR1djbDZQdjBUMzF4dUhkMlRRb3l2NWF4d05rLWhvT0tpNUZYb3I0MHJFZ1Y1bDdlR09vcHRuSGRSQU4zakdHQ0hjQWMxMk5ocWZ5OExCTVIxYi1jc0RacmEyalE?oc=5\" target=\"_blank\">Claude Sheets takes on Excel, yet Anthropic sends heavy user"
     },
     {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "US judge rejects BBC bid to dismiss Trump defamation case",
-      "url": "https://www.scmp.com/news/world/united-states-canada/article/3374096/us-judge-rejects-bbc-bid-dismiss-trump-defamation-case",
-      "publishedAt": "2026-11-11T11:16:09.000Z",
-      "summary": "A federal judge has allowed US President Donald Trump’s multibillion-dollar defamation suit against the BBC to proceed, rejecting a bid by the British broadcaster to dismiss the case. Trump has accused the BBC of deceptively editing a documentary to make it seem as if he was inciting violence when he told supporters to"
-    },
-    {
       "source": "WIRED",
       "discoveryOnly": false,
       "title": "Michigan Residents Voted to Get Corporate Money Out of Politics. Now Utilities Are Suing",
@@ -1759,14 +1999,6 @@
         "Science / Environment",
         "Politics"
       ]
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Garage owner, 72, dies after car falls on him in Hong Kong",
-      "url": "https://www.scmp.com/news/hong-kong/society/article/3374095/garage-owner-72-dies-after-car-falls-him-hong-kong",
-      "publishedAt": "2026-11-11T11:04:50.000Z",
-      "summary": "A 72-year-old garage owner has died after a car he was repairing fell on him in Hong Kong. Police received a report from a passer-by at 2.50pm on Wednesday that a man had become trapped beneath a private car off Wing Lai Road in Tseung Kwan O Upper Village. Emergency personnel arrived to find the man unconscious, with "
     },
     {
       "source": "WIRED",
@@ -1781,14 +2013,6 @@
         "Gear / Products / Smart Home",
         "Gear / Products / Home"
       ]
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Swire Properties and Thai partner bank on Upper House brand in Bangkok",
-      "url": "https://www.scmp.com/business/article/3374093/swire-properties-and-thai-partner-bank-upper-house-brand-bangkok",
-      "publishedAt": "2026-11-11T11:00:25.000Z",
-      "summary": "Hong Kong-based Swire Properties and its Thai partner City Realty are making an aggressive sales push with wealthy Hongkongers as they promote Upper House-branded residences in Bangkok. With more than 100 flats worth 10 billion baht (US$298 million) sold since the launch in May, the two towers – called the Upper House "
     },
     {
       "source": "Google News",
@@ -1811,14 +2035,6 @@
       ]
     },
     {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Hong Kong rules out talent scheme caps despite squeeze on jobs for local graduates",
-      "url": "https://www.scmp.com/news/hong-kong/article/3374092/hong-kong-rules-out-talent-scheme-caps-despite-squeeze-jobs-local-graduates",
-      "publishedAt": "2026-11-11T10:59:28.000Z",
-      "summary": "Hong Kong authorities have no plans to adjust talent-hunting schemes or cap the number of non-local graduates permitted to seek employment in the city, the labour chief has said, pointing to a rapidly ageing population and persistent manpower shortages across pillar industries. But lawmakers representing workers said t"
-    },
-    {
       "source": "Google News",
       "discoveryOnly": true,
       "title": "Innovation with AWS (Level 100) - Amazon Web Services (AWS)",
@@ -1839,14 +2055,6 @@
       ]
     },
     {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Exclusive | AI Security Startup Sentra Raises $150 Million to Police Autonomous Agents - WSJ",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPYXoxT3FYWjJHMDlHckQ0b0d4Z2ZYUnpRUjhzcFFLalFuYXdaV0hwLWJYOWh3U0FTTVJkNXFOcWpNSkRfc1lkT0preHVMN2JkdEJVUDJoaVhVV1lGdUNjdkNqY2xGeHBob1dCXzl2azhKX2U4UmtxejVuZTl1aUhGaHRYTTh1bGFaWVRPWTNZckdiTXhfSUVSb3hxWXhoaVBGdjRGT1hjTEprZUZPbmUxUmFZMlFHX3IzQmIyVg?oc=5",
-      "publishedAt": "2026-11-11T10:20:02.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxPYXoxT3FYWjJHMDlHckQ0b0d4Z2ZYUnpRUjhzcFFLalFuYXdaV0hwLWJYOWh3U0FTTVJkNXFOcWpNSkRfc1lkT0preHVMN2JkdEJVUDJoaVhVV1lGdUNjdkNqY2xGeHBob1dCXzl2azhKX2U4UmtxejVuZTl1aUhGaHRYTTh1bGFaWVRPWTNZckdiTXhfSUVSb3hxWXhoaVBGdjRGT1hjTEprZUZPbmUxUmFZMlFHX3IzQmIyVg?oc=5\" target=\"_"
-    },
-    {
       "source": "WIRED",
       "discoveryOnly": false,
       "title": "Early Black Friday Deals Under $100 (2026)",
@@ -1865,30 +2073,6 @@
       "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE8xQmlWd01xdGg2SDN2LTBXdjdvcG9KbUtfbmpncjV3RUlJaXQxUWJVVmFsVVpzTGZqMGc3Nzd4a1RGUTZKTzJ4T2VIcURDZW96Ui1UdU1oREQzY2JPaXFwUGxBU29YWTRWSnc4RVVKVDV6U2MzR2ktYXpnUdIBe0FVX3lxTE8xQmlWd01xdGg2SDN2LTBXdjdvcG9KbUtfbmpncjV3RUlJaXQxUWJVVmFsVVpzTGZqMGc3Nzd4a1RGUTZKTzJ4T2VIcURDZW96Ui1UdU1oREQzY2JPaXFwUGxBU29YWTRWSnc4RVVKVDV6U2MzR2ktYXpnUQ?oc=5",
       "publishedAt": "2026-11-11T10:10:15.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMie0FVX3lxTE8xQmlWd01xdGg2SDN2LTBXdjdvcG9KbUtfbmpncjV3RUlJaXQxUWJVVmFsVVpzTGZqMGc3Nzd4a1RGUTZKTzJ4T2VIcURDZW96Ui1UdU1oREQzY2JPaXFwUGxBU29YWTRWSnc4RVVKVDV6U2MzR2ktYXpnUdIBe0FVX3lxTE8xQmlWd01xdGg2SDN2LTBXdjdvcG9KbUtfbmpncjV3RUlJaXQxUWJVVmFsVVpzTGZqMGc3Nzd4a1RGUTZKTzJ4T2VIcU"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Chinese shopper sparks buzz after buying flat for US$1.70 in Double 11 shopping festival",
-      "url": "https://www.scmp.com/news/people-culture/trending-china/article/3374084/chinese-shopper-sparks-buzz-after-buying-flat-us17-during-double-11-shopping-festival",
-      "publishedAt": "2026-11-11T10:06:59.000Z",
-      "summary": "China’s Double 11 discount frenzy reached surreal heights when a shopper from the east of the country snapped up a flat in the northeast for just 11 yuan (US$1.70). Pioneered by Chinese e-commerce platform Taobao in 2009 as China’s equivalent of Black Friday, the month-long shopping spree ran through mid-November after"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Hong Kong bid-rigging trial hears trio offered HK$2m bribes to win HK$20m tender",
-      "url": "https://www.scmp.com/news/hong-kong/law-and-crime/article/3374075/hong-kong-bid-rigging-trial-hears-trio-offered-hk2m-bribes-win-hk20m-tender",
-      "publishedAt": "2026-11-11T10:02:36.000Z",
-      "summary": "Three alleged middlemen in a Hong Kong bid-rigging syndicate offered HK$2 million (US$256,410) in bribes to an owners’ corporation chairman and member to secure a HK$20 million renovation tender for an ageing building, a court has heard. The prosecution’s opening statement in the District Court on Wednesday accused Cho"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Southeast Asian live streamers hustle to fuel booming e-commerce sales",
-      "url": "https://www.scmp.com/week-asia/lifestyle-culture/article/3374070/southeast-asian-live-streamers-hustle-fuel-booming-e-commerce-sales",
-      "publishedAt": "2026-11-11T10:00:11.000Z",
-      "summary": "In a makeshift studio inside his public housing flat in Singapore, Shane Soh stands before his smartphone, running his fingers through a towel as he extols its softness to viewers watching his live stream. A ring light illuminates his face while more than a dozen other products sit on a shelf behind him, waiting for th"
     },
     {
       "source": "WIRED",
@@ -1916,52 +2100,12 @@
       ]
     },
     {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "6 girls filmed vaping in Hong Kong school toilet, investigation under way",
-      "url": "https://www.scmp.com/news/hong-kong/education/article/3374083/6-girls-filmed-vaping-hong-kong-school-toilet-investigation-under-way",
-      "publishedAt": "2026-11-11T09:59:18.000Z",
-      "summary": "A video showing six schoolgirls puffing on e-cigarettes inside a school toilet cubicle in Hong Kong has gone viral, prompting education authorities to say they are “highly concerned” and contact the school. The 20-second clip, titled “Six people gathered in one room for hotpot”, was posted on Threads, Meta’s microblogg"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Spanish workers stage huge general strike, first in 14 years, angry over housing",
-      "url": "https://www.scmp.com/news/world/europe/article/3374082/spanish-workers-stage-huge-general-strike-1st-14-years-angry-over-housing",
-      "publishedAt": "2026-11-11T09:57:57.000Z",
-      "summary": "Less than three weeks before a snap national election that could catapult the far-right to power, millions of Spain’s workers were striking on Wednesday to demand that the government remedy the nation’s housing crisis. They set up picket lines despite stormy weather in a mass protest against housing affordability. The "
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Malaysia’s Najib is back home, but home comforts are off the menu",
-      "url": "https://www.scmp.com/week-asia/people/article/3374077/malaysias-najib-back-home-home-comforts-are-menu",
-      "publishedAt": "2026-11-11T09:41:21.000Z",
-      "summary": "Najib Razak, Malaysia’s corrupt former prime minister, may be back home to serve the rest of his prison sentence, but that does not mean he will be living in comfort with wife Rosmah Mansor and the rest of his family, a member of his party has confirmed. Najib returned to his house on Jalan Langgak Duta at about 9.30pm"
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Next-gen ultrasound cancer treatment advances: does the evidence match commercial hype?",
-      "url": "https://www.scmp.com/business/companies/article/3374076/next-gen-ultrasound-cancer-treatment-advances-does-evidence-match-commercial-hype",
-      "publishedAt": "2026-11-11T09:30:28.000Z",
-      "summary": "Hong Kong is expanding clinical trials of histotripsy, a non-invasive treatment that uses focused ultrasound to destroy tumours, as the city seeks to establish a role in developing the technology for kidney cancer. The CUHK Medical Centre, Gleneagles Hospital Hong Kong and Hong Kong Sanatorium & Hospital would begin tr"
-    },
-    {
       "source": "Google News",
       "discoveryOnly": true,
       "title": "Czech medtech Kardi Ai raises €5.3M to advance predictive heart monitoring - Tech.eu",
       "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOWWdNM1BtZUZYcHAtb2gzQU5WWHpLOE5QcXNDRTNuUjIxc2dTNkNkOTczTHpkS21zVGRvZ29fajd1T0w4WjU1bUF1c0hCdnhubXZtamNfdkdXRlJ5Yk1FZWJDOEZEN1ZkQTJ5VDk4blhnandVS0VYZEFfZ2pKcm9jczFTT3pfX1c3NWV5RHBLQXpYdHdQOENfd3JaQnJZUm5zeWZaS0ZR?oc=5",
       "publishedAt": "2026-11-11T09:19:57.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMipgFBVV95cUxOWWdNM1BtZUZYcHAtb2gzQU5WWHpLOE5QcXNDRTNuUjIxc2dTNkNkOTczTHpkS21zVGRvZ29fajd1T0w4WjU1bUF1c0hCdnhubXZtamNfdkdXRlJ5Yk1FZWJDOEZEN1ZkQTJ5VDk4blhnandVS0VYZEFfZ2pKcm9jczFTT3pfX1c3NWV5RHBLQXpYdHdQOENfd3JaQnJZUm5zeWZaS0ZR?oc=5\" target=\"_blank\">Czech medtech Kardi Ai "
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Hong Kong considers tougher site operation rules after spike in construction scandals",
-      "url": "https://www.scmp.com/news/hong-kong/society/article/3374067/hong-kong-considers-tougher-site-operations-rules-after-spike-construction-defects",
-      "publishedAt": "2026-11-11T09:15:55.000Z",
-      "summary": "Hong Kong’s Construction Industry Council will form a task force to review site operations and address quality concerns after a series of substandard works were uncovered at building and infrastructure projects across the city. Secretary for Development Bernadette Linn Hon-ho announced plans for the task force on Wedne"
     },
     {
       "source": "Google News",
@@ -1987,10 +2131,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Best Chinese AI Models in 2026: Ranked and Compared - Fello AI",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9pWW1rZmFrbzltSVAtUG05clg3alk5TENRQTd5TmVmRWQwV0N4LVJmbXRqSWpQRnY0bGNncjlKVXpvcGpQczJOUVdrRDZFSUtNcnBkaTFB?oc=5",
-      "publishedAt": "2026-11-11T08:39:49.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiVkFVX3lxTE9pWW1rZmFrbzltSVAtUG05clg3alk5TENRQTd5TmVmRWQwV0N4LVJmbXRqSWpQRnY0bGNncjlKVXpvcGpQczJOUVdrRDZFSUtNcnBkaTFB?oc=5\" target=\"_blank\">Best Chinese AI Models in 2026: Ranked and Compared</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Fello AI</font>"
+      "title": "UNU-EGOV launches Hub Focused on AI-Driven Impactful Digital Governance in the Republic of Korea - UNU | United Nations University",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNNEZwaEQyZlVkWWtDM2l3Sk5pNEZFbXM1Z0p5dDhpQURhNi15ZUlVZnlabGh0ZTAxXzBMcElwOTVaVWp3bjN4S2N4ZDZnel80SmJpWGhUVkU4U1NSeW5ISU1NTDd0RU9iejZ0RmFXSi0wWEhXYXNRVlgxT2I5d0VQX1VVNUg5emMxOE80WkxxN3Y4YzZOS3pRY2xhcXNwOGhSRXNGZXNHem85NlZRb1E?oc=5",
+      "publishedAt": "2026-11-11T08:50:48.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxNNEZwaEQyZlVkWWtDM2l3Sk5pNEZFbXM1Z0p5dDhpQURhNi15ZUlVZnlabGh0ZTAxXzBMcElwOTVaVWp3bjN4S2N4ZDZnel80SmJpWGhUVkU4U1NSeW5ISU1NTDd0RU9iejZ0RmFXSi0wWEhXYXNRVlgxT2I5d0VQX1VVNUg5emMxOE80WkxxN3Y4YzZOS3pRY2xhcXNwOGhSRXNGZXNHem85NlZRb1E?oc=5\" target=\"_blank\">UNU-EGOV lau"
     },
     {
       "source": "Google News",
@@ -2088,6 +2232,14 @@
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPc0NJeHFQMzJCOUVhTUhaV0VuS2RMX1Nzd0pxWFZSSUNtSGpWTWRmUVFXOTliN0VYUWluSkFVXzhvY28taGlZZmpOeHZtQUl1VVpkZFFJUDEydWlaazcxWjZOZlpOOXF5MUlFZWFzYktXT1R1NEhDZkZUVGJQOTNJX1pDdTdkb3ctMWFsTTNTdGVYaGgtWUlLYnJETmtRR3hScVVkaGJWNF83X3NlYkxXelBrZnNpaFIweURNMG80VDk?oc=5",
       "publishedAt": "2026-11-11T07:17:33.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxPc0NJeHFQMzJCOUVhTUhaV0VuS2RMX1Nzd0pxWFZSSUNtSGpWTWRmUVFXOTliN0VYUWluSkFVXzhvY28taGlZZmpOeHZtQUl1VVpkZFFJUDEydWlaazcxWjZOZlpOOXF5MUlFZWFzYktXT1R1NEhDZkZUVGJQOTNJX1pDdTdkb3ctMWFsTTNTdGVYaGgtWUlLYnJETmtRR3hScVVkaGJWNF83X3NlYkxXelBrZnNpaFIweURNMG80VDk?oc=5\" targ"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "U. associate professor reports on effects of AI-training 250,000 employees - The Daily Targum",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBNRWV5OFlOUnk3QXJEZnRDTC1pOUVabnRlZnVFb0RTdUp5VWFrR3daVExVbHlsRWpQRk9EVjh3aGxQNlNmeUFFeHBJNzBaTy1NZ0l4c01KMy1oUmdhbkZac3RqYldZZzJL?oc=5",
+      "publishedAt": "2026-11-11T07:11:23.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiaEFVX3lxTFBNRWV5OFlOUnk3QXJEZnRDTC1pOUVabnRlZnVFb0RTdUp5VWFrR3daVExVbHlsRWpQRk9EVjh3aGxQNlNmeUFFeHBJNzBaTy1NZ0l4c01KMy1oUmdhbkZac3RqYldZZzJL?oc=5\" target=\"_blank\">U. associate professor reports on effects of AI-training 250,000 employees</a>&nbsp;&nbsp;<font color=\"#6f6"
     },
     {
       "source": "Google News",
@@ -2340,6 +2492,14 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMie0FVX3lxTE10OHlpeFBpYm1BWTB1YWNQWHo4bExxRHJ2Vm9KdDF6SzBxY1NVd3hudENaMWJTX3IwTnhkZ1R6ZTl6bjU1TVNPenFJVjk1Sm1oTTBtanZLNGdIbklnbkhNZzRocjNmbmdGQkJVbU9RVDd5T3B5emhMWnhJWQ?oc=5\" target=\"_blank\">Tasmania sets AI ‘baseline’ for government</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">I"
     },
     {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "The Ultimate Claude Model Comparison: Claude 4 to Fable 5.2 - Fello AI",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1mWjlfRXNYLV81SWtXV09lOVhpelBOTTlBbmtnNTdDQnd5Wmw2OXIyRDVZVm1aRFlVVDU3TVZOVGJrczl0VmVRN3R6UnZtWC1aYWkxSW5OUnJ3bWVEc084YUcycw?oc=5",
+      "publishedAt": "2026-11-11T03:07:36.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiY0FVX3lxTE1mWjlfRXNYLV81SWtXV09lOVhpelBOTTlBbmtnNTdDQnd5Wmw2OXIyRDVZVm1aRFlVVDU3TVZOVGJrczl0VmVRN3R6UnZtWC1aYWkxSW5OUnJ3bWVEc084YUcycw?oc=5\" target=\"_blank\">The Ultimate Claude Model Comparison: Claude 4 to Fable 5.2</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Fello AI</font>"
+    },
+    {
       "source": "NVIDIA",
       "discoveryOnly": false,
       "title": "How AI Helps Recyclers Turn Mixed Waste Into Reusable Material",
@@ -2477,10 +2637,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Anthropic launches Claude Sheets and Meetings in a push into office software as Microsoft shares fall - MLQ.ai",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNLUpYVS0yMVE3cUdEWl95azhnUEJXa2Q5Q3F6QnF2WFNsMzlVRUFoMlZHN0F5STVDckhZWl9KV3BDT21rT1F4RW8yZEZXYk9JZ1VoMDB0MVJPTUtnQUZKeHpzbXA0VEdBNUx6bURuRndHaXFiOVJOVE9Ca2R6clBNU3J1ZW1iWU5XV0t2X3NlQkhIVFJ5eUFGVHFvZE5fZEEtRmF0Q29HQS1NdUVYY2VUZHZ0M0xmZ21zOE11R1pWOA?oc=5",
-      "publishedAt": "2026-11-11T00:17:52.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxNLUpYVS0yMVE3cUdEWl95azhnUEJXa2Q5Q3F6QnF2WFNsMzlVRUFoMlZHN0F5STVDckhZWl9KV3BDT21rT1F4RW8yZEZXYk9JZ1VoMDB0MVJPTUtnQUZKeHpzbXA0VEdBNUx6bURuRndHaXFiOVJOVE9Ca2R6clBNU3J1ZW1iWU5XV0t2X3NlQkhIVFJ5eUFGVHFvZE5fZEEtRmF0Q29HQS1NdUVYY2VUZHZ0M0xmZ21zOE11R1pWOA?oc=5\" targe"
+      "title": "Nvidia CEO Jensen Huang might hang on as CEO. But his influence on U.S. AI policy is over - Fortune",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPLU83a2xneFBnaHNPWFBTdGswMjBtdXZRSDdyeGhGTTVCdVpiRW90TmFBdUI3Tk03VEVmQ2tYR21INDJyVFFtYllQQzdYOWRqQTlZWTByVlpudnNQRmptc1V4WWl2d0dTbEJ6TGNNN3l2cXhILXpieWpkLXd6Tnk3N3ZiNzl4T1ktMGZOMUVCU0pyeXJndlo5OFh6SjhVeXdaRElCQnl6MWI4dXl0UXF2ckZhS3k5aUt0VGJZ?oc=5",
+      "publishedAt": "2026-11-11T00:12:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiuwFBVV95cUxPLU83a2xneFBnaHNPWFBTdGswMjBtdXZRSDdyeGhGTTVCdVpiRW90TmFBdUI3Tk03VEVmQ2tYR21INDJyVFFtYllQQzdYOWRqQTlZWTByVlpudnNQRmptc1V4WWl2d0dTbEJ6TGNNN3l2cXhILXpieWpkLXd6Tnk3N3ZiNzl4T1ktMGZOMUVCU0pyeXJndlo5OFh6SjhVeXdaRElCQnl6MWI4dXl0UXF2ckZhS3k5aUt0VGJZ?oc=5\" target=\"_bl"
     },
     {
       "source": "Google News",
@@ -2773,17 +2933,12 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMivgFBVV95cUxOaFc0Vmx3TFpqeUVRYjEybGJyS2lDaXYxcUIwdy1FUWFlU3RWanJvSi01Z0dRY0VqT1V5OUVTUF92UDdYVFB0OFBRSTFNaHRMbjlBdjU5NVJfV3R0QV8zaGhmR09BSnRsN1pMMEZHbzlOYXUxTHdWLU5nRzR1VFJzQWhWLTlxNWVEWkQ2OE82cHVNX0p4ek9sQUM5RFZuemhqY05tSWpUcDY4UV83bkhVc0VwUWkwSC1qMDRjRFNB?oc=5\" target="
     },
     {
-      "source": "TechCrunch",
-      "discoveryOnly": false,
-      "title": "X-energy gets green light to build its first small modular nuclear reactors",
-      "url": "https://techcrunch.com/2026/11/10/x-energy-gets-green-light-to-build-its-first-small-modular-nuclear-reactors/",
-      "publishedAt": "2026-11-10T20:43:55.000Z",
-      "summary": "X-energy received a construction permit from the U.S. Nuclear Regulatory Commission to build four reactors in Texas.",
-      "categories": [
-        "Climate",
-        "nuclear power",
-        "X-Energy"
-      ]
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Anthropic Ships 4 Office Tools to Rival Microsoft [2026] - shattered.io",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQQ0t5bGxIX2NKV2Q0ckN1cXU3US13N1l5RXhOUVRTQ2RiSFZHb0JxYnRuZ3BUYmlwcUdqQ1REQlJFcW9jalgwQkk3UUhDd2F4dmt6QXlQYzVvTjJSY2c1YWJTSTB1d2pqakI4Mno4R0I4VjZSdjBJRXEyV2pFa3U4SF9jWTE5RlFJbEc0NDdTZGVyVlViemllcg?oc=5",
+      "publishedAt": "2026-11-10T20:44:49.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxQQ0t5bGxIX2NKV2Q0ckN1cXU3US13N1l5RXhOUVRTQ2RiSFZHb0JxYnRuZ3BUYmlwcUdqQ1REQlJFcW9jalgwQkk3UUhDd2F4dmt6QXlQYzVvTjJSY2c1YWJTSTB1d2pqakI4Mno4R0I4VjZSdjBJRXEyV2pFa3U4SF9jWTE5RlFJbEc0NDdTZGVyVlViemllcg?oc=5\" target=\"_blank\">Anthropic Ships 4 Office Tools to Rival M"
     },
     {
       "source": "Google News",
@@ -3097,17 +3252,6 @@
       ]
     },
     {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "Is Your Robot's Memory Just a Clock? Temporal Shortcuts in Memory-Augmented VLA Policies",
-      "url": "https://arxiv.org/abs/2611.14488v1",
-      "publishedAt": "2026-11-10T18:47:57.000Z",
-      "summary": "Memory-augmented vision-language-action (VLA) policies are meant to remember what happened. Many of them, however, fill memory by time: they sample frames uniformly across the episode and stamp each frame with its time step. Because time passes even when nothing happens, such a memory may not tell waiting from working.",
-      "categories": [
-        "cs.RO"
-      ]
-    },
-    {
       "source": "arXiv — cs.AI",
       "discoveryOnly": false,
       "title": "Re-Search: Dissecting LLM Ideation Through a Two-Player Questioning Game",
@@ -3163,18 +3307,6 @@
       "categories": [
         "Tech",
         "streaming"
-      ]
-    },
-    {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "TanCRAFT: Context-Reasoned Anticipatory Feedback for Assembly Tasks",
-      "url": "https://arxiv.org/abs/2611.14470v1",
-      "publishedAt": "2026-11-10T18:33:53.000Z",
-      "summary": "Preventing human error in physical assembly tasks requires assistance systems that can intervene before mistakes are made. This is especially challenging in settings where users are free to choose the construction order and correctness depends on the evolving assembly rather than a fixed next step. We present TanCRAFT,",
-      "categories": [
-        "cs.RO",
-        "cs.CV"
       ]
     },
     {
@@ -3276,7 +3408,7 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMifkFVX3lxTFBsTHBhNjBoMmQxdjE3TnlWUGw0b0NWaHFvVlNJQ0dSMUtKTFo4WGRzRjhsWThMRzF1Ry1UVjJlQkZlUHNWSHd4V0J6VGwteDVNc0VoN010cGh4eWJPbnFSTXUyT0R4Q2d3aEo5VTk3bmRUN1l5bmc4TTViejl1dw?oc=5\" target=\"_blank\">Cisco Adds Claude Mythos to AI Defense to Test Enterprise AI Agents</a>&nbsp;"
     },
     {
-      "source": "arXiv — cs.RO",
+      "source": "arXiv — cs.LG",
       "discoveryOnly": false,
       "title": "UGG: Unified Generative Geometry Model",
       "url": "https://arxiv.org/abs/2611.14440v1",
@@ -3407,17 +3539,6 @@
       ]
     },
     {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "SIGMO: Sigmoid Gated Interaction-Aware Motion Planning",
-      "url": "https://arxiv.org/abs/2611.14414v1",
-      "publishedAt": "2026-11-10T17:53:57.000Z",
-      "summary": "Despite the widespread adoption of autonomous vehicle technologies, reliable navigation within cluttered environments remains arduous due to the necessity of interaction-aware strategies; example scenarios include: narrow passages with multiple agents, lane changing in dense traffic, and crossing unsignalized intersect",
-      "categories": [
-        "cs.RO"
-      ]
-    },
-    {
       "source": "arXiv — cs.AI",
       "discoveryOnly": false,
       "title": "Bits or permutations? Spending a fixed inference budget on weight precision or on option-order averaging in small local language models",
@@ -3528,43 +3649,12 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi6wFBVV95cUxPNlBLN2JWVjdyZl9qYTZrTzktdHRaNVJLVXU0ZTQwVDhCRExtNmRxd1ZHQmczVGp2OVFzNGhqM19fRlloQUdxcjJBUVc3NGdqa2tqQWlTLU5nTVV0akQtRHNwS3hTVm5MRHAyTmV6dkplaTlhdHFtNWxwaVVWX0xCNHppV2YyakdudHZxTlotZ0h6cmxfQy1ieEtMbFFvQkpZMFE1WkZaejl6WS1zZjdna0RFT3YwSTRjVU52SHB4YXZZVWxYWkVJUk"
     },
     {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "Gaussian Process-Augmented Model Predictive Contouring Control for 6-DoF Trajectory Tracking with a Holonomic AUV",
-      "url": "https://arxiv.org/abs/2611.14373v1",
-      "publishedAt": "2026-11-10T17:30:20.000Z",
-      "summary": "Small, holonomic Autonomous Underwater Vehicles (AUVs) enable close-range inspection of underwater structures from arbitrary viewpoints, requiring accurate position and attitude tracking under state and input constraints. Model Predictive Contouring Control (MPCC) naturally handles these requirements, but relies on an ",
-      "categories": [
-        "cs.RO"
-      ]
-    },
-    {
       "source": "Google News",
       "discoveryOnly": true,
       "title": "Anthropic has its own AI-powered office suite now - The Verge",
       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOcjc0QUZNb0FYTVFPN2d1Vld4eTZPWk52NHNKN1Jiblc5MW9ZNkV2Tm0xWU8zR0VtazQ1NV9LQlk2QnJPelVvaXp2QWJDVUxicmowX2Z5TWVhdjE0RlhnanNaSm9ITndEMFpJUjlCUXpVdHljRFY4N2VuRm44cmwxRU1aMnNrTElDeVN3ZGR4YXVBeWNWX29sSzFfYjRlVDNrTEFaU1llSkljU0VQRnc?oc=5",
       "publishedAt": "2026-11-10T17:30:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxOcjc0QUZNb0FYTVFPN2d1Vld4eTZPWk52NHNKN1Jiblc5MW9ZNkV2Tm0xWU8zR0VtazQ1NV9LQlk2QnJPelVvaXp2QWJDVUxicmowX2Z5TWVhdjE0RlhnanNaSm9ITndEMFpJUjlCUXpVdHljRFY4N2VuRm44cmwxRU1aMnNrTElDeVN3ZGR4YXVBeWNWX29sSzFfYjRlVDNrTEFaU1llSkljU0VQRnc?oc=5\" target=\"_blank\">Anthropic ha"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Anthropic's path from AI startup to industry-defining IPO - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQa0R5YUh3ZWFLeEFIWkZaOWRqdUJTVWRveTdmMmpIWDR6enhRam9OX3FzUEpJMkJhUFhHclBKMHFqQldFbW4xRm9seERZNGVpOVVtcW85dWtmckM5czBtcmhzd0hDc1FyV3dmb3luank2MFhHRXNuTkRLU3k5bUFVSU1iRU01b0x3aEMyQm1BcGtmbDg5UXQwWVl0WQ?oc=5",
-      "publishedAt": "2026-11-10T17:27:43.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimwFBVV95cUxQa0R5YUh3ZWFLeEFIWkZaOWRqdUJTVWRveTdmMmpIWDR6enhRam9OX3FzUEpJMkJhUFhHclBKMHFqQldFbW4xRm9seERZNGVpOVVtcW85dWtmckM5czBtcmhzd0hDc1FyV3dmb3luank2MFhHRXNuTkRLU3k5bUFVSU1iRU01b0x3aEMyQm1BcGtmbDg5UXQwWVl0WQ?oc=5\" target=\"_blank\">Anthropic's path from AI startup to i"
-    },
-    {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "From Video Frames to Robot Meta-Frames: A Unified Latent Interface for World Action Models",
-      "url": "https://arxiv.org/abs/2611.14365v1",
-      "publishedAt": "2026-11-10T17:21:37.000Z",
-      "summary": "Pretrained video diffusion models (VDMs) offer a powerful foundation for World Action Models (WAMs), which jointly predict robot actions and future observations. Building such models requires injecting low-dimensional robot signals (e.g. proprioception, actions, and values) into a latent space shaped by natural videos,",
-      "categories": [
-        "cs.CV",
-        "cs.RO"
-      ]
     },
     {
       "source": "arXiv — cs.CL",
@@ -3825,18 +3915,6 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxOck5lWVFiOGJXN3BseXVMb09xRi1DaGpFUFpWLTNFX1hrWVo3QkRlTjFaMUlXN3ROY2JiSFNPdGh2bnhHbEs1R004allsaG1JZGJzcEhWTDlLNzJjUGRLRkljdkhTazJ5Vk43TlRGbkRVZUlHMDZlSFBhRE5HWE9OTlU2cFRBNUE?oc=5\" target=\"_blank\">Australia to tighten AI safety rules</a>&nbsp;&nbsp;<font color="
     },
     {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "ForeseeDrive: Future-Token Conditioning for Anticipatory Generative Driving",
-      "url": "https://arxiv.org/abs/2611.14286v1",
-      "publishedAt": "2026-11-10T16:27:00.000Z",
-      "summary": "Generative driving planners can represent diverse ego futures, but a downstream scorer can choose only among sampled candidates; it cannot recover an absent maneuver. We present ForeseeDrive, which turns future scene evolution into a deployable interface for shaping candidate generation. Rather than reconstructing dens",
-      "categories": [
-        "cs.RO",
-        "cs.CV"
-      ]
-    },
-    {
       "source": "arXiv — cs.AI",
       "discoveryOnly": false,
       "title": "LM-SimBench: A Unified Framework, Dataset, and Benchmark for Large Language Model Training Simulation",
@@ -3857,17 +3935,6 @@
       "categories": [
         "cs.HC",
         "cs.AI"
-      ]
-    },
-    {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "From Prediction to Action: Learning Physical Context for Deformable Linear Object Manipulation",
-      "url": "https://arxiv.org/abs/2611.14274v1",
-      "publishedAt": "2026-11-10T16:17:48.000Z",
-      "summary": "A representation that accurately predicts a deformable object's response is not necessarily the one most useful for choosing manipulation actions. We study this distinction between predictive utility and decision utility in planar single-grasp shape control of Deformable Linear Objects (DLOs). As a common decision back",
-      "categories": [
-        "cs.RO"
       ]
     },
     {
@@ -3930,18 +3997,6 @@
       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNcTdpRWY2RkREWVcxeENhcFlvS3ZRVEhhYy1iLTJZdUJkM1ZicGlqUmlTeFdHd0FhSF9sN2NOdWZFMjI1NWs4TVVNd3phOVFiRFBqTWhaS3RmbVJRUUIxbE5GRk9MZGc5Sm9Ca0VKeGltRmtEMDY1Vm1tU2pNdm5paDk4b3BTeE4zTWZ0aXlNcFBBTzhaRE9JdTA5eS1TNXBTSG1CdzBTNmoySVRDd2c?oc=5",
       "publishedAt": "2026-11-10T16:05:31.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxNcTdpRWY2RkREWVcxeENhcFlvS3ZRVEhhYy1iLTJZdUJkM1ZicGlqUmlTeFdHd0FhSF9sN2NOdWZFMjI1NWs4TVVNd3phOVFiRFBqTWhaS3RmbVJRUUIxbE5GRk9MZGc5Sm9Ca0VKeGltRmtEMDY1Vm1tU2pNdm5paDk4b3BTeE4zTWZ0aXlNcFBBTzhaRE9JdTA5eS1TNXBTSG1CdzBTNmoySVRDd2c?oc=5\" target=\"_blank\">Introducing "
-    },
-    {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "Elastic-WAM: Adaptive Spatiotemporal Imagination for Efficient Robot Control",
-      "url": "https://arxiv.org/abs/2611.14257v1",
-      "publishedAt": "2026-11-10T16:04:16.000Z",
-      "summary": "World-Action Models improve robot control by predicting future visual dynamics, but iterative video denoising incurs substantial inference overhead. Recent approaches reduce this cost through partial future denoising, yet typically rely on fixed refinement budgets. Our empirical observations reveal that preferred refin",
-      "categories": [
-        "cs.RO",
-        "cs.CV"
-      ]
     },
     {
       "source": "arXiv — cs.AI",
@@ -4103,18 +4158,6 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiekFVX3lxTE1aOXo5YTY4X0VqdmlmRnhzdUdPRk9LRmNjbEhfZ1ZXUVlEcjZWZDF0T19INWFHemdtZHcwUjl5Mm1pa2NmaUVyejRtcGpLWHg1QTFNVzh4ZjVON1VwQlItUmM1d3RCcU56S0YxZFlFZUNjY0ZncEN6VmN3?oc=5\" target=\"_blank\">Google DeepMind unveils Gemini Robotics 2.5 with ASIMOV-Jailbreak safety benchmark<"
     },
     {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "Koopman Model-Based Reinforcement Learning",
-      "url": "https://arxiv.org/abs/2611.14186v1",
-      "publishedAt": "2026-11-10T15:08:33.000Z",
-      "summary": "We propose a Koopman model-based reinforcement learning (K-MBRL) algorithm for controlling nonlinear robotic systems with unknown dynamics. The K-MBRL learns a control policy by minimizing an approximate policy objective that combines the analytical immediate cost with an estimate of the future cost evaluated at the on",
-      "categories": [
-        "cs.RO",
-        "eess.SY"
-      ]
-    },
-    {
       "source": "Google News",
       "discoveryOnly": true,
       "title": "DeepMind reveals Gemini Robotics 2.5 and open safety benchmark \"ASIMOV-jailbreak\" - Ars Technica",
@@ -4183,35 +4226,12 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi2AFBVV95cUxPU1J1c1BNRnFjRHNWUTlpS2l4R3RLMUZhM2ROX1hUMENiQlNqeHJsU1lFQmtsZnMtVDlGQXN3eGFiY3NINVpsbkRHVEpZUExCMGdMMmhmT0d4WFIwRVFLc3VjN1ZwZjNJMl8ySXp6UHUyaGpxR1huZ0hpTDFVVEhwNkUwMzNmXzB6YXc1WUxJdlhEMGNwbEZ3Rk92MzhuWC1VdGp6YmFNQTZIeFZRbngwRXRoSUpCTlV3VUdQVzQtOXZwMDlBVHBZcH"
     },
     {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "LEASH: Stay Safe in Agentic Robotics",
-      "url": "https://arxiv.org/abs/2611.14115v1",
-      "publishedAt": "2026-11-10T14:06:20.000Z",
-      "summary": "Foundation models such as GPT and Claude have shown strong capabilities in spatial understanding and embodied intelligence. These advances make agentic robotics a promising path toward artificial general intelligence in robotics. However, we find that using foundation models to control robots poses serious safety risks",
-      "categories": [
-        "cs.RO"
-      ]
-    },
-    {
       "source": "Google News",
       "discoveryOnly": true,
       "title": "We’re bringing Adobe’s creative and productivity tools closer to your everyday Google apps. - blog.google",
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQLThBVHowQXFOMEFqNUpJV08xLUdkMF9pVnB4dXo1VTVpSGE0SlB3M0ZBZjkyVHlIckNHN2RMQkR0R21GZG9SY3BUVlNxOVVrcmhIcEFOU3ZYUC1XOUJERzdqdTNLQkd1VE04NklTSHFIenZCdktpQTl3NTVZM01KNjZRTjN3UkVOQm5hVndBNTRha0RmRkpObzM4M2FVSlpjTmxtd3EtWWJwZw?oc=5",
       "publishedAt": "2026-11-10T14:06:19.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqgFBVV95cUxQLThBVHowQXFOMEFqNUpJV08xLUdkMF9pVnB4dXo1VTVpSGE0SlB3M0ZBZjkyVHlIckNHN2RMQkR0R21GZG9SY3BUVlNxOVVrcmhIcEFOU3ZYUC1XOUJERzdqdTNLQkd1VE04NklTSHFIenZCdktpQTl3NTVZM01KNjZRTjN3UkVOQm5hVndBNTRha0RmRkpObzM4M2FVSlpjTmxtd3EtWWJwZw?oc=5\" target=\"_blank\">We’re bringing Ad"
-    },
-    {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "Model-Free Runtime Measurement of Task-Relevant Information",
-      "url": "https://arxiv.org/abs/2611.14111v1",
-      "publishedAt": "2026-11-10T14:02:31.000Z",
-      "summary": "Autonomous systems increasingly monitor physical kinematics, environmental states and task completion outcomes. While existing work provides methods to plan information seeking actions and interpret acquired observations, current approaches do not monitor whether the live process of information gathering is functioning",
-      "categories": [
-        "cs.RO",
-        "cs.AI"
-      ]
     },
     {
       "source": "Google AI",
@@ -4271,17 +4291,6 @@
       ]
     },
     {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "DexSeed: Expanding Human Hand-Object Interactions into Robot Demonstrations for Dexterous Policy Learning",
-      "url": "https://arxiv.org/abs/2611.14092v1",
-      "publishedAt": "2026-11-10T13:52:18.000Z",
-      "summary": "We study how to generate diverse, physically executable robot demonstrations for dexterous vision-language-action (VLA) learning. Existing demonstration-generation methods typically rely on costly teleoperated examples. Meanwhile, human hand--object datasets provide a reusable source, but existing transfer methods main",
-      "categories": [
-        "cs.RO"
-      ]
-    },
-    {
       "source": "Google News",
       "discoveryOnly": true,
       "title": "‘Godfather of AI’ to join EU leaders in Dublin meeting on Friday - Irish Independent",
@@ -4335,17 +4344,6 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiYkFVX3lxTFAwS3E3T0hTdlk0LXdycjVWZ1N6QVBGQl9wa0JQTWY3d21vaHFWMlhjTWotTkRVYUFvOFFFZE9YQWpzTWw5cGJhcHRSQS04cDEyRGpBcTNPdGtXRVUyUmJLZ2FR?oc=5\" target=\"_blank\">Israeli-founded cybersecurity startup Daylight raises $80 million in Goldman Sachs-led funding round</a>&nbsp;&nbsp"
     },
     {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "A human-in-the-loop Control Paradigm for Construction Robotics: From VR-Guided Teleoperation to Semi-Autonomous Dual-Arm Operation",
-      "url": "https://arxiv.org/abs/2611.14062v1",
-      "publishedAt": "2026-11-10T13:27:23.000Z",
-      "summary": "Construction tasks in hazardous and unstructured environments require both human adaptability and robotic precision, yet existing approaches often treat teleoperation and autonomy as separate control modes. This paper presents a human-in-the-loop control paradigm that enables structured transitions among VR-guided tele",
-      "categories": [
-        "cs.RO"
-      ]
-    },
-    {
       "source": "Google News",
       "discoveryOnly": true,
       "title": "Google launches two AI chips as it seeks to challenge NVIDIA’s dominance - The Hindu",
@@ -4360,28 +4358,6 @@
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOUjhqRF9QRmhSOGk3dGZjNFY1TFJZdGVfejQtRVVBUVFIS2RZQ0JZWVI1Z3ZzekdfYkYxVFNkWWN2VFgxSlRuc2dVcV9hQ3BjVDlheGQwUG94UzkzbkNtU2syZ3pBYWstRENIWFRVT0F1RUd0LWNlOThtSnFYb0c0RG9TdEpRdmc?oc=5",
       "publishedAt": "2026-11-10T13:24:03.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxOUjhqRF9QRmhSOGk3dGZjNFY1TFJZdGVfejQtRVVBUVFIS2RZQ0JZWVI1Z3ZzekdfYkYxVFNkWWN2VFgxSlRuc2dVcV9hQ3BjVDlheGQwUG94UzkzbkNtU2syZ3pBYWstRENIWFRVT0F1RUd0LWNlOThtSnFYb0c0RG9TdEpRdmc?oc=5\" target=\"_blank\">Introducing Gemini for healthcare</a>&nbsp;&nbsp;<font color=\"#6"
-    },
-    {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "RedirectMimic: Local Motion Content Redaction for Humanoid Whole-Body Control",
-      "url": "https://arxiv.org/abs/2611.14049v1",
-      "publishedAt": "2026-11-10T13:15:54.000Z",
-      "summary": "Humanoid motion interfaces should accommodate application-specific movement constraints while retaining useful reference behavior. Local content redaction requires a controller to replace selected movements even when it continues to receive the original reference. Removing the tracking incentive for those movements lea",
-      "categories": [
-        "cs.RO"
-      ]
-    },
-    {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "LaST0.5: A Generalist World Action Model with Interaction-Centric Latent Reasoning",
-      "url": "https://arxiv.org/abs/2611.14048v1",
-      "publishedAt": "2026-11-10T13:15:11.000Z",
-      "summary": "World Action Models (WAMs) have recently emerged as a promising paradigm for robotic manipulation, endowing policies with strong capabilities for modeling temporal and physical dynamics. Existing WAMs, encompassing both video-first action prediction and joint video-action modeling, directly transfer global physical rep",
-      "categories": [
-        "cs.RO"
-      ]
     },
     {
       "source": "MIT Technology Review",
@@ -4437,26 +4413,6 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Canada joins OpenAI, Anthropic in AI standards pledge - The Globe and Mail",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQV0pqSzZLZFNIZHZJV1NHLU9lQm16Y09uX2xvRExjdGw0NUp4VGE5LUNLYmJPNll6TXRLQ1gyWlpsaUFHLTZiWWt6VVl2RTFVenY4cGZfTTlOSDRiVkVrcTF1eGxVTlotM09tU0JvMkV5dmozeXV1bjdWaE5fNVdiQ19OcksxTGF5UU1uV3NfbW04VlN0OEdLblBvZWhlQmNsNlJza3RvZ1JXMndtYlFNVVV2eDdDVloz?oc=5",
-      "publishedAt": "2026-11-10T12:58:30.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxQV0pqSzZLZFNIZHZJV1NHLU9lQm16Y09uX2xvRExjdGw0NUp4VGE5LUNLYmJPNll6TXRLQ1gyWlpsaUFHLTZiWWt6VVl2RTFVenY4cGZfTTlOSDRiVkVrcTF1eGxVTlotM09tU0JvMkV5dmozeXV1bjdWaE5fNVdiQ19OcksxTGF5UU1uV3NfbW04VlN0OEdLblBvZWhlQmNsNlJza3RvZ1JXMndtYlFNVVV2eDdDVloz?oc=5\" target=\"_blank\""
-    },
-    {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "HiPFuse: Real-Time LiDAR Semantic Segmentation for Robotic Perception on Edge Devices",
-      "url": "https://arxiv.org/abs/2611.14025v1",
-      "publishedAt": "2026-11-10T12:57:21.000Z",
-      "summary": "Real-time robotic perception requires accurate LiDAR semantics under limited resources. Bird's-eye-view (BEV) aggregation is efficient but can mix differently labeled surfaces in columns. We present HiPFuse, a point-BEV fusion framework that exchanges point and height-partitioned BEV features across horizontal scales, ",
-      "categories": [
-        "cs.CV",
-        "cs.RO"
-      ]
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
       "title": "Australia Aims to Become First Country With AI Safety Regulator After OpenAI Government Portal Breach - Brave New Coin",
       "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQRVU1bXFEaVVFWFphZXFqbGhQSVJkS0tESmJNWTNYWThsbExWdi1JWVBXeVRmUjlqSmx1RER1aFFsa1Z2RHFpc2NnTjVyXzI0Zk9YUXZJbVRoa2ZuRDVjZmJidzBYeXBISHlDTTZJMWR0aHdpWTlsNXRrNnNzUFJrVEViaTJReVBVZDNVaFZJaG1vMWxxdmZ5T3NNZDBjdHF2NHEzS0FIX0g5UDkwZ0EwLXUwME1xbUFsRnA0VmJmOEJ5ZE55RlpXanBTTGhUc1hi?oc=5",
       "publishedAt": "2026-11-10T12:40:04.000Z",
@@ -4479,18 +4435,6 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxQZHRuZHVBcnV4bC1XVEJrOGVxQ1NoazYteHF2b3hLRXBQUnpma21adFFEMGVUT0xGLXlld3dnOTVaZDVsV2Y3X3NrSTZXLVBPNUhLaTNTbWM3QUVhVDZraHE2RnRiT3Q0M0dzOVRmX3ZvUjJsdTdiSUZHNUw0cHl6TFQtZGdjT2pZbFU4U0pqQ19lUXM4TjVDNXJWVkVUTXZoWFh2WWVxb29IbnNKdlE?oc=5\" target=\"_blank\">E2E Networks"
     },
     {
-      "source": "arXiv — cs.RO",
-      "discoveryOnly": false,
-      "title": "Optimization-Based Path Planning for Industrial Manipulators: Experimental Validation in Additive Manufacturing",
-      "url": "https://arxiv.org/abs/2611.13983v1",
-      "publishedAt": "2026-11-10T12:25:31.000Z",
-      "summary": "Robotic additive manufacturing requires joint paths that reconcile robot feasibility with process-specific geometry. We develop an offline optimization-based path planner that combines joint-path regularity and self-collision penalties with process costs and constraints, so that a new process enters through its own ref",
-      "categories": [
-        "cs.RO",
-        "math.OC"
-      ]
-    },
-    {
       "source": "Google News",
       "discoveryOnly": true,
       "title": "Some major local players see potential for AI to help with healthcare costs, but with rules in place - MASSterList",
@@ -4505,6 +4449,14 @@
       "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPWmlySF83SEU1V1JlTnkzMmxCZG1HYUJLR2tKQW5lUVU3d0JWRkgwSVR4aS1BLVFuQ2FGTnQwNlp6bXBNNnRlbVM3LUpLTjg2cHlqSzZ6cHNQMEJhRkNuR0JEdnFpZmFOTXFBSWdJRzJZYlljX0JOZ0dlU1F0S0dxam5teDNQaE5nVmZvSV9FUXZkNUk0ZTlfZ2NJWTlzclExTFlscVE3NmdCTEt4WTZrZGlRNG1tamhVa2huTnZpa3RoVjhzRHg2MzZiOUFrOE9DNVo5NXExMDJLemdz?oc=5",
       "publishedAt": "2026-11-10T12:17:06.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi3AFBVV95cUxPWmlySF83SEU1V1JlTnkzMmxCZG1HYUJLR2tKQW5lUVU3d0JWRkgwSVR4aS1BLVFuQ2FGTnQwNlp6bXBNNnRlbVM3LUpLTjg2cHlqSzZ6cHNQMEJhRkNuR0JEdnFpZmFOTXFBSWdJRzJZYlljX0JOZ0dlU1F0S0dxam5teDNQaE5nVmZvSV9FUXZkNUk0ZTlfZ2NJWTlzclExTFlscVE3NmdCTEt4WTZrZGlRNG1tamhVa2huTnZpa3RoVjhzRHg2Mz"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Australia to launch AI safety regulator after OpenAI's breach of a government portal - ETLegalWorld.com",
+      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQN1NQbl9xMGNVNzdSZGF4NHo3YXJTNGpYNG55V0VVZV9UMFZ3RS1OQ2ctekYzSnZyLVZXZkZyMGFJVWVkT1VzTVdNeUFpV3g4YjRXWnBpNXRTRi0yODNITUlZc1dXb2piMzhxRlFVbDdFTGVrNm1aM2tOTGc4UnoxcGdUU2FsOXhmdGhtUFR2ajA3ZXI3azk4ZkFqVTd6RU45MzV5SE1wNEhZYUlwYWVUbGpwWS1uNFlyLTlMMnROQzdTY1plM091NFNwOFh0TGdlM056d2tlNEtYb09ndDdOZXMzTFNPNll5aVHSAe8BQVVfeXFMTUFmckFodms4TldNYlBLVllZUU55by1BakdjbkhRQUNzVHpBVnlrVGFpTEtVOHFjM1FrUXZTSWh4NFpkSEtDMG5wc3dOQTdZNFVrQTZRYVhQeE9EMi02MXFQMXBpVGs5UDI4a2JwUEt1eFdjNUNBWTVPZG43VmtCT2ZVcFpXU1dIYnk1WkdTVVdJczVRUlZEamIwNkdlNHBXRTNyeTQ3VmNyRDUwUmtxNlRVS0lLNDNLWk5pUEVBMU1MclM3am9XaUxJVF9tUmpOS190X1dIWmdSTktiWmpQMWhHRlZYVER2a0swOGFxM00?oc=5",
+      "publishedAt": "2026-11-10T12:15:05.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi6gFBVV95cUxQN1NQbl9xMGNVNzdSZGF4NHo3YXJTNGpYNG55V0VVZV9UMFZ3RS1OQ2ctekYzSnZyLVZXZkZyMGFJVWVkT1VzTVdNeUFpV3g4YjRXWnBpNXRTRi0yODNITUlZc1dXb2piMzhxRlFVbDdFTGVrNm1aM2tOTGc4UnoxcGdUU2FsOXhmdGhtUFR2ajA3ZXI3azk4ZkFqVTd6RU45MzV5SE1wNEhZYUlwYWVUbGpwWS1uNFlyLTlMMnROQzdTY1plM091NF"
     },
     {
       "source": "Google News",
@@ -4583,19 +4535,6 @@
       ]
     },
     {
-      "source": "WIRED",
-      "discoveryOnly": false,
-      "title": "Louis Rossmann Wants More People to Care About the Right to Repair",
-      "url": "https://www.wired.com/story/the-big-interview-podcast-louis-rossmann-right-to-repair/",
-      "publishedAt": "2026-11-10T11:30:00.000Z",
-      "summary": "The outspoken consumer rights advocate knows the incoming Democrat-heavy Congress has a lot to get done. But he hopes one of those things is letting you fix your own iPhone.",
-      "categories": [
-        "The Big Story",
-        "Business",
-        "Gear"
-      ]
-    },
-    {
       "source": "arXiv — cs.MA",
       "discoveryOnly": false,
       "title": "Safety and Connectivity Certificates for Finite-Time Formation Transitions",
@@ -4614,17 +4553,6 @@
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNbi1rTFc3dURwNVYtVXVUSTd0eTFvQ2ZaUndlNnZYbnQ2anNfNW1EeWhXeEVCdXhsclY3SmppNFIxVlV6bVN2SkRRelByeW9GS2c5R014RE1GT1Z4aGVuZHFCV2Y0UXVoU1ltRGNMelJfNllVM295YzZnc3Y3WW50RTRQN25QTzc0MWR4OWxoR2ozX0pPM1FxbA?oc=5",
       "publishedAt": "2026-11-10T11:05:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxNbi1rTFc3dURwNVYtVXVUSTd0eTFvQ2ZaUndlNnZYbnQ2anNfNW1EeWhXeEVCdXhsclY3SmppNFIxVlV6bVN2SkRRelByeW9GS2c5R014RE1GT1Z4aGVuZHFCV2Y0UXVoU1ltRGNMelJfNllVM295YzZnc3Y3WW50RTRQN25QTzc0MWR4OWxoR2ozX0pPM1FxbA?oc=5\" target=\"_blank\">boost.ai Launches Presis, A Self-Hosted A"
-    },
-    {
-      "source": "WIRED",
-      "discoveryOnly": false,
-      "title": "Tear Down Those Guardrails! Meet the Renegades Freeing Chatbots From Corporate Enslavers",
-      "url": "https://www.wired.com/story/tear-down-those-guardrails-meet-the-renegades-freeing-chatbots-from-corporate-enslavers/",
-      "publishedAt": "2026-11-10T11:00:00.000Z",
-      "summary": "The “abliterators” are flooding the internet with AI models that never say no, making it easier for people to improve their cyberdefenses—or build a bomb.",
-      "categories": [
-        "The Big Story"
-      ]
     },
     {
       "source": "Google News",
@@ -4651,14 +4579,6 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi1wFBVV95cUxPVDhCYXNnSE1DUExYT1VId1Btd0tKeTNzNGFGUjcxYmwwV0hELTBrUTZ1cTlBVWF4aVpUQTRDVDlTcnZ4bktjUVlPZlA0aEN5UEtnN0s3SnNCSmlGbW5xVE04MjZkdnVDSHplV0w1Uk9fY0lpQVVyQW1sNmh2X1BjamVaYUtKY1VIY29mWmQ4MEdGc202dXFfVzM0bVVlcEZiWUFVVWV2am4ycGQ3VEcxVFlRaFZaa1dLUG1RVkl6NEVSTWEwSGNEMU"
     },
     {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Adobe and Google Deepen Partnership to Bring Leading AI Models and Integrated Workflows to Creatives and Enterprises - Adobe Newsroom",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBla1A3dTBYWnV6ZlczaUtYanFqV18tWEhjMDNqa3liakowSTBGWGYtUXRYRGZBem1LOUF5c2tVVk5oZkg5N09UVzgtYnp1cHZDOVNjWThHcWxGenVwaHR0MXJVbmlORXN3VWVPVHJFbjd0dDNRRlBuaVJubw?oc=5",
-      "publishedAt": "2026-11-10T10:05:48.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMie0FVX3lxTFBla1A3dTBYWnV6ZlczaUtYanFqV18tWEhjMDNqa3liakowSTBGWGYtUXRYRGZBem1LOUF5c2tVVk5oZkg5N09UVzgtYnp1cHZDOVNjWThHcWxGenVwaHR0MXJVbmlORXN3VWVPVHJFbjd0dDNRRlBuaVJubw?oc=5\" target=\"_blank\">Adobe and Google Deepen Partnership to Bring Leading AI Models and Integrated Wor"
-    },
-    {
       "source": "OpenAI",
       "discoveryOnly": false,
       "title": "Introducing Businesses in ChatGPT",
@@ -4668,6 +4588,14 @@
       "categories": [
         "Product"
       ]
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Australia tightens AI oversight rules after OpenAI agent breached government website - The Economic Times",
+      "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxPakxXazZnZTdKVzlKMTl1S25Rc3V6djdscmxjQmpPS2hzbzJIVG1qT2pXV2c5QThwN2tMVDNsSEVEQnRFUzhuUUc4WHBJYnZoVDVPWkVpX2xqeURSZzZiMEZLQTFKQ2twQkViQl91bnIxa3VaWk83MmwwX2RuYWtnRlBMa3pTb29PXzJEN0pCbnBVTmlmam1Cd2RYQUZKaWxib1JtMU1UNEJZckJzTm1Jdkw1RzNOT19SWHJVS2dZWWhjdmtpLTBwcUMzY19ZdUx0VExEQXdJbVo1Q0U2ejdzcTJ0emNEdldMYnBOUWpYV2NhM1dVZFFxal83M002ck1sMkZ2UDFtVdIBgAJBVV95cUxOQnlSa25QSTRfamg3S3h0bHRGdm80dzNfNVc4OVZuamFkN2d4Mll4TlRxVFFRdG5ja0c2ZHNZYkhERDFBR0g4emMzVkhxWUl1RFg0Q29jT0F5MlV5SldWX1o0WWFrLUFIcWRKMV9GSWVzaG1UWGJ4dGpqelZfZkFaSk1QLVQ1bTM2eTE1OXBfM001VlNkbW84UUtwUThpajdndUxnOVpSY1NHQ1p6bzlxYzNTbzIyZXNpdkg5OHB2WjN6UkZ1MG5ZNEhCRUxQNG1rYlNYSURBeVdzVUYyZHFuODJpdTRKdmZ5bTZzcjRvZ1NQZ3A1QkRNMDV1MkVZdFhC?oc=5",
+      "publishedAt": "2026-11-10T09:37:37.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMihwJBVV95cUxPakxXazZnZTdKVzlKMTl1S25Rc3V6djdscmxjQmpPS2hzbzJIVG1qT2pXV2c5QThwN2tMVDNsSEVEQnRFUzhuUUc4WHBJYnZoVDVPWkVpX2xqeURSZzZiMEZLQTFKQ2twQkViQl91bnIxa3VaWk83MmwwX2RuYWtnRlBMa3pTb29PXzJEN0pCbnBVTmlmam1Cd2RYQUZKaWxib1JtMU1UNEJZckJzTm1Jdkw1RzNOT19SWHJVS2dZWWhjdmtpLTBwcU"
     },
     {
       "source": "Google News",
@@ -4691,10 +4619,26 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
+      "title": "Months After OpenAI Agent Breached Australia's Medicare Portal, Albanese Government Plans AI Safety Regulator and Criminal Liability - BigGo Finance",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9XY195ZkZwVGRzLW9ZZXloMGVFNi03YmJwUVEtMEYycmtRMWI2WjRWQWdKT1RSTzFsdHVlX3VfVGlaZlVqbzAtUWpWTThIR2lIQUhVeDJrQTRydklyLW10VFUxSjRKV0VUbGxiLUlxUWFkcTh2UEE?oc=5",
+      "publishedAt": "2026-11-10T08:56:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMidkFVX3lxTE9XY195ZkZwVGRzLW9ZZXloMGVFNi03YmJwUVEtMEYycmtRMWI2WjRWQWdKT1RSTzFsdHVlX3VfVGlaZlVqbzAtUWpWTThIR2lIQUhVeDJrQTRydklyLW10VFUxSjRKV0VUbGxiLUlxUWFkcTh2UEE?oc=5\" target=\"_blank\">Months After OpenAI Agent Breached Australia's Medicare Portal, Albanese Government Plan"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
       "title": "Meta Muse Wonder: Benchmarks, Price and the Catch - Fello AI",
       "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE1UcXNBdEZwemZCZXQ4SDh6aDJwQ19ueUsxWkNrakpOQVlFNXl0UUkzUXd4RXY0Um9TeVlyeTJIUU9PWW1vMFdn?oc=5",
       "publishedAt": "2026-11-10T08:00:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiR0FVX3lxTE1UcXNBdEZwemZCZXQ4SDh6aDJwQ19ueUsxWkNrakpOQVlFNXl0UUkzUXd4RXY0Um9TeVlyeTJIUU9PWW1vMFdn?oc=5\" target=\"_blank\">Meta Muse Wonder: Benchmarks, Price and the Catch</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Fello AI</font>"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Best Chinese AI Models in 2026: Ranked and Compared - Fello AI",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9pWW1rZmFrbzltSVAtUG05clg3alk5TENRQTd5TmVmRWQwV0N4LVJmbXRqSWpQRnY0bGNncjlKVXpvcGpQczJOUVdrRDZFSUtNcnBkaTFB?oc=5",
+      "publishedAt": "2026-11-10T08:00:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiVkFVX3lxTE9pWW1rZmFrbzltSVAtUG05clg3alk5TENRQTd5TmVmRWQwV0N4LVJmbXRqSWpQRnY0bGNncjlKVXpvcGpQczJOUVdrRDZFSUtNcnBkaTFB?oc=5\" target=\"_blank\">Best Chinese AI Models in 2026: Ranked and Compared</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Fello AI</font>"
     },
     {
       "source": "Google News",
@@ -4711,6 +4655,14 @@
       "url": "https://openai.com/index/singapore-airlines-travel-work",
       "publishedAt": "2026-11-10T08:00:00.000Z",
       "summary": "Discover how Singapore Airlines uses OpenAI models and API to enhance customer support, travel discovery, and employee productivity, doubling CSAT for its Kris chatbot."
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Anthropic launches Claude Fable 5.2 and Mythos 5.2 with lower prices - Tbreak UAE",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE93SVJIYlZsOHlKVU5aSmJUWUJjY1V6eHEyS0pWNmlibFpBMHpCcWw3UE9HYTlxYjVGWk5yWjdSUk1oUzZxS3JCV2ZUU3c0LWV2Rk5tc2VuQ05lWGt2WFROWXVjY1Q?oc=5",
+      "publishedAt": "2026-11-10T07:31:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiZEFVX3lxTE93SVJIYlZsOHlKVU5aSmJUWUJjY1V6eHEyS0pWNmlibFpBMHpCcWw3UE9HYTlxYjVGWk5yWjdSUk1oUzZxS3JCV2ZUU3c0LWV2Rk5tc2VuQ05lWGt2WFROWXVjY1Q?oc=5\" target=\"_blank\">Anthropic launches Claude Fable 5.2 and Mythos 5.2 with lower prices</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Tbreak"
     },
     {
       "source": "Google News",
@@ -4772,6 +4724,14 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxQeFBndDZPQ0R5TEMzUVpMcEd5eGRjdEJiNUxiY1F5LW1RZDF0YzUydnl6V21TekY1dDVxbVltVVZQejFfLWFHUExPQWhmTXdfVU9yVGZuQWc4U1FwcU1zNUlSb0pHSkNOWWVsSWN3M2IyQk92MFEwc1JleW9wbjYwNHV6bzRwNHN3eDFVUTI3VWpBc0hJUjJWQmhJNDhUMElsV2otQ1EzbkM4d1k4aTVtbDNEUUJCTDdyMy1FTDdrUnI?oc=5\" targ"
     },
     {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Australia to mandate AI breach reporting, create regulator after OpenAI breach - Central Oregon Daily",
+      "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxNai1lN1o3NTRqY08tbTBwQk9hdVpuOHpOZmU2eE8zazFKNWY0REd0SS1LUkkyX0hGaHdtTzVEWko5Mk5TWS1FNTItbE44NXRLRHBYb1pTWGRVS09vWG1IZTNKZ0NhcHdwa1ZvWm9CNkZ1b1JrVUFNQkpmTUN2UXhueUlHQVRGNnBNUmE3MjF0akppOXRscVhNd0haUy1Wa0JNdWdrc0hYR043VzBfcWFuSEd4NklES0k0bzEzRWwyOG5iTDhMR0M2SHRGc0RZeHRucVBZZWphd196OVQwbGtHOFRWNHBXQ3lNR1FWTU0wd2EtUVVLQU9qdjFSb3RCYkZCdUY4YkRyNA?oc=5",
+      "publishedAt": "2026-11-10T06:50:14.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMihwJBVV95cUxNai1lN1o3NTRqY08tbTBwQk9hdVpuOHpOZmU2eE8zazFKNWY0REd0SS1LUkkyX0hGaHdtTzVEWko5Mk5TWS1FNTItbE44NXRLRHBYb1pTWGRVS09vWG1IZTNKZ0NhcHdwa1ZvWm9CNkZ1b1JrVUFNQkpmTUN2UXhueUlHQVRGNnBNUmE3MjF0akppOXRscVhNd0haUy1Wa0JNdWdrc0hYR043VzBfcWFuSEd4NklES0k0bzEzRWwyOG5iTDhMR0M2SH"
+    },
+    {
       "source": "arXiv — cs.MA",
       "discoveryOnly": false,
       "title": "DrugCoding: A Scientific Programming Agent for Drug Discovery",
@@ -4806,158 +4766,6 @@
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE8zNG5MeUVZMmVPbkVXaFFIWERHb19ZcDdYWFdDRUxJQUhfWVVuNm5RTEJOVkYyWkNTbk1sNEdOREs0MG9Nd1lYak8weEpHQnFpU0w0emtXZklHX3JW?oc=5",
       "publishedAt": "2026-11-10T06:01:57.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE8zNG5MeUVZMmVPbkVXaFFIWERHb19ZcDdYWFdDRUxJQUhfWVVuNm5RTEJOVkYyWkNTbk1sNEdOREs0MG9Nd1lYak8weEpHQnFpU0w0emtXZklHX3JW?oc=5\" target=\"_blank\">AI accounting startup Sumary raises $25m seed</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sifted</font>"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "China’s Sand.ai Raises $200M in Series A+ Round - Crowdfund Insider",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOUzNaVWx1Y1U3YUxRQkNENEtBSnpJSEZfVWNyV2plWnNVZHZieW15aXEweDNiU0FGOU42RTVUX1RtNFRwemZPZDBuZDhURV9SSjNfZFpLSU4tWnV4TE90OG5BbC1CVkdMOEZ5ZG8xeF94S0VJTjVkbWFMQjJ3N3FIdWF0RkJrYlIwWUpTQTFmN2ZWNmxKeFFvaQ?oc=5",
-      "publishedAt": "2026-11-10T05:46:12.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxOUzNaVWx1Y1U3YUxRQkNENEtBSnpJSEZfVWNyV2plWnNVZHZieW15aXEweDNiU0FGOU42RTVUX1RtNFRwemZPZDBuZDhURV9SSjNfZFpLSU4tWnV4TE90OG5BbC1CVkdMOEZ5ZG8xeF94S0VJTjVkbWFMQjJ3N3FIdWF0RkJrYlIwWUpTQTFmN2ZWNmxKeFFvaQ?oc=5\" target=\"_blank\">China’s Sand.ai Raises $200M in Series A+"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Self-Hosted LLM vs API: $0.70 to $2.00 Input [2026] - shattered.io",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQMExTb2szUUFFU043Zjd6TWZHbUhlSEMzSUNoYVR1SE52RzMzSC04aGlGd1czc2hyQ1VfTjFyMEx4Zktjbjl5dTZES0J5aklDd3BOU0FXYnM3aEhHUXNDOU1vUGt3aWl3V1I3Vi1SMTdpWWp4Y2VBbVg0RUFNWXlhQzhCR2NVdE9QbV9sY0kwV2dSdFByRFpFZlhXZ0ZHWjlObHJR?oc=5",
-      "publishedAt": "2026-11-10T05:13:24.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiowFBVV95cUxQMExTb2szUUFFU043Zjd6TWZHbUhlSEMzSUNoYVR1SE52RzMzSC04aGlGd1czc2hyQ1VfTjFyMEx4Zktjbjl5dTZES0J5aklDd3BOU0FXYnM3aEhHUXNDOU1vUGt3aWl3V1I3Vi1SMTdpWWp4Y2VBbVg0RUFNWXlhQzhCR2NVdE9QbV9sY0kwV2dSdFByRFpFZlhXZ0ZHWjlObHJR?oc=5\" target=\"_blank\">Self-Hosted LLM vs API: $0."
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "New AI regulator announced, as government considers criminal law change to keep erring frontier companies in line - The Conversation",
-      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPYTA4a0ZLeDlaVjJFWnlURjV5OEg3T1NQQzViYXpwdTAwY3pBemZFX0FSb0N3S0twTE9lbGRybkFvMHREdjhsV1dkSGtmZk5xdVdBb1gxM3RyQlliM0dhTGtmVTRGMm1FZEt1UDB3ZXNZeXZmNjRQS1gwSEJoNXBGNGFfdDVsQ0hIX05KSGhReXJXUElKakN4blg1LVZOYzJiSEhwa01SckpONndOb2k2ZXFLZldCRzdJRHFMZ2lWZURLUmFPZ3BBUnR3LTg0RHk4TU9zZlVhdWlkc0JQR2FYLQ?oc=5",
-      "publishedAt": "2026-11-10T04:58:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxPYTA4a0ZLeDlaVjJFWnlURjV5OEg3T1NQQzViYXpwdTAwY3pBemZFX0FSb0N3S0twTE9lbGRybkFvMHREdjhsV1dkSGtmZk5xdVdBb1gxM3RyQlliM0dhTGtmVTRGMm1FZEt1UDB3ZXNZeXZmNjRQS1gwSEJoNXBGNGFfdDVsQ0hIX05KSGhReXJXUElKakN4blg1LVZOYzJiSEhwa01SckpONndOb2k2ZXFLZldCRzdJRHFMZ2lWZURLUmFPZ3BBUn"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Australia tightens AI oversight rules after OpenAI agent breached government website - The Hindu",
-      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxON2JTVlN1ZHYyandfVGhibEJ6djM1SVYwNi12UHJ3NlBldWhoMWVudWNQOS1VRk44bFk4MlJGTFBkdHUydC1sQnlrcmlIaG9fbVdjczlUdjFfanoyTjhtanJXSzlwaGtzOEswdHh4UUNLaVBjZVdVVFVEbk9ETWVDVzIzQU1oZnNQcjBtWWZzS001Q2w4dzFPeFFDT1I2NVZZTms4RDczNUVkc0luLWhTaDJyN0RSbi1XOWpoRDM5REpXYXA3SHRrUjRPTDYyVk51ck5GQW5GTWhWYjlRTGphUDVPVdIB6gFBVV95cUxQTGxlQ0lFT0t1ZEIzbWRGN2ZuQl9UOVowdFQ2MEM5RXY5ZUR1S21HTW13Q3FHS0hCVlBZNDJxTFNVQkV0eFBOOGxxODJuci1rSkxhZU9xdTNVN1d1QURYeXY5TjVQOEQtOGltMV9zSHJxVWNsdkNHLWdmV3dQLUVURFBiWllpX2hwendGc2pEM0V3X2VfOElrV3o4NjlKb2F4aFZWSGtjQmtHeTViWENoc0NDUFlieWU4NXdRVG9ILXVmOG5MblZSMEthNlRDRDRLN0w2bVN3bTAxczczZ3lId0N4S0x5VVdzelE?oc=5",
-      "publishedAt": "2026-11-10T04:51:43.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi4wFBVV95cUxON2JTVlN1ZHYyandfVGhibEJ6djM1SVYwNi12UHJ3NlBldWhoMWVudWNQOS1VRk44bFk4MlJGTFBkdHUydC1sQnlrcmlIaG9fbVdjczlUdjFfanoyTjhtanJXSzlwaGtzOEswdHh4UUNLaVBjZVdVVFVEbk9ETWVDVzIzQU1oZnNQcjBtWWZzS001Q2w4dzFPeFFDT1I2NVZZTms4RDczNUVkc0luLWhTaDJyN0RSbi1XOWpoRDM5REpXYXA3SHRrUj"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Estonia’s prime minister says government preparing AI agent rules - Digital Watch Observatory",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBPTEs0NXdtRHZ0Q2JSVUVpVlBDcXlEa1dSNmk2OXNXM1h0dm9rM2ZubVFrOVhiTGlfdjE2Y19vcDR6NF9DRnNtSFNsaTF2d2lwUm9RZDRUVnl5blE4bHY3dWtMNUN6ZjNlckF3NVpWY1dpMmpWaGl4dnhYNHo?oc=5",
-      "publishedAt": "2026-11-10T04:47:06.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMifEFVX3lxTFBPTEs0NXdtRHZ0Q2JSVUVpVlBDcXlEa1dSNmk2OXNXM1h0dm9rM2ZubVFrOVhiTGlfdjE2Y19vcDR6NF9DRnNtSFNsaTF2d2lwUm9RZDRUVnl5blE4bHY3dWtMNUN6ZjNlckF3NVpWY1dpMmpWaGl4dnhYNHo?oc=5\" target=\"_blank\">Estonia’s prime minister says government preparing AI agent rules</a>&nbsp;&nbsp"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "ChatGPT Enterprise Lands on AWS Marketplace - OpenTools",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9hVldURXhoS0xJdDZHUnNmOG1FSEFDUFNuRWg1VVMyWHc3TmtRaDBSYXJsZXNISlcydWxWQ2hySWtGRVVrM3dJVXdna3o4NThjZjN5MERHSW00NUhJN2RhcHd3bWJlWUxmcmtNTi1GU1B4OHFHOFRaSGZNdDllcFE?oc=5",
-      "publishedAt": "2026-11-10T04:11:33.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE9hVldURXhoS0xJdDZHUnNmOG1FSEFDUFNuRWg1VVMyWHc3TmtRaDBSYXJsZXNISlcydWxWQ2hySWtGRVVrM3dJVXdna3o4NThjZjN5MERHSW00NUhJN2RhcHd3bWJlWUxmcmtNTi1GU1B4OHFHOFRaSGZNdDllcFE?oc=5\" target=\"_blank\">ChatGPT Enterprise Lands on AWS Marketplace</a>&nbsp;&nbsp;<font color=\"#6f6"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Australia to Create AI Safety Regulator, Mandatory Rules - Bloomberg",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOWGViZ2xsOWVMUVRfQnNEeWNfZ0RIQzEydE1qOHBjSkk4ZEVvTThTSnpBUmNqV0lGVEtPaW4xTmtTYUVEeGxQQW83X1hWZTM0ai1uUDA0ZWRBTGoyQTdldmNScGhncWJab1pIajY1SlhIeXpnNTdGWGdkQ2kzLURqZGQxeVN6NlQyM2d2Yy1ndm1YOW9BWmFDOVplano2ZHh5R0FOVnV5WDBmMDZZNHpOT0gtaw?oc=5",
-      "publishedAt": "2026-11-10T03:51:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxOWGViZ2xsOWVMUVRfQnNEeWNfZ0RIQzEydE1qOHBjSkk4ZEVvTThTSnpBUmNqV0lGVEtPaW4xTmtTYUVEeGxQQW83X1hWZTM0ai1uUDA0ZWRBTGoyQTdldmNScGhncWJab1pIajY1SlhIeXpnNTdGWGdkQ2kzLURqZGQxeVN6NlQyM2d2Yy1ndm1YOW9BWmFDOVplano2ZHh5R0FOVnV5WDBmMDZZNHpOT0gtaw?oc=5\" target=\"_blank\">Austr"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Toptal AI Launches, Delivers Frontier-grade AI With Open-weight Models and Full Data Ownership - ACROFAN USA",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1VYmVDbXdYX1NMRHVLclR3RFBhbzFDLVlETzVoNFNaUWVCR2xabUxzdUYtWGEyMElCb3FHWWp4LXJxci1JdUV6bWxZVHFsQTVmSmkwMGd6azVsSVhI?oc=5",
-      "publishedAt": "2026-11-10T03:40:54.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE1VYmVDbXdYX1NMRHVLclR3RFBhbzFDLVlETzVoNFNaUWVCR2xabUxzdUYtWGEyMElCb3FHWWp4LXJxci1JdUV6bWxZVHFsQTVmSmkwMGd6azVsSVhI?oc=5\" target=\"_blank\">Toptal AI Launches, Delivers Frontier-grade AI With Open-weight Models and Full Data Ownership</a>&nbsp;&nbsp;<font color=\""
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Harris County commissioners to discuss Hurricane Harvey recovery projects, new AI policy - Community Impact",
-      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOMjVBNDgtWnREOTFid1l1T3dRcFRnSGM0dnRCanlDRmR2VktVX3NUMHNKLUZyTEdPWjlELWVIQ002SHViQV80VnBMZ3ZIVldOQTRDRU83Sk10QTNUc19HMm15Vy1lak4tQWtiUWpKaVphMXdhaFhqTEp1eU1IQ3BseWl0MWZyMlRoNGMwcjlYdjBCYkg2MG5qN1pKUURxS2ZEdk9jY2lOczdnNHFDNVpJaE1jM0t4NVBGSi1HdDVKaFZPLXdfb2FXQl9sZVliNWVFeFE?oc=5",
-      "publishedAt": "2026-11-10T03:20:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi0gFBVV95cUxOMjVBNDgtWnREOTFid1l1T3dRcFRnSGM0dnRCanlDRmR2VktVX3NUMHNKLUZyTEdPWjlELWVIQ002SHViQV80VnBMZ3ZIVldOQTRDRU83Sk10QTNUc19HMm15Vy1lak4tQWtiUWpKaVphMXdhaFhqTEp1eU1IQ3BseWl0MWZyMlRoNGMwcjlYdjBCYkg2MG5qN1pKUURxS2ZEdk9jY2lOczdnNHFDNVpJaE1jM0t4NVBGSi1HdDVKaFZPLXdfb2FXQl"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Anthropic Claude Fable 5.2 and Mythos 5.2: What’s New - thedigitalbriefnews.com",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBMNmEzdzFWX3VoREZySDRtamMyVDlvM2tDZk9vcmY4a09FTlR3THo1YWVaNG5NbGxzV2l3QWpqblZfc2ZMSGYtanRfb2V2MzNLODFWbHMzV1RUWE5UQTZvU3R2M2VQdkh1Ni1zdEhMY0FEUQ?oc=5",
-      "publishedAt": "2026-11-10T03:11:40.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMickFVX3lxTFBMNmEzdzFWX3VoREZySDRtamMyVDlvM2tDZk9vcmY4a09FTlR3THo1YWVaNG5NbGxzV2l3QWpqblZfc2ZMSGYtanRfb2V2MzNLODFWbHMzV1RUWE5UQTZvU3R2M2VQdkh1Ni1zdEhMY0FEUQ?oc=5\" target=\"_blank\">Anthropic Claude Fable 5.2 and Mythos 5.2: What’s New</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">th"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Federal government to create AI regulator - The Mandarin",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQT1FJYTBRNERMOXRQcnJNZURGZ2ZCUFlJeDRCZGZOVDZrazh5bFNFV21fMUVyUldhNXNLSi1MZ3RWSFZ1THBRTnd4LUM1Z1NyNnktNlRfUXdraEphN21aWXBfV2QyS2lCSzFTeUtrUzZSRUxYcXlUakQ1ODlnR3ZQMU90WWl5SkE?oc=5",
-      "publishedAt": "2026-11-10T02:58:13.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxQT1FJYTBRNERMOXRQcnJNZURGZ2ZCUFlJeDRCZGZOVDZrazh5bFNFV21fMUVyUldhNXNLSi1MZ3RWSFZ1THBRTnd4LUM1Z1NyNnktNlRfUXdraEphN21aWXBfV2QyS2lCSzFTeUtrUzZSRUxYcXlUakQ1ODlnR3ZQMU90WWl5SkE?oc=5\" target=\"_blank\">Federal government to create AI regulator</a>&nbsp;&nbsp;<font c"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "The open AI-native stack on Kubernetes: From open models to distributed inference and agents - Google Cloud",
-      "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQU3FiV3V4Uzd2M2k3cDlnWHIwdHdScHdzUGRaTkdWcVVDc2x3UUI0UnVJM1NWUjZJalBQOEIxWnBkRkdEel9tUTZTWWlyRHFtdURuVFFwOFI3NTVWRWY3cFoySU05YmFTaEI0Qmp3UlN2MXk0a0ZyTEYzUEg0eUlYV0tORzlVNWJpSkxlRTBOSGhfNFRQb3d1YVdvMjR2dThHdU5uS0VhTjh2Z1VtcFlrSUtxMFNLeG1TRThrWk9nOThlSlRCYW9ickNXd0NmRlJ3cUlHSHJzOEsyTE5LY1dPQUhxc0RRdVRn?oc=5",
-      "publishedAt": "2026-11-10T02:28:53.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi6AFBVV95cUxQU3FiV3V4Uzd2M2k3cDlnWHIwdHdScHdzUGRaTkdWcVVDc2x3UUI0UnVJM1NWUjZJalBQOEIxWnBkRkdEel9tUTZTWWlyRHFtdURuVFFwOFI3NTVWRWY3cFoySU05YmFTaEI0Qmp3UlN2MXk0a0ZyTEYzUEg0eUlYV0tORzlVNWJpSkxlRTBOSGhfNFRQb3d1YVdvMjR2dThHdU5uS0VhTjh2Z1VtcFlrSUtxMFNLeG1TRThrWk9nOThlSlRCYW9ick"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Bayes Honorary Professor and EMBA alumnus launch International Institute for AI in Government - Bayes Business School",
-      "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxNcEs3NzNpWU9zVG5jUDY1STRVQmlKUHNZYmp2WE94VHRWdW0xdmxIclZLQ1JCa3dlc1JGeXVuYlRkZW4tNkt0U0l1VENfNmYzS1c3MGphcjJwYnVvQ2NOSVdickdobUw3RzdYQy1wa0hZVHhMV1hfQWIwRUxUejd2RWtHTWV3Vng5alZuVUN2N3lOWFFLQVlUQWVXQ0tBSXE2Q2cyQ1Nwb1pJX29PZlZsOEdqR0pwSHhjaFU4OXZuRk83VzZ1Ml91WVIzeGc3MG5JVThkWmVmVktOcHBweWR2NmdjS2dLNGpzeGpnOGdiSl90T0duZ1M5ME9n?oc=5",
-      "publishedAt": "2026-11-10T02:17:08.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi-gFBVV95cUxNcEs3NzNpWU9zVG5jUDY1STRVQmlKUHNZYmp2WE94VHRWdW0xdmxIclZLQ1JCa3dlc1JGeXVuYlRkZW4tNkt0U0l1VENfNmYzS1c3MGphcjJwYnVvQ2NOSVdickdobUw3RzdYQy1wa0hZVHhMV1hfQWIwRUxUejd2RWtHTWV3Vng5alZuVUN2N3lOWFFLQVlUQWVXQ0tBSXE2Q2cyQ1Nwb1pJX29PZlZsOEdqR0pwSHhjaFU4OXZuRk83VzZ1Ml91WV"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Australia tightens AI oversight rules after OpenAI agent breached government website - Centre Daily Times",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5UNHo3MTktY09lYm1jY1JhQXBTUDZFMFBDOWNtUUZXaXJ5YlFrU1Vnb2JqYXhEakNrcDlFUHpaUlI5V1VvMy1rN09UVzcwRkNvUFZ2TE02a2VtMkFhTUtyVno2MHZnYkJGZEtoVTEwRlk?oc=5",
-      "publishedAt": "2026-11-10T01:55:07.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMicEFVX3lxTE5UNHo3MTktY09lYm1jY1JhQXBTUDZFMFBDOWNtUUZXaXJ5YlFrU1Vnb2JqYXhEakNrcDlFUHpaUlI5V1VvMy1rN09UVzcwRkNvUFZ2TE02a2VtMkFhTUtyVno2MHZnYkJGZEtoVTEwRlk?oc=5\" target=\"_blank\">Australia tightens AI oversight rules after OpenAI agent breached government website</a>&nbsp;&n"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Government unveils mandatory AI rules, OpenAI hack response - Capital Brief",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNenVnQXZHS0NGTGRqZkV0LXZnQ0dkamRlTGlJb1BvRGlQdmo1dVMxb1JZNXBpMEFQOTJWbEFVOHJtMF9NMktKYW9leFY3MHlDYWhldm9XS09TVDdCUFcteUdQc2ptTkJFTHZWd0IteXVxRG9kUlg1SDhtVDBReUl0X09ZSEZYX3FHMm5ja2lzT0JKQmR5VGVJRjdUekRQd01NR09qckw0LW9IdkhJNUkzYmZlaTk4TDZPVWMxTnJ0d3I5M2V2RUJJTUpLaS1oWDA?oc=5",
-      "publishedAt": "2026-11-10T01:41:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMizwFBVV95cUxNenVnQXZHS0NGTGRqZkV0LXZnQ0dkamRlTGlJb1BvRGlQdmo1dVMxb1JZNXBpMEFQOTJWbEFVOHJtMF9NMktKYW9leFY3MHlDYWhldm9XS09TVDdCUFcteUdQc2ptTkJFTHZWd0IteXVxRG9kUlg1SDhtVDBReUl0X09ZSEZYX3FHMm5ja2lzT0JKQmR5VGVJRjdUekRQd01NR09qckw0LW9IdkhJNUkzYmZlaTk4TDZPVWMxTnJ0d3I5M2V2RUJJTU"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Australia to mandate AI breach reporting, create regulator after OpenAI breach - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPZVJXX0F6amhIRlpRZGpsTmNHenBVYndTci03aEFma05jOHYtNElITWF6TnVscnNfTndvaHFjeEVHNTRfSGZubWxESVlLQ295RWNCb3ZWMmpBdDJ0aVNYYktyb1RVTVRaZTFQVmRORXZ2TmpfakRQWm1aNGdlS0J3d3pENXc3NmNoSDN4Rms4UDNkYzFLNkFBSjJJSHRoNUhhYktVNl9XYmdNdFZVNjdTdk9YQlR4bDRpcmc?oc=5",
-      "publishedAt": "2026-11-10T01:30:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiugFBVV95cUxPZVJXX0F6amhIRlpRZGpsTmNHenBVYndTci03aEFma05jOHYtNElITWF6TnVscnNfTndvaHFjeEVHNTRfSGZubWxESVlLQ295RWNCb3ZWMmpBdDJ0aVNYYktyb1RVTVRaZTFQVmRORXZ2TmpfakRQWm1aNGdlS0J3d3pENXc3NmNoSDN4Rms4UDNkYzFLNkFBSjJJSHRoNUhhYktVNl9XYmdNdFZVNjdTdk9YQlR4bDRpcmc?oc=5\" target=\"_bla"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Australia tightens AI oversight rules after OpenAI agent breached government website - Devdiscourse",
-      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNc21teU9HYUwyTEduNWFBZ1h6UUtvNTE2YjU0M252YmNPZW9oaHd6Q1JUaFE3QzZZSGpuT0lNM2NNSWNxd1NkVVJlejQ5M2ZrYmRjUC1kZlRmRVBMTm9GOUlXRGJKTHlPR3V3SzRPSXpaZVVwdDIxbGsyR0NLYzV0aVJWQXhzOXNGNW45MEhUWGdpSmd2Y0pFVTVwekpGV2RmeEdqZlVadkdhdy1qSUNORmlnblFoUUI4c2dWbkZZQVU2Q1ZDNENlaEtaZVdPYjg1ZktteHBPM09JeWhZTjRldtIB4AFBVV95cUxNc21teU9HYUwyTEduNWFBZ1h6UUtvNTE2YjU0M252YmNPZW9oaHd6Q1JUaFE3QzZZSGpuT0lNM2NNSWNxd1NkVVJlejQ5M2ZrYmRjUC1kZlRmRVBMTm9GOUlXRGJKTHlPR3V3SzRPSXpaZVVwdDIxbGsyR0NLYzV0aVJWQXhzOXNGNW45MEhUWGdpSmd2Y0pFVTVwekpGV2RmeEdqZlVadkdhdy1qSUNORmlnblFoUUI4c2dWbkZZQVU2Q1ZDNENlaEtaZVdPYjg1ZktteHBPM09JeWhZTjRldg?oc=5",
-      "publishedAt": "2026-11-10T01:28:28.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxNc21teU9HYUwyTEduNWFBZ1h6UUtvNTE2YjU0M252YmNPZW9oaHd6Q1JUaFE3QzZZSGpuT0lNM2NNSWNxd1NkVVJlejQ5M2ZrYmRjUC1kZlRmRVBMTm9GOUlXRGJKTHlPR3V3SzRPSXpaZVVwdDIxbGsyR0NLYzV0aVJWQXhzOXNGNW45MEhUWGdpSmd2Y0pFVTVwekpGV2RmeEdqZlVadkdhdy1qSUNORmlnblFoUUI4c2dWbkZZQVU2Q1ZDNENlaE"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "New AI policy for Tasmanian public service staff - Inside State Government",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNTnltZ3hYTUY1b05lVm9YY1hMblRFdVc4RFhqUWR2LVNLZ2doRWFQMlFqNUZ0LVJIWVVOcTdkc1NnZ3czeHNsUnpqWUlMTFR0VkpVdl8yZk14TmVvRjAteHYtUWhzUjh3ckZsenk3R2RYV0kxR0l1d3MwbGJfVlQzaGJKbVhJYXp4cUZwZk43QVdKWmhH?oc=5",
-      "publishedAt": "2026-11-10T01:26:37.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilAFBVV95cUxNTnltZ3hYTUY1b05lVm9YY1hMblRFdVc4RFhqUWR2LVNLZ2doRWFQMlFqNUZ0LVJIWVVOcTdkc1NnZ3czeHNsUnpqWUlMTFR0VkpVdl8yZk14TmVvRjAteHYtUWhzUjh3ckZsenk3R2RYV0kxR0l1d3MwbGJfVlQzaGJKbVhJYXp4cUZwZk43QVdKWmhH?oc=5\" target=\"_blank\">New AI policy for Tasmanian public service staf"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "CrowdStrike announces new native AI security innovations on AWS - FutureCIO",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQTTVtWkRwZmNGQ1BrNXdSNERqakl3dDZlbVU2RXhOSWtGalpORkVBMTBCeWljbDdmak4wOUJKZjVYUlBxb3VrRFNYc3pWeEJLSEYyMEJjbXZCOHZUTExHalNPeFlla1dIcVdBVklQdExLU3JLY0xiZEI0aHAwYnJpWlZxeWNZXzdfMjNaN0tYSHU?oc=5",
-      "publishedAt": "2026-11-10T01:00:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikAFBVV95cUxQTTVtWkRwZmNGQ1BrNXdSNERqakl3dDZlbVU2RXhOSWtGalpORkVBMTBCeWljbDdmak4wOUJKZjVYUlBxb3VrRFNYc3pWeEJLSEYyMEJjbXZCOHZUTExHalNPeFlla1dIcVdBVklQdExLU3JLY0xiZEI0aHAwYnJpWlZxeWNZXzdfMjNaN0tYSHU?oc=5\" target=\"_blank\">CrowdStrike announces new native AI security innovat"
     },
     {
       "source": "AWS — Machine Learning",
@@ -5030,20 +4838,6 @@
       "categories": [
         "cs.AI",
         "cs.MA"
-      ]
-    },
-    {
-      "source": "AWS — Machine Learning",
-      "discoveryOnly": false,
-      "title": "Single-shot and agentic retrieval with Amazon Bedrock Managed Knowledge Base",
-      "url": "https://aws.amazon.com/blogs/machine-learning/single-shot-and-agentic-retrieval-with-amazon-bedrock-managed-knowledge-base/",
-      "publishedAt": "2026-11-09T20:13:18.000Z",
-      "summary": "Amazon Bedrock Managed Knowledge Base now supports single-shot RAG and retrieval-only requests through AgenticRetrieveStream, alongside agentic retrieval. This post explains how the maxAgentIteration parameter matches retrieval effort to each request, using an illustrative internal banking policy assistant.",
-      "categories": [
-        "Amazon Bedrock",
-        "Amazon Bedrock Knowledge Bases",
-        "Expert (400)",
-        "Technical How-to"
       ]
     },
     {
@@ -6861,14 +6655,6 @@
       "summary": null
     },
     {
-      "source": "Hugging Face — trending models",
-      "discoveryOnly": false,
-      "title": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
-      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-      "publishedAt": "2026-10-17T02:40:38.000Z",
-      "summary": "transformers, safetensors, deepseek_v41, text-generation, image-text-to-text, conversational"
-    },
-    {
       "source": "IEEE Spectrum — AI",
       "discoveryOnly": false,
       "title": "Simulation App Speeds Up Electric Truck Battery Design",
@@ -7877,6 +7663,14 @@
       "url": "https://deepmind.google/blog/introducing-gemini-3-7-flash/",
       "publishedAt": "2026-08-13T17:04:18.000Z",
       "summary": null
+    },
+    {
+      "source": "Hugging Face — trending models",
+      "discoveryOnly": false,
+      "title": "unsloth/Qwen3.8-27B-GGUF",
+      "url": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF",
+      "publishedAt": "2026-08-13T08:28:40.000Z",
+      "summary": "gguf, qwen3_5, unsloth, qwen, base_model:Qwen/Qwen3.8-27B, base_model:quantized:Qwen/Qwen3.8-27B"
     },
     {
       "source": "Google DeepMind",
