@@ -1,9 +1,9 @@
 {
   "$comment": "Leads, not sources. Every item here is exactly as trustworthy as a search snippet — open it, verify it, and cite the real publisher before it appears in an edition. Items with discoveryOnly:true come from a news-search aggregator and point at a redirect, not the publisher; never cite the aggregator itself.",
-  "harvestedAt": "2026-11-20T00:11:30.440Z",
+  "harvestedAt": "2026-11-20T00:35:27.478Z",
   "feedCount": 34,
   "okCount": 34,
-  "itemCount": 791,
+  "itemCount": 797,
   "feeds": [
     {
       "feed": "Anthropic",
@@ -128,7 +128,7 @@
     {
       "feed": "Google News",
       "ok": true,
-      "count": 38
+      "count": 32
     },
     {
       "feed": "Google News",
@@ -143,12 +143,12 @@
     {
       "feed": "Google News",
       "ok": true,
-      "count": 19
+      "count": 18
     },
     {
       "feed": "Google News",
       "ok": true,
-      "count": 18
+      "count": 19
     },
     {
       "feed": "Google News",
@@ -168,7 +168,7 @@
     {
       "feed": "Google News",
       "ok": true,
-      "count": 28
+      "count": 40
     },
     {
       "feed": "Hugging Face — trending models",
@@ -177,6 +177,52 @@
     }
   ],
   "items": [
+    {
+      "source": "AWS — Machine Learning",
+      "discoveryOnly": false,
+      "title": "Amazon SageMaker Inference: 2026 launches in review, part 2",
+      "url": "https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-inference-2026-launches-in-review-part-2/",
+      "publishedAt": "2026-11-20T00:34:07.000Z",
+      "summary": "This second installment reviews 13 more Amazon SageMaker AI inference launches from 2026, spanning configuration recommendations, fitting more models onto each GPU, serving models too large for one instance, cross-Region routing, and post-launch tuning, bringing the year's total to 26.",
+      "categories": [
+        "Advanced (300)",
+        "Amazon SageMaker AI",
+        "Announcements"
+      ]
+    },
+    {
+      "source": "AWS — Machine Learning",
+      "discoveryOnly": false,
+      "title": "Use Kimi Code CLI with models on Amazon Bedrock",
+      "url": "https://aws.amazon.com/blogs/machine-learning/use-kimi-code-cli-with-models-on-amazon-bedrock/",
+      "publishedAt": "2026-11-20T00:33:30.000Z",
+      "summary": "Kimi Code CLI v2.7.0 adds a native Amazon Bedrock provider, so you can connect the open source coding agent to models like Kimi K3.1 Pro using your standard AWS credential chain (named profiles or SSO) instead of a separate API key. This post shows how to configure the provider and send your first request.",
+      "categories": [
+        "Amazon Bedrock",
+        "Announcements",
+        "Intermediate (200)"
+      ]
+    },
+    {
+      "source": "SCMP — China",
+      "discoveryOnly": false,
+      "title": "As Shenzhen’s ‘wonders’ dazzle Apec, what can Hong Kong offer global businesses?",
+      "url": "https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3375121/shenzhens-wonders-dazzle-apec-what-can-hong-kong-offer-global-businesses",
+      "publishedAt": "2026-11-20T00:30:06.000Z",
+      "summary": "As Shenzhen presents its “wonders” to more than 2,000 business leaders, politicians and media representatives gathered for Apec meetings, Hong Kong has seized the opportunity to highlight its prowess as an international financial hub and its broader strengths. Beyond litter-free streets flanked by crowded skyscrapers a"
+    },
+    {
+      "source": "TechCrunch",
+      "discoveryOnly": false,
+      "title": "Anthropic rival says companies can (mostly) skip the pricey models",
+      "url": "https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/",
+      "publishedAt": "2026-11-20T00:26:03.000Z",
+      "summary": "On the day Anthropic went public, Fireworks AI’s co-founder made the case for open-source models as a cheaper alternative, and addressed the breaches that have cost the company some customers’ trust.",
+      "categories": [
+        "TC",
+        "Venture"
+      ]
+    },
     {
       "source": "SCMP — China",
       "discoveryOnly": false,
@@ -402,14 +448,6 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Anthropic Reveals 120.5 Billion Dollar SpaceX AI Deal - SuaraGarut.ID",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9JdlF0ejZyZWFSbXpqbnBBVWtRR3d0MGxIcHZ2N1FhcXBhQzdxSTB6YURnWEhSQk55cHNUUC10bF9nVkdnRVNDWV9WQy1rUFNQZ2FTUmh6Smp0SmxYTm1vOFZCUUkzclRW?oc=5",
-      "publishedAt": "2026-11-19T22:03:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiaEFVX3lxTE9JdlF0ejZyZWFSbXpqbnBBVWtRR3d0MGxIcHZ2N1FhcXBhQzdxSTB6YURnWEhSQk55cHNUUC10bF9nVkdnRVNDWV9WQy1rUFNQZ2FTUmh6Smp0SmxYTm1vOFZCUUkzclRW?oc=5\" target=\"_blank\">Anthropic Reveals 120.5 Billion Dollar SpaceX AI Deal</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">SuaraGarut.ID</f"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
       "title": "Random phone calls and CCTV: Government tightens national exam rules after AI cheating - Korea JoongAng Daily",
       "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQZ3JlN2FHVmpoMlV2ZTdfVmR2THRYQm9hRDdlejlybVNZYXduX1M1Wkl0OUotQUtpRmFXcWh2YUNjZEZBSm5DeU41VjhZcHlQQnhRdDBVS3VMVEFmeWlzdGZ2cHRrM0I1UjQtd09QQmd3Y1M0bUtTY3hwZWR0eDJOWGd0c0hNZ1FmTU9wRkN0N2VVVldYXzlENzg3QXA0dHN3Rl9RWkI2eDMwNm4yT2IzSTNJdV9ueDVURnVoV2Z0bUdIb3ZBbWp0Wlg2ME1kX2x4?oc=5",
       "publishedAt": "2026-11-19T22:02:29.000Z",
@@ -572,6 +610,14 @@
         "MAHA",
         "Tony Lyons"
       ]
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "SAFE AI Act: What the House Outline Requires of AI Labs - explainx.ai",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQOWRqWnUzbk5ubjhxTmduZzdOMkRRdUZ4RjFDejlvMmFndE95X0xxT0NBWlBNUFJPaHUwVXRoeUp4MFVlWUFxOTJTZTYtZ0lpTERBQUhvclJ2TDNoQ1RDeDk0VlFKVUJPcy1EY2c2WXFkOGIzLTVlVkZXQ01YSXZoRUlxQUlRYVdVWjlNak9sMUtHWTFEYWVuSW9xVHIyUnlHQ3JIX21Hd2JKUXR6V1VPdTM2SDJSSDZyUjB6SWhxY0RHUjBzUnc?oc=5",
+      "publishedAt": "2026-11-19T21:18:36.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMixgFBVV95cUxQOWRqWnUzbk5ubjhxTmduZzdOMkRRdUZ4RjFDejlvMmFndE95X0xxT0NBWlBNUFJPaHUwVXRoeUp4MFVlWUFxOTJTZTYtZ0lpTERBQUhvclJ2TDNoQ1RDeDk0VlFKVUJPcy1EY2c2WXFkOGIzLTVlVkZXQ01YSXZoRUlxQUlRYVdVWjlNak9sMUtHWTFEYWVuSW9xVHIyUnlHQ3JIX21Hd2JKUXR6V1VPdTM2SDJSSDZyUjB6SWhxY0RHUjBzUnc?oc"
     },
     {
       "source": "Google News",
@@ -797,6 +843,14 @@
       ]
     },
     {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Jamaican MP proposes AI data centers in Portmore - Caribbean National Weekly",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNcllmRmROUk82REo4OVJDRTMtU2ktbDRTSW9PMUY4SEtZUm9tOFlCRWR2SGs0OTR5bjE2amZOY1lfVGhCcThVZjBLNU1tTzkxa1A2UENzT25qNThEREg5allsX1h6U054UEw0X3ROeFc0ZnlZNV9pZWgxS3NwNF9LRFdFcmE1NFJZbEg1YUVkNU1UQVQtNDdWSVN3?oc=5",
+      "publishedAt": "2026-11-19T19:58:34.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxNcllmRmROUk82REo4OVJDRTMtU2ktbDRTSW9PMUY4SEtZUm9tOFlCRWR2SGs0OTR5bjE2amZOY1lfVGhCcThVZjBLNU1tTzkxa1A2UENzT25qNThEREg5allsX1h6U054UEw0X3ROeFc0ZnlZNV9pZWgxS3NwNF9LRFdFcmE1NFJZbEg1YUVkNU1UQVQtNDdWSVN3?oc=5\" target=\"_blank\">Jamaican MP proposes AI data centers in"
+    },
+    {
       "source": "AWS — Machine Learning",
       "discoveryOnly": false,
       "title": "Amazon Polly launches voice cloning: A unique voice for your brand",
@@ -880,6 +934,14 @@
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOd2stLVhDUllCTFRETklMd21lck9XU0ZEOE5CcWd1cFU5aENpWThmWFM2Y1NEeGdnZzluYU9kTzgzWlJRR3pvSEhycEhheFZRRVVPd1lrRzhWNktBaFd1ZmJNZHhlMEpUYUU1N3U0b2JvbFRQSkZiSnZ3S20yYkdZM0pLZXF1dU1IbndXSHVWS05sVmlQZ3RnaXFMVEhObDRINmtnZg?oc=5",
       "publishedAt": "2026-11-19T19:35:25.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxOd2stLVhDUllCTFRETklMd21lck9XU0ZEOE5CcWd1cFU5aENpWThmWFM2Y1NEeGdnZzluYU9kTzgzWlJRR3pvSEhycEhheFZRRVVPd1lrRzhWNktBaFd1ZmJNZHhlMEpUYUU1N3U0b2JvbFRQSkZiSnZ3S20yYkdZM0pLZXF1dU1IbndXSHVWS05sVmlQZ3RnaXFMVEhObDRINmtnZg?oc=5\" target=\"_blank\">AWS and Accenture say cos"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Dubai Government Chief AI Officers examine security readiness for AI applications at Dubai Future Week 2026 - Big News Network.com",
+      "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNUERyMEZPU3U3NGFjSjlvZ0hKMm1fVzdUcEVYZ2dXWWMxa2NlZzhMN3pBbGIycnlYbWkxRTVtMzlscEVUSzdXSHlOa09HQ0M5NGdQX2JrUlZaQVR4S3p4NWFfZVI0NERfRkNzYXQzWVBXTFpoTzZpcjlzWGVKVmpON3Racms4eUlxZm9Lc1Q2R0tEVDB4OWpNMjh4ZkxZNVRQeU1Sa3ZleXBSQTROdm5YRW94V19Fc2JLR2ZFNGtrVmlTb2RnY255bDV3Uk50UmRYWU42N01QOHpJSTZOZjR5U0w3dHgwUmYy?oc=5",
+      "publishedAt": "2026-11-19T19:34:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi6AFBVV95cUxNUERyMEZPU3U3NGFjSjlvZ0hKMm1fVzdUcEVYZ2dXWWMxa2NlZzhMN3pBbGIycnlYbWkxRTVtMzlscEVUSzdXSHlOa09HQ0M5NGdQX2JrUlZaQVR4S3p4NWFfZVI0NERfRkNzYXQzWVBXTFpoTzZpcjlzWGVKVmpON3Racms4eUlxZm9Lc1Q2R0tEVDB4OWpNMjh4ZkxZNVRQeU1Sa3ZleXBSQTROdm5YRW94V19Fc2JLR2ZFNGtrVmlTb2RnY255bD"
     },
     {
       "source": "The Verge",
@@ -1016,6 +1078,14 @@
         "large language models",
         "misinformation"
       ]
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "House Trio Unveils SAFE AI Act Safety Framework - Wisevoter",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPUE5mLWpOSGx6NnJnRUY2YUZMcjh3QjJ0UjRvTFAybkl4SzVwQ2NvckJ1MHBjYnZkX2VDdFF2UGZjb2hKYVYxaGlacDZvNmVaZlk4WllvWFBSSTBjYm1Jb1F5YjBFcGJNYnJsSXdiZ05neWNJYUprRlVXSWtvamEySDZhb0xJQVRVVjJN?oc=5",
+      "publishedAt": "2026-11-19T18:37:57.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiwFBVV95cUxPUE5mLWpOSGx6NnJnRUY2YUZMcjh3QjJ0UjRvTFAybkl4SzVwQ2NvckJ1MHBjYnZkX2VDdFF2UGZjb2hKYVYxaGlacDZvNmVaZlk4WllvWFBSSTBjYm1Jb1F5YjBFcGJNYnJsSXdiZ05neWNJYUprRlVXSWtvamEySDZhb0xJQVRVVjJN?oc=5\" target=\"_blank\">House Trio Unveils SAFE AI Act Safety Framework</a>&nbsp;&n"
     },
     {
       "source": "The Verge",
@@ -1336,6 +1406,14 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
+      "title": "Telangana’s Artificial Intelligence Framework (2020) and T-AIM: Building an AI-Driven Innovation Ecosystem - IMPRI Impact and Policy Research Institute",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9UY0VBMmVUOFA5cXk0LU5MZEhJZmN1QU12SVY4TEhMYTZNNW5xOS0wU1ZwYm1GOWc4NXVfMHpod1RFc25fdGZhQWlXY1htSW9JV2tyZ2pFVlZkRzdGdC04RnJTOTZVZFNUUld4Ug?oc=5",
+      "publishedAt": "2026-11-19T15:57:35.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMibEFVX3lxTE9UY0VBMmVUOFA5cXk0LU5MZEhJZmN1QU12SVY4TEhMYTZNNW5xOS0wU1ZwYm1GOWc4NXVfMHpod1RFc25fdGZhQWlXY1htSW9JV2tyZ2pFVlZkRzdGdC04RnJTOTZVZFNUUld4Ug?oc=5\" target=\"_blank\">Telangana’s Artificial Intelligence Framework (2020) and T-AIM: Building an AI-Driven Innovation Ecos"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
       "title": "The business behind Claude: what role do Amazon, Google, Nvidia and AMD play in Anthropic - Demócrata",
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPTTdiZVRQaVdUZmZPMGJuV1p2WUI5Zi1keGtRcWdiUkdzUHF4N25QWG5WRm15S2wwYVM5NVdiZUpoTnFhYlA4dnNUZGk3UVIyTmZwRExsQm41U2l3d19lcDdKaUhoX3lxdW9CdlFabG9OZUNCN0pzREtKa2xRaUk2QlZCN0hDUk5qZXFRQ2FDMlRSZVlSOUI3X0Zrc0I5WndINVgtZFNOUWN4ZjE3NTNyR0ttQ3FUcUYyb09aaDFCSXDSAcYBQVVfeXFMT2hlc0otOWpBYUlaZi10V1c0T3hKWFhDQU1Va2xFYzl0Y3dzV1h5cDFGdlkxMWFzY3M2clhZRUhpUzFoRUl5VmZ5LVhKbUttMGQtaG10VDNfUXdKeFdDRHZ2MjhYRWpsNGlrdUtfRjVBbmROaE9nRmFyUFZITGk0UUR1NmxfcndkTFZoNmJKbHZvaDVwNFJxeUVyNHNkM0N6VHlreHgxZm1TbGlkaVJCekg2T2g3QnVOcThUZjdkcXhReUlSVDdR?oc=5",
       "publishedAt": "2026-11-19T15:56:53.000Z",
@@ -1529,6 +1607,14 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiYkFVX3lxTE80SWctaUM2YXVqb2o3aUg3VzRvTUJiOVZoTVdNWWctaXh0UWNlaVBHcUVnSnlhT0lkOXloT05QZURIZjBPOUJKSFRUTi1vSzYxTFFPNGxKVUpPcmpNNXFGcTB3?oc=5\" target=\"_blank\">Alibaba says next-gen Qwen trained on in-house chips amid intensive roll-out of Chinese AI models</a>&nbsp;&nbsp;<f"
     },
     {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Australian music leaders reject special treatment in reported AI copyright proposal - Superpower Daily",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZV9VT1p2TjlqUUQ4VXc5ZXlnUDBPbkFmTWNydW9ONVJSMlVtdEVVVi1ES1NiYWJZUHc0TjhaQnhuUDBXRy1uejJpTFp5QnFiVG52dTEtM2dHcUdVUll0Wm43YWdnN0h5MG9fSENyTW1XSlRjdk1PSk56NVUyQmZudTV0QkJiZlByNElGSk0wMTg0TUJZcDZxV3loQldFc2ZCSWNxM1J4UTFuQWlpTTdpaWhWU3dUSUdM?oc=5",
+      "publishedAt": "2026-11-19T14:39:48.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZV9VT1p2TjlqUUQ4VXc5ZXlnUDBPbkFmTWNydW9ONVJSMlVtdEVVVi1ES1NiYWJZUHc0TjhaQnhuUDBXRy1uejJpTFp5QnFiVG52dTEtM2dHcUdVUll0Wm43YWdnN0h5MG9fSENyTW1XSlRjdk1PSk56NVUyQmZudTV0QkJiZlByNElGSk0wMTg0TUJZcDZxV3loQldFc2ZCSWNxM1J4UTFuQWlpTTdpaWhWU3dUSUdM?oc=5\" target=\"_blank\""
+    },
+    {
       "source": "SCMP — China",
       "discoveryOnly": false,
       "title": "Hong Kong building maintenance body to get HK$413m for operations and hire 160 staff",
@@ -1569,6 +1655,14 @@
       "summary": "Hong Kong’s first-ever dinosaur fossils, discovered on Port Island, belong to a sauropod measuring more than 20 metres (65 feet) long that lived about 100 million years ago, with the specimens going on public display on Friday. Traced to the Cretaceous period, the remains are among some 60 sets of rare dinosaur fossils"
     },
     {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "From dialogue to delivery: making AI governance work in Southeast Asia - OECD AI Policy Observatory",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNVjBDSU9VUWFxTUt5YkVyZm9pSkFMWkFoWnpOTTFFcndTbTZ2Tmo5eWhOTzdYRTlLTklESnNuSTdNejhyNHlxM0ZCRFlJNlJjR2VEX3dtMDVYZVV2SWIyd01zZWc4Wmo0MzlLX2p4X1ZIUy1hQjk4OW5lU0NvbGV5S0hWZHM0VjVISUVTUGFTaHJQbjU2aE5SQQ?oc=5",
+      "publishedAt": "2026-11-19T14:24:10.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxNVjBDSU9VUWFxTUt5YkVyZm9pSkFMWkFoWnpOTTFFcndTbTZ2Tmo5eWhOTzdYRTlLTklESnNuSTdNejhyNHlxM0ZCRFlJNlJjR2VEX3dtMDVYZVV2SWIyd01zZWc4Wmo0MzlLX2p4X1ZIUy1hQjk4OW5lU0NvbGV5S0hWZHM0VjVISUVTUGFTaHJQbjU2aE5SQQ?oc=5\" target=\"_blank\">From dialogue to delivery: making AI gove"
+    },
+    {
       "source": "SCMP — China",
       "discoveryOnly": false,
       "title": "Asia watches from the outside waiting to see if Xi-Trump-Putin talks bear fruit",
@@ -1590,6 +1684,14 @@
         "mirror neurons",
         "Neuroscience"
       ]
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "AI-Powered Cybercrime Is Outpacing Governments’ Response, UNODC Expert Warns - The 420.in",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5veGZ5RDZtYmZLLURSTWZmQ2NWaUNPX2ttRDAtUTJxbnhSU2pWaWdpUThBLVZjbTRDNEZHZGlfc1kzOFAxR3cwUXEyeTRQLXY2WnpWNDJOUk1fNzZpZWROWlZDRWVmVTcyV0FfVy0taXRZc2dC?oc=5",
+      "publishedAt": "2026-11-19T14:00:21.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMidEFVX3lxTE5veGZ5RDZtYmZLLURSTWZmQ2NWaUNPX2ttRDAtUTJxbnhSU2pWaWdpUThBLVZjbTRDNEZHZGlfc1kzOFAxR3cwUXEyeTRQLXY2WnpWNDJOUk1fNzZpZWROWlZDRWVmVTcyV0FfVy0taXRZc2dC?oc=5\" target=\"_blank\">AI-Powered Cybercrime Is Outpacing Governments’ Response, UNODC Expert Warns</a>&nbsp;&nbsp"
     },
     {
       "source": "NVIDIA",
@@ -1772,6 +1874,14 @@
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNRlpoVWhVSFJCRkhIZm1zQzhCQVlqRXphUWVNaE5OcnNwMjRMNHBVbmNyakZxUnpEbGRsVnBNZlVqNkx1NFlDTGw5Q3dhWk9LZ29uaGRWMzhIcmVMa0V5WEoxOUlsUEE5aGoza2RYdEFCWHlRMkRJa1dRdmM5N0NfNEFhOUZwc2JiYzRQZXkyUkNZZW1oUVNFdEVsVTU?oc=5",
       "publishedAt": "2026-11-19T12:23:34.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxNRlpoVWhVSFJCRkhIZm1zQzhCQVlqRXphUWVNaE5OcnNwMjRMNHBVbmNyakZxUnpEbGRsVnBNZlVqNkx1NFlDTGw5Q3dhWk9LZ29uaGRWMzhIcmVMa0V5WEoxOUlsUEE5aGoza2RYdEFCWHlRMkRJa1dRdmM5N0NfNEFhOUZwc2JiYzRQZXkyUkNZZW1oUVNFdEVsVTU?oc=5\" target=\"_blank\">Gemini 4 Helium is coming next, Goog"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Mistral blazes ahead with an additional €100 million to their Series D by T.Capital - EU-Startups",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQR1lVY3VDN0JBN2dvUlZUV1hQajdScERoeW9kZHFVRm9lbFVFUm4zZGk5YU5KaTNpVTJPUC1HMVFvd2paUzdDWWVQZkgwcVd6bW9IeGNBSTd2OXhSbmZaX0FxdVdXWVYwcEpMVDN1dnpIUjVaWjM0OXd5NHY5MnR6S19RZ2lxY1Z2T0pJMENvMDdNZ1p4QnYzVzZNZFFrRXJ4V3luWU43LTlRUU0yVWN6eVRLZzZXM2ExX2NMNg?oc=5",
+      "publishedAt": "2026-11-19T12:14:42.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxQR1lVY3VDN0JBN2dvUlZUV1hQajdScERoeW9kZHFVRm9lbFVFUm4zZGk5YU5KaTNpVTJPUC1HMVFvd2paUzdDWWVQZkgwcVd6bW9IeGNBSTd2OXhSbmZaX0FxdVdXWVYwcEpMVDN1dnpIUjVaWjM0OXd5NHY5MnR6S19RZ2lxY1Z2T0pJMENvMDdNZ1p4QnYzVzZNZFFrRXJ4V3luWU43LTlRUU0yVWN6eVRLZzZXM2ExX2NMNg?oc=5\" target=\"_"
     },
     {
       "source": "Google News",
@@ -2021,6 +2131,38 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
+      "title": "Third of AI supply chain is missing from policy, study finds - Resultsense",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPcV9GU1dMUGwwTDdseVNFN0UyM0I1eTIxM0hnOWh6QWpVQS0wX2NSQk83TmdFMGJpY2RtZThSTndHZG9pR0FjSkhacGItQU1jVlA5UF9ScWtIaXQ1bUkxU0Q5bThCOWdISm1UeXNKcjRyanpKLW9Nd3JZNzBoRGthYkE3anV3dmdVb2dYWEln?oc=5",
+      "publishedAt": "2026-11-19T10:55:46.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxPcV9GU1dMUGwwTDdseVNFN0UyM0I1eTIxM0hnOWh6QWpVQS0wX2NSQk83TmdFMGJpY2RtZThSTndHZG9pR0FjSkhacGItQU1jVlA5UF9ScWtIaXQ1bUkxU0Q5bThCOWdISm1UeXNKcjRyanpKLW9Nd3JZNzBoRGthYkE3anV3dmdVb2dYWEln?oc=5\" target=\"_blank\">Third of AI supply chain is missing from policy, study "
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Ben Lake to seek binding advanced AI rules in Commons debate - Resultsense",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPRkJWa3lhQmpmd09PLU1TVExILWY2LThLUE81T1BsdkhjRF8yaWJyNjNYbENuNDZ6VmdzaUg0Rl9YaE9jdVNNR2hSVGd5NHJXakJmVHVzZTJyZDRiYklDSnJidnQzMDRvRjVoNWlBQlZ3UzBHVC1mOUxLdTdKeWRVTlBGaXUza2E5QWtvYWFObw?oc=5",
+      "publishedAt": "2026-11-19T10:55:46.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijwFBVV95cUxPRkJWa3lhQmpmd09PLU1TVExILWY2LThLUE81T1BsdkhjRF8yaWJyNjNYbENuNDZ6VmdzaUg0Rl9YaE9jdVNNR2hSVGd5NHJXakJmVHVzZTJyZDRiYklDSnJidnQzMDRvRjVoNWlBQlZ3UzBHVC1mOUxLdTdKeWRVTlBGaXUza2E5QWtvYWFObw?oc=5\" target=\"_blank\">Ben Lake to seek binding advanced AI rules in Commons"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "AI Africa Intelligence (November 12–18, 2026) VOL. 30 - Innovation Village",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQS01IMXZlWWlvVzVyNHAwbW51cHFTWW05ellVWHQ3NXhsb2ZYMDFiTDRsN3lRdXAyVjVXbkplSUxVMjQzb3NFNElTWDJGNXp0SEdfZ3lUTllEckI2TWRFaUFiZkNMdXVLZmdpWlQ0eUl4RGtUdDRiWE1oakRmYnVZRGRDZmcxQzJq?oc=5",
+      "publishedAt": "2026-11-19T10:51:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiAFBVV95cUxQS01IMXZlWWlvVzVyNHAwbW51cHFTWW05ellVWHQ3NXhsb2ZYMDFiTDRsN3lRdXAyVjVXbkplSUxVMjQzb3NFNElTWDJGNXp0SEdfZ3lUTllEckI2TWRFaUFiZkNMdXVLZmdpWlQ0eUl4RGtUdDRiWE1oakRmYnVZRGRDZmcxQzJq?oc=5\" target=\"_blank\">AI Africa Intelligence (November 12–18, 2026) VOL. 30</a>&nbsp;"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Kantone Holdings Issues Annual General Meeting Notice - TipRanks",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOeHJSRXpDNVYzNVMtLTRGcV9QSFdTRlM1eUIxTmNiY21kcWVobWtFVGVOdUM5UmpIdHhDM283TjRjMzc3R011NlBGQzZ3QzdSb2ZUaVBxQjNwTEtGV2xTYTBEWkRhNGJpaGJDOXFyWVBvSk9GdTBZdktQUFVkV3JUN05jMGJBWW12RHNURHVoYnZUZlFVU0FyNGVLRVNkM1RCbFpDb2FrLXA?oc=5",
+      "publishedAt": "2026-11-19T10:48:51.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxOeHJSRXpDNVYzNVMtLTRGcV9QSFdTRlM1eUIxTmNiY21kcWVobWtFVGVOdUM5UmpIdHhDM283TjRjMzc3R011NlBGQzZ3QzdSb2ZUaVBxQjNwTEtGV2xTYTBEWkRhNGJpaGJDOXFyWVBvSk9GdTBZdktQUFVkV3JUN05jMGJBWW12RHNURHVoYnZUZlFVU0FyNGVLRVNkM1RCbFpDb2FrLXA?oc=5\" target=\"_blank\">Kantone Holdings Iss"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
       "title": "Gemini 4 Hydrogen: Price, Benchmarks and Who Gets It - Fello AI",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9IaE5YYjBFaHpkanlKaU9UR3NoZlVLR2p0aU9VbGJNT1B3bTRqZ2Z1UnVsV1BQRmJqVVJRek15WlBCY2pqaG8xYmxreUVwUlk?oc=5",
       "publishedAt": "2026-11-19T10:33:25.000Z",
@@ -2146,22 +2288,6 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Google Opens Waitlist for Stitch Loop Agent - Wisevoter",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNQTNNY04ydm9mTmVDUXZPcGVvMmJtRWlWSVFDdzhRRnhpc29lZGI4VEJCU3hROE9VZTJkRmo0azJwekg0S2NNUGF6MXpLSmUxTi1XUmtfUm5rbmpUczdWaTZtdHd5aGw5UlU5b1JRRjhGQVlibHNJdVptbVpJQmYwSQ?oc=5",
-      "publishedAt": "2026-11-19T09:58:31.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMigAFBVV95cUxNQTNNY04ydm9mTmVDUXZPcGVvMmJtRWlWSVFDdzhRRnhpc29lZGI4VEJCU3hROE9VZTJkRmo0azJwekg0S2NNUGF6MXpLSmUxTi1XUmtfUm5rbmpUczdWaTZtdHd5aGw5UlU5b1JRRjhGQVlibHNJdVptbVpJQmYwSQ?oc=5\" target=\"_blank\">Google Opens Waitlist for Stitch Loop Agent</a>&nbsp;&nbsp;<font color=\"#"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Lyzr Launches Opencontroller in AWS Marketplace, So Enterprises Can Own What Acts on Their Behalf - The Des Moines Register",
-      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNMGpFdENDNGpGdlZWdTBRbk00LWJaT3otZVo5dXdJdmdPZzV4TWhkWmVQdXR0Q0FUZ1cxQ0JhWlcxbG96a3VlaGFRWkxnekxkbTJJY3NWenBrQmttM2tJSVF4Qk93S29hWkpSSU4zWWxjS2tJeTJsSmxaYlJIcXR3M1JRdGgtRHRzLWlRbGU3UG5vRWMtVG44QUdVWVN1WURpS09kZkVjSldIM2M1YUgyZ3lVeWs2d2J6YTl2RkVidTFmTmxFdFJPZkhnSjMwa3RwTUFOaWQ1b3lZalZnMk1fOUVJN1JIWmxFNGtMeERkcw?oc=5",
-      "publishedAt": "2026-11-19T09:56:04.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi7wFBVV95cUxNMGpFdENDNGpGdlZWdTBRbk00LWJaT3otZVo5dXdJdmdPZzV4TWhkWmVQdXR0Q0FUZ1cxQ0JhWlcxbG96a3VlaGFRWkxnekxkbTJJY3NWenBrQmttM2tJSVF4Qk93S29hWkpSSU4zWWxjS2tJeTJsSmxaYlJIcXR3M1JRdGgtRHRzLWlRbGU3UG5vRWMtVG44QUdVWVN1WURpS09kZkVjSldIM2M1YUgyZ3lVeWs2d2J6YTl2RkVidTFmTmxFdFJPZk"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
       "title": "Mistral boss denies French AI firm is Macron's 'personal project' - Modern Ghana",
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNRV9XdkFTN1lZSTVwYmYwTzdkUVUtOTR1VXRLRXRlR29BYVBDTWhqb3RkUUYtUU95UzRzUWtnMmxpU2dfMzdqa0hmUFZlWnRVVUdRaEtTbTJhOWJZQkZIbkxSU3AxeXpuU085SDU1ejV5eXYxWTlUS2dneXVqM0N4cGYxWXpfUER1RS16MXZqS3N4VU4y0gGUAUFVX3lxTE1FX1d2QVM3WVlJNXBiZjBPN2RRVS05NHVVdEtFdGVHb0FhUENNaGpvdGRRRi1RT3lTNHNRa2cybGlTZ18zN2prSGZQVmVadFVVR1FoS1NtMmE5YllCRkhuTFJTcDF5em5TTzlINTV6NXl5djFZOVRLZ2d5dWozQ3hwZjFZel9QRHVFLXoxdmpLc3hVTjI?oc=5",
       "publishedAt": "2026-11-19T09:53:00.000Z",
@@ -2206,22 +2332,6 @@
       "url": "https://www.scmp.com/plus/economy/china-economy/article/3375070/xi-trump-putin-trilateral-breaks-historic-ground",
       "publishedAt": "2026-11-19T09:22:16.000Z",
       "summary": "President Xi Jinping highlighted the “pioneering significance” of the first trilateral meeting between the leaders of China, the United States and Russia, as Donald Trump pushed for talks on nuclear weapons. “When major countries live in harmony, the world enjoys peace,” Xi said at the start of the meeting in Shenzhen."
-    },
-    {
-      "source": "SCMP — China",
-      "discoveryOnly": false,
-      "title": "Who’s who in Shenzhen: the priorities revealed by Xi-Trump-Putin summit rosters",
-      "url": "https://www.scmp.com/news/china/diplomacy/article/3375069/whos-who-shenzhen-priorities-revealed-xi-trump-putin-summit-rosters",
-      "publishedAt": "2026-11-19T09:21:05.000Z",
-      "summary": "In high-stakes summitry, seating charts and delegation rosters often speak louder than boilerplate communiques. And, as the unprecedented China-US-Russia trilateral meeting unfolds in Shenzhen, the strategic agendas of the three powers can be discerned by the security and economic tsars, top diplomatic strategists and "
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Google opens Genie 4 to eligible AI Ultra users with live world editing and audio - Business Upturn",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOX05BQUYzcHNXUWpLbEx4SW5sQjIzSGl3X2lWbEFQRmJBS3dPRkdoZVdiN3NMYkpLV2g4SUVCdFh3UWd2MGtNTUQ3MV9RUWVhVkFTWE1oaGRnZFIxalFGaE9la3hUbnFyTG1US1Q4bGE4ZUdOeUFmSWhKaFp4ekVQdlRXVS0takl3VU93b0QtMGg3M3NYX0ViaXNmbnE2SlliRjE2Zjdua180aVN3dlZCLXlNM3B2UExybGFQeg?oc=5",
-      "publishedAt": "2026-11-19T09:02:50.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxOX05BQUYzcHNXUWpLbEx4SW5sQjIzSGl3X2lWbEFQRmJBS3dPRkdoZVdiN3NMYkpLV2g4SUVCdFh3UWd2MGtNTUQ3MV9RUWVhVkFTWE1oaGRnZFIxalFGaE9la3hUbnFyTG1US1Q4bGE4ZUdOeUFmSWhKaFp4ekVQdlRXVS0takl3VU93b0QtMGg3M3NYX0ViaXNmbnE2SlliRjE2Zjdua180aVN3dlZCLXlNM3B2UExybGFQeg?oc=5\" target=\"_"
     },
     {
       "source": "Google News",
@@ -2393,6 +2503,14 @@
       "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPVGdMMVRaNFFpNEtod0pYR0ZLSjN3b2pqclAwT2NORkhtZTc1Q2RFWW5BSmpmd0IwanM4bW83VjB4VFdESmdDMG56clJkNGxuTEpwREQ0ZmdselVxZDJaQm5LXzM0dGhaY09SY3BtaWR2OEpmZm9pNTlNTk1JWXBRVml2OFk3NWNSOUQtR2IteUdRUS1kNHZTSkpOV3pWXzQ0S0FpSlNRLWlDYVp4RThhRlM0ZFRGajE5NTRRTk9jVFNBekRUSVdwTFZIVWt1azlIeHfSAd8BQVVfeXFMUFhieVh2Qy1XTGFzUHZkYW4yaVFIQWRKUlJDT0E0UkxCenRsY1NMU3BMeGFkbjVPQVRNTnN2ZDZsdXI0ZzBMNGJkU2FhbWFMUlRiSi14X2Qyenhla1lBTjhGcWNUNm50ZWg0RUhTT0JGUTBoZ2MwMGxpaldnTGRYT09MZ2phbTFkQVc4U1dIU1VCbW9lYmZEN3QtVlZ1djlGR2NMN0xrbVdZWEQyZXY2Unc0dVFZLUY0SjRkdFh2ME1CYm9wM2RBRVNtODVnelpVcGx2LVVUMzNLenhmRHZ6TQ?oc=5",
       "publishedAt": "2026-11-19T06:07:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi0gFBVV95cUxPVGdMMVRaNFFpNEtod0pYR0ZLSjN3b2pqclAwT2NORkhtZTc1Q2RFWW5BSmpmd0IwanM4bW83VjB4VFdESmdDMG56clJkNGxuTEpwREQ0ZmdselVxZDJaQm5LXzM0dGhaY09SY3BtaWR2OEpmZm9pNTlNTk1JWXBRVml2OFk3NWNSOUQtR2IteUdRUS1kNHZTSkpOV3pWXzQ0S0FpSlNRLWlDYVp4RThhRlM0ZFRGajE5NTRRTk9jVFNBekRUSVdwTF"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Editorial | AI debate, transparency - Jamaica Gleaner",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxObkJLOG1NSVltMXpjbEFwTzhZUks2Y25EZkEyTkpaSndlR0FJYkJ6MjhiekxXclJGVXhRbWY4NW94dnRfVnI0d0tKMXZKQ3VYVV9HNjdac01CWU5VZkJLeGlybnYxdFpKTWRTazhnWmpON0Q5S1FSZWZwdVVySzk5Z1VYVkJtc2hXdzlRbHJnY0I?oc=5",
+      "publishedAt": "2026-11-19T06:06:09.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikAFBVV95cUxObkJLOG1NSVltMXpjbEFwTzhZUks2Y25EZkEyTkpaSndlR0FJYkJ6MjhiekxXclJGVXhRbWY4NW94dnRfVnI0d0tKMXZKQ3VYVV9HNjdac01CWU5VZkJLeGlybnYxdFpKTWRTazhnWmpON0Q5S1FSZWZwdVVySzk5Z1VYVkJtc2hXdzlRbHJnY0I?oc=5\" target=\"_blank\">Editorial | AI debate, transparency</a>&nbsp;&nbsp;<"
     },
     {
       "source": "Meta Newsroom",
@@ -2593,6 +2711,14 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
+      "title": "Lee Government's Sudden CSAT Rules Spark Nationwide Chaos - 조선일보",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOVWhWWk1UYm5kQUV2a3FwVVB1OXRWZWJNTC0zN1J6NjNaV25kVlJ5YmVmVGxfX01TeklBelUxbFZaZlFDMlk4SUQyYS16cnU4MUdsRmExOUtMOHlYMzhXRWc0QzNkY0gxVXZHTWFyaFVQZFB1OWdMcXFFT3I3TkZhcUx6OGtNbzBv?oc=5",
+      "publishedAt": "2026-11-19T04:52:05.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiAFBVV95cUxOVWhWWk1UYm5kQUV2a3FwVVB1OXRWZWJNTC0zN1J6NjNaV25kVlJ5YmVmVGxfX01TeklBelUxbFZaZlFDMlk4SUQyYS16cnU4MUdsRmExOUtMOHlYMzhXRWc0QzNkY0gxVXZHTWFyaFVQZFB1OWdMcXFFT3I3TkZhcUx6OGtNbzBv?oc=5\" target=\"_blank\">Lee Government's Sudden CSAT Rules Spark Nationwide Chaos</a>&n"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
       "title": "What Is Anthropic? Who Owns the Company Behind Claude? - PopTV Culture",
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQYzlKODZxZDh5VWRQRzhDSnM5VnIxQmtFcjVhT2tGZFE1Umg5S0V6Qmk1MFZzSTl4aVhPYWx2LXUtVmtUaHEwQzlKemF4Ql95bDFVUlhUbWVHRXVLYWtQNkJPUXpLR0hBUnU4N3E2a0FMM1pwbmxocV9sb01rUl84R1dxNHo?oc=5",
       "publishedAt": "2026-11-19T04:43:44.000Z",
@@ -2633,6 +2759,14 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
+      "title": "Malaysia orders 117 data centres to comply with US chip rules - IDNFinancials",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQdzh5R2RxX0F0cWhQdGpLa1ZiVjJHUjMtLXY5UjB5ZGFvbEVVbjJuLW9acnpsNGJib2VScExOVHQ5ZEp5ZnQ2a2NSTGdmUEhZLVlHbU1hMWg0aWNsWThEN0p2TUxtNExFc2F4ZVRIcDdTN3FBZDhjVEp3UnVfTjhQcURNWndkLTl6RnVyM1VDSEZtMm1RdDBLRkU5dEgwQnZNNzB3Qw?oc=5",
+      "publishedAt": "2026-11-19T02:40:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxQdzh5R2RxX0F0cWhQdGpLa1ZiVjJHUjMtLXY5UjB5ZGFvbEVVbjJuLW9acnpsNGJib2VScExOVHQ5ZEp5ZnQ2a2NSTGdmUEhZLVlHbU1hMWg0aWNsWThEN0p2TUxtNExFc2F4ZVRIcDdTN3FBZDhjVEp3UnVfTjhQcURNWndkLTl6RnVyM1VDSEZtMm1RdDBLRkU5dEgwQnZNNzB3Qw?oc=5\" target=\"_blank\">Malaysia orders 117 data "
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
       "title": "Palo Alto to Acquire AI Startup Applied Compute for ¥720 Billion; Raises Full-Year Outlook - BigGo Finance",
       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE0yQk54YzFQZWltQ3ZPQ1M1UVptWEtES2lkOC13ZHRpOWdNRFExYjY5X01qOEhBdUdqQVZ2d2lRdGNIaGJyOVhTZ2phdU1reUdqR0ljSzlUVXYzYUhNU2hzaEV3b2lpdXZ0d09LMVdHbzdObFFxWFE?oc=5",
       "publishedAt": "2026-11-19T02:35:00.000Z",
@@ -2649,10 +2783,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Google New RSI Paper: Breakthrough Agent with Built-In Memory & Autonomous Iteration for Advanced AI Reasoning - eu.36kr.com",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBybm5BN2NYTjFlLW1ZZHM4aVp1X0JMYWRyTHZBVG1neG1PM0ZUZWFjVXBJWUxJeXRva0JXRVhnbWNYamZuMjQ1VVBjS1BJM1luY3Jv?oc=5",
-      "publishedAt": "2026-11-19T01:42:55.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiU0FVX3lxTFBybm5BN2NYTjFlLW1ZZHM4aVp1X0JMYWRyTHZBVG1neG1PM0ZUZWFjVXBJWUxJeXRva0JXRVhnbWNYamZuMjQ1VVBjS1BJM1luY3Jv?oc=5\" target=\"_blank\">Google New RSI Paper: Breakthrough Agent with Built-In Memory & Autonomous Iteration for Advanced AI Reasoning</a>&nbsp;&nbsp;<font col"
+      "title": "Kookmin University, United Nations University launch research hub on AI-driven digital governance - The Korea Times",
+      "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQY1Y3QUpsZVdIbmxjSHZ3TGlCMzkydXRMMDVwSnBKdi1JSU9LVzdhbzJ6VzRPaVdnTDVKLUdyN3oyZ3ZMVUdjWGEwc2xibGw5d0w4RENqZTYxMFNyaEQwZHJ0Q0R5cjExZWhqVXZZR3V1amFWd1F6YXlNZTdEMFoyNmQ1ZV8wVGVzTzVEakpNVkJIcFdMTkYzdjdnZWRCQmtkSnNXQU5HdkY5ZzZuaEpKMXZVeEpQT0pmb1BLRzdOY0ZISGRfQjBIVEFEWldIRThwZjR3RDlPTUY0UmRPak9JWlM1a1Z1WFU3enRZM3NTWWvSAfABQVVfeXFMUGNWN0FKbGVXSG5sY0h2d0xpQjM5MnV0TDA1cEpwSnYtSUlPS1c3YW8yelc0T2lXZ0w1Si1Hcjd6Mmd2TFVHY1hhMHNsYmxsOXdMOERDamU2MTBTcmhEMGRydENEeXIxMWVoalV2WUd1dWphVndRemF5TWU3RDBaMjZkNWVfMFRlc081RGpKTVZCSHBXTE5GM3Y3Z2VkQkJrZEpzV0FOR3ZGOWc2bmhKSjF2VXhKUE9KZm9QS0c3TmNGSEhkX0IwSFRBRFpXSEU4cGY0d0Q5T01GNFJkT2pPSVpTNWtWdVhVN3p0WTNzU1lr?oc=5",
+      "publishedAt": "2026-11-19T02:07:04.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi8AFBVV95cUxQY1Y3QUpsZVdIbmxjSHZ3TGlCMzkydXRMMDVwSnBKdi1JSU9LVzdhbzJ6VzRPaVdnTDVKLUdyN3oyZ3ZMVUdjWGEwc2xibGw5d0w4RENqZTYxMFNyaEQwZHJ0Q0R5cjExZWhqVXZZR3V1amFWd1F6YXlNZTdEMFoyNmQ1ZV8wVGVzTzVEakpNVkJIcFdMTkYzdjdnZWRCQmtkSnNXQU5HdkY5ZzZuaEpKMXZVeEpQT0pmb1BLRzdOY0ZISGRfQjBIVE"
     },
     {
       "source": "Google News",
@@ -2661,6 +2795,14 @@
       "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPUDFtbkU3Y3p1M0xjelFQT3RIb0VTUGwwenZjaW9fUDNXSzBIeVVtWktuc0tiajAya05qTmFrQTRfYXdqREowZWlPTmNSVFh0cGpBZEJlLTZRZkJvSzRuSEg2WXRQUVdBU0p6ZVg2c3hwTm9meWhIRDFmWHI5WkQ3dHpiS09qQ1p3c3RwWUp0Vkp2R25CNllMRzY2MVpEVzlYX01VWHVLTjJfd1dFYVpUOUZpSldWbncyajBqYQ?oc=5",
       "publishedAt": "2026-11-19T01:16:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxPUDFtbkU3Y3p1M0xjelFQT3RIb0VTUGwwenZjaW9fUDNXSzBIeVVtWktuc0tiajAya05qTmFrQTRfYXdqREowZWlPTmNSVFh0cGpBZEJlLTZRZkJvSzRuSEg2WXRQUVdBU0p6ZVg2c3hwTm9meWhIRDFmWHI5WkQ3dHpiS09qQ1p3c3RwWUp0Vkp2R25CNllMRzY2MVpEVzlYX01VWHVLTjJfd1dFYVpUOUZpSldWbncyajBqYQ?oc=5\" target=\"_"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "South Korea Turns to AI to Give Citizens a Greater Voice in Government - Koreabizwire",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQYVEyZHJoNllFdmJibHhTWXhqNmdlLTc4Mmc0R1RaeFdNSTdaN2UwaldlT05KTE9nb2sxcTZ6QTNsTTM3RjNob1RiX0VBay05OVBvYzVQTlJiUkhwUkppTHpaV1dVNXlFa3FuRk5KaDhQaHNhUmQ1S0ZETWtDZEVFRDZkMHVDYVlIS0thTHYyR3hIVzVZZGFScDUzaDlNNWFhWXZv?oc=5",
+      "publishedAt": "2026-11-19T00:55:48.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiowFBVV95cUxQYVEyZHJoNllFdmJibHhTWXhqNmdlLTc4Mmc0R1RaeFdNSTdaN2UwaldlT05KTE9nb2sxcTZ6QTNsTTM3RjNob1RiX0VBay05OVBvYzVQTlJiUkhwUkppTHpaV1dVNXlFa3FuRk5KaDhQaHNhUmQ1S0ZETWtDZEVFRDZkMHVDYVlIS0thTHYyR3hIVzVZZGFScDUzaDlNNWFhWXZv?oc=5\" target=\"_blank\">South Korea Turns to AI to "
     },
     {
       "source": "Google News",
@@ -2738,6 +2880,22 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
+      "title": "AWS Marketplace x402: Agents Pay in USD on AWS Bill - explainx.ai",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPNEJsNGE0Rzk2TmhHdUVOWWE3VkNRaG44TlpabUJ0MGtuNXlzY0Z1SzhmcGJQejlqTkppdzROcHQ1UW1xNGtVV0dXX193SG9YSXJwUGZQZEU3aXQ5cTVleEVpVWtxZG1uS3poUmc1RzI1QlpZdjVNSDlYRUt5cHd0M0VUa2VqTFB5Nm1Ka3Q0aE1lWUpaMjcxaUlyNktCc0xHb3Fwb2ZR?oc=5",
+      "publishedAt": "2026-11-19T00:00:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipgFBVV95cUxPNEJsNGE0Rzk2TmhHdUVOWWE3VkNRaG44TlpabUJ0MGtuNXlzY0Z1SzhmcGJQejlqTkppdzROcHQ1UW1xNGtVV0dXX193SG9YSXJwUGZQZEU3aXQ5cTVleEVpVWtxZG1uS3poUmc1RzI1QlpZdjVNSDlYRUt5cHd0M0VUa2VqTFB5Nm1Ka3Q0aE1lWUpaMjcxaUlyNktCc0xHb3Fwb2ZR?oc=5\" target=\"_blank\">AWS Marketplace x402: A"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Trump vs Xi on AI at APEC: What Was Agreed in Shenzhen - explainx.ai",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQRFIyUUpveVoxanYtNXBURGtJZlRZcG1GS0U1NlhTMEVubmQtNUxwRHNBbVNCQjVNZ3pWNnVjVHBsMHBrV0lrdWhqSTZjWF94WFNiSDFtTmZCLWlhNGpzaVBDcjlHZXE5ODlWdWFsN0xuZE9NakdqTS1fa3ZpUWUyZ19FMUFXRTQwZFU5TTd3RHYxSmtsM3Q2T3puNGxVNjdWNFkyNnZ3NzMwT3cxZlpn?oc=5",
+      "publishedAt": "2026-11-19T00:00:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMirwFBVV95cUxQRFIyUUpveVoxanYtNXBURGtJZlRZcG1GS0U1NlhTMEVubmQtNUxwRHNBbVNCQjVNZ3pWNnVjVHBsMHBrV0lrdWhqSTZjWF94WFNiSDFtTmZCLWlhNGpzaVBDcjlHZXE5ODlWdWFsN0xuZE9NakdqTS1fa3ZpUWUyZ19FMUFXRTQwZFU5TTd3RHYxSmtsM3Q2T3puNGxVNjdWNFkyNnZ3NzMwT3cxZlpn?oc=5\" target=\"_blank\">Trump vs Xi"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
       "title": "Anthropic IPO and $156B Charity: What Is Confirmed - explainx.ai",
       "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNWDVWeTNSX3JvZHpPY2hIaklBaFF1MWxEN29ZM254UkFTdms3WmJ0MjZJZmpiclZueEJ4QmRGbmxsZ3RnZ3lncmZ6bnhQeHJNMWJWUEcwRG1ramJYbVFYV3RrYVZheE52SDYyZzFIcmRVVGRiZzUtVExPdG9vNWRTZGNPdjhWVUI4YjZVeEpwdzl3eVBOYmY2cFB1NkF2SG1WTGNkQW1FRVBlX1ZhMGxJa0pOeHNYOXZITWxsV0JOM0ZDZVEwZFktbzlWTQ?oc=5",
       "publishedAt": "2026-11-19T00:00:00.000Z",
@@ -2763,6 +2921,17 @@
       "summary": "Watch a walkthrough of onboarding to Daybreak Blue, with a closer look at the setup experience and how to get started.",
       "categories": [
         "Demos"
+      ]
+    },
+    {
+      "source": "OpenAI",
+      "discoveryOnly": false,
+      "title": "Deploying Daybreak Red",
+      "url": "https://openai.com/business/learn/deploying-daybreak-red",
+      "publishedAt": "2026-11-19T00:00:00.000Z",
+      "summary": "Explore a reference architecture for supervised security investigations with Daybreak Red, including safety controls, setup, and monitoring.",
+      "categories": [
+        "Guides"
       ]
     },
     {
@@ -2807,6 +2976,14 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiX0FVX3lxTE1fbDF0aWQ3M0dmczlhaUhxeTZTQi1OVUpNUlBqXy1qbmVuX0hYZWpIM0cxTVR4dndicUpmTkFud3I4RmdLTmNoREI1am55QlBxbGY0TWxxTGdqUG95Uno4?oc=5\" target=\"_blank\">Post-Training Gemini 4 for Real Engineering Work — Melvin Johnson, Google DeepMind｜AI Engineer</a>&nbsp;&nbsp;<font col"
     },
     {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Imperial Policy Forum hosts healthcare regulators for a bespoke AI applications in medicine course - Imperial College London",
+      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPdTNINjFZcmdnT21iU2VwalNObE5aNTVxWW9WLVEwT3ctNmY3Sk1SNlZpaXFYYUpFU1RBRDVwMUdiVEVsb3pUQXRGYVVaUHpYT2ttNTZHZm5vLUtMWjV0VlZ4SzhEUHZtM3NWY0tfWnlPM0JSNE5hSjU5VnR1Q09ZN3pGVzhQMVByeGNUcUJRWWRUZmFDbFo1VGJZU3RaSE9KeU0tRGxHMUxiVThfRndibFphYUFydVo3TXVkeDQtTjVLZmpWVWJ3alJmUEY4enhfaEZNeWdzRDNCbEVpNEE?oc=5",
+      "publishedAt": "2026-11-18T23:45:05.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi3gFBVV95cUxPdTNINjFZcmdnT21iU2VwalNObE5aNTVxWW9WLVEwT3ctNmY3Sk1SNlZpaXFYYUpFU1RBRDVwMUdiVEVsb3pUQXRGYVVaUHpYT2ttNTZHZm5vLUtMWjV0VlZ4SzhEUHZtM3NWY0tfWnlPM0JSNE5hSjU5VnR1Q09ZN3pGVzhQMVByeGNUcUJRWWRUZmFDbFo1VGJZU3RaSE9KeU0tRGxHMUxiVThfRndibFphYUFydVo3TXVkeDQtTjVLZmpWVWJ3al"
+    },
+    {
       "source": "TechCrunch",
       "discoveryOnly": false,
       "title": "Amidst fears of AI cyberattacks, Satya Nadella says lots of critical infrastructure is ‘unpatchable’",
@@ -2818,20 +2995,6 @@
         "cyberattacks",
         "Microsoft",
         "Outlook"
-      ]
-    },
-    {
-      "source": "TechCrunch",
-      "discoveryOnly": false,
-      "title": "Elon Musk says ousting Jensen Huang is like ‘kicking Michael Jordan off your team’",
-      "url": "https://techcrunch.com/2026/11/18/elon-musk-says-ousting-jensen-huang-is-like-kicking-michael-jordan-off-your-team/",
-      "publishedAt": "2026-11-18T23:25:17.000Z",
-      "summary": "“I don’t think [Huang is] disloyal to the United States,\" Musk said.",
-      "categories": [
-        "AI",
-        "Elon Musk",
-        "Jensen Huang",
-        "nvidia"
       ]
     },
     {
@@ -2992,14 +3155,6 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMickFVX3lxTFBxZDQyby1lXzJ2RzJwMU5iR3oxcG9kUFJxT0JfUVVpU28zOXFDUWRLMTRyajBBUXpmQ0wzNENzQ29yZDcxLUF2T2NXUjNxZjhLdXdsRkp4VkNXUExtbmlEc3JOWjNTU0JpMTFIbWRwRnRhQQ?oc=5\" target=\"_blank\">Google DeepMind releases Gemini 4 Neon, a cheaper alternative to Carbon</a>&nbsp;&nbsp;<font "
     },
     {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Google Rolls Out Gemini 4 Neon for Complex AI Work - The Defiant",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQc1R0dzFXS3lZWTJNTFEyNk5LeEF0WDZzaU5MUHN3d0ZHXzFnT1FuSXRQS2pHMENiZmFmN1F0eTRZMWlZTHVrXzIwWmYzdkUyM0J1X1k0OGY4VmxCaDkyWmhaOU9fZzBwWkhtVThLdG1MZHpadmJYaGZvekJ5Q0FQbXFJb1FCMUFSQm9jUg?oc=5",
-      "publishedAt": "2026-11-18T21:49:03.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijAFBVV95cUxQc1R0dzFXS3lZWTJNTFEyNk5LeEF0WDZzaU5MUHN3d0ZHXzFnT1FuSXRQS2pHMENiZmFmN1F0eTRZMWlZTHVrXzIwWmYzdkUyM0J1X1k0OGY4VmxCaDkyWmhaOU9fZzBwWkhtVThLdG1MZHpadmJYaGZvekJ5Q0FQbXFJb1FCMUFSQm9jUg?oc=5\" target=\"_blank\">Google Rolls Out Gemini 4 Neon for Complex AI Work</a>&nb"
-    },
-    {
       "source": "AWS — Machine Learning",
       "discoveryOnly": false,
       "title": "How Airbnb uses cost per task to operate coding agents on Amazon Bedrock",
@@ -3019,19 +3174,6 @@
       "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1VelBoS2xIY1hsYktvYlU5dHBsRHd6cWF0djdaVkl4X0pJVzBhUkcwZ2pXYjFod0ttdHVJQVNvMGZpSjlqVktUc09oVmVWX3k3Q0pUbVhhemtXUmdYdENuN1RzMG1qYVMtZ2p1VTZMa0xCS0pN?oc=5",
       "publishedAt": "2026-11-18T21:43:37.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMidEFVX3lxTE1VelBoS2xIY1hsYktvYlU5dHBsRHd6cWF0djdaVkl4X0pJVzBhUkcwZ2pXYjFod0ttdHVJQVNvMGZpSjlqVktUc09oVmVWX3k3Q0pUbVhhemtXUmdYdENuN1RzMG1qYVMtZ2p1VTZMa0xCS0pN?oc=5\" target=\"_blank\">Gemini 4 Neon takes second place on Agent Arena Index, trailing only Claude Fable 5.2</a>&n"
-    },
-    {
-      "source": "AWS — Machine Learning",
-      "discoveryOnly": false,
-      "title": "Design responsible AI controls for Amazon Aurora PostgreSQL",
-      "url": "https://aws.amazon.com/blogs/machine-learning/design-responsible-ai-controls-for-amazon-aurora-postgresql/",
-      "publishedAt": "2026-11-18T21:38:22.000Z",
-      "summary": "Learn how to make RAG chatbot answers traceable with Amazon Aurora PostgreSQL, pgvector, and Amazon Bedrock Guardrails, logging sources, scores, and guardrail traces in SQL.",
-      "categories": [
-        "Advanced (300)",
-        "Amazon Aurora",
-        "Technical How-to"
-      ]
     },
     {
       "source": "Google News",
@@ -3080,6 +3222,14 @@
       ]
     },
     {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Goa AI Policy Gets Rs 10 Crore Cabinet Approval - Urban Acres",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNY3ZhcTlITkVJM1dFbmZIdEpRbFBjMmZrN0xnTUl6dTZFaE5FUVJFbTFYSnFqUE1hbUhrNGRTbmNfaktDVmxsVTF5T2ZCRkdOMGh5Zm5aZmNrXzVzZnYta2R2Qmw5N2JRVjBRZVB5NFJPZWNtUnV0ZUFmT1BSRVlQekpkNWJGRUtrZ0VPMzVFXzVHX3ozVHZoMjFQT3J2dDFyaUxLYUlhdldsYU8xQV9vWjl3?oc=5",
+      "publishedAt": "2026-11-18T21:24:30.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisgFBVV95cUxNY3ZhcTlITkVJM1dFbmZIdEpRbFBjMmZrN0xnTUl6dTZFaE5FUVJFbTFYSnFqUE1hbUhrNGRTbmNfaktDVmxsVTF5T2ZCRkdOMGh5Zm5aZmNrXzVzZnYta2R2Qmw5N2JRVjBRZVB5NFJPZWNtUnV0ZUFmT1BSRVlQekpkNWJGRUtrZ0VPMzVFXzVHX3ozVHZoMjFQT3J2dDFyaUxLYUlhdldsYU8xQV9vWjl3?oc=5\" target=\"_blank\">Goa AI "
+    },
+    {
       "source": "WIRED",
       "discoveryOnly": false,
       "title": "America’s AI Chip War Is Heating Up in the Dumbest Possible Ways",
@@ -3108,25 +3258,20 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMixwFBVV95cUxQQklEaVo1M2VhVjlwa1hjMnRRb1lCT0tCVmo5TUZYMlhXMDZmU0dOVHRKMjd2SlFlU2pxVWl2UlI1a0puaEhsM0Zzdk52RDRYRzNqeExUV0U2RWM0R2k4SEI3WldrcHFJYjBwZ1YzdWhfM2IwaTN5UzQxbG5iQnlhb0l3S2dBeVdtZGszVDJDakZ4YTVNZ2I0ZGRZQ0J3dVBlV19hSm1PTHg0NHhYUWNkcHRyUW1UTnNkc0FWbmhGVFdtT2xrNU1j?o"
     },
     {
-      "source": "AWS — Machine Learning",
-      "discoveryOnly": false,
-      "title": "Private certificate authority support in Amazon Bedrock AgentCore Identity",
-      "url": "https://aws.amazon.com/blogs/machine-learning/private-certificate-authority-support-in-amazon-bedrock-agentcore-identity/",
-      "publishedAt": "2026-11-18T20:53:41.000Z",
-      "summary": "Amazon Bedrock AgentCore Identity now supports private certificate authorities (CAs), so your agents can connect to self-hosted identity providers that use a private CA. This post shows how to issue an IdP certificate with AWS Private CA, configure a credential provider to trust it, rotate the CA, and protect the certi",
-      "categories": [
-        "Advanced (300)",
-        "Amazon Bedrock AgentCore",
-        "Technical How-to"
-      ]
-    },
-    {
       "source": "Google News",
       "discoveryOnly": true,
       "title": "Private certificate authority support in Amazon Bedrock AgentCore Identity | Amazon Web Services - Amazon Web Services (AWS)",
       "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNTlozcTVBTWlVMXlfSERvbFoxcTg0aDl2em5WcHQ1cUN0WjZqUk1DanV1aDhNMHk5Z1NfYm5YQWhvU3B6c1RaNXVBbFh4aEtodWpzNVJDUUtXV1lYRlFUOU5KbHVsUHE5UjItMTlSSFRCZ2U0Z1ItUl8xMUZDcHd0S3ctUWpHTTRJRzJVMjd4anV3SkR6eXgtbldPRktYbHNseFVpMTIydDJuSThQM3BrV0tmN01vRUdfTUVrZ2tn?oc=5",
       "publishedAt": "2026-11-18T20:53:41.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMivgFBVV95cUxNTlozcTVBTWlVMXlfSERvbFoxcTg0aDl2em5WcHQ1cUN0WjZqUk1DanV1aDhNMHk5Z1NfYm5YQWhvU3B6c1RaNXVBbFh4aEtodWpzNVJDUUtXV1lYRlFUOU5KbHVsUHE5UjItMTlSSFRCZ2U0Z1ItUl8xMUZDcHd0S3ctUWpHTTRJRzJVMjd4anV3SkR6eXgtbldPRktYbHNseFVpMTIydDJuSThQM3BrV0tmN01vRUdfTUVrZ2tn?oc=5\" target="
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "City Limits - Vital City",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE42LVBsUkFYa1dIUDdqOU5JYmNaMWY5MWpUcElMbVI2OE9uTkNWMmhFem53OTRxWEdVYzBVR2lXY1dWVGtqMGlZY0JrX294MTVBdTUtc01DVV9EQ1p6LUR3Mw?oc=5",
+      "publishedAt": "2026-11-18T20:51:56.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiYEFVX3lxTE42LVBsUkFYa1dIUDdqOU5JYmNaMWY5MWpUcElMbVI2OE9uTkNWMmhFem53OTRxWEdVYzBVR2lXY1dWVGtqMGlZY0JrX294MTVBdTUtc01DVV9EQ1p6LUR3Mw?oc=5\" target=\"_blank\">City Limits</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Vital City</font>"
     },
     {
       "source": "Google News",
@@ -3227,6 +3372,14 @@
         "Blu-ray",
         "dvd"
       ]
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "The state of AI: Australia’s opportunity to govern across the seams - The Mandarin",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNbFdQT09jZFRuSmd3Qk9fSTFnLVJQMVJsLUMydWtwUnBqa1VuZHVxWHRUY2llb1BfbDBnWEZOODJhenJRWExYNGVBVkhXeG5wbTQ4MHUwaS1jQUxGQ0ZFY2tfNmpuR1dweFRuRTdDeDRMM21jT2FmeXc1eDRzV1lWRXFwRnlBdEwzWHhJd2dHOXZRdkZjYUZXVXVrUnVNaTVWOFZnQTc0Yw?oc=5",
+      "publishedAt": "2026-11-18T19:24:46.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxNbFdQT09jZFRuSmd3Qk9fSTFnLVJQMVJsLUMydWtwUnBqa1VuZHVxWHRUY2llb1BfbDBnWEZOODJhenJRWExYNGVBVkhXeG5wbTQ4MHUwaS1jQUxGQ0ZFY2tfNmpuR1dweFRuRTdDeDRMM21jT2FmeXc1eDRzV1lWRXFwRnlBdEwzWHhJd2dHOXZRdkZjYUZXVXVrUnVNaTVWOFZnQTc0Yw?oc=5\" target=\"_blank\">The state of AI: Aust"
     },
     {
       "source": "Ars Technica",
@@ -3407,6 +3560,14 @@
       ]
     },
     {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Gov't rules out use of electricity grid and water resources for any proposed AI infrastructure – Morris Dixon - Jamaica Gleaner",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNMjFKcldIN3hkMVk4ZHBJYm5vanF4RWFJVUhxSTdpeWxzY0I0cWQ0em5GSWxGcGNWZWwzV0l4Q2RCQ0paVVE5eWxJNzZzODFCWDJkUmc3RWNqME5acHVDQy1qVHh2bzJIRFJabUVPMGhEbW5tVFJ3NUNzRHQzWVZWSGtEYzU5NGVkcGxmMDM1YzFNcjBkUEMwTVlLMFl4RzZMdUhXd2h4WkdOWldSRDhGcGRZTXVqeGt4Ym9JRA?oc=5",
+      "publishedAt": "2026-11-18T18:51:03.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxNMjFKcldIN3hkMVk4ZHBJYm5vanF4RWFJVUhxSTdpeWxzY0I0cWQ0em5GSWxGcGNWZWwzV0l4Q2RCQ0paVVE5eWxJNzZzODFCWDJkUmc3RWNqME5acHVDQy1qVHh2bzJIRFJabUVPMGhEbW5tVFJ3NUNzRHQzWVZWSGtEYzU5NGVkcGxmMDM1YzFNcjBkUEMwTVlLMFl4RzZMdUhXd2h4WkdOWldSRDhGcGRZTXVqeGt4Ym9JRA?oc=5\" target=\"_"
+    },
+    {
       "source": "Ars Technica",
       "discoveryOnly": false,
       "title": "Trump admin orders Kalshi to halt wagers on what words Trump will say",
@@ -3443,10 +3604,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Google opens Genie 4 live world editing - StartupHub.ai",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQUjhWOGxlUURIZ1ZQdVp3NFFObXhvazhqMlJDTGNkWjR5SDU4UVJzR2pCVWlKWWNHUUVyQ0ZDcFNlWkt0SHJjeEZOcUdPNjZ3dWdNV0hUX2NmTTZLVXdHLTdsd3NpWXZLNDlhWTRtZ1lOb3NNTUJnWFBQSjlvZmU2WFdPbWtzRktEZjdMX2lnLWZTVldXQTZTU0p1OUVjNTBfYjhCeg?oc=5",
-      "publishedAt": "2026-11-18T18:37:11.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxQUjhWOGxlUURIZ1ZQdVp3NFFObXhvazhqMlJDTGNkWjR5SDU4UVJzR2pCVWlKWWNHUUVyQ0ZDcFNlWkt0SHJjeEZOcUdPNjZ3dWdNV0hUX2NmTTZLVXdHLTdsd3NpWXZLNDlhWTRtZ1lOb3NNTUJnWFBQSjlvZmU2WFdPbWtzRktEZjdMX2lnLWZTVldXQTZTU0p1OUVjNTBfYjhCeg?oc=5\" target=\"_blank\">Google opens Genie 4 live"
+      "title": "Goa cabinet approves five schemes under AI policy, sanctions Rs 10cr - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPUDQxenk4VGJUUURfTVBKeUtfZ19JUng0NFFyVnBiR0txYVJyX0VXMmxFdFR2Q3I5V3lFbEFxWUZKS3poRDlyVmNFcWdaQkJleGIxMzExcmFndl9wbmlCdENKZlJfQVEybDNTRnVjVG1zd19SNkVuLVpSLXNvdVh6aWhWa2hoSDNJLWFRWm5lRWoxNkNJQnk3VjVoRzdIV2o5eUV2VF9LTXU3eHVIeFBDdzdjUVhEelJXU2ZjSmtLazBmeFlrN2Y3UHlleWctVU9YeGF3c9IB2gFBVV95cUxQNlVONHRTZHV1amhzR2NYTGdRTGo1U3NlN093amt2ZklpdmVTeUtoV1p1NHRoTC1rb1NkU1RzRHlBNk9EOFhvbGNFZmNfcTNfY19UMHNyZTdWS0NoRlhMd0NrdXFTWDJVTmdibTl4VWg2T0oxUDZ2WVgxMDNOUURDN0p0UUlUSE02QlZxQVR6ckJZUG96cVp6eXVKaXh6S2hnSkpQQnY1MmhrTk9nU1pGOE0weVdZcDFlRG1VaG9POUpVWTcyZm10RnFZSVhpX0g2am1kWGJJYXFxUQ?oc=5",
+      "publishedAt": "2026-11-18T18:41:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxPUDQxenk4VGJUUURfTVBKeUtfZ19JUng0NFFyVnBiR0txYVJyX0VXMmxFdFR2Q3I5V3lFbEFxWUZKS3poRDlyVmNFcWdaQkJleGIxMzExcmFndl9wbmlCdENKZlJfQVEybDNTRnVjVG1zd19SNkVuLVpSLXNvdVh6aWhWa2hoSDNJLWFRWm5lRWoxNkNJQnk3VjVoRzdIV2o5eUV2VF9LTXU3eHVIeFBDdzdjUVhEelJXU2ZjSmtLazBmeFlrN2Y3UH"
     },
     {
       "source": "arXiv — cs.LG",
@@ -3596,6 +3757,14 @@
       "categories": [
         "cs.LG"
       ]
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "Consumer group releases toolkit urging local governments to rein in AI harms - njtoday.news",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOb1poN09KUGkxNVhMOXEya0poVXFycUtrU3BSSXBfZmFPY0VFR3pUVndhVmZTNDZFMzFfaTFiSUdSWkZDV3JLOW9Xd0ViQUFiLU13QWtKQUJTUnc4amtoSmNKNWpPb0tEZV9HUVRDaEZlMFZVV0dpb2RKQ3pyVTN5bGdKcl9FWnMzaVBaWl9yaHBDV19fdXAyWlJVMFV0NVFiR3lNZFNMZVFCN1c0TVE?oc=5",
+      "publishedAt": "2026-11-18T18:21:29.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxOb1poN09KUGkxNVhMOXEya0poVXFycUtrU3BSSXBfZmFPY0VFR3pUVndhVmZTNDZFMzFfaTFiSUdSWkZDV3JLOW9Xd0ViQUFiLU13QWtKQUJTUnc4amtoSmNKNWpPb0tEZV9HUVRDaEZlMFZVV0dpb2RKQ3pyVTN5bGdKcl9FWnMzaVBaWl9yaHBDV19fdXAyWlJVMFV0NVFiR3lNZFNMZVFCN1c0TVE?oc=5\" target=\"_blank\">Consumer gro"
     },
     {
       "source": "arXiv — cs.AI",
@@ -3862,6 +4031,14 @@
         "Science",
         "Science / Health"
       ]
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
+      "title": "US Lawmakers Propose Cyber And AI Investigation Board After Major Technology Outages - The 420.in",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOaTJlMk9wVjFweHRqWkZJNGxRcm9uLWRfYjZGQmtKQnk3TXdiUngtX0lEdXJIVThjUG1QY1NDeldLdTRjRlQ4T1RsaDJiSkJIVEQxMEpyR0V2WmdlZklXYlp0UVptd3BJM0R2RFc3djhMcFZNUUtuM0dmeklpR0p0QjEySWxjaHlZTnRlTWRwNVk1T1ZqOHpVeFRXejNEODI4Y1ZzTFN3?oc=5",
+      "publishedAt": "2026-11-18T17:48:56.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipgFBVV95cUxOaTJlMk9wVjFweHRqWkZJNGxRcm9uLWRfYjZGQmtKQnk3TXdiUngtX0lEdXJIVThjUG1QY1NDeldLdTRjRlQ4T1RsaDJiSkJIVEQxMEpyR0V2WmdlZklXYlp0UVptd3BJM0R2RFc3djhMcFZNUUtuM0dmeklpR0p0QjEySWxjaHlZTnRlTWRwNVk1T1ZqOHpVeFRXejNEODI4Y1ZzTFN3?oc=5\" target=\"_blank\">US Lawmakers Propose Cy"
     },
     {
       "source": "arXiv — cs.RO",
@@ -4167,14 +4344,6 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "EC-Council Releases ADG 2.0 and Offers Its AI Governance Crosswalks Free to Every Government, Regulator and Standards Body as Nations Split on AI Rules - Digital Journal",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNSF8yRzFZbEVBbDRnMG9VZ3hwSHh3aTAwWEhUd1Y3b3pXajNJeDNiQmwwRS1xdThoSVlScC1yZk5xUWk1LVlCWG1abWpqcGhnTGZkcVJ1cndNWlZSaHNuV1pUVU1PLWtJU1d6elVaMkhyT1lkSk0wQ3MyNzhfay1JX04ybGxldWxEQ1FyODc1V3NZb0x2UjFHdk1uSXl6YUk?oc=5",
-      "publishedAt": "2026-11-18T16:54:41.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMinwFBVV95cUxNSF8yRzFZbEVBbDRnMG9VZ3hwSHh3aTAwWEhUd1Y3b3pXajNJeDNiQmwwRS1xdThoSVlScC1yZk5xUWk1LVlCWG1abWpqcGhnTGZkcVJ1cndNWlZSaHNuV1pUVU1PLWtJU1d6elVaMkhyT1lkSk0wQ3MyNzhfay1JX04ybGxldWxEQ1FyODc1V3NZb0x2UjFHdk1uSXl6YUk?oc=5\" target=\"_blank\">EC-Council Releases ADG 2.0 and "
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
       "title": "Mistral Vibe Desktop arrives on Mac and Windows with free Pro in Europe - Pasquale Pillitteri",
       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPQU1ScThHamhvaGdURHJOT1ZxT2o5WXgweHlCX3FyS1EtYXlSSHZoWXhsUWhSZmNfemZ3YVdyZk9pcHFSdVhLaXY3MF9FWXo5TTN4VXVrdUNfUmlzNGZIYlhKREpBRk9wd0dkMXNuVFJHc2gwZGlvanZ4dWJ3V2VDVXQ4cEtkbzhDelotSmt1Uld3dl9PdzRV?oc=5",
       "publishedAt": "2026-11-18T16:50:24.000Z",
@@ -4280,14 +4449,6 @@
       "categories": [
         "cs.AI"
       ]
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Governor Newsom’s nation-leading AI safety framework is getting even stronger as California releases next steps on mandatory safety standards and oversight - California State Portal | CA.gov",
-      "url": "https://news.google.com/rss/articles/CBMimAJBVV95cUxOSTExb21JRlBpZTFvNUlRZFhncGQzNzdSYUR5WWdpSmFzbTlYMnp3M25qVGhjUk1nTXJJdThUMmVpMmpLVWdmZ296R2xxckVlYTJoRjY5ZHBRUXNybGxaN2xTWVA4X2FIZGh4cTB6NTlieHBMb3gwbGh6b2xLbHRmamJZcnlDZmxsRGgtcDB0dzJpRGRYdXVRVGhnSzN5Rlg1TU5FRjJFbTJtbTZMTFlpSXE5MjVOSkJhSXE3MHVaOTFtMFV1ZVNaT2hHSjg1ZlIzbF9hbDNlYkpFSDZVOTdnY0pVeXF1OTdRWFItdGdSTUJKTTVudjVRcGtCakxraFJxbWFWRGlqZi0tbjg4TnZmU0EzX0pZQTc1?oc=5",
-      "publishedAt": "2026-11-18T16:20:44.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAJBVV95cUxOSTExb21JRlBpZTFvNUlRZFhncGQzNzdSYUR5WWdpSmFzbTlYMnp3M25qVGhjUk1nTXJJdThUMmVpMmpLVWdmZ296R2xxckVlYTJoRjY5ZHBRUXNybGxaN2xTWVA4X2FIZGh4cTB6NTlieHBMb3gwbGh6b2xLbHRmamJZcnlDZmxsRGgtcDB0dzJpRGRYdXVRVGhnSzN5Rlg1TU5FRjJFbTJtbTZMTFlpSXE5MjVOSkJhSXE3MHVaOTFtMFV1ZVNaT2"
     },
     {
       "source": "Google News",
@@ -4519,14 +4680,6 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Article - CFA Releases Local Government AI Policy Toolkit to Help Communities Protect Residents from AI Harms - Consumer Federation of America",
-      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQZGtDTkVxd085RzZFTFZKcGNGN0RJNUJob0FkNEpjbkdTcEVaMWdfa2FST3dLeXlnSVpoX29ZNGZwUUhlQ0JrOWNoaEt6U2hsWUxsbXJ3SS0yN1Z2WDFhZFdSZHllUUdubkp4ZjhOWjJTVkxDX25qR3JuOHNtSHpaU01ZOW1vWXZ1Zk9NSU5zTmZDeG5BYllMWlMxc1o2NTNZZ0ZjUExrTDJpa0U4czIteUtsUG5neXJNYUZYQXZoeFFzZGRReHlhYWd3eTR4OERZVDhETjk0Mi1NZVAy?oc=5",
-      "publishedAt": "2026-11-18T15:05:50.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi3AFBVV95cUxQZGtDTkVxd085RzZFTFZKcGNGN0RJNUJob0FkNEpjbkdTcEVaMWdfa2FST3dLeXlnSVpoX29ZNGZwUUhlQ0JrOWNoaEt6U2hsWUxsbXJ3SS0yN1Z2WDFhZFdSZHllUUdubkp4ZjhOWjJTVkxDX25qR3JuOHNtSHpaU01ZOW1vWXZ1Zk9NSU5zTmZDeG5BYllMWlMxc1o2NTNZZ0ZjUExrTDJpa0U4czIteUtsUG5neXJNYUZYQXZoeFFzZGRReHlhYW"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
       "title": "Physical AI startup Humyn Labs raises $47 million in Series A funding to expand global operations - TradingView",
       "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxORlExTDI4WnpUN2NBSDRncFpFcktrdmc3QjhIVVcySU5qcWt2MU1pTFVldTVsckJfMU1kcGFLaUFVbFQyVEF4NEl3NlhfdnhYdWY3ZGRQazl0ai1DWUZqUzBocHoxZDgtRGsxYVhfR1dHQXo3VXhJamx2TnUzTi02YWsydGltaktaaFZRRUptNGRJYkNIaWt4cHdpNlFHa3dLclg5OEVfWlpyekI0RWFLNGxBZURtMm1QRmFnbE1nRGx0Y20wRXBsaENJb0VCR2M4SmZzMnpVQXJUVW80UW1RbVVPY3c5bTNh?oc=5",
       "publishedAt": "2026-11-18T15:04:45.000Z",
@@ -4573,22 +4726,6 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Article - Local Government AI Policy Toolkit - Consumer Federation of America",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOWnVfNzhBbWxvNDdjLVJSSFVzXzgxcy1RR3ZpTnAxU29ma2txckR0SDV5Sk9uWDN1WjlxejlmWFE4bmEtR3RQYXpRc25WR2lsaHBxUWphSEVid2xiSVVPbjVjRFRjOGhZd1BlOFRxVmhrdTIweWlFWVJIdDVlTF93SDRR?oc=5",
-      "publishedAt": "2026-11-18T14:30:50.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiggFBVV95cUxOWnVfNzhBbWxvNDdjLVJSSFVzXzgxcy1RR3ZpTnAxU29ma2txckR0SDV5Sk9uWDN1WjlxejlmWFE4bmEtR3RQYXpRc25WR2lsaHBxUWphSEVid2xiSVVPbjVjRFRjOGhZd1BlOFRxVmhrdTIweWlFWVJIdDVlTF93SDRR?oc=5\" target=\"_blank\">Article - Local Government AI Policy Toolkit</a>&nbsp;&nbsp;<font color"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Why India’s upcoming AI law must regulate autonomous agents, not just deepfakes - ET Government",
-      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxObHp0QnJxUTFRdjhpbHp5bk03akplS19lRFdfSkVQY1FvUVJ6cHdZX2UzVV8xdTlZaXRuU0NCNUJQd1BPblhBZEdKSVd1bDFubE1BekpjOGpjX0R6SnpVOFAyTVJWX1FFOU14UVgxc0FKcWpCblllajFoSEtQWjVtbDNfOTF1UXFNdFR0TEhKQjkyejR0YWlDbHg3SDNKVDVwYUtneGNIdkp5MWxfcmt2VVJsdlN2VzdQWEFNZXNfNlI0cHN2NTIyTFVKbFViWi1lamtFS25lWGZFdVlfV1EtclpPWVk2U19GQ0dWRNIB7AFBVV95cUxObHp0QnJxUTFRdjhpbHp5bk03akplS19lRFdfSkVQY1FvUVJ6cHdZX2UzVV8xdTlZaXRuU0NCNUJQd1BPblhBZEdKSVd1bDFubE1BekpjOGpjX0R6SnpVOFAyTVJWX1FFOU14UVgxc0FKcWpCblllajFoSEtQWjVtbDNfOTF1UXFNdFR0TEhKQjkyejR0YWlDbHg3SDNKVDVwYUtneGNIdkp5MWxfcmt2VVJsdlN2VzdQWEFNZXNfNlI0cHN2NTIyTFVKbFViWi1lamtFS25lWGZFdVlfV1EtclpPWVk2U19GQ0dWRA?oc=5",
-      "publishedAt": "2026-11-18T14:26:25.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi7AFBVV95cUxObHp0QnJxUTFRdjhpbHp5bk03akplS19lRFdfSkVQY1FvUVJ6cHdZX2UzVV8xdTlZaXRuU0NCNUJQd1BPblhBZEdKSVd1bDFubE1BekpjOGpjX0R6SnpVOFAyTVJWX1FFOU14UVgxc0FKcWpCblllajFoSEtQWjVtbDNfOTF1UXFNdFR0TEhKQjkyejR0YWlDbHg3SDNKVDVwYUtneGNIdkp5MWxfcmt2VVJsdlN2VzdQWEFNZXNfNlI0cHN2NTIyTF"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
       "title": "Telegram prepares Dictator AI agent with its own VM on Mac - TestingCatalog AI News",
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOT19MQlc3RWV4VEpMYmZQOHl5bUFSM1lLREhEU2g0REtIRnBDTERnUVBlMFd1VDF3cjg1YlN2TW83MWpvM0tfdGxhcG0zekc3TUxyMXQ1VHFCLUNJcnl1NjBRcV9lTUlhTVY2M2NvM3l0bVRzZXhtSXRFM083a1RvSHF6aHhERXRaUTFvTllTalREYmtT?oc=5",
       "publishedAt": "2026-11-18T14:07:32.000Z",
@@ -4624,14 +4761,6 @@
         "Open Source",
         "RTX Spark"
       ]
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "As mid-term results weaken Trump administration, Europe hopes it can do what was seemed 'doomed' under his government - The Times of India",
-      "url": "https://news.google.com/rss/articles/CBMimgJBVV95cUxQYldxSmpaMjFKTlBkb21Lb1ppcXlhRlNWTFhLX0VFMGN6MmxscU5Pc2NWVFJ2YkFoMFFOaEx2QUNhRlBlT3pKdmRaZ2FjbVlTZ20xZVJHcE1zM1J4aFBtcXdzaV9nRkJvdXRlVU5ySDlIX0MyZW5JaUhnRjFMdW1BNE93bXBsWVFZTkJVTzN2U1drbldCb3lsekEtWTF2eHFHbnlvNE1fSndFU3d6SzBkMzliZm9BUExpQ2FxX3RYVzlIN2VvOUFXdGdUdXNzUE05UTlMRTBNOFBXenJXTURmUVFQa0VMRV9XSHA0ZERQUkpma1R1RGhVNlBrTllLNUs2RjQxdGdIeWFXb0U5Rjh2VWJ6VUtYYndPNVE?oc=5",
-      "publishedAt": "2026-11-18T13:56:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimgJBVV95cUxQYldxSmpaMjFKTlBkb21Lb1ppcXlhRlNWTFhLX0VFMGN6MmxscU5Pc2NWVFJ2YkFoMFFOaEx2QUNhRlBlT3pKdmRaZ2FjbVlTZ20xZVJHcE1zM1J4aFBtcXdzaV9nRkJvdXRlVU5ySDlIX0MyZW5JaUhnRjFMdW1BNE93bXBsWVFZTkJVTzN2U1drbldCb3lsekEtWTF2eHFHbnlvNE1fSndFU3d6SzBkMzliZm9BUExpQ2FxX3RYVzlIN2VvOUFXdG"
     },
     {
       "source": "arXiv — cs.MA",
@@ -4780,10 +4909,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "EXCLUSIVE: Trump administration weighs forcing US firms to disclose Chinese AI use - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNRDZYbWdKS2hHRWRxVU9jRTZmUW5GdUZXdXNnMW43cnNKNmV1d2JIcnByM0dBWVBKbkd0TkkydWpQSkdZVkNWQ1RnS2JRQmI1TFE0ODRrX1lCdXkwejVvN3Qwa0taTDZtMkt2VWlTblJqZ0FQeVlMajlocTZ5UE95V29GQ19xQUlkNDh6WVRKVXJDbjM2ZUdaM0c4X25lUlFWRk1qakhGSkwzMGhKdWxFNlBsSnVhVE0?oc=5",
-      "publishedAt": "2026-11-18T11:02:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxNRDZYbWdKS2hHRWRxVU9jRTZmUW5GdUZXdXNnMW43cnNKNmV1d2JIcnByM0dBWVBKbkd0TkkydWpQSkdZVkNWQ1RnS2JRQmI1TFE0ODRrX1lCdXkwejVvN3Qwa0taTDZtMkt2VWlTblJqZ0FQeVlMajlocTZ5UE95V29GQ19xQUlkNDh6WVRKVXJDbjM2ZUdaM0c4X25lUlFWRk1qakhGSkwzMGhKdWxFNlBsSnVhVE0?oc=5\" target=\"_blank\">"
+      "title": "Google Cloud Gemini for Healthcare - Architecture, Capabilities, Economics and Market Assessment - https://www.healthcare.digital/",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNWTBSRGc1aWRsWU5jZG9mVEM1OWZnM3F6bU1JQVVlYU9maEZDRGZIcm1HQ3NzaGlRT2tlRDE1b0pjRmZ6dWd6LVZ6UWNXZTZOTUN3RjZITkU2N0hobHZab2E0aEV3QUlPNmxDSktUXzhONlJWck9lUENCQUlBNXUtTWVXMWhvc2hFSW1IOUpLelFNOFRra0RTaTFTS2RIQ3E5ejgyd1BHYjJPZzc4U0pjTUJaOXo5ZW1yTWJLTXM1QzlFVjJweF9VTlZJRmdRU1V1UUY2cA?oc=5",
+      "publishedAt": "2026-11-18T10:48:48.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxNWTBSRGc1aWRsWU5jZG9mVEM1OWZnM3F6bU1JQVVlYU9maEZDRGZIcm1HQ3NzaGlRT2tlRDE1b0pjRmZ6dWd6LVZ6UWNXZTZOTUN3RjZITkU2N0hobHZab2E0aEV3QUlPNmxDSktUXzhONlJWck9lUENCQUlBNXUtTWVXMWhvc2hFSW1IOUpLelFNOFRra0RTaTFTS2RIQ3E5ejgyd1BHYjJPZzc4U0pjTUJaOXo5ZW1yTWJLTXM1QzlFVjJweF9VTl"
     },
     {
       "source": "Google News",
@@ -4843,14 +4972,6 @@
       ]
     },
     {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "A third of the global AI supply chain is ‘invisible’ to governments - University of Cambridge",
-      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5BQmtoTHZOMGtTWW5XcGtCTHNYb0g2MlpPX2FaNDlsMWJfQnhUU2VSSF9uVUMwNUhlUkVjSlE3MjVFbHFxd2xZRjhMcm1RV2RsN0xmQmotbk5MQ1JJNlhwSnRtMkJtZw?oc=5",
-      "publishedAt": "2026-11-18T09:48:14.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiZkFVX3lxTE5BQmtoTHZOMGtTWW5XcGtCTHNYb0g2MlpPX2FaNDlsMWJfQnhUU2VSSF9uVUMwNUhlUkVjSlE3MjVFbHFxd2xZRjhMcm1RV2RsN0xmQmotbk5MQ1JJNlhwSnRtMkJtZw?oc=5\" target=\"_blank\">A third of the global AI supply chain is ‘invisible’ to governments</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Univ"
-    },
-    {
       "source": "arXiv — cs.MA",
       "discoveryOnly": false,
       "title": "Asymmetric Decomposition for Multi-Agent Path Finding with Unassigned Agents",
@@ -4873,26 +4994,10 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Gemini Omni 1.2 Flash: Overview and Guide to Google’s Updated Video Model - Incrypted",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9GTmxoVWRjV0RfMlVsSzV3QmhNOC1UZEppQTJxdFV0MWpPS2p4eG1NMTJuMV8zX19vTnFOd1RyTUJZYWJaSWh1S1laRVd2ZE5IckJJa3BPX0RsdkJNbDJScWxiZ2ZWc2N0RDZhNGxjTmp2bFNQ?oc=5",
-      "publishedAt": "2026-11-18T09:15:45.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMidEFVX3lxTE9GTmxoVWRjV0RfMlVsSzV3QmhNOC1UZEppQTJxdFV0MWpPS2p4eG1NMTJuMV8zX19vTnFOd1RyTUJZYWJaSWh1S1laRVd2ZE5IckJJa3BPX0RsdkJNbDJScWxiZ2ZWc2N0RDZhNGxjTmp2bFNQ?oc=5\" target=\"_blank\">Gemini Omni 1.2 Flash: Overview and Guide to Google’s Updated Video Model</a>&nbsp;&nbsp;<f"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
       "title": "Anthropic Resolves Claude Authentication Issues - remio",
       "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE12Qmdnbzc0NlJDQXA2TXJ1ZUdTWUZmTUo4WHNMdGJ0R29TX0hzaC1xRjk2cXlCZGxtZmczMFNoVFd6WTlWTGt6RnZZd1JoeWE3d2xETWs4NWwxaWZhNm8xcF9mbmN6aEVnNDlsdWxhTUYyYUpfYmd2cW1NN1VmZw?oc=5",
       "publishedAt": "2026-11-18T08:40:59.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMifkFVX3lxTE12Qmdnbzc0NlJDQXA2TXJ1ZUdTWUZmTUo4WHNMdGJ0R29TX0hzaC1xRjk2cXlCZGxtZmczMFNoVFd6WTlWTGt6RnZZd1JoeWE3d2xETWs4NWwxaWZhNm8xcF9mbmN6aEVnNDlsdWxhTUYyYUpfYmd2cW1NN1VmZw?oc=5\" target=\"_blank\">Anthropic Resolves Claude Authentication Issues</a>&nbsp;&nbsp;<font color=\"#"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Google Cloud Gemini for Healthcare - Architecture, Capabilities, Economics and Market Assessment - https://www.healthcare.digital/",
-      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNWTBSRGc1aWRsWU5jZG9mVEM1OWZnM3F6bU1JQVVlYU9maEZDRGZIcm1HQ3NzaGlRT2tlRDE1b0pjRmZ6dWd6LVZ6UWNXZTZOTUN3RjZITkU2N0hobHZab2E0aEV3QUlPNmxDSktUXzhONlJWck9lUENCQUlBNXUtTWVXMWhvc2hFSW1IOUpLelFNOFRra0RTaTFTS2RIQ3E5ejgyd1BHYjJPZzc4U0pjTUJaOXo5ZW1yTWJLTXM1QzlFVjJweF9VTlZJRmdRU1V1UUY2cA?oc=5",
-      "publishedAt": "2026-11-18T08:28:39.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxNWTBSRGc1aWRsWU5jZG9mVEM1OWZnM3F6bU1JQVVlYU9maEZDRGZIcm1HQ3NzaGlRT2tlRDE1b0pjRmZ6dWd6LVZ6UWNXZTZOTUN3RjZITkU2N0hobHZab2E0aEV3QUlPNmxDSktUXzhONlJWck9lUENCQUlBNXUtTWVXMWhvc2hFSW1IOUpLelFNOFRra0RTaTFTS2RIQ3E5ejgyd1BHYjJPZzc4U0pjTUJaOXo5ZW1yTWJLTXM1QzlFVjJweF9VTl"
     },
     {
       "source": "arXiv — cs.MA",
@@ -4962,6 +5067,14 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
+      "title": "Anthropic (ANT) Is Now Live Through Bybit Direct Stocks - Bybit",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPMmN6UHVSWkh2VjA0Nzg5cjdrbUpmOFpmVWlnaVFvVlJKb1NnaHFPSU1fYks1TXRxd2ZEUFdlVGxhV2Y0TEZ5U0R3ZXpvYkpTdzVpYVFzSmJ6SEtjR0JVaTFZZkVSdXRrc2VkdjlDTlBMSWdiSXBYU2pJUUhiNG5raVpDckFHdFZKOWZnbXZvRFc3a3c2WmgyQkRnTzdxSzRvdUVicl8wODBqemxReHpncHlJTjV4cW1HNDJnR3JuRWtXX1F3andIek1wMG5PZ3BmOUpWTjFyMlM?oc=5",
+      "publishedAt": "2026-11-18T08:00:00.000Z",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi2AFBVV95cUxPMmN6UHVSWkh2VjA0Nzg5cjdrbUpmOFpmVWlnaVFvVlJKb1NnaHFPSU1fYks1TXRxd2ZEUFdlVGxhV2Y0TEZ5U0R3ZXpvYkpTdzVpYVFzSmJ6SEtjR0JVaTFZZkVSdXRrc2VkdjlDTlBMSWdiSXBYU2pJUUhiNG5raVpDckFHdFZKOWZnbXZvRFc3a3c2WmgyQkRnTzdxSzRvdUVicl8wODBqemxReHpncHlJTjV4cW1HNDJnR3JuRWtXX1F3andIek"
+    },
+    {
+      "source": "Google News",
+      "discoveryOnly": true,
       "title": "Claude Opus 5.5 Is Here: Price, Benchmarks, and Who Actually Gets It - Fello AI",
       "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE8zTXFxbjJNQ2NVbTc1TF8wWVNnX1JzM3BJRjc5dmlyakpmYkM3NGZiQ2tjbDNoMzBYNV9LeUlBcnBwRnlfek5BZEdsOHY?oc=5",
       "publishedAt": "2026-11-18T08:00:00.000Z",
@@ -4982,14 +5095,6 @@
       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONlEyQ01PSUd4R0RIcDZUczRFSDY2UlhESEhWNjRhMnV3SUdPUHVfcTN0YlF0OFJwRjFSQVlfc0FPVUZjOTNBTHZkeElaU00yMlNRZjFiaWxtSHpVcGNYU1dxaWs1aTdjYlp0NVRFUXpIbjZPcTlaeVh5bHRfZ1hVTlNnWFRiQlgx?oc=5",
       "publishedAt": "2026-11-18T08:00:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiAFBVV95cUxONlEyQ01PSUd4R0RIcDZUczRFSDY2UlhESEhWNjRhMnV3SUdPUHVfcTN0YlF0OFJwRjFSQVlfc0FPVUZjOTNBTHZkeElaU00yMlNRZjFiaWxtSHpVcGNYU1dxaWs1aTdjYlp0NVRFUXpIbjZPcTlaeVh5bHRfZ1hVTlNnWFRiQlgx?oc=5\" target=\"_blank\">How to Choose an AI Agent Development Partner in 2027</a>&nbsp;"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Anthropic (ANT) Is Now Live Through Bybit Direct Stocks - Bybit",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxONlAxZ25uNS0xQ2lGU1lvU2gxbXdTenBwNGFIdzJVYlFhNFBibmZQb3lWcU02RUEzY0syTVB2VGlwMk5IOC14YnZZSkQ1STdPZENxVTFfQUpvaXAxU0JDT24wUzJubWMzazg0RG1oY2I1aTBONl80c2hSMTJVa0dTYWYzY1ZqakdEZFlxMVZiSmN4Mnl3NlJ2Z0J4M21IYmNkbHNpSXdIdFkwd2JBZ3YtM3lEMEk?oc=5",
-      "publishedAt": "2026-11-18T08:00:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxONlAxZ25uNS0xQ2lGU1lvU2gxbXdTenBwNGFIdzJVYlFhNFBibmZQb3lWcU02RUEzY0syTVB2VGlwMk5IOC14YnZZSkQ1STdPZENxVTFfQUpvaXAxU0JDT24wUzJubWMzazg0RG1oY2I1aTBONl80c2hSMTJVa0dTYWYzY1ZqakdEZFlxMVZiSmN4Mnl3NlJ2Z0J4M21IYmNkbHNpSXdIdFkwd2JBZ3YtM3lEMEk?oc=5\" target=\"_blank\">Anth"
     },
     {
       "source": "OpenAI",
@@ -5028,14 +5133,6 @@
       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9sUDZVWFNrM1o2WXJiYlRWYmgwT1FwNFB4TXdBVEh2UEY3Sm1UWGR5WlR2NnVxV1FWNVdqb1pyQjJMOWNBLVZtTldiTTB1d0dnY3hubnN4V2FxXzFaSUNXVFAyMXp3bGt3YzZBSmZUdUl2RHRMRnc?oc=5",
       "publishedAt": "2026-11-18T07:55:00.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMidkFVX3lxTE9sUDZVWFNrM1o2WXJiYlRWYmgwT1FwNFB4TXdBVEh2UEY3Sm1UWGR5WlR2NnVxV1FWNVdqb1pyQjJMOWNBLVZtTldiTTB1d0dnY3hubnN4V2FxXzFaSUNXVFAyMXp3bGt3YzZBSmZUdUl2RHRMRnc?oc=5\" target=\"_blank\">Amazon CEO Jassy Backs Nvidia: 'I Don't See a Day' When the Two Stop Working Together</a"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Mark Kelly Is Drafting AI Legislation That Could Put Government Watchdogs Inside Tech Companies: 'Real Ru - Benzinga",
-      "url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxQR1pMWGxMT0JwaHNJd01rNmRvRklwZmNRZTZGVFIydWNtbVdkN3BlY2dHZ2p4Y21xWGptSkxXYzkzb3ZxODdxWGVoUDMwQkZUQ2xIdTJJTHVPT1BTa3BjcV9zQV8wd25KTXdzQTBZRnc5Q1JXZ29jcXBGRFJpX0czNkRHQXVsaGd2WEJmVXpnN2RSb3hOZ3Nrd2licFZhSTFEcWlFLUtYbTl3cmFhX3hZaVl6UVRicXdJVXRSeXo5dXpaT1psTTV4UUFRdzNuMXNtaTJrVEtuNnBPNW9oZ1ZIUXc2cjNIYU51cGt0WU0zeGs1T193b1NQYkVFRHJMQV9uZTlmblZZU05TaGZndXlHRWF6YlBYLUcxd04yVlpPTVJrQQ?oc=5",
-      "publishedAt": "2026-11-18T07:42:41.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiogJBVV95cUxQR1pMWGxMT0JwaHNJd01rNmRvRklwZmNRZTZGVFIydWNtbVdkN3BlY2dHZ2p4Y21xWGptSkxXYzkzb3ZxODdxWGVoUDMwQkZUQ2xIdTJJTHVPT1BTa3BjcV9zQV8wd25KTXdzQTBZRnc5Q1JXZ29jcXBGRFJpX0czNkRHQXVsaGd2WEJmVXpnN2RSb3hOZ3Nrd2licFZhSTFEcWlFLUtYbTl3cmFhX3hZaVl6UVRicXdJVXRSeXo5dXpaT1psTTV4UU"
     },
     {
       "source": "arXiv — cs.MA",
@@ -5120,22 +5217,6 @@
     {
       "source": "Google News",
       "discoveryOnly": true,
-      "title": "Korean Government's AI Cheating Crackdown Faces U.S. Legal Hurdles - 조선일보",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOYjlJeUs1Vm4tVl9kV1FFWGh6OTlwS2tuNlBaV29SN2t5OUwtcFppVkhtWklocHZNLVVSMTJpd3c4MmMtejJaUUJCR0Z6REh1NnJHdFVNMnlSdXZMWFdrS3dXMEVPc2hOaWh5MTRaSUIyMmNWQVhjNy1xUHQ0NndRMUhESXJJRm5R?oc=5",
-      "publishedAt": "2026-11-18T05:29:24.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiAFBVV95cUxOYjlJeUs1Vm4tVl9kV1FFWGh6OTlwS2tuNlBaV29SN2t5OUwtcFppVkhtWklocHZNLVVSMTJpd3c4MmMtejJaUUJCR0Z6REh1NnJHdFVNMnlSdXZMWFdrS3dXMEVPc2hOaWh5MTRaSUIyMmNWQVhjNy1xUHQ0NndRMUhESXJJRm5R?oc=5\" target=\"_blank\">Korean Government's AI Cheating Crackdown Faces U.S. Legal Hurd"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "NASCIO Survey Finds Gaps in AI Governance, Data Readiness Across State Governments - CDO Magazine",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbERvUHZvZlJYWFFZUTUtTVduTG1FRm5RaGRFZllsdVloQlhUR2pMUlJQTVJLRlA0X04zUVhsZXZQeTVjOGgxUG9YM2I3WVlJdFc5VkZDcTVMcHkwRGVVdWJGOTNBSFpKRGZwcEJZTWE5c3BFX1NNMDYzVFY5UlMzeW81MWVnTXhyN25CQWNPLTNDOWpHUnUtcTFIUlNnTTN4a3RQSE43NFZyS3JqV244UjJCVU1sUQ?oc=5",
-      "publishedAt": "2026-11-18T03:41:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitgFBVV95cUxNbERvUHZvZlJYWFFZUTUtTVduTG1FRm5RaGRFZllsdVloQlhUR2pMUlJQTVJLRlA0X04zUVhsZXZQeTVjOGgxUG9YM2I3WVlJdFc5VkZDcTVMcHkwRGVVdWJGOTNBSFpKRGZwcEJZTWE5c3BFX1NNMDYzVFY5UlMzeW81MWVnTXhyN25CQWNPLTNDOWpHUnUtcTFIUlNnTTN4a3RQSE43NFZyS3JqV244UjJCVU1sUQ?oc=5\" target=\"_blank\">N"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
       "title": "French company launches AI model Olala as rival to US and Chinese competitors - The Brussels Times",
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOdHBtT3Z2T2xMSnI5NGxuQkwtTjNXbTBCeHFUeFpxdEc0cms5eWpxODlUcldEV1Z0QVhOMUdXOEhnTkZYZ3RuLWxNVUl0TjJTcTlfVUs3bnlocWhENi1La3V0cEh6WERzVnBKSWgwakNIc3FIcXlUdmY3SDdhRVRySmhFYTNEYU1SblR1c3gyNTU0Nk1iZG9PeWp1X0dxU0lIbzFnVS0tcU53dFBTeUw1Qm4xZFVSZw?oc=5",
       "publishedAt": "2026-11-18T03:12:07.000Z",
@@ -5152,14 +5233,6 @@
         "cs.MA",
         "cs.HC"
       ]
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "South Korea's ruling party and government seek tougher AI exam cheating rules - Chosunbiz",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1qTDNFWEhlM3UxbExwUVRYSUlNdkNIV3ZzcmJmVWNjejJqY0ZJcTlBeWhod3hGQXlNV0NIdlM4LVU2T3NGaDE4UVRxSjVZRVNLMVdxNmczenZsYXNZYzAxeFlTRmpZR3R2RnpIVTdLb0ljMXRmcS04ZEVxdElldEnSAZMBQVVfeXFMTUhNcDVqeVVEN1BOa1BtSE1RbDNxTlRvb3BhYkozbWtoUWd3OFdnSjAzU2lSWk8zSGhQY3NVU0lIZFBuVVNtdS1lbVNXeUlOOTVNMHNPQXY4VXVqX3JKaUFpWFNILWExOXF6bEQwWjFmdXpYbzFlZUF2ekhFSDNIWkx4amZ0dXR1RE9TMkEwbUVkdE00?oc=5",
-      "publishedAt": "2026-11-18T02:20:00.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE1qTDNFWEhlM3UxbExwUVRYSUlNdkNIV3ZzcmJmVWNjejJqY0ZJcTlBeWhod3hGQXlNV0NIdlM4LVU2T3NGaDE4UVRxSjVZRVNLMVdxNmczenZsYXNZYzAxeFlTRmpZR3R2RnpIVTdLb0ljMXRmcS04ZEVxdElldEnSAZMBQVVfeXFMTUhNcDVqeVVEN1BOa1BtSE1RbDNxTlRvb3BhYkozbWtoUWd3OFdnSjAzU2lSWk8zSGhQY3NVU0lIZFBuVVNtdS"
     },
     {
       "source": "Google News",
@@ -5184,22 +5257,6 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9ZSE45YUpXUjkzNHE4b3FVa3FRZ3JhTUdPRlJzNkRFZmoyaFE1RHVSUjdVZGRQd2xvU2ExV0ZEdE9CZ1QtN1FZWnRnT3VGbnkyMUhR?oc=5",
       "publishedAt": "2026-11-18T00:42:16.000Z",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiU0FVX3lxTE9ZSE45YUpXUjkzNHE4b3FVa3FRZ3JhTUdPRlJzNkRFZmoyaFE1RHVSUjdVZGRQd2xvU2ExV0ZEdE9CZ1QtN1FZWnRnT3VGbnkyMUhR?oc=5\" target=\"_blank\">AI Contrast Among Big Tech Firms: Robin Li Preaches, Pony Ma Sounds the Alarm</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">36Kr</font>"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "US Government Restricts Remote Access to Advanced AI Chips and Formally Rescinds the AI Diffusion Rule - WilmerHale",
-      "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNTENidkgzNlk2VWxOSE5OUlVJdVJISkZNU2lTLVhjUFE0b3FaYThNUVlnSnA0Uk8yQy0xTXVxOEgyZ1NOVFd0M01oQWlHX2hNbzJMOG1JcW5HNUR0X09GN1ZCY2NyeGVGdDRobVB2d2IyUzljalp0MVFOYUROWHFuTk0waThtVkpJYXdjTTNBeERGczluVXpvbFlfRjRxVVBIZmdWMHU1bkJCY1NfOEFXSDI3OVVDQjdEUWRha3dYM3JXMk4wTWFKdFE3aU5MNHlQZWF6MEkxTVFvaE43ZDhRVUNYWUdPaU1UZzJlR1lyUmdqMEJhakRr?oc=5",
-      "publishedAt": "2026-11-18T00:22:23.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi9wFBVV95cUxNTENidkgzNlk2VWxOSE5OUlVJdVJISkZNU2lTLVhjUFE0b3FaYThNUVlnSnA0Uk8yQy0xTXVxOEgyZ1NOVFd0M01oQWlHX2hNbzJMOG1JcW5HNUR0X09GN1ZCY2NyeGVGdDRobVB2d2IyUzljalp0MVFOYUROWHFuTk0waThtVkpJYXdjTTNBeERGczluVXpvbFlfRjRxVVBIZmdWMHU1bkJCY1NfOEFXSDI3OVVDQjdEUWRha3dYM3JXMk4wTWFKdF"
-    },
-    {
-      "source": "Google News",
-      "discoveryOnly": true,
-      "title": "Zeton Ranked #1 Enterprise Fine-Tuning Service for Teams That Own Their Model Weights - WBOC TV",
-      "url": "https://news.google.com/rss/articles/CBMilAJBVV95cUxOOGlsZHJGcmFkT1laX09EZll2Z201N1lFbmRiMWU2WU82bjlDaXpFMGFMYzJZX3RIaHlVV1BITnF1SjkxdzY1WkZBOWRMWUtxclJGOENjOG1Ya19QQXZxT2dEZ3VsNzNnYnNKZDBjTGVPM0ktM3V1ZG9DMDRRTGV0Wi05MjRpVnE3ZGQ2Q2RjbHFPcklZVW5pWURnNmNEUEpCV2Q4b3VQeXd5bmFzbkZTd3ROc0dvbmE0UDhlRHBBWl9xaDFnU3hHTnpCd2xTY2hxZFFKMWpvTjZDZDlwREhucWJmdEpBRlNVeV82Sm1zVFVaaXEtUnd1MDVzS0owY1hTMzV5TU43RkJ1Vm02MUg1MkpGdW8?oc=5",
-      "publishedAt": "2026-11-18T00:15:02.000Z",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilAJBVV95cUxOOGlsZHJGcmFkT1laX09EZll2Z201N1lFbmRiMWU2WU82bjlDaXpFMGFMYzJZX3RIaHlVV1BITnF1SjkxdzY1WkZBOWRMWUtxclJGOENjOG1Ya19QQXZxT2dEZ3VsNzNnYnNKZDBjTGVPM0ktM3V1ZG9DMDRRTGV0Wi05MjRpVnE3ZGQ2Q2RjbHFPcklZVW5pWURnNmNEUEpCV2Q4b3VQeXd5bmFzbkZTd3ROc0dvbmE0UDhlRHBBWl9xaDFnU3hHTn"
     },
     {
       "source": "Hugging Face — blog",
@@ -6470,17 +6527,6 @@
       "url": "https://deepmind.google/blog/opening-the-datasets-behind-our-ai-weather-models/",
       "publishedAt": "2026-11-10T11:13:04.000Z",
       "summary": "Foundational precipitation and geostationary satellite datasets to observe the planet clearly."
-    },
-    {
-      "source": "OpenAI",
-      "discoveryOnly": false,
-      "title": "Introducing Businesses in ChatGPT",
-      "url": "https://openai.com/index/introducing-businesses-chatgpt",
-      "publishedAt": "2026-11-10T10:00:00.000Z",
-      "summary": "Manage your business information, get insights about how your business shows up, and turn interest into action in ChatGPT.",
-      "categories": [
-        "Product"
-      ]
     },
     {
       "source": "Hugging Face — blog",
